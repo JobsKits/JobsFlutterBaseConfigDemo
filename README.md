@@ -1093,7 +1093,19 @@ brew tap dart-lang/dart
 
 ### 9、[**quicktype**](https://app.quicktype.io/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-> 从 **JSON** / **GraphQL** /其它数据格式 自动生成对应语言的类型定义
+> 从 **JSON** / **GraphQL** /其它数据格式 自动生成对应语言的类型定义👉[**Github@quicktype**](https://github.com/glideapps/quicktype?utm_source=chatgpt.com)
+
+* ```shell
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+
+* ```shell
+  brew install npm
+  ```
+
+* ```shell
+  npm install -g quicktype
+  ```
 
 ### 10、[**向附近设备分享文件**](https://localsend.org/download) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 

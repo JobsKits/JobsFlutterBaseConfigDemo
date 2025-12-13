@@ -1,4 +1,4 @@
-/// 调试配置（如 Flutter 调试参数）
+/// 调试配置（如 Flutter 调试参数）。✅推荐加入Git管理
 {
   // 使用 IntelliSense 了解相关属性。
   // 悬停以查看现有属性的描述。
@@ -9,19 +9,17 @@
       "name": "JobsFlutterBaseConfigDemo", // 调试配置名称
       "request": "launch", // 调试器请求类型，通常为 "launch" 或 "attach"
       "type": "dart", // 调试器类型，通常为 "dart" 或 "flutter"
-      "program": "lib/调用本地相册+调用本机摄像头拍照（全部验证通过）/CameraDemo.dart", // ❤️要调试的程序的入口点
+      "program": "lib/main.dart", // ❤️要调试的程序的入口点
       "flutterMode": "debug",
-      /// 👇关闭 SDK 和外部库的调用栈展开
+      // 👇关闭 SDK 和外部库的调用栈展开
       "debugSdkLibraries": false,
-      "debugExternalLibraries": false,
-      "env": {
-        // 配置Java环境（Android运行打包需要）
-        "JAVA_HOME": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
-        "PATH": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home/bin:${env:PATH}"
-      }
+      "debugExternalLibraries": false
+      // "env": {// 配置Java环境（Android运行打包需要）
+      //   "JAVA_HOME": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
+      //   "PATH": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home/bin:${env:PATH}"
+      // }
     }
     // {
-    //     "name": "JobsFlutterBaseConfigDemo (profile mode)",
     //     "request": "launch",
     //     "type": "dart",
     //     "flutterMode": "profile"

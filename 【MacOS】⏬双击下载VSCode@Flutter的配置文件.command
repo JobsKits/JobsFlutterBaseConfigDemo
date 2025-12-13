@@ -3,7 +3,7 @@
 # 脚本名称：下载并覆盖 VSCode 配置
 # 功能描述：
 #   1. 自动定位 Flutter 项目根目录（支持：传参 > 脚本所在目录 > 当前目录，向上递归查找）
-#   2. 从远端仓库 https://github.com/295060456/VScodeConfigByFlutter 克隆配置
+#   2. 从远端仓库 https://github.com/JobsKits/VScodeConfigByFlutter 克隆配置
 #   3. 覆盖写入到当前项目的 .vscode 文件夹（包含 .git）
 #   4. 默认在项目根的 .gitignore 里写入 ".vscode/" 忽略
 #
@@ -118,7 +118,7 @@ ensure_flutter_root(){
 # 拉取远端仓库 → 覆盖写入 .vscode
 update_vscode_from_repo(){
   local root="$1"
-  local repo_url="https://github.com/295060456/VScodeConfigByFlutter"
+  local repo_url="https://github.com/JobsKits/VScodeConfigByFlutter"
   local temp_dir; temp_dir="$(mktemp -d)"
 
   info "克隆仓库：$repo_url"

@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # ✅ 全局变量
-REPO_URL="https://github.com/295060456/SourceTree.sh.git"
+REPO_URL="https://github.com/JobsKits/SourceTree.sh.git"
 CLONE_DIR="$HOME/SourceTree.sh"
 
 # ✅ 彩色输出

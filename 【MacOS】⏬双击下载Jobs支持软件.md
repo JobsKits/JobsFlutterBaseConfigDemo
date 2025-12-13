@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # ✅ 全局变量
-REPO_URL="https://github.com/295060456/JobsSoftware.MacOS.git"
+REPO_URL="https://github.com/JobsKits/JobsSoftware.MacOS.git"
 CLONE_DIR="$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")/JobsSoftware.MacOS"
 
 # ✅ 彩色输出

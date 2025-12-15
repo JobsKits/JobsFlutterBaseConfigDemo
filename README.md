@@ -48,9 +48,9 @@
   * 为了保证各个**Demo**在形式上的独立性，所以尽可能的在单个`.dart`文件里面进行叙述。**每一个[Flutter](https://flutter.dev/)的Demo文件里，都会存在其程序的入口函数**
 * 🌍友情外链🔗
   * [**Jobs**](https://github.com/) **自我知识产权**
-    * [**Jobs相关文档支持**](https://github.com/295060456/JobsDocs)
-    * [**效率工具：SourceTree的脚本配置**](https://github.com/295060456/SourceTree.sh)
-    * [**常见环境变量配置文件（按使用场景分类）**](https://github.com/295060456/JobsMacEnvVarConfig)
+    * [**Jobs相关文档支持**](https://github.com/JobsKit/JobsDocs)
+    * [**效率工具：SourceTree的脚本配置**](https://github.com/JobsKit/SourceTree.sh)
+    * [**常见环境变量配置文件（按使用场景分类）**](https://github.com/JobsKit/JobsMacEnvVarConfig)
   * 外部支持文档
     * [**Dart/Flutter社区生态：Pub.dev**](https://pub.dev/)
     * [**Flutter 面试知识点集锦· GitBook**](https://guoshuyu.cn/home/wx/Flutter-msjj.html)
@@ -74,7 +74,7 @@
     * [**Flutter**](https://flutter.dev/)易用语法糖
     * 独立[**Dart**](https://dart.dev/)文件的[**Flutter**](https://flutter.dev/).**Demo**
 
-## 二、🌱[**环境配置**](https://github.com/295060456/JobsMacEnvVarConfig)@[**Flutter**](https://flutter.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## 二、🌱[**环境配置**](https://github.com/JobsKit/JobsMacEnvVarConfig) ➤ [**Flutter**](https://flutter.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ### 1、📃`MacOS` 系统环境变量文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -280,7 +280,7 @@
     * **触发时机**：任何情况下启动 Zsh（登录和非登录都执行）。
     * **说明**：**Zsh 独立配置（对 Zsh 来说是最高优先）**。<font color=red>**macOS** **Catalina** 及以后默认 Shell</font>。
 
-* <font color=red>为了方便管理，只配置**`bash_profile`**和**`.zshrc`**</font>
+* <font color=red>为了方便管理，只配置 **`bash_profile`** 和 **`.zshrc`** </font>
 
   <details>
   <summary>.bash_profile</summary>
@@ -537,6 +537,12 @@
 * [**VSCode**](https://code.visualstudio.com/)键盘快捷键：打开命令面板 (**`⌘`**➕**`Shift`**➕**`P`**) ，输入👉  **`Preferences: Open Keyboard Shortcuts (JSON)`**
 
   > 此文件位于[**VSCode**](https://code.visualstudio.com/)软件内部：`~/Library/Application Support/Code/User/keybindings.json`
+  >
+  > 因为路径中间只有空格，所以需要用转义字符
+  >
+  > ```shell
+  > open ~/Library/Application\ Support/Code/User/keybindings.json
+  > ```
 
   ```json
   // Place your key bindings in this file to override the defaultsauto[]
@@ -630,9 +636,9 @@
   ]
   ```
 
-* [**VSCode**](https://code.visualstudio.com/)锚定具体[**Flutter**](https://flutter.dev/)项目的[<font color=red>**配置文件**</font>](https://github.com/295060456/VScodeConfigByFlutter)
+* [**VSCode**](https://code.visualstudio.com/)锚定具体[**Flutter**](https://flutter.dev/)项目的[<font color=red>**配置文件**</font>]
 
-  * **Git**管理👉[<font color=red>**一键下载**</font>](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/%E3%80%90MacOS%E3%80%91%E2%8F%AC%E5%8F%8C%E5%87%BB%E4%B8%8B%E8%BD%BDVSCode%40Flutter%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.command)
+  * **Git**管理👉[<font color=red>**一键下载**</font>](https://github.com/JobsKits/JobsCommand-Flutter/blob/main/【MacOS】⏬双击下载VSCode@Flutter的配置文件.command)
 
     ![image-20250905225009284](./assets/image-20250905225009284.png)
 
@@ -969,11 +975,30 @@ brew tap dart-lang/dart
 >
 > 为每一个项目配置（锁定🔒）一个单独的[**Flutter**](https://flutter.dev/)环境，和系统环境区分开，方便切环境运行（测试）代码
 
-* 安装[**FVM**](https://fvm.app/)的大前提是先安装**dart**环境。🍺[**Homebrew**](https://brew.sh/) 核心源中目前**没有**收录 [**Dart**](https://dart.dev/) 的 `fvm` 工具
+* 安装[**FVM**](https://fvm.app/)
 
-  ```dart
-  dart pub global activate fvm
-  ```
+  * 官方 Install Script（推荐，自动配置 PATH）
+
+    ```shell
+    curl -fsSL https://fvm.app/install.sh | bash
+    ```
+
+    ```shell
+    curl -fsSL https://fvm.app/install.sh | bash -s 3.2.1
+    ```
+
+  * 通过 🍺[**Homebrew**](https://brew.sh/) 安装
+
+    ```shell
+    brew tap leoafarias/fvm
+    brew install fvm
+    ```
+
+  * 安装**dart**环境以后再安装**FVM**
+
+    ```shell
+    dart pub global activate fvm
+    ```
 
 * 由[**FVM**](https://fvm.app/)锁定的版本信息，写入在[**Flutter**](https://flutter.dev/)项目根目录下的**`.fvm/fvm_config.json`**（隐藏文件夹）
 
@@ -6677,7 +6702,7 @@ builder: (context, child) {
   >
   > 所以，[**Flutter**](https://flutter.dev/) 没办法像 iOS 那样，一行代码全搞定。
 
-#### 25.2、[**JobsRichText**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/JobsRichText.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 25.2、[**JobsRichText**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/JobsRichText.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 import 'package:flutter/material.dart';
@@ -9351,7 +9376,7 @@ final rows = list
 >     * 遍历时才会临时生成数据，如果不存下来，数据用完就没了
 >     * **只有 `.toList()` / `.toSet()`** 这种收集操作，才会把数据铺成连续内存
 
-### 31、[<font color=red>**字符串处理**</font>](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onString.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 31、[<font color=red>**字符串处理**</font>](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onString.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 #### 31.1、多行字符串语法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -10954,13 +10979,13 @@ void main() {
   }
   ```
 
-### 42、[**中国公民身份证校验规则**](https://github.com/295060456/JobsDocs/blob/main/中国公民身份证校验规则.md/中国公民身份证校验规则.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 42、[**中国公民身份证校验规则**](https://github.com/JobsKit/JobsDocs/blob/main/中国公民身份证校验规则.md/中国公民身份证校验规则.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ### 43、
 
 ### 44、 <font id=Widget拓展语法糖>🍬**`Widget`**拓展语法糖</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-#### 44.1、[**`onGestures.dart`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onGestures.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 44.1、[**`onGestures.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onGestures.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ##### 44.1.1、点击/双击/长按 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -11092,7 +11117,7 @@ Positioned(
 ),
 ```
 
-#### 44.2、[**`onList.dart`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onList.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 44.2、[**`onList.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onList.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 [
@@ -11115,7 +11140,7 @@ Positioned(
 ),
 ```
 
-#### 44.3、[**`onText.dart`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onText.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 44.3、[**`onText.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onText.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 return Text("点我试试,试试就试试")
@@ -11138,7 +11163,7 @@ return Text("点我试试,试试就试试")
     .scrollable();
 ```
 
-#### 44.4、[**`onWidgets.dart`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onWidgets.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 44.4、[**`onWidgets.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onWidgets.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 最基础卡片
 
@@ -11240,7 +11265,7 @@ return Text("点我试试,试试就试试")
         .shadow();
     ```
 
-#### 44.5、[**`onTransform.dart`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onTransform.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 44.5、[**`onTransform.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onTransform.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 const Text("你好 Jobs")
@@ -11248,7 +11273,7 @@ const Text("你好 Jobs")
     .translate3D(0, 20, 0); // 🔄 三维平移：向下 20
 ```
 
-#### 44.6、[**`onNum.dart`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onNum.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 44.6、[**`onNum.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onNum.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 转换为`BorderRadiusGeometry`
 
@@ -11263,7 +11288,7 @@ const Text("你好 Jobs")
   1.str
   ```
 
-#### 44.7、[<font id=onDateTime.dart>**`onDateTime.dart`**</font>](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onDateTime.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 44.7、[<font id=onDateTime.dart>**`onDateTime.dart`**</font>](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onDateTime.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 Now.ymd;       // 2025-08-25
@@ -11272,7 +11297,7 @@ Now.ymdCn;     // 2025年08月25日
 Now.ymdHmsCn;  // 2025年08月25日 16时12分41秒
 ```
 
-#### 44.8、[**`onImage.dart`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onImage.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 44.8、[**`onImage.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onImage.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 背景图是 **Asset**
 
@@ -11422,7 +11447,7 @@ ClipRRect(
 )
 ```
 
-### 47、广告轮播图@[**`JobsBannerCarousel`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/%E5%B9%BF%E5%91%8A%E8%BD%AE%E6%92%AD%E5%9B%BE/JobsBannerCarousel.dart)使用说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 47、广告轮播图@[**`JobsBannerCarousel`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/%E5%B9%BF%E5%91%8A%E8%BD%AE%E6%92%AD%E5%9B%BE/JobsBannerCarousel.dart)使用说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > ```dart
 > /// 空态组件
@@ -11636,7 +11661,7 @@ ClipRRect(
   }
   ```
 
-### 48、[**`JobsExcel`**](https://github.com/295060456/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 48、[**`JobsExcel`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > ```dart
 > /// 使用说明
@@ -12326,7 +12351,7 @@ Future.delayed(Duration(seconds: 1), () {
   > | **scheduleFrameCallback** | 下一帧开始绘制前 | 和 UI 同步，做动画逻辑、依赖帧的计算      |
   > | **addPostFrameCallback**  | 当前帧绘制结束后 | 获取布局信息、调用 `setState` 安全更新 UI |
 
-### 54、[**`JobsRefreshLoad`：下拉刷新&上拉加载**](https://github.com/295060456/JobsFlutterBaseConfigDemo/tree/main/lib/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 54、[**`JobsRefreshLoad`：下拉刷新&上拉加载**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/tree/main/lib/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 1️⃣ **`RefreshIndicator` 只支持下拉刷新**，[**Flutter**](https://flutter.dev/) 没有内建**上拉释放加载更多**
 >
@@ -13223,7 +13248,7 @@ class ClipboardUtil {
   }
   ```
 
-### 62、<font id=自动化代码生成应用外观资源>[**自动化代码生成应用外观资源**](https://github.com/295060456/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%90%A6Flutter%E8%87%AA%E5%8A%A8%E5%8C%96%E7%94%9F%E4%BA%A7%E4%BB%A3%E7%A0%81.command)</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 62、<font id=自动化代码生成应用外观资源>[**自动化代码生成应用外观资源**](https://github.com/JobsKit/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%90%A6Flutter%E8%87%AA%E5%8A%A8%E5%8C%96%E7%94%9F%E4%BA%A7%E4%BB%A3%E7%A0%81.command)</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > <a href="#构建打包" style="font-size:17px; color:green;"><b>👉构建打包📦</b></a>
 
@@ -13578,7 +13603,7 @@ Future<void> resilientLoop(Future<void> Function() task,
 
 ### 64、推送 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-* [**iOS推送证书：`*.p12`**](https://github.com/295060456/JobsDocs/blob/main/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6.md)
+* [**iOS推送证书：`*.p12`**](https://github.com/JobsKit/JobsDocs/blob/main/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6.md)
 
 ### 65、唤醒（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -15680,7 +15705,7 @@ class Person {
   | **dynamic**                        | [**Flutter**](https://flutter.dev/) 动态集成场景 | **JIT + AOT**      | 依项目配置 | 依项目配置   | Add-to-App 混合开发               | **Android**<br/>**iOS**               | 原生动态加载 Flutter            |
   | **flavor 模式**                    | `flutter build apk --flavor staging`             | 依所选模式         | 依所选模式 | 依所选模式   | 多环境打包（`staging`、`uat` 等） | **Android**<br/>**iOS**               | 非编译模式，属于构建配置        |
 
-#### 25.1、[**配置Shell打包命令**](https://github.com/295060456/JobsMacEnvVarConfig) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 25.1、[**配置Shell打包命令**](https://github.com/JobsKit/JobsMacEnvVarConfig) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 直接写入`.zshrc`👉[**Flutter**](https://flutter.dev/)的版本锁定+用于[**Android**](https://www.android.com/)的**Java**环境的锁定
 >
@@ -15924,7 +15949,7 @@ ipa() {
 
 #### 25.2、配置[**`SourceTree`**](https://www.sourcetreeapp.com/)打包脚本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-* [**打包Flutter.Android**](https://github.com/295060456/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.android.command)
+* [**打包Flutter.Android**](https://github.com/JobsKit/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.android.command)
 
   <img src="./assets/image-20250830215352008.png" alt="image-20250830215352008" style="zoom:50%;" />
 
@@ -16149,7 +16174,7 @@ ipa() {
   main "$@"
   ```
 
-* [**打包Flutter.iOS**](https://github.com/295060456/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.iOS.command)
+* [**打包Flutter.iOS**](https://github.com/JobsKit/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.iOS.command)
 
   <img src="./assets/image-20250830215325146.png" alt="image-20250830215325146" style="zoom:50%;" />
 
@@ -16753,7 +16778,7 @@ graph TD
   | 第三方依赖                                                   | 来自 [**pub.dev**](https://pub.dev/) 的插件中声明的 AAR/JAR，如 [`image_gallery_saver`](https://pub.dev/packages/image_gallery_saver)、[`engagelab`](https://pub.dev/packages?q=engagelab) |
   | [**Google Maven**](https://maven.google.com/web/index.html) / [**JCenter**](https://mvnrepository.com/repos/jcenter) / [**MavenCentral**](https://central.sonatype.com/) | 默认构建源，国内访问会慢                                     |
 
-##### 25.4.9、📦 [**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/) [打包脚本（MacOS）](https://github.com/295060456/JobsCommand-Flutter/blob/main/%E3%80%90MacOS%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.Android.command) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 25.4.9、📦 [**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/) [打包脚本（MacOS）](https://github.com/JobsKit/JobsCommand-Flutter/blob/main/%E3%80%90MacOS%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.Android.command) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ><font color=red>**阻碍打包进程的几个关键点**</font>
 >
@@ -17694,7 +17719,7 @@ main "$@"
     ```
     </details>
 
-### 26、[**颜色格式的转换**](https://github.com/295060456/JobsCommand-Flutter/blob/42822411fe3dba59a4c37e2c4abd3df9f11db289/%E3%80%90MacOS%E3%80%91%F0%9F%8C%9E%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2.command) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 26、[**颜色格式的转换**](https://github.com/JobsKit/JobsCommand-Flutter/blob/42822411fe3dba59a4c37e2c4abd3df9f11db289/%E3%80%90MacOS%E3%80%91%F0%9F%8C%9E%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2.command) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 <img src="./assets/image-20250819172458483.png" alt="image-20250819172458483" style="zoom:40%;" />
 

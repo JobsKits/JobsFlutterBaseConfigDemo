@@ -20,7 +20,7 @@
 
 ## 🔥<font id=前言>前言</font>
 
->温馨提示🔔：本文较长，需要⏬下载到本地以后，方能完整阅读。推荐阅读器👉[**Typora**](https://typora.io/)
+>温馨提示🔔：本文较长，需要⏬下载到本地以后，方能完整阅读。推荐阅读器 ➤ [**Typora**](https://typora.io/)
 
 * **工欲善其事必先利其器**
 * **站在巨人的肩膀上，才能看得更远**
@@ -74,11 +74,207 @@
     * [**Flutter**](https://flutter.dev/)易用语法糖
     * 独立[**Dart**](https://dart.dev/)文件的[**Flutter**](https://flutter.dev/).**Demo**
 
-## 二、🌱[**环境配置**](https://github.com/JobsKit/JobsMacEnvVarConfig) ➤ [**Flutter**](https://flutter.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## 二、开发周边 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 1、📃`MacOS` 系统环境变量文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 1、[**Typora**](https://typora.io/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-* 写于`.zshrc`里面的函数，**在终端直接通过函数名进行调用**（不断更新中...）
+### 2、😱[**ohmyz.sh**](https://ohmyz.sh/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+or
+
+```shell
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+### 3、🏠[**Homebrew**](https://brew.sh/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+#### 3.1、🏠[**Homebrew**](https://brew.sh/).[<font color=red>Dart</font>](https://dart.dev/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> [**Flutter**](https://flutter.dev/) 里面自带一个[Dart](https://dart.dev/) 环境，理论上是比最新的[Dart](https://dart.dev/) 版本落后的。如果系统里面既装了[Dart](https://dart.dev/) 环境又装了[**Flutter**](https://flutter.dev/)环境，那么[**Flutter**](https://flutter.dev/)项目默认使用[**Flutter**](https://flutter.dev/).SDK里面自带那个[Dart](https://dart.dev/) 环境
+
+```
+brew tap dart-lang/dart
+```
+
+#### 3.2、🏠<font id=jenv>[**Homebrew**](https://brew.sh/).[<font color=red>jenv</font>](https://github.com/jenv/jenv) </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+>涉及到[**Android**](https://www.android.com/)的部分需要[**Java**](https://www.java.com/zh-CN/)环境的支持（打包、运行）
+>
+>[<font color=red>jenv</font>](https://github.com/jenv/jenv)不会自动下载/关联 **JDK**，需要手动进行操作
+>
+>如果使用[<font color=red>jenv</font>](https://github.com/jenv/jenv)那么系统全局环境变量里面就不能写
+>
+>```shell
+>'export JAVA_HOME=$(/usr/libexec/java_home)'
+>'export PATH="$JAVA_HOME/bin:$PATH"'
+>```
+
+* 环境变量
+
+  ```shell
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+  export JAVA_HOME="$HOME/.jenv/versions/$(jenv version-name)"
+  export PATH="$JAVA_HOME/bin:$PATH"
+  ```
+
+* ```shell
+  jenv versions --bare --verbose
+  ```
+
+  >在 **shell** 脚本中遍历所有已添加的 **JDK** 版本路径；
+  >
+  >检查某个版本到底对应哪个目录（例如是否是[**Homebrew**](https://brew.sh/)安装的、[**SDKMAN**](https://sdkman.io/) 安装的等）；
+
+* ```shell
+  jenv add/remove JDK.path
+  ```
+
+  >```shell
+  ># Homebrew.JDK.path 的固定格式
+  >/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+  >```
+  >
+  >```shell
+  >jenv_add() {
+  >	for v in 8 11 17 21; do
+  >path="/opt/homebrew/opt/openjdk@${v}/libexec/openjdk.jdk/Contents/Home"
+  >[[ -x "$path/bin/java" ]] && jenv add "$path"
+  >done
+  >
+  >jenv rehash
+  >}
+  >```
+
+* ```shell
+  jenv rehash # 重新生成 shims，使得你添加或切换的 Java 版本能被系统识别并生效。
+  ```
+
+* 用 [**jenv**](https://github.com/jenv/jenv)切换[**Java**](https://www.java.com/zh-CN/)环境
+
+  ```shell
+  jenv versions --bare --verbose # 用这里的结果
+  
+  # 删除构建失败的 jenv 中间件
+  rm -f ~/.jenv/shims/.jenv-shim
+  
+  # 1、让 jenv 在当前 shell 生效
+  eval "$(jenv init -)"
+  
+  # 2、启用 export 插件（自动导出 JAVA_HOME）
+  jenv enable-plugin export
+  
+  # 3、让 jenv 识别本机 JDK 17（若已识别可跳过）
+  jenv add "$(/usr/libexec/java_home -v 17)" >/dev/null 2>&1
+  
+  # 4、更新 shims（新增 JDK 后建议做一次）
+  jenv rehash
+  
+  # 5、在项目内锁定到 JDK 17（JDK 版本号按 jenv versions 里显示来）
+  jenv local openjdk64-17.0.16 # 或者 17.0.16
+  
+  # 6、全局（所有项目默认）
+  jenv global openjdk64-24.0.2
+  
+  # 7、重新加载环境（让 export 插件立刻生效）
+  jenv shell openjdk64-17.0.16
+  
+  # 8、 验证
+  echo ""
+  java -version
+  echo ""
+  echo "JAVA_HOME=$JAVA_HOME"
+  echo ""
+  ```
+
+  > **整个MacOS系统里面用最新的JDK；而在具体的[Flutter](https://flutter.dev/)项目里面用指定版本的JDK**
+  >
+  > ```shell
+  > ➜  Desktop java --version
+  > openjdk 24.0.2 2025-07-15
+  > OpenJDK Runtime Environment Homebrew (build 24.0.2)
+  > OpenJDK 64-Bit Server VM Homebrew (build 24.0.2, mixed mode, sharing)
+  > ➜  Desktop /Users/jobs/Documents/Github/flutter_tiyu_app
+  > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗ java --version
+  > openjdk 17.0.16 2025-07-15
+  > OpenJDK Runtime Environment Homebrew (build 17.0.16+0)
+  > OpenJDK 64-Bit Server VM Homebrew (build 17.0.16+0, mixed mode, sharing)
+  > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗
+  > ```
+
+### 4、[**利用quicktype自动建立数据模型**](https://github.com/JobsKits/JobsDocs/blob/main/利用quicktype自动建立数据模型.md/利用quicktype自动建立数据模型.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+### 5、[**向附近设备分享文件**](https://localsend.org/download) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+### 6、**Git**忽略文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+```shell
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/settings.json
+#!.vscode/settings.local.json
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# FVM Version Cache
+.fvm/
+
+# Flutter plugins metadata
+.flutter-plugins
+.flutter-plugins-dependencies
+plugins/
+
+# 各平台编译
+/linux/
+/macos/
+/windows/
+/web/
+/ios/
+/android/
+```
+
+## 三、相关配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+### 1、🌱[**环境配置**](https://github.com/JobsKit/JobsMacEnvVarConfig) ➤ [**Flutter**](https://flutter.dev/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* 📃`MacOS` 系统环境变量文件 ➤ 写于`.zshrc`里面的函数，**在终端直接通过函数名进行调用**（不断更新中...）
 
   ```shell
   # ✅ 一键重新加载常见配置文件
@@ -400,7 +596,48 @@
   plugins=(git)
   source $ZSH/oh-my-zsh.sh
   
-  flutter() { fvm flutter "$@"; }
+  # -------------------- flutter() 重载（优先 FVM） --------------------
+  flutter() {
+    emulate -L zsh
+    setopt no_aliases
+  
+    # 向上寻找项目根：.fvmrc 或 .fvm/flutter_sdk
+    local d="$PWD"
+    local root=""
+  
+    while [[ "$d" != "/" ]]; do
+      if [[ -f "$d/.fvmrc" || -x "$d/.fvm/flutter_sdk/bin/flutter" || -f "$d/.fvm/fvm_config.json" ]]; then
+        root="$d"
+        break
+      fi
+      d="${d:h}"
+    done
+  
+    # 1) 最可靠：如果项目已有 .fvm/flutter_sdk，直接用它（不依赖系统 flutter，也不依赖 fvm 命令）
+    if [[ -n "$root" && -x "$root/.fvm/flutter_sdk/bin/flutter" ]]; then
+      command "$root/.fvm/flutter_sdk/bin/flutter" "$@"
+      return $?
+    fi
+  
+    # 2) 项目有 .fvmrc / fvm_config.json：走 fvm flutter（读取项目配置）
+    if [[ -n "$root" && ( -f "$root/.fvmrc" || -f "$root/.fvm/fvm_config.json" ) ]]; then
+      if command -v fvm >/dev/null 2>&1; then
+        command fvm flutter "$@"
+        return $?
+      fi
+      print -u2 "✖ 检测到 FVM 项目，但找不到 fvm 命令。请先安装 fvm。"
+      return 127
+    fi
+  
+    # 3) 非 FVM 项目：走系统 flutter（若存在）
+    if command -v flutter >/dev/null 2>&1; then
+      command flutter "$@"
+      return $?
+    fi
+  
+    print -u2 "✖ flutter: command not found（未安装系统 Flutter，且当前目录不在 FVM 项目内）"
+    return 127
+  }
   
   jobs() {
     local files=(
@@ -424,21 +661,170 @@
     export JOBS_ALREADY_RUN=1
     command -v jobs &>/dev/null && jobs
   fi
-  
   ```
   </details>
 
-### 2、[**XCode**](https://developer.apple.com/xcode/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 2、[<font color=red>**FVM**</font>](https://fvm.app/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-> 个别地区（比如：柬埔寨），需要将浏览器语言改为英文状态，方可进入[**苹果开发者网站**](https://developer.apple.com/)
+> <font color=red>**F**</font>lutter <font color=red>**V**</font>ersion <font color=red>**M**</font>anagement
+>
+> 为每一个项目配置（锁定🔒）一个单独的[**Flutter**](https://flutter.dev/)环境，和系统环境区分开，方便切环境运行（测试）代码
 
-### 3、[**Android Studio**](https://developer.android.com/studio?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+* 安装[**FVM**](https://fvm.app/)
 
-#### 3.1、[**点我👉下载Android Studio历史版本**](https://developer.android.com/studio/archive?utm_source=chatgpt.com&hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+  * 官方 Install Script（推荐，自动配置 PATH）
+
+    ```shell
+    curl -fsSL https://fvm.app/install.sh | bash
+    ```
+
+    ```shell
+    curl -fsSL https://fvm.app/install.sh | bash -s 3.2.1
+    ```
+
+  * 通过 🍺[**Homebrew**](https://brew.sh/) 安装
+
+    ```shell
+    brew tap leoafarias/fvm
+    brew install fvm
+    ```
+
+  * 安装**dart**环境以后再安装**FVM**
+
+    ```shell
+    dart pub global activate fvm
+    ```
+
+* 由[**FVM**](https://fvm.app/)锁定的版本信息，写入在[**Flutter**](https://flutter.dev/)项目根目录下的**`.fvm/fvm_config.json`**（隐藏文件夹）
+
+  ```json
+  {
+    "flutterSdkVersion": "3.13.9", /// 当前项目锁定使用的 Flutter 版本
+    "pinVersions": false /// 是否锁定精确版本（通常设为 false）
+  }
+  ```
+
+* 由[**FVM**](https://fvm.app/)管理的[**Flutter**](https://flutter.dev/).**SDK**的缓存目录：`.fvm/flutter_sdk/`
+
+* 环境变量配置：`.bash_profile`
+
+  > 🌟全局定义了一个 shell 函数，把所有的 `flutter` 命令都转发给 `fvm`
+  >
+  > 📌 那么 [**FVM**](https://fvm.app/) 是怎么知道用哪个 [**Flutter**](https://flutter.dev/).**SDK**？
+  >
+  > * [**FVM**](https://fvm.app/) 会优先查找**当前项目的 `.fvm/fvm_config.json`** 文件；
+  >
+  > * 如果你不在 [**Flutter**](https://flutter.dev/) 项目目录，[**FVM**](https://fvm.app/) 会使用你设置的 **全局默认 [Flutter](https://flutter.dev/).SDK 版本**。
+  >
+  >   ```shell
+  >   ➜  Desktop fvm global
+  >   ? Select a version:  ›
+  >   ❯ stable
+  >     3.32.6
+  >     3.24.5
+  >   ```
+
+  ```shell
+  # 配置 FVM 环境变量
+  export PATH="$HOME/.pub-cache/bin:$PATH"
+  if command -v fvm &>/dev/null; then
+    flutter() { fvm flutter "$@"; }
+  else
+    echo "⚠️ 未检测到 fvm，请执行 flutter pub global activate fvm 安装"
+  fi
+  ```
+
+  ```shell
+  ➜  Desktop which flutter
+  
+  flutter () {
+  	fvm flutter "$@"
+  }
+  ```
+
+* 🔒锁版本文件
+
+  ![image-20250724151315734](./assets/image-20250724151315734.png)
+
+  | 文件/路径                                                    | 位置                                              | 是否建议提交   | 作用                                                         | 备注说明                                                     |
+  | ------------------------------------------------------------ | ------------------------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | `.fvmrc`                                                     | 项目根目录                                        | ✅ **建议提交** | 显式标记希望使用的 [**Flutter**](https://flutter.dev/) 版本（如 `3.32.6` 或 `stable`）方便团队协作、CI 自动读取 | 仅一行纯文本，不支持注释，适用于版本声明                     |
+  | `.fvm/fvm_config.json`                                       | 项目目录内 `.fvm/`                                | ❌ **建议忽略** | 实际执行时 FVM 内部记录的配置信息：包含 `flutterSdkVersion`、`channel`、`cachePath` 等 | [**FVM**](https://fvm.app/) 自动生成，用于代理和定位 [**Flutter**](https://flutter.dev/).**SDK** ，不可手动编辑 |
+  | `.fvm/flutter_sdk`                                           | `.fvm/` 中软链接                                  | ❌ 忽略         | 指向你电脑上的实际 [**Flutter**](https://flutter.dev/).**SDK**  位置（`~/.fvm/versions/3.32.6`） | 用于让 `fvm flutter` 命令生效，指向实际安装版本              |
+  | `~/.fvm/versions/<version>`                                  | 全局路径                                          | ✅ 本地缓存     | 实际安装的 [**Flutter**](https://flutter.dev/).**SDK** ，供多个项目共用 | 每个版本只安装一次，多项目共享此目录，无需提交               |
+  | `release` 文件<br>`.fvm/versions/<version>/version` 或 `release` | [**Flutter**](https://flutter.dev/).**SDK**  内部 | ❌ 不关心       | [**Flutter**](https://flutter.dev/).**SDK** 自带的版本描述文件，标识当前版本及 channel | 可用于诊断或展示 [**Flutter**](https://flutter.dev/).**SDK**  内部信息，一般无需关心或操作 |
+
+* 🧰[**FVM**](https://fvm.app/)命令行使用方式：
+
+  * **查看当前 [FVM](https://fvm.app/) 的全局默认版本**
+
+    ```shell
+    fvm global
+    ```
+
+  * **查看所有可用版本**
+
+    ```
+    fvm releases
+    ```
+
+  * **查看当前项目锁定版本**
+
+    ```shell
+    fvm flutter --version
+    ```
+
+  * 查询可用**`channel`**
+
+    ```shell
+    fvm flutter channel
+    ```
+
+    ```shell
+    ➜  Desktop flutter channel
+    Flutter channels:
+      master (latest development branch, for contributors)
+      main (latest development branch, follows master channel)
+      beta (updated monthly, recommended for experienced users)
+    * stable (updated quarterly, for new users and for production app releases)
+    ```
+
+    | channel  | 说明                                                         | 适用人群       |
+    | -------- | ------------------------------------------------------------ | -------------- |
+    | `stable` | **稳定发布，适合生产环境**                                   | 普通开发者 ✅   |
+    | `beta`   | **新功能预览版，较稳定**                                     | 有经验的开发者 |
+    | `main`   | **主开发分支，功能最前沿**<br>从 [**Flutter**](https://flutter.dev/) 3.22 开始，[**Flutter**](https://flutter.dev/) 团队对 channel 进行了重构，**废弃了 `dev` channel 的独立维护**，其功能完全被 `main` 取代。 | 需体验最新特性 |
+    | `master` | **[Flutter](https://flutter.dev/) 引擎贡献者使用**           | 深度参与者     |
+
+  * 升级（切换）由[**FVM**](https://fvm.app/)管理的[**Flutter**](https://flutter.dev/).**SDK**
+
+    ```shell
+    # 如果有必要，需要先切换channel，再upgrade
+    fvm flutter channel main
+    fvm flutter upgrade
+    ```
+
+    | 命令                 | 含义                                                         | 是否修改项目配置                |
+    | -------------------- | ------------------------------------------------------------ | ------------------------------- |
+    | `fvm install stable` | 安装**最新稳定版本**到本地缓存                               | ❌                               |
+    | `fvm use stable`     | 设置当前项目使用最新稳定版本                                 | ✅                               |
+    | `fvm global stable`  | 设置全局默认版本                                             | ✅（全局）                       |
+    | `fvm upgrade`        | 1️⃣ **获取当前项目 `.fvm/fvm_config.json` 中配置的 `flutterSdkVersion` 所属 channel（如 stable、beta、dev、master）**；<br>2️⃣ 然后从该 **channel** 中 **升级到该 channel 的最新版本** | ✅（更新版本但不换 **channel**） |
+
+### 3、IDE <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+#### 3.1、[**XCode**](https://developer.apple.com/xcode/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* 个别地区（比如：柬埔寨），需要将浏览器语言改为英文状态，方可进入[**苹果开发者网站**](https://developer.apple.com/)
+
+
+#### 3.2、[**Android Studio**](https://developer.android.com/studio?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+##### 3.2.1、[**点我➤下载Android Studio历史版本**](https://developer.android.com/studio/archive?utm_source=chatgpt.com&hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 <img src="./assets/image-20250806172656678.png" alt="image-20250806172656678" style="zoom:50%;" />
 
-#### 3.2、<font color=red>**配置JDK的地方和其他SDK的不一样**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 3.2.2、<font color=red>**配置JDK的地方和其他SDK的不一样**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 配置**JDK**：
 
@@ -454,7 +840,7 @@
   <img src="./assets/image-20250806165822643.png" alt="image-4" style="width:65%; display:inline-block; vertical-align: top;" />
   </div>
 
-#### 3.3、**`./android/gradlew`** </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 3.2.3、**`./android/gradlew`** </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 这个文件是来自：`android/gradle/wrapper/gradle-wrapper.propertie`
 >
@@ -468,19 +854,19 @@
 ./android/gradlew -v # 先定位到Flutter项目的根目录。运行成功的前提是指定项目使用的Jenv.JDK或者是全局配置的Java变量
 ```
 
-### 4、[**VSCode**](https://code.visualstudio.com/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 3.3、[**VSCode**](https://code.visualstudio.com/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-#### 4.1、🔔温馨提示 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 3.3.1、🔔温馨提示 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * [**VSCode**](https://code.visualstudio.com/) 里面有一个终端，是实际上运行项目时候调用的
 
 * **MacOS**@[**VSCode**](https://code.visualstudio.com/) 格式化`*.json`快捷键：`option`➕`shift`➕`f`
 
-#### 4.2、🔧 <font color=red>**安装插件**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 3.3.2、🔧 <font color=red>**安装插件**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * [<font color=red>**Language Support for Java(TM) by Red Hat**</font>](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 
-  > 1️⃣ `command + shift + p` 👉
+  > 1️⃣ `command + shift + p` ➤
   >
   > ```shell
   > Java: Configure Java Runtime 							 # 图形化配置 Java 环境
@@ -532,9 +918,9 @@
   <img src="./assets/image-20250713101045523.png" alt="image-4" style="width:65%; display:inline-block; vertical-align: top;" />
   </div>
 
-#### 4.3、⚙️[**VSCode**](https://code.visualstudio.com/)的配置文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 3.3.3、⚙️[**VSCode**](https://code.visualstudio.com/)的配置文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-* [**VSCode**](https://code.visualstudio.com/)键盘快捷键：打开命令面板 (**`⌘`**➕**`Shift`**➕**`P`**) ，输入👉  **`Preferences: Open Keyboard Shortcuts (JSON)`**
+* [**VSCode**](https://code.visualstudio.com/)键盘快捷键：打开命令面板 (**`⌘`**➕**`Shift`**➕**`P`**) ，输入➤  **`Preferences: Open Keyboard Shortcuts (JSON)`**
 
   > 此文件位于[**VSCode**](https://code.visualstudio.com/)软件内部：`~/Library/Application Support/Code/User/keybindings.json`
   >
@@ -636,9 +1022,9 @@
   ]
   ```
 
-* [**VSCode**](https://code.visualstudio.com/)锚定具体[**Flutter**](https://flutter.dev/)项目的[<font color=red>**配置文件**</font>]
+* [**VSCode**](https://code.visualstudio.com/)锚定具体[**Flutter**](https://flutter.dev/)项目的[<font color=red>**配置文件**</font>](https://github.com/JobsKits/JobsCommand-Flutter/blob/main/配置相关/【MacOS】⏬双击配置VSCode.command)
 
-  * **Git**管理👉[<font color=red>**一键下载**</font>](https://github.com/JobsKits/JobsCommand-Flutter/blob/main/【MacOS】⏬双击下载VSCode@Flutter的配置文件.command)
+  * **Git**管理➤[<font color=red>**一键下载**</font>](https://github.com/JobsKits/JobsCommand-Flutter/blob/main/【MacOS】⏬双击下载VSCode@Flutter的配置文件.command)
 
     ![image-20250905225009284](./assets/image-20250905225009284.png)
 
@@ -655,7 +1041,7 @@
         B --> B5[tasks.json 🔁 自定义任务<br/>（如自动构建、格式化）（推荐加入 Git）]
     ```
 
-    * `extensions.json` 👉 <font color=green>推荐加入**Git**管理</font>
+    * `extensions.json` ➤ <font color=green>推荐加入**Git**管理</font>
 
       ```json
       /// 推荐使用的插件清单（团队统一）
@@ -681,7 +1067,7 @@
       }
       ```
 
-    * `launch.json` 👉 <font color=green>推荐加入**Git**管理</font>
+    * `launch.json` ➤ <font color=green>推荐加入**Git**管理</font>
 
       ```json
       /// 调试配置（如 Flutter 调试参数）
@@ -721,7 +1107,7 @@
       }
       ```
 
-    * `settings.json` 👉 <font color=red>不推荐加入**Git**管理</font>
+    * `settings.json` ➤ <font color=red>不推荐加入**Git**管理</font>
 
       ```json
       // 🚫 本文件为个人本地 VS Code 设置，仅供自己使用，不推荐加入 Git 管理
@@ -835,348 +1221,31 @@
     ```
   
 
-### 5、😱[**ohmyz.sh**](https://ohmyz.sh/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 3.3.4、设备选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
+`Cmd + Shift + P`  ➤ 输入：`Flutter: Select Device`
 
-or
+### 4、`flutter run` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-```shell
-sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
+* <font color=red size=5>`flutter run`</font> <font color=red>**在执行时会自动下载项目依赖**，即使刚刚执行了 `flutter clean`</font>
 
-### 6、🏠[**Homebrew**](https://brew.sh/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+* [**Flutter**](https://flutter.dev/)**首次初始化/首次跑某个版本** 时的行为：它会从 `storage.googleapis.com` 下载引擎工具链（framework、gen_snapshot 等）到 `bin/cache`。如果没有这一步，直接设备运行会崩溃
 
-```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-#### 6.1、🏠[**Homebrew**](https://brew.sh/).[<font color=red>Dart</font>](https://dart.dev/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-> [**Flutter**](https://flutter.dev/) 里面自带一个[Dart](https://dart.dev/) 环境，理论上是比最新的[Dart](https://dart.dev/) 版本落后的。如果系统里面既装了[Dart](https://dart.dev/) 环境又装了[**Flutter**](https://flutter.dev/)环境，那么[**Flutter**](https://flutter.dev/)项目默认使用[**Flutter**](https://flutter.dev/).SDK里面自带那个[Dart](https://dart.dev/) 环境
-
-```
-brew tap dart-lang/dart
-```
-
-#### 6.2、🏠<font id=jenv>[**Homebrew**](https://brew.sh/).[<font color=red>jenv</font>](https://github.com/jenv/jenv) </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
->涉及到[**Android**](https://www.android.com/)的部分需要[**Java**](https://www.java.com/zh-CN/)环境的支持（打包、运行）
->
->[<font color=red>jenv</font>](https://github.com/jenv/jenv)不会自动下载/关联 **JDK**，需要手动进行操作
->
->如果使用[<font color=red>jenv</font>](https://github.com/jenv/jenv)那么系统全局环境变量里面就不能写
->
->```shell
->'export JAVA_HOME=$(/usr/libexec/java_home)'
->'export PATH="$JAVA_HOME/bin:$PATH"'
->```
-
-* 环境变量
-
-  ```shell
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
-  export JAVA_HOME="$HOME/.jenv/versions/$(jenv version-name)"
-  export PATH="$JAVA_HOME/bin:$PATH"
+  ```dart
+  ➜  JobsBaseConfig@JobsFlutterBaseConfigDemo git:(main) ✗ flutter run
+  Flutter assets will be downloaded from https://storage.googleapis.com. Make sure you trust this
+  source!
+  Downloading darwin-x64/framework tools...                          14.4s
+  Downloading darwin-x64/gen_snapshot tools...                        5.8s
+  Downloading darwin-x64-profile/framework tools...                   7.2s
+  Downloading darwin-x64-profile tools...                          1,250ms
+  Downloading darwin-x64-profile/gen_snapshot tools...                6.1s
+  Downloading darwin-x64-release/framework tools...                  68.8s
+  Downloading darwin-x64-release tools...                          1,156ms
+  Downloading darwin-x64-release/gen_snapshot tools...                4.6s
   ```
 
-* ```shell
-  jenv versions --bare --verbose
-  ```
-
-  >在 **shell** 脚本中遍历所有已添加的 **JDK** 版本路径；
-  >
-  >检查某个版本到底对应哪个目录（例如是否是[**Homebrew**](https://brew.sh/)安装的、[**SDKMAN**](https://sdkman.io/) 安装的等）；
-
-* ```shell
-  jenv add/remove JDK.path
-  ```
-
-  >```shell
-  ># Homebrew.JDK.path 的固定格式
-  >/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
-  >```
-  >
-  >```shell
-  >jenv_add() {
-  >	for v in 8 11 17 21; do
-  >path="/opt/homebrew/opt/openjdk@${v}/libexec/openjdk.jdk/Contents/Home"
-  >[[ -x "$path/bin/java" ]] && jenv add "$path"
-  >done
-  >
-  >jenv rehash
-  >}
-  >```
-
-* ```shell
-  jenv rehash # 重新生成 shims，使得你添加或切换的 Java 版本能被系统识别并生效。
-  ```
-
-* 用 [**jenv**](https://github.com/jenv/jenv)切换[**Java**](https://www.java.com/zh-CN/)环境
-
-  ```shell
-  jenv versions --bare --verbose # 用这里的结果
-  
-  # 删除构建失败的 jenv 中间件
-  rm -f ~/.jenv/shims/.jenv-shim
-  
-  # 1、让 jenv 在当前 shell 生效
-  eval "$(jenv init -)"
-  
-  # 2、启用 export 插件（自动导出 JAVA_HOME）
-  jenv enable-plugin export
-  
-  # 3、让 jenv 识别本机 JDK 17（若已识别可跳过）
-  jenv add "$(/usr/libexec/java_home -v 17)" >/dev/null 2>&1
-  
-  # 4、更新 shims（新增 JDK 后建议做一次）
-  jenv rehash
-  
-  # 5、在项目内锁定到 JDK 17（JDK 版本号按 jenv versions 里显示来）
-  jenv local openjdk64-17.0.16 # 或者 17.0.16
-  
-  # 6、全局（所有项目默认）
-  jenv global openjdk64-24.0.2
-  
-  # 7、重新加载环境（让 export 插件立刻生效）
-  jenv shell openjdk64-17.0.16
-  
-  # 8、 验证
-  echo ""
-  java -version
-  echo ""
-  echo "JAVA_HOME=$JAVA_HOME"
-  echo ""
-  ```
-
-  > **整个MacOS系统里面用最新的JDK；而在具体的[Flutter](https://flutter.dev/)项目里面用指定版本的JDK**
-  >
-  > ```shell
-  > ➜  Desktop java --version
-  > openjdk 24.0.2 2025-07-15
-  > OpenJDK Runtime Environment Homebrew (build 24.0.2)
-  > OpenJDK 64-Bit Server VM Homebrew (build 24.0.2, mixed mode, sharing)
-  > ➜  Desktop /Users/jobs/Documents/Github/flutter_tiyu_app
-  > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗ java --version
-  > openjdk 17.0.16 2025-07-15
-  > OpenJDK Runtime Environment Homebrew (build 17.0.16+0)
-  > OpenJDK 64-Bit Server VM Homebrew (build 17.0.16+0, mixed mode, sharing)
-  > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗
-  > ```
-
-### 7、[**Typora**](https://typora.io/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-### 8、[<font color=red>**FVM**</font>](https://fvm.app/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-> <font color=red>**F**</font>lutter <font color=red>**V**</font>ersion <font color=red>**M**</font>anagement
->
-> 为每一个项目配置（锁定🔒）一个单独的[**Flutter**](https://flutter.dev/)环境，和系统环境区分开，方便切环境运行（测试）代码
-
-* 安装[**FVM**](https://fvm.app/)
-
-  * 官方 Install Script（推荐，自动配置 PATH）
-
-    ```shell
-    curl -fsSL https://fvm.app/install.sh | bash
-    ```
-
-    ```shell
-    curl -fsSL https://fvm.app/install.sh | bash -s 3.2.1
-    ```
-
-  * 通过 🍺[**Homebrew**](https://brew.sh/) 安装
-
-    ```shell
-    brew tap leoafarias/fvm
-    brew install fvm
-    ```
-
-  * 安装**dart**环境以后再安装**FVM**
-
-    ```shell
-    dart pub global activate fvm
-    ```
-
-* 由[**FVM**](https://fvm.app/)锁定的版本信息，写入在[**Flutter**](https://flutter.dev/)项目根目录下的**`.fvm/fvm_config.json`**（隐藏文件夹）
-
-  ```json
-  {
-    "flutterSdkVersion": "3.13.9", /// 当前项目锁定使用的 Flutter 版本
-    "pinVersions": false /// 是否锁定精确版本（通常设为 false）
-  }
-  ```
-
-* 由[**FVM**](https://fvm.app/)管理的[**Flutter**](https://flutter.dev/).**SDK**的缓存目录：`.fvm/flutter_sdk/`
-
-* 环境变量配置：`.bash_profile`
-
-  > 🌟全局定义了一个 shell 函数，把所有的 `flutter` 命令都转发给 `fvm`
-  >
-  > 📌 那么 [**FVM**](https://fvm.app/) 是怎么知道用哪个 [**Flutter**](https://flutter.dev/).**SDK**？
-  >
-  > * [**FVM**](https://fvm.app/) 会优先查找**当前项目的 `.fvm/fvm_config.json`** 文件；
-  >
-  > * 如果你不在 [**Flutter**](https://flutter.dev/) 项目目录，[**FVM**](https://fvm.app/) 会使用你设置的 **全局默认 [Flutter](https://flutter.dev/).SDK 版本**。
-  >
-  >   ```shell
-  >   ➜  Desktop fvm global
-  >   ? Select a version:  ›
-  >   ❯ stable
-  >     3.32.6
-  >     3.24.5
-  >   ```
-
-  ```shell
-  # 配置 FVM 环境变量
-  export PATH="$HOME/.pub-cache/bin:$PATH"
-  if command -v fvm &>/dev/null; then
-    flutter() { fvm flutter "$@"; }
-  else
-    echo "⚠️ 未检测到 fvm，请执行 flutter pub global activate fvm 安装"
-  fi
-  ```
-
-  ```shell
-  ➜  Desktop which flutter
-
-  flutter () {
-  	fvm flutter "$@"
-  }
-  ```
-
-* 🔒锁版本文件
-
-  ![image-20250724151315734](./assets/image-20250724151315734.png)
-
-  | 文件/路径                                                    | 位置                                              | 是否建议提交   | 作用                                                         | 备注说明                                                     |
-  | ------------------------------------------------------------ | ------------------------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | `.fvmrc`                                                     | 项目根目录                                        | ✅ **建议提交** | 显式标记希望使用的 [**Flutter**](https://flutter.dev/) 版本（如 `3.32.6` 或 `stable`）方便团队协作、CI 自动读取 | 仅一行纯文本，不支持注释，适用于版本声明                     |
-  | `.fvm/fvm_config.json`                                       | 项目目录内 `.fvm/`                                | ❌ **建议忽略** | 实际执行时 FVM 内部记录的配置信息：包含 `flutterSdkVersion`、`channel`、`cachePath` 等 | [**FVM**](https://fvm.app/) 自动生成，用于代理和定位 [**Flutter**](https://flutter.dev/).**SDK** ，不可手动编辑 |
-  | `.fvm/flutter_sdk`                                           | `.fvm/` 中软链接                                  | ❌ 忽略         | 指向你电脑上的实际 [**Flutter**](https://flutter.dev/).**SDK**  位置（`~/.fvm/versions/3.32.6`） | 用于让 `fvm flutter` 命令生效，指向实际安装版本              |
-  | `~/.fvm/versions/<version>`                                  | 全局路径                                          | ✅ 本地缓存     | 实际安装的 [**Flutter**](https://flutter.dev/).**SDK** ，供多个项目共用 | 每个版本只安装一次，多项目共享此目录，无需提交               |
-  | `release` 文件<br>`.fvm/versions/<version>/version` 或 `release` | [**Flutter**](https://flutter.dev/).**SDK**  内部 | ❌ 不关心       | [**Flutter**](https://flutter.dev/).**SDK** 自带的版本描述文件，标识当前版本及 channel | 可用于诊断或展示 [**Flutter**](https://flutter.dev/).**SDK**  内部信息，一般无需关心或操作 |
-
-* 🧰[**FVM**](https://fvm.app/)命令行使用方式：
-
-  * **查看当前 [FVM](https://fvm.app/) 的全局默认版本**
-
-    ```shell
-    fvm global
-    ```
-
-  * **查看所有可用版本**
-
-    ```
-    fvm releases
-    ```
-
-  * **查看当前项目锁定版本**
-
-    ```shell
-    fvm flutter --version
-    ```
-
-  * 查询可用**`channel`**
-
-    ```shell
-    fvm flutter channel
-    ```
-
-    ```shell
-    ➜  Desktop flutter channel
-    Flutter channels:
-      master (latest development branch, for contributors)
-      main (latest development branch, follows master channel)
-      beta (updated monthly, recommended for experienced users)
-    * stable (updated quarterly, for new users and for production app releases)
-    ```
-
-    | channel  | 说明                                                         | 适用人群       |
-    | -------- | ------------------------------------------------------------ | -------------- |
-    | `stable` | **稳定发布，适合生产环境**                                   | 普通开发者 ✅   |
-    | `beta`   | **新功能预览版，较稳定**                                     | 有经验的开发者 |
-    | `main`   | **主开发分支，功能最前沿**<br>从 [**Flutter**](https://flutter.dev/) 3.22 开始，[**Flutter**](https://flutter.dev/) 团队对 channel 进行了重构，**废弃了 `dev` channel 的独立维护**，其功能完全被 `main` 取代。 | 需体验最新特性 |
-    | `master` | **[Flutter](https://flutter.dev/) 引擎贡献者使用**           | 深度参与者     |
-
-  * 升级（切换）由[**FVM**](https://fvm.app/)管理的[**Flutter**](https://flutter.dev/).**SDK**
-
-    ```shell
-    # 如果有必要，需要先切换channel，再upgrade
-    fvm flutter channel main
-    fvm flutter upgrade
-    ```
-
-    | 命令                 | 含义                                                         | 是否修改项目配置                |
-    | -------------------- | ------------------------------------------------------------ | ------------------------------- |
-    | `fvm install stable` | 安装**最新稳定版本**到本地缓存                               | ❌                               |
-    | `fvm use stable`     | 设置当前项目使用最新稳定版本                                 | ✅                               |
-    | `fvm global stable`  | 设置全局默认版本                                             | ✅（全局）                       |
-    | `fvm upgrade`        | 1️⃣ **获取当前项目 `.fvm/fvm_config.json` 中配置的 `flutterSdkVersion` 所属 channel（如 stable、beta、dev、master）**；<br>2️⃣ 然后从该 **channel** 中 **升级到该 channel 的最新版本** | ✅（更新版本但不换 **channel**） |
-
-### 9、[**利用quicktype自动建立数据模型**](https://github.com/JobsKits/JobsDocs/blob/main/利用quicktype自动建立数据模型.md/利用quicktype自动建立数据模型.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-### 10、[**向附近设备分享文件**](https://localsend.org/download) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-### 11、**Git**忽略文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-```shell
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
-
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
-
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/settings.json
-#!.vscode/settings.local.json
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# FVM Version Cache
-.fvm/
-
-# Flutter plugins metadata
-.flutter-plugins
-.flutter-plugins-dependencies
-plugins/
-
-# 各平台编译
-/linux/
-/macos/
-/windows/
-/web/
-/ios/
-/android/
-```
-
-## 三、⚖️[**Flutter**](https://flutter.dev/)代码规范 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## 四、⚖️[**Flutter**](https://flutter.dev/)代码规范 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 无状态的**`Widget`**用函数式表达，没有必要用**Class**表达。**`Widget`** 的名字小写字母开头。
 
@@ -1196,7 +1265,7 @@ plugins/
 
 * 因为[**Flutter**](https://flutter.dev/)里面<font color=red>万物皆**`Widget`**</font>，所以从代码功能解耦的角度，有必要对**`Widget`**进行<a href="#Widget拓展语法糖" style="font-size:17px; color:green;"><b>相关扩充</b></a>
 
-## 四、💥[**Flutter**](https://flutter.dev/)代码讲解 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## 五、💥[**Flutter**](https://flutter.dev/)代码讲解 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ### 1、🖨️调试打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -2732,7 +2801,7 @@ Future wakeupHandler(Map<String, Object> data) async {
 
 ### 12、⏰获取当前时间 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-<a href="#onDateTime.dart" style="font-size:17px; color:green;"><b>👉onDateTime.dart</b></a>
+<a href="#onDateTime.dart" style="font-size:17px; color:green;"><b>➤onDateTime.dart</b></a>
 
 ```dart
 /// 调用输出（格式）：2025/07/13T14:38:45.123 PM
@@ -3391,7 +3460,7 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
 ### 14、🔙 导航栏返回按钮 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 <details>
-<summary>点击展开代码👉自定义点击事件（返回）</summary>
+<summary>点击展开代码➤自定义点击事件（返回）</summary>
 
 ```dart
 Scaffold(
@@ -3413,7 +3482,7 @@ Scaffold(
 </details>
 
 <details>
-<summary>点击展开代码👉监听+定义</summary>
+<summary>点击展开代码➤监听+定义</summary>
 
 ```dart
 /// PageC
@@ -3716,7 +3785,7 @@ void JobsScreenListener() {
 
 #### 15.6、📐 键盘遮挡通用处理方案  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-🌹类似于**iOS**里面的[**IQKeyboardManager**](https://github.com/hackiftekhar/IQKeyboardManager)，👉 **监听键盘的高度变化，动态将视图往上推这么多距离，避免输入控件被遮挡。**
+🌹类似于**iOS**里面的[**IQKeyboardManager**](https://github.com/hackiftekhar/IQKeyboardManager)，➤ **监听键盘的高度变化，动态将视图往上推这么多距离，避免输入控件被遮挡。**
 
 > **MediaQuery**.**of(context)**.**viewInsets**.**bottom**，是 [**Flutter**](https://flutter.dev/) 提供的一个<u> **动态值**</u>，表示：当前屏幕底部被`系统遮挡`的高度
 >
@@ -4337,8 +4406,8 @@ flowchart LR
 
 | 层级   | 名称                                                         | 说明                                                         |
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1️⃣ 底层 | **Pointer 事件**：`Listener`<br/>👉 `Listener` 捕获的是 **Pointer 级别**，它能看到事件，但并不代表能改变 **GestureArena** 的裁决。<br>👉`Listener` 只能监听，但 **不能打破（干预） Arena 的胜负结果** | 原始事件监听<br/>如：**pointerDown**、**pointerMove**，等    |
-| 2️⃣ 中层 | **Gesture 识别**：`GestureDetector`<br/>👉负责仲裁，一旦胜出就独占事件。 | 对原始事件进行识别封装<br/>如：**TapGestureRecognizer**、**DragGestureRecognizer**、**ScrollView**，等 |
+| 1️⃣ 底层 | **Pointer 事件**：`Listener`<br/>➤ `Listener` 捕获的是 **Pointer 级别**，它能看到事件，但并不代表能改变 **GestureArena** 的裁决。<br>➤`Listener` 只能监听，但 **不能打破（干预） Arena 的胜负结果** | 原始事件监听<br/>如：**pointerDown**、**pointerMove**，等    |
+| 2️⃣ 中层 | **Gesture 识别**：`GestureDetector`<br/>➤负责仲裁，一旦胜出就独占事件。 | 对原始事件进行识别封装<br/>如：**TapGestureRecognizer**、**DragGestureRecognizer**、**ScrollView**，等 |
 | 3️⃣ 高层 | `InkWell`, `InkResponse`                                     | 组件化的手势 + 视觉反馈（如水波纹）                          |
 
 #### 18.2、👋滚动控件的特殊性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
@@ -4352,7 +4421,7 @@ flowchart LR
 
 - <font color=red>想要协调父子滚动，必须通过 **Physics** 或 **通知机制**，而不是单纯依赖 Pointer 监听</font>
 
-👉 所以 **Pointer 监听无法改变滚动控件的既定行为**
+➤ 所以 **Pointer 监听无法改变滚动控件的既定行为**
 
 #### 18.3、👋[**Flutter**](https://flutter.dev/) 中所有手势相关 **`Widget`** 一览（全量分类）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -5104,7 +5173,7 @@ extension WidgetExtension on Widget {
     assert(
         !(hasScale && hasAnyPan),
         '❌ GestureDetector 冲突：Scale 已包含 Pan 功能，不可同时声明。'
-        '👉 如果需要拖拽 + 缩放，请仅使用 Scale 系列回调（focalPointDelta 处理平移，scale 处理缩放）。');
+        '➤ 如果需要拖拽 + 缩放，请仅使用 Scale 系列回调（focalPointDelta 处理平移，scale 处理缩放）。');
 
     // ==== Release 环境自动屏蔽冲突 ====
     final enablePan = !hasScale;
@@ -5287,9 +5356,9 @@ class _GestureDemoPageState extends State<GestureDemoPage> {
             style: TextStyle(color: Colors.white, fontSize: 14),
           ),
         ).center().gestures(
-              onTap: () => _updateLog("👉 Tap"),
-              onDoubleTap: () => _updateLog("👉 Double Tap"),
-              onLongPress: () => _updateLog("👉 Long Press"),
+              onTap: () => _updateLog("➤ Tap"),
+              onDoubleTap: () => _updateLog("➤ Double Tap"),
+              onLongPress: () => _updateLog("➤ Long Press"),
               onScaleUpdate: (details) {
                 // 平移：details.focalPointDelta
                 final dx = details.focalPointDelta.dx;
@@ -5299,9 +5368,9 @@ class _GestureDemoPageState extends State<GestureDemoPage> {
                 final scale = details.scale;
 
                 _updateLog(
-                    "👉 Scale pan(dx=$dx, dy=$dy), zoom=${scale.toStringAsFixed(2)}");
+                    "➤ Scale pan(dx=$dx, dy=$dy), zoom=${scale.toStringAsFixed(2)}");
               },
-              onTertiaryTapUp: (_) => _updateLog("👉 中键点击 (Tertiary Tap Up)"),
+              onTertiaryTapUp: (_) => _updateLog("➤ 中键点击 (Tertiary Tap Up)"),
             ),
 
         const SizedBox(height: 20),
@@ -6914,7 +6983,7 @@ by [**Rémi Rousselet**](https://github.com/rrousselGit)
 
 |       特性       | <font color=red>`Get.put()`</font>                           | <font color=red>`Get.putAsync()`</font>            | <font color=red>`Get.lazyPut()`</font>            | <font color=red>`Get.create()`</font>      | `Get.putNamed()`                | `Get.replace()`                                              |
 | :--------------: | :----------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------- | ------------------------------------------ | :------------------------------ | ------------------------------------------------------------ |
-|     具体含义     | 👉 注册**同步对象**到 [**`GetX`**](https://pub.dev/packages/get)  容器 | 👉 注册**异步对象**，等待 Future 完成               | 👉 注册**懒加载对象**，首次使用时才创建            | 👉 注册**非单例对象**，每次 `find()` 都新建 | 👉 注册**同类型对象（带 tag）**  | 👉 替换已注册对象，用于热更新或环境切换                       |
+|     具体含义     | ➤ 注册**同步对象**到 [**`GetX`**](https://pub.dev/packages/get)  容器 | ➤ 注册**异步对象**，等待 Future 完成               | ➤ 注册**懒加载对象**，首次使用时才创建            | ➤ 注册**非单例对象**，每次 `find()` 都新建 | ➤ 注册**同类型对象（带 tag）**  | ➤ 替换已注册对象，用于热更新或环境切换                       |
 |     是否异步     | ❌ 否                                                         | ✅ 是                                               | ❌ 否                                              | ❌ 否                                       | ❌ 否                            | ❌ 否                                                         |
 |   对象创建时机   | ✅ 立即实例化                                                 | ⏳ 等待异步初始化完成                               | ⏱ 首次使用时实例化                                | 每次 `find()` 都创建新实例                 | ✅ 立即实例化                    | ✅ 立即实例化                                                 |
 | 是否需要 `await` | ❌ 不需要                                                     | ✅ 需要 `await`                                     | ❌ 不需要                                          | ❌ 不需要                                   | ❌ 不需要                        | ❌ 不需要                                                     |
@@ -8142,7 +8211,7 @@ ElevatedButton(
 > 但如果你在 非 UI <a href="#BuildContext" style="font-size:17px; color:green;"><b>上下文**`BuildContext`**</b></a> 或 <u>**嵌套导航结构**</u> 中调用弹窗，**就必须显式指定 `navigatorKey` 来避免找不到 Navigator 的错误。**
 >
 > **完全可以养成习惯：**
-> 👉 **任何时候用 `Get.dialog()`，都写上 `navigatorKey: Get.key`**，
+> ➤ **任何时候用 `Get.dialog()`，都写上 `navigatorKey: Get.key`**，
 > ✅ 兼容所有场景、生命周期、嵌套结构，绝对不翻车。
 
 ##### 27.4.9、🉐 [**`GetX`**](https://pub.dev/packages/get) 多语言化  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
@@ -10981,7 +11050,9 @@ void main() {
 
 ### 42、[**中国公民身份证校验规则**](https://github.com/JobsKit/JobsDocs/blob/main/中国公民身份证校验规则.md/中国公民身份证校验规则.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 43、
+### 43、推送 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* [**iOS推送证书：`*.p12`**](https://github.com/JobsKit/JobsDocs/blob/main/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6.md)
 
 ### 44、 <font id=Widget拓展语法糖>🍬**`Widget`**拓展语法糖</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -11703,7 +11774,7 @@ ClipRRect(
 > ///    - fillColumn：可指定把富余宽度补给哪一列（数据列索引 0..N-1，null=最后一列）。
 > ```
 
-#### 48.1、模式 1👉首列与其它列一起等宽分配；不需要 `fixedWidth` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 48.1、模式 1➤首列与其它列一起等宽分配；不需要 `fixedWidth` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 void main1() {
@@ -11753,7 +11824,7 @@ void main1() {
 }
 ```
 
-#### 48.2、模式 2👉首列固定宽度，其余列按内容/约束自适应（支持`min/maxColWidth`）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 48.2、模式 2➤首列固定宽度，其余列按内容/约束自适应（支持`min/maxColWidth`）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 void main2() {
@@ -11801,7 +11872,7 @@ void main2() {
 }
 ```
 
-#### 48.3、模式 3👉首列固定宽度，其余列等宽均分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 48.3、模式 3➤首列固定宽度，其余列等宽均分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 void main3() {
@@ -12183,7 +12254,7 @@ showSimpleNotification(
 
 * 快速设定按钮的**文本**、**背景色**、**点击事件**、**尺寸**
 
-  > 涉及到的文件👉`onWidgets.dart`、`onGestures.dart`
+  > 涉及到的文件➤`onWidgets.dart`、`onGestures.dart`
 
   ```dart
   /// 极简设定
@@ -13250,7 +13321,7 @@ class ClipboardUtil {
 
 ### 62、<font id=自动化代码生成应用外观资源>[**自动化代码生成应用外观资源**](https://github.com/JobsKit/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%90%A6Flutter%E8%87%AA%E5%8A%A8%E5%8C%96%E7%94%9F%E4%BA%A7%E4%BB%A3%E7%A0%81.command)</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-> <a href="#构建打包" style="font-size:17px; color:green;"><b>👉构建打包📦</b></a>
+> <a href="#构建打包" style="font-size:17px; color:green;"><b>➤构建打包📦</b></a>
 
 #### 62.1、App启动图标 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -13266,7 +13337,7 @@ class ClipboardUtil {
 >   flutter pub get # 把项目依赖都下载好、放到本地缓存，再生成工程用的 .dart_tool 配置
 >   ```
 >
->   **iOS** 还需要在 **Xcode** 👉 **Product** 👉 **Clean Build Folder**
+>   **iOS** 还需要在 **Xcode** ➤ **Product** ➤ **Clean Build Folder**
 >
 > - **图标模糊或显示不对**：一定要用 **正方形、高分辨率（1024x1024）PNG**，插件会自动生成各个尺寸。
 >    
@@ -13332,7 +13403,7 @@ class ClipboardUtil {
   - 需要替换所有 `mipmap-*/ic_launcher.png`，保持文件名一致。
 - **iOS**：
   - 图标在：`ios/Runner/Assets.xcassets/AppIcon.appiconset/`
-  - 用 **Xcode** 打开项目，点击 **Runner** 👉 **General** 👉 **App Icon**，然后替换对应尺寸的图标。
+  - 用 **Xcode** 打开项目，点击 **Runner** ➤ **General** ➤ **App Icon**，然后替换对应尺寸的图标。
 
 ##### 62.1.3、验证图标资源是否存在  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -13601,35 +13672,31 @@ Future<void> resilientLoop(Future<void> Function() task,
 
 * 仅在数据变更时触发 `update/Obx` 重建
 
-### 64、推送 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-* [**iOS推送证书：`*.p12`**](https://github.com/JobsKit/JobsDocs/blob/main/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6.md)
-
-### 65、唤醒（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 64、唤醒（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 /// TODO
 ```
 
-### 66、热更新（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 65、热更新（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 /// TODO
 ```
 
-### 67、调取设备摄像头（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 66、调取设备摄像头（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 /// TODO
 ```
 
-### 68、调取设备相册（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 67、调取设备相册（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 /// TODO
 ```
 
-### 69、音视频（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 68、音视频（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 *  [***flutter_ffmpeg***](https://github.com/tanersener/flutter-ffmpeg)：
    * ***开源项目*** <font color="red">**（停止维护）**</font>；
@@ -13654,9 +13721,9 @@ Future<void> resilientLoop(Future<void> Function() task,
    * *ExoPlayer* 是一个功能强大的跨平台媒体播放器，***支持 Android、iOS 和 Web 平台***；
    * 使用 *flutter_exoplayer*，您可以方便地在 Dart.Flutter 应用程序中实现高性能的音视频播放功能；
 
-## 五、📃其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## 六、📃其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 1、修复平台目录：定位到[**Flutter**](https://flutter.dev/)项目根目录，执行👉`flutter create .`  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 1、修复平台目录：定位到[**Flutter**](https://flutter.dev/)项目根目录，执行➤`flutter create .`  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 仅<font color=red>**生成/修复**</font>默认平台（通常是 [**Android**](https://www.android.com/) + **iOS**）
 
@@ -13677,8 +13744,6 @@ Future<void> resilientLoop(Future<void> Function() task,
 ### 2、模拟器  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 #### 2.1、🤖关于[**Android**](https://www.android.com/)模拟器  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-<font color=red>**`flutter run` 在执行时会自动下载项目依赖**，即使你刚刚执行了 `flutter clean`。</font>
 
 * 查看已有**AVD**模拟器
 
@@ -14051,7 +14116,7 @@ class Person {
 > | 使用过 [**Flutter**](https://flutter.dev/) Web / Desktop     | 某些构建产物可能会缓存到这里                                 |
 > | 安装了某些 [**Flutter**](https://flutter.dev/) 插件（如 [**Firebase CLI**](https://firebase.google.com/docs/cli?hl=zh-cn)） | 可能写入配置文件                                             |
 >
-> 👉 **没使用或未触发以上行为，该路径就不会创建。**
+> ➤ **没使用或未触发以上行为，该路径就不会创建。**
 
 | 路径                     | 说明                                                         | 是否可删                                                     |
 | ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -14067,7 +14132,7 @@ class Person {
 > | 使用 [**Dart**](https://dart.dev/) CLI 创建项目或执行过 `dart pub` | 如 `dart create`、`dart run` 等命令 |
 > | 使用 `dart pub global activate` 安装过全局包                 | 如 `melos`、`webdev` 等工具         |
 >
-> 👉 **如果你是通过[Flutter](https://flutter.dev/)安装的  [Dart](https://dart.dev/)，并且一直是用 `flutter pub`，那这个目录压根不会创建。**
+> ➤ **如果你是通过[Flutter](https://flutter.dev/)安装的  [Dart](https://dart.dev/)，并且一直是用 `flutter pub`，那这个目录压根不会创建。**
 
 | 路径           | 说明                                                         | 是否可删                                                     |
 | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -14231,7 +14296,7 @@ dependencies:
     export PATH="$JAVA_HOME/bin:$PATH"
     ```
 
-  * 优先级一览。详见👉<a href="#jenv" style="font-size:17px; color:green;"><b>Homebrew.jenv</b></a>
+  * 优先级一览。详见➤<a href="#jenv" style="font-size:17px; color:green;"><b>Homebrew.jenv</b></a>
 
     ```
     jenv local > 系统环境变量文件 > jenv global
@@ -14500,7 +14565,7 @@ class MyService {
 final service = Singleton.getInstance(() => MyService());
 ```
 
-#### 📌11.6、使用[**GetIt**](https://pub.dev/packages/get_it)👉实现全局单例（推荐用于大型项目）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 📌11.6、使用[**GetIt**](https://pub.dev/packages/get_it)➤实现全局单例（推荐用于大型项目）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 import 'package:get_it/get_it.dart';
@@ -14878,7 +14943,7 @@ Comparable.compare(a, b)
   );
   ```
 
-### 20、混入<font id=混入 color=red>**`with`**👈**`mixin`**👉**`on`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 20、混入<font id=混入 color=red>**`with`**👈**`mixin`**➤**`on`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > * 可以理解成**代码片段**🎬
 >
@@ -14924,7 +14989,7 @@ Comparable.compare(a, b)
     class B with A {} // Dart 2.x 允许，但有局限
     ```
 
-* <font color=red size=5>**`mixin`**👉**`on`**</font>
+* <font color=red size=5>**`mixin`**➤**`on`**</font>
 
   > <font color=red size=5>**`on`**</font> == 只能用于
 
@@ -15240,7 +15305,7 @@ HideEfficientLengthIterable~T~ <|.. Iterable~T~ : implements
 
 ### 22、入参  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-> ⚠️<font color=red>**必须是编译期常量**</font>`const`。也就是意味着👉 类似于：`X.w`、`X.h`之类的[**flutter_screenutil**](https://pub.dev/packages/flutter_screenutil)的扩展 `getter`（需要在 **运行时有 BuildContext**）。<u>故此时使用，即会报错</u>
+> ⚠️<font color=red>**必须是编译期常量**</font>`const`。也就是意味着➤ 类似于：`X.w`、`X.h`之类的[**flutter_screenutil**](https://pub.dev/packages/flutter_screenutil)的扩展 `getter`（需要在 **运行时有 BuildContext**）。<u>故此时使用，即会报错</u>
 
 #### 22.1、必传入参  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -15707,7 +15772,7 @@ class Person {
 
 #### 25.1、[**配置Shell打包命令**](https://github.com/JobsKit/JobsMacEnvVarConfig) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-> 直接写入`.zshrc`👉[**Flutter**](https://flutter.dev/)的版本锁定+用于[**Android**](https://www.android.com/)的**Java**环境的锁定
+> 直接写入`.zshrc`➤[**Flutter**](https://flutter.dev/)的版本锁定+用于[**Android**](https://www.android.com/)的**Java**环境的锁定
 >
 > <font color=red>**如果修改了环境变量文件，要输入`rb`唤起`exec "$SHELL"`,可以避免不重启终端而加载修改项**</font>
 
@@ -15751,7 +15816,7 @@ get_flutter_project_dir() {
 
   while ! is_flutter_project "$project_path"; do
     echo "❌ [$project_path] 不是合法的 Flutter 项目目录（缺少 lib/ 或 pubspec.yaml）" >&2
-    read -r "?👉 请输入 Flutter 项目路径（回车=继续询问，q=退出）: " input_path
+    read -r "?➤ 请输入 Flutter 项目路径（回车=继续询问，q=退出）: " input_path
     [[ "$input_path" == "q" || "$input_path" == "Q" ]] && return 1
     [[ -z "$input_path" ]] && continue
     eval "project_path=\"$input_path\""                       # 展开 ~
@@ -16519,7 +16584,7 @@ ipa() {
     cp -R /opt/homebrew/share/android-commandlinetools/cmdline-tools ~/Library/Android/sdk/cmdline-tools/latest
     ```
 
-  * 手动下载安装（[**🔗 官方 zip 包**](https://developer.android.com/studio#command-tools)） ：解压到 👉 `~/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager`
+  * 手动下载安装（[**🔗 官方 zip 包**](https://developer.android.com/studio#command-tools)） ：解压到 ➤ `~/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager`
 
     * 用于自定义 **CI/CD** 环境（如 [**Docker**](https://www.docker.com/)镜像）
 
@@ -16828,7 +16893,7 @@ show_intro() {
   note_echo "9️⃣ 所有命令均统一交互：回车 = 执行，任意键 + 回车 = 跳过"
   note_echo "🔟 构建日志自动保存到 /tmp/flutter_build_log.txt"
   echo ""
-  warm_echo "👉 回车 = 执行默认 / 任意键 + 回车 = 跳过（统一交互）"
+  warm_echo "➤ 回车 = 执行默认 / 任意键 + 回车 = 跳过（统一交互）"
   echo ""
   read "?📎 按回车开始："
 }
@@ -16930,8 +16995,8 @@ install_homebrew() {
 
   else
     info_echo "🔄 Homebrew 已安装。是否执行更新？"
-    echo "👉 按 [Enter] 继续：将依次执行  brew update && brew upgrade && brew cleanup && brew doctor && brew -v"
-    echo "👉 输入任意字符后回车：跳过更新"
+    echo "➤ 按 [Enter] 继续：将依次执行  brew update && brew upgrade && brew cleanup && brew doctor && brew -v"
+    echo "➤ 输入任意字符后回车：跳过更新"
     # 仅当“直接回车”时继续；其他输入一律跳过
     local confirm
     IFS= read -r confirm
@@ -16958,8 +17023,8 @@ install_fzf() {
     success_echo "✅ fzf 安装成功"
   else
     info_echo "🔄 fzf 已安装。是否执行升级？"
-    echo "👉 按 [Enter] 继续：将依次执行  brew upgrade fzf && brew cleanup"
-    echo "👉 输入任意字符后回车：跳过升级"
+    echo "➤ 按 [Enter] 继续：将依次执行  brew upgrade fzf && brew cleanup"
+    echo "➤ 输入任意字符后回车：跳过升级"
 
     local confirm
     IFS= read -r confirm
@@ -17103,7 +17168,7 @@ configure_java_env() {
 
   if [[ -n "$last_used" && "$available_versions" == *"$last_used"* ]]; then
     success_echo "📦 上次使用的 JDK：$last_used"
-    read "?👉 是否继续使用？回车=是 / 任意键+回车=重新选择: "
+    read "?➤ 是否继续使用？回车=是 / 任意键+回车=重新选择: "
     [[ -z "$REPLY" ]] && selected="$last_used"
   fi
 
@@ -17206,7 +17271,7 @@ _detect_flutter_cmd() {
 # ✅ 确认步骤函数
 confirm_step() {
   local step="$1"
-  read "REPLY?👉 是否执行【$step】？回车=是 / 任意键+回车=跳过: "
+  read "REPLY?➤ 是否执行【$step】？回车=是 / 任意键+回车=跳过: "
   [[ -z "$REPLY" ]]
 }
 
@@ -17391,7 +17456,7 @@ graph TD
 
 > 虽然[**Flutter**](https://flutter.dev/)构建**iOS**的`.ipa`包最终还是调用**Xcode**的内部组件，<font color=red>但是生成的`.ipa`包的物理位置，与**Xcode**打正常的**iOS**原生`.ipa`是不同的</font>
 
-* 原生**iOS**构建生成的`*.ipa` 包路径👉**`$HOME/Library/Developer/Xcode/DerivedData/具体的Xcode.iOS项目名/Build/Products/Debug-iphoneos/*.app`**
+* 原生**iOS**构建生成的`*.ipa` 包路径➤**`$HOME/Library/Developer/Xcode/DerivedData/具体的Xcode.iOS项目名/Build/Products/Debug-iphoneos/*.app`**
 
 ```Mermaid
 graph TD
@@ -17407,7 +17472,7 @@ graph TD
     F --> F5[📄 Embedded.mobileprovision<br/>签名配置]
 ```
 
-* [**Flutter**](https://flutter.dev/)构建生成的`*.ipa` 包路径👉 **`Flutter项目根目录/build/ios/ipa/*.app`**
+* [**Flutter**](https://flutter.dev/)构建生成的`*.ipa` 包路径➤ **`Flutter项目根目录/build/ios/ipa/*.app`**
 
 ```Mermaid
 graph TD
@@ -17628,7 +17693,7 @@ open_output_dir() {
 # ✅ 等待用户
 wait_for_user_to_start() {
   echo ""
-  read "?👉 按下回车开始执行，或 Ctrl+C 取消..."
+  read "?➤ 按下回车开始执行，或 Ctrl+C 取消..."
   echo ""
 }
 
@@ -19163,7 +19228,7 @@ final controller = StreamController.broadcast();
   * **手动调用`Navigator.removeRoute()`或`Navigator.removeRouteBelow()`**：这两个方法可以手动从导航栈中移除指定的路由或指定路由下面的所有路由。但是要小心使用，因为**直接操作导航栈可能会导致意外的行为**。
   * **使用`PageRoute`的回调函数**：你可以通过`PageRoute`的回调函数来监听页面的生命周期事件，并在适当的时候执行一些操作。例如，你可以在页面`dispose`时执行一些清理操作。
 
-## 六、<font color=red>**F**</font><font color=green>**A**</font><font color=blue>**Q**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## 七、<font color=red>**F**</font><font color=green>**A**</font><font color=blue>**Q**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * <font color=red>不出**UI**的总结</font>
 
@@ -19171,7 +19236,7 @@ final controller = StreamController.broadcast();
 
   * **`Expanded` 只能作为 `Column / Row / Flex` 的直接子节点**，用来占满剩余空间
 
-  * 👉 只有当在 `Flex`（`Row`/`Column`）里放置<u>会在主轴方向无限扩展的子 `widget`</u>（典型：可滚动 **`ListView`**/**`GridView`**），才需要用 `Expanded`/`Flexible` 来给它有限的剩余空间
+  * ➤ 只有当在 `Flex`（`Row`/`Column`）里放置<u>会在主轴方向无限扩展的子 `widget`</u>（典型：可滚动 **`ListView`**/**`GridView`**），才需要用 `Expanded`/`Flexible` 来给它有限的剩余空间
 
     * **Expanded / Flexible** 自己不会“无限伸展”，它们是 **吃掉父 Flex 剩余空间**。即：🔹如果父容器剩余空间有限 → **`Expanded`** 正常工作🔹如果父容器剩余空间无限（比如在 `ScrollView` 里）→ **`Expanded`** 无法计算，直接报错。
 
@@ -19405,7 +19470,7 @@ final controller = StreamController.broadcast();
 
 * ✅为什么[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)禁止反射机制？
 
-  👉 是为了保证 **更快启动、更小体积、更高性能的移动应用体验**，这是设计上的取舍
+  ➤ 是为了保证 **更快启动、更小体积、更高性能的移动应用体验**，这是设计上的取舍
 
   * **AOT 无法支持动态反射**
 
@@ -19517,7 +19582,7 @@ final controller = StreamController.broadcast();
 
 * `.trim()`
 
-  > 👉 **去掉字符串开头和结尾的所有空白字符（whitespace）**，返回一个新的字符串。
+  > ➤ **去掉字符串开头和结尾的所有空白字符（whitespace）**，返回一个新的字符串。
 
   ```dart
   void main() {
@@ -19543,4 +19608,4 @@ final controller = StreamController.broadcast();
     > <img src="./assets/README/image-20250723010750938.png" alt="image-2" style="width:65%; display:inline-block; vertical-align: top;" />
     > </div>
 
-<a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的👉点我回到首页</a>
+<a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>

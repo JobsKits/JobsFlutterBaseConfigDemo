@@ -1440,7 +1440,7 @@ extension JobsPrintExt<T> on T {
 >  >   JobsPrint(mockListData);
 >  >   ```
 
-##### 1.3.1、控制台打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 1.4.1、控制台打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 <span>
   <img src="./assets/image-20250901191221540.png" alt="image-20250901191221540" style="zoom:30%; display:inline-block;" />
@@ -1867,7 +1867,7 @@ String _pretty(
 }
 ```
 
-##### 1.3.2、程序内打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 1.4.2、程序内打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 import 'dart:convert';

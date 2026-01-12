@@ -813,9 +813,103 @@ plugins/
 
 ### 3、IDE <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-#### 3.1、[**XCode**](https://developer.apple.com/xcode/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 3.1、[**Xcode**](https://developer.apple.com/xcode/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
+##### 3.1.1、网站限制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 * 个别地区（比如：柬埔寨），需要将浏览器语言改为英文状态，方可进入[**苹果开发者网站**](https://developer.apple.com/)
+
+##### 3.1.2、📱关于**iOS**模拟器（最新版本[**XCode**](https://developer.apple.com/xcode/)：16.4） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  * [**过期的模拟器配件**](https://github.com/JobsKits/Xcode_Sys_lib)
+
+  * iOS模拟器下载@终端
+
+    ```shell
+    rm -rf ~/Library/Caches/com.apple.dt.Xcode
+    rm -rf ~/Library/Developer/CoreSimulator/Caches
+    
+    xcodebuild -downloadPlatform iOS --verbose
+    ```
+
+  * **iOS**存在假后台现象，有时需要主动手动关闭进程
+
+  * **iOS**模拟器目录
+
+    * ```shell
+      ~/Library/Developer/CoreSimulator/Devices/
+      ```
+
+      > <font color=red>**最常用的目录**</font>
+      >
+      > 🧼 清理建议：清理 `~/Library/Developer/CoreSimulator/Devices/` 可以释放大量空间，但会移除所有模拟器的 App 安装数据。
+      >
+      > **每个模拟器实例对应一个 UUID 子目录**。子目录包含该模拟器的所有数据，例如：
+      >
+      > - 应用程序数据（App 安装后的容器、沙盒）
+      > - `data/` 目录里有模拟器的 `Documents`、`tmp`、`Library` 等路径
+      > - `device.plist` 存储了模拟器的配置信息（名称、系统版本、状态等）
+      > - `logs/` 保存了日志
+      >
+      > 当你运行模拟器、安装应用、查看沙盒路径，访问的就是这个目录中的对应路径。
+
+    * ```
+      ~/Library/Developer/CoreSimulator/Volumes/
+      ```
+
+      > 🧼 清理建议：`Volumes/` 通常空间不大，**可以直接删除**，Xcode 会自动重新创建。
+      >
+      > * 存放模拟器用到的 **挂载卷（Volumes）数据**。
+      >
+      > - 用于模拟 **iOS 设备的磁盘结构**，包括 `/Volumes` 中的挂载点。
+      > - 一些 App 或系统组件可能会在模拟器中访问 `/Volumes` 路径（类似 macOS 磁盘挂载），就会挂载此目录中的数据。
+      >
+      > 例如：模拟器运行中，如果用户或 App 尝试挂载外部磁盘，或创建虚拟磁盘（如` .dmg `文件），就可能映射到这个目录。
+      >
+      > 📌 注意事项：
+      >
+      > - 通常这个目录在未特殊使用挂载卷的模拟器中是空的。
+      > - 可被清理，**Xcode** 会在需要时自动重新创建。
+
+  * 查看目前有的**iOS**模拟器安装包
+
+    ```shell
+    xcrun simctl list runtimes
+    ```
+
+  * 打印所有模拟器实例路径和设备名称
+
+    ```shell
+    xcrun simctl list devices -j | jq -r '.devices | to_entries[] | .value[] | select(.isAvailable == true) | "\(.name) (\(.state))\n↪︎  Path: ~/Library/Developer/CoreSimulator/Devices/\(.udid)\n"' 
+    ```
+
+    或，
+
+    ```shell
+    xcrun simctl list devices | grep -E '^    ' | while read -r line; do
+      name=$(echo "$line" | cut -d '(' -f1 | xargs)
+      uuid=$(echo "$line" | grep -oE '[A-F0-9\-]{36}')
+      echo "$name"
+      echo "↪︎  Path: ~/Library/Developer/CoreSimulator/Devices/$uuid"
+      echo ""
+    done
+    ```
+
+  * 最新版本的Xcode（目前是：16.4），在设备选择器里面点选了较低版本的iOS模拟器（比如说：iPhone 7），只能通过命令行进行实例化并打开
+
+    ```shell
+    xcrun simctl list devices | grep 'iPhone 7'
+    xcrun simctl boot "iPhone 7"
+    ```
+
+    ![image-20250716140527403](./assets/image-20250716140527403.png)
+
+  * 命令行唤起**iOS**模拟器
+
+    ```shell
+    open -a Simulator
+    ```
+
+  * 如果更新或者删除**xcode**，那么下载的**iOS**模拟器将会丢失
 
 
 #### 3.2、[**Android Studio**](https://developer.android.com/studio?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
@@ -853,6 +947,106 @@ plugins/
 ```shell
 ./android/gradlew -v # 先定位到Flutter项目的根目录。运行成功的前提是指定项目使用的Jenv.JDK或者是全局配置的Java变量
 ```
+
+##### 3.2.4、🤖关于[**Android**](https://www.android.com/)模拟器
+
+* 查看已有**AVD**模拟器
+
+  ```shell
+  avdmanager list avd
+  ```
+
+  > ```shell
+  > ➜  Desktop avdmanager list avd
+  > Available Android Virtual Devices:
+  > 
+  > The following Android Virtual Devices could not be loaded:
+  >     Name: Medium_Phone_API_36
+  >     Path: /Users/jobs/.android/avd/Medium_Phone_API_36.avd
+  >    Error: Missing system image for Google Play arm64-v8a Medium Phone API 36.
+  > ```
+
+* 运行[**Android**](https://www.android.com/)模拟器
+
+  ```shell
+  emulator -avd <运行avdmanager list avd以后拿到的Name>
+  ```
+
+  > ```
+  > emulator -avd Medium_Phone_API_36
+  > ```
+
+* 查看正在运行的模拟器设备
+
+  ```shell
+  adb devices
+  ```
+
+  > ```shell
+  > ➜  Desktop adb devices
+  > List of devices attached
+  > emulator-5554	device
+  > ```
+
+* 查看模拟器 /data 剩余空间
+
+  ```shell
+  adb shell df -h /data
+  ```
+  
+* 卸载已装旧包（避免覆盖写更大体积失败）
+
+  ```shell
+  adb uninstall com.your.package   # 替换成你的 applicationId
+  # 或者直接让 flutter 先卸载再装
+  flutter run --uninstall-first
+  ```
+  
+* 如果之前改过安装位置（外部/优先SD卡），先恢复默认（这条很关键，和“Failed to override installation location”强相关）：
+
+  ```shell
+  adb shell pm set-install-location 0   # 0=自动  1=内部  2=外部
+  ```
+  
+* 命令行批量卸载
+
+  ```shell
+  adb shell pm list packages | grep chrome
+  adb shell pm uninstall --user 0 com.android.chrome
+  # 替换为实际包名，--user 0 仅对当前用户卸载（系统镜像仍在）
+  ```
+  
+* 清理 **Dalvik**/**ART** 临时编译产物（可回收一些空间）：
+
+  ```shell
+  adb shell cmd package compile --reset -a
+  ```
+  
+* 改配置文件：扩容/重置（更自由）
+
+  > 编辑 `~/.android/avd/<你的AVD名字>.avd/config.ini`，加入/修改以下项：
+  >
+  > 保存后 **Cold Boot**（AVD Manager → 下拉 → Cold Boot Now）。
+  
+  ```dart
+  disk.dataPartition.size=8G
+  hw.sdCard=yes
+  sdcard.size=512M
+  ```
+  
+* [**Flutter**](https://flutter.dev/)/**Gradle** 残留导致重新打包变大或失败：
+
+  ```shell
+  flutter clean
+  rm -rf android/.gradle android/build build
+  flutter pub get
+  ```
+  
+* 快速杀死所有模拟器实例
+
+  ```shell
+  adb emu kill
+  ```
 
 #### 3.3、[**VSCode**](https://code.visualstudio.com/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -13741,221 +13935,7 @@ Future<void> resilientLoop(Future<void> Function() task,
   flutter create --platforms=android,ios,web,linux,macos,windows .
   ```
 
-### 2、模拟器  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-#### 2.1、🤖关于[**Android**](https://www.android.com/)模拟器  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-* 查看已有**AVD**模拟器
-
-  ```shell
-  avdmanager list avd
-  ```
-
-  > ```shell
-  > ➜  Desktop avdmanager list avd
-  > Available Android Virtual Devices:
-  >
-  > The following Android Virtual Devices could not be loaded:
-  >        Name: Medium_Phone_API_36
-  >        Path: /Users/jobs/.android/avd/Medium_Phone_API_36.avd
-  >       Error: Missing system image for Google Play arm64-v8a Medium Phone API 36.
-  > ```
-
-* 运行[**Android**](https://www.android.com/)模拟器
-
-  ```shell
-  emulator -avd <运行avdmanager list avd以后拿到的Name>
-  ```
-
-  > ```
-  > emulator -avd Medium_Phone_API_36
-  > ```
-
-* 查看正在运行的模拟器设备
-
-  ```shell
-  adb devices
-  ```
-
-  > ```shell
-  > ➜  Desktop adb devices
-  > List of devices attached
-  > emulator-5554	device
-  > ```
-
-* 查看模拟器 /data 剩余空间
-
-  ```shell
-  adb shell df -h /data
-  ```
-  
-* 卸载已装旧包（避免覆盖写更大体积失败）
-
-  ```shell
-  adb uninstall com.your.package   # 替换成你的 applicationId
-  # 或者直接让 flutter 先卸载再装
-  flutter run --uninstall-first
-  ```
-  
-* 如果之前改过安装位置（外部/优先SD卡），先恢复默认（这条很关键，和“Failed to override installation location”强相关）：
-
-  ```shell
-  adb shell pm set-install-location 0   # 0=自动  1=内部  2=外部
-  ```
-  
-* 命令行批量卸载
-
-  ```shell
-  adb shell pm list packages | grep chrome
-  adb shell pm uninstall --user 0 com.android.chrome
-  # 替换为实际包名，--user 0 仅对当前用户卸载（系统镜像仍在）
-  ```
-  
-* 清理 **Dalvik**/**ART** 临时编译产物（可回收一些空间）：
-
-  ```shell
-  adb shell cmd package compile --reset -a
-  ```
-  
-* 改配置文件：扩容/重置（更自由）
-
-  > 编辑 `~/.android/avd/<你的AVD名字>.avd/config.ini`，加入/修改以下项：
-  >
-  > 保存后 **Cold Boot**（AVD Manager → 下拉 → Cold Boot Now）。
-  
-  ```dart
-  disk.dataPartition.size=8G
-  hw.sdCard=yes
-  sdcard.size=512M
-  ```
-  
-* [**Flutter**](https://flutter.dev/)/**Gradle** 残留导致重新打包变大或失败：
-
-  ```shell
-  flutter clean
-  rm -rf android/.gradle android/build build
-  flutter pub get
-  ```
-  
-* 快速杀死所有模拟器实例
-
-  ```shell
-  adb emu kill
-  ```
-
-#### 2.2、📱关于**iOS**模拟器（最新版本[**XCode**](https://developer.apple.com/xcode/)：16.4） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-* <font color=red>**iOS** 模拟器存在假后台现象，需要完全退出此进程，否则无法打开**iOS** 模拟器</font>
-
-* **iOS** 模拟器无法运行 **Profile** 模式的 [**Flutter**](https://flutter.dev/) APP（只支持 **Debug 模式运行**）
-
-  > **Profile**/**Release** => 只能构建**ARM**架构，模拟器无法运行
-  >
-  > **iOS** 模拟器 => **MacOS** 下运行的** x86_64/arm64** 模拟环境
-
-* 命令行唤起**iOS**模拟器 / 打开上次模拟器
-
-  ```shell
-  open -a Simulator
-  ```
-
-* 启动特定设备（通过 UUID）：
-
-  ```shell
-  xcrun simctl boot ABC1D2E3-456F-7890-ABCD-1234567890AB
-  ```
-
-* 关机所有模拟器
-
-  ```shell
-  xcrun simctl shutdown all
-  ```
-
-* 查看可用设备列表
-
-  ```shell
-  xcrun simctl list devices
-  ```
-
-* 打印所有模拟器实例路径和设备名称
-
-  ```shell
-  xcrun simctl list devices -j | jq -r '.devices | to_entries[] | .value[] | select(.isAvailable == true) | "\(.name) (\(.state))\n↪︎  Path: ~/Library/Developer/CoreSimulator/Devices/\(.udid)\n"'
-  ```
-
-  或，
-
-  ```shell
-  xcrun simctl list devices | grep -E '^    ' | while read -r line; do
-    name=$(echo "$line" | cut -d '(' -f1 | xargs)
-    uuid=$(echo "$line" | grep -oE '[A-F0-9\-]{36}')
-    echo "$name"
-    echo "↪︎  Path: ~/Library/Developer/CoreSimulator/Devices/$uuid"
-    echo ""
-  done
-  ```
-
-* 📦 查看目前有的**iOS**模拟器安装包
-
-  ```shell
-  xcrun simctl list runtimes
-  ```
-
-* 查看`Command Line Tools`版本
-
-  ```shell
-  pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
-  ```
-
-* 老版本的**iOS**模拟器的兼容
-
-  在设备选择器里面点选了较低版本的**iOS**模拟器（比如说：iPhone 7），只能通过命令行进行实例化并打开
-
-  ```shell
-  xcrun simctl list devices | grep 'iPhone 7'
-  xcrun simctl boot "iPhone 7"
-  ```
-
-  ![image-20250716131840500](./assets/README/image-20250716131840500.png)
-
-* 📁**iOS**模拟器目录
-
-  * ```shell
-    ~/Library/Developer/CoreSimulator/Devices/
-    ```
-
-    > <font color=red>**最常用的目录**</font>
-    >
-    > 🧼 清理建议：清理 `~/Library/Developer/CoreSimulator/Devices/` 可以释放大量空间，但会移除所有模拟器的 App 安装数据。
-    >
-    > **每个模拟器实例对应一个 UUID 子目录**。子目录包含该模拟器的所有数据，例如：
-    >
-    > - 应用程序数据（App 安装后的容器、沙盒）
-    > - `data/` 目录里有模拟器的 `Documents`、`tmp`、`Library` 等路径
-    > - `device.plist` 存储了模拟器的配置信息（名称、系统版本、状态等）
-    > - `logs/` 保存了日志
-    >
-    > 当你运行模拟器、安装应用、查看沙盒路径，访问的就是这个目录中的对应路径。
-
-  * ```
-    ~/Library/Developer/CoreSimulator/Volumes/
-    ```
-
-    > 🧼 清理建议：`Volumes/` 通常空间不大，**可以直接删除**，[**XCode**](https://developer.apple.com/xcode/) 会自动重新创建。
-    >
-    > * 存放模拟器用到的 **挂载卷（Volumes）数据**。
-    >
-    > - 用于模拟 **iOS 设备的磁盘结构**，包括 `/Volumes` 中的挂载点。
-    > - 一些 App 或系统组件可能会在模拟器中访问 `/Volumes` 路径（类似 **macOS** 磁盘挂载），就会挂载此目录中的数据。
-    >
-    > 例如：模拟器运行中，如果用户或 App 尝试挂载外部磁盘，或创建虚拟磁盘（如` .dmg` 文件），就可能映射到这个目录。
-    >
-    > 📌 注意事项：
-    >
-    > - 通常这个目录在未特殊使用挂载卷的模拟器中是空的。
-    > - 可被清理，[**XCode**](https://developer.apple.com/xcode/) 会在需要时自动重新创建。
-
-### 3、`/android/build.gradle`的配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 2、`/android/build.gradle`的配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```Groovy
 /// 显式声明了 Kotlin 版本

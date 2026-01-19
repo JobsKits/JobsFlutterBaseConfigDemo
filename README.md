@@ -76,9 +76,11 @@
 
 ## 二、开发周边 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 1、[**Typora**](https://typora.io/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 1、[**热键配置**](https://github.com/JobsKits/JobsConfigHotKeyByHammerspoon) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 2、😱[**ohmyz.sh**](https://ohmyz.sh/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 2、[**Typora**](https://typora.io/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+### 3、😱[**ohmyz.sh**](https://ohmyz.sh/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -90,13 +92,13 @@ or
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
-### 3、🏠[**Homebrew**](https://brew.sh/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 4、🏠[**Homebrew**](https://brew.sh/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-#### 3.1、🏠[**Homebrew**](https://brew.sh/).[<font color=red>Dart</font>](https://dart.dev/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 4.1、🏠[**Homebrew**](https://brew.sh/).[<font color=red>Dart</font>](https://dart.dev/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > [**Flutter**](https://flutter.dev/) 里面自带一个[Dart](https://dart.dev/) 环境，理论上是比最新的[Dart](https://dart.dev/) 版本落后的。如果系统里面既装了[Dart](https://dart.dev/) 环境又装了[**Flutter**](https://flutter.dev/)环境，那么[**Flutter**](https://flutter.dev/)项目默认使用[**Flutter**](https://flutter.dev/).SDK里面自带那个[Dart](https://dart.dev/) 环境
 
@@ -104,7 +106,7 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 brew tap dart-lang/dart
 ```
 
-#### 3.2、🏠<font id=jenv>[**Homebrew**](https://brew.sh/).[<font color=red>jenv</font>](https://github.com/jenv/jenv) </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 4.2、🏠<font id=jenv>[**Homebrew**](https://brew.sh/).[<font color=red>jenv</font>](https://github.com/jenv/jenv) </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 >涉及到[**Android**](https://www.android.com/)的部分需要[**Java**](https://www.java.com/zh-CN/)环境的支持（打包、运行）
 >
@@ -210,11 +212,11 @@ brew tap dart-lang/dart
   > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗
   > ```
 
-### 4、[**利用quicktype自动建立数据模型**](https://github.com/JobsKits/JobsDocs/blob/main/利用quicktype自动建立数据模型.md/利用quicktype自动建立数据模型.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 5、[**利用quicktype自动建立数据模型**](https://github.com/JobsKits/JobsDocs/blob/main/利用quicktype自动建立数据模型.md/利用quicktype自动建立数据模型.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 5、[**向附近设备分享文件**](https://localsend.org/download) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 6、[**向附近设备分享文件**](https://localsend.org/download) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 6、**Git**忽略文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 7、**Git**忽略文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```shell
 # Flutter/Dart/Pub related
@@ -10723,7 +10725,7 @@ void onClose() {
 | `buildTransitions` | 可 override 修改默认路由切换效果   |
 
 
-### 39、⌨️键盘行为 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 39、⌨️ 键盘行为 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * <a href="#监听@键盘（弹起&落下）" style="font-size:17px; color:green;"><b>👂监听@键盘（弹起&落下）</b></a>
 

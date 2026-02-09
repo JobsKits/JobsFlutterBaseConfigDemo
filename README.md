@@ -16,15 +16,23 @@
 
 [toc]
 
-当前总行数：
-
 ## 🔥<font id=前言>前言</font>
 
->温馨提示🔔：本文较长，需要⏬下载到本地以后，方能完整阅读。推荐阅读器 ➤ [**Typora**](https://typora.io/)
+> 当前总行数：
 
-* **工欲善其事必先利其器**
-* **站在巨人的肩膀上，才能看得更远**
-* **面向信仰编程**
+* 🔧**工欲善其事必先利其器**
+
+* 🌋 **站在巨人的肩膀上，才能看得更远**
+
+* ✝️ **面向信仰编程**
+
+* 🔔 **温馨提示**：本文较长，直接访问[**Github**](https://github.com/)无法完整阅读全文
+
+  * 推荐⏬下载到本地以便完整阅读。推荐阅读器 ➤ [**Typora**](https://typora.io/)
+
+  * 或者[**Google chrome浏览器**](https://www.google.com/intl/zh-CN/chrome/) 安装`Markdown Preview Plus`插件并启用
+
+    ![image-20260209141216136](./assets/image-20260209141216136.png)
 
 ## 一、🎯项目白皮书 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 

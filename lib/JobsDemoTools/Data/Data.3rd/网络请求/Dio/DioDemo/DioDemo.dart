@@ -92,7 +92,8 @@ class _DioDemoPageState extends State<DioDemoPage> {
       final responseMap = Map<String, dynamic>.from(response.data as Map);
       final data = Map<String, dynamic>.from(responseMap['data'] as Map);
       final records = List<Map<String, dynamic>>.from(
-        (data['records'] as List).map((item) => Map<String, dynamic>.from(item as Map)),
+        (data['records'] as List)
+            .map((item) => Map<String, dynamic>.from(item as Map)),
       );
 
       setState(() {
@@ -113,49 +114,52 @@ class _DioDemoPageState extends State<DioDemoPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Wrap(
-                  spacing: 12,
-                  runSpacing: 12,
-                  children: [
-                    ElevatedButton(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
                       onPressed: _loadingGet ? null : _fetchGetData,
                       child: Text(_loadingGet ? 'GET 加载中...' : '发起 GET 请求'),
                     ),
-                    ElevatedButton(
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton(
                       onPressed: _loadingPost ? null : _fetchPostData,
                       child: Text(_loadingPost ? 'POST 加载中...' : '发起 POST 请求'),
                     ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  _statusText,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
                   ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Text(
+                _statusText,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-              children: [
-                _buildGetSection(),
-                const SizedBox(height: 16),
-                _buildPostSection(),
-              ],
-            ),
+        ),
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+            children: [
+              _buildGetSection(),
+              const SizedBox(height: 16),
+              _buildPostSection(),
+            ],
           ),
-        ],
-      );
+        ),
+      ],
+    );
   }
 
   Widget _buildGetSection() {
@@ -179,7 +183,8 @@ class _DioDemoPageState extends State<DioDemoPage> {
               const SizedBox(height: 8),
               Text('当前城市：${_getData?['profile']?['city'] ?? '--'}'),
               const SizedBox(height: 8),
-              Text('会员等级：${_getData?['profile']?['membership']?['level'] ?? '--'}'),
+              Text(
+                  '会员等级：${_getData?['profile']?['membership']?['level'] ?? '--'}'),
               const SizedBox(height: 8),
               Text(
                 '统计摘要：订单 ${_getData?['stats']?['orderCount'] ?? '--'}，待支付 ${_getData?['stats']?['pendingCount'] ?? '--'}，总金额 ${_getData?['stats']?['totalAmount'] ?? '--'}',
@@ -233,7 +238,8 @@ class _DioDemoPageState extends State<DioDemoPage> {
     final address = Map<String, dynamic>.from(user['address'] as Map? ?? {});
     final summary = Map<String, dynamic>.from(item['summary'] as Map? ?? {});
     final productList = List<Map<String, dynamic>>.from(
-      ((item['products'] as List?) ?? []).map((e) => Map<String, dynamic>.from(e as Map)),
+      ((item['products'] as List?) ?? [])
+          .map((e) => Map<String, dynamic>.from(e as Map)),
     );
     final tags = List<String>.from(item['tags'] as List? ?? []);
 
@@ -253,7 +259,8 @@ class _DioDemoPageState extends State<DioDemoPage> {
           ),
           const SizedBox(height: 6),
           Text('用户：${user['name'] ?? '--'}  (${user['phone'] ?? '--'})'),
-          Text('地址：${address['province'] ?? ''}${address['city'] ?? ''}${address['detail'] ?? ''}'),
+          Text(
+              '地址：${address['province'] ?? ''}${address['city'] ?? ''}${address['detail'] ?? ''}'),
           Text('状态：${summary['statusText'] ?? '--'}'),
           Text('总价：¥${summary['finalAmount'] ?? '--'}'),
           Text('标签：${tags.join('、')}'),

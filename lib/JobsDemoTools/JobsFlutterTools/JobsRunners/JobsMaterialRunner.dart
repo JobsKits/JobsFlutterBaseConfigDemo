@@ -51,7 +51,7 @@ class JobsMaterialRunner extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: title ?? (child?.runtimeType.toString() ?? 'Builder'),
           theme: ThemeData(
-            useMaterial3: true,// Material Design 3 (Material You)
+            useMaterial3: true, // Material Design 3 (Material You)
             primarySwatch: Colors.blue,
             colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
                 .copyWith(secondary: Colors.orange),
@@ -59,11 +59,11 @@ class JobsMaterialRunner extends StatelessWidget {
             //   Theme.of(context).textTheme,
             // ),
             elevatedButtonTheme: ElevatedButtonThemeData(
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.blue,
-    foregroundColor: Colors.white,
-  ),
-),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+              ),
+            ),
             appBarTheme: const AppBarTheme(
               backgroundColor: Colors.blue,
               titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),

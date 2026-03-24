@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 // 🚀 入口点：用 ProviderScope 包裹整个 App
 void main() {
   runApp(const ProviderScope(child: MyApp()));

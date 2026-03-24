@@ -121,7 +121,7 @@ class _MyAppState extends State<MyApp> {
     );
 
     await flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
+      settings:initializationSettings,
       onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
       onDidReceiveBackgroundNotificationResponse:
           notificationTapBackground, // 可选：处理后台点击
@@ -188,10 +188,10 @@ class _MyAppState extends State<MyApp> {
     );
 
     await flutterLocalNotificationsPlugin.show(
-      0,
-      'Hello!',
-      'This is a local notification.',
-      platformChannelSpecifics,
+      id: 0,
+      title:'Hello!',
+      body:'This is a local notification.',
+      notificationDetails:platformChannelSpecifics,
       payload: 'item id 123',
     );
   }

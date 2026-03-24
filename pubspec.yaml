@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   # UI组件库
-  ym_flutter_widget: any
+  # ym_flutter_widget: any
   flutter_svg: any
   oktoast: any # 轻量级toast
   extended_tabs: any # 扩展TabBar
@@ -43,7 +43,6 @@ dependencies:
   cached_network_image: any # 用于显示网络图片
   # 图片处理
   # flutter_native_image: any # 用于处理原生图片 🚨 打包失败
-  flutter_advanced_networkimage_2: any # 用于处理网络图片(图片缓存 + 控制flutter_cache_manager)
   flutter_cache_manager: any # 用于处理网络图片(独立缓存控制)
   # 数据处理
   equatable: any # 用于定义值对象的相等性
@@ -52,7 +51,7 @@ dependencies:
   shared_preferences: any # 用于存储键值对数据
   encrypt: any # 用于加密数据
   pointycastle: any # 用于加密数据
-  video_compress: any # 用于处理视频
+  # video_compress: any # 用于处理视频
   json_annotation: any # 用于处理json数据
   # 状态管理
   get: any # 用于管理应用状态
@@ -98,7 +97,7 @@ dependencies:
   url_launcher: any # 用于在移动应用中打开 URLs，包括网页、电子邮件、电话等
   path: any # 用于处理文件路径
   path_provider: any # 用于获取文件路径
-  google_fonts: any # 用于使用Google Fonts字体
+  # google_fonts: any # 用于使用Google Fonts字体
   flutter_local_notifications: any # 用于显示本地通知
   auto_route: any # 用于管理应用路由
   flutter_screenutil: any # 用于屏幕适配

@@ -55,23 +55,16 @@ PODS:
     - Flutter
   - flutter_plugin_engagelab (0.0.3):
     - Flutter
-    - MTPush (= 5.0.0)
+    - MTPush (= 5.3.0)
   - image_picker_ios (0.0.1):
     - Flutter
-  - MTBBarcodeScanner (5.0.11)
-  - MTPush (5.0.0)
+  - MTPush (5.3.0)
   - OrderedSet (6.0.3)
   - package_info_plus (0.4.5):
     - Flutter
-  - path_provider_foundation (0.0.1):
-    - Flutter
-    - FlutterMacOS
-  - qr_code_scanner (0.2.0):
-    - Flutter
-    - MTBBarcodeScanner
-  - SDWebImage (5.21.1):
-    - SDWebImage/Core (= 5.21.1)
-  - SDWebImage/Core (5.21.1)
+  - SDWebImage (5.21.7):
+    - SDWebImage/Core (= 5.21.7)
+  - SDWebImage/Core (5.21.7)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -82,8 +75,6 @@ PODS:
   - url_launcher_ios (0.0.1):
     - Flutter
   - vibration (3.0.0):
-    - Flutter
-  - video_compress (0.3.0):
     - Flutter
   - video_player_avfoundation (0.0.1):
     - Flutter
@@ -107,13 +98,10 @@ DEPENDENCIES:
   - flutter_plugin_engagelab (from `.symlinks/plugins/flutter_plugin_engagelab/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
-  - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite_darwin (from `.symlinks/plugins/sqflite_darwin/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
   - vibration (from `.symlinks/plugins/vibration/ios`)
-  - video_compress (from `.symlinks/plugins/video_compress/ios`)
   - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/darwin`)
   - wakelock_plus (from `.symlinks/plugins/wakelock_plus/ios`)
   - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
@@ -122,7 +110,6 @@ SPEC REPOS:
   trunk:
     - DKImagePickerController
     - DKPhotoGallery
-    - MTBBarcodeScanner
     - MTPush
     - OrderedSet
     - SDWebImage
@@ -153,10 +140,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_picker_ios/ios"
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
-  path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/darwin"
-  qr_code_scanner:
-    :path: ".symlinks/plugins/qr_code_scanner/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite_darwin:
@@ -165,8 +148,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
   vibration:
     :path: ".symlinks/plugins/vibration/ios"
-  video_compress:
-    :path: ".symlinks/plugins/video_compress/ios"
   video_player_avfoundation:
     :path: ".symlinks/plugins/video_player_avfoundation/darwin"
   wakelock_plus:
@@ -176,7 +157,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   audioplayers_darwin: ccf9c770ee768abb07e26d90af093f7bab1c12ab
-  camera_avfoundation: be3be85408cd4126f250386828e9b1dfa40ab436
+  camera_avfoundation: 968a9a5323c79a99c166ad9d7866bfd2047b5a9b
   connectivity_plus: cb623214f4e1f6ef8fe7403d580fdad517d2f7dd
   device_info_plus: 21fcca2080fbcd348be798aa36c3e5ed849eefbe
   DKImagePickerController: 946cec48c7873164274ecc4624d19e3da4c1ef3c
@@ -185,26 +166,22 @@ SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   flutter_icmp_ping: 47c1df3440c18ddd39fc457e607bb3b42d4a339f
   flutter_inappwebview_ios: b89ba3482b96fb25e00c967aae065701b66e9b99
-  flutter_local_notifications: 395056b3175ba4f08480a7c5de30cd36d69827e4
-  flutter_plugin_engagelab: a624a908faff370efd2b566574fcd40809e5640a
-  image_picker_ios: 7fe1ff8e34c1790d6fff70a32484959f563a928a
-  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
-  MTPush: 0b3853e93099c87ea11601424a353ed86e7406c1
+  flutter_local_notifications: 643a3eda1ce1c0599413ca31672536d423dee214
+  flutter_plugin_engagelab: f8f43c301aab184bef2370c131c50385321d1c12
+  image_picker_ios: e0ece4aa2a75771a7de3fa735d26d90817041326
+  MTPush: a801354d9a8a9191819a8a9e03484531cc702ede
   OrderedSet: e539b66b644ff081c73a262d24ad552a69be3a94
   package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
-  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
-  qr_code_scanner: d77f94ecc9abf96d9b9b8fc04ef13f611e5a147a
-  SDWebImage: f29024626962457f3470184232766516dee8dfea
-  shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
+  SDWebImage: e9fc87c1aab89a8ab1bbd74eba378c6f53be8abf
+  shared_preferences_foundation: 7036424c3d8ec98dfe75ff1667cb0cd531ec82bb
   sqflite_darwin: 20b2a3a3b70e43edae938624ce550a3cbf66a3d0
   SwiftyGif: 706c60cf65fa2bc5ee0313beece843c8eb8194d4
-  url_launcher_ios: 694010445543906933d732453a59da0a173ae33d
-  vibration: 69774ad57825b11c951ee4c46155f455d7a592ce
-  video_compress: f2133a07762889d67f0711ac831faa26f956980e
-  video_player_avfoundation: 2cef49524dd1f16c5300b9cd6efd9611ce03639b
+  url_launcher_ios: 7a95fa5b60cc718a708b8f2966718e93db0cef1b
+  vibration: ca8104a8875b9c493e15b21b04e456befd0ff6eb
+  video_player_avfoundation: dd410b52df6d2466a42d28550e33e4146928280a
   wakelock_plus: e29112ab3ef0b318e58cfa5c32326458be66b556
-  webview_flutter_wkwebview: 1821ceac936eba6f7984d89a9f3bcb4dea99ebb2
+  webview_flutter_wkwebview: 8ebf4fded22593026f7dbff1fbff31ea98573c8d
 
-PODFILE CHECKSUM: 251cb053df7158f337c0712f2ab29f4e0fa474ce
+PODFILE CHECKSUM: b27e2b76c8d4d94645a6fbd3499d671ae4556c47
 
 COCOAPODS: 1.16.2

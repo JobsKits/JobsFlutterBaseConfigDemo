@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/src/extensions/export.dart';
-import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
+// import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 
 // import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';// 公共测试器路径
 // void main() => runApp(const JobsMaterialRunner(CustomOverlayDemo(),title:'XXX'));
@@ -55,9 +55,9 @@ class JobsMaterialRunner extends StatelessWidget {
             primarySwatch: Colors.blue,
             colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
                 .copyWith(secondary: Colors.orange),
-            textTheme: GoogleFonts.latoTextTheme(
-              Theme.of(context).textTheme,
-            ),
+            // textTheme: GoogleFonts.latoTextTheme(
+            //   Theme.of(context).textTheme,
+            // ),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
             ),

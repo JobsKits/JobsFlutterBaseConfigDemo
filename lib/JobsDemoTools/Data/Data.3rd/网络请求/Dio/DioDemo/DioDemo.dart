@@ -112,11 +112,7 @@ class _DioDemoPageState extends State<DioDemoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dio GET / POST Demo'),
-      ),
-      body: Column(
+    return Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(16),
@@ -159,8 +155,7 @@ class _DioDemoPageState extends State<DioDemoPage> {
             ),
           ),
         ],
-      ),
-    );
+      );
   }
 
   Widget _buildGetSection() {

@@ -59,8 +59,11 @@ class JobsMaterialRunner extends StatelessWidget {
             //   Theme.of(context).textTheme,
             // ),
             elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-            ),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.blue,
+    foregroundColor: Colors.white,
+  ),
+),
             appBarTheme: const AppBarTheme(
               backgroundColor: Colors.blue,
               titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),

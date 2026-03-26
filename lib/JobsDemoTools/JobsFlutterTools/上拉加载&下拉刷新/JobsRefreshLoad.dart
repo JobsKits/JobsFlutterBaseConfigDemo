@@ -1,22 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad/JobsRefreshLoadController.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad/JobsRefreshLoadList.dart';
+import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const DemoPage(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
+void main() =>
+    runApp(JobsGetRunner(const DemoPage(), title: 'JobsRefreshLoad'));
 
 class DemoPage extends StatefulWidget {
   const DemoPage({super.key});
@@ -44,17 +32,14 @@ class _DemoPageState extends State<DemoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("RefreshLoadList Demo")),
-      body: JobsRefreshLoadList<String>(
-        controller: controller,
-        zebra: true, // ✅ 开启斑马纹
-        itemBuilder: (ctx, item, index) {
-          return ListTile(
-            title: Text(item),
-          );
-        },
-      ),
+    return JobsRefreshLoadList<String>(
+      controller: controller,
+      zebra: true, // ✅ 开启斑马纹
+      itemBuilder: (ctx, item, index) {
+        return ListTile(
+          title: Text(item),
+        );
+      },
     );
   }
 }

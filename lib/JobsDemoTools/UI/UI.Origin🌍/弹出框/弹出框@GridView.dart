@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart';
+
 /// 弹出一个GridView展示会员等级和对应的优惠信息，点击按钮可以关闭弹窗
-void main() => runApp(JobsGetRunner(const DemoPage(), title: 'Popup GridView Demo'));
+void main() =>
+    runApp(JobsGetRunner(const DemoPage(), title: 'Popup GridView Demo'));
 
 class DemoPage extends StatelessWidget {
   const DemoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter 弹出 View Demo'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            MembershipDiscountPopup.show(context);
-          },
-          child: const Text('弹出会员优惠信息'),
-        ),
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          MembershipDiscountPopup.show(context);
+        },
+        child: const Text('弹出会员优惠信息'),
       ),
     );
   }
@@ -103,7 +100,8 @@ class MembershipDiscountPopup extends StatelessWidget {
                   padding: const EdgeInsets.all(12),
                   child: GridView.builder(
                     itemCount: _data.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3, // 3列
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 10,

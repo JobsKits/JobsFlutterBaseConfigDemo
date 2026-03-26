@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 // 监听键盘实时的高度变化
 
 void main() => runApp(const JobsMaterialRunner(KeyboardHeightScreen(),

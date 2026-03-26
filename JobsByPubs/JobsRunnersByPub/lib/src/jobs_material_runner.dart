@@ -1,25 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/src/extensions/export.dart';
-// import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 
-// import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';// 公共测试器路径
-// void main() => runApp(const JobsMaterialRunner(CustomOverlayDemo(),title:'XXX'));
-// void main() {
-//   runApp(JobsMaterialRunner.builder(
-//     title: 'Flutter Bloc Demo',
-//     builder: (ctx) {
-//       return BlocProvider(
-//         create: (_) => CounterBloc(),
-//         child: const CounterPage(),
-//       );
-//     },
-//   ));
-// }
-
-/// 通用组件测试器(Android 风格)，自动生成可运行页面
-/// 通用组件测试器：支持 child 和 builder 两种形式
-/// ScreenUtilInit 只能搭配 MaterialApp 使用，不支持其他组件
+/// 通用组件测试器（Android / Material 风格）
+/// 支持 child 和 builder 两种形式
 class JobsMaterialRunner extends StatelessWidget {
   final Widget Function(BuildContext context)? builder;
   final Widget? child;
@@ -44,20 +28,17 @@ class JobsMaterialRunner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ScreenUtilInit(
-        designSize: const Size(1125, 2436), // ← 设计稿尺寸
-        minTextAdapt: true, // ← 修复 _minTextAdapt 初始化报错
+        designSize: const Size(1125, 2436),
+        minTextAdapt: true,
         child: child,
         builder: (context, _) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: title ?? (child?.runtimeType.toString() ?? 'Builder'),
           theme: ThemeData(
-            useMaterial3: true, // Material Design 3 (Material You)
+            useMaterial3: true,
             primarySwatch: Colors.blue,
             colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
                 .copyWith(secondary: Colors.orange),
-            // textTheme: GoogleFonts.latoTextTheme(
-            //   Theme.of(context).textTheme,
-            // ),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,

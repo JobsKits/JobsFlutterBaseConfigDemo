@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // 展示了如何在 Column 或 Row 中使用 Expanded 小部件来填充可用空间：
 // Column 包含三个 Container 小部件。

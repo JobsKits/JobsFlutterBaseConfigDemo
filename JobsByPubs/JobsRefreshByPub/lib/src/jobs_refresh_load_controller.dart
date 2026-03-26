@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 
 typedef FetchPage<T> = Future<List<T>> Function(int page, int pageSize);
 

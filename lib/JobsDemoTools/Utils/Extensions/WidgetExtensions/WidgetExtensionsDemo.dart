@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/Utils/Extensions/WidgetExtensions/onGestures.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/Utils/Extensions/WidgetExtensions/onWidgets.dart';
 
 void main() =>
     runApp(const JobsMaterialRunner(GestureDemoPage(), title: '手势扩展示例'));
+
 class GestureDemoPage extends StatefulWidget {
   const GestureDemoPage({super.key});
 
@@ -13,7 +14,7 @@ class GestureDemoPage extends StatefulWidget {
 }
 
 class _GestureDemoPageState extends State<GestureDemoPage> {
-String _log = "等待手势...";
+  String _log = "等待手势...";
 
   void _updateLog(String text) {
     setState(() => _log = text);

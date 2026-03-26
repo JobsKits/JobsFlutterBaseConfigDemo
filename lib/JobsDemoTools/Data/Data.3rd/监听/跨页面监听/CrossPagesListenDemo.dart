@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 import 'controllers/form_controller.dart';
 import 'widgets/JobsButton.dart';
 import 'widgets/JobsTextField.dart';
@@ -13,7 +13,8 @@ import 'widgets/JobsTextField.dart';
 void main() {
   runApp(JobsGetRunner.builder(
     title: 'Obx 测试',
-    builder: (ctx) => HomeScreen(), bindings: null,
+    builder: (ctx) => HomeScreen(),
+    bindings: null,
   ));
 }
 

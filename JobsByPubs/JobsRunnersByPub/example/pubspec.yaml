@@ -1,0 +1,14 @@
+name: jobs_runners_example
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  jobs_runners:
+    path: ../
+
+flutter:
+  uses-material-design: true

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // 这个示例展示了如何使用 Stack 小部件在同一屏幕上重叠显示多个小部件
 // Positioned 小部件用于将按钮定位到 Stack 的右下角。通过指定 bottom 和 right 属性，可以精确控制按钮的位置。

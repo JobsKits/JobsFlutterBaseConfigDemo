@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 
 void main() =>
     runApp(const JobsMaterialRunner(CenterDemo(), title: 'Center 属性演示'));

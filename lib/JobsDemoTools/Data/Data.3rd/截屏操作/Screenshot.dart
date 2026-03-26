@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 import 'package:screenshot/screenshot.dart'; // 公共测试器路径
 
 // dependencies:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad/JobsRefreshLoadController.dart';
+
+import 'jobs_refresh_load_controller.dart';
 
 /// 通用列表组件
 class JobsRefreshLoadList<T> extends StatefulWidget {
@@ -9,7 +10,7 @@ class JobsRefreshLoadList<T> extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final ScrollPhysics? physics;
   final Color? refreshColor;
-  final bool zebra; // ✅ 行条纹
+  final bool zebra;
   final Color? zebraOddColor;
   final Color? zebraEvenColor;
   final Widget Function(BuildContext ctx)? emptyBuilder;
@@ -46,9 +47,7 @@ class _JobsRefreshLoadListState<T> extends State<JobsRefreshLoadList<T>> {
     super.initState();
     widget.controller.addListener(_onChanged);
     _scrollCtrl.addListener(_onScroll);
-    // 首次自动刷新
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => widget.controller.refresh());
+    WidgetsBinding.instance.addPostFrameCallback((_) => widget.controller.refresh());
   }
 
   @override
@@ -68,13 +67,13 @@ class _JobsRefreshLoadListState<T> extends State<JobsRefreshLoadList<T>> {
   }
 
   void _onChanged() => setState(() {});
+
   void _onScroll() {
     final c = widget.controller;
     if (c.hasMore &&
         !c.isLoadingMore &&
         !c.isRefreshing &&
-        _scrollCtrl.position.pixels >=
-            _scrollCtrl.position.maxScrollExtent - 200) {
+        _scrollCtrl.position.pixels >= _scrollCtrl.position.maxScrollExtent - 200) {
       c.loadMore();
     }
   }
@@ -83,12 +82,11 @@ class _JobsRefreshLoadListState<T> extends State<JobsRefreshLoadList<T>> {
   Widget build(BuildContext context) {
     final c = widget.controller;
 
-    // 初次加载中的占位
     if (c.items.isEmpty && (c.isRefreshing || c.isLoadingMore)) {
       return widget.loadingBuilder?.call(context) ??
           const Center(child: CircularProgressIndicator(strokeWidth: 2));
     }
-    // 空态
+
     if (c.items.isEmpty) {
       return RefreshIndicator(
         onRefresh: c.refresh,
@@ -98,8 +96,7 @@ class _JobsRefreshLoadListState<T> extends State<JobsRefreshLoadList<T>> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 80),
-              child: widget.emptyBuilder?.call(context) ??
-                  const Center(child: Text('暂无数据')),
+              child: widget.emptyBuilder?.call(context) ?? const Center(child: Text('暂无数据')),
             ),
           ],
         ),
@@ -113,11 +110,10 @@ class _JobsRefreshLoadListState<T> extends State<JobsRefreshLoadList<T>> {
         controller: _scrollCtrl,
         physics: widget.physics ?? const AlwaysScrollableScrollPhysics(),
         padding: widget.padding,
-        itemCount: c.items.length + 1, // +1 footer
+        itemCount: c.items.length + 1,
         separatorBuilder: (ctx, i) =>
             widget.separatorBuilder?.call(ctx, i) ?? const SizedBox.shrink(),
         itemBuilder: (ctx, i) {
-          // footer
           if (i == c.items.length) {
             if (c.isLoadingMore) {
               return widget.footerLoadingBuilder?.call(ctx) ??
@@ -147,12 +143,11 @@ class _JobsRefreshLoadListState<T> extends State<JobsRefreshLoadList<T>> {
           final item = c.items[i];
           Widget child = widget.itemBuilder(ctx, item, i);
 
-          // 行条纹
           if (widget.zebra) {
             final odd = widget.zebraOddColor ?? const Color(0xFF262C39);
             final even = widget.zebraEvenColor ?? const Color(0xFF1E232F);
             child = Container(
-              color: (i.isEven) ? even : odd,
+              color: i.isEven ? even : odd,
               child: child,
             );
           }

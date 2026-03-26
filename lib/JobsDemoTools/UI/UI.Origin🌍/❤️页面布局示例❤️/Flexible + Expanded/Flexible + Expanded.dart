@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // Expanded 不能直接嵌套在 Flexible 中使用
 // Expanded 本身是一个 Flexible

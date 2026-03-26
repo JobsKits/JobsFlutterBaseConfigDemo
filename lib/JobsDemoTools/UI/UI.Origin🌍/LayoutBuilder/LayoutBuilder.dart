@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 
 // 根据父小部件的大小动态构建布局：
 // LayoutBuilder 被用作 Container 的子小部件。

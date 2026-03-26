@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 import 'package:get/get.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 import 'package:jobs_flutter_base_config/core/app_config.dart';
 
 // 使用第三方库 flutter_fortune_wheel 实现抽奖轮盘

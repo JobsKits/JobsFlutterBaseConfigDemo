@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 
-void main() => runApp(JobsMaterialRunner(_buildAmountShort(),title:'JobsRichTextDemo'));
+void main() =>
+    runApp(JobsMaterialRunner(_buildAmountShort(), title: 'JobsRichTextDemo'));
 
 Widget _buildAmountShort() {
   final base = TextStyle(

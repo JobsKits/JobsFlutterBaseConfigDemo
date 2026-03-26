@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad/JobsRefreshLoadController.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad/JobsRefreshLoadList.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart';
+import 'package:jobs_refresh_load/jobs_refresh_load.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 
 void main() =>
     runApp(JobsGetRunner(const DemoPage(), title: 'JobsRefreshLoad'));

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 /// Wrap 示例: 使用 Wrap 来让子组件（例如 Icon 和 Text）自动换行。
 void main() => runApp(const JobsMaterialRunner(MyApp(), title: 'Wrap Demo'));

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 
-void main() => runApp(const JobsMaterialRunner(
-    MainPage(),
-    title: '安全加载图片'));
+void main() => runApp(const JobsMaterialRunner(MainPage(), title: '安全加载图片'));
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -115,10 +113,14 @@ class _SubPageState extends State<SubPage> {
                   ),
                   child: Column(
                     children: [
-                      Icon(Icons.star, color: selected ? Colors.orange : Colors.grey),
+                      Icon(Icons.star,
+                          color: selected ? Colors.orange : Colors.grey),
                       const SizedBox(height: 4),
                       Text(menuList[index],
-                          style: TextStyle(fontSize: 12, color: selected ? Colors.orange : Colors.black54)),
+                          style: TextStyle(
+                              fontSize: 12,
+                              color:
+                                  selected ? Colors.orange : Colors.black54)),
                     ],
                   ),
                 ),
@@ -133,7 +135,8 @@ class _SubPageState extends State<SubPage> {
             padding: const EdgeInsets.all(12),
             itemCount: 5,
             itemBuilder: (_, index) => _ActivityCard(
-              title: '${widget.title} - ${menuList[selectedIndex]} 活动 ${index + 1}',
+              title:
+                  '${widget.title} - ${menuList[selectedIndex]} 活动 ${index + 1}',
               subtitle: '神秘彩金等你来拿',
               icon: Icons.mail,
               color: Colors.purple.shade100,
@@ -166,7 +169,8 @@ class _ActivityCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [color.withValues(alpha:0.6), color]),
+          gradient:
+              LinearGradient(colors: [color.withValues(alpha: 0.6), color]),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -178,10 +182,12 @@ class _ActivityCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 4),
                   Text(subtitle,
-                      style: const TextStyle(fontSize: 14, color: Colors.black54)),
+                      style:
+                          const TextStyle(fontSize: 14, color: Colors.black54)),
                 ],
               ),
             ),

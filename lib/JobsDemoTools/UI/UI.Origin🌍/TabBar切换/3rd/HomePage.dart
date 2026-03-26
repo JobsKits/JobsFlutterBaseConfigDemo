@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 import '../Common/MyTabCtrl.dart';
 
 void main() => runApp(JobsGetRunner(HomePage(), title: '简单测试'.tr));

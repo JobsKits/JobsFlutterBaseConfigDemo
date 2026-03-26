@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 
 void main() => runApp(JobsGetRunner(const FileImageCacheDemo(),
     title: 'flutter_cache_manager + Image.file 示例'));

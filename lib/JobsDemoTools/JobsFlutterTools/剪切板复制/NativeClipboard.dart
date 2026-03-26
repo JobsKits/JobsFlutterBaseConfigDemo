@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/通用点击组件/CommonRipple.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 import 'package:oktoast/oktoast.dart';
 
 void main() => runApp(
-  OKToast(
-    child: JobsMaterialRunner.builder(
-      title: '点击按钮@复制到剪切板',
-      builder: (ctx) => buildInviteCode('123456'), // ← 延后到 ScreenUtilInit 之后再构建
-    ),
-  ),
-);
+      OKToast(
+        child: JobsMaterialRunner.builder(
+          title: '点击按钮@复制到剪切板',
+          builder: (ctx) =>
+              buildInviteCode('123456'), // ← 延后到 ScreenUtilInit 之后再构建
+        ),
+      ),
+    );
 
 Widget buildInviteCode(String inviteCode) {
   return SizedBox(

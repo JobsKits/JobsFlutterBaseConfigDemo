@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // 水平滚动的时候，一格一格的滚动，滚动距离为设备宽度，高度随内容变化；有弹簧效果
 // 垂直滚动的时候，一格一格的滚动，滚动距离为设备高度，宽度随内容变化；有弹簧效果

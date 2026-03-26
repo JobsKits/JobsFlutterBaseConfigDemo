@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 
 /// 弹出一个表格展示会员等级和对应的优惠信息，点击按钮可以关闭弹窗
 void main() =>

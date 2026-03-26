@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // 不跳转系统相机，就在当前页面，进行录像或者拍照，且显示拍摄的结果
 // 可以对拍摄的结果进行保存在本地相册（相册名：Jobs）

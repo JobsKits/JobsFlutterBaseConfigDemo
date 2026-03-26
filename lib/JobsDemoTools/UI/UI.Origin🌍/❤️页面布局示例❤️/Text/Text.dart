@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // 在 Flutter 中，Text 控件可以通过 softWrap 和 overflow 属性来控制文字超出边界时的行为。
 // 如果你想要文字超出边界时换行显示，可以设置 softWrap 为 true。

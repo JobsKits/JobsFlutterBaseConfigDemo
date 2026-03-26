@@ -1,0 +1,21 @@
+name: jobs_refresh_load
+description: A lightweight Flutter refresh + load-more list package with a controller and reusable list widget.
+version: 0.0.1
+homepage: https://example.com
+repository: https://example.com
+issue_tracker: https://example.com/issues
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: '>=3.19.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:

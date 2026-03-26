@@ -1,0 +1,15 @@
+name: jobs_safety_get_value
+version: 0.0.1
+publish_to: 'none'
+description: Safe typed value access helper for Map with optional default values.
+homepage: https://example.com
+repository: https://example.com/repo
+issue_tracker: https://example.com/issues
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

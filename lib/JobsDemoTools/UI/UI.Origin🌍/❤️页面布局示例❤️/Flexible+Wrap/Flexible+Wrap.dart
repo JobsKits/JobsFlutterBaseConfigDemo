@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // FlexibleWrapDemo: 展示 Row 包含一个图标和一个会换行的文本的示例小部件。
 // Row: 主容器，包含一个 Icon 和一个 Flexible 小部件。

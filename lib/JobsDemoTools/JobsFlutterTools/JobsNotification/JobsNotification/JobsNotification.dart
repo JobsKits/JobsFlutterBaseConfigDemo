@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsNotification/JobsNotificationDemo/JobsNotificationDemoPageA.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 
 void main() => runApp(
     JobsGetRunner(JobsNotificationDemoPageA(), title: 'Page A - GetX全局通知'));

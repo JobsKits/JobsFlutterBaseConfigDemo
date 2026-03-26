@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // 演示了类似于iOS.UITableView的效果： ListView + 自定义Cell + 点击Cell跳转到DetailPage
 // 真机运行如果出现空白页面的解决方案：

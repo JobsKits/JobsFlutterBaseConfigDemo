@@ -19,6 +19,12 @@ dependencies:
   # 核心库
   flutter:
     sdk: flutter
+  jobs_refresh_load:
+    path: ./JobsByPubs/JobsRefreshByPub
+  jobs_runners:
+    path: ./JobsByPubs/JobsRunnersByPub
+  jobs_safety_get_value:
+    path: ./JobsByPubs/JobsSafetyGetValueByPub
   # UI组件库
   # ym_flutter_widget: any
   flutter_svg: any

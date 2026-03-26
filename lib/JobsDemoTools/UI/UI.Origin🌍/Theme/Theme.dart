@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // 在 Flutter 中，主题（Theme）是一个用于定义应用程序整体视觉外观和感觉的工具。
 // 通过主题，你可以定义应用程序的颜色、字体、图标样式等。

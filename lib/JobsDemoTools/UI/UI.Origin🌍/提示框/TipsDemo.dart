@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 import 'JobsAlertDialog.dart'; // 引入自定义弹窗文件
 
 void main() => runApp(const JobsMaterialRunner(HomeScreen(), title: 'XXX'));

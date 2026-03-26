@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsGetXRunner.dart';
+import 'package:jobs_runners/jobs_runners.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/PopScope监听和自定义返回按钮行为/PopConfirmWrapper.dart';
 import 'package:jobs_flutter_base_config/core/app_config.dart';
 import 'package:jobs_flutter_base_config/pages/Others/Pages.dart';

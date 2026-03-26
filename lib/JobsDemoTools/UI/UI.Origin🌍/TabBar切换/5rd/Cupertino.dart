@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsCupertinoRunner.dart';
-
+import 'package:jobs_runners/jobs_runners.dart';
 void main() => runApp(
       JobsCupertinoRunner(
         MyCupertinoTabPage(),

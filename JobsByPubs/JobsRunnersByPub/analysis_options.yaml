@@ -1,0 +1,6 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    non_constant_identifier_names: false # 允许大写开头的变量名
+    file_names: false

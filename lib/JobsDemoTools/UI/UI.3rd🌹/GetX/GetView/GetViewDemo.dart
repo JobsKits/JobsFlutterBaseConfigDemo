@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 /// GetView 是 GetX 框架提供的一个工具，用于方便地创建视图。
 /// 因为它继承自 StatelessWidget，所以它是无状态的。无状态小部件没有内部状态，不会在构建后发生变化。

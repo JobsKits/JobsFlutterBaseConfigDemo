@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_plugin_engagelab/flutter_plugin_engagelab.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsRunners/JobsMaterialRunner.dart'; // 公共测试器路径
+import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
 
 // App 生命周期监听主要通过实现 WidgetsBindingObserver 接口来完成。这个接口提供了一系列回调，可以监听：
 // 1️⃣ App 前后台切换（如 iOS 的 applicationDidEnterBackground / applicationDidBecomeActive）

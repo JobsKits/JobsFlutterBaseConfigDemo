@@ -4164,6 +4164,9 @@ class XXX extends Object{}
   <summary>GridView</summary>
 
   ```dart
+  /// 默认是垂直滚动
+  /// 可以item总数+每行几个/每个item的宽度==>得出几行（也就是可以省略行数）
+  /// 不能通过行数来反推每行几个/每个item的宽度
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 3, // 每行几个格子
@@ -4199,7 +4202,7 @@ class XXX extends Object{}
     return PageView.builder(
       itemCount: 5, // 页数
       itemBuilder: (context, index) => Center(child: Text('Page $index')),
-
+  
       scrollDirection: Axis.horizontal, // 横向或纵向滑动（默认水平）
       reverse: false, // 是否反向滑动（右滑变成前一页）
       controller: PageController(
@@ -4255,7 +4258,7 @@ class XXX extends Object{}
         print('从 $oldIndex 拖动到 $newIndex');
         // 拖动完成后需自己更新数据源，否则 UI 不会刷新
       },
-
+  
       children: List.generate(
         10,
         (index) => ListTile(
@@ -4264,7 +4267,7 @@ class XXX extends Object{}
           leading: Icon(Icons.drag_handle), // 可拖动提示图标
         ),
       ),
-
+  
       scrollDirection: Axis.vertical, // 滚动方向（默认垂直，可横向）
       reverse: false, // 是否倒序显示
       controller: ScrollController(), // 滚动控制器
@@ -4301,7 +4304,7 @@ class XXX extends Object{}
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.manual,
       restorationId: 'customScrollViewDemo',
       clipBehavior: Clip.hardEdge,
-
+  
       slivers: [
         SliverAppBar(
           pinned: true, // 是否固定顶部（吸顶）
@@ -4426,7 +4429,7 @@ class XXX extends Object{}
         itemCount: 20,
         itemBuilder: (context, index) => ListTile(title: Text('Item $index')),
       ),
-
+  
       thumbVisibility: true, // 始终显示滚动条（默认只在滚动时可见）
       trackVisibility: true, // 显示滚动轨道
       interactive: true, // 是否支持拖动滚动条进行滑动
@@ -4487,12 +4490,12 @@ class XXX extends Object{}
     @override
     _RefreshLoadMoreDemoState createState() => _RefreshLoadMoreDemoState();
   }
-
+  
   class _RefreshLoadMoreDemoState extends State<RefreshLoadMoreDemo> {
     final ScrollController _scrollController = ScrollController();
     List<int> _data = List.generate(20, (i) => i);
     bool _isLoadingMore = false;
-
+  
     @override
     void initState() {
       super.initState();
@@ -4515,16 +4518,16 @@ class XXX extends Object{}
     Future<void> _loadMore() async {
       if (_isLoadingMore) return;
       _isLoadingMore = true;
-
+  
       await Future.delayed(Duration(seconds: 1));
       setState(() {
         int current = _data.length;
         _data.addAll(List.generate(10, (i) => current + i));
       });
-
+  
       _isLoadingMore = false;
     }
-
+  
     @override
     Widget build(BuildContext context) {
       return RefreshIndicator(
@@ -4545,7 +4548,7 @@ class XXX extends Object{}
         ),
       );
     }
-
+  
     @override
     void dispose() {
       _scrollController.dispose();
@@ -19213,7 +19216,7 @@ controller.stream.map((event) => event * 2).where((event) => event is int).disti
 final controller = StreamController.broadcast();
 ```
 
-### 45、[**Dart**](https://dart.dev/)**.**[**Flutter**](https://flutter.dev/)@**页面的销毁**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 45、[**Dart**](https://dart.dev/)**.**[**Flutter**](https://flutter.dev/)@**页面的销毁** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 当通过`Navigator.push()`方法将一个新页面推送到导航堆栈时，通常情况下该页面并不会被销毁。相反，它会被添加到导航堆栈中，并且保持在内存中，直到你显式地将其从导航堆栈中移除。
 * 然而，如果内存资源不足或者 Flutter 的路由管理系统认为需要释放页面以节省内存，那么这个页面可能会被销毁。Flutter提供了一些机制来帮助你管理页面的生命周期和内存使用，例如使用`AutomaticKeepAliveClientMixin`混入类可以在页面切换时保持页面状态。
@@ -19224,8 +19227,145 @@ final controller = StreamController.broadcast();
   * **手动调用`Navigator.removeRoute()`或`Navigator.removeRouteBelow()`**：这两个方法可以手动从导航栈中移除指定的路由或指定路由下面的所有路由。但是要小心使用，因为**直接操作导航栈可能会导致意外的行为**。
   * **使用`PageRoute`的回调函数**：你可以通过`PageRoute`的回调函数来监听页面的生命周期事件，并在适当的时候执行一些操作。例如，你可以在页面`dispose`时执行一些清理操作。
 
+### 46、[**Dart**](https://dart.dev/)**.**[**Flutter**](https://flutter.dev/)@定时机制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+#### 46.1、Timer <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> 延迟执行一次 ➕ 周期执行
+
+```dart
+Timer(const Duration(seconds: 1), () {});
+Timer.periodic(const Duration(seconds: 1), (_) {});
+```
+
+#### 46.2、Future.delayed <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> 一次性延迟任务 ➕ 写异步流程更顺
+
+```dart
+/// 不是一个可取消的独立定时器对象
+Future.delayed(const Duration(seconds: 1), () {
+  print('1秒后执行');
+});
+```
+
+#### 46.3、帧回调 / 动画时钟 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* 每一帧回调一次，适合动画
+
+  ```dart
+  final ticker = Ticker((elapsed) {
+    print(elapsed);
+  });
+  ticker.start();
+  ```
+
+* 在当前帧渲染结束后执行一次
+
+  ```dart
+  /// 用途：等页面 build 完再做事、获取布局尺寸、首帧后弹窗、跳转
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    print('这一帧结束后执行');
+  });
+  ```
+
+#### 46.4、事件循环任务 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+```dart
+scheduleMicrotask(() {
+  print('microtask');
+});
+
+Future(() {
+  print('event queue');
+});
+```
+
+#### 46.5、周期异步流 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> 周期产生数据流和响应式写法更搭
+
+```dart
+Stream.periodic(const Duration(seconds: 1), (count) => count)
+    .listen((value) {
+  print(value);
+});
+```
+
+
+
 ## 七、<font color=red>**F**</font><font color=green>**A**</font><font color=blue>**Q**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
+* **Widget**、**Element**、**RenderObject** 
+
+  > ```
+> Widget.createElement() ──▶   Element.createRenderObject() ──▶  RenderObject
+  >    ↑                            ↓                                  ↓
+> （配置）                   （管理 & 生命周期）                   （布局 & 绘制）
+  > ```
+
+  * **Widget**（像 **JSON** / 配置对象）➤ 只是`描述 UI`、不干活、每次 **build** 都会新建
+
+* **Element**（核心中间层，**Widget** 的**运行时实例**）➤ 长期存在（不会频繁销毁）、持有（**widget**、**state**（如果有））、负责 diff
+  * **RenderObject**（干活的）➤ layout（布局）+ paint（绘制）
+
+* 为什么 **iOS** 的 **UITableView** 比 [**Flutter**](https://flutter.dev/).**ListView** 更稳？[**Flutter**](https://flutter.dev/) 怎么追上？
+
+  > 👉 **UITableView 靠“复用 cell”，Flutter 靠“重建 + diff”**
+  > 👉 iOS 更**保守稳定**，[**Flutter**](https://flutter.dev/) 更“灵活但吃实现质量”
+  >
+  > 👉 [**Flutter**](https://flutter.dev/) 性能的关键在于控制 `rebuild` 范围、降低 `rebuild` 成本以及优化渲染，而不是避免 `build`
+  
+  * **iOS.UITableView**
+  
+    * 没有创建新 View！只是换数据
+  
+      ```objective-c
+      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+      ```
+  
+  * 🔥 [**Flutter**](https://flutter.dev/).**ListView** 如何追上**iOS.UITableView**？
+  
+    * 让 **item** 足够轻（核心）
+  
+      ```dart
+      const Text('xxx')
+      ```
+  
+    * 局部刷新（接近 iOS 思路）
+  
+      ```dart
+      Obx(() => Text('${item.count}'))
+      ```
+  
+    * **Key** 保持稳定（模拟复用）
+  
+      ```dart
+      ValueKey(item.id) // 👉 告诉 Flutter：这个 item 是同一个
+      ```
+  
+    * **itemExtent**（超级关键）
+  
+      ```dart
+      /// 👉 跳过 layout → 性能接近 iOS
+      ListView.builder(
+        itemExtent: 80,
+      )
+      ```
+  
+    * **RepaintBoundary**（隔离重绘）
+  
+      ```dart
+      /// 👉 防止整个列表 repaint
+      RepaintBoundary(child: Item())
+      ```
+  
+    * 图片缓存（[**Flutter**](https://flutter.dev/) 最大短板）
+  
+      ```dart
+    CachedNetworkImage(...)
+      ```
+  
 * <font color=red>不出**UI**的总结</font>
 
   * `Expanded` 不能直接作为 `Container`.`child`

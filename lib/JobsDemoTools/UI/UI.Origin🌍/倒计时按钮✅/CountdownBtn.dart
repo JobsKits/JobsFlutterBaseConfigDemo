@@ -165,6 +165,7 @@ class _CountdownBtnState extends State<CountdownBtn> {
       isPaused = false;
     });
     _timer = Timer.periodic(
+      // Duration(seconds: 1), // 每秒触发一次
       Duration(milliseconds: (widget.timeStep.abs() * 1000).toInt()), // 毫秒为单位
       (timer) {
         setState(() {

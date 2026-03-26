@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'CounterController.dart';
-
 /// 页面
 class CounterPage extends GetView<CounterController> {
   const CounterPage({super.key});
@@ -13,6 +12,7 @@ class CounterPage extends GetView<CounterController> {
         child: Obx(() => Text('当前计数：${controller.count.value}',
             style: const TextStyle(fontSize: 24))),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: controller.increment,
         child: const Icon(Icons.add),

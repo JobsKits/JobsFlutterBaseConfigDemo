@@ -172,31 +172,31 @@ brew tap dart-lang/dart
 
   ```shell
   jenv versions --bare --verbose # 用这里的结果
-
+  
   # 删除构建失败的 jenv 中间件
   rm -f ~/.jenv/shims/.jenv-shim
-
+  
   # 1、让 jenv 在当前 shell 生效
   eval "$(jenv init -)"
-
+  
   # 2、启用 export 插件（自动导出 JAVA_HOME）
   jenv enable-plugin export
-
+  
   # 3、让 jenv 识别本机 JDK 17（若已识别可跳过）
   jenv add "$(/usr/libexec/java_home -v 17)" >/dev/null 2>&1
-
+  
   # 4、更新 shims（新增 JDK 后建议做一次）
   jenv rehash
-
+  
   # 5、在项目内锁定到 JDK 17（JDK 版本号按 jenv versions 里显示来）
   jenv local openjdk64-17.0.16 # 或者 17.0.16
-
+  
   # 6、全局（所有项目默认）
   jenv global openjdk64-24.0.2
-
+  
   # 7、重新加载环境（让 export 插件立刻生效）
   jenv shell openjdk64-17.0.16
-
+  
   # 8、 验证
   echo ""
   java -version
@@ -494,7 +494,7 @@ plugins/
   ```shell
   # 每次打开终端默认进入桌面目录
   cd "$HOME/Desktop"
-
+  
   # 配置 Rbenv.ruby 环境变量（需安装 rbenv）
   if command -v rbenv &>/dev/null; then
     export PATH="$HOME/.rbenv/bin:$PATH"
@@ -510,7 +510,7 @@ plugins/
   else
     echo "⚠️ 未检测到 ruby，建议执行 brew install ruby"
   fi
-
+  
   # 配置 Curl 环境变量（需 Homebrew 安装）
   if command -v curl &>/dev/null; then
     export PATH="/usr/local/opt/curl/bin:$PATH"
@@ -520,7 +520,7 @@ plugins/
   else
     echo "⚠️ curl 未通过 brew 安装，建议执行 brew install curl"
   fi
-
+  
   # 配置 VSCode 命令行（code）
   if [[ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]]; then
     export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -530,7 +530,7 @@ plugins/
   else
     echo "⚠️ 未检测到 VSCode，请先安装 Visual Studio Code 后再运行本脚本"
   fi
-
+  
   # 配置 Flutter 环境变量
   if ! command -v fvm &>/dev/null; then
     if [[ -d "/opt/homebrew/Caskroom/flutter/latest/flutter/bin" ]]; then
@@ -547,7 +547,7 @@ plugins/
   fi
   export PUB_HOSTED_URL=https://pub.dartlang.org
   export FLUTTER_STORAGE_BASE_URL=https://storage.googleapis.com
-
+  
   # 配置 FVM 环境变量
   export PATH="$HOME/.pub-cache/bin:$PATH"
   if command -v fvm &>/dev/null; then
@@ -555,7 +555,7 @@ plugins/
   else
     echo "⚠️ 未检测到 fvm，请执行 flutter pub global activate fvm 安装"
   fi
-
+  
   # 配置 Android SDK 环境变量
   if [[ -d "$HOME/Library/Android/sdk" ]]; then
     export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
@@ -563,7 +563,7 @@ plugins/
   else
     echo "⚠️ 未检测到 Android SDK，请安装 Android Studio 或配置 ANDROID_SDK_ROOT"
   fi
-
+  
   # 配置 JDK / OpenJDK / SDKMAN
   export JAVA_HOME="/opt/homebrew/opt/openjdk"  # 默认值（优先级最低）
   if /usr/libexec/java_home &>/dev/null; then
@@ -579,21 +579,21 @@ plugins/
   else
     echo "⚠️ 未检测到 SDKMAN，请访问 https://sdkman.io 安装"
   fi
-
+  
   # 配置 Gradle 环境变量
   if command -v gradle &>/dev/null; then
     export PATH="$HOME/Documents/Gradle/gradle-8.7/bin:$PATH"
   else
     echo "⚠️ 未检测到 gradle，建议执行 brew install gradle 安装"
   fi
-
+  
   # 配置 pipx 环境变量
   if command -v pipx &>/dev/null; then
     export PATH="$PATH:$HOME/.local/bin"
   else
     echo "⚠️ pipx 未安装，建议执行 brew install pipx"
   fi
-
+  
   ```
   </details>
 
@@ -605,16 +605,16 @@ plugins/
   ZSH_THEME="robbyrussell"
   plugins=(git)
   source $ZSH/oh-my-zsh.sh
-
+  
   # -------------------- flutter() 重载（优先 FVM） --------------------
   flutter() {
     emulate -L zsh
     setopt no_aliases
-
+  
     # 向上寻找项目根：.fvmrc 或 .fvm/flutter_sdk
     local d="$PWD"
     local root=""
-
+  
     while [[ "$d" != "/" ]]; do
       if [[ -f "$d/.fvmrc" || -x "$d/.fvm/flutter_sdk/bin/flutter" || -f "$d/.fvm/fvm_config.json" ]]; then
         root="$d"
@@ -622,13 +622,13 @@ plugins/
       fi
       d="${d:h}"
     done
-
+  
     # 1) 最可靠：如果项目已有 .fvm/flutter_sdk，直接用它（不依赖系统 flutter，也不依赖 fvm 命令）
     if [[ -n "$root" && -x "$root/.fvm/flutter_sdk/bin/flutter" ]]; then
       command "$root/.fvm/flutter_sdk/bin/flutter" "$@"
       return $?
     fi
-
+  
     # 2) 项目有 .fvmrc / fvm_config.json：走 fvm flutter（读取项目配置）
     if [[ -n "$root" && ( -f "$root/.fvmrc" || -f "$root/.fvm/fvm_config.json" ) ]]; then
       if command -v fvm >/dev/null 2>&1; then
@@ -638,17 +638,17 @@ plugins/
       print -u2 "✖ 检测到 FVM 项目，但找不到 fvm 命令。请先安装 fvm。"
       return 127
     fi
-
+  
     # 3) 非 FVM 项目：走系统 flutter（若存在）
     if command -v flutter >/dev/null 2>&1; then
       command flutter "$@"
       return $?
     fi
-
+  
     print -u2 "✖ flutter: command not found（未安装系统 Flutter，且当前目录不在 FVM 项目内）"
     return 127
   }
-
+  
   jobs() {
     local files=(
       "$HOME/.bash_profile"
@@ -666,7 +666,7 @@ plugins/
     done
     echo "\n📎 ⌘Command + 点击路径可打开对应文件（macOS Terminal 支持）"
   }
-
+  
   if [[ -z "$JOBS_ALREADY_RUN" ]]; then
     export JOBS_ALREADY_RUN=1
     command -v jobs &>/dev/null && jobs
@@ -924,7 +924,7 @@ plugins/
 
 #### 3.2、[**Android Studio**](https://developer.android.com/studio?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-##### 3.2.1、[**点我➤下载Android Studio历史版本**](https://developer.android.com/studio/archive?utm_source=chatgpt.com&hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 3.2.1、[**点我 ➤下载Android Studio历史版本**](https://developer.android.com/studio/archive?utm_source=chatgpt.com&hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 <img src="./assets/image-20250806172656678.png" alt="image-20250806172656678" style="zoom:50%;" />
 
@@ -1026,7 +1026,7 @@ plugins/
   # 替换为实际包名，--user 0 仅对当前用户卸载（系统镜像仍在）
   ```
 
-* 清理 **Dalvik**/**ART** 临时编译产物（可回收一些空间）：
+* 清理 **Dalvik**/**ART** 临时编译产物（可回收一些空间）
 
   ```shell
   adb shell cmd package compile --reset -a
@@ -1318,97 +1318,97 @@ plugins/
       {
         // ✅ 指定 CMake 项目的源代码目录（用于 CMake 插件）
         "cmake.sourceDirectory": "/Users/jobs/Documents/GitHub/JobsFlutterBaseConfig/jobs_flutter_base_config/linux",
-
+      
         // ✅ Java 编译时的空值分析模式（自动启用 null 安全检查）
         "java.compile.nullAnalysis.mode": "automatic",
-
+      
         // ✅ Dart 编辑器：整理 import 时总是使用 package 引用风格
         "dart.editImports": "always_use_package_imports",
-
+      
         // ✅ 关闭 VSCode 的校验提示
         "json.schemaDownload.enable": false,
         "json.validate.enable": false,
-
+      
         // ✅ 每次保存文件时自动格式化代码
         "editor.formatOnSave": true,
-
+      
         // ✅ 当窗口失焦时自动保存
         "files.autoSave": "afterDelay",
-
+      
         // ✅ 自动保存延迟，100ms
         "files.autoSaveDelay": 100,
-
+      
         // ✅ 关闭窗口时自动保存未保存文件（热退出）
         "files.hotExit": "onExitAndWindowClose",
-
+      
         // ✅ 每次保存时自动移除每行末尾多余的空格
         "files.trimTrailingWhitespace": true,
-
+      
         // ✅ 文件末尾自动插入一个换行符，符合编码规范
         "files.insertFinalNewline": true,
-
+      
         // ✅ 保存文件时如有冲突，自动覆盖磁盘上的版本（避免弹出冲突提示）
         "files.saveConflictResolution": "overwriteFileOnDisk",
-
+      
         // ✅ 启动时恢复上次打开的文件
         "window.restoreWindows": "all",
-
+      
         // ✅ 括号配对高亮.显示括号对的引导线（active 表示仅在光标位于括号上时显示）@项目级配置
         "editor.guides.bracketPairs": "active",
-
+      
         // ✅ 括号配对高亮.启用括号颜色匹配功能@项目级配置
         "editor.bracketPairColorization.enabled": true,
-
+      
         // ✅ 始终高亮当前括号对
         "editor.matchBrackets": "always",
-
+      
         // ✅ Flutter SDK 路径（使用 FVM 管理的版本路径）
         "dart.flutterSdkPath": ".fvm/versions/3.24.5",
         "dart.sdkPath": ".fvm/flutter_sdk/bin/cache/dart-sdk",
-
+      
         // ✅ 让 VSCode 终端继承 Shell 环境（通常默认 true）
         "terminal.integrated.inheritEnv": true,
-
+      
         // ✅ 在左侧 gutter 区域显示断点栏（点击即可像 Xcode 一样打断点）
         "editor.glyphMargin": true,
-
+      
         // ✅ 自定义调试/断点相关的配色和行高
         "workbench.colorCustomizations": {
           // 🔹 当前行背景高亮（半透明，方便定位）
           "editor.lineHighlightBackground": "#2B314080",
-
+      
           // 🔹 当前行边框颜色（配合背景高亮，视觉更明显）
           "editor.lineHighlightBorder": "#2B3140",
-
+      
           // 🔹 加大行高，增大断点点击区域，避免点歪
           "editor.lineHeight": 24,
-
+      
           // 🔹 字体大小（可根据个人习惯调整）
           "editor.fontSize": 14,
-
+      
           // 🔴 已验证断点（正常断点）图标颜色
           "debugIcon.breakpointForeground": "#FF5A5A",
-
+      
           // 🟤 已禁用断点颜色
           "debugIcon.breakpointDisabledForeground": "#C06F6F",
-
+      
           // 🟠 未验证断点颜色（比如调试器还没 attach 时）
           "debugIcon.breakpointUnverifiedForeground": "#FFAA00",
-
+      
           // 🟢 当前执行栈所在断点颜色（正在运行到的断点）
           "debugIcon.breakpointCurrentStackframeForeground": "#23D17F",
-
+      
           // 🟠 条件断点颜色（只有满足条件时才触发）
           "debugIcon.breakpointConditionalForeground": "#FFAA00"
         },
-
+      
         // ✅ 配置 errorLens
         "errorLens.enabled": true,
         "errorLens.fontStyleItalic": false,
         "errorLens.errorBackground": "#ff000033", // 红色背景半透明
         "errorLens.warningBackground": "#ffa50033", // 橙色背景半透明
         "errorLens.infoBackground": "#0080ff33", // 蓝色背景半透明
-
+      
         "problems.showCurrentInStatus": true, // 状态栏显示当前行的问题
         "problems.showCurrentInStatusSeverity": "warning", // 显示级别（error/warning/info）
         "problems.decorations.enabled": true // 在行号旁边显示小图标
@@ -1419,7 +1419,7 @@ plugins/
 
     ```
     # 当前文件：Flutter项目根目录/.gitignore
-
+    
     # VSCode
     .vscode/
     ```
@@ -1429,7 +1429,7 @@ plugins/
 
 `Cmd + Shift + P`  ➤ 输入：`Flutter: Select Device`
 
-### 4、安装 Rosetta <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 4、安装 `Rosetta` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   ```shell
   softwareupdate --install-rosetta --agree-to-license
@@ -2468,7 +2468,7 @@ CupertinoApp(
 >
 > 5️⃣ `ScreenUtil` 适配设计图尺寸
 >
-> 6️⃣ `EasyLoading` 全局 loading 提示
+> 6️⃣ `EasyLoading` 全局 **loading** 提示
 >
 > 7️⃣ 多语言支持
 >
@@ -2938,22 +2938,22 @@ class SpUtil {
   ```dart
   // 成功提示
   EasyLoading.showSuccess('复制成功');
-
+  
   // 失败提示
   EasyLoading.showError('保存失败');
-
+  
   // 信息提示
   EasyLoading.showInfo('请先登录');
-
+  
   // Toast 提示
   EasyLoading.showToast('操作已完成');
-
+  
   // 普通 Loading
   EasyLoading.show(status: '加载中...');
-
+  
   // 进度条 Loading（0.0 ~ 1.0）
   EasyLoading.showProgress(0.3, status: '进度 30%');
-
+  
   // 关闭 Loading
   EasyLoading.dismiss();
   ```
@@ -3309,21 +3309,21 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
     ```dart
     import 'package:flutter/material.dart';
     import 'package:flutter_bloc/flutter_bloc.dart';
-
+    
     void main() {
       runApp(BlocProvider(create: (_) => UserCubit(), child: MyApp()));
     }
-
+    
     class UserCubit extends Cubit<String> {
       UserCubit() : super('默认名');
       void updateName(String newName) => emit(newName);
     }
-
+    
     class MyApp extends StatelessWidget {
       @override
       Widget build(BuildContext context) => MaterialApp(home: HomePage());
     }
-
+    
     class HomePage extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
@@ -3342,7 +3342,7 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
         );
       }
     }
-
+    
     class SecondPage extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
@@ -3435,7 +3435,7 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
     Widget build(BuildContext context) {
       final args = ModalRoute.of(context)?.settings.arguments as Map?;
       final name = args?['name'];
-
+  
       return Scaffold(
         body: Center(child: Text('Hello $name')),
       );
@@ -3551,7 +3551,7 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
       ResultCubit() : super('无');
       void setResult(String val) => emit(val);
     }
-
+    
     // 首页
     BlocBuilder<ResultCubit, String>(
       builder: (_, result) => Column(
@@ -3564,7 +3564,7 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
         ],
       ),
     );
-
+    
     // 第二页
     context.read<ResultCubit>().setResult('Bloc 的返回值');
     Navigator.pop(context);
@@ -6304,13 +6304,13 @@ Transform.translate(
   ```dart
   import 'package:flutter/material.dart';
   import 'package:jobs_runners/jobs_runners.dart';
-
+  
   void main() => runApp(const JobsMaterialRunner(CustomLayoutApp(),
       title: 'CustomMultiChildLayout 示例'));
-
+  
   class CustomLayoutApp extends StatelessWidget {
     const CustomLayoutApp({super.key});
-
+  
     @override
     Widget build(BuildContext context) {
       return Center(
@@ -6333,7 +6333,7 @@ Transform.translate(
         ),
       );
     }
-
+  
     static Widget box(Color color, String label) {
       return Container(
         width: 80,
@@ -6344,7 +6344,7 @@ Transform.translate(
       );
     }
   }
-
+  
   /// 具体的布局逻辑
   class MyCustomLayoutDelegate extends MultiChildLayoutDelegate {
     @override
@@ -6354,13 +6354,13 @@ Transform.translate(
             'topLeft', const BoxConstraints.tightFor(width: 80, height: 50));
         positionChild('topLeft', const Offset(0, 0));
       }
-
+  
       if (hasChild('topRight')) {
         layoutChild(
             'topRight', const BoxConstraints.tightFor(width: 80, height: 50));
         positionChild('topRight', Offset(size.width - 80, 0));
       }
-
+  
       if (hasChild('bottomCenter')) {
         layoutChild('bottomCenter',
             const BoxConstraints.tightFor(width: 100, height: 60));
@@ -6368,7 +6368,7 @@ Transform.translate(
             'bottomCenter', Offset((size.width - 100) / 2, size.height - 60));
       }
     }
-
+  
     @override
     bool shouldRelayout(covariant MultiChildLayoutDelegate oldDelegate) => false;
   }
@@ -6907,11 +6907,11 @@ builder: (context, child) {
   ```dart
   import 'package:flutter/widgets.dart';
   import 'package:get/get.dart';
-
+  
   class KeyboardController extends GetxService with WidgetsBindingObserver {
     final visible = false.obs;
     final height = 0.0.obs;
-
+  
     @override
     void onInit() {
       super.onInit();
@@ -6919,21 +6919,21 @@ builder: (context, child) {
       final bottom = WidgetsBinding.instance.window.viewInsets.bottom;
       _update(bottom);
     }
-
+  
     @override
     void onClose() {
       WidgetsBinding.instance.removeObserver(this);
       super.onClose();
     }
-
+  
     @override
     void didChangeMetrics() {
       final bottom = WidgetsBinding.instance.window.viewInsets.bottom;
       _update(bottom);
     }
-
+  
     void dismiss() => FocusManager.instance.primaryFocus?.unfocus();
-
+  
     void _update(double bottom) {
       height.value = bottom;
       visible.value = bottom > 0;
@@ -7129,17 +7129,17 @@ by [**Rémi Rousselet**](https://github.com/rrousselGit)
 
   ```dart
   class MyModel extends ChangeNotifier
-
+  
   final myModel = MyModel(); // 这是一个 ChangeNotifier
-
+  
   myModel.addListener(() {
     print('监听者 A 收到通知');
   });
-
+  
   myModel.addListener(() {
     print('监听者 B 收到通知');
   });
-
+  
   myModel.notifyListeners();
   ```
   </details>
@@ -7568,7 +7568,7 @@ class CounterPage extends GetView<CounterController> {
 
   ```dart
   import 'package:get/get.dart';
-
+  
   /// 自动注册或获取 Controller（立即创建并返回）
   /// 用法：
   /// final MyController c = jobsFind(MyController());
@@ -7655,7 +7655,7 @@ class CounterPage extends GetView<CounterController> {
     @override
     void onInit() {
       super.onInit();
-
+  
       final arguments = Get.arguments as Map<String, dynamic>;
     }
   }
@@ -8260,21 +8260,21 @@ print(authService.token);
     onPressed: () async {
       final result = await Get.dialog<String>(
         _CustomDialogContent(),// 一个widget
-
+  
         barrierDismissible: true, // ✅ 点击弹窗外区域是否关闭弹窗（true = 可关闭）
         barrierColor: Colors.black.withOpacity(0.5), // ✅ 弹窗背景遮罩颜色（通常为半透明黑色）
         useSafeArea: true, // ✅ 是否自动避开状态栏/刘海/底部安全区（默认 true）
-
+  
         navigatorKey: Get.key, // ✅ 指定使用哪个 Navigator（默认用 Get.key 就行）
         arguments: {'from': '按钮点击'}, // ✅ 向弹窗内部传递参数（可通过 Get.arguments 获取）
-
+  
         transitionDuration: Duration(milliseconds: 400), // ✅ 动画持续时间（默认 200ms）
         transitionCurve: Curves.easeInOutBack, // ✅ 动画曲线（决定进出弹窗的运动方式）
-
+  
         name: '/custom-dialog', // ✅ 路由名称（可选，方便调试或拦截路由）
         routeSettings: RouteSettings(name: '/custom-dialog-settings'), // ✅ 更完整的路由配置（配合导航系统）
       );
-
+  
       if (result != null) {
         Get.snackbar('返回结果', '你选择了: $result'); // ✅ 弹窗关闭后获取返回值
       }
@@ -9563,7 +9563,7 @@ class FadeInImageDemo extends StatelessWidget {
     }
     return buffer.toString();
   }
-
+  
   void main() {
     final amount = 10000000;
     print(formatFourDigits(amount)); // 1,0000,0000
@@ -10127,14 +10127,14 @@ final rows = list
     ```dart
     void main() async {
       print('--- async* 示例 ---');
-
+    
       await for (final value in countAsync()) {
         print('async* 输出: $value');
       }
-
+    
       print('--- async* 执行完毕 ---');
     }
-
+    
     Stream<int> countAsync() async* {
       for (int i = 1; i <= 3; i++) {
         print('async* yield 前: $i');
@@ -10529,20 +10529,20 @@ final rows = list
   ```dart
   class MyPage extends StatefulWidget {
     const MyPage({super.key});
-
+  
     @override
     State<MyPage> createState() => _MyPageState(); // 创建 State 实例
   }
-
+  
   class _MyPageState extends State<MyPage> {
-
+  
     @override
     /// 适合做一次性初始化，例如请求数据、监听。
     void initState() {
       super.initState();
       print('initState'); // 类似 viewDidLoad
     }
-
+  
     @override
     /// 当依赖的 InheritedWidget 改变时会触发。
     /// 通常会在第一次 build 前被调用一次。
@@ -10550,28 +10550,28 @@ final rows = list
       super.didChangeDependencies();
       print('didChangeDependencies');
     }
-
+  
     @override
     /// 每次 setState 时都会重新调用。
     Widget build(BuildContext context) {
       print('build'); // 类似 viewWillAppear -> viewDidAppear
       return Container();
     }
-
+  
     @override
     /// 当父 Widget 重新创建并传入新的参数时调用。
     void didUpdateWidget(covariant MyPage oldWidget) {
       super.didUpdateWidget(oldWidget);
       print('didUpdateWidget');
     }
-
+  
     @override
     /// Widget 临时从树中移除时触发（但未销毁）。
     void deactivate() {
       super.deactivate();
       print('deactivate');
     }
-
+  
     @override
     /// 永久销毁前调用
     /// 适合取消计时器、关闭动画控制器等资源
@@ -10929,7 +10929,7 @@ void onClose() {
         I5[ErrorMappingInterceptor<br/>错误码标准化/文案]
         I6[ResponseAdapter<br/>解包 data/统一模型]
       end
-
+    
       A[请求] --> I2 --> I1 --> I3 --> I4 --> B[发出HTTP]
       B --> C[收到响应]
       C --> I6 --> I3 --> D[返回成功]
@@ -10989,7 +10989,7 @@ void onClose() {
       "file": await MultipartFile.fromFile("./example.png", filename: "example.png"),
     });
     await dio.post("/upload", data: formData);
-
+    
     // 下载
     await dio.download(
       "https://example.com/file.zip",
@@ -11012,27 +11012,27 @@ void onClose() {
   import 'package:json_annotation/json_annotation.dart';
   import 't.dart';
   part 'activity_coding_model.g.dart';
-
+  
   @JsonSerializable()
   class ActivityCodingModel {
     T? t;
     @JsonKey(name: 'response_code')
     String? responseCode;
     String? msg;
-
+  
     ActivityCodingModel({this.t, this.responseCode, this.msg});
-
+  
     @override
     String toString() {
       return 'ActivityCodingModel(t: $t, responseCode: $responseCode, msg: $msg)';
     }
-
+  
     factory ActivityCodingModel.fromJson(Map<String, dynamic> json) {
       return _$ActivityCodingModelFromJson(json);
     }
-
+  
     Map<String, dynamic> toJson() => _$ActivityCodingModelToJson(this);
-
+  
     ActivityCodingModel copyWith({
       T? t,
       String? responseCode,
@@ -11241,22 +11241,22 @@ void main() {
   import 'package:json_annotation/json_annotation.dart';
   import 'action_cfg.dart';
   part 'activity_turntable_detail_model.g.dart';
-
+  
   @JsonSerializable()
   class ActivityTurntableDetailModel {
     int? tid;
-
+  
     @ActionCfgConverter() // ✅ 兼容 Map / String 两种返回
     ActionCfg? actionCfg;
-
+  
     ActivityTurntableDetailModel({
       this.tid,
       this.actionCfg,
     });
-
+  
     factory ActivityTurntableDetailModel.fromJson(Map<String, dynamic> json) =>
         _$ActivityTurntableDetailModelFromJson(json);
-
+  
     Map<String, dynamic> toJson() => _$ActivityTurntableDetailModelToJson(this);
   }
   ```
@@ -11607,7 +11607,7 @@ Now.ymdHmsCn;  // 2025年08月25日 16时12分41秒
   ```dart
   Uint8List bytes = await File("local.png").readAsBytes();
   Text("Memory BG")
-
+  
       .imageByMemoryOnContain(bytes);// 🔑 背景用内存字节
   ```
 
@@ -12241,7 +12241,7 @@ void main3() {
       <path d="M12 2L2 22h20L12 2z" fill="red"/>
     </svg>
     ''';
-
+    
     SvgPicture.string(
       rawSvg,
       width: 24,
@@ -12597,21 +12597,21 @@ Future.delayed(Duration(seconds: 1), () {
 
   ```dart
   import 'package:flutter/scheduler.dart';
-
+  
   void main() {
     runApp(const MyApp());
   }
-
+  
   class MyApp extends StatelessWidget {
     const MyApp({super.key});
-
+  
     @override
     Widget build(BuildContext context) {
       // 在 Widget 构建时注册下一帧回调
       SchedulerBinding.instance.scheduleFrameCallback((timeStamp) {
         print("下一帧绘制前执行，时间戳: $timeStamp");
       });
-
+  
       return const MaterialApp(
         home: Scaffold(body: Center(child: Text("Hello SchedulerBinding"))),
       );
@@ -12623,7 +12623,7 @@ Future.delayed(Duration(seconds: 1), () {
   SchedulerBinding.instance.scheduleFrameCallback((timeStamp) {
     // 下一帧前执行
   });
-
+  
   /// ⚠️ 常用于 拿 BuildContext 大小、位置，因为必须等布局结束。
   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
     // 当前帧渲染完成后执行
@@ -12894,29 +12894,29 @@ Future.delayed(Duration(seconds: 1), () {
     ```dart
     import 'package:flutter/foundation.dart';
     import 'package:flutter/widgets.dart';
-
+    
     typedef FetchPage<T> = Future<List<T>> Function(int page, int pageSize);
-
+    
     /// 通用控制器
     class JobsRefreshLoadController<T> extends ChangeNotifier {
       final int pageSize;
       final FetchPage<T> fetchPage;
-
+    
       final List<T> items = [];
       int _page = 1;
       bool _hasMore = true;
       bool _isRefreshing = false;
       bool _isLoadingMore = false;
-
+    
       bool get hasMore => _hasMore;
       bool get isRefreshing => _isRefreshing;
       bool get isLoadingMore => _isLoadingMore;
-
+    
       JobsRefreshLoadController({
         required this.fetchPage,
         this.pageSize = 20,
       });
-
+    
       Future<void> refresh() async {
         if (_isRefreshing) return;
         _isRefreshing = true;
@@ -12933,7 +12933,7 @@ Future.delayed(Duration(seconds: 1), () {
           notifyListeners();
         }
       }
-
+    
       Future<void> loadMore() async {
         if (_isLoadingMore || !_hasMore || _isRefreshing) return;
         _isLoadingMore = true;
@@ -13221,7 +13221,7 @@ class ClipboardUtil {
     ```dart
     final TextEditingController categoryCtrl = TextEditingController();
     final RxString category = '选择游戏类别'.obs; // 默认值
-
+    
     // 只要 category 的值变化，就执行后面的回调。
     ever<String>(category, (v) => categoryCtrl.text = v);
     ```
@@ -13356,13 +13356,13 @@ class ClipboardUtil {
   ```dart
   import 'package:flutter/material.dart';
   import 'package:get/get.dart';
-
+  
   class TextFieldBindingDemo extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
       // 注册控制器
       final demoCtrl = Get.put(DemoController());
-
+  
       return Scaffold(
         appBar: AppBar(title: const Text("双向绑定示例")),
         body: Padding(
@@ -13378,7 +13378,7 @@ class ClipboardUtil {
                 ),
               ),
               const SizedBox(height: 20),
-
+  
               // 实时显示（响应式）
               Obx(() => Text(
                     "RxString 当前值：${demoCtrl.value.value}",
@@ -13390,23 +13390,23 @@ class ClipboardUtil {
       );
     }
   }
-
+  
   class DemoController extends GetxController {
     // TextField 控制器
     final TextEditingController textCtrl = TextEditingController();
-
+  
     // 响应式字符串
     final RxString value = ''.obs;
-
+  
     @override
     void onInit() {
       super.onInit();
-
+  
       // TextField → Rx（UI 改变，更新状态）
       textCtrl.addListener(() {
         value.value = textCtrl.text.trim(); // 去掉首尾空格
       });
-
+  
       // Rx → TextField（状态改变，更新 UI）
       ever<String>(value, (v) {
         if (textCtrl.text != v) {
@@ -13417,7 +13417,7 @@ class ClipboardUtil {
         }
       });
     }
-
+  
     @override
     void onClose() {
       textCtrl.dispose();
@@ -13508,14 +13508,14 @@ class ClipboardUtil {
               // 等内部状态更新
               await Future.delayed(const Duration(milliseconds: 100));
               controller.confirmGame(list);
-
+  
               // —— 把“展示给 Dropdown 的文案”拼出来 —— //
               final left = controller.gameListData[0][list[0]].label;
               final rightList = controller.gameListMap?[list[0]] ?? const [];
               final right = (list.length > 1 && list[1] < rightList.length)
                   ? rightList[list[1]].label
                   : null;
-
+  
               final label = right == null ? left : '$left / $right';
               onPicked(label); // 关键：回传给 recordSearchBar
             },
@@ -13648,7 +13648,7 @@ class ClipboardUtil {
   dart run flutter_native_splash:create
   ```
 
-#### 62.3、资源/字体/颜色常量（类型安全） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 62.3、资源/字体/颜色常量（类型安全）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * ```yaml
   dev_dependencies:
@@ -14185,7 +14185,7 @@ class Person {
     # The issues identified by the analyzer are surfaced in the UI of Dart-enabled
     # IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
     # invoked from the command line by running `flutter analyze`.
-
+    
     # The following line activates a set of recommended lints for Flutter apps,
     # packages, and plugins designed to encourage good coding practices.
     analyzer:
@@ -14193,7 +14193,7 @@ class Person {
         # 警告忽略：在公共 API 中使用私有类型
         library_private_types_in_public_api: ignore
     include: package:flutter_lints/flutter.yaml
-
+    
     linter:
       # The lint rules applied to this project can be customized in the
       # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -14208,7 +14208,7 @@ class Person {
       rules:
         # avoid_print: false  # Uncomment to disable the `avoid_print` rule
         # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
-
+    
     # Additional information about this file can be found at
     # https://dart.dev/guides/language/analysis-options
     ```
@@ -14606,46 +14606,18 @@ void example() {
 
 ### 13、[**Dart**](https://dart.dev/).<font color=red>**`factory`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-> 1️⃣ `factory` **不一定只 new 一次**，它能 new 多次，也能 new 0 次（直接返回已有对象）。
->
-> 2️⃣ 大多数人习惯用 `factory` 来写 `fromJson`，因为它不一定只是简单地 new 一个对象。
->
-> 3️⃣ **Dart** 中的抽象类可以定义 `factory` 构造函数，它不能直接被实例化，但可以通过这个 `factory` 返回子类对象或其他实例，从而起到**工厂方法（类方法）+ 构造器**的双重作用。
+* 类似于[**Swift**](https://www.swift.org/)里面的**便捷构造器**
 
-* 举例对比
+* 使用场景选择
 
-  * 🔹普通构造函数
+  * **简单字段映射**（json → model，没什么逻辑）：用命名构造函数就行
+  * **需要做复杂处理/条件判断/可能返回不同对象**：推荐 `factory`
 
-    ```dart
-    class A {
-      final int x;
-      A(this.x);
-    }
+* 控制返回的对象（不能随便返回，只能返回和当前类相关的实例对象）
 
-    void main() {
-      var a1 = A(1);
-      var a2 = A(1);
-      print(a1 == a2); // false，每次都是 new
-    }
-    ```
+  * 返回当前类
 
-  * 🔹`factory` 构造函数（单例）
-
-    ```dart
-    class B {
-      static final B _instance = B._internal();
-      factory B() => _instance; // 永远返回同一个对象
-      B._internal();
-    }
-
-    void main() {
-      var b1 = B();
-      var b2 = B();
-      print(b1 == b2); // true，只 new 一次
-    }
-    ```
-
-  * 🔹`factory` 构造函数（返回子类）
+  * 返回子类（**最重要的能力**）
 
     ```dart
     abstract class Animal {
@@ -14655,10 +14627,10 @@ void example() {
         throw Exception("Unknown type");
       }
     }
-
+    
     class Dog implements Animal {}
     class Cat implements Animal {}
-
+    
     void main() {
       Animal a1 = Animal("dog");
       Animal a2 = Animal("cat");
@@ -14667,9 +14639,27 @@ void example() {
     }
     ```
 
-* 使用场景选择
-  * **简单字段映射**（json → model，没什么逻辑）：用命名构造函数就行
-  * **需要做复杂处理/条件判断/可能返回不同对象**：推荐 `factory`
+  * 返回当前类（单例）
+
+    ```dart
+    class B {
+      static final B _instance = B._internal();
+      factory B() => _instance; // 永远返回同一个对象
+      B._internal();
+    }
+    
+    void main() {
+      var b1 = B();
+      var b2 = B();
+      print(b1 == b2); // true，只 new 一次
+    }
+    ```
+
+* `factory` **不一定只 new 一次**，它能 **new** 多次，也能 **new** 0 次（直接返回已有对象）
+
+* **Dart** 中的抽象类可以定义 `factory` 构造函数，它不能直接被实例化，但可以通过这个 `factory` 返回子类对象或其他实例，从而起到**工厂方法（类方法）+ 构造器**的双重作用
+
+* 大多数人习惯用 `factory` 来写 `fromJson`，因为它不一定只是简单地 new 一个对象
 
 ### 14、**Comparable** <font color=red><b>&lt;T&gt;</b></font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -14787,11 +14777,11 @@ Comparable.compare(a, b)
   ```dart
   enum AppUtils {
     ; // Dart 2.17 允许空 enum 表达静态工具类
-
+  
     static void doSomething() {
       print('Doing something...');
     }
-
+  
     static const version = '1.0.0';
   }
   ```
@@ -14882,12 +14872,12 @@ Comparable.compare(a, b)
 
   ```dart
   import 'package:flutter/widgets.dart';
-
+  
   extension KeyboardX on BuildContext {
     bool get keyboardVisible => MediaQuery.of(this).viewInsets.bottom > 0;
     double get keyboardHeight => MediaQuery.of(this).viewInsets.bottom;
   }
-
+  
   final v = context.keyboardVisible;
   final h = context.keyboardHeight;
   ```
@@ -14918,16 +14908,16 @@ Comparable.compare(a, b)
   ```dart
   class MyDataWidget extends InheritedWidget {
     final int counter;
-
+  
     MyDataWidget({
       required this.counter,
       required Widget child,
     }) : super(child: child);
-
+  
     static MyDataWidget? of(BuildContext context) {
       return context.dependOnInheritedWidgetOfExactType<MyDataWidget>();
     }
-
+  
     @override
     bool updateShouldNotify(MyDataWidget oldWidget) {
       return oldWidget.counter != counter;
@@ -14984,7 +14974,7 @@ Comparable.compare(a, b)
     class A {
       void hello() => print('hi');
     }
-
+    
     class B with A {} // Dart 2.x 允许，但有局限
     ```
 
@@ -14996,7 +14986,7 @@ Comparable.compare(a, b)
   class Animal {
     void eat() => print("Eating...");
   }
-
+  
   mixin Walker on Animal {
     void walk() {
       print("Walking...");
@@ -15054,7 +15044,7 @@ Comparable.compare(a, b)
 
     ```dart
     mixin class Tools_Mixin {}
-
+    
     /// 这意味着：任何想用 Widget_Mixin 的类，必须同时是 Tools_Mixin 的子类型。
     /// 此时，只能用于 StatefulWidget
     mixin Widget_Mixin<T extends StatefulWidget> on State<T>, Tools_Mixin{
@@ -15518,14 +15508,14 @@ void main() {
       ```dart
       /// serializers.dart
       library serializers; // ✅ 加上这一句非常关键！
-
+      
       import 'package:built_value/serializer.dart';
       import 'package:built_value/standard_json_plugin.dart';
       import 'package:jobs_flutter_base_config/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/利用脚本自动生成的built_value序列化文件/video_item.dart';
       import 'package:built_collection/built_collection.dart'; // ✅ 没有这一句就会找不到 BuiltList
-
+      
       part 'serializers.g.dart'; // ✅ 生成器才能识别到它，并生成对应的序列化文件
-
+      
       @SerializersFor([
         VideoItem,
         VideoList,
@@ -15544,26 +15534,26 @@ void main() {
       import 'package:built_value/built_value.dart';
       import 'package:built_value/serializer.dart';
       import 'package:built_collection/built_collection.dart';
-
+      
       part 'video_item.g.dart'; // ✅ 同目录内文件。不允许跨文件夹
-
+      
       abstract class VideoItem implements Built<VideoItem, VideoItemBuilder> {
         String? get nick_name;
         String? get head;
         /// 省略若干...
-
+      
         VideoItem._();
         factory VideoItem([void Function(VideoItemBuilder) updates]) = _$VideoItem;
-
+      
         static Serializer<VideoItem> get serializer => _$videoItemSerializer;
       }
-
+      
       abstract class VideoList implements Built<VideoList, VideoListBuilder> {
         BuiltList<VideoItem> get list;
-
+      
         VideoList._();
         factory VideoList([void Function(VideoListBuilder) updates]) = _$VideoList;
-
+      
         static Serializer<VideoList> get serializer => _$videoListSerializer;
       }
       ```
@@ -16245,14 +16235,14 @@ ipa() {
   ```shell
   #!/bin/zsh
   # 【SourceTree 专用】Flutter iOS 打包（自动发现子项目，纯文本；全局心跳 + 分阶段耗时）
-
+  
   set -euo pipefail
-
+  
   # ================= 日志/工具 =================
   SCRIPT_BASENAME="macos_sourcetree_build_ios"
   LOG_FILE="/tmp/${SCRIPT_BASENAME}.log"; : > "$LOG_FILE"
   BUILD_LOG="/tmp/flutter_build_ios.log"; : > "$BUILD_LOG"
-
+  
   log()      { echo "$1" | tee -a "$LOG_FILE"; }
   info()     { log "[INFO] $*"; }
   ok()       { log "[OK]   $*"; }
@@ -16261,11 +16251,11 @@ ipa() {
   hr()       { log "----------------------------------------------------------------"; }
   section()  { hr; log "== $* =="; hr; }
   ts()       { date "+%Y-%m-%d %H:%M:%S"; }
-
+  
   HEARTBEAT_SECS="${HEARTBEAT_SECS:-15}"   # 心跳间隔（秒）
   OPEN_AFTER_BUILD="${OPEN_AFTER_BUILD:-1}" # 1=成功后打开产物目录
   STEP="init"
-
+  
   # ======== 全局存活心跳（无论卡哪都能看到） ========
   HB_PID=""
   start_global_hb() {
@@ -16277,14 +16267,14 @@ ipa() {
     ) & HB_PID=$!
   }
   stop_global_hb() { [[ -n "${HB_PID:-}" ]] && kill "$HB_PID" 2>/dev/null || true; }
-
+  
   cleanup() { stop_global_hb; }
   trap cleanup EXIT INT TERM
-
+  
   # ================= 选项 =================
   BUILD_MODE="${BUILD_MODE:-release}"   # release | debug | profile
   FLAVOR="${FLAVOR:-}"                  # 可为空
-
+  
   # 命令行覆盖
   while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -16294,29 +16284,29 @@ ipa() {
       *)        break;;
     esac
   done
-
+  
   BASE_DIR="${1:-$PWD}"
-
+  
   # ================= 辅助函数 =================
   is_flutter_root() { [[ -f "$1/pubspec.yaml" && -d "$1/lib" ]]; }
-
+  
   # 带心跳的长任务执行器（阶段心跳 + 耗时 + 保留退出码）
   run_with_heartbeat() {
     local title="$1"; shift
     local wdir="$1"; shift
     local start=$(date +%s)
     STEP="$title"
-
+  
     section "$title"
     info "start: $(ts)"
     info "workdir: $wdir"
     info "heartbeat: ${HEARTBEAT_SECS}s"
-
+  
     (
       cd "$wdir" && "$@"
     ) 2>&1 | tee -a "$BUILD_LOG" &
     local pid=$!
-
+  
     (
       while kill -0 "$pid" 2>/dev/null; do
         sleep "$HEARTBEAT_SECS"
@@ -16324,10 +16314,10 @@ ipa() {
         echo "[HB] $(ts) running: $title (pid=$pid)" | tee -a "$LOG_FILE"
       done
     ) & local local_hb=$!
-
+  
     wait "$pid"; local ec=$?
     kill "$local_hb" 2>/dev/null || true
-
+  
     local end=$(date +%s)
     local dur=$(( end - start ))
     if [[ $ec -eq 0 ]]; then
@@ -16337,7 +16327,7 @@ ipa() {
     fi
     return $ec
   }
-
+  
   # ================= 定位 Flutter 项目（自动向下搜索） =================
   resolve_flutter_root() {
     STEP="resolve"
@@ -16348,11 +16338,11 @@ ipa() {
     base="$(pwd -P)"
     section "定位 Flutter 项目"
     info "基准目录：$base"
-
+  
     if is_flutter_root "$base"; then
       FLUTTER_ROOT="$base"; ok "命中：$FLUTTER_ROOT"; return 0
     fi
-
+  
     local hit
     hit="$(/usr/bin/find "$base" -name pubspec.yaml -type f -print 2>/dev/null | head -n1 || true)"
     if [[ -n "$hit" ]]; then
@@ -16361,11 +16351,11 @@ ipa() {
         ok "在子目录中找到：$FLUTTER_ROOT"; return 0
       fi
     fi
-
+  
     err "未找到 Flutter 项目（缺 pubspec.yaml 或 lib/）"
     exit 1
   }
-
+  
   # ================= 选择 flutter 命令 =================
   choose_flutter_cmd() {
     STEP="choose_flutter"
@@ -16375,7 +16365,7 @@ ipa() {
       FLUTTER_CMD=("flutter"); info "使用：flutter"
     fi
   }
-
+  
   # ================= 环境检查 =================
   check_env() {
     STEP="check_env"
@@ -16389,7 +16379,7 @@ ipa() {
     fi
     ok "环境检查完成"
   }
-
+  
   # ================= 版本打印（安全，不早退） =================
   print_versions() {
     STEP="versions"
@@ -16397,10 +16387,10 @@ ipa() {
     set +e
     info "xcodebuild -version："
     xcodebuild -version | tee -a "$LOG_FILE" || true
-
+  
     info "flutter --version："
     (cd "$FLUTTER_ROOT" && "${FLUTTER_CMD[@]}" --version) | tee -a "$LOG_FILE" || true
-
+  
     # 兼容新旧：优先静默试 flutter dart，失败再试系统 dart
     if (cd "$FLUTTER_ROOT" && "${FLUTTER_CMD[@]}" dart --version >/dev/null 2>&1); then
       info "flutter dart --version："
@@ -16413,7 +16403,7 @@ ipa() {
     fi
     set -e
   }
-
+  
   # ================= pub get & build ipa =================
   pub_get()   { run_with_heartbeat "flutter pub get" "$FLUTTER_ROOT" "${FLUTTER_CMD[@]}" pub get; }
   build_ios() {
@@ -16422,7 +16412,7 @@ ipa() {
     run_with_heartbeat "flutter build ipa ($BUILD_MODE${FLAVOR:+ / flavor=$FLAVOR})" \
                        "$FLUTTER_ROOT" "${FLUTTER_CMD[@]}" "${args[@]}"
   }
-
+  
   # ================= 打开产物（存在才开） =================
   open_if_exists() {
     local p="$1"
@@ -16433,7 +16423,7 @@ ipa() {
       warn "不存在：$p"
     fi
   }
-
+  
   open_outputs() {
     STEP="open_outputs"
     local ipa_dir="$FLUTTER_ROOT/build/ios/ipa"
@@ -16441,54 +16431,54 @@ ipa() {
     if [[ -d "$ipa_dir" ]]; then
       first_ipa="$(/usr/bin/find "$ipa_dir" -type f -name '*.ipa' -print 2>/dev/null | head -n1 || true)"
     fi
-
+  
     if [[ -n "$first_ipa" ]]; then
       ok "已生成 IPA：$(basename "$first_ipa")"
       [[ "$OPEN_AFTER_BUILD" == "1" ]] && open_if_exists "$ipa_dir"
       return 0
     fi
-
+  
     local archive_dir="$FLUTTER_ROOT/build/ios/archive"
     local first_archive=""
     if [[ -d "$archive_dir" ]]; then
       first_archive="$(/usr/bin/find "$archive_dir" -type d -name '*.xcarchive' -print 2>/dev/null | head -n1 || true)"
     fi
-
+  
     if [[ -n "$first_archive" ]]; then
       ok "生成了 xcarchive：$(basename "$first_archive")"
       [[ "$OPEN_AFTER_BUILD" == "1" ]] && open_if_exists "$archive_dir"
       return 0
     fi
-
+  
     warn "未发现 IPA 或 xcarchive。请查看构建日志：$BUILD_LOG"
   }
-
+  
   # ================= 主流程 =================
   main() {
     start_global_hb
-
+  
     section "启动参数"
     info "mode=$BUILD_MODE  flavor=${FLAVOR:-<none>}  heartbeat=${HEARTBEAT_SECS}s"
     info "脚本日志：$LOG_FILE"
     info "构建日志：$BUILD_LOG"
-
+  
     resolve_flutter_root "$BASE_DIR"
     choose_flutter_cmd
     check_env
     print_versions
     pub_get   || { err "pub get 失败，见：$BUILD_LOG"; exit 1; }
     build_ios || { err "构建失败，见：$BUILD_LOG"; exit 1; }
-
+  
     if [[ -d "$FLUTTER_ROOT/build/ios" ]]; then
       section "产物列表：$FLUTTER_ROOT/build/ios"
       (cd "$FLUTTER_ROOT/build/ios" && ls -lhR) | tee -a "$LOG_FILE" || true
     fi
-
+  
     open_outputs
     ok "完成。构建日志：$BUILD_LOG ；脚本日志：$LOG_FILE"
     STEP="done"
   }
-
+  
   main "$@"
   ```
 
@@ -16632,10 +16622,10 @@ ipa() {
       id 'com.android.application'
       id 'kotlin-android'
   }
-
+  
   android {
       compileSdk 34
-
+  
       defaultConfig {
           applicationId "com.example.myapp"
           minSdk 24
@@ -16643,14 +16633,14 @@ ipa() {
           versionCode 1
           versionName "1.0"
       }
-
+  
       buildTypes {
           release {
               minifyEnabled false
           }
       }
   }
-
+  
   dependencies {
       implementation "androidx.core:core-ktx:1.12.0"
       implementation "androidx.appcompat:appcompat:1.6.1"
@@ -16759,7 +16749,7 @@ graph TD
 
   ```shell
   cd /path/to/flutter_project/build/app/.android
-
+  
   ./gradlew \
     -I /path/to/flutter/bin/cache/artifacts/engine/android-arm-release/flutter.gradle \
     -Ptarget=/path/to/flutter_project/lib/main.dart \
@@ -17738,48 +17728,48 @@ main "$@"
     ```ruby
     # Uncomment this line to define a global platform for your project
     # platform :ios, '12.0'
-
+  
     # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
     ENV['COCOAPODS_DISABLE_STATS'] = 'true'
-
+  
     project 'Runner', {
       'Debug' => :debug,
       'Profile' => :release,
       'Release' => :release,
     }
-
+  
     def flutter_root
       generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
       unless File.exist?(generated_xcode_build_settings_path)
         raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
       end
-
+  
       File.foreach(generated_xcode_build_settings_path) do |line|
         matches = line.match(/FLUTTER_ROOT\=(.*)/)
         return matches[1].strip if matches
       end
       raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
     end
-
+  
     require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
-
+  
     flutter_ios_podfile_setup
-
+  
     target 'Runner' do
       use_frameworks!
-
+  
       flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
       target 'RunnerTests' do
         inherit! :search_paths
       end
     end
-
+  
     post_install do |installer|
       installer.pods_project.targets.each do |target|
         flutter_additional_ios_build_settings(target)
       end
     end
-
+  
     ```
     </details>
 
@@ -18016,7 +18006,7 @@ children: [
 ]
 ```
 
-### 29、级联运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 29、（两个点）级联运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 级联运算符适合的场景主要是：
 >
@@ -18037,7 +18027,75 @@ list.add('B');
 list.add('C');
 ```
 
-### 30、`switch` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 30、（三个点）展开运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+#### 30.1、最小例子 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* **list**
+
+  ```dart
+  final list1 = [1, 2, 3];
+  final list2 = [0, ...list1, 4];
+  
+  print(list2); // [0, 1, 2, 3, 4]
+  ```
+
+* **Map**
+
+  ```dart
+  final map1 = {'a': 1};
+  final map2 = {
+    'b': 2,
+    ...map1,
+  };
+  
+  final set = {1, 2, ...{3, 4}};
+  ```
+
+* **Set**
+
+  ```dart
+  final set = {1, 2, ...{3, 4}};
+  ```
+
+#### 30.2、配合条件使用（高频）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> 比传统写法干净很多
+
+```dart
+bool show = true;
+
+Column(
+  children: [
+    const Text('Header'),
+
+    if (show) ...[
+      const Text('内容1'),
+      const Text('内容2'),
+    ],
+
+    const Text('Footer'),
+  ],
+)
+```
+
+#### 30.3、空安全版本：`...?` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> 如果 list 是 null ➤ 不展开
+>
+> 如果不是 null ➤ 展开
+
+```dart
+List<int>? list;
+
+final result = [
+  1,
+  ...?list,
+  2,
+];
+```
+
+### 31、`switch` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * `switch` 表达式要求**穷尽匹配**。如果搭配万用类型**`dynamic`**则需要同时实现**兜底分支**
 
@@ -18066,7 +18124,7 @@ list.add('C');
       };
   ```
 
-### 31、<font color=blue>**Function**</font>（回调）的使用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 32、<font color=blue>**Function**</font>（回调）的使用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 定义
 
@@ -18102,33 +18160,34 @@ list.add('C');
   }
   ```
 
-### 32、<font id="Diff">`Diff` 算法</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 33、[**Flutter**](https://flutter.dev/).三棵树 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-* 在 Dart.Flutter 中，`Diff` 算法指的是用于**比较新旧 *Widget* 树的差异，并确定哪些部分需要更新**的算法。这个算法被称为 "Diff" 是因为它会找出两个树之间的差异，并尽可能地最小化更新的成本，**只更新必要的部分**。
-* `Diff` 算法的基本思想是递归地比较新旧 *Widget* 树的每个节点，找出它们之间的差异。这个比较是根据节点的类型、属性、以及子节点的情况来进行的。当发现节点之间存在差异时，`Diff` 算法会尝试**尽可能地复用已有的节点，并更新其属性**，而不是直接销毁和重建节点。
-* 以下是 `Diff` 算法的基本步骤：
-  * **比较节点类型**：首先比较新旧节点的类型。如果它们的类型不同，则说明节点需要被替换；
-  * **比较属性**：如果节点的类型相同，那么就比较它们的属性。如果属性有变化，则需要更新节点的属性；
-  * **比较子节点**：如果节点是容器类节点（比如 `Row`、`Column`、`ListView` 等），则需要递归地比较它们的子节点。如果子节点有变化，则需要更新子节点；
-  * **更新差异部分**：根据比较的结果，确定哪些部分需要更新，并执行相应的更新操作；
-    通过这种方式，`Diff` 算法可以高效地找出新旧 *Widget* 树之间的差异，并尽可能地减少更新的成本。这种优化可以帮助 Flutter 在处理复杂 UI 结构时保持良好的性能。
+> **Widget** 是临时配置，**Element** 是长期存在的挂载实例
 
-### 33、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`Widget`树** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+* **Widget Tree** ➤ 配置树：UI 蓝图 / 配置单 / 声明式描述
+* **Element Tree** ➤ 实例树 / 桥梁 （**State** 的生命周期其实是跟着 **Element** 走的，不是跟着 **Widget** 走的。**Key** 主要影响 **Element 的复用和匹配**。）
+  * 负责 **Widget** 的挂载
+  
+  * 负责生命周期管理（创建、更新、销毁、复用）
+  
+  * 负责 `Diff` 和 `rebuild`
+  
+    * <font id="Diff">`Diff` 算法</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+  
+      * 在 Dart.[**Flutter**](https://flutter.dev/) 中，`Diff` 算法指的是用于**比较新旧 Widget 树的差异，并确定哪些部分需要更新**的算法。这个算法被称为 "Diff" 是因为它会找出两个树之间的差异，并尽可能地最小化更新的成本，**只更新必要的部分**。
+      * `Diff` 算法的基本思想是递归地比较新旧 **Widget** 树的每个节点，找出它们之间的差异。这个比较是根据节点的类型、属性、以及子节点的情况来进行的。当发现节点之间存在差异时，`Diff` 算法会尝试**尽可能地复用已有的节点，并更新其属性**，而不是直接销毁和重建节点。
+      * 以下是 `Diff` 算法的基本步骤：
+        * **比较节点类型**：首先比较新旧节点的类型。如果它们的类型不同，则说明节点需要被替换；
+        * **比较属性**：如果节点的类型相同，那么就比较它们的属性。如果属性有变化，则需要更新节点的属性；
+        * **比较子节点**：如果节点是容器类节点（比如 `Row`、`Column`、`ListView` 等），则需要递归地比较它们的子节点。如果子节点有变化，则需要更新子节点；
+        * **更新差异部分**：根据比较的结果，确定哪些部分需要更新，并执行相应的更新操作；
+          通过这种方式，`Diff` 算法可以高效地找出新旧 **Widget** 树之间的差异，并尽可能地减少更新的成本。这种优化可以帮助 [**Flutter**](https://flutter.dev/) 在处理复杂 UI 结构时保持良好的性能。
+* **RenderObject Tree**  ➤ 渲染树（真正干活的渲染对象）
 
-* 有状态的*Widget*通常由两部分组成：
-  * 一个是状态对象（State Object），用于存储和管理状态；
-  * 另一个是小部件本身，用于构建UI；
-* 在 Dart.Flutter 中，*Widget* 树是由各种 *Widget* 组成的**层次结构**，用于描述应用程序的用户界面；
-* *Widget* 树是 Dart.Flutter 中**构建用户界面的基本概念**，它由 *Widget* 对象组成，**每个 *Widget* 对象代表一个 UI 元素**，比如文本、按钮、布局等；
-* *Widget* 树是一个**不可变的树结构**，其中每个节点都是一个 *Widget* 对象，它们描述了应用程序界面的**布局、外观和交互**；
-* *Widget* 树中的**每个节点都可以有一个或多个子节点**，这些子节点也是 *Widget* 对象；
-* Dart.Flutter 使用 *Widget* 树来构建应用程序的用户界面，并在需要时重新构建部分或全部界面；
-* 当 *Widget* 树中的任何一个节点发生变化时（比如属性变化、状态变化等），Dart.Flutter 会根据变化情况重新构建 *Widget* 树，并更新应用程序的用户界面。**重新构建不是在原有的基础上直接修改，而是重新创建整个（局部的） *Widget* 树**。这种重新构建的方式有以下几个特点：
-  * **不可变性**：***Widget* 树中的节点是不可变的，一旦创建就不能被修改**。因此，当节点的属性变化时，Dart.Flutter 不会直接修改原有的节点，而是**创建一个新的节点来替换旧的节点**；
-  * [***Diff 算法***](#Diff)：Dart.Flutter 使用一种称为 `Diff` 算法的技术来**比较新旧 *Widget* 树的差异**，并仅在**必要时更新** UI。`Diff` 算法会逐级比较新旧 *Widget* 树的节点，找出需要更新的部分，并仅重新构建和更新这部分节点，而不是重新构建整个 *Widget* 树；
-  * **重建顶级节点**：虽然 *Widget* 树中的大部分节点可能保持不变，但在某些情况下，比如状态变化或路由导航等，顶级节点可能会发生变化。在这种情况下，Dart.Flutter 会重新构建整个 *Widget* 树，从根节点开始，而不是从变化的节点开始；
-  * **重用已构建的部分**：为了提高性能，Dart.Flutter 会尽可能地重用已构建的部分 *Widget* 树。如果某些节点在新旧 *Widget* 树中是相同的（例如，它们具有相同的类型和属性），Dart.Flutter 将重用已构建的节点，而不是重新创建它们；
-    *虽然重新构建 Widget树看起来像是创建一个全新的树，但实际上 Flutter 会**尽可能地重用已有的节点**，并仅在必要时更新变化的部分，以提高性能和效率*
+  * **layout**：布局，算大小和位置
+  * **paint**：绘制
+  * **hitTest**：命中测试
+  * 有些还参与语义、无障碍等
 
 ### 34、<font id=稳定key>稳定 `key`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -18239,20 +18298,20 @@ list.add('C');
   * ```dart
     import 'dart:async';
     import 'package:flutter/material.dart';
-
+    
     void main() {
       scheduleMicrotask(() => debugPrint("Microtask 1"));// 会自动导入asyn包，即：import 'dart:async';
       Future.microtask(() => debugPrint("Microtask 2"));
       Future.value(123).then((value) => debugPrint("Microtask 3"));
-
+    
       debugPrint("main1");
       Future.sync(() => debugPrint("sync 1"));
       Future.value(getName());
       debugPrint("main2");
-
+    
       runApp(const MyApp());
     }
-
+    
     String getName() {
       debugPrint("get name");
       return "bob";
@@ -18275,7 +18334,7 @@ list.add('C');
     ```dart
     import 'dart:async';
     import 'package:flutter/material.dart';
-
+    
     void main() {
       Future.delayed(Duration(seconds: 1),()=>debugPrint("event 3"));
       Future(()=>debugPrint("event 1"));
@@ -18283,19 +18342,19 @@ list.add('C');
       // 这里的Duration.zero不是立即执行，而是0秒以后，系统有机会尽快执行
       // Future(()=>debugPrint("event 1")); 和 Future.delayed(Duration.zero,()=>debugPrint("event 2")); 都是等待0秒，谁在前，先执行谁
       Future.delayed(Duration.zero,()=>debugPrint("event 2"));
-
+    
       scheduleMicrotask(() => debugPrint("Microtask 1"));
       Future.microtask(() => debugPrint("Microtask 2"));
       Future.value(123).then((value) => debugPrint("Microtask 3"));
-
+    
       debugPrint("main1");
       Future.sync(() => debugPrint("sync 1"));
       Future.value(getName());
       debugPrint("main2");
-
+    
       runApp(const MyApp());
     }
-
+    
     String getName() {
       debugPrint("get name");
       return "bob";
@@ -18360,13 +18419,13 @@ list.add('C');
 
     ```dart
     import 'package:flutter/material.dart';
-
+    
     void main() {
       // 使用 const 修饰的 List，其中的元素是编译时常量，不可修改
       const List<int> constList = [1, 2, 3];
       // 尝试修改元素，会导致编译时错误
       // constList[0] = 10;
-
+    
       // 使用 final 修饰的 List 是一个运行时常量，其引用是不可变的，但可以添加、删除或修改元素
       final List<int> finalList = [1, 2, 3];
       // 修改元素
@@ -18375,7 +18434,7 @@ list.add('C');
       finalList.add(4);
       // 删除元素
       finalList.removeAt(1);
-
+    
       debugPrint('Final List: $finalList');
     }
     ```
@@ -18392,7 +18451,7 @@ list.add('C');
 
     ```dart
     import 'package:flutter/material.dart';
-
+    
     class MyClass {
       final int x;
       final int y;
@@ -18401,7 +18460,7 @@ list.add('C');
         debugPrint('x: $x, y: $y');
       }
     }
-
+    
     void main() {
       // 创建编译时常量对象
       const myConstObject = MyClass(10, 20);
@@ -18417,7 +18476,7 @@ list.add('C');
   * ```dart
     const a = NextPage(); // ✅ 编译时创建实例并缓存
     const b = NextPage(); // ✅ 相同参数 → 复用缓存
-
+    
     print(identical(a, b)); // ✅ true，确实是同一个对象
     ```
 
@@ -18527,10 +18586,10 @@ list.add('C');
     ```dart
     // main.dart
     library my_library;
-
+    
     import 'part1.dart';
     import 'part2.dart';
-
+    
     // 主文件中的其他代码
     ```
   * **部分文件**：
@@ -18612,7 +18671,7 @@ list.add('C');
   Future<String> getFuture(){
     return Future(() => "Alice");/// Future对象包裹字符串对象
   }
-
+  
   void _incrementCounter() {
     getFuture().then((value) => debugPrint(value));/// Future对象用then打开。这里的value就是String，也就是"Alice"
   }
@@ -18630,16 +18689,16 @@ list.add('C');
 
     ```dart
     import 'package:flutter/material.dart';
-
+    
     void main() {
       debugPrint("main1");
       Future.sync(() => debugPrint("main2"));
       Future.value(getName());// 已经确定一个字符串"bob",将他封装成Future
       debugPrint("main2");
-
+    
       runApp(const MyApp());
     }
-
+    
     String getName() {
       debugPrint("get name");
       return "bob";
@@ -18693,7 +18752,7 @@ list.add('C');
     ```dart
     import 'dart:async';
     import 'package:flutter/material.dart';
-
+    
     void main() {
       Future.delayed(Duration(seconds: 1),()=>debugPrint("event 3"));
       Future(()=>debugPrint("event 1"));
@@ -18701,19 +18760,19 @@ list.add('C');
       // 这里的Duration.zero不是立即执行，而是0秒以后，系统有机会尽快执行
       // Future(()=>debugPrint("event 1")); 和 Future.delayed(Duration.zero,()=>debugPrint("event 2")); 都是等待0秒，谁在前，先执行谁
       Future.delayed(Duration.zero,()=>debugPrint("event 2"));
-
+    
       scheduleMicrotask(() => debugPrint("Microtask 1"));
       Future.microtask(() => debugPrint("Microtask 2"));
       Future.value(123).then((value) => debugPrint("Microtask 3"));
-
+    
       debugPrint("main1");
       Future.sync(() => debugPrint("sync 1"));
       Future.value(getName());
       debugPrint("main2");
-
+    
       runApp(const MyApp());
     }
-
+    
     String getName() {
       debugPrint("get name");
       return "bob";
@@ -19292,24 +19351,298 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 });
 ```
 
-
-
 ## 七、<font color=red>**F**</font><font color=green>**A**</font><font color=blue>**Q**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-* **Widget**、**Element**、**RenderObject**
+### 1、[**Flutter**](https://flutter.dev/) 本地存储方案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-  > ```
-> Widget.createElement() ──▶   Element.createRenderObject() ──▶  RenderObject
-  >    ↑                            ↓                                  ↓
-> （配置）                   （管理 & 生命周期）                   （布局 & 绘制）
-  > ```
+* 轻量键值存储（最常见，底层就是平台提供的轻量 **key-value** 存储 ➤ **shared_preferences**）
 
-  * **Widget**（像 **JSON** / 配置对象）➤ 只是`描述 UI`、不干活、每次 **build** 都会新建
+  ```dart
+  import 'package:shared_preferences/shared_preferences.dart';// 适合：登录状态、token、主题、用户设置、小量配置。
+  
+  Future<void> saveData() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('token', 'abc123');
+    await prefs.setBool('isLogin', true);
+  }
+  
+  Future<void> readData() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
+    final isLogin = prefs.getBool('isLogin') ?? false;
+  
+    print(token);
+    print(isLogin);
+  }
+  ```
 
-* **Element**（核心中间层，**Widget** 的**运行时实例**）➤ 长期存在（不会频繁销毁）、持有（**widget**、**state**（如果有））、负责 diff
-  * **RenderObject**（干活的）➤ layout（布局）+ paint（绘制）
+* 文件存储
 
-* 为什么 **iOS** 的 **UITableView** 比 [**Flutter**](https://flutter.dev/).**ListView** 更稳？[**Flutter**](https://flutter.dev/) 怎么追上？
+  ```dart
+  import 'dart:io';// 读写文件
+  import 'package:path_provider/path_provider.dart';// 获取目录
+  /// 适合：缓存 JSON、日志、文本、离线内容、下载文件。
+  Future<File> _getLocalFile() async {
+    final dir = await getApplicationDocumentsDirectory();
+    return File('${dir.path}/user.txt');
+  }
+  
+  Future<void> writeFile() async {
+    final file = await _getLocalFile();
+    await file.writeAsString('hello flutter');
+  }
+  
+  Future<void> readFile() async {
+    final file = await _getLocalFile();
+    final content = await file.readAsString();
+    print(content);
+  }
+  ```
+
+* 本地数据库（**SQLite**）
+
+  ```dart
+  import 'package:sqflite/sqflite.dart';// 适合：列表数据、复杂对象、分页、筛选、离线业务数据。
+  import 'package:path/path.dart';
+  
+  /// 优点✅
+  /// 支持 SQL
+  /// 查询能力强
+  /// 适合复杂业务
+  
+  /// 缺点❌
+  /// 写法相对重
+  /// 表结构设计和升级要自己管
+  Future<Database> openMyDb() async {
+    return openDatabase(
+      join(await getDatabasesPath(), 'demo.db'),
+      onCreate: (db, version) async {
+        await db.execute(
+          'CREATE TABLE user(id INTEGER PRIMARY KEY, name TEXT, age INTEGER)',
+        );
+      },
+      version: 1,
+    );
+  }
+  
+  Future<void> insertUser() async {
+    final db = await openMyDb();
+    await db.insert('user', {
+      'name': 'Tom',
+      'age': 20,
+    });
+  }
+  
+  Future<void> queryUsers() async {
+    final db = await openMyDb();
+    final result = await db.query('user');
+    print(result);
+  }
+  ```
+
+* **NoSQL** / 高性能本地库（**Hive**）
+
+  ```dart
+  import 'package:hive_flutter/hive_flutter.dart';// 纯 Dart，本地 KV 数据库，性能不错，使用简单。
+  
+  /// 优点✅
+  /// 快
+  /// 不依赖原生数据库层
+  /// 适合 Flutter
+  /// 比 shared_preferences 更适合存对象和较复杂数据
+  
+  /// 缺点❌
+  /// 查询能力不如关系型数据库灵活
+  /// 多条件复杂筛选不如 SQLite
+  Future<void> main() async {
+    await Hive.initFlutter();
+    await Hive.openBox('appBox');
+  
+    final box = Hive.box('appBox');
+    await box.put('token', 'abc123');
+  
+    final token = box.get('token');
+    print(token);
+  }
+  ```
+
+### 2、**Future** 在哪个队列里面？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> **Future** 默认在 **event queue**，但完成态 **Future** 的回调在 **Microtask Queue**
+
+  ```dart
+  print("A");
+  Future(() => print("B"));
+  Future.value().then((_) => print("C"));
+  print("D");
+  
+  /// 输出
+  A // 同步
+  D // 同步
+  C // microtask
+  B // event
+  ```
+
+  * **Future** 默认是在 **Event Queue**（事件队列）
+
+    ```dart
+    Future(() {
+      print("A");
+    });
+    ```
+
+    ```dart
+    Future.delayed(Duration(seconds: 1), () {
+      print("B");
+    });
+    ```
+
+  * **Future**.<font color=red>value</font> / **Future**.<font color=red>sync</font>（重点）➤ **Microtask Queue**
+
+    ```dart
+    Future.value().then((_) {
+      print("C");
+    });
+    ```
+
+  * <font color=red>**await**</font> 后续  **Microtask Queue**
+
+### 3、为什么会这样？已完成的 **Future**，会立即进入 **Microtask Queue** 执行回调 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  | 类型             | 本质           |
+  | ---------------- | -------------- |
+  | **Future**()     | 新任务（事件） |
+  | **Future.value** | 已完成任务     |
+
+### 4、**Hot Reload** 🆚 **Hot Restart** 的本质区别 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  | 项目        | Hot Reload | Hot Restart  |
+  | ----------- | ---------- | ------------ |
+  | Dart **VM** | 不重建     | **重建**     |
+  | 内存        | 保留       | **清空**     |
+  | `State`     | 保留       | **丢失**     |
+  | `main()`    | 不执行     | **重新执行** |
+
+### 5、**Hot Reload** 🆚 **Hot Restart** 🆚 **Run（重新运行）** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  | 操作                | 本质              | 速度 | 状态 |
+  | ------------------- | ----------------- | ---- | ---- |
+  | **Hot Reload**      | 替换代码          | 极快 | 保留 |
+  | **Hot Restart**     | **重建 Dart VM**  | 较快 | 清空 |
+  | **Run（重新运行）** | **整个 App 重启** | 最慢 | 清空 |
+
+### 6、**Hot Restart** 本质 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  * 销毁 Dart VM 当前状态
+    * 重新初始化
+    * 执行 `main() `
+    *  重建 **Widget** 树 
+
+### 7、为什么有些修改必须 **Restart**？这些修改已经<u>固化在内存里</u>，**VM** 没法动态替换 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  * 修改 `main()`
+
+    ```dart
+    /// App 已经启动过了
+    /// VM 不会重新跑入口函数
+    void main() {
+      runApp(MyApp());
+    }
+    ```
+
+  * 全局变量初始化
+
+    ```dart
+    /// 这个值已经在内存里初始化过
+    /// Hot Reload 不会重新执行初始化逻辑
+    final time = DateTime.now();
+    ```
+
+  * 构造函数逻辑
+
+    ```dart
+    /// 对象已经创建了
+    /// 不会重新 new
+    class A {
+      A() {
+        print("init");
+      }
+    }
+    ```
+
+  * 类型结构变化（很关键）**VM** 无法安全替换对象内存结构
+
+    ```dart
+    class A {
+      int a;
+    }
+    
+    /// 改成：
+    class A {
+      String a;
+    }
+    ```
+
+### 8、**VM（虚拟机）** 和 **Engine** 有什么区别？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  * **VM**：执行 Dart 代码
+  * **Engine**：负责渲染（Skia）
+
+### 9、**VM** 的两种模式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  * **JIT**（**J**ust-**I**n-**T**ime）➤  用在 **debug**：代码运行时编译/支持热重载
+  * **AOT**（**A**head-**O**f-**T**ime）➤ 用在 **release**：提前编译成机器码/没有 **VM**（或者 **VM** 不参与执行）
+
+### 10、`setState()` 之后到底发生了什么？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  > 并不是整棵树瞎重建 ➤ 生成新的 **Widget**、和旧 **Widget** 对比、由 **Element** 决定是否更新、复用、替换
+
+  * 标记对应的 `Element` 需要更新
+  * 框架下一帧重新调用 `build`
+  * 生成新的 `Widget Tree`
+  * `Element` 拿新旧 `Widget` 做对比
+  * 能复用就复用，不能复用就替换
+  * 如有必要，更新 `RenderObject`
+  * 重新 `layout` / `paint`
+
+### 11、[**GetX**](https://pub.dev/packages/get)状态管理基于什么实现? <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> 基于观察者模式实现响应式更新，最终通过 [**Flutter**](https://flutter.dev/) 的 rebuild 机制刷新界面
+
+  * 观察者模式
+  * **Stream**/事件通知思想
+  * [**Flutter**](https://flutter.dev/)  的 **Element** / **Widget** rebuild 机制
+
+### 12、[**GetX**](https://pub.dev/packages/get) 的状态管理主要有两套 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  > 底层最终还是依赖  [**Flutter**](https://flutter.dev/) 自身的 **widget** rebuild 机制，不是脱离 [**Flutter**](https://flutter.dev/) 单独实现渲染。
+
+  * `GetBuilder`，本质上类似手动调用 `update()` 触发局部刷新，接近 `setState` 或 `ChangeNotifier` 的思路
+    * 非响应式
+    * 手动 `update()`
+    * 性能直接
+    * 适合明确控制刷新时机
+  * `Obx` 配合 `Rx`，本质上是响应式编程，基于观察者模式，数据变化后自动通知依赖它的 **widget** 局部重建
+    * 响应式
+    * `.obs` 数据变化自动刷新
+    * 用起来更爽
+    * 适合表单、计数器、开关、局部联动 UI
+
+### 13、[**GetX**](https://pub.dev/packages/get) 🆚 **GetBuilder** 🆚 **Obx** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  | 组件                                     | 类型           | 是否响应式 | 触发方式        | 使用场景     |
+  | ---------------------------------------- | -------------- | ---------- | --------------- | ------------ |
+  | **GetBuilder**                           | 简单状态管理   | ❌ 否       | 手动 `update()` | 精准控制刷新 |
+  | **Obx**                                  | 响应式         | ✅ 是       | `.obs` 自动触发 | 局部联动 UI  |
+  | [**GetX**](https://pub.dev/packages/get) | 响应式（增强） | ✅ 是       | `.obs` 自动触发 | 多状态组合   |
+
+### 14、[**GetX**](https://pub.dev/packages/get) 🆚 [**Provider**](https://pub.dev/packages/provider) 🆚 [**Bloc**](https://bloclibrary.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+  * [**Provider**](https://pub.dev/packages/provider)：更多是依赖注入 + `ChangeNotifier` 这种模式
+  * [**Bloc**](https://bloclibrary.dev/)：更强调事件流、状态流，规范更强
+  * [**GetX**](https://pub.dev/packages/get)：更轻，写法更少，响应式更直接
+
+### 15、为什么 **iOS** 的 **UITableView** 比 [**Flutter**](https://flutter.dev/).**ListView** 更稳？[**Flutter**](https://flutter.dev/) 怎么追上？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   > 👉 **UITableView 靠“复用 cell”，Flutter 靠“重建 + diff”**
   > 👉 iOS 更**保守稳定**，[**Flutter**](https://flutter.dev/) 更“灵活但吃实现质量”
@@ -19363,10 +19696,9 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     * 图片缓存（[**Flutter**](https://flutter.dev/) 最大短板）
 
       ```dart
-    CachedNetworkImage(...)
+      CachedNetworkImage(...)
       ```
-
-* <font color=red>不出**UI**的总结</font>
+### 16、<font color=red>不出**UI**的总结</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   * `Expanded` 不能直接作为 `Container`.`child`
 
@@ -19447,6 +19779,8 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     | `Row` 内多个子项按比例分配空间                               | ✅ 可以     | ✅ 用 `Expanded(flex: n)`     | 或 `Flexible`；`Spacer` 等价 `Expanded(child: SizedBox.shrink())` |
     | `GridView` / `ListView.builder` 顶层直接作为 `Scaffold.body` | ✅ 可以     | ❌ 不需要                     | 顶层约束由屏幕提供                                           |
 
+### 17、其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
 * [**Dart**](https://dart.dev/)（[**Flutter**](https://flutter.dev/)）不支持真正的内部类
 
 * 类型判断： **this is**
@@ -19521,26 +19855,26 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
       @override
       _ScrollControllerDemoState createState() => _ScrollControllerDemoState();
     }
-
+    
     class _ScrollControllerDemoState extends State<ScrollControllerDemo> {
       final ScrollController _controller = ScrollController();
-
+    
       @override
       void initState() {
         super.initState();
-
+    
         // ✅ 添加滚动监听
         _controller.addListener(() {
           print('当前滚动位置: ${_controller.offset}');
         });
       }
-
+    
       @override
       void dispose() {
         _controller.dispose(); // ✅ 别忘了释放
         super.dispose();
       }
-
+    
       void _scrollToTop() {
         _controller.animateTo(
           0.0, // 目标 offset
@@ -19548,7 +19882,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
           curve: Curves.easeOut,
         );
       }
-
+    
       void _scrollToBottom() {
         _controller.animateTo(
           _controller.position.maxScrollExtent, // 最大可滚动距离
@@ -19556,7 +19890,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
           curve: Curves.easeInOut,
         );
       }
-
+    
       @override
       Widget build(BuildContext context) {
         return Scaffold(
@@ -19585,7 +19919,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     ```dart
     /// 多个组件同步滚动
     final controller = ScrollController();
-
+    
     Row(
       children: [
         Expanded(

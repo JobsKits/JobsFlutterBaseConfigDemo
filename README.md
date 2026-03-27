@@ -5266,7 +5266,7 @@ class DemoCustomRecognizer extends StatelessWidget {
 ```
 </details>
 
-#### 18.6、[**Flutter**](https://flutter.dev/)手势冲突⚔️（iOS/Android的核心差异） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 18.6、[**Flutter**](https://flutter.dev/)手势冲突⚔️（**iOS**/**Android**的核心差异） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ##### 18.6.1、👋手势竞技场机制差异 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -5276,7 +5276,7 @@ class DemoCustomRecognizer extends StatelessWidget {
 
 * **iOS**
   * [**Flutter**](https://flutter.dev/) 的 `GestureArena` 模拟了 `UIScrollView`
-  * iOS 认为「垂直滚动」是一个整体区域，不轻易释放手势
+  * **iOS** 认为「垂直滚动」是一个整体区域，不轻易释放手势
   * 子 `ScrollView` 到边缘后，仍然尝试继续消费，不把事件交给父级
 
 ##### 18.6.2、👋滚动物理差异 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
@@ -19466,7 +19466,60 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   }
   ```
 
-### 2、**Future** 在哪个队列里面？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 2、**Future** **是不是多线程**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* 不是。是事件循环调度
+
+### 3、Future / async-await 本质是什么？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* 只是把任务丢进队列，不是开线
+
+### 4、<font color=red>**async**</font> **会不会开线程**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* 不会
+
+### 5、**什么时候用** **Isolate**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* CPU 密集任务
+
+### 6、什么是 **Isolate**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* 一个独立的 Dart 运行实例（类似进程）
+* 有自己的内存
+* 不共享变量（避免锁和线程安全问题）
+* 通过消息通信
+
+### 7、**为什么** [**Flutter**](https://flutter.dev/) 不用多线程？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* 因为 UI 操作必须在主线程，同时 Dart 通过 **Isolate** 避免共享内存带来的复杂性
+
+### 8、手势 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> 不管图形是如何（自定义绘制），点击的时候响应都是矩形
+
+* 工作流
+
+  ➤ **PointerEvent**（原始事件），**Listener**（最底层）
+
+  ➤ **GestureRecognizer**（手势识别器）
+
+  ➤ **Gesture Arena**（竞争）
+
+  ➤ 回调触发（`onTap` / `onPan` 等）
+
+* 裁决规则（有**阀值**和**时间**的概念）：`The first member to accept or the last member to not reject wins.` = 谁第一个调用 `acceptGesture`谁基本赢 + 如果没人主动宣布胜利，那就看谁坚持到最后没 `reject`，即为赢家
+
+  * 最后一个没放弃的人赢
+  * 有人 accept，会立即尝试结束比赛
+  * accept ≠ 立刻赢（但会推动裁决）
+  * 没有人 accept 时，靠“谁先不合格”淘汰
+
+### 9、**为什么状态不会丢？**<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* **Element 和 State 没被销毁**
+* 只是 **Widget** 重新 build
+
+### 10、**Future** 在哪个队列里面？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **Future** 默认在 **event queue**，但完成态 **Future** 的回调在 **Microtask Queue**
 
@@ -19507,14 +19560,20 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 
   * <font color=red>**await**</font> 后续  **Microtask Queue**
 
-### 3、为什么会这样？已完成的 **Future**，会立即进入 **Microtask Queue** 执行回调 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 11、为什么会这样？已完成的 **Future**，会立即进入 **Microtask Queue** 执行回调 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   | 类型             | 本质           |
   | ---------------- | -------------- |
   | **Future**()     | 新任务（事件） |
   | **Future.value** | 已完成任务     |
 
-### 4、**Hot Reload** 🆚 **Hot Restart** 的本质区别 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 12、**为什么** **Release** **没有热重载？**<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+* Release 使用 **AOT（Ahead-of-Time）编译**
+* 没有 Dart VM
+* 代码已经变成机器码
+
+### 13、**Hot Reload** 🆚 **Hot Restart** 的本质区别 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   | 项目        | Hot Reload | Hot Restart  |
   | ----------- | ---------- | ------------ |
@@ -19523,7 +19582,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   | `State`     | 保留       | **丢失**     |
   | `main()`    | 不执行     | **重新执行** |
 
-### 5、**Hot Reload** 🆚 **Hot Restart** 🆚 **Run（重新运行）** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 14、**Hot Reload** 🆚 **Hot Restart** 🆚 **Run（重新运行）** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   | 操作                | 本质              | 速度 | 状态 |
   | ------------------- | ----------------- | ---- | ---- |
@@ -19531,14 +19590,14 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   | **Hot Restart**     | **重建 Dart VM**  | 较快 | 清空 |
   | **Run（重新运行）** | **整个 App 重启** | 最慢 | 清空 |
 
-### 6、**Hot Restart** 本质 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 15、**Hot Restart** 本质 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   * 销毁 Dart VM 当前状态
     * 重新初始化
     * 执行 `main() `
     *  重建 **Widget** 树 
 
-### 7、为什么有些修改必须 **Restart**？这些修改已经<u>固化在内存里</u>，**VM** 没法动态替换 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 16、为什么有些修改必须 **Restart**？这些修改已经<u>固化在内存里</u>，**VM** 没法动态替换 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   * 修改 `main()`
 
@@ -19583,17 +19642,17 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     }
     ```
 
-### 8、**VM（虚拟机）** 和 **Engine** 有什么区别？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 17、**VM（虚拟机）** 和 **Engine** 有什么区别？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   * **VM**：执行 Dart 代码
   * **Engine**：负责渲染（Skia）
 
-### 9、**VM** 的两种模式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 18、**VM** 的两种模式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   * **JIT**（**J**ust-**I**n-**T**ime）➤  用在 **debug**：代码运行时编译/支持热重载
   * **AOT**（**A**head-**O**f-**T**ime）➤ 用在 **release**：提前编译成机器码/没有 **VM**（或者 **VM** 不参与执行）
 
-### 10、`setState()` 之后到底发生了什么？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 19、`setState()` 之后到底发生了什么？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   > 并不是整棵树瞎重建 ➤ 生成新的 **Widget**、和旧 **Widget** 对比、由 **Element** 决定是否更新、复用、替换
 
@@ -19605,7 +19664,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   * 如有必要，更新 `RenderObject`
   * 重新 `layout` / `paint`
 
-### 11、[**GetX**](https://pub.dev/packages/get)状态管理基于什么实现? <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 20、[**GetX**](https://pub.dev/packages/get)状态管理基于什么实现? <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 基于观察者模式实现响应式更新，最终通过 [**Flutter**](https://flutter.dev/) 的 rebuild 机制刷新界面
 
@@ -19613,7 +19672,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   * **Stream**/事件通知思想
   * [**Flutter**](https://flutter.dev/)  的 **Element** / **Widget** rebuild 机制
 
-### 12、[**GetX**](https://pub.dev/packages/get) 的状态管理主要有两套 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 21、[**GetX**](https://pub.dev/packages/get) 的状态管理主要有两套 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   > 底层最终还是依赖  [**Flutter**](https://flutter.dev/) 自身的 **widget** rebuild 机制，不是脱离 [**Flutter**](https://flutter.dev/) 单独实现渲染。
 
@@ -19628,7 +19687,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     * 用起来更爽
     * 适合表单、计数器、开关、局部联动 UI
 
-### 13、[**GetX**](https://pub.dev/packages/get) 🆚 **GetBuilder** 🆚 **Obx** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 22、[**GetX**](https://pub.dev/packages/get) 🆚 **GetBuilder** 🆚 **Obx** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   | 组件                                     | 类型           | 是否响应式 | 触发方式        | 使用场景     |
   | ---------------------------------------- | -------------- | ---------- | --------------- | ------------ |
@@ -19636,13 +19695,13 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   | **Obx**                                  | 响应式         | ✅ 是       | `.obs` 自动触发 | 局部联动 UI  |
   | [**GetX**](https://pub.dev/packages/get) | 响应式（增强） | ✅ 是       | `.obs` 自动触发 | 多状态组合   |
 
-### 14、[**GetX**](https://pub.dev/packages/get) 🆚 [**Provider**](https://pub.dev/packages/provider) 🆚 [**Bloc**](https://bloclibrary.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 23、[**GetX**](https://pub.dev/packages/get) 🆚 [**Provider**](https://pub.dev/packages/provider) 🆚 [**Bloc**](https://bloclibrary.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   * [**Provider**](https://pub.dev/packages/provider)：更多是依赖注入 + `ChangeNotifier` 这种模式
   * [**Bloc**](https://bloclibrary.dev/)：更强调事件流、状态流，规范更强
   * [**GetX**](https://pub.dev/packages/get)：更轻，写法更少，响应式更直接
 
-### 15、为什么 **iOS** 的 **UITableView** 比 [**Flutter**](https://flutter.dev/).**ListView** 更稳？[**Flutter**](https://flutter.dev/) 怎么追上？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 24、为什么 **iOS** 的 **UITableView** 比 [**Flutter**](https://flutter.dev/).**ListView** 更稳？[**Flutter**](https://flutter.dev/) 怎么追上？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   > 👉 **UITableView 靠“复用 cell”，Flutter 靠“重建 + diff”**
   > 👉 iOS 更**保守稳定**，[**Flutter**](https://flutter.dev/) 更“灵活但吃实现质量”
@@ -19698,7 +19757,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
       ```dart
       CachedNetworkImage(...)
       ```
-### 16、<font color=red>不出**UI**的总结</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 25、<font color=red>不出**UI**的总结</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   * `Expanded` 不能直接作为 `Container`.`child`
 
@@ -19779,7 +19838,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     | `Row` 内多个子项按比例分配空间                               | ✅ 可以     | ✅ 用 `Expanded(flex: n)`     | 或 `Flexible`；`Spacer` 等价 `Expanded(child: SizedBox.shrink())` |
     | `GridView` / `ListView.builder` 顶层直接作为 `Scaffold.body` | ✅ 可以     | ❌ 不需要                     | 顶层约束由屏幕提供                                           |
 
-### 17、其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 26、其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * [**Dart**](https://dart.dev/)（[**Flutter**](https://flutter.dev/)）不支持真正的内部类
 

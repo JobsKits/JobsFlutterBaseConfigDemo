@@ -1,0 +1,113 @@
+flutter里面是不是就没有多线程？全是单线程？
+不是。**Flutter 不是“没有多线程”，也不是“全是单线程”**。更准确地说：
+
+**Flutter UI 代码默认主要跑在一个 Dart isolate 里**，你平时写的 `build`、状态更新、事件响应，通常都在这个主 isolate 上执行，所以你会强烈感觉它像“单线程”。
+但 Flutter/引擎层面并不只有一个线程。
+
+可以分成两层看：
+
+### 1. Dart 层：默认不是多线程共享内存模型
+
+Dart 里没有像 Java 那种“多个线程共享同一块内存、随便加锁”的常规模型。
+它主要用的是 **isolate**。
+
+你可以把 **isolate** 理解成：
+
+* 每个 isolate 有自己的内存
+* 서로不能直接共享对象
+* 通信靠消息传递
+
+所以在 Dart/Flutter 里，通常说“开多线程”，实际更接近于：
+
+* 开新的 **isolate**
+* 把耗时计算丢过去
+* 算完再把结果发回来
+
+这和传统意义上的线程不完全一样。
+
+---
+
+### 2. Flutter 引擎层：实际有多个线程
+
+Flutter 引擎内部本来就不是单线程。常见会有这些角色：
+
+* **UI thread**：跑 Dart 代码、处理 widget build 等
+* **Raster thread**：做栅格化、把 layer 画到屏幕
+* **Platform thread**：和 iOS/Android 平台交互
+* 还有 **IO thread** 等后台线程
+
+所以从整个 Flutter runtime 来看，它本身明确是多线程协作的。
+
+---
+
+### 3. 为什么大家总说 Flutter “单线程”
+
+因为你日常写业务代码时，最常接触的是：
+
+* 一个主 isolate
+* 一个事件循环
+* 同步代码一旦阻塞，就会卡 UI
+
+例如你在主 isolate 里做大 JSON 解析、图片处理、超大循环计算，界面就会掉帧。
+这就是为什么很多人觉得 Flutter “就是单线程”。
+
+其实更准确应该说：
+
+> **默认业务逻辑大多在单个主 isolate 上跑，但可以通过 isolate 做并发，Flutter 引擎本身也有多个线程。**
+
+---
+
+### 4. `async/await` 不等于多线程
+
+这是最容易混淆的点。
+
+`async/await` 只是**异步**，不是自动开新线程。
+
+比如：
+
+```dart
+await Future.delayed(Duration(seconds: 1));
+```
+
+这是把任务挂起，等一会再继续，不是开了个新线程。
+
+但如果你这样：
+
+```dart
+final result = await compute(parseBigJson, jsonString);
+```
+
+这才是把工作丢到另一个 isolate 去做，接近“并行处理”。
+
+---
+
+### 5. 什么时候该用 isolate
+
+适合放到 isolate 的，一般是 **纯 CPU 密集型任务**，比如：
+
+* 大量 JSON 解析
+* 图片编解码/处理
+* 大循环计算
+* 加密/压缩
+* 本地大数据转换
+
+不太适合 isolate 的：
+
+* 普通网络请求
+* 数据库简单查询
+* UI 操作
+* 依赖主线程平台调用的逻辑
+
+因为这些很多本来就是异步 IO，未必需要新 isolate。
+
+---
+
+### 6. 一句话结论
+
+结论直接说：
+
+**Flutter 不是没有多线程。**
+**你写的 UI/业务代码默认主要跑在单个主 isolate 上，所以表现得像单线程；但 Dart 可以通过 isolate 做并发，Flutter 引擎本身也是多线程的。**
+
+你要是愿意，我可以接着给你画一张：
+**“事件循环 / Future / microtask / isolate / engine threads” 的关系图**，这块很多人第一次都容易混。

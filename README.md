@@ -14,6 +14,8 @@
   <a><img src="https://img.shields.io/github/languages/code-size/JobsKits/JobsFlutterBaseConfigDemo" alt="Code Size"/></a>
 </p>
 
+![Jobs倾情奉献](https://picsum.photos/1500/400 "Jobs出品，必属精品")
+
 [toc]
 
 ## 🔥<font id=前言>前言</font>

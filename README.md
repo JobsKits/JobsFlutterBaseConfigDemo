@@ -86,147 +86,196 @@
 
 ## 二、开发周边 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 1、[**热键配置**](https://github.com/JobsKits/JobsConfigHotKeyByHammerspoon) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 1、[**Jobs的个人技术博客**](https://jobsdocs.ccwu.cc/)
 
-### 2、[**Typora**](https://typora.io/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 2、[**系统相关配置**](https://github.com/JobsKits/JobsConfigOS)
 
-### 3、😱[**ohmyz.sh**](https://ohmyz.sh/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+* `【MacOS】🆕新系统配置.command`
 
-```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
+  * 😱[**ohmyz.sh**](https://ohmyz.sh/) 
 
-or
+    ```shell
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # 或者
+    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    ```
 
-```shell
-sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
+  * 🏠[**Homebrew**](https://brew.sh/) 
 
-### 4、🏠[**Homebrew**](https://brew.sh/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+    ```shell
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
 
-```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+    * 🏠[**Homebrew**](https://brew.sh/).[<font color=red>**Dart**</font>](https://dart.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-#### 4.1、🏠[**Homebrew**](https://brew.sh/).[<font color=red>Dart</font>](https://dart.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+      > [**Flutter**](https://flutter.dev/) 里面自带一个[**Dart**](https://dart.dev/) 环境，理论上是比最新的[**Dart**](https://dart.dev/) 版本落后的。如果系统里面既装了[**Dart**](https://dart.dev/) 环境又装了[**Flutter**](https://flutter.dev/)环境，那么[**Flutter**](https://flutter.dev/)项目默认使用[**Flutter**](https://flutter.dev/).SDK里面自带那个[**Dart**](https://dart.dev/) 环境
 
-> [**Flutter**](https://flutter.dev/) 里面自带一个[Dart](https://dart.dev/) 环境，理论上是比最新的[Dart](https://dart.dev/) 版本落后的。如果系统里面既装了[Dart](https://dart.dev/) 环境又装了[**Flutter**](https://flutter.dev/)环境，那么[**Flutter**](https://flutter.dev/)项目默认使用[**Flutter**](https://flutter.dev/).SDK里面自带那个[Dart](https://dart.dev/) 环境
+      ```
+      brew tap dart-lang/dart
+      ```
 
-```
-brew tap dart-lang/dart
-```
+    * 🏠<font id=jenv>[**Homebrew**](https://brew.sh/).[<font color=red>**jenv**</font>](https://github.com/jenv/jenv) </font><a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-#### 4.2、🏠<font id=jenv>[**Homebrew**](https://brew.sh/).[<font color=red>jenv</font>](https://github.com/jenv/jenv) </font><a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+      >涉及到[**Android**](https://www.android.com/)的部分需要[**Java**](https://www.java.com/zh-CN/)环境的支持（打包、运行）
+      >
+      >[<font color=red>**jenv**</font>](https://github.com/jenv/jenv)不会自动下载/关联 **JDK**，需要手动进行操作
+      >
+      >如果使用[<font color=red>**jenv**</font>](https://github.com/jenv/jenv)那么系统全局环境变量里面就不能写
+      >
+      >```shell
+      >'export JAVA_HOME=$(/usr/libexec/java_home)'
+      >'export PATH="$JAVA_HOME/bin:$PATH"'
+      >```
 
->涉及到[**Android**](https://www.android.com/)的部分需要[**Java**](https://www.java.com/zh-CN/)环境的支持（打包、运行）
->
->[<font color=red>jenv</font>](https://github.com/jenv/jenv)不会自动下载/关联 **JDK**，需要手动进行操作
->
->如果使用[<font color=red>jenv</font>](https://github.com/jenv/jenv)那么系统全局环境变量里面就不能写
->
->```shell
->'export JAVA_HOME=$(/usr/libexec/java_home)'
->'export PATH="$JAVA_HOME/bin:$PATH"'
->```
+    * 环境变量
 
-* 环境变量
+      ```shell
+      export PATH="$HOME/.jenv/bin:$PATH"
+      eval "$(jenv init -)"
+      export JAVA_HOME="$HOME/.jenv/versions/$(jenv version-name)"
+      export PATH="$JAVA_HOME/bin:$PATH"
+      ```
 
-  ```shell
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
-  export JAVA_HOME="$HOME/.jenv/versions/$(jenv version-name)"
-  export PATH="$JAVA_HOME/bin:$PATH"
-  ```
+    * ```shell
+      jenv versions --bare --verbose
+      ```
 
-* ```shell
-  jenv versions --bare --verbose
-  ```
+      >在 **shell** 脚本中遍历所有已添加的 **JDK** 版本路径；
+      >
+      >检查某个版本到底对应哪个目录（例如是否是[**Homebrew**](https://brew.sh/)安装的、[**SDKMAN**](https://sdkman.io/) 安装的等）；
 
-  >在 **shell** 脚本中遍历所有已添加的 **JDK** 版本路径；
-  >
-  >检查某个版本到底对应哪个目录（例如是否是[**Homebrew**](https://brew.sh/)安装的、[**SDKMAN**](https://sdkman.io/) 安装的等）；
+    * ```shell
+      jenv add/remove JDK.path
+      ```
 
-* ```shell
-  jenv add/remove JDK.path
-  ```
+      >```shell
+      ># Homebrew.JDK.path 的固定格式
+      >/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+      >```
+      >
+      >```shell
+      >jenv_add() {
+      >	for v in 8 11 17 21; do
+      >path="/opt/homebrew/opt/openjdk@${v}/libexec/openjdk.jdk/Contents/Home"
+      >[[ -x "$path/bin/java" ]] && jenv add "$path"
+      >done
+      >
+      >jenv rehash
+      >}
+      >```
 
-  >```shell
-  ># Homebrew.JDK.path 的固定格式
-  >/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
-  >```
-  >
-  >```shell
-  >jenv_add() {
-  >	for v in 8 11 17 21; do
-  >path="/opt/homebrew/opt/openjdk@${v}/libexec/openjdk.jdk/Contents/Home"
-  >[[ -x "$path/bin/java" ]] && jenv add "$path"
-  >done
-  >
-  >jenv rehash
-  >}
-  >```
+    * 重新生成 **shims**，使得你添加或切换的 **Java** 版本能被系统识别并生效
+      
+      ```shell
+      jenv rehash 
+      ```
+      
+    * 用 [**jenv**](https://github.com/jenv/jenv)切换[**Java**](https://www.java.com/zh-CN/)环境
+    
+      ```shell
+      jenv versions --bare --verbose # 用这里的结果
+      
+      # 删除构建失败的 jenv 中间件
+      rm -f ~/.jenv/shims/.jenv-shim
+      
+      # 1、让 jenv 在当前 shell 生效
+      eval "$(jenv init -)"
+      
+      # 2、启用 export 插件（自动导出 JAVA_HOME）
+      jenv enable-plugin export
+      
+      # 3、让 jenv 识别本机 JDK 17（若已识别可跳过）
+      jenv add "$(/usr/libexec/java_home -v 17)" >/dev/null 2>&1
+      
+      # 4、更新 shims（新增 JDK 后建议做一次）
+      jenv rehash
+      
+      # 5、在项目内锁定到 JDK 17（JDK 版本号按 jenv versions 里显示来）
+      jenv local openjdk64-17.0.16 # 或者 17.0.16
+      
+      # 6、全局（所有项目默认）
+      jenv global openjdk64-24.0.2
+      
+      # 7、重新加载环境（让 export 插件立刻生效）
+      jenv shell openjdk64-17.0.16
+      
+      # 8、 验证
+      echo ""
+      java -version
+      echo ""
+      echo "JAVA_HOME=$JAVA_HOME"
+      echo ""
+      ```
+    
+      > **整个MacOS系统里面用最新的JDK；而在具体的[Flutter](https://flutter.dev/)项目里面用指定版本的JDK**
+      >
+      > ```shell
+      > ➜  Desktop java --version
+      > openjdk 24.0.2 2025-07-15
+      > OpenJDK Runtime Environment Homebrew (build 24.0.2)
+      > OpenJDK 64-Bit Server VM Homebrew (build 24.0.2, mixed mode, sharing)
+      > ➜  Desktop /Users/jobs/Documents/Github/flutter_tiyu_app
+      > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗ java --version
+      > openjdk 17.0.16 2025-07-15
+      > OpenJDK Runtime Environment Homebrew (build 17.0.16+0)
+      > OpenJDK 64-Bit Server VM Homebrew (build 17.0.16+0, mixed mode, sharing)
+      > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗
+      > ```
 
-* ```shell
-  jenv rehash # 重新生成 shims，使得你添加或切换的 Java 版本能被系统识别并生效。
-  ```
+* [**系统环境变量配置**](https://github.com/JobsKits/JobsMacEnvVarConfig)
 
-* 用 [**jenv**](https://github.com/jenv/jenv)切换[**Java**](https://www.java.com/zh-CN/)环境
+* [**SourceTree脚本配置**](https://github.com/JobsKits/SourceTree.sh)
 
-  ```shell
-  jenv versions --bare --verbose # 用这里的结果
+* [**Xcode代码块配置**](https://github.com/JobsKits/JobsCodeSnippets)
+
+* [**热键工具Hammerspoon配置**](https://github.com/JobsKits/JobsConfigHotKeyByHammerspoon)
+
+* [**常用软件下载**](https://github.com/JobsKits/JobsSoftware.MacOS)
+
+* [**🦞Openclaw配置**](https://github.com/JobsKits/JobsInstallOpenClaw)
+
+### 3、[**JobsGenesis**](https://github.com/JobsKits/JobsGenesis)
+
+* [**配置SourceTree脚本**](https://github.com/JobsKits/SourceTree.sh)
+* [**配置Flutter脚本**](https://github.com/JobsKits/JobsCommand-Flutter)
+* [**配置iOS脚本**](https://github.com/JobsKits/JobsCommand-iOS)
+* [**配置Git脚本**](https://github.com/JobsKits/JobsCommand-Gits)
+* [**其他配置脚本**](https://github.com/JobsKits/JobsCommand-Others)
+  * [**文件分拆（合并）测试**](https://github.com/JobsKits/JobsCommand-Others/tree/main/【MacOS】文件分拆（合并）测试)
+
+### 4、工具网站
+
+* [**CocoaPods**](https://cocoapods.org/)
+
+* [**屏幕分享工具**](https://github.com/mistweaverco/bananas)
+
+* [**uuwallet@虚拟卡**](https://www.uuwallet.com/)
+
+* [**波测**](https://www.boce.com/)
+
+* [**Mac破解软件**](https://mac.macxz.com/)
+
+* [**图片占位符**](https://picsum.photos/)
+
+* [**帮小忙@腾讯QQ浏览器在线工具箱**](https://tool.browser.qq.com/)
+
+* [**quicktype**](https://app.quicktype.io/)
+
+  > 从 **JSON** / **GraphQL** /其它数据格式 自动生成对应语言的类型定义➤[**Github@quicktype**](https://github.com/glideapps/quicktype?utm_source=chatgpt.com)
   
-  # 删除构建失败的 jenv 中间件
-  rm -f ~/.jenv/shims/.jenv-shim
+  * ```shell
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
   
-  # 1、让 jenv 在当前 shell 生效
-  eval "$(jenv init -)"
+  * ```shell
+    brew install npm
+    ```
   
-  # 2、启用 export 插件（自动导出 JAVA_HOME）
-  jenv enable-plugin export
-  
-  # 3、让 jenv 识别本机 JDK 17（若已识别可跳过）
-  jenv add "$(/usr/libexec/java_home -v 17)" >/dev/null 2>&1
-  
-  # 4、更新 shims（新增 JDK 后建议做一次）
-  jenv rehash
-  
-  # 5、在项目内锁定到 JDK 17（JDK 版本号按 jenv versions 里显示来）
-  jenv local openjdk64-17.0.16 # 或者 17.0.16
-  
-  # 6、全局（所有项目默认）
-  jenv global openjdk64-24.0.2
-  
-  # 7、重新加载环境（让 export 插件立刻生效）
-  jenv shell openjdk64-17.0.16
-  
-  # 8、 验证
-  echo ""
-  java -version
-  echo ""
-  echo "JAVA_HOME=$JAVA_HOME"
-  echo ""
-  ```
+  * ```shell
+    npm install -g quicktype
+    ```
 
-  > **整个MacOS系统里面用最新的JDK；而在具体的[Flutter](https://flutter.dev/)项目里面用指定版本的JDK**
-  >
-  > ```shell
-  > ➜  Desktop java --version
-  > openjdk 24.0.2 2025-07-15
-  > OpenJDK Runtime Environment Homebrew (build 24.0.2)
-  > OpenJDK 64-Bit Server VM Homebrew (build 24.0.2, mixed mode, sharing)
-  > ➜  Desktop /Users/jobs/Documents/Github/flutter_tiyu_app
-  > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗ java --version
-  > openjdk 17.0.16 2025-07-15
-  > OpenJDK Runtime Environment Homebrew (build 17.0.16+0)
-  > OpenJDK 64-Bit Server VM Homebrew (build 17.0.16+0, mixed mode, sharing)
-  > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗
-  > ```
-
-### 5、[**利用quicktype自动建立数据模型**](https://github.com/JobsKits/JobsDocs/blob/main/利用quicktype自动建立数据模型.md/利用quicktype自动建立数据模型.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-### 6、[**向附近设备分享文件**](https://localsend.org/download) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-
-### 7、**Git**忽略文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 5、**Git**忽略文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```shell
 # Flutter/Dart/Pub related

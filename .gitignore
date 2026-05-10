@@ -62,3 +62,6 @@ plugins/
 /android/
 # local VSCode configs
 #.vscode/
+
+# AI@Codex by openai
+.codex-derived-data/

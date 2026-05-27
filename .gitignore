@@ -1,67 +1,122 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
+############################################################
+# macOS
+############################################################
+
 .DS_Store
-.atom/
+.AppleDouble
+.LSOverride
+
+############################################################
+# Git
+############################################################
+
+.git/
+.gitmodules
+.gitignore_global
+
+############################################################
+# Xcode User Data
+############################################################
+
+xcuserdata/
+*.xcuserdatad
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+############################################################
+# Xcode Build
+############################################################
+
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+############################################################
+# Xcode Workspace
+############################################################
+
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+############################################################
+# Swift Package Manager
+############################################################
+
 .build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
+Packages/
+Package.resolved
 
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
+############################################################
+# CocoaPods
+############################################################
+
+Pods/
+
+############################################################
+# Carthage
+############################################################
+
+Carthage/Build
+
+############################################################
+# Fastlane
+############################################################
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+############################################################
+# Code Injection
+############################################################
+
+iOSInjectionProject/
+
+############################################################
+# Temporary / Cache
+############################################################
+
+.cache/
+.tmp/
+temp/
+tmp/
+
+############################################################
+# Logs
+############################################################
+
+*.log
+
+############################################################
+# Editor
+############################################################
+
 .idea/
+.vscode/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/settings.json
-#!.vscode/settings.local.json
+############################################################
+# Misc
+############################################################
 
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
+*.swp
+*~
 
-# Symbolication related
-app.*.symbols
-
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-
-# FVM Version Cache
-.fvm/
-
-# Flutter plugins metadata
-.flutter-plugins
-.flutter-plugins-dependencies
-plugins/
-
-# 各平台编译
-/linux/
-/macos/
-/windows/
-/web/
-/ios/
-/android/
-# local VSCode configs
-#.vscode/
-
+############################################################
 # AI@Codex by openai
+############################################################
 .codex-derived-data/
+.codegraph/
+.codex/
+.agents/
+
+############################################################
+# Graphify Generated Output
+############################################################
+
+# Graphify generated output files; can be regenerated locally.
+graphify-out/

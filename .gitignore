@@ -120,3 +120,6 @@ tmp/
 
 # Graphify generated output files; can be regenerated locally.
 graphify-out/
+
+# FVM Version Cache
+.fvm/

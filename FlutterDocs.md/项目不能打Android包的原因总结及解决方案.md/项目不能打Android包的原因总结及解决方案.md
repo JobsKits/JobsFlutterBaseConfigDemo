@@ -9,7 +9,7 @@ FAILURE: Build failed with an exception.
 Execution failed for task ':flutter_plugin_engagelab:verifyReleaseResources'.
 > A failure occurred while executing com.android.build.gradle.tasks.VerifyLibraryResourcesTask$Action
    > Android resource linking failed
-     ERROR:/Users/jobs/Documents/Github/flutter_tiyu_app/build/flutter_plugin_engagelab/intermediates/merged_res/release/values/values.xml:239: AAPT: error: resource android:attr/lStar not found.
+     ERROR:../../../../flutter_tiyu_app/build/flutter_plugin_engagelab/intermediates/merged_res/release/values/values.xml:239: AAPT: error: resource android:attr/lStar not found.
 
 
 * Try:
@@ -26,10 +26,10 @@ Running Gradle task 'assembleRelease'...                           79.4s
 │ [!] Your project requires a newer version of the Kotlin Gradle plugin.                                 │
 │ Find the latest version on https://kotlinlang.org/docs/releases.html#release-details, then update the  │
 │ version number of the plugin with id "org.jetbrains.kotlin.android" in the plugins block of            │
-│ /Users/jobs/Documents/Github/flutter_tiyu_app/android/settings.gradle.                                 │
+│ ../../../../flutter_tiyu_app/android/settings.gradle.                                 │
 │                                                                                                        │
 │ Alternatively (if your project was created before Flutter 3.19), update                                │
-│ /Users/jobs/Documents/Github/flutter_tiyu_app/android/build.gradle                                     │
+│ ../../../../flutter_tiyu_app/android/build.gradle                                     │
 │ ext.kotlin_version = '<latest-version>'                                                                │
 └────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 Gradle task assembleRelease failed with exit code 1
@@ -60,7 +60,7 @@ Gradle task assembleRelease failed with exit code 1
 > 在项目根终端里面执行
 
 ```shell
-➜  Desktop /Users/jobs/Desktop/flutter_tiyu_app 
+➜  Desktop ~/Desktop/flutter_tiyu_app 
 ➜  flutter_tiyu_app git:(merge_theme（黑金打包分支）) ✗ # 看 compileSdk 是否被写死为 30/29 等
 grep -R --line-number "compileSdkVersion" android | sed 's/^/FOUND: /'
 
@@ -112,7 +112,7 @@ OpenJDK 64-Bit Server VM Homebrew (build 17.0.16+0, mixed mode, sharing)
 > 现在卡在 **依赖解析失败**：你项目 `pubspec.yaml` 里把 `intl` 写成了 `^0.19.0`，但 `flutter_localizations`（来自 Flutter SDK）**强制要求 `intl 0.20.2`**。这不是编译器问题，而是**你的依赖下界太低**，导致 `pub get` 直接失败，后续当然也打不了包。
 
 ```shell
-#!/bin/zsh
+# shell: zsh
 set -euo pipefail
 
 cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
@@ -147,7 +147,7 @@ grep -R --line-number "compileSdkVersion" android | grep -v "/build/" || true
 ```
 
 > ```shell
-> ➜  flutter_tiyu_app git:(merge_theme（黑金打包分支）) ✗ /Users/jobs/Desktop/d.sh 
+> ➜  flutter_tiyu_app git:(merge_theme（黑金打包分支）) ✗ ~/Desktop/d.sh 
 > == gradle.properties ==
 > org.gradle.jvmargs=-Xmx4G -XX:+HeapDumpOnOutOfMemoryError
 > android.useAndroidX=true
@@ -344,8 +344,8 @@ You can try the following suggestion to make the pubspec resolve:
 
     ```shell
     ➜  flutter_tiyu_app git:(69-xin-pu-jing) ✗ ls -d ~/.pub-cache/hosted/pub.dev/flutter_plugin_engagelab-*/android/build.gradle
-    /Users/jobs/.pub-cache/hosted/pub.dev/flutter_plugin_engagelab-1.2.9+500500/android/build.gradle
-    /Users/jobs/.pub-cache/hosted/pub.dev/flutter_plugin_engagelab-1.3.1+510510/android/build.gradle
+    ~/.pub-cache/hosted/pub.dev/flutter_plugin_engagelab-1.2.9+500500/android/build.gradle
+    ~/.pub-cache/hosted/pub.dev/flutter_plugin_engagelab-1.3.1+510510/android/build.gradle
     ```
 
 * 修正命令
@@ -364,10 +364,10 @@ You can try the following suggestion to make the pubspec resolve:
     cp "$f" "$f.bak.$(date +%s)"
   
     # 把本文件里以 compileSdkVersion 开头的那一行，整行替换为：compileSdkVersion 'android-34'
-    /usr/bin/sed -E -i '' "s/^([[:space:]]*)compileSdkVersion.*$/\1compileSdkVersion 'android-34'/" "$f"
+    $SYSTEM_USR_DIR/bin/sed -E -i '' "s/^([[:space:]]*)compileSdkVersion.*$/\1compileSdkVersion 'android-34'/" "$f"
   
     # （可选）把 targetSdkVersion 那行统一成 34，避免旧值
-    /usr/bin/sed -E -i '' "s/^([[:space:]]*)targetSdkVersion[[:space:]]+[0-9]+/\1targetSdkVersion 34/" "$f"
+    $SYSTEM_USR_DIR/bin/sed -E -i '' "s/^([[:space:]]*)targetSdkVersion[[:space:]]+[0-9]+/\1targetSdkVersion 34/" "$f"
   done
   ```
 

@@ -103,7 +103,7 @@
   * 🏠[**Homebrew**](https://brew.sh/) 
 
     ```shell
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    $SYSTEM_BIN_DIR/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
     * 🏠[**Homebrew**](https://brew.sh/).[<font color=red>**Dart**</font>](https://dart.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
@@ -123,7 +123,7 @@
       >如果使用[<font color=red>**jenv**</font>](https://github.com/jenv/jenv)那么系统全局环境变量里面就不能写
       >
       >```shell
-      >'export JAVA_HOME=$(/usr/libexec/java_home)'
+      >'export JAVA_HOME=$($SYSTEM_USR_DIR/libexec/java_home)'
       >'export PATH="$JAVA_HOME/bin:$PATH"'
       >```
 
@@ -150,13 +150,13 @@
 
       >```shell
       ># Homebrew.JDK.path 的固定格式
-      >/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+      >$(brew --prefix)/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
       >```
       >
       >```shell
       >jenv_add() {
       >	for v in 8 11 17 21; do
-      >path="/opt/homebrew/opt/openjdk@${v}/libexec/openjdk.jdk/Contents/Home"
+      >path="$(brew --prefix)/opt/openjdk@${v}/libexec/openjdk.jdk/Contents/Home"
       >[[ -x "$path/bin/java" ]] && jenv add "$path"
       >done
       >
@@ -185,7 +185,7 @@
       jenv enable-plugin export
       
       # 3、让 jenv 识别本机 JDK 17（若已识别可跳过）
-      jenv add "$(/usr/libexec/java_home -v 17)" >/dev/null 2>&1
+      jenv add "$($SYSTEM_USR_DIR/libexec/java_home -v 17)" >/dev/null 2>&1
       
       # 4、更新 shims（新增 JDK 后建议做一次）
       jenv rehash
@@ -214,7 +214,7 @@
       > openjdk 24.0.2 2025-07-15
       > OpenJDK Runtime Environment Homebrew (build 24.0.2)
       > OpenJDK 64-Bit Server VM Homebrew (build 24.0.2, mixed mode, sharing)
-      > ➜  Desktop /Users/jobs/Documents/Github/flutter_tiyu_app
+      > ➜  Desktop ../../flutter_tiyu_app
       > ➜  flutter_tiyu_app git:(JobsBranch@永利（金）) ✗ java --version
       > openjdk 17.0.16 2025-07-15
       > OpenJDK Runtime Environment Homebrew (build 17.0.16+0)
@@ -264,7 +264,7 @@
   > 从 **JSON** / **GraphQL** /其它数据格式 自动生成对应语言的类型定义➤[**Github@quicktype**](https://github.com/glideapps/quicktype?utm_source=chatgpt.com)
   
   * ```shell
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    $SYSTEM_BIN_DIR/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
   
   * ```shell
@@ -554,27 +554,27 @@ plugins/
     echo "⚠️ 未检测到 rbenv，请执行 brew install rbenv 安装"
   fi
   if command -v ruby &>/dev/null; then
-    export PATH="/usr/local/opt/ruby/bin:$PATH"
-    export LDFLAGS="-L/usr/local/opt/ruby/lib"
-    export CPPFLAGS="-I/usr/local/opt/ruby/include"
-    export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+    export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
+    export LDFLAGS="-L$(brew --prefix)/opt/ruby/lib"
+    export CPPFLAGS="-I$(brew --prefix)/opt/ruby/include"
+    export PKG_CONFIG_PATH="$(brew --prefix)/opt/ruby/lib/pkgconfig"
   else
     echo "⚠️ 未检测到 ruby，建议执行 brew install ruby"
   fi
   
   # 配置 Curl 环境变量（需 Homebrew 安装）
   if command -v curl &>/dev/null; then
-    export PATH="/usr/local/opt/curl/bin:$PATH"
-    export LDFLAGS="-L/usr/local/opt/curl/lib"
-    export CPPFLAGS="-I/usr/local/opt/curl/include"
-    export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig"
+    export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
+    export LDFLAGS="-L$(brew --prefix)/opt/curl/lib"
+    export CPPFLAGS="-I$(brew --prefix)/opt/curl/include"
+    export PKG_CONFIG_PATH="$(brew --prefix)/opt/curl/lib/pkgconfig"
   else
     echo "⚠️ curl 未通过 brew 安装，建议执行 brew install curl"
   fi
   
   # 配置 VSCode 命令行（code）
-  if [[ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]]; then
-    export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+  if [[ -d "$APPLICATIONS_DIR/Visual Studio Code.app/Contents/Resources/app/bin" ]]; then
+    export PATH="$PATH:$APPLICATIONS_DIR/Visual Studio Code.app/Contents/Resources/app/bin"
     if ! command -v code &>/dev/null; then
       echo "⚠️ VSCode 已安装但未配置 code 命令，请在 VSCode 中运行：Shell Command: Install code in PATH"
     fi
@@ -584,10 +584,10 @@ plugins/
   
   # 配置 Flutter 环境变量
   if ! command -v fvm &>/dev/null; then
-    if [[ -d "/opt/homebrew/Caskroom/flutter/latest/flutter/bin" ]]; then
-      export PATH="/opt/homebrew/Caskroom/flutter/latest/flutter/bin:$PATH"
-    elif [[ -d "/usr/local/Caskroom/flutter/latest/flutter/bin" ]]; then
-      export PATH="/usr/local/Caskroom/flutter/latest/flutter/bin:$PATH"
+    if [[ -d "$(brew --prefix)/Caskroom/flutter/latest/flutter/bin" ]]; then
+      export PATH="$(brew --prefix)/Caskroom/flutter/latest/flutter/bin:$PATH"
+    elif [[ -d "$(brew --prefix)/Caskroom/flutter/latest/flutter/bin" ]]; then
+      export PATH="$(brew --prefix)/Caskroom/flutter/latest/flutter/bin:$PATH"
     elif [[ -d "$HOME/flutter/bin" ]]; then
       export PATH="$HOME/flutter/bin:$PATH"
     elif [[ -d "$HOME/Documents/GitHub.Jobs/Flutter.SDK/Flutter.SDK.last/bin" ]]; then
@@ -616,9 +616,9 @@ plugins/
   fi
   
   # 配置 JDK / OpenJDK / SDKMAN
-  export JAVA_HOME="/opt/homebrew/opt/openjdk"  # 默认值（优先级最低）
-  if /usr/libexec/java_home &>/dev/null; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
+  export JAVA_HOME="$(brew --prefix)/opt/openjdk"  # 默认值（优先级最低）
+  if $SYSTEM_USR_DIR/libexec/java_home &>/dev/null; then
+    export JAVA_HOME=$($SYSTEM_USR_DIR/libexec/java_home)
   fi
   case ":$PATH:" in
     *":$JAVA_HOME/bin:"*) ;;
@@ -921,8 +921,8 @@ plugins/
       >
       > * 存放模拟器用到的 **挂载卷（Volumes）数据**。
       >
-      > - 用于模拟 **iOS 设备的磁盘结构**，包括 `/Volumes` 中的挂载点。
-      > - 一些 App 或系统组件可能会在模拟器中访问 `/Volumes` 路径（类似 macOS 磁盘挂载），就会挂载此目录中的数据。
+      > - 用于模拟 **iOS 设备的磁盘结构**，包括 `$SYSTEM_VOLUMES_DIR` 中的挂载点。
+      > - 一些 App 或系统组件可能会在模拟器中访问 `$SYSTEM_VOLUMES_DIR` 路径（类似 macOS 磁盘挂载），就会挂载此目录中的数据。
       >
       > 例如：模拟器运行中，如果用户或 App 尝试挂载外部磁盘，或创建虚拟磁盘（如` .dmg `文件），就可能映射到这个目录。
       >
@@ -1023,7 +1023,7 @@ plugins/
   >
   > The following Android Virtual Devices could not be loaded:
   >     Name: Medium_Phone_API_36
-  >     Path: /Users/jobs/.android/avd/Medium_Phone_API_36.avd
+  >     Path: ~/.android/avd/Medium_Phone_API_36.avd
   >    Error: Missing system image for Google Play arm64-v8a Medium Phone API 36.
   > ```
 
@@ -1342,8 +1342,8 @@ plugins/
                   "debugSdkLibraries": false,
                   "debugExternalLibraries": false,
                   "env": {// 配置Java环境（Android运行打包需要）
-                    "JAVA_HOME": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
-                    "PATH": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home/bin:${env:PATH}"
+                    "JAVA_HOME": "$(brew --prefix)/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
+                    "PATH": "$(brew --prefix)/opt/openjdk/libexec/openjdk.jdk/Contents/Home/bin:${env:PATH}"
                   }
               },
               // {
@@ -1368,7 +1368,7 @@ plugins/
       // 🚫 本文件为个人本地 VS Code 设置，仅供自己使用，不推荐加入 Git 管理
       {
         // ✅ 指定 CMake 项目的源代码目录（用于 CMake 插件）
-        "cmake.sourceDirectory": "/Users/jobs/Documents/GitHub/JobsFlutterBaseConfig/jobs_flutter_base_config/linux",
+        "cmake.sourceDirectory": "~/Documents/GitHub/JobsFlutterBaseConfig/jobs_flutter_base_config/linux",
       
         // ✅ Java 编译时的空值分析模式（自动启用 null 安全检查）
         "java.compile.nullAnalysis.mode": "automatic",
@@ -14342,7 +14342,7 @@ dependencies:
 
     ```
     # 🔥配置 系统全局的JDK（如果配置了jenv，即失效）
-    export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME=$($SYSTEM_USR_DIR/libexec/java_home)
     export PATH="$JAVA_HOME/bin:$PATH"
     ```
 
@@ -15986,11 +15986,11 @@ ensure_fvm_and_flutter_version_before_build() {
 
 # ✅ 打 Android 包需要Java环境@17
 ensure_jdk17() {
-  if ! /usr/libexec/java_home -v 17 >/dev/null 2>&1; then
+  if ! $SYSTEM_USR_DIR/libexec/java_home -v 17 >/dev/null 2>&1; then
     err "系统未安装 JDK 17；请先安装（Temurin 17 / Zulu 17 等）。"
     exit 1
   fi
-  jenv add "$(/usr/libexec/java_home -v 17)" >/dev/null 2>&1 || true
+  jenv add "$($SYSTEM_USR_DIR/libexec/java_home -v 17)" >/dev/null 2>&1 || true
   jenv rehash
   local pick_17
   pick_17="$(jenv versions --bare | grep -E '(^|[[:space:]])(.*17(\.|$).*)' | head -n1 || true)"
@@ -16059,14 +16059,14 @@ ipa() {
   <img src="./assets/image-20250830215352008.png" alt="image-20250830215352008" style="zoom:50%;" />
 
   ```shell
-  #!/bin/zsh
+  # shell: zsh
   # 【SourceTree 专用】Flutter Android 打包（自动发现子项目；纯文本；带心跳与阶段标记）
   set -euo pipefail
 
   # ---------------- 基本日志 ----------------
   SCRIPT_BASENAME=$(basename "$0" | sed 's/\.[^.]*$//')
-  LOG_FILE="/tmp/${SCRIPT_BASENAME}.log"; : > "$LOG_FILE"
-  BUILD_LOG="/tmp/flutter_build_log.txt"; : > "$BUILD_LOG"
+  LOG_FILE="$TMPDIR/${SCRIPT_BASENAME}.log"; : > "$LOG_FILE"
+  BUILD_LOG="$TMPDIR/flutter_build_log.txt"; : > "$BUILD_LOG"
 
   log()  { echo "$1" | tee -a "$LOG_FILE"; }
   info() { log "[INFO] $*"; }
@@ -16156,7 +16156,7 @@ ipa() {
       FLUTTER_ROOT="$base"; ok "命中：$FLUTTER_ROOT"; return 0
     fi
     local hit
-    hit="$(/usr/bin/find "$base" -name pubspec.yaml -type f -print 2>/dev/null | head -n1 || true)"
+    hit="$($SYSTEM_USR_DIR/bin/find "$base" -name pubspec.yaml -type f -print 2>/dev/null | head -n1 || true)"
     if [[ -n "$hit" ]]; then
       FLUTTER_ROOT="$(dirname "$hit")"
       if is_flutter_root "$FLUTTER_ROOT"; then
@@ -16178,11 +16178,11 @@ ipa() {
   # ---------------- Java 环境（固定 JDK17） ----------------
   ensure_java17() {
     section "Java 环境"
-    if /usr/libexec/java_home -v 17 >/dev/null 2>&1; then
-      export JAVA_HOME="$(/usr/libexec/java_home -v 17)"
+    if $SYSTEM_USR_DIR/libexec/java_home -v 17 >/dev/null 2>&1; then
+      export JAVA_HOME="$($SYSTEM_USR_DIR/libexec/java_home -v 17)"
       export PATH="$JAVA_HOME/bin:$PATH"
     else
-      for p in /opt/homebrew/opt/openjdk@17 /usr/local/opt/openjdk@17; do
+      for p in $(brew --prefix)/opt/openjdk@17 $(brew --prefix)/opt/openjdk@17; do
         if [[ -d "$p" && -x "$p/bin/java" ]]; then
           export JAVA_HOME="$p"; export PATH="$JAVA_HOME/bin:$PATH"; break
         fi
@@ -16284,15 +16284,15 @@ ipa() {
   <img src="./assets/image-20250830215325146.png" alt="image-20250830215325146" style="zoom:50%;" />
 
   ```shell
-  #!/bin/zsh
+  # shell: zsh
   # 【SourceTree 专用】Flutter iOS 打包（自动发现子项目，纯文本；全局心跳 + 分阶段耗时）
   
   set -euo pipefail
   
   # ================= 日志/工具 =================
   SCRIPT_BASENAME="macos_sourcetree_build_ios"
-  LOG_FILE="/tmp/${SCRIPT_BASENAME}.log"; : > "$LOG_FILE"
-  BUILD_LOG="/tmp/flutter_build_ios.log"; : > "$BUILD_LOG"
+  LOG_FILE="$TMPDIR/${SCRIPT_BASENAME}.log"; : > "$LOG_FILE"
+  BUILD_LOG="$TMPDIR/flutter_build_ios.log"; : > "$BUILD_LOG"
   
   log()      { echo "$1" | tee -a "$LOG_FILE"; }
   info()     { log "[INFO] $*"; }
@@ -16395,7 +16395,7 @@ ipa() {
     fi
   
     local hit
-    hit="$(/usr/bin/find "$base" -name pubspec.yaml -type f -print 2>/dev/null | head -n1 || true)"
+    hit="$($SYSTEM_USR_DIR/bin/find "$base" -name pubspec.yaml -type f -print 2>/dev/null | head -n1 || true)"
     if [[ -n "$hit" ]]; then
       FLUTTER_ROOT="$(dirname "$hit")"
       if is_flutter_root "$FLUTTER_ROOT"; then
@@ -16480,7 +16480,7 @@ ipa() {
     local ipa_dir="$FLUTTER_ROOT/build/ios/ipa"
     local first_ipa=""
     if [[ -d "$ipa_dir" ]]; then
-      first_ipa="$(/usr/bin/find "$ipa_dir" -type f -name '*.ipa' -print 2>/dev/null | head -n1 || true)"
+      first_ipa="$($SYSTEM_USR_DIR/bin/find "$ipa_dir" -type f -name '*.ipa' -print 2>/dev/null | head -n1 || true)"
     fi
   
     if [[ -n "$first_ipa" ]]; then
@@ -16492,7 +16492,7 @@ ipa() {
     local archive_dir="$FLUTTER_ROOT/build/ios/archive"
     local first_archive=""
     if [[ -d "$archive_dir" ]]; then
-      first_archive="$(/usr/bin/find "$archive_dir" -type d -name '*.xcarchive' -print 2>/dev/null | head -n1 || true)"
+      first_archive="$($SYSTEM_USR_DIR/bin/find "$archive_dir" -type d -name '*.xcarchive' -print 2>/dev/null | head -n1 || true)"
     fi
   
     if [[ -n "$first_archive" ]]; then
@@ -16621,7 +16621,7 @@ ipa() {
     ```
 
     ```shell
-    cp -R /opt/homebrew/share/android-commandlinetools/cmdline-tools ~/Library/Android/sdk/cmdline-tools/latest
+    cp -R $(brew --prefix)/share/android-commandlinetools/cmdline-tools ~/Library/Android/sdk/cmdline-tools/latest
     ```
 
   * 手动下载安装（[**🔗 官方 zip 包**](https://developer.android.com/studio#command-tools)） ：解压到 ➤ `~/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager`
@@ -16799,11 +16799,11 @@ graph TD
 * **`flutter build apk`** 等价于👇
 
   ```shell
-  cd /path/to/flutter_project/build/app/.android
+  cd <flutter-root>_project/build/app/.android
   
   ./gradlew \
-    -I /path/to/flutter/bin/cache/artifacts/engine/android-arm-release/flutter.gradle \
-    -Ptarget=/path/to/flutter_project/lib/main.dart \
+    -I <flutter-root>/bin/cache/artifacts/engine/android-arm-release/flutter.gradle \
+    -Ptarget=<flutter-root>_project/lib/main.dart \
     -Ptarget-platform=android-arm,android-arm64 \
     -Pdart-defines= \
     -Pdart-obfuscation=false \
@@ -16895,11 +16895,11 @@ graph TD
 <summary>点击展开代码</summary>
 
 ```dart
-#!/bin/zsh
+# shell: zsh
 
 # ✅ 日志与输出函数
 SCRIPT_BASENAME=$(basename "$0" | sed 's/\.[^.]*$//')   # 当前脚本名（去掉扩展名）
-LOG_FILE="/tmp/${SCRIPT_BASENAME}.log"                  # 设置对应的日志文件路径
+LOG_FILE="$TMPDIR/${SCRIPT_BASENAME}.log"                  # 设置对应的日志文件路径
 
 log()            { echo -e "$1" | tee -a "$LOG_FILE"; }
 color_echo()     { log "\033[1;32m$1\033[0m"; }         # ✅ 正常绿色输出
@@ -16931,7 +16931,7 @@ show_intro() {
   note_echo "7️⃣ 构建前输出 📦 JDK / 📦 Gradle / 📦 AGP 三个版本信息"
   note_echo "8️⃣ 构建后自动打开输出产物目录"
   note_echo "9️⃣ 所有命令均统一交互：回车 = 执行，任意键 + 回车 = 跳过"
-  note_echo "🔟 构建日志自动保存到 /tmp/flutter_build_log.txt"
+  note_echo "🔟 构建日志自动保存到 $TMPDIR/flutter_build_log.txt"
   echo ""
   warm_echo "➤ 回车 = 执行默认 / 任意键 + 回车 = 跳过（统一交互）"
   echo ""
@@ -16943,7 +16943,7 @@ init_environment() {
   cd "$(cd "$(dirname "$0")" && pwd -P)" || exit 1
 
   # 添加 sdkmanager 路径
-  export PATH="/opt/homebrew/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH"
+  export PATH="$(brew --prefix)/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH"
 
   # jenv 初始化
   if [[ -d "$HOME/.jenv" ]]; then
@@ -16955,7 +16955,7 @@ init_environment() {
 # ✅ 单行写文件（避免重复写入）
 inject_shellenv_block() {
     local id="$1"           # 参数1：环境变量块 ID，如 "homebrew_env"
-    local shellenv="$2"     # 参数2：实际要写入的 shellenv 内容，如 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+    local shellenv="$2"     # 参数2：实际要写入的 shellenv 内容，如 'eval "$($(brew --prefix)/bin/brew shellenv)"'
     local header="# >>> ${id} 环境变量 >>>"  # 自动生成注释头
 
     # 参数校验
@@ -17004,19 +17004,19 @@ install_homebrew() {
     warn_echo "🧩 未检测到 Homebrew，正在安装中...（架构：$arch）"
 
     if [[ "$arch" == "arm64" ]]; then
-      # Apple Silicon 原生 Homebrew（/opt/homebrew）
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
+      # Apple Silicon 原生 Homebrew（$(brew --prefix)）
+      $SYSTEM_BIN_DIR/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
         error_echo "❌ Homebrew 安装失败（arm64）"
         exit 1
       }
-      brew_bin="/opt/homebrew/bin/brew"
+      brew_bin="$(brew --prefix)/bin/brew"
     else
       # Intel 或在 Apple Silicon 下装一份 Intel 版 Homebrew（需要 Rosetta）
-      arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
+      arch -x86_64 $SYSTEM_BIN_DIR/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
         error_echo "❌ Homebrew 安装失败（x86_64）"
         exit 1
       }
-      brew_bin="/usr/local/bin/brew"
+      brew_bin="$(brew --prefix)/bin/brew"
     fi
 
     success_echo "✅ Homebrew 安装成功"
@@ -17185,7 +17185,7 @@ detect_flutter_command() {
 
 # ✅ Java 环境配置
 fix_jenv_java_version() {
-  local jdk_path="/opt/homebrew/opt/openjdk@17"
+  local jdk_path="$(brew --prefix)/opt/openjdk@17"
   if command -v jenv >/dev/null 2>&1 && [[ -d "$jdk_path" ]]; then
     if ! jenv versions --bare | grep -q "^17"; then
       warn_echo "📦 openjdk@17 未注册到 jenv，尝试添加..."
@@ -17219,8 +17219,8 @@ configure_java_env() {
 
   local version_number="${selected#*@}"
   brew list --formula | grep -q "^$selected$" || brew install "$selected"
-  sudo ln -sfn "/opt/homebrew/opt/$selected/libexec/openjdk.jdk" "/Library/Java/JavaVirtualMachines/${selected}.jdk" 2>/dev/null
-  export JAVA_HOME=$(/usr/libexec/java_home -v"$version_number")
+  sudo ln -sfn "$(brew --prefix)/opt/$selected/libexec/openjdk.jdk" "$SYSTEM_LIBRARY_DIR/Java/JavaVirtualMachines/${selected}.jdk" 2>/dev/null
+  export JAVA_HOME=$($SYSTEM_USR_DIR/libexec/java_home -v"$version_number")
   export PATH="$JAVA_HOME/bin:$PATH"
   echo "$selected" > "$record_file"
   success_echo "✅ JAVA_HOME 已设置为：$JAVA_HOME"
@@ -17352,7 +17352,7 @@ ensure_htprotect_pub_get() {
 
 # ✅ 环境信息输出
 print_env_diagnostics() {
-  local log_file="/tmp/flutter_build_log.txt"
+  local log_file="$TMPDIR/flutter_build_log.txt"
   rm -f "$log_file"
   local java_env_cmd=(env JAVA_HOME="$JAVA_HOME" PATH="$JAVA_HOME/bin:$PATH")
 
@@ -17409,7 +17409,7 @@ print_env_diagnostics() {
 
 # ✅ 执行构建阶段
 run_flutter_build() {
-  local log_file="/tmp/flutter_build_log.txt"
+  local log_file="$TMPDIR/flutter_build_log.txt"
   success_echo "🚀 开始构建：${flutter_cmd[*]} build $build_target ${flavor_name:+--flavor $flavor_name} --$build_mode"
   run_flutter_with_java build "$build_target" ${flavor_name:+--flavor "$flavor_name"} --"$build_mode" | tee -a "$log_file"
 }
@@ -17432,7 +17432,7 @@ main() {
     run_flutter_build                           # ✅ 第三阶段：执行构建
 
     open_output_folder                          # ✅ 打开构建产物目录
-    success_echo "🎉 构建完成，日志保存在 /tmp/flutter_build_log.txt"
+    success_echo "🎉 构建完成，日志保存在 $TMPDIR/flutter_build_log.txt"
 }
 
 main "$@"
@@ -17536,7 +17536,7 @@ graph TD
 ##### 25.5.3、📦 打包脚本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```shell
-#!/bin/zsh
+# shell: zsh
 
 # ✅ 全局变量
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")" && pwd)"
@@ -17547,7 +17547,7 @@ flutter_cmd=("flutter")
 
 # ✅ 🌈彩色输出函数
 SCRIPT_BASENAME=$(basename "$0" | sed 's/\.[^.]*$//')   # 当前脚本名（去掉扩展名）
-LOG_FILE="/tmp/${SCRIPT_BASENAME}.log"                  # 设置对应的日志文件路径
+LOG_FILE="$TMPDIR/${SCRIPT_BASENAME}.log"                  # 设置对应的日志文件路径
 
 log()            { echo -e "$1" | tee -a "$LOG_FILE"; }
 color_echo()     { log "\033[1;32m$1\033[0m"; }         # ✅ 正常绿色输出
@@ -17596,7 +17596,7 @@ print_duration() {
 # ✅ 单行写文件（避免重复写入）
 inject_shellenv_block() {
     local id="$1"           # 参数1：环境变量块 ID，如 "homebrew_env"
-    local shellenv="$2"     # 参数2：实际要写入的 shellenv 内容，如 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+    local shellenv="$2"     # 参数2：实际要写入的 shellenv 内容，如 'eval "$($(brew --prefix)/bin/brew shellenv)"'
     local header="# >>> ${id} 环境变量 >>>"  # 自动生成注释头
 
     # 参数校验
@@ -17645,17 +17645,17 @@ install_homebrew() {
     warn_echo "🧩 未检测到 Homebrew，正在安装中...（架构：$arch）"
 
     if [[ "$arch" == "arm64" ]]; then
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
+      $SYSTEM_BIN_DIR/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
         error_echo "❌ Homebrew 安装失败（arm64）"
         exit 1
       }
-      brew_bin="/opt/homebrew/bin/brew"
+      brew_bin="$(brew --prefix)/bin/brew"
     else
-      arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
+      arch -x86_64 $SYSTEM_BIN_DIR/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
         error_echo "❌ Homebrew 安装失败（x86_64）"
         exit 1
       }
-      brew_bin="/usr/local/bin/brew"
+      brew_bin="$(brew --prefix)/bin/brew"
     fi
 
     success_echo "✅ Homebrew 安装成功"
@@ -17829,7 +17829,7 @@ main "$@"
 <img src="./assets/image-20250819172458483.png" alt="image-20250819172458483" style="zoom:40%;" />
 
 ```shell
-#!/usr/bin/env bash
+#!$SYSTEM_USR_DIR/bin/env bash
 # ================================== 自述 ==================================
 # 名称：万能颜色格式转换器（纯 Shell）
 # 功能：在 #RRGGBB / #RRGGBBAA / rgb() / rgba() / 0xAARRGGBB 之间互转

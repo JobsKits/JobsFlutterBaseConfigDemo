@@ -1,6 +1,16 @@
 # 项目不能打Android包的原因总结及解决方案
 
-## 一、报错信息
+![Jobs出品，必属精品](https://picsum.photos/1500/400)
+
+[toc]
+
+---
+
+## 🔥 <font id=前言>前言</font>
+
+> 记录 [**Flutter**](https://flutter.dev/) 项目构建 Android 包时的典型环境兼容问题、定位过程和修复方式。执行命令前先确认项目所需的 SDK、Gradle 与 Kotlin 版本，不直接照搬历史版本号。
+
+## 一、报错信息 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```shell
 FAILURE: Build failed with an exception.
@@ -38,9 +48,9 @@ Gradle task assembleRelease failed with exit code 1
 
 > **你的本机 Android 编译环境比项目/插件要求低**。`android:attr/lStar` 是 **Android 12(API 31)** 才有的属性；你的构建在 **低于 31 的 compileSdk** 下跑，AAPT 就找不到它，于是挂在 `flutter_plugin_engagelab` 的资源验证上。同时 Flutter 给出的提示也说明 **Kotlin Gradle 插件过旧**。同组的人能打包，说明他们本机已经升级到匹配版本，而你没跟上
 
-## 二、解决过程
+## 二、解决过程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 1、确保你本机真的装了 **Android 34** 平台
+### 2.1、确保你本机真的装了 **Android 34** 平台 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```shell
 ➜  Desktop sdkmanager --list | grep "platforms;android-34" -n || true
@@ -55,7 +65,7 @@ Gradle task assembleRelease failed with exit code 1
 
 > 已经装了 `android-34`，所以**SDK 不缺**
 
-### 2、快速体检（看哪里没对齐）
+### 2.2、快速体检（看哪里没对齐） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 在项目根终端里面执行
 
@@ -105,7 +115,7 @@ OpenJDK 64-Bit Server VM Homebrew (build 17.0.16+0, mixed mode, sharing)
 
 > repo 里 `settings.gradle` 固定了 **AGP 7.3.0 + Kotlin 1.7.10**
 
-### 3、一键体检并抓错（项目根执行）
+### 2.3、一键体检并抓错（项目根执行） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 体检结论：
 >
@@ -291,7 +301,7 @@ grep -R --line-number "compileSdkVersion" android | grep -v "/build/" || true
 > ➜  flutter_tiyu_app git:(merge_theme（黑金打包分支）) ✗ 
 > ```
 
-### 4、查询
+### 2.4、查询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 部分三方包可能还写死了 `intl <0.20`（老库比较常见）。先查一下到底是谁：
 
@@ -310,7 +320,7 @@ You can try the following suggestion to make the pubspec resolve:
 
 > 问题现在非常直接：你的 `pubspec.yaml` 把 `intl` 写死在 `^0.19.0`，而 `flutter_localizations` 强制 **0.20.2**，导致 `pub get` 根本跑不通 → 后续打包必失败。先把依赖树解开
 
-### 5、发现新问题
+### 2.5、发现新问题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 现在已经铁锤：**`flutter_plugin_engagelab` 这个子模块在用低于 31 的 compileSdk**，所以仍旧在它的 `verifyReleaseResources` 阶段爆 `android:attr/lStar not found`。你的 app 已经设到 34 了，但**插件自己没跟着提**。
 
@@ -329,13 +339,13 @@ You can try the following suggestion to make the pubspec resolve:
 
   * Flutter/Dart 的 pub 包会缓存到：
 
-    ```
+    ```text
     ~/.pub-cache/hosted/pub.dev/
     ```
 
   * 每个子目录就是一个具体的包版本，例如：
 
-    ```
+    ```text
     flutter_plugin_engagelab-1.2.9+500500
     flutter_plugin_engagelab-1.3.1+510510
     ```
@@ -384,8 +394,4 @@ You can try the following suggestion to make the pubspec resolve:
     30:    30	    compileSdkVersion 'android-34'
     ```
 
-    
-
-  
-
-  
+<a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>

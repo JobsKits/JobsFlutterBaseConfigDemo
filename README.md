@@ -725,7 +725,93 @@ plugins/
   ```
   </details>
 
-### 2、[<font color=red>**FVM**</font>](https://fvm.app/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 2、[**Flutter**](https://flutter.dev/) 对 HarmonyOS / OpenHarmony 的支持边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+> 截至 **2026 年 8 月**，[**Flutter**](https://flutter.dev/) 技术路线可以覆盖鸿蒙，但必须区分系统版本：仍兼容 Android APK 的鸿蒙设备可以运行 Android 构建产物；HarmonyOS NEXT / OpenHarmony 则必须使用鸿蒙社区适配版 Flutter SDK，不能直接使用 Google 官方上游原版 Flutter SDK 构建 HAP。
+
+#### 2.1、仍兼容 Android APK 的鸿蒙系统
+
+- 如果目标设备和系统版本仍保留 Android 应用兼容能力，可以把 Flutter 项目构建成 APK 后按 Android 应用运行。
+
+  ```text
+  Flutter → Android APK → 鸿蒙 Android 兼容环境
+  ```
+
+- 这条路线本质上仍是 Android 应用，不是鸿蒙原生应用，也不能覆盖已经不支持 APK 的 HarmonyOS NEXT。
+
+#### 2.2、HarmonyOS NEXT 不能直接使用官方原版 Flutter SDK
+
+- [**Flutter 官方支持平台列表**](https://docs.flutter.dev/reference/supported-platforms)当前覆盖 Android、iOS、Web、Windows、macOS 和 Linux，没有把 HarmonyOS 或 OpenHarmony 列为官方支持的部署平台。
+- 因此，Google 官方上游原版 Flutter SDK 不能直接执行下面这类鸿蒙构建命令：
+
+  ```shell
+  flutter build harmony
+  ```
+
+- 官方原版 Flutter SDK 也不能直接生成 HarmonyOS NEXT 使用的 HAP 安装包。
+
+#### 2.3、使用鸿蒙社区适配版 Flutter SDK
+
+- [**OpenHarmony-SIG/flutter_flutter**](https://gitee.com/openharmony-sig/flutter_flutter)是在 Flutter SDK 基础上增加 OpenHarmony 平台支持的社区适配版本；社区后续代码也可从 [**OpenHarmony-TPC/flutter_flutter**](https://gitcode.com/openharmony-tpc/flutter_flutter)核对。
+- 这套技术路线仍然使用 [**Dart**](https://dart.dev/) 和 Flutter 编写界面及业务代码，但构建工具、引擎、平台目录和插件需要使用鸿蒙适配实现。
+
+  ```text
+  Google 官方上游 Flutter
+      ↓ OpenHarmony 社区修改与扩展
+  鸿蒙社区适配版 Flutter SDK
+      ↓
+  ohos 平台工程 → HAP / OpenHarmony 应用
+  ```
+
+- 社区 SDK 提供的典型命令如下，具体版本、分支和配套 HarmonyOS SDK 以社区仓库说明为准：
+
+  ```shell
+  # 创建 OpenHarmony 平台工程
+  flutter create --platforms ohos <projectName>
+
+  # 构建 HAP
+  flutter build hap --release
+  ```
+
+- 执行这些命令前，`PATH` 中的 `flutter` 必须指向鸿蒙社区适配版 Flutter SDK，并按[**鸿蒙版 Flutter 环境搭建指导**](https://gitee.com/openharmony-sig/flutter_samples/blob/master/ohos/docs/03_environment/%E9%B8%BF%E8%92%99%E7%89%88Flutter%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC.md)配置 DevEco Studio、HarmonyOS SDK、Java、Node.js、`ohpm`、`hvigor` 和签名环境。
+
+#### 2.4、多端工程的推荐拆分
+
+| 目标平台 | Flutter SDK 路线 | 构建产物 | 说明 |
+| --- | --- | --- | --- |
+| Android | Google 官方 Flutter SDK | APK / AAB | 官方支持，生态成熟 |
+| iOS | Google 官方 Flutter SDK | IPA | 官方支持，生态成熟 |
+| HarmonyOS NEXT / OpenHarmony | 鸿蒙社区适配版 Flutter SDK | HAP / APP | 需要独立核对 SDK、插件和系统能力 |
+
+- UI、路由、网络、数据模型和多数纯 Dart 业务代码可以尽量复用。
+- 登录、支付、推送、地图、相机、定位、文件系统、蓝牙、NFC、华为账号及鸿蒙系统服务需要逐项验证，并按平台分别实现适配层。
+- 更准确的多端技术方案是：
+
+  > Android 和 iOS 使用 Google 官方 Flutter SDK；HarmonyOS NEXT 使用鸿蒙社区适配版 Flutter SDK，并为鸿蒙系统能力及不兼容插件单独开发适配层。
+
+#### 2.5、插件兼容性是主要成本
+
+- 选择插件时必须检查它是否提供 `ohos/` 平台实现，或社区插件仓库是否已有与当前 SDK 分支匹配的适配版本。
+- 如果一个插件只有下面两个平台目录：
+
+  ```text
+  android/
+  ios/
+  ```
+
+  那么它通常不能直接用于 HarmonyOS NEXT，需要使用 ArkTS、C++ 或鸿蒙原生接口补充 `ohos/` 实现，并通过 Platform Channel 等方式连接 Dart 层。
+- 不要只检查插件名称是否存在；还要核对版本、分支、HarmonyOS API Level、编译工具链、签名和真机行为。
+
+#### 2.6、项目选型建议
+
+- 新项目把 HarmonyOS NEXT 作为核心平台，并且深度依赖系统能力时，优先采用华为官方推荐的 [**ArkTS + ArkUI**](https://developer.huawei.com/consumer/cn/app/planning) 原生路线。
+- 已有大量 Flutter UI 和业务代码时，可以采用“Android / iOS 官方 Flutter + HarmonyOS NEXT 社区版 Flutter”的双 SDK 路线。
+- 管理类、商城类、内容类应用通常更容易复用 Flutter 代码；蓝牙、音视频、地图、硬件交互和后台任务较多的应用，需要先评估插件与原生适配成本。
+- 商用前至少完成一轮技术验证，覆盖路由、网络、本地存储、登录、支付、推送、地图、相机 / 相册、文件上传、签名、HAP 构建和应用上架。
+
+> 当前仓库根目录尚未包含 `ohos/` 平台工程，因此本节记录的是可采用的鸿蒙技术路线和接入边界，不代表本仓库已经完成 HarmonyOS NEXT 构建、签名、真机验证或上架验证。
+
+### 3、[<font color=red>**FVM**</font>](https://fvm.app/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > <font color=red>**F**</font>lutter <font color=red>**V**</font>ersion <font color=red>**M**</font>anagement
 >
@@ -872,14 +958,14 @@ plugins/
     | `fvm global stable`  | 设置全局默认版本                                             | ✅（全局）                       |
     | `fvm upgrade`        | 1️⃣ **获取当前项目 `.fvm/fvm_config.json` 中配置的 `flutterSdkVersion` 所属 channel（如 stable、beta、dev、master）**；<br>2️⃣ 然后从该 **channel** 中 **升级到该 channel 的最新版本** | ✅（更新版本但不换 **channel**） |
 
-### 3、IDE <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 4、IDE <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-#### 3.1、[**Xcode**](https://developer.apple.com/xcode/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 4.1、[**Xcode**](https://developer.apple.com/xcode/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-##### 3.1.1、网站限制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.1.1、网站限制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 * 个别地区（比如：柬埔寨），需要将浏览器语言改为英文状态，方可进入[**苹果开发者网站**](https://developer.apple.com/)
 
-##### 3.1.2、📱关于**iOS**模拟器（最新版本[**XCode**](https://developer.apple.com/xcode/)：16.4）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.1.2、📱关于**iOS**模拟器（最新版本[**XCode**](https://developer.apple.com/xcode/)：16.4）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   * [**过期的模拟器配件**](https://github.com/JobsKits/Xcode_Sys_lib)
 
@@ -973,13 +1059,13 @@ plugins/
   * 如果更新或者删除**xcode**，那么下载的**iOS**模拟器将会丢失
 
 
-#### 3.2、[**Android Studio**](https://developer.android.com/studio?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 4.2、[**Android Studio**](https://developer.android.com/studio?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-##### 3.2.1、[**点我 ➤下载Android Studio历史版本**](https://developer.android.com/studio/archive?utm_source=chatgpt.com&hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.2.1、[**点我 ➤下载Android Studio历史版本**](https://developer.android.com/studio/archive?utm_source=chatgpt.com&hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 <img src="./assets/image-20250806172656678.png" alt="image-20250806172656678" style="zoom:50%;" />
 
-##### 3.2.2、<font color=red>**配置JDK的地方和其他SDK的不一样**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.2.2、<font color=red>**配置JDK的地方和其他SDK的不一样**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * 配置**JDK**：
 
@@ -995,7 +1081,7 @@ plugins/
   <img src="./assets/image-20250806165822643.png" alt="image-4" style="width:65%; display:inline-block; vertical-align: top;" />
   </div>
 
-##### 3.2.3、**`./android/gradlew`** </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.2.3、**`./android/gradlew`** </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 这个文件是来自：`android/gradle/wrapper/gradle-wrapper.propertie`
 >
@@ -1009,7 +1095,7 @@ plugins/
 ./android/gradlew -v # 先定位到Flutter项目的根目录。运行成功的前提是指定项目使用的Jenv.JDK或者是全局配置的Java变量
 ```
 
-##### 3.2.4、🤖关于[**Android**](https://www.android.com/)模拟器
+##### 4.2.4、🤖关于[**Android**](https://www.android.com/)模拟器
 
 * 查看已有**AVD**模拟器
 
@@ -1109,15 +1195,15 @@ plugins/
   adb emu kill
   ```
 
-#### 3.3、[**VSCode**](https://code.visualstudio.com/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### 4.3、[**VSCode**](https://code.visualstudio.com/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-##### 3.3.1、🔔温馨提示 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.3.1、🔔温馨提示 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * [**VSCode**](https://code.visualstudio.com/) 里面有一个终端，是实际上运行项目时候调用的
 
 * **MacOS**@[**VSCode**](https://code.visualstudio.com/) 格式化`*.json`快捷键：`option`➕`shift`➕`f`
 
-##### 3.3.2、🔧 <font color=red>**安装插件**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.3.2、🔧 <font color=red>**安装插件**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * [<font color=red>**Language Support for Java(TM) by Red Hat**</font>](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 
@@ -1173,7 +1259,7 @@ plugins/
   <img src="./assets/image-20250713101045523.png" alt="image-4" style="width:65%; display:inline-block; vertical-align: top;" />
   </div>
 
-##### 3.3.3、⚙️[**VSCode**](https://code.visualstudio.com/)的配置文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.3.3、⚙️[**VSCode**](https://code.visualstudio.com/)的配置文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * [**VSCode**](https://code.visualstudio.com/)键盘快捷键：打开命令面板 (**`⌘`**➕**`Shift`**➕**`P`**) ，输入➤  **`Preferences: Open Keyboard Shortcuts (JSON)`**
 
@@ -1476,17 +1562,17 @@ plugins/
     ```
 
 
-##### 3.3.4、设备选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 4.3.4、设备选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 `Cmd + Shift + P`  ➤ 输入：`Flutter: Select Device`
 
-### 4、安装 `Rosetta` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 5、安装 `Rosetta` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
   ```shell
   softwareupdate --install-rosetta --agree-to-license
   ```
 
-### 5、`flutter run` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### 6、`flutter run` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * <font color=red size=5>`flutter run`</font> <font color=red>**在执行时会自动下载项目依赖**，即使刚刚执行了 `flutter clean`</font>
 

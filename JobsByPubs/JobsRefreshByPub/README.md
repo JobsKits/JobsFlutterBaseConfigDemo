@@ -1,13 +1,13 @@
-# jobs_refresh_load
+# <span id="前言">jobs_refresh_load</span>
 
 一个可本地集成、后续也可直接发布到 pub 的 Flutter 小库，提供：
 
 - `JobsRefreshLoadController<T>`：分页刷新 / 加载更多控制器
 - `JobsRefreshLoadList<T>`：支持下拉刷新、上拉加载、空态、首屏 loading、底部 footer、自定义分隔符、斑马纹的列表组件
 
-## 安装
+## 安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 本地 path 依赖
+### 本地 path 依赖 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 在你的宿主项目 `pubspec.yaml` 里添加：
 
@@ -23,7 +23,7 @@ dependencies:
 flutter pub get
 ```
 
-## 使用
+## 使用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 import 'package:flutter/material.dart';
@@ -78,7 +78,7 @@ class _DemoPageState extends State<DemoPage> {
 }
 ```
 
-## 发布到 pub 前建议
+## 发布到 pub 前建议 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 1. 把 `homepage / repository / issue_tracker` 改成你的真实地址
 2. 补 LICENSE
@@ -88,3 +88,5 @@ class _DemoPageState extends State<DemoPage> {
    flutter test
    dart pub publish --dry-run
    ```
+
+<a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>

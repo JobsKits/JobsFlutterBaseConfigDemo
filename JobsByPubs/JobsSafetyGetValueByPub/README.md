@@ -1,8 +1,8 @@
-# jobs_safety_get_value
+# <span id="前言">jobs_safety_get_value</span>
 
 安全获取 `Map` 中的值，支持泛型类型判断和默认值回退。
 
-## 安装
+## 安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```yaml
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
     path: ../JobsSafetyGetValueByPub
 ```
 
-## 使用
+## 使用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 import 'package:jobs_safety_get_value/jobs_safety_get_value.dart';
@@ -33,3 +33,5 @@ void main() {
   print(wrongType); // -1
 }
 ```
+
+<a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>

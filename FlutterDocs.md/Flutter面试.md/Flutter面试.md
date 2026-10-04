@@ -36,7 +36,7 @@
 #### 1.1.2、干货拆解：按场景选存储方案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 可以按 **数据复杂度、查询能力、性能要求、是否需要事务** 来分：
 
-##### 1.1.2.1、`shared_preferences`
+##### 1.1.2.1、`shared_preferences` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 **关键字：**
 - 轻量级 key-value
 - 配置项
@@ -58,7 +58,7 @@
 
 ---
 
-##### 1.1.2.2、文件存储
+##### 1.1.2.2、文件存储 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 **关键字：**
 - JSON 文件
 - 文本缓存
@@ -79,7 +79,7 @@
 
 ---
 
-##### 1.1.2.3、SQLite（如 `sqflite`）
+##### 1.1.2.3、SQLite（如 `sqflite`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 **关键字：**
 - 关系型数据库
 - SQL 查询
@@ -104,7 +104,7 @@
 
 ---
 
-##### 1.1.2.4、Hive / Isar / ObjectBox
+##### 1.1.2.4、Hive / Isar / ObjectBox <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 **关键字：**
 - 本地对象存储
 - 高性能
@@ -374,7 +374,7 @@ lib/
 
 #### 1.4.4、干货选型：两种主流思路 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-##### 1.4.4.1、方案一：按分层拆
+##### 1.4.4.1、方案一：按分层拆 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 适合：
 
@@ -382,7 +382,7 @@ lib/
 - 团队人数少
 - 先把边界理顺
 
-##### 1.4.4.2、方案二：按 feature 拆，再在 feature 内部分层
+##### 1.4.4.2、方案二：按 feature 拆，再在 feature 内部分层 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 适合：
 
@@ -471,7 +471,7 @@ lib/
 ---
 
 #### 1.5.2、干货拆解：Flutter 调原生 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-##### 1.5.2.1、关键字
+##### 1.5.2.1、关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 - `MethodChannel`
 - invokeMethod
 - async result
@@ -479,14 +479,14 @@ lib/
 - 参数 Map
 - 错误码约定
 
-##### 1.5.2.2、Flutter 端代码点拨
+##### 1.5.2.2、Flutter 端代码点拨 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 ```dart
 static const channel = MethodChannel('com.demo/device');
 
 final version = await channel.invokeMethod<String>('getAppVersion');
 ```
 
-##### 1.5.2.3、Android 端代码点拨（Kotlin）
+##### 1.5.2.3、Android 端代码点拨（Kotlin） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 ```kotlin
 MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.demo/device")
     .setMethodCallHandler { call, result ->
@@ -499,7 +499,7 @@ MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.demo/device")
     }
 ```
 
-##### 1.5.2.4、iOS 端代码点拨（Swift）
+##### 1.5.2.4、iOS 端代码点拨（Swift） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 ```swift
 let channel = FlutterMethodChannel(
     name: "com.demo/device",
@@ -516,7 +516,7 @@ channel.setMethodCallHandler { call, result in
 }
 ```
 
-##### 1.5.2.5、回答时要补的点
+##### 1.5.2.5、回答时要补的点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 - Flutter 发起调用
 - 原生执行能力
 - 原生通过 `result.success / error / notImplemented` 回传
@@ -525,26 +525,26 @@ channel.setMethodCallHandler { call, result in
 ---
 
 #### 1.5.3、干货拆解：原生调 Flutter <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-##### 1.5.3.1、面试关键字
+##### 1.5.3.1、面试关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 - 路由跳转
 - 初始参数注入
 - channel 反向调用
 - FlutterEngine 复用
 - 页面生命周期
 
-##### 1.5.3.2、场景
+##### 1.5.3.2、场景 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 - 原生首页某个入口进入 Flutter 页面
 - 原生拿到登录态后通知 Flutter 刷新
 - 推送点击进入 Flutter 指定页面
 
-##### 1.5.3.3、代码点拨：原生调用 Flutter 方法
-##### 1.5.3.4、Android（Kotlin）
+##### 1.5.3.3、代码点拨：原生调用 Flutter 方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### 1.5.3.4、Android（Kotlin） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 ```kotlin
 val channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.demo/event")
 channel.invokeMethod("onLogin", mapOf("uid" to "1001"))
 ```
 
-##### 1.5.3.5、Flutter 端接收
+##### 1.5.3.5、Flutter 端接收 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 ```dart
 static const channel = MethodChannel('com.demo/event');
 
@@ -558,7 +558,7 @@ void registerHandler() {
 }
 ```
 
-##### 1.5.3.6、这时你要说的关键点
+##### 1.5.3.6、这时你要说的关键点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 - 原生主动通知 Flutter，本质也是 channel 通信
 - Flutter 页面是否已初始化，要考虑时机
 - 多引擎 / 单引擎复用时，通道注册要统一管理
@@ -566,7 +566,7 @@ void registerHandler() {
 ---
 
 #### 1.5.4、干货拆解：持续事件流 `EventChannel` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-##### 1.5.4.1、适用场景
+##### 1.5.4.1、适用场景 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 - 电量变化
 - 网络状态变化
 - 传感器
@@ -574,7 +574,7 @@ void registerHandler() {
 - 下载进度
 - 播放进度
 
-##### 1.5.4.2、Flutter 端代码点拨
+##### 1.5.4.2、Flutter 端代码点拨 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 ```dart
 static const eventChannel = EventChannel('com.demo/network');
 
@@ -583,7 +583,7 @@ eventChannel.receiveBroadcastStream().listen((event) {
 });
 ```
 
-##### 1.5.4.3、关键字
+##### 1.5.4.3、关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 - 广播流
 - 持续推送
 - 监听取消
@@ -600,7 +600,7 @@ eventChannel.receiveBroadcastStream().listen((event) {
 - 不要把业务逻辑全塞进 channel handler
 - 桥接层只做协议转换，业务下沉到 service
 
-##### 1.5.5.1、加分表达
+##### 1.5.5.1、加分表达 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 > 我一般会把平台通道封装成一层 `platform service`，上层业务只依赖 Dart 接口，不直接到处写 `MethodChannel`，这样便于测试和替换实现。
 
 ---
@@ -951,7 +951,7 @@ createState
 - DevTools 分析
 - shader / jank / memory
 
-##### 2.3.3.1、推荐答法框架
+##### 2.3.3.1、推荐答法框架 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 - 先定位：DevTools / Timeline / Memory
 - 再分类：build、layout、paint、IO、CPU
 - 最后落方案：拆 widget、懒加载、缓存、异步计算

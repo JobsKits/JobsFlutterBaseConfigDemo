@@ -86,9 +86,9 @@
 
 ## 二、开发周边 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 1、[**Jobs的个人技术博客**](https://jobsdocs.ccwu.cc/)
+### 1、[**Jobs的个人技术博客**](https://jobsdocs.ccwu.cc/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-### 2、[**系统相关配置**](https://github.com/JobsKits/JobsConfigOS)
+### 2、[**系统相关配置**](https://github.com/JobsKits/JobsConfigOS) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * `【MacOS】🆕新系统配置.command`
 
@@ -234,7 +234,7 @@
 
 * [**🦞Openclaw配置**](https://github.com/JobsKits/JobsInstallOpenClaw)
 
-### 3、[**JobsGenesis**](https://github.com/JobsKits/JobsGenesis)
+### 3、[**JobsGenesis**](https://github.com/JobsKits/JobsGenesis) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * [**配置SourceTree脚本**](https://github.com/JobsKits/SourceTree.sh)
 * [**配置Flutter脚本**](https://github.com/JobsKits/JobsCommand-Flutter)
@@ -243,7 +243,7 @@
 * [**其他配置脚本**](https://github.com/JobsKits/JobsCommand-Others)
   * [**文件分拆（合并）测试**](https://github.com/JobsKits/JobsCommand-Others/tree/main/【MacOS】文件分拆（合并）测试)
 
-### 4、工具网站
+### 4、工具网站 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 * [**CocoaPods**](https://cocoapods.org/)
 
@@ -4973,7 +4973,7 @@ flowchart TD
 >
 > **原始监听**：统计/埋点走 `Listener`，不要和手势识别器抢
 
-###### 18.5.3.1、👋`ListView` 滑动 🆚 `GestureDetector` onTap
+###### 18.5.3.1、👋`ListView` 滑动 🆚 `GestureDetector` onTap <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **现象**：轻扫/轻移后点击不触发，或只能点到文字不点空白
 >
@@ -5005,7 +5005,7 @@ class ListViewTapFix extends StatelessWidget {
 ```
 </details>
 
-###### 18.5.3.2、👋`HorizontalDrag` 🆚  `VerticalDrag` 冲突
+###### 18.5.3.2、👋`HorizontalDrag` 🆚  `VerticalDrag` 冲突 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **现象**：横竖两个拖拽识别器互相抢手势
 >
@@ -5059,7 +5059,7 @@ class _S extends State<DragAxisArbiter> {
 ```
 </details>
 
-###### 18.5.3.3、👋嵌套 `InkWell` / `GestureDetector`（内层不触发或波纹丢失）
+###### 18.5.3.3、👋嵌套 `InkWell` / `GestureDetector`（内层不触发或波纹丢失） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **现象**：外层先赢导致内层不响应；波纹不显示
 >
@@ -5092,7 +5092,7 @@ class NestedInkWellFix extends StatelessWidget {
 ```
 </details>
 
-###### 18.5.3.4、👋`PageView`（横向滚动）嵌在可垂直滚动的父容器
+###### 18.5.3.4、👋`PageView`（横向滚动）嵌在可垂直滚动的父容器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **现象**：横向翻页与父容器纵向滚动抢手势，翻页吃力。
 >
@@ -5126,7 +5126,7 @@ class PageInScrollFix extends StatelessWidget {
 ```
 </details>
 
-###### 18.5.3.5、👋`GestureDetector` + `ListView` 同时存在，希望：点击 + 长按拖动排序
+###### 18.5.3.5、👋`GestureDetector` + `ListView` 同时存在，希望：点击 + 长按拖动排序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **现象**：拖动排序和点击互斥，偶发点击不触发
 >
@@ -5168,7 +5168,7 @@ class _S extends State<TapAndDragThreshold> {
 ```
 </details>
 
-###### 18.5.3.6、👋`InteractiveViewer`（可缩放/拖拽）内的点击热区失效
+###### 18.5.3.6、👋`InteractiveViewer`（可缩放/拖拽）内的点击热区失效 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **现象**：里层按钮/点击不触发
 >
@@ -5208,7 +5208,7 @@ class InteractiveViewerTapFix extends StatelessWidget {
 ```
 </details>
 
-###### 18.5.3.7、👋横向可滚容器中的纵向手势（或反之）
+###### 18.5.3.7、👋横向可滚容器中的纵向手势（或反之） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **现象**：内层短轴方向手势不灵
 >
@@ -5245,7 +5245,7 @@ class AxisClearanceFix extends StatelessWidget {
 ```
 </details>
 
-###### 18.5.3.8、👋父层 `GestureDetector` 抢走子层点击
+###### 18.5.3.8、👋父层 `GestureDetector` 抢走子层点击 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > **现象**：父层 `onTap` 吃掉事件，子层不触发
 >
@@ -5280,7 +5280,7 @@ class ParentStealFix extends StatelessWidget {
 ```
 </details>
 
-###### 18.5.3.9、👋`IgnorePointer` / `AbsorbPointer` 精确阻断或穿透
+###### 18.5.3.9、👋`IgnorePointer` / `AbsorbPointer` 精确阻断或穿透 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 <details>
 <summary>点击查看代码</summary>
@@ -5332,7 +5332,7 @@ class DemoIgnoreAbsorb extends StatelessWidget {
 ```
 </details>
 
-###### 18.5.3.10、👋自定义 `GestureRecognizer`（精细控制胜负时机）
+###### 18.5.3.10、👋自定义 `GestureRecognizer`（精细控制胜负时机） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 <details>
 <summary>点击查看代码</summary>
@@ -6266,7 +6266,7 @@ class MyFlowDelegate extends FlowDelegate {
 
 ###### 19.6.2.3、`PageView` —— 基于 `SliverFillViewport` 的分页滚动 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a>
 
-##### 19.6.3、🧱通用`Sliver`容器 <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a>
+##### 19.6.3、🧱通用`Sliver`容器 <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ###### 19.6.3.1、`CustomScrollView` —— 容器，支持组合多个 Sliver <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a>
 
@@ -6775,7 +6775,7 @@ class _AnchorLayoutDelegate extends MultiChildLayoutDelegate {
 | 滑动/拖动类 | `Slider`, `Switch`, `Draggable`, `Dismissible` |
 | 手势类      | `GestureDetector`, `InkWell`                   |
 
-##### 22.1.1、`DropdownButton`
+##### 22.1.1、`DropdownButton` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 ```dart
 DropdownButtonHideUnderline(

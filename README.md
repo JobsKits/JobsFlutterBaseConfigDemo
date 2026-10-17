@@ -36,6 +36,27 @@
 
     ![image-20260209141216136](./assets/image-20260209141216136.png)
 
+## <span id="cocoapods-network-route">CocoaPods 安装网络选路</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+[**CocoaPods**](https://cocoapods.org/) 的安装和更新在解析依赖前，先准备本次下载链路，再实测公共 Specs；终端、已有手动入口与 CI 使用同一 Podfile 挂载。
+
+| 真实入口 | 执行顺序 |
+| --- | --- |
+| [ios/Podfile](./ios/Podfile) | 网络 / 代理实测 → 官方归档注册 → Git / CDN Specs 选源 → 原依赖安装 |
+| [macos/Podfile](./macos/Podfile) | 网络 / 代理实测 → 官方归档注册 → Git / CDN Specs 选源 → 原依赖安装 |
+
+在相应 Podfile 所在目录继续执行原命令：
+
+```zsh
+pod install
+```
+
+优先验证明确配置的代理；未指定或不可用时检查当前链路，再测试 macOS 已启用的 HTTP / HTTPS / SOCKS 手工代理。验证通过后只让当前安装进程与子进程继承，退出恢复，不修改全局代理或 Git 配置。公共源比较同一 podspec 的有效响应及耗时；查询命令不联网，失败告警并回用已有配置 / 缓存。脚本模块缺失或异常时保留原安装流程。
+
+原生源码下载继承同次环境；归档回退仅覆盖已核验的 AMPopTip 4.12.0 发布请求，不会添加该依赖，也不泛化为任意仓库或版本镜像。版本、私有源与锁文件内容由正常 CocoaPods 安装维护，脚本不删除 Pods 或锁文件。探测通过仍需完整安装成功才能判定依赖已就绪。
+
+[网络适配、开关与测试](<./ScriptsByPods/【MacOS】🌐CocoaPods网络适配.command/README.md>) · [Specs 选源、超时与日志](<./ScriptsByPods/【MacOS】🌐CocoaPods源自动选择.command/README.md>)。迁移时保留完整 ScriptsByPods 包及各 Podfile 的相对加载路径。网络摘要显示在安装输出中，Specs 日志写系统临时目录并按 Podfile 所在目录隔离。
+
 ## 一、🎯项目白皮书 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 > 程序员是一个高消耗的职业，除了日常基本的业务开发以外，新事物的不断涌现也需要持续性的学习，所以是一件非常消耗精力的事；而且由于长期的高压、高情绪、熬夜，**会打乱人体内正常的内分泌节奏**，大概率也会逐渐的引发各种职业疾病。业内普遍认为程序员的**黄金年龄在25～35周岁**。那么，还是希望，在我们（亦或者是暂时性的）离开这个行业的时候，一定要为自己或者后人，留下点什么，算是这么多年的一个工作总结。此外，能最大化的辅助人，帮助其在极短的时间内去：<u>回忆/上手/学习/实验</u>这个编程语言下的工程项目。所以，此项目就一定是要结合商业需求去务实拓展，解决当前痛点。

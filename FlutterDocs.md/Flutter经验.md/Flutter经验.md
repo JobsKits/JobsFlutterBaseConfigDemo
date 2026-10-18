@@ -2,24 +2,139 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、相关资料](#jobs-toc-heading-2)
+- [二、flutter.set/get](#jobs-toc-heading-3)
+- [三、var、dynamic、object](#jobs-toc-heading-4)
+- [四、数据类型](#jobs-toc-heading-5)
+- [五、const\*和final\*](#jobs-toc-heading-6)
+  - [Dart.Lambda表达式(箭头函数)](#jobs-toc-heading-7)
+- [六、Dart.import](#jobs-toc-heading-8)
+- [七、Dart.abstract](#jobs-toc-heading-9)
+- [八、Dart.factory](#jobs-toc-heading-10)
+- [九、Dart.Function](#jobs-toc-heading-11)
+- [十三、Dart.调用C](#jobs-toc-heading-12)
+- [十四、Dart.part](#jobs-toc-heading-13)
+- [十五、Dart.范型](#jobs-toc-heading-14)
+- [十六、Dart.注解](#jobs-toc-heading-15)
+- [十七、Dart.反射](#jobs-toc-heading-16)
+- [十八、Dart.Flutter.timer](#jobs-toc-heading-17)
+- [十九、Dart.mixin.with.on（混入）](#jobs-toc-heading-18)
+- [二十、懒加载（Dart.Flutter vs Swift）](#jobs-toc-heading-19)
+- [二十一、🌹Dart.Flutter.Widget vs Dart.Flutter.State](#jobs-toc-heading-20)
+- [二十二、Dart.Flutter.依赖注入](#jobs-toc-heading-21)
+- [二十三、Dart.Context（上下文）](#jobs-toc-heading-22)
+- [二十四、❤️Dart.Flutter.状态管理](#jobs-toc-heading-23)
+  - [24.1、scoped\_model](#jobs-toc-heading-24)
+  - [24.2、BloC：\*B\*usiness \*Lo\*gic \*C\*omponent](#jobs-toc-heading-25)
+  - [24.3、flutter\_redux](#jobs-toc-heading-26)
+  - [24.4、fish\_redux](#jobs-toc-heading-27)
+- [二十五、Dart.Flutter.对象间传值](#jobs-toc-heading-28)
+- [二十六、Dart.Flutter.key](#jobs-toc-heading-29)
+- [二十七、Dart.Flutter.UI](#jobs-toc-heading-30)
+  - [27.1、Dart.Flutter.MaterialApp 和 Dart.Flutter.CupertinoApp 的生命周期方法](#jobs-toc-heading-31)
+  - [27.2、MyHomePage和\_MyHomePageState的分离](#jobs-toc-heading-32)
+  - [27.3、关于\*const\* MyApp({Key? key}) : super (key: key);](#jobs-toc-heading-33)
+  - [27.4、Diff 算法](#jobs-toc-heading-34)
+  - [27.5、系统.其他](#jobs-toc-heading-35)
+  - [27.6、相对布局](#jobs-toc-heading-36)
+  - [27.7、一些常用的UI库](#jobs-toc-heading-37)
+  - [27.8、约束](#jobs-toc-heading-38)
+  - [27.9、一些常用UI的创建](#jobs-toc-heading-39)
+    - [27.9.1、参考资料](#jobs-toc-heading-40)
+    - [27.9.2、约束/层级控制类控件](#jobs-toc-heading-41)
+    - [27.9.3、基础控件](#jobs-toc-heading-42)
+    - [27.9.4、导航控件](#jobs-toc-heading-43)
+    - [27.9.5、对话框与提示](#jobs-toc-heading-44)
+    - [27.9.6、动画与效果](#jobs-toc-heading-45)
+    - [27.9.7、滚动控件](#jobs-toc-heading-46)
+    - [27.9.8、滚动类布局](#jobs-toc-heading-47)
+    - [27.9.9、线性布局](#jobs-toc-heading-48)
+    - [27.9.10、多行/自动换行布局](#jobs-toc-heading-49)
+    - [27.9.11、重叠布局](#jobs-toc-heading-50)
+    - [27.9.12、布局控件](#jobs-toc-heading-51)
+  - [27.10、Dart.Flutter.动画](#jobs-toc-heading-52)
+- [二十八、🪣Dart.Flutter.Database](#jobs-toc-heading-53)
+- [二十九、❤️Dart.Flutter.Provider](#jobs-toc-heading-54)
+- [三十、Dart.Flutter.手势✋🏻](#jobs-toc-heading-55)
+  - [30.1、点击（轻触）手势（Tap Gesture）](#jobs-toc-heading-56)
+  - [30.2、长按手势（Long Press Gesture）](#jobs-toc-heading-57)
+  - [30.3、拖动手势（Drag Gesture）](#jobs-toc-heading-58)
+  - [30.4、缩放手势（Scale Gesture）](#jobs-toc-heading-59)
+  - [30.5、滑动手势（Swipe Gesture）](#jobs-toc-heading-60)
+  - [30.6、❤️解决手势冲突（控制手势的响应范围以及触发条件）](#jobs-toc-heading-61)
+- [三十一、Dart.Flutter.GetX](#jobs-toc-heading-62)
+  - [31.1、资料来源](#jobs-toc-heading-63)
+  - [31.2、作用](#jobs-toc-heading-64)
+  - [31.3、风评](#jobs-toc-heading-65)
+  - [31.4、安装](#jobs-toc-heading-66)
+  - [31.5、Obx](#jobs-toc-heading-67)
+  - [31.6、GetxController](#jobs-toc-heading-68)
+- [三十二、Dart.Flutter.网络请求](#jobs-toc-heading-69)
+- [三十三、Dart.Flutter.数据解析](#jobs-toc-heading-70)
+- [三十四、Dart.事件循环（Event Loop）](#jobs-toc-heading-71)
+- [三十五、Dart.线程处理](#jobs-toc-heading-72)
+  - [35.1、Dart.Isolate](#jobs-toc-heading-73)
+  - [35.2、❤️Dart.Future](#jobs-toc-heading-74)
+    - [35.2.1、快速入手：](#jobs-toc-heading-75)
+    - [35.2.2、异步操作的结果：](#jobs-toc-heading-76)
+    - [35.2.3、代码执行优先级：](#jobs-toc-heading-77)
+    - [35.2.4、then()方法](#jobs-toc-heading-78)
+    - [35.2.5、Dart.async](#jobs-toc-heading-79)
+    - [35.2.6、Dart.await 和 Dart.async](#jobs-toc-heading-80)
+    - [35.2.7、Dart.error](#jobs-toc-heading-81)
+    - [35.2.8、❤️Dart.Flutter.FutureBuilder](#jobs-toc-heading-82)
+    - [35.2.9、Dart.Flutter.AsyncSnapshot](#jobs-toc-heading-83)
+  - [35.3、❤️Dart.Stream](#jobs-toc-heading-84)
+  - [35.4、资料来源](#jobs-toc-heading-85)
+    - [35.4.1、相关细节](#jobs-toc-heading-86)
+    - [35.4.2、Dart.Flutter.Widget.StreamBuilder](#jobs-toc-heading-87)
+    - [35.4.3、Dart.Flutter.StreamController](#jobs-toc-heading-88)
+- [三十六、Dart.Flutter.Widget.InheritedWidget](#jobs-toc-heading-89)
+- [三十七、Dart.Flutter.路由](#jobs-toc-heading-90)
+- [三十八、❤️Dart.Flutter.页面的销毁](#jobs-toc-heading-91)
+- [三十九、Dart.Flutter.音视频](#jobs-toc-heading-92)
+- [四十、Dart.Flutter.原生Api调用交互（未完）](#jobs-toc-heading-93)
+- [四十一、Dart.Flutter.其他功能](#jobs-toc-heading-94)
+  - [41.1、返回按键监听](#jobs-toc-heading-95)
+  - [41.2、前后台监听](#jobs-toc-heading-96)
+  - [41.3、键盘焦点处理](#jobs-toc-heading-97)
+  - [41.4、启动页](#jobs-toc-heading-98)
+  - [41.5、Dart.Flutter.调取系统摄像头（未完）](#jobs-toc-heading-99)
+  - [41.6、Dart.Flutter.调取系统相册（未完）](#jobs-toc-heading-100)
+  - [41.7、Dart.Flutter.热更新（未完）](#jobs-toc-heading-101)
+- [四十二、FAQ](#jobs-toc-heading-102)
+- [四十三、其他](#jobs-toc-heading-103)
+  - [43.1、Dart.Flutter.DevTools](#jobs-toc-heading-104)
+  - [43.2、RESTful API](#jobs-toc-heading-105)
+  - [43.3、Retrofit](#jobs-toc-heading-106)
+  - [43.4、❤️Dart.Flutter.对象循环引用问题](#jobs-toc-heading-107)
+  - [43.5、Dart.其他用途](#jobs-toc-heading-108)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 * **工欲善其事必先利其器**
 * **站在巨人的肩膀上，才能看得更远**
 * **面向信仰编程**
 
-## 一、相关资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、相关资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [***Dart 官方文档***](https://dart.dev)
 * [***Flutter 官方文档***](https://flutter.dev/)
 * [***Flutter 面试知识点集锦· GitBook***](https://guoshuyu.cn/home/wx/Flutter-msjj.html)
 * [***Dart / Flutter 社区生态：Pub.dev***](https://pub.dev/)
 
-## 二、<font color="red">***`flutter.set/get`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、<font color="red">***`flutter.set/get`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 定义
 
@@ -45,13 +160,13 @@ void main() {
 }
 ```
 
-## 三、<font color="red">***`var`***</font>、<font color="red">***`dynamic`***</font>、<font color="red">***`object`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、<font color="red">***`var`***</font>、<font color="red">***`dynamic`***</font>、<font color="red">***`object`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * <font color="red">***`var`***</font>定义的类型是不可变的；
 * <font color="red">***`dynamic`***</font>和<font color="red">***`object`***</font>类型是可以变的，而<font color="red">***`dynamic`***</font>与<font color="red">***`object`***</font>的区别是在静态类型检查上；
   * <font color="red">***`dynamic`***</font>：编译时**不**进行静态类型检查的类型（更灵活），而是在运行期间进行类型检查。（被编译后，实际是一个<font color="red">***`object`***</font>类型）
   * <font color="red">***`object`***</font>：编译时会进行类型检查（更安全）
-## 四、数据类型 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">四、数据类型 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * dart当中的基本数据类型没有Float，只有double
 
@@ -82,7 +197,7 @@ void main() {
   Duration(milliseconds: (widget.timeStep.abs() * 1000).toInt()), // 毫秒为单位
   ```
 
-## 五、<font color="red">***`const`***</font>和<font color="red">***`final`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-6" data-jobs-toc="v2">五、<font color="red">***`const`***</font>和<font color="red">***`final`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***相同点***  
   * <font color="red">***`final`***</font>、<font color="red">***`const`***</font>必须初始化；
@@ -199,7 +314,7 @@ void main() {
     | `NextPage()`       | 每次都创建新实例                 | 普通 new 调用，像构造函数    |
     | `const NextPage()` | 复用内存中已存在的实例（如果有） | 更像类级别方法或单例构造优化 |
   
-  ### <font color=red>***Dart.Lambda表达式(箭头函数)***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a>
+  ### <span id="jobs-toc-heading-7" data-jobs-toc="v2"><font color=red>***Dart.Lambda表达式(箭头函数)***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```dart
   class LaunchScreen extends StatefulWidget {
@@ -264,7 +379,7 @@ void main() {
     }
     ```
 
-## 六、***Dart.import*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-8" data-jobs-toc="v2">六、***Dart.import*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 导入方式                       | 含义                                   |
 | ------------------------------ | -------------------------------------- |
@@ -272,7 +387,7 @@ void main() {
 | `import 'xxx.dart' show A, B;` | 只导入 `A` 和 `B`                      |
 | `import 'xxx.dart' hide A;`    | 导入除 `A` 以外的所有成员              |
 
-## 七、***Dart.abstract*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-9" data-jobs-toc="v2">七、***Dart.abstract*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 特性            | Flutter (`abstract class`)          | Objective-C (`@protocol`)                     |
 | ------------- | ----------------------------------- | --------------------------------------------- |
@@ -284,7 +399,7 @@ void main() {
 | **用途区别**      | 更接近 Java 的抽象类，可用作逻辑模板               | 更像纯接口，只定义行为规范                                 |
 
 
-## 八、***Dart.factory*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-10" data-jobs-toc="v2">八、***Dart.factory*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 *根据传入的类型参数来创建不同的对象。*
 
@@ -331,7 +446,7 @@ void main() {
 }
 ```
 
-## 九、***Dart.Function*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-11" data-jobs-toc="v2">九、***Dart.Function*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `Function`是一个类，而不是系统级别的关键字；
 
@@ -470,7 +585,7 @@ var person = Person();
 person.setName('Bob');
 person.setAge(25);
 ```
-## 十三、***Dart.调用C*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-12" data-jobs-toc="v2">十三、***Dart.调用C*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 在Dart中，你可以通过使用`dart:ffi`库来调用C语言的函数。以下是一个简单的步骤概述：
 * **定义C语言库的接口：** 在Dart中使用`dart:ffi`库，你需要定义C语言库的接口。这包括函数声明、结构体定义等。
 ```c
@@ -507,7 +622,7 @@ gcc -shared -o libexample.so example.c
 
 <font color="red">***请注意，这只是一个简单的示例，实际应用可能需要更复杂的接口定义和错误处理。***</font>
 
-## 十四、***Dart***.<font color="red">***`part`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-13" data-jobs-toc="v2">十四、***Dart***.<font color="red">***`part`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 用于将一个源文件分割成多个部分，每个部分被称为一个<font color="red">*`part`*</font>。通常情况下，一个库（库是Dart中代码组织的单元）可以由多个源文件组成，这些源文件通过<font color="red">*`part`*</font>关键字进行引入;
 
@@ -539,7 +654,7 @@ gcc -shared -o libexample.so example.c
     * 使用<font color="red">*`part of`*</font>关键字，将部分文件与主文件关联起来，形成一个完整的库；
     * 这种方式可以将大型代码库拆分成更小的模块，提高代码的可维护性和可读性；
 
-## 十五、***Dart.范型*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-14" data-jobs-toc="v2">十五、***Dart.范型*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `Future<T>` 确实是一个泛型类，其中 `T` 代表异步操作完成后返回的值的类型
 
@@ -553,7 +668,7 @@ gcc -shared -o libexample.so example.c
   }
   ```
 
-## 十六、***Dart.注解*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-15" data-jobs-toc="v2">十六、***Dart.注解*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 注解是一种元数据（**“描述数据的数据”**），可以应用于类、方法、变量等。用于提供额外的信息以及指导代码的行为。
 
@@ -568,7 +683,7 @@ gcc -shared -o libexample.so example.c
 * `@Deprecated`: 用于标记一个成员已经被弃用，在使用时应该考虑替代方案。
 * `@internal`: 用于标记一个成员是内部的，不应该被外部使用。
 
-## 十七、***Dart.反射*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-16" data-jobs-toc="v2">十七、***Dart.反射*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 在Dart中，反射是指在***运行时***检查、访问和操作程序的结构，比如类、方法、字段等；
 * Dart提供了一组反射API，允许你**在运行时动态地获取有关程序结构的信息并与之交互**。这包括获取类的信息、调用对象的方法、访问字段等；
@@ -576,7 +691,7 @@ gcc -shared -o libexample.so example.c
   * 因为它可能会导致性能损失；
   * 并且使代码更难以理解和维护；
 * 很多编程语言都有反射的机制。比如：OC、Java
-## 十八、***Dart.Flutter.timer*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-17" data-jobs-toc="v2">十八、***Dart.Flutter.timer*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```dart
   import 'dart:async';
@@ -605,7 +720,7 @@ gcc -shared -o libexample.so example.c
   }
   ```
 
-## 十九、<font color="red">***Dart.mixin.with.on（混入）***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-18" data-jobs-toc="v2">十九、<font color="red">***Dart.mixin.with.on（混入）***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * <font color="red">*`Mixin`*</font>是一个广泛存在于各种编程语言中的概念，但在某些语言中可能会以不同的形式或名称出现；
 * <font color="red">*`Mixin`*</font>是Dart 2.1 加入的特性，以前版本通常使用*abstract class*代替；
@@ -751,7 +866,7 @@ int main() {
 这就是菱形继承问题，因为 Pet 类间接继承了两份 Animal 类的成员变量和函数，导致不确定性和二义性。解决这个问题的方法之一是使用虚继承。
 */
 ```
-## 二十、***懒加载（Dart.Flutter vs Swift）*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-19" data-jobs-toc="v2">二十、***懒加载（Dart.Flutter vs Swift）*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * Dart.Flutter懒加载关键字<font color="red">*`late`*</font>
 ```dart
 import 'package:flutter/material.dart';
@@ -812,7 +927,7 @@ let obj = MyClass()
 debugPrint(obj.x) // 输出: 10
 ```
 
-## 二十一、🌹<font id="Widget">***Dart.Flutter.Widget*** vs ***Dart.Flutter.State***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-20" data-jobs-toc="v2">二十一、🌹<font id="Widget">***Dart.Flutter.Widget*** vs ***Dart.Flutter.State***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Flutter                      | iOS                                   |
 | ---------------------------- | ------------------------------------- |
@@ -1045,7 +1160,7 @@ class _HttpDemoPageState extends State<HttpDemoPage> {
     *
     ```
 
-## 二十二、***Dart.Flutter.依赖注入*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-21" data-jobs-toc="v2">二十二、***Dart.Flutter.依赖注入*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***Dart.Flutter 框架本身没有内置的依赖注入机制***，但由于依赖注入在 Dart.Flutter 开发中非常常见，因此有许多第三方库提供了依赖注入的功能：
   * [***GetX***](#GetX)：[***GetX***](#GetX)的依赖注入功能通常与 [***GetxController***](#GetxController)、`GetxService` 和 `Get.put()` 方法一起使用：
@@ -1172,7 +1287,7 @@ class _HttpDemoPageState extends State<HttpDemoPage> {
     }
     ```
 
-## 二十三、<font id="Context">***Dart***.<font color="red">***Context***</font>（上下文）</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-22" data-jobs-toc="v2">二十三、<font id="Context">***Dart***.<font color="red">***Context***</font>（上下文）</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 在计算机科学中，上下文（*Context*）是指一个***程序运行时的环境信息***，其中包括了程序执行所需的各种条件（背景信息）、状态和设置，帮助程序正确地执行任务或处理事件；上下文可以包括但不限于以下内容：
 
@@ -1251,12 +1366,12 @@ class _HttpDemoPageState extends State<HttpDemoPage> {
   );
   ```
 
-## 二十四、<font color="red">***❤️Dart.Flutter.状态管理*** </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-23" data-jobs-toc="v2">二十四、<font color="red">***❤️Dart.Flutter.状态管理*** </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 在所有 **响应式编程** 中，状态管理一直老生常谈的话题，而在 Flutter 中，目前主流的有[***scope_mode***](#scoped_model) 、[***BloC 设计模式***](# BloC：<font color="red">*B*</font>usiness <font color="red">*Lo*</font>gic <font color="red">*C*</font>omponent) 、[***flutter_redux***](#flutter_redux) 、[***fish_redux***](#fish_redux) 等四种设计；
 * 它们的 *复杂度* 和 *上手难度* 是逐步递增的，但同时 **可拓展性** 、**解耦度** 和 **复用能力** 也逐步提升。
 
-### 24.1、<font id="scoped_model">scoped_model</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-24" data-jobs-toc="v2">24.1、<font id="scoped_model">scoped_model</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 是 Dart.Flutter 最为简单的状态管理框架，它充分利用了 Dart.Flutter 中的一些特性，只有一个 `.dart` 文件的它，极简的实现了一般场景下的状态管理；<font color="red">***（观察模型，发送/接受通知）***</font>
 * 内部实现借助***AnimatedBuildler***利用了[***InheritedWidget***](#InheritedWidget)：
@@ -1327,7 +1442,7 @@ class CountModel extends Model {
   }
 }
 ```
-### 24.2、<font id="BloC">BloC：<font color="red">*B*</font>usiness <font color="red">*Lo*</font>gic <font color="red">*C*</font>omponent</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-25" data-jobs-toc="v2">24.2、<font id="BloC">BloC：<font color="red">*B*</font>usiness <font color="red">*Lo*</font>gic <font color="red">*C*</font>omponent</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 它属于一种设计模式，在 Dart.Flutter 中它主要是通过 [***Stream***](#Stream) 与 [***SteamBuilder***](#SteamBuilder) 来实现设计的，所以 ***BloC*** 实现起来也相对简单；
 * 当然，如果和 `rxdart` 结合可以简化 [***StreamController***](#StreamController)  的一些操作，同时如果你需要利用 `BloC` 模式实现状态共享，那么自己也可以封装多一层 [***InheritedWidgets***](#InheritedWidget) 的嵌套；
@@ -1393,7 +1508,7 @@ class PageBloc {
   }
 }
 ```
-### 24.3、<font id="flutter_redux">flutter_redux</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-26" data-jobs-toc="v2">24.3、<font id="flutter_redux">flutter_redux</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 *redux：【adj.】被带回的；复活的*
 *reducer：【n.】[助剂] 还原剂；减径管*
@@ -1570,7 +1685,7 @@ class MyHomePage extends StatelessWidget {
   }
 }
 ```
-### 24.4、<font id="fish_redux">fish_redux</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-27" data-jobs-toc="v2">24.4、<font id="fish_redux">fish_redux</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 基于*Redux*架构，旨在简化复杂应用程序的状态管理和 UI 构建过程；
 * 支持插件化架构：持久化插件、路由插件、国际化插件等；
@@ -1712,7 +1827,7 @@ void initState(CounterState state, Context<CounterState> ctx) {
   state.count = 0;
 }
 ```
-## 二十五、***Dart.Flutter.对象间传值*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-28" data-jobs-toc="v2">二十五、***Dart.Flutter.对象间传值*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **构造函数参数传值：**在创建对象时，通过构造函数参数将数据传递给新对象。这是一种简单直接的方式，适用于需要传递初始数据的情况。
 * **`Setter` 方法传值：**在创建对象后，通过调用对象的 `setter` 方法来设置数据。这种方式允许您在对象创建后随时更新数据;
@@ -1770,7 +1885,7 @@ class ChildWidget extends StatelessWidget {
   }
 }
 ```
-## 二十六、***Dart.Flutter.key*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-29" data-jobs-toc="v2">二十六、***Dart.Flutter.key*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * key是***Widgets***，***Elements***和***SemanticsNodes***的标识符；
 * key有**`LocalKey`** 和 **`GlobalKey`**两种；
   * **`LocalKey`**  是一个*抽象类*，用于标识和区分[***Widget树***](#Widget树)中的不同节点。它是***所有用于本地（局部）标识的关键类的基类***。常见的用法是在需要在同一父级下修改控件顺序或数量时使用 `LocalKey`
@@ -1906,12 +2021,12 @@ class ChildWidget extends StatelessWidget {
       * **无需传递引用**：通过 `GlobalKey`，你可以直接通过键来访问 *Widget* 的状态，而不需要手动将对象引用传递到需要的地方。这样可以**减少代码的耦合度**，使代码更加清晰简洁；
       * **组件状态管理**：`GlobalKey` 还可以用于管理 *Widget* 的状态。例如，你可以使用 `GlobalKey` 来保存和恢复 *Widget* 的状态，或者在需要时重新构建 *Widget*；
       * **重建 Widget**：使用 `GlobalKey` 可以在需要时重新构建整个 *Widget*，而不必手动保存和重新创建 *Widget* 的状态。这在一些场景下可能会更加方便；
-## 二十七、***Dart.Flutter.UI*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-### 27.1、***Dart.Flutter.MaterialApp*** 和 ***Dart.Flutter.CupertinoApp*** 的生命周期方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-30" data-jobs-toc="v2">二十七、***Dart.Flutter.UI*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-31" data-jobs-toc="v2">27.1、***Dart.Flutter.MaterialApp*** 和 ***Dart.Flutter.CupertinoApp*** 的生命周期方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***MaterialApp*** 和 ***CupertinoApp*** 都有各自的生命周期方法，它们继承自 ***WidgetsApp***，因此具有相似的[**生命周期**](#UI.生命周期)
 
-### 27.2、`MyHomePage`和`_MyHomePageState`的分离 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-32" data-jobs-toc="v2">27.2、`MyHomePage`和`_MyHomePageState`的分离 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **MyHomePage**类(*StatefulWidget*)：这个类负责定义页面的外观结构，例如页面的布局、UI元素等。它是一个不可变的*Widget*，一旦创建就不能修改，因此通常用于定义页面的静态部分；
 * **MyHomePageState**类(*State*)：这个类负责管理页面的状态和动态部分。它包含了在页面生命周期内可能会变化的数据和逻辑。*_MyHomePageState*，类是可变的，并且可以通过调用`setState`方法来触发页面的重建；
@@ -1924,7 +2039,7 @@ class ChildWidget extends StatelessWidget {
 * **状态管理**：将状态和 UI 描述分离可以更好地管理状态的生命周期。*StatefulWidget* 和 *State* 之间的分离允许状态在 UI 生命周期中保持一致，并在需要时通知框架更新 UI；
 * **框架要求**：***Dart.Flutter 框架本身也要求 StatefulWidget 和其关联的 State 必须是分开的，这是 Dart.Flutter 设计的一部分。***Dart.Flutter 的设计哲学是将 UI 描述和状态管理分开，以便更好地实现代码的组织和管理；
   <font color="red">**综上所述，尽管在某些情况下将 *Widget* 和其关联的 *State* 写在同一个类中是可行的，但是将它们分开定义通常更利于代码的组织、可读性和维护性。**</font>
-### 27.3、关于<font color="red">*`const`*</font> *MyApp({Key? key})* : <font color="red">*`super`*</font> *(key: key)*; <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-33" data-jobs-toc="v2">27.3、关于<font color="red">*`const`*</font> *MyApp({Key? key})* : <font color="red">*`super`*</font> *(key: key)*; <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 最新的Api已经改为 <font color="red">*`const`*</font> **MyApp**({<font color="red">*`super`*</font> .**key**});
 * 是一个常量构造函数，用于创建一个名为*MyApp*的小部件，并将一个可选的`Key`作为参数传递给父类的构造函数；
@@ -1990,7 +2105,7 @@ class _MyWidgetState extends State<MyWidget> {
   }
 }
 ```
-### 27.4、<font id="Diff">`Diff` 算法</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-34" data-jobs-toc="v2">27.4、<font id="Diff">`Diff` 算法</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 在 Dart.Flutter 中，`Diff` 算法指的是用于**比较新旧 *Widget* 树的差异，并确定哪些部分需要更新**的算法。这个算法被称为 "Diff" 是因为它会找出两个树之间的差异，并尽可能地最小化更新的成本，**只更新必要的部分**。
 * `Diff` 算法的基本思想是递归地比较新旧 *Widget* 树的每个节点，找出它们之间的差异。这个比较是根据节点的类型、属性、以及子节点的情况来进行的。当发现节点之间存在差异时，`Diff` 算法会尝试**尽可能地复用已有的节点，并更新其属性**，而不是直接销毁和重建节点。
@@ -2000,7 +2115,7 @@ class _MyWidgetState extends State<MyWidget> {
   * **比较子节点**：如果节点是容器类节点（比如 `Row`、`Column`、`ListView` 等），则需要递归地比较它们的子节点。如果子节点有变化，则需要更新子节点；
   * **更新差异部分**：根据比较的结果，确定哪些部分需要更新，并执行相应的更新操作；
   通过这种方式，`Diff` 算法可以高效地找出新旧 *Widget* 树之间的差异，并尽可能地减少更新的成本。这种优化可以帮助 Flutter 在处理复杂 UI 结构时保持良好的性能。
-### 27.5、系统.其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-35" data-jobs-toc="v2">27.5、系统.其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 键盘的弹出和收起都会触发页面 `build`
 * 获取手机可视化区域
@@ -2181,7 +2296,7 @@ class MyApp extends StatelessWidget {
   */
   ```
 
-### 27.6、相对布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-36" data-jobs-toc="v2">27.6、相对布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 相对布局可以通过 ***Positioned*** 小部件结合 ***Stack*** 小部件来实现；
 * ***Positioned*** 小部件允许您根据父部件的四个角来定位子部件，而 ***Stack*** 小部件则允许子部件堆叠在一起；
@@ -2296,12 +2411,12 @@ class MyApp extends StatelessWidget {
   通过在 label 和 button 之间插入两个宽度为 80 的 SizedBox，可以实现 label 和 button 的水平间距为 80。
 */
 ```
-### 27.7、一些常用的UI库 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-37" data-jobs-toc="v2">27.7、一些常用的UI库 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * [***flutter_staggered_grid_view***](https://github.com/letsar/flutter_staggered_grid_view): 这个库提供了一个瀑布流布局的实现，可以让您以不规则的方式显示列表项。它允许您指定列数和每个列表项的高度，并自动适应布局。
 * [***flutter_layout_grid***](https://github.com/shyndman/flutter_layout_grid): 这是一个类似于 `CSS Grid` 的库，允许您使用网格布局来排列子部件。您可以定义网格中的行和列，并使用简单的属性来指定子部件的位置和大小。
 * [***flutter_flow***](https://github.com/Darren-chenchen/flutter_flowermusic): 这个库提供了一种基于流式布局（Flow Layout）的方式来排列子部件。它允许您在水平和垂直方向上动态调整子部件的位置和大小，以适应不同的屏幕尺寸和方向。
 * [***flutter_sliver_grid***](https://github.com/himdeve/flutter-tutorials-1-9-gridview-slivergrid-gallery): 这是一个用于实现网格布局的库，可以与 ***SliverAppBar*** 和 ***CustomScrollView*** 一起使用，以创建具有自定义滚动效果的网格布局。
-### 27.8、约束 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-38" data-jobs-toc="v2">27.8、约束 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > * Flutter 的 UI 控件是`内容为王`，布局依赖`外壳`
 >   * 在 Flutter 想“定大小”，就必须包
@@ -2341,15 +2456,15 @@ class MyApp extends StatelessWidget {
   )
   ```
 
-### 27.9、一些常用UI的创建 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-39" data-jobs-toc="v2">27.9、一些常用UI的创建 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 27.9.1、参考资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-40" data-jobs-toc="v2">27.9.1、参考资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**Flutter 官方控件目录**](docs.flutter.dev)
 * [**Flutter 控件索引**](docs.flutter.dev)
 * [**Flutter 控件示例**](flutter.github.io)
 
-#### 27.9.2、约束/层级控制类控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-41" data-jobs-toc="v2">27.9.2、约束/层级控制类控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `IntrinsicHeight` / `IntrinsicWidth`
 
@@ -2380,7 +2495,7 @@ class MyApp extends StatelessWidget {
   );
   ```
 
-#### 27.9.3、基础控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-42" data-jobs-toc="v2">27.9.3、基础控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `Text`文本
 
@@ -2591,7 +2706,7 @@ class MyApp extends StatelessWidget {
   );
   ```
 
-#### 27.9.4、导航控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-43" data-jobs-toc="v2">27.9.4、导航控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `AppBar`：应用栏
 
@@ -2628,7 +2743,7 @@ class MyApp extends StatelessWidget {
   const TabBar(tabs: [Tab(text: 'Tab 1'), Tab(text: 'Tab 2')]);
   ```
 
-#### 27.9.5、对话框与提示 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-44" data-jobs-toc="v2">27.9.5、对话框与提示 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `AlertDialog`：警告对话框
 
@@ -2662,7 +2777,7 @@ class MyApp extends StatelessWidget {
   );
   ```
 
-#### 27.9.6、动画与效果 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-45" data-jobs-toc="v2">27.9.6、动画与效果 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `AnimatedContainer`：带动画的容器
 
@@ -2693,7 +2808,7 @@ class MyApp extends StatelessWidget {
   );
   ```
 
-#### 27.9.7、滚动控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-46" data-jobs-toc="v2">27.9.7、滚动控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `SingleChildScrollView`：单个子项的可滚动视图
 
@@ -2715,7 +2830,7 @@ class MyApp extends StatelessWidget {
   );
   ```
 
-#### 27.9.8、滚动类布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-47" data-jobs-toc="v2">27.9.8、滚动类布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `ListView`
 
@@ -2853,7 +2968,7 @@ class MyApp extends StatelessWidget {
   );
   ```
 
-#### 27.9.9、线性布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-48" data-jobs-toc="v2">27.9.9、线性布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `Expanded`和`Flexible`：在 `Row` 或 `Column` 中分配空间
 
@@ -2951,7 +3066,7 @@ class MyApp extends StatelessWidget {
   );
   ```
 
-#### 27.9.10、多行/自动换行布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-49" data-jobs-toc="v2">27.9.10、多行/自动换行布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `Wrap`
 
@@ -3058,7 +3173,7 @@ class MyApp extends StatelessWidget {
   }
   ```
 
-#### 27.9.11、重叠布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-50" data-jobs-toc="v2">27.9.11、重叠布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `IndexedStack`：只显示一个子组件
 
@@ -3097,7 +3212,7 @@ class MyApp extends StatelessWidget {
   )
   ```
 
-#### 27.9.12、布局控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-51" data-jobs-toc="v2">27.9.12、布局控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `Container`：容器，可设置大小、边距、装饰等
 
@@ -3227,7 +3342,7 @@ class MyApp extends StatelessWidget {
   )
   ```
 
-### 27.10、***Dart.Flutter.动画*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-52" data-jobs-toc="v2">27.10、***Dart.Flutter.动画*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * 隐式动画（*Implicit Animations*）：
   * Dart.Flutter提供了一系列的隐式动画组件，如*AnimatedContainer*、*AnimatedOpacity*、*AnimatedAlign*等；
   * 当这些***组件的属性发生变化***时，它们会自动执行动画效果，而不需要开发者显式地控制动画过程；
@@ -3692,7 +3807,7 @@ class FlareAnimationDemo extends StatelessWidget {
   确保将Flare文件的路径正确地指定为您项目中的实际路径，并将动画名称设置为您要播放的实际动画名称。
 */
 ```
-## 二十八、***🪣Dart.Flutter.Database*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-53" data-jobs-toc="v2">二十八、***🪣Dart.Flutter.Database*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <font color="red">**Dart.Flutter 官方目前没有提供一个 Dart.Flutter 原生自带的数据库解决方案。**</font>Dart.Flutter 团队的重点是提供一个灵活、高性能的 UI 框架，以便开发人员可以构建跨平台的用户界面。对于数据存储和管理，Dart.Flutter 官方更多地依赖于第三方库和平台特定的解决方案
 ```text
@@ -4028,7 +4143,7 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-## 二十九、***❤️Dart.Flutter***.<font color="red" id="Provider">*Provider*</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-54" data-jobs-toc="v2">二十九、***❤️Dart.Flutter***.<font color="red" id="Provider">*Provider*</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * 主要用于解决 Dart.Flutter 应用程序中的***数据共享和管理***问题；
 
 * *第三方，需要引入包*
@@ -4253,7 +4368,7 @@ class MyHomePage extends StatelessWidget {
   }
 }
 ```
-## 三十、***Dart.Flutter.手势✋🏻*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-55" data-jobs-toc="v2">三十、***Dart.Flutter.手势✋🏻*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 [***全面深入了解Flutter的触摸和滑动原理***](https://guoshuyu.cn/home/wx/Flutter-13.html)
 
 * 无论是 Android 还是 IOS ，Dart原生层都只是将所有事件打包下发；
@@ -4265,7 +4380,7 @@ class MyHomePage extends StatelessWidget {
   * 手势信息打包成**ByteBuffer**进行传递，最后在 Dart 层的 `_dispatchPointerDataPacket` 方法中，通过 `_unpackPointerDataPacket` 方法解析成可用的 ***PointerDataPacket*** 对象使用。
 * iOS:
   * 在 iOS 上，Flutter 视图的基础是 ***FlutterViewController***：监听并处理这些触摸事件，会将这些事件转换为 Flutter 的手势事件；
-### 30.1、点击（轻触）手势（***Tap Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-56" data-jobs-toc="v2">30.1、点击（轻触）手势（***Tap Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***GestureDetector***：更通用的手势识别器，可以处理更多类型的手势，如拖动、缩放等；
 ```dart
@@ -4382,7 +4497,7 @@ void main() {
 }
 ```
 
-### 30.2、长按手势（***Long Press Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-57" data-jobs-toc="v2">30.2、长按手势（***Long Press Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'package:flutter/material.dart';
@@ -4419,7 +4534,7 @@ void main() {
   ));
 }
 ```
-### 30.3、拖动手势（***Drag Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-58" data-jobs-toc="v2">30.3、拖动手势（***Drag Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'package:flutter/material.dart';
@@ -4480,7 +4595,7 @@ class DraggableDemo extends StatelessWidget {
   }
 }
 ```
-### 30.4、缩放手势（***Scale Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-59" data-jobs-toc="v2">30.4、缩放手势（***Scale Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'package:flutter/material.dart';
@@ -4535,7 +4650,7 @@ class _ScaleGestureDemoState extends State<ScaleGestureDemo> {
   }
 }
 ```
-### 30.5、滑动手势（***Swipe Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-60" data-jobs-toc="v2">30.5、滑动手势（***Swipe Gesture***） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***GestureDetector***
 ```dart
@@ -4637,7 +4752,7 @@ void main() {
   ));
 }
 ```
-### 30.6、***❤️解决手势冲突（控制手势的响应范围以及触发条件）*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-61" data-jobs-toc="v2">30.6、***❤️解决手势冲突（控制手势的响应范围以及触发条件）*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * ***GestureDetector*** **的各种回调函数** 比如：`onTap`、`onDoubleTap`、`onLongPress`等
 ```dart
 GestureDetector(
@@ -4753,15 +4868,15 @@ IgnorePointer(
   child: // Your child widget here
 )
 ```
-## 三十一、<font id="GetX">***Dart.Flutter.GetX***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-62" data-jobs-toc="v2">三十一、<font id="GetX">***Dart.Flutter.GetX***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 31.1、资料来源 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-63" data-jobs-toc="v2">31.1、资料来源 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 [***Flutter状态管理GetX使用详解***](https://juejin.cn/post/7020598013986865182)
 
 [**状态-Getx**](https://www.cnblogs.com/cps666/p/17339373.html)
 
-### 31.2、作用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-64" data-jobs-toc="v2">31.2、作用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 跨页面交互、路由管理、全局[***BuildContext***](#Context)、国际化，主题实现
 
@@ -5298,7 +5413,7 @@ IgnorePointer(
   }
   ```
 
-### 31.3、风评 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-65" data-jobs-toc="v2">31.3、风评 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 *  [***GitHub.GetX***](https://github.com/jonataslaw/getx) 能胜任的应用场景（🔥 非常强）
 
@@ -5335,7 +5450,7 @@ IgnorePointer(
   | 🔴 MVVM / Bloc 学习目标     | ❌ 建议用 Bloc   | 如果你追求企业级范式、官方推荐结构，GetX 不是首选 |
   | 🔴 有非常复杂的业务状态联动 | ❌ 结合其它方案  | 可搭配 Riverpod 或 Bloc 一起用                    |
 
-### 31.4、安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-66" data-jobs-toc="v2">31.4、安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 将 [***GitHub.GetX***](https://github.com/jonataslaw/getx)添加到您的 *pubspec.yaml* 文件中：
 
@@ -5368,7 +5483,7 @@ IgnorePointer(
     }
   }
   ```
-### 31.5、***`Obx`*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-67" data-jobs-toc="v2">31.5、***`Obx`*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `Obx`：<font color="red">数据的**单向绑定**</font>（数据的改变👉🏻UI更新）。是用于观察**可观察对象**（通常是`Rx`变量或[***GetxController***](#GetxController)中的`Rx`变量）的小部件。
 
@@ -5506,7 +5621,7 @@ class Demo1 extends StatelessWidget {
   }
 }
 ```
-### 31.6、<font id="GetxController">***GetxController***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-68" data-jobs-toc="v2">31.6、<font id="GetxController">***GetxController***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***GetxController*** 是管理状态和逻辑的重要组件之一；
 
@@ -5813,7 +5928,7 @@ class Demo1 extends StatelessWidget {
   }
   ```
 
-## 三十二、***Dart.Flutter.网络请求*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-69" data-jobs-toc="v2">三十二、***Dart.Flutter.网络请求*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [***http***](https://github.com/dart-lang/http)
   * [***http***](https://github.com/dart-lang/http)是 ***Dart.Flutter 官方提供的一个基本的网络请求库***，它提供了简单易用的 API，可以方便地进行 *HTTP* 请求和响应的处理；
@@ -6062,7 +6177,7 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-## 三十三、***Dart.Flutter.数据解析*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-70" data-jobs-toc="v2">三十三、***Dart.Flutter.数据解析*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 <font color="red">**将从网络请求或本地存储中获取的原始数据转换为 Dart 对象或数据模型的过程**</font>
 
 ```text
@@ -6155,7 +6270,7 @@ void main() {
   ```
   
   * [**Quicktype**](https://app.quicktype.io/)，是一个在线工具，可以将 JSON 数据格式转换成各种编程语言的数据结构定义。可以将 JSON 数据粘贴到该网站上，选择你喜欢的编程语言，然后它会自动生成该语言下对应的类、结构体或者其他数据类型的定义，方便你在编程中使用 JSON 数据时进行解析和操作。
-## 三十四、***Dart.事件循环（Event Loop）*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-71" data-jobs-toc="v2">三十四、***Dart.事件循环（Event Loop）*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * Microtask Queue（微服务队列）
   * 优先级别高于Event Queue（事件队列）<font color="red">***等于VIP***</font>；
   * 只有当Microtask Queue（微服务队列）全部执行完成以后，系统才会有机会执行Event Queue（事件队列）里面的代码；
@@ -6167,7 +6282,7 @@ void main() {
 
 ![image-20240321163915070](./assets/image-20240321163915070.png)
 
-## 三十五、***Dart.线程处理*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-72" data-jobs-toc="v2">三十五、***Dart.线程处理*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <font color="red">***异步不等于多线程；`Future` / `async` / `await` 不会自动把 Dart 代码移到后台线程。***</font>
 
@@ -6191,17 +6306,17 @@ void main() {
   }
   ```
 
-### 35.1、<font id="Isolate">***Dart.Isolate***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-73" data-jobs-toc="v2">35.1、<font id="Isolate">***Dart.Isolate***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * Isolate 是 Dart 的并发执行单元。它和传统共享内存线程不是同一抽象：每个 Isolate 拥有自己的状态、内存与事件循环；
 * Isolate 之间通过 `SendPort` / `ReceivePort` 传递消息。无共享可变状态可以避免数据竞争和锁竞争，但消息传递、创建与销毁本身也有成本；
 * Dart Native 支持多个 Isolate 并行使用多核；Flutter Web 的并发模型需要结合 Web Worker 等平台能力判断，不能直接套用 Native 结论；
 
-### 35.2、<font id="Future">***❤️Dart.Future***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-74" data-jobs-toc="v2">35.2、<font id="Future">***❤️Dart.Future***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ***Future*** 是一个***用于表示异步操作结果的对象***。*通常用于处理需要等待一段时间才能完成的操作。它表示一个在某个未来时刻会产生值或错误的计算过程*；
 
-#### 35.2.1、快速入手： <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-75" data-jobs-toc="v2">35.2.1、快速入手： <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 示例一：以下这三种方式等价
 
@@ -6247,12 +6362,12 @@ void main() {
     getFuture().then((value) => debugPrint(value));/// Future对象用then打开。这里的value就是String，也就是"Alice"
   }
   ```
-#### 35.2.2、异步操作的结果： <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-76" data-jobs-toc="v2">35.2.2、异步操作的结果： <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***Future*** 代表一个异步操作的结果。当异步操作完成时，***Future*** 将会返回一个值（data）或一个错误（error）。*错误和值不可能同时出现*；
 * 所以，***Future*** 总共有3种形态：**刚进来没有完成的状态**、**正常完成以后得状态**、**异常完成以后得到的错误信息**；
 
-#### 35.2.3、代码执行优先级： <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-77" data-jobs-toc="v2">35.2.3、代码执行优先级： <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * Dart代码直接Debug模式运行***立即执行的***
 
@@ -6361,7 +6476,7 @@ void main() {
     flutter: event 2
     flutter: event 3
     ```
-#### 35.2.4、`then()`方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-78" data-jobs-toc="v2">35.2.4、`then()`方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > * 你可以使用***Future对象的`then()`方法注册回调函数*** 
 > * <font color="red">**在正常情况下，等待中的*Future*在完成时的瞬间，`then()`方法会被立即执行，而不会产生Microtask事件**</font>。
@@ -6435,7 +6550,7 @@ Fetching Number...
 Continuing Execution...
 Error Fetching Number: Exception: Failed To Fetch Number
 ```
-#### 35.2.5、***Dart.async*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-79" data-jobs-toc="v2">35.2.5、***Dart.async*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 *以下3种写法等价*
 
 ```dart
@@ -6457,7 +6572,7 @@ getFuture(){
   return Future.value(100);
 }
 ```
-#### 35.2.6、***Dart***.<font color="red">*`await`*</font> 和 ***Dart***.<font color="red">*`async`*</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-80" data-jobs-toc="v2">35.2.6、***Dart***.<font color="red">*`await`*</font> 和 ***Dart***.<font color="red">*`async`*</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > * 通过<font color="red">*`async`*</font>关键字标记的函数可以使用<font color="red">*`await`*</font>关键字来等待*Future*的完成，而不必使用`then()`方法注册回调函数
 > * <font color="red">***`await`是`async`的反义词***</font>
 
@@ -6499,7 +6614,7 @@ flutter: 200
   Connecting to VM Service at ws://127.0.0.1:59963/uNDeeaH8Z-0=/ws
   flutter: oops 
   ```
-#### 35.2.7、***Dart.error*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-81" data-jobs-toc="v2">35.2.7、***Dart.error*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 Future<String> getFuture(){
   return Future.error(Exception("Something went wrong"));
@@ -6548,7 +6663,7 @@ flutter: 100
 flutter: 5
 flutter: complete
 ```
-#### 35.2.8、***❤️Dart.Flutter.FutureBuilder*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-82" data-jobs-toc="v2">35.2.8、***❤️Dart.Flutter.FutureBuilder*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > *  *Future* 提供了一个名为 *FutureBuilder* 的*Widget*，<font color="red">***用于在Future完成后构建UI***</font>。
 > *  使用 *FutureBuilder*，你可以轻松地根据 *Future* 的状态（未完成、完成并成功返回结果、完成但返回错误）来构建不同的UI；
@@ -6630,20 +6745,20 @@ class _MyHomePageState extends State<MyHomePage> {
 // 运行效果：设备屏幕正中央，先出现72，等待2秒以后，出现错误图标
 ```
 
-#### 35.2.9、<font id="AsyncSnapshot">***Dart.Flutter.AsyncSnapshot***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-83" data-jobs-toc="v2">35.2.9、<font id="AsyncSnapshot">***Dart.Flutter.AsyncSnapshot***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 只存在于Dart.Flutter中；
 * ***AsyncSnapshot*** 是 Flutter 中用于表示异步操作的快照的类。它通常与 [***FutureBuilder***](#FutureBuilder) 或 [***StreamBuilder***](#StreamBuilder) 一起使用，用于获取异步操作的结果或状态，并在 UI 中进行相应的处理。
 * ***AsyncSnapshot*** 包含了有关异步操作当前状态的信息，例如数据、错误、连接状态等；
 
-### 35.3、<font id="Stream">***❤️Dart.Stream***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-84" data-jobs-toc="v2">35.3、<font id="Stream">***❤️Dart.Stream***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 35.4、资料来源 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-85" data-jobs-toc="v2">35.4、资料来源 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 [***在 Flutter 里使用 Stream***](https://juejin.cn/post/6844904131287580685)
 [***Flutter 教程 Async***](https://www.youtube.com/watch?v=qBksSix4qj0&list=PLDD3xNHFJjoob3GCF1JqaDxwrOTmpGGbe&index=1)
 
-#### 35.4.1、相关细节 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-86" data-jobs-toc="v2">35.4.1、相关细节 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 在使用[***GetX***](#GetX)框架时，通常可以避免使用显式的***Stream***；
 * 在 Dart.Flutter 中有两种处理异步操作的方式 ***Future*** 和 ***Stream***； 
@@ -6679,7 +6794,7 @@ Connecting to VM Service at ws://127.0.0.1:61385/ShWG62w8EkE=/ws
 flutter: future complete:42
 53 flutter: steam :42 （源源不断的打印 42）
 ```
-#### 35.4.2、***Dart.Flutter.Widget.StreamBuilder*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-87" data-jobs-toc="v2">35.4.2、***Dart.Flutter.Widget.StreamBuilder*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * *Dart.Flutter.Widget*.***StreamBuilder*** *.builder.[**snapshot**](#AsyncSnapshot).ConectionState* 比 ***FutureBuilder*** *.builder.snapshot.ConectionState* 多一个 ***active***状态；
 * *Dart.Flutter.Widget*.***StreamBuilder*** *.builder.[**snapshot**](#AsyncSnapshot).ConectionState === active* 可以出现无数新的数值（data）和错误（error）；
@@ -6770,7 +6885,7 @@ class _RandomNumberScreenState extends State<RandomNumberScreen> {
   在这个示例中，我们创建了一个名为 RandomNumberScreen 的 StatefulWidget，其中包含一个 StreamController<int> 用于生成随机数，并使用 StreamBuilder 来监听这个 Stream。StreamBuilder 根据 Stream 的状态自动构建 Widget，并在 UI 中显示随机数的变化。当 Stream 中有新数据到达时，StreamBuilder 会自动重新构建 UI，显示最新的随机数。
 */
 ```
-#### 35.4.3、<font id="StreamController">*Dart.Flutter*.***StreamController***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-88" data-jobs-toc="v2">35.4.3、<font id="StreamController">*Dart.Flutter*.***StreamController***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * Dart.Flutter中用于创建和管理流（Dart.Stream）的类。充当了流的生产者，可以使用它来创建一个新的流，并在需要时向该流中添加数据；
 
@@ -6818,7 +6933,7 @@ controller.stream.map((event) => event * 2).where((event) => event is int).disti
 ```dart
 final controller = StreamController.broadcast();
 ```
-## 三十六、<font id="InheritedWidget">***Dart.Flutter.Widget.InheritedWidget***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-89" data-jobs-toc="v2">三十六、<font id="InheritedWidget">***Dart.Flutter.Widget.InheritedWidget***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 抽象类；
 * 是 Dart.Flutter 中的概念<font color="red">*（Dart.Flutter 的特性控件）*</font>，而不是Dart语言本身的特性；
@@ -6910,7 +7025,7 @@ void main() {
   runApp(MyApp());
 }
 ```
-## 三十七、***Dart.Flutter.路由*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-90" data-jobs-toc="v2">三十七、***Dart.Flutter.路由*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 用于导航到不同的屏幕或页面。主要区别在于路由的创建方式和传递参数的方式。
 * 静态路由：
   * 是指在应用程序启动时就确定好的路由映射关系，通常在应用程序的主要入口处（例如`MaterialApp`的`routes`属性）设置好路由表；
@@ -7105,7 +7220,7 @@ class DetailsScreen extends StatelessWidget {
   }
 }
 ```
-## 三十八、***❤️Dart.Flutter.页面的销毁*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-91" data-jobs-toc="v2">三十八、***❤️Dart.Flutter.页面的销毁*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 当通过`Navigator.push()`方法将一个新页面推送到导航堆栈时，通常情况下该页面并不会被销毁。相反，它会被添加到导航堆栈中，并且保持在内存中，直到你显式地将其从导航堆栈中移除。
 * 然而，如果内存资源不足或者 Flutter 的路由管理系统认为需要释放页面以节省内存，那么这个页面可能会被销毁。Flutter提供了一些机制来帮助你管理页面的生命周期和内存使用，例如使用`AutomaticKeepAliveClientMixin`混入类可以在页面切换时保持页面状态。
@@ -7116,7 +7231,7 @@ class DetailsScreen extends StatelessWidget {
   * **手动调用`Navigator.removeRoute()`或`Navigator.removeRouteBelow()`**：这两个方法可以手动从导航栈中移除指定的路由或指定路由下面的所有路由。但是要小心使用，因为**直接操作导航栈可能会导致意外的行为**。
   * **使用`PageRoute`的回调函数**：你可以通过`PageRoute`的回调函数来监听页面的生命周期事件，并在适当的时候执行一些操作。例如，你可以在页面`dispose`时执行一些清理操作。
 
-## 三十九、***Dart.Flutter.音视频*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-92" data-jobs-toc="v2">三十九、***Dart.Flutter.音视频*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 *  [***flutter_ffmpeg***](https://github.com/tanersener/flutter-ffmpeg)：
   * ***开源项目*** <font color="red">**（停止维护）**</font>；
@@ -7140,10 +7255,10 @@ class DetailsScreen extends StatelessWidget {
   * 这是一个基于 [***ExoPlayer***](https://github.com/google/ExoPlayer) 的 Dart.Flutter 插件，用于在 Dart.Flutter 应用程序中播放音频和视频文件；
   * *ExoPlayer* 是一个功能强大的跨平台媒体播放器，***支持 Android、iOS 和 Web 平台***；
   * 使用 *flutter_exoplayer*，您可以方便地在 Dart.Flutter 应用程序中实现高性能的音视频播放功能；
-## 四十、***Dart.Flutter.原生Api调用交互***（未完） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-93" data-jobs-toc="v2">四十、***Dart.Flutter.原生Api调用交互***（未完） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * 设备判定
-## 四十一、***Dart.Flutter.其他功能*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-### 41.1、***返回按键监听*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-94" data-jobs-toc="v2">四十一、***Dart.Flutter.其他功能*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-95" data-jobs-toc="v2">41.1、***返回按键监听*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * *Dart.Flutter* 中 ，通过`WillPopScope` 嵌套，可以用于监听处理 Android 返回键的逻辑；
 * 其实 `WillPopScope` 并不是监听返回按键，如名字一般，是当前页面将要被pop时触发的回调；
 * 通过`onWillPop`回调返回的`Future`，判断是否响应 pop 。下方代码实现按下返回键时，弹出提示框，按下确定退出App；
@@ -7181,7 +7296,7 @@ class HomePage extends StatelessWidget {
   }
 }
 ```
-### 41.2、***前后台监听*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-96" data-jobs-toc="v2">41.2、***前后台监听*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * 应用生命周期与单个 Widget 的 `State` 生命周期是两套概念。新代码可以使用 `AppLifecycleListener`；需要集中接收多种 Binding 通知时也可以使用 `WidgetsBindingObserver.didChangeAppLifecycleState`；
 * `AppLifecycleState` 与 Android / iOS 原生生命周期并非逐项一一对应，判断业务时应按 `resumed`、`inactive`、`hidden`、`paused`、`detached` 的跨平台语义处理；
 
@@ -7214,7 +7329,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 ```
-### 41.3、***键盘焦点处理*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-97" data-jobs-toc="v2">41.3、***键盘焦点处理*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * 一般触摸收起键盘也是常见需求，如下代码所示， `GestureDetector` + `FocusScope` 可以满足这一需求。
 ```dart
 class _LoginPageState extends State<LoginPage> {
@@ -7234,17 +7349,17 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 ```
-### 41.4、***启动页*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-98" data-jobs-toc="v2">41.4、***启动页*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * IOS启动页，在`ios/Runner/Assets.xcassets/LaunchImage.imageset/`下， 有 **Contents.json** 文件和启动图片，将你的启动页放置在这个目录下，并且修改 **Contents.json** 即可，具体尺寸自行谷歌即可。
 * Android启动页，在 `android/app/src/main/res/drawable/launch_background.xml` 中已经有写好的启动页，`<item><bitmap>` 部分被屏蔽，只需要打开这个屏蔽，并且将你启动图修改为`launch_image`并放置到各个 **mipmap** 文件夹即可，记得各个文件夹下提供相对于大小尺寸的文件。
-### 41.5、***Dart.Flutter.调取系统摄像头***（未完） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-### 41.6、***Dart.Flutter.调取系统相册***（未完） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-99" data-jobs-toc="v2">41.5、***Dart.Flutter.调取系统摄像头***（未完） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-100" data-jobs-toc="v2">41.6、***Dart.Flutter.调取系统相册***（未完） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 41.7、***Dart.Flutter.热更新***（未完） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-101" data-jobs-toc="v2">41.7、***Dart.Flutter.热更新***（未完） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 热更新插件：[**flutter_updater**](https://pub.dev/packages?q=flutter_updater)、[**flutter_hot_update**](https://pub.dev/packages?q=flutter_hot_update)
 
-## 四十二、FAQ <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-102" data-jobs-toc="v2">四十二、FAQ <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 为什么承接Flutter网络数据解析的模型需要用代码自动生成，且有些会产生大量的中间代码，感觉非常冗余
 
@@ -7287,19 +7402,19 @@ class _LoginPageState extends State<LoginPage> {
   | 没有反射（Flutter web/移动端限制） | 没法像 Objective-C 用 KVC 动态赋值，所以不能动态 map json    |
   | 靠代码生成实现类型安全             | `json_serializable` 用生成代码的方式保障类型正确，避免运行时崩溃 |
 
-## 四十三、其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-103" data-jobs-toc="v2">四十三、其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * Dart 没有宏定义的概念
   * Dart 是一种强类型的面向对象语言，它没有预处理器，也不支持在编译前执行类似宏定义的操作；
   * 相反，Dart 通过其强大的语言特性（如函数、类、常量等）来支持代码重用和抽象化；
 
-### 43.1、***Dart.Flutter.DevTools*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-104" data-jobs-toc="v2">43.1、***Dart.Flutter.DevTools*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 Dart.Flutter提供了一些调试工具来帮助开发者调试应用程序的代码和性能，其中包括以下工具：
 * **Flutter DevTools**：是一个功能强大的调试工具，可以***在浏览器中***查看Dart.Flutter应用程序的各种信息，包括[*Widget*树](#Widget树)、布局、性能、日志等。它提供了诸如内存、CPU使用情况等信息，可以帮助开发者定位和解决性能问题；
   * **Flutter Inspector**：是Flutter DevTools的一部分，它允许开发者在应用程序运行时查看*Widget*树、检查布局、查看UI层级结构等。通过Flutter Inspector，开发者可以在运行时查看应用程序的UI状态，并且可以在代码中设置断点来调试应用程序的逻辑；
 * **Flutter Debugger Extension**：是***Visual Studio Code（VS Code）的一个扩展***，提供了在[***VSCode***](https://code.visualstudio.com/) 中调试Dart.Flutter应用程序的功能。开发者可以在[***VSCode***](https://code.visualstudio.com/) 中设置断点、单步执行代码、查看变量值等，以实现对Dart.Flutter应用程序的调试；
-### 43.2、<font id="RESTful.Api">***RESTful API***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-105" data-jobs-toc="v2">43.2、<font id="RESTful.Api">***RESTful API***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * *REST*（**RE**presentational **S**tate **T**ransfer，表征状态转移）***是一种设计网络应用程序的软件架构风格或理念***，它<font color="red">**强调利用 HTTP 协议中的各种方法（GET、POST、PUT、DELETE 等）对资源进行操作，并通过资源的表现形式（通常是 JSON 或 XML 格式）来传输数据**</font>；
 * <font color="red">其实就是一个行业标准/规范。也就是对外传输的一种数据格式，需要至少要满足某几个点，以求达到最低的表述成本换取传输更多有效的信息</font>；
@@ -7310,11 +7425,11 @@ Dart.Flutter提供了一些调试工具来帮助开发者调试应用程序的�
   * **资源的操作**：客户端通过 HTTP 方法（*GET*、*POST*、*PUT*、*DELETE* 、*PATCH*、*HEAD*、*OPTIONS*、*TRACE*、*CONNECT*）来对资源进行操作，实现对资源的 CRUD（**C**reate、**R**ead、**U**pdate、**D**elete）操作；
   * **无状态性**：每个请求都包含足够的信息，服务器不需要保留客户端的状态。这意味着每个请求都是独立的，服务器不需要保存客户端的会话状态；
   * **表示层的状态转移**：客户端通过资源的表现形式来与服务器进行交互，例如使用 *JSON* 或 *XML* 格式的数据表示资源的状态；
-### 43.3、***Retrofit*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-106" data-jobs-toc="v2">43.3、***Retrofit*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * *Retrofit* 是一个针对 *Android* 平台的 [***RESTful API***](#RESTful.Api)客户端库，由 Square 公司开发和维护；
 * 它提供了一种简单、强大的方式来执行网络请求和处理 API 响应；
 * *Retrofit* 基于 *OkHttp* 库构建，可以与其无缝集成，提供了许多便捷的功能和特性；
-### 43.4、***❤️Dart.Flutter.对象循环引用问题*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-107" data-jobs-toc="v2">43.4、***❤️Dart.Flutter.对象循环引用问题*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 表现形式：
   * ***Widget*之间的循环引用**：相互持有，无法释放；
@@ -7401,7 +7516,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 ```
-### 43.5、***Dart.其他用途*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-108" data-jobs-toc="v2">43.5、***Dart.其他用途*** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * Flutter.Dart 语言是多用途的，它不仅可以用于移动应用开发，还可以用于Web开发和服务器端开发；
 * Dart 提供了一些用于编写服务器端应用程序的库和框架，其中最知名的是 Dart 的服务器端框架之一：Aqueduct。
   * ***Aqueduct*** 是一个基于 Dart 的 HTTP 框架，用于构建高性能的、可扩展的 Web 应用程序和服务端 API。

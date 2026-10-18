@@ -2,11 +2,73 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、控件选型总览](#jobs-toc-heading-2)
+  - [1.1、按场景选择](#jobs-toc-heading-3)
+  - [1.2、布局约束核心](#jobs-toc-heading-4)
+- [二、应用入口与主题](#jobs-toc-heading-5)
+  - [2.1、MaterialApp](#jobs-toc-heading-6)
+  - [2.2、ThemeData、ColorScheme 与 TextTheme](#jobs-toc-heading-7)
+  - [2.3、CupertinoApp](#jobs-toc-heading-8)
+- [三、页面骨架与全局反馈](#jobs-toc-heading-9)
+  - [3.1、Scaffold](#jobs-toc-heading-10)
+  - [3.2、ScaffoldMessenger、SnackBar 与 BottomSheet](#jobs-toc-heading-11)
+  - [3.3、抽屉](#jobs-toc-heading-12)
+- [四、尺寸、约束与布局](#jobs-toc-heading-13)
+  - [4.1、单子节点控件](#jobs-toc-heading-14)
+  - [4.2、Container](#jobs-toc-heading-15)
+  - [4.3、Row、Column、Flex](#jobs-toc-heading-16)
+  - [4.4、Expanded、Flexible、Spacer](#jobs-toc-heading-17)
+  - [4.5、Wrap](#jobs-toc-heading-18)
+  - [4.6、Stack 与 Positioned](#jobs-toc-heading-19)
+  - [4.7、LayoutBuilder 与响应式布局](#jobs-toc-heading-20)
+- [五、文本、表单与焦点](#jobs-toc-heading-21)
+  - [5.1、文本控件](#jobs-toc-heading-22)
+  - [5.2、TextField 与 TextFormField](#jobs-toc-heading-23)
+- [六、按钮、图标与菜单](#jobs-toc-heading-24)
+  - [6.1、Material 3 按钮](#jobs-toc-heading-25)
+  - [6.2、菜单](#jobs-toc-heading-26)
+- [七、列表、网格与组合滚动](#jobs-toc-heading-27)
+  - [7.1、SingleChildScrollView](#jobs-toc-heading-28)
+  - [7.2、ListView](#jobs-toc-heading-29)
+  - [7.3、GridView](#jobs-toc-heading-30)
+  - [7.4、CustomScrollView 与 Sliver](#jobs-toc-heading-31)
+  - [7.5、刷新与分页](#jobs-toc-heading-32)
+- [八、导航、底栏与标签页](#jobs-toc-heading-33)
+  - [8.1、Navigator](#jobs-toc-heading-34)
+  - [8.2、命名路由与 Router](#jobs-toc-heading-35)
+  - [8.3、NavigationBar](#jobs-toc-heading-36)
+  - [8.4、TabBar 与 TabBarView](#jobs-toc-heading-37)
+- [九、选择、弹窗与进度反馈](#jobs-toc-heading-38)
+  - [9.1、选择控件](#jobs-toc-heading-39)
+  - [9.2、对话框与选择器](#jobs-toc-heading-40)
+  - [9.3、进度与骨架状态](#jobs-toc-heading-41)
+- [十、异步、图片与动态内容](#jobs-toc-heading-42)
+  - [10.1、FutureBuilder](#jobs-toc-heading-43)
+  - [10.2、StreamBuilder](#jobs-toc-heading-44)
+  - [10.3、图片](#jobs-toc-heading-45)
+- [十一、适配、无障碍与交互边界](#jobs-toc-heading-46)
+  - [11.1、屏幕与窗口信息](#jobs-toc-heading-47)
+  - [11.2、安全区与键盘](#jobs-toc-heading-48)
+  - [11.3、无障碍](#jobs-toc-heading-49)
+- [十二、性能与生命周期检查](#jobs-toc-heading-50)
+  - [12.1、构建性能](#jobs-toc-heading-51)
+  - [12.2、资源释放](#jobs-toc-heading-52)
+  - [12.3、常见布局错误](#jobs-toc-heading-53)
+- [十三、旧写法纠错表](#jobs-toc-heading-54)
+- [十四、官方资料](#jobs-toc-heading-55)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 > 本文按“应用入口 → 页面骨架 → 布局 → 输入 → 交互 → 滚动 → 导航 → 反馈 → 异步 → 适配”的顺序整理 [**Flutter**](https://flutter.dev/) 常用 UI 能力。示例以当前 Material 3 API 为主；具体属性仍应以项目锁定的 Flutter SDK 文档为准。
 
@@ -14,9 +76,9 @@
 - `Widget` 是不可变配置；需要持有控制器、焦点或局部可变状态时使用 `StatefulWidget`，并在 `dispose()` 中释放资源。
 - 项目自定义图标优先从 [**iconfont**](https://www.iconfont.cn/) 选取并接入统一资源层；系统语义明确的通用图标可以使用 `Icons` 或 `CupertinoIcons`。
 
-## 一、控件选型总览 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、控件选型总览 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 1.1、按场景选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-3" data-jobs-toc="v2">1.1、按场景选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 场景 | 首选能力 | 说明 |
 | --- | --- | --- |
@@ -34,16 +96,16 @@
 | 响应式适配 | `LayoutBuilder` / `MediaQuery` | 按父约束或窗口信息布局 |
 | 系统安全区 | `SafeArea` | 避开刘海、状态栏和系统手势区 |
 
-### 1.2、布局约束核心 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-4" data-jobs-toc="v2">1.2、布局约束核心 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - Flutter 布局遵循：**约束向下传递，尺寸向上传递，父节点决定位置**。
 - `Container(width: 100)` 的宽度仍受父约束限制，并不是无条件得到 100。
 - Flutter 没有给 `width` / `height` 直接传百分比的语法；比例尺寸通常通过 `FractionallySizedBox`、`LayoutBuilder` 或父约束计算。
 - `Expanded` 只能放在 `Row`、`Column` 或 `Flex` 的后代链上；把它放进 `Stack`、`ListView` 等位置会触发 ParentData 错误。
 
-## 二、应用入口与主题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">二、应用入口与主题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 2.1、`MaterialApp` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-6" data-jobs-toc="v2">2.1、`MaterialApp` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `MaterialApp` 是 Material Design 应用的便利入口，负责组装主题、本地化、顶层 Navigator、Hero 等常用能力。
 - `title` 的类型是 `String?`，用于操作系统任务列表或 Web 页面标题；需要本地化标题时使用 `onGenerateTitle`，不能传 `Text`。
@@ -88,7 +150,7 @@ class JobsApp extends StatelessWidget {
 }
 ```
 
-### 2.2、`ThemeData`、`ColorScheme` 与 `TextTheme` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-7" data-jobs-toc="v2">2.2、`ThemeData`、`ColorScheme` 与 `TextTheme` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - Material 3 已是当前默认方向。Material 组件主要从 `ThemeData.colorScheme` 和 `ThemeData.textTheme` 取得默认值。
 - 全局颜色优先使用 `ColorScheme.fromSeed()` 或完整的 `ColorScheme`，不要继续依赖旧版 `accentColor`。
@@ -114,7 +176,7 @@ return Card(
 );
 ```
 
-### 2.3、`CupertinoApp` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-8" data-jobs-toc="v2">2.3、`CupertinoApp` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `CupertinoApp` 提供 iOS 风格的主题、滚动物理和路由过渡，但不是使用 Cupertino Widget 的强制前提。
 - `home` 的类型是 `Widget?`，并非必填；如果 `home`、`routes`、`onGenerateRoute` 和 `onUnknownRoute` 都为空，则需要通过 `builder` 提供内容。
@@ -146,9 +208,9 @@ class JobsCupertinoApp extends StatelessWidget {
 }
 ```
 
-## 三、页面骨架与全局反馈 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-9" data-jobs-toc="v2">三、页面骨架与全局反馈 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 3.1、`Scaffold` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-10" data-jobs-toc="v2">3.1、`Scaffold` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 属性 | 作用 |
 | --- | --- |
@@ -193,7 +255,7 @@ class HomePage extends StatelessWidget {
 }
 ```
 
-### 3.2、`ScaffoldMessenger`、SnackBar 与 BottomSheet <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-11" data-jobs-toc="v2">3.2、`ScaffoldMessenger`、SnackBar 与 BottomSheet <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - SnackBar 使用 `ScaffoldMessenger.of(context).showSnackBar()`；旧的 `Scaffold.of(context).showSnackBar()` 写法不应继续使用。
 - `ScaffoldMessengerState` 负责 SnackBar 和 MaterialBanner，不负责提供“删除当前 BottomSheet”的 API。
@@ -218,14 +280,14 @@ Future<void> openActions(BuildContext context) async {
 }
 ```
 
-### 3.3、抽屉 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-12" data-jobs-toc="v2">3.3、抽屉 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - Material 3 优先考虑 `NavigationDrawer`；已有 Material 2 页面仍可继续使用 `Drawer`。
 - 抽屉内容本质上是普通 Widget 树，没有 `drawerHeader`、`type`、`scrollController` 等 `Drawer` 构造属性；这些能力应在 `child` 内通过 `DrawerHeader`、`ListView` 和控制器实现。
 
-## 四、尺寸、约束与布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-13" data-jobs-toc="v2">四、尺寸、约束与布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 4.1、单子节点控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-14" data-jobs-toc="v2">4.1、单子节点控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget | 适用场景 | 关键属性 |
 | --- | --- | --- |
@@ -240,7 +302,7 @@ Future<void> openActions(BuildContext context) async {
 | `DecoratedBox` | 只做装饰 | `decoration`、`position` |
 | `Transform` | 绘制阶段变换 | `transform`、`alignment` |
 
-### 4.2、`Container` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-15" data-jobs-toc="v2">4.2、`Container` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `Container` 是组合便利控件，常用于 `alignment`、`padding`、`color`、`decoration`、`constraints`、`margin` 和 `transform`。
 - `color` 与 `decoration` 不能同时设置；需要复杂背景时，把颜色写进 `BoxDecoration.color`。
@@ -272,14 +334,14 @@ Container(
 )
 ```
 
-### 4.3、`Row`、`Column`、`Flex` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-16" data-jobs-toc="v2">4.3、`Row`、`Column`、`Flex` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `Row` 的主轴是水平轴，`Column` 的主轴是垂直轴；`Flex` 通过 `direction` 自定义方向。
 - `mainAxisAlignment` 控制主轴位置，`crossAxisAlignment` 控制交叉轴位置。
 - `mainAxisSize` 决定是否尽量占满主轴。
 - 使用 `CrossAxisAlignment.baseline` 时必须同时提供 `textBaseline`。
 
-### 4.4、`Expanded`、`Flexible`、`Spacer` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-17" data-jobs-toc="v2">4.4、`Expanded`、`Flexible`、`Spacer` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `Expanded` 等价于 `Flexible(fit: FlexFit.tight)`，要求子节点填满分配到的剩余空间。
 - `Flexible` 默认使用 `FlexFit.loose`，子节点可以小于分配空间。
@@ -302,12 +364,12 @@ Row(
 )
 ```
 
-### 4.5、`Wrap` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-18" data-jobs-toc="v2">4.5、`Wrap` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `Wrap` 会在主轴空间不足时自动换行，适合标签、筛选项和按钮组。
 - `spacing` 是同一行项目间距，`runSpacing` 是行与行之间的间距。
 
-### 4.6、`Stack` 与 `Positioned` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-19" data-jobs-toc="v2">4.6、`Stack` 与 `Positioned` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `Stack` 按 children 顺序绘制，后面的 child 位于上层。
 - 非定位子节点由 `alignment` 与 `fit` 布局；`Positioned` 子节点使用 `top`、`right`、`bottom`、`left` 或尺寸定位。
@@ -334,7 +396,7 @@ Stack(
 )
 ```
 
-### 4.7、`LayoutBuilder` 与响应式布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-20" data-jobs-toc="v2">4.7、`LayoutBuilder` 与响应式布局 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 LayoutBuilder(
@@ -357,9 +419,9 @@ LayoutBuilder(
 )
 ```
 
-## 五、文本、表单与焦点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-21" data-jobs-toc="v2">五、文本、表单与焦点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 5.1、文本控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-22" data-jobs-toc="v2">5.1、文本控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget | 用途 |
 | --- | --- |
@@ -371,7 +433,7 @@ LayoutBuilder(
 - 文本溢出常用 `maxLines`、`softWrap` 和 `overflow: TextOverflow.ellipsis`。
 - 字体缩放应尊重 `MediaQuery.textScalerOf(context)`；不要为了视觉固定而全局禁用无障碍字号。
 
-### 5.2、`TextField` 与 `TextFormField` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-23" data-jobs-toc="v2">5.2、`TextField` 与 `TextFormField` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `TextField` 适合独立输入；`TextFormField` 适合和 `Form`、`validator` 组合。
 - `TextEditingController`、`FocusNode` 等长期对象应由 `State` 持有并在 `dispose()` 中释放。
@@ -434,9 +496,9 @@ class _LoginFormState extends State<LoginForm> {
 }
 ```
 
-## 六、按钮、图标与菜单 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-24" data-jobs-toc="v2">六、按钮、图标与菜单 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 6.1、Material 3 按钮 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-25" data-jobs-toc="v2">6.1、Material 3 按钮 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget | 典型语义 |
 | --- | --- |
@@ -452,7 +514,7 @@ class _LoginFormState extends State<LoginForm> {
 - 旧 `MaterialButton` 已进入迁移路径，新代码使用上表按钮及其 Theme。
 - 图标按钮应提供 `tooltip`，提升可发现性与无障碍体验。
 
-### 6.2、菜单 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-26" data-jobs-toc="v2">6.2、菜单 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - Material 3 项目优先使用 `MenuAnchor`、`MenuItemButton` 和 `SubmenuButton`。
 - `PopupMenuButton<T>` 仍可用，其 `itemBuilder` 签名是 `List<PopupMenuEntry<T>> Function(BuildContext context)`，没有索引参数。
@@ -476,15 +538,15 @@ PopupMenuButton<String>(
 )
 ```
 
-## 七、列表、网格与组合滚动 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-27" data-jobs-toc="v2">七、列表、网格与组合滚动 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 7.1、`SingleChildScrollView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-28" data-jobs-toc="v2">7.1、`SingleChildScrollView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 只有一个 child，适合内容量可控的表单或说明页。
 - 不适合直接承载大量动态子节点；`Column(children: hugeList)` 会一次性构建全部内容。
 - 与 `Column` 组合时注意无界高度问题，不要在其内部随意放 `Expanded`。
 
-### 7.2、`ListView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-29" data-jobs-toc="v2">7.2、`ListView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 少量静态子节点可用默认构造；大量或无限数据使用 `ListView.builder`。
 - 需要分割线时使用 `ListView.separated`。
@@ -507,7 +569,7 @@ ListView.separated(
 )
 ```
 
-### 7.3、`GridView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-30" data-jobs-toc="v2">7.3、`GridView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `SliverGridDelegateWithFixedCrossAxisCount` 固定交叉轴数量。
 - `SliverGridDelegateWithMaxCrossAxisExtent` 固定单元格最大交叉轴尺寸，更适合响应式宽度。
@@ -531,21 +593,21 @@ GridView.builder(
 )
 ```
 
-### 7.4、`CustomScrollView` 与 Sliver <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-31" data-jobs-toc="v2">7.4、`CustomScrollView` 与 Sliver <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 同一滚动区域需要组合 AppBar、列表、网格时使用 `CustomScrollView`。
 - 常用 Sliver：`SliverAppBar`、`SliverList`、`SliverGrid`、`SliverPadding`、`SliverToBoxAdapter`。
 - 不要嵌套多个同方向滚动容器来模拟混合页面，优先统一到 Sliver。
 
-### 7.5、刷新与分页 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-32" data-jobs-toc="v2">7.5、刷新与分页 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 下拉刷新使用 `RefreshIndicator` 包裹可滚动组件。
 - 分页加载通常监听 `ScrollController.position` 或使用业务层分页状态；控制器应在 `dispose()` 中释放。
 - 列表状态至少区分：首次加载、空数据、加载成功、追加加载、失败重试。
 
-## 八、导航、底栏与标签页 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-33" data-jobs-toc="v2">八、导航、底栏与标签页 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 8.1、`Navigator` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-34" data-jobs-toc="v2">8.1、`Navigator` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `Navigator.push()` 将 Route 压栈，`Navigator.pop()` 弹出当前 Route。
 - 页面返回值通过 `Navigator.pop(context, result)` 传出，调用方 `await Navigator.push<T>()` 接收。
@@ -566,27 +628,27 @@ if (confirmed == true && context.mounted) {
 }
 ```
 
-### 8.2、命名路由与 Router <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-35" data-jobs-toc="v2">8.2、命名路由与 Router <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 小型应用可以使用 `routes` 与 `onGenerateRoute`。
 - Web 深链、状态恢复、复杂嵌套路由和多导航栈场景，优先使用 Router API 或成熟路由库。
 - `navigatorKey` 允许脱离局部 context 操作顶层 Navigator，但不应成为绕过页面边界的全局业务入口。
 
-### 8.3、`NavigationBar` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-36" data-jobs-toc="v2">8.3、`NavigationBar` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - Material 3 底部主导航优先使用 `NavigationBar` + `NavigationDestination`。
 - `selectedIndex` 默认是 0，`onDestinationSelected` 返回新索引。
 - `BottomNavigationBar` 仍可用于旧 Material 2 页面；其 `currentIndex` 也有默认值 0，并非必填属性。
 
-### 8.4、`TabBar` 与 `TabBarView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-37" data-jobs-toc="v2">8.4、`TabBar` 与 `TabBarView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 两者必须共享同一个 `TabController`；简单页面可使用 `DefaultTabController`。
 - Tab 数量必须与 `TabBarView.children` 数量一致。
 - 自行持有 `TabController` 时，`State` 需要混入 `TickerProviderStateMixin` 或 `SingleTickerProviderStateMixin`，并在 `dispose()` 中释放控制器。
 
-## 九、选择、弹窗与进度反馈 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-38" data-jobs-toc="v2">九、选择、弹窗与进度反馈 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 9.1、选择控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-39" data-jobs-toc="v2">9.1、选择控件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget | 用途 |
 | --- | --- |
@@ -600,32 +662,32 @@ if (confirmed == true && context.mounted) {
 - 受控选择组件的值来自状态，回调只负责更新状态。
 - 禁用状态通过把回调设为 `null` 表达，不用额外拦截点击。
 
-### 9.2、对话框与选择器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-40" data-jobs-toc="v2">9.2、对话框与选择器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 普通确认框使用 `showDialog()` + `AlertDialog`。
 - iOS 风格对话框使用 `showCupertinoDialog()` + `CupertinoAlertDialog`。
 - 日期与时间使用 `showDatePicker()`、`showTimePicker()`。
 - 弹窗返回值与路由一致，通过 `Navigator.pop(context, result)` 返回。
 
-### 9.3、进度与骨架状态 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-41" data-jobs-toc="v2">9.3、进度与骨架状态 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 不确定进度使用 `CircularProgressIndicator` / `LinearProgressIndicator`。
 - 已知进度传入 `value`，范围通常为 0～1。
 - 长耗时任务要提供可理解的状态文案；只有转圈而没有业务状态，不利于错误恢复。
 
-## 十、异步、图片与动态内容 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-42" data-jobs-toc="v2">十、异步、图片与动态内容 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 10.1、`FutureBuilder` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-43" data-jobs-toc="v2">10.1、`FutureBuilder` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `future` 应在 `initState()`、`didUpdateWidget()` 或状态管理层创建；不要在 `build()` 中每次重新创建同一个请求。
 - 根据 `snapshot.connectionState`、`snapshot.hasError` 和 `snapshot.hasData` 明确渲染加载、失败、空态与成功态。
 
-### 10.2、`StreamBuilder` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-44" data-jobs-toc="v2">10.2、`StreamBuilder` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 适合持续事件流；订阅对象变化时要保证旧 Stream 能正确释放。
 - 页面只消费数据，不要在 `builder` 中执行写入、导航或网络请求等副作用。
 
-### 10.3、图片 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-45" data-jobs-toc="v2">10.3、图片 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget / 构造 | 用途 |
 | --- | --- |
@@ -640,9 +702,9 @@ if (confirmed == true && context.mounted) {
 - 大图应按展示尺寸解码，可结合 `cacheWidth` / `cacheHeight` 降低内存压力。
 - `BoxFit.cover` 会裁剪，`BoxFit.contain` 会完整显示但可能留白。
 
-## 十一、适配、无障碍与交互边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-46" data-jobs-toc="v2">十一、适配、无障碍与交互边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 11.1、屏幕与窗口信息 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-47" data-jobs-toc="v2">11.1、屏幕与窗口信息 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `MediaQuery.sizeOf(context)`：当前视图尺寸。
 - `MediaQuery.paddingOf(context)`：系统遮挡区域。
@@ -650,35 +712,35 @@ if (confirmed == true && context.mounted) {
 - `MediaQuery.textScalerOf(context)`：文本缩放策略。
 - 只依赖某一项数据时优先使用对应的 `...Of` 方法，避免订阅整个 `MediaQueryData`。
 
-### 11.2、安全区与键盘 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-48" data-jobs-toc="v2">11.2、安全区与键盘 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 根页面常用 `SafeArea`，但不要在嵌套页面重复叠加相同方向的安全区。
 - 点击空白收起键盘可以调用 `FocusManager.instance.primaryFocus?.unfocus()`。
 - 表单被键盘遮挡时，结合 `Scaffold.resizeToAvoidBottomInset`、滚动容器和 `viewInsets` 处理，不能只靠硬编码底部间距。
 
-### 11.3、无障碍 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-49" data-jobs-toc="v2">11.3、无障碍 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 图标按钮提供 `tooltip`。
 - 纯视觉图形使用 `Semantics` 补充 `label`、`button`、`selected` 等语义。
 - 颜色不能成为表达状态的唯一方式，还应配合文字、图标或形状。
 - 触控目标需要保留合理尺寸，避免为了视觉紧凑压缩到难以点击。
 
-## 十二、性能与生命周期检查 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-50" data-jobs-toc="v2">十二、性能与生命周期检查 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 12.1、构建性能 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-51" data-jobs-toc="v2">12.1、构建性能 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 能使用 `const` 的不可变 Widget 使用 `const`，减少不必要的对象创建与对比工作。
 - 拆小 Widget 是为了缩小重建边界和明确职责，不是机械追求文件数量。
 - `build()` 应保持纯粹，不发请求、不改状态、不启动定时器。
 - 大列表使用 builder 构造；避免在 `build()` 中执行大 JSON 解析或复杂同步计算。
 
-### 12.2、资源释放 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-52" data-jobs-toc="v2">12.2、资源释放 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 在 `dispose()` 中释放 `AnimationController`、`TabController`、`TextEditingController`、`FocusNode`、`ScrollController`、Stream 订阅和定时器。
 - 异步回调更新页面前检查 `context.mounted` 或 `mounted`，同时优先从源头取消不再需要的任务。
 - `setState()` 只能在 `State` 仍 mounted 时调用。
 
-### 12.3、常见布局错误 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-53" data-jobs-toc="v2">12.3、常见布局错误 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 现象 | 常见原因 | 处理方式 |
 | --- | --- | --- |
@@ -688,7 +750,7 @@ if (confirmed == true && context.mounted) {
 | `setState() called after dispose()` | 异步回调未取消 | 释放订阅、取消任务并检查 mounted |
 | 文本黄底红字 | 缺少 Material / DefaultTextStyle 祖先 | 使用 `MaterialApp`、`Scaffold` 或 `Material` |
 
-## 十三、旧写法纠错表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-54" data-jobs-toc="v2">十三、旧写法纠错表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 旧表述或写法 | 当前建议 |
 | --- | --- |
@@ -707,7 +769,7 @@ if (confirmed == true && context.mounted) {
 | `BottomNavigationBar.currentIndex` 必填 | 默认值为 0；Material 3 新页面优先 `NavigationBar` |
 | `Drawer` 有 `type`、`drawerHeader` 等属性 | 这些内容需要在 `Drawer.child` 内自行组合 |
 
-## 十四、官方资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-55" data-jobs-toc="v2">十四、官方资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [**Flutter Widget 目录**](https://docs.flutter.dev/ui/widgets)
 - [**MaterialApp API**](https://api.flutter.dev/flutter/material/MaterialApp-class.html)

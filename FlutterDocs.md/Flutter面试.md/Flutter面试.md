@@ -2,25 +2,171 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、重点 5 问（扩充版）](#jobs-toc-heading-2)
+  - [1.1、Flutter 的本地存储方案有哪些？【级别：中级】](#jobs-toc-heading-3)
+    - [1.1.1、核心回答（30 秒直接说）](#jobs-toc-heading-4)
+    - [1.1.2、干货拆解：按场景选存储方案](#jobs-toc-heading-5)
+      - [1.1.2.1、shared\_preferences](#jobs-toc-heading-6)
+      - [1.1.2.2、文件存储](#jobs-toc-heading-7)
+      - [1.1.2.3、SQLite（如 sqflite）](#jobs-toc-heading-8)
+      - [1.1.2.4、Hive / Isar / ObjectBox](#jobs-toc-heading-9)
+    - [1.1.3、完整回答（60 秒展开）](#jobs-toc-heading-10)
+    - [1.1.4、面试追问与答案](#jobs-toc-heading-11)
+    - [1.1.5、易错点](#jobs-toc-heading-12)
+    - [1.1.6、加分干货](#jobs-toc-heading-13)
+  - [1.2、Future 是不是多线程？【级别：中级】](#jobs-toc-heading-14)
+    - [1.2.1、核心回答（30 秒直接说）](#jobs-toc-heading-15)
+    - [1.2.2、干货关键词](#jobs-toc-heading-16)
+    - [1.2.3、完整回答（60 秒展开）](#jobs-toc-heading-17)
+    - [1.2.4、加分干货：Runtime 边界](#jobs-toc-heading-18)
+    - [1.2.5、面试追问与答案](#jobs-toc-heading-19)
+    - [1.2.6、易错点](#jobs-toc-heading-20)
+    - [1.2.7、代码干货：队列执行顺序](#jobs-toc-heading-21)
+  - [1.3、介绍下 Isolate【级别：中高级】](#jobs-toc-heading-22)
+    - [1.3.1、核心回答（30 秒直接说）](#jobs-toc-heading-23)
+    - [1.3.2、干货关键词](#jobs-toc-heading-24)
+    - [1.3.3、完整回答（60 秒展开）](#jobs-toc-heading-25)
+    - [1.3.4、干货场景：什么时候该用](#jobs-toc-heading-26)
+    - [1.3.5、边界：什么时候不该用](#jobs-toc-heading-27)
+    - [1.3.6、面试追问与答案](#jobs-toc-heading-28)
+    - [1.3.7、易错点](#jobs-toc-heading-29)
+    - [1.3.8、代码干货：compute](#jobs-toc-heading-30)
+    - [1.3.9、代码干货：Isolate.run](#jobs-toc-heading-31)
+    - [1.3.10、加分干货](#jobs-toc-heading-32)
+  - [1.4、如果你从 0 到 1 设计 Flutter 项目，你会怎么设计目录结构？【级别：中高级】](#jobs-toc-heading-33)
+    - [1.4.1、核心回答（30 秒直接说）](#jobs-toc-heading-34)
+    - [1.4.2、干货拆解：设计原则](#jobs-toc-heading-35)
+    - [1.4.3、干货拆解：常见目录结构](#jobs-toc-heading-36)
+    - [1.4.4、干货选型：两种主流思路](#jobs-toc-heading-37)
+      - [1.4.4.1、方案一：按分层拆](#jobs-toc-heading-38)
+      - [1.4.4.2、方案二：按 feature 拆，再在 feature 内部分层](#jobs-toc-heading-39)
+    - [1.4.5、完整回答（60 秒展开）](#jobs-toc-heading-40)
+    - [1.4.6、面试追问与答案](#jobs-toc-heading-41)
+    - [1.4.7、易错点](#jobs-toc-heading-42)
+    - [1.4.8、实战干货：简版目录](#jobs-toc-heading-43)
+  - [1.5、你有没有做过跨端的，比如 Flutter 调原生、原生调 Flutter？【级别：中高级】](#jobs-toc-heading-44)
+    - [1.5.1、核心回答（30 秒直接说）](#jobs-toc-heading-45)
+    - [1.5.2、干货拆解：Flutter 调原生](#jobs-toc-heading-46)
+      - [1.5.2.1、关键字](#jobs-toc-heading-47)
+      - [1.5.2.2、Flutter 端代码点拨](#jobs-toc-heading-48)
+      - [1.5.2.3、Android 端代码点拨（Kotlin）](#jobs-toc-heading-49)
+      - [1.5.2.4、iOS 端代码点拨（Swift）](#jobs-toc-heading-50)
+      - [1.5.2.5、回答时要补的点](#jobs-toc-heading-51)
+    - [1.5.3、干货拆解：原生调 Flutter](#jobs-toc-heading-52)
+      - [1.5.3.1、面试关键字](#jobs-toc-heading-53)
+      - [1.5.3.2、场景](#jobs-toc-heading-54)
+      - [1.5.3.3、代码点拨：原生调用 Flutter 方法](#jobs-toc-heading-55)
+      - [1.5.3.4、Android（Kotlin）](#jobs-toc-heading-56)
+      - [1.5.3.5、Flutter 端接收](#jobs-toc-heading-57)
+      - [1.5.3.6、这时你要说的关键点](#jobs-toc-heading-58)
+    - [1.5.4、干货拆解：持续事件流 EventChannel](#jobs-toc-heading-59)
+      - [1.5.4.1、适用场景](#jobs-toc-heading-60)
+      - [1.5.4.2、Flutter 端代码点拨](#jobs-toc-heading-61)
+      - [1.5.4.3、关键字](#jobs-toc-heading-62)
+    - [1.5.5、工程化干货](#jobs-toc-heading-63)
+      - [1.5.5.1、加分表达](#jobs-toc-heading-64)
+- [二、Flutter 完整面试题（按级别整理）](#jobs-toc-heading-65)
+  - [2.1、初级题](#jobs-toc-heading-66)
+    - [2.1.1、StatelessWidget 和 StatefulWidget 区别？【级别：初级】](#jobs-toc-heading-67)
+    - [2.1.2、setState 原理是什么？【级别：初级】](#jobs-toc-heading-68)
+    - [2.1.3、Flutter 常见生命周期有哪些？【级别：初级】](#jobs-toc-heading-69)
+    - [2.1.4、const 在 Flutter 里有什么用？【级别：初级】](#jobs-toc-heading-70)
+    - [2.1.5、Flutter 里常见布局组件？【级别：初级】](#jobs-toc-heading-71)
+    - [2.1.6、Expanded 和 Flexible 区别？【级别：初级】](#jobs-toc-heading-72)
+    - [2.1.7、ListView.builder 为什么比直接 children 更合适长列表？【级别：初级】](#jobs-toc-heading-73)
+    - [2.1.8、Flutter 里如何做页面跳转？【级别：初级】](#jobs-toc-heading-74)
+    - [2.1.9、Flutter 网络请求你怎么做？【级别：初级】](#jobs-toc-heading-75)
+    - [2.1.10、Flutter 怎么做状态管理？你用过什么？【级别：初级】](#jobs-toc-heading-76)
+  - [2.2、中级题](#jobs-toc-heading-77)
+    - [2.2.1、Flutter 的本地存储方案有哪些？【级别：中级】](#jobs-toc-heading-78)
+    - [2.2.2、Future 是不是多线程？【级别：中级】](#jobs-toc-heading-79)
+    - [2.2.3、Flutter 中 async/await 本质是什么？【级别：中级】](#jobs-toc-heading-80)
+    - [2.2.4、microtask 和 event queue 区别？【级别：中级】](#jobs-toc-heading-81)
+    - [2.2.5、为什么用了异步，页面还是会卡？【级别：中级】](#jobs-toc-heading-82)
+    - [2.2.6、介绍下 Isolate【级别：中高级】](#jobs-toc-heading-83)
+    - [2.2.7、Flutter 和 Dart 的关系？【级别：中级】](#jobs-toc-heading-84)
+    - [2.2.8、Widget / Element / RenderObject 的关系？【级别：中高级】](#jobs-toc-heading-85)
+    - [2.2.9、BuildContext 是什么？【级别：中级】](#jobs-toc-heading-86)
+    - [2.2.10、你怎么做网络层封装？【级别：中级】](#jobs-toc-heading-87)
+    - [2.2.11、你怎么设计缓存策略？【级别：中级】](#jobs-toc-heading-88)
+    - [2.2.12、Flutter 常见性能问题有哪些？【级别：中级】](#jobs-toc-heading-89)
+    - [2.2.13、如何减少不必要的 rebuild？【级别：中级】](#jobs-toc-heading-90)
+    - [2.2.14、为什么要做 Repository 抽象？【级别：中高级】](#jobs-toc-heading-91)
+    - [2.2.15、你怎么处理异常和错误提示？【级别：中级】](#jobs-toc-heading-92)
+    - [2.2.16、如果让你从 0 到 1 搭 Flutter 项目，你怎么设计目录结构？【级别：中高级】](#jobs-toc-heading-93)
+    - [2.2.17、你有没有做过 Flutter 调原生、原生调 Flutter？【级别：中高级】](#jobs-toc-heading-94)
+  - [2.3、高级题](#jobs-toc-heading-95)
+    - [2.3.1、大型 Flutter 项目怎么做模块化？【级别：高级】](#jobs-toc-heading-96)
+    - [2.3.2、状态管理你怎么选型？【级别：高级】](#jobs-toc-heading-97)
+    - [2.3.3、你怎么做 Flutter 性能优化？【级别：高级】](#jobs-toc-heading-98)
+      - [2.3.3.1、推荐答法框架](#jobs-toc-heading-99)
+    - [2.3.4、Flutter 页面很复杂，如何控制状态膨胀？【级别：高级】](#jobs-toc-heading-100)
+    - [2.3.5、你如何做主题系统 / 设计系统？【级别：高级】](#jobs-toc-heading-101)
+    - [2.3.6、Flutter 混编时，你最关注什么？【级别：高级】](#jobs-toc-heading-102)
+    - [2.3.7、原生和 Flutter 共存项目，路由怎么设计？【级别：高级】](#jobs-toc-heading-103)
+    - [2.3.8、Flutter 包体积怎么优化？【级别：高级】](#jobs-toc-heading-104)
+    - [2.3.9、如何做埋点、日志、崩溃监控？【级别：高级】](#jobs-toc-heading-105)
+    - [2.3.10、Flutter 启动慢，你怎么排查？【级别：高级】](#jobs-toc-heading-106)
+    - [2.3.11、Flutter 中你怎么做 CI/CD？【级别：高级】](#jobs-toc-heading-107)
+    - [2.3.12、如果团队里初中级 Flutter 较多，你怎么推进工程规范？【级别：高级】](#jobs-toc-heading-108)
+    - [2.3.13、如果让你带一个 Flutter 项目，你最先做什么？【级别：高级】](#jobs-toc-heading-109)
+- [三、跨端互调题的速记模板（面试时可直接背）](#jobs-toc-heading-110)
+  - [3.1、题：你有没有做过跨端的，比如 Flutter 调原生、原生调 Flutter？【级别：中高级】](#jobs-toc-heading-111)
+    - [3.1.1、30 秒版本](#jobs-toc-heading-112)
+    - [3.1.2、60 秒版本](#jobs-toc-heading-113)
+- [四、面试定位判断](#jobs-toc-heading-114)
+  - [4.1、这 5 个题说明什么？](#jobs-toc-heading-115)
+    - [4.1.1、偏中级](#jobs-toc-heading-116)
+    - [4.1.2、偏中高级](#jobs-toc-heading-117)
+  - [4.2、结论](#jobs-toc-heading-118)
+- [五、临场答题原则](#jobs-toc-heading-119)
+  - [5.1、原则 1：先给结论，再展开](#jobs-toc-heading-120)
+  - [5.2、原则 2：先讲场景，再讲技术](#jobs-toc-heading-121)
+  - [5.3、原则 3：关键词要硬](#jobs-toc-heading-122)
+  - [5.4、原则 4：别装懂](#jobs-toc-heading-123)
+- [六、冲刺建议](#jobs-toc-heading-124)
+  - [6.1、你必须重点背熟的 10 个题](#jobs-toc-heading-125)
+  - [6.2、如果只剩 1 天准备](#jobs-toc-heading-126)
+- [七、代码点拨总表（只记关键骨架）](#jobs-toc-heading-127)
+  - [7.1、Flutter 调原生](#jobs-toc-heading-128)
+  - [7.2、原生回 Flutter](#jobs-toc-heading-129)
+  - [7.3、持续事件](#jobs-toc-heading-130)
+  - [7.4、Isolate / compute](#jobs-toc-heading-131)
+  - [7.5、microtask 优先级](#jobs-toc-heading-132)
+- [八、一句话总评](#jobs-toc-heading-133)
+- [九、并发与帧调度补充](#jobs-toc-heading-134)
+  - [9.1、同步 / 异步与单线程 / 多线程不是一回事](#jobs-toc-heading-135)
+  - [9.2、事件循环与 Isolate 的边界](#jobs-toc-heading-136)
+  - [9.3、Flutter 业务代码“单线程”不等于引擎只有一个线程](#jobs-toc-heading-137)
+  - [9.4、Flutter UI 按帧调度，setState 不会立即完成重建](#jobs-toc-heading-138)
+- [十、官方资料](#jobs-toc-heading-139)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 > 目标：覆盖 **初级 / 中级 / 高级**，重点扩充你提到的几类题：**本地存储、Future、Isolate、目录结构、跨端通信**。
 >
 > 风格：**问题和可直接说出口的回答优先，重点保留干货拆解、追问答案、易错点和代码骨架；面试官视角只作辅助，不抢答题主线**。
 
-## 一、重点 5 问（扩充版） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、重点 5 问（扩充版） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **重点题阅读顺序：问题 → 30 秒核心回答 → 干货拆解 → 面试追问与答案。**
 >
 > `核心回答` 和 `干货拆解` 是复习主线；`辅助视角` 只帮助理解面试官意图，默认收起，不作为背诵重点。
 
-### 1.1、Flutter 的本地存储方案有哪些？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-3" data-jobs-toc="v2">1.1、Flutter 的本地存储方案有哪些？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 1.1.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-4" data-jobs-toc="v2">1.1.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > Flutter 本地存储不能只背库名，我会按 **数据体量、查询复杂度、性能要求和是否需要事务** 选型：轻量配置用 `shared_preferences`，JSON、日志或草稿用文件，需要关系查询和事务用 SQLite，对象缓存可选 Hive / Isar / ObjectBox。敏感 token 不放普通存储，而是使用平台安全存储并配合服务端过期、轮换和撤销。
 
@@ -33,10 +179,10 @@
 
 </details>
 
-#### 1.1.2、干货拆解：按场景选存储方案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-5" data-jobs-toc="v2">1.1.2、干货拆解：按场景选存储方案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 可以按 **数据复杂度、查询能力、性能要求、是否需要事务** 来分：
 
-##### 1.1.2.1、`shared_preferences` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-6" data-jobs-toc="v2">1.1.2.1、`shared_preferences` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 轻量级 key-value
 - 配置项
@@ -58,7 +204,7 @@
 
 ---
 
-##### 1.1.2.2、文件存储 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-7" data-jobs-toc="v2">1.1.2.2、文件存储 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - JSON 文件
 - 文本缓存
@@ -79,7 +225,7 @@
 
 ---
 
-##### 1.1.2.3、SQLite（如 `sqflite`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-8" data-jobs-toc="v2">1.1.2.3、SQLite（如 `sqflite`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 关系型数据库
 - SQL 查询
@@ -104,7 +250,7 @@
 
 ---
 
-##### 1.1.2.4、Hive / Isar / ObjectBox <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-9" data-jobs-toc="v2">1.1.2.4、Hive / Isar / ObjectBox <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 本地对象存储
 - 高性能
@@ -125,7 +271,7 @@
 
 ---
 
-#### 1.1.3、完整回答（60 秒展开） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-10" data-jobs-toc="v2">1.1.3、完整回答（60 秒展开） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > Flutter 本地存储我一般按 4 类来选：  
 > 第一类是 `shared_preferences`，适合轻量 key-value；  
 > 第二类是文件存储，适合 JSON、日志、草稿；  
@@ -134,7 +280,7 @@
 > 实际项目里我不会只说“用哪个”，而是先看 **数据体量、查询复杂度、性能要求、是否需要事务**。  
 > 比如设置项我会用 `shared_preferences`，列表缓存和对象缓存更偏向 Hive / Isar，复杂业务数据会用 SQLite。
 
-#### 1.1.4、面试追问与答案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-11" data-jobs-toc="v2">1.1.4、面试追问与答案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - **追问：`shared_preferences` 能不能存用户信息？**
   - **答案：** 技术上可以存昵称、主题偏好这类少量、非敏感字段，但不适合保存完整用户档案、复杂结构或敏感凭证。它本质上是轻量 key-value 存储，缺少复杂查询、事务和数据关系能力；结构化用户数据更适合交给数据库或专门的缓存层。
 - **追问：Hive 和 SQLite 怎么选？**
@@ -144,20 +290,20 @@
 - **追问：token 放哪？安全吗？**
   - **答案：** 不放普通 `shared_preferences` 或明文文件。短期 access token 尽量只放内存，需要跨启动保存的 refresh token 或会话凭证放平台安全存储，例如通过 `flutter_secure_storage` 使用 Keychain / Keystore 体系；同时禁止写入日志，并配合服务端过期、轮换和撤销机制。安全存储只能提高攻击成本，设备被 Root、越狱或运行环境失陷时，客户端无法承诺绝对安全。
 
-#### 1.1.5、易错点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-12" data-jobs-toc="v2">1.1.5、易错点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 把所有本地存储都说成缓存
 - 只会背 `shared_preferences`
 - 不会讲选型依据
 - 把安全存储和普通本地存储混为一谈
 
-#### 1.1.6、加分干货 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-13" data-jobs-toc="v2">1.1.6、加分干货 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > 如果涉及敏感数据，比如 token / 密钥，我会优先考虑 `flutter_secure_storage` 这类安全存储，而不是普通明文存储。
 
 ---
 
-### 1.2、Future 是不是多线程？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-14" data-jobs-toc="v2">1.2、Future 是不是多线程？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 1.2.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-15" data-jobs-toc="v2">1.2.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **不是。** `Future` 表示未来完成的异步结果，解决的是异步编排，不是线程模型。普通 `Future` 回调仍由当前 Isolate 的 Event Loop 调度；网络和 IO 在等待期间可以不阻塞 Dart 代码，但把 CPU 重任务包进 `Future(() {})` 仍会卡住当前 Isolate。真正需要并行计算时，应考虑工作 Isolate。
 
@@ -170,7 +316,7 @@
 
 </details>
 
-#### 1.2.2、干货关键词 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-16" data-jobs-toc="v2">1.2.2、干货关键词 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 异步 != 多线程
 - `Future` 是任务调度结果
 - Event Loop
@@ -178,18 +324,18 @@
 - Event Queue
 - 默认仍在主 Isolate 执行
 
-#### 1.2.3、完整回答（60 秒展开） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-17" data-jobs-toc="v2">1.2.3、完整回答（60 秒展开） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > `Future` 本质上是一个未来某个时刻会返回结果的对象，它解决的是异步编排问题，不等于多线程。  
 > 在 Dart 里，普通 `Future` 大多数情况下还是在当前 Isolate 的事件循环中执行。  
 > 真正意义上的并发隔离，要看 `Isolate`。  
 > 所以 `Future` 更准确说是 **异步编程模型的一部分**，不是线程模型。
 
-#### 1.2.4、加分干货：Runtime 边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-18" data-jobs-toc="v2">1.2.4、加分干货：Runtime 边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > 比如网络请求、定时器、IO 操作会以异步方式返回 `Future`，但这不代表我开启了一个线程去跑 Dart 代码。
 
 > 从整个 Flutter Runtime 看也不能说“全是单线程”：Dart 业务代码通常从主 Isolate 开始，引擎和平台嵌入层还要协作处理平台事件与栅格化。从 Flutter 3.29 起，iOS 和 Android 的 UI 与 Platform 线程已经合并，因此不要死背固定线程数量。
 
-#### 1.2.5、面试追问与答案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-19" data-jobs-toc="v2">1.2.5、面试追问与答案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - **追问：`Future.then` 进哪个队列？**
   - **答案：** `then` 只是给源 `Future` 注册完成回调，不能脱离源 `Future` 一概说成固定进入某个队列。源 `Future` 完成后才会执行回调；如果注册时源 `Future` 已经完成，回调也不会同步执行，而会安排到后续 microtask。面试时要同时说明“回调执行时机取决于源 `Future` 如何完成”。
 - **追问：`scheduleMicrotask` 和 `Future(() {})` 谁先执行？**
@@ -199,12 +345,12 @@
 - **追问：为什么 UI 会卡顿，明明用了 `Future`？**
   - **答案：** `Future` 只负责异步编排，不会自动把 Dart 代码搬到后台线程。CPU 密集型同步代码即使放进 `Future(() {})`，仍会在当前 Isolate 的事件循环中执行，照样阻塞帧调度。应先用 DevTools 定位耗时，再拆小任务、减少构建和布局开销；原生端较重的纯计算可用 `Isolate.run` 或 `compute` 转移到工作 Isolate。
 
-#### 1.2.6、易错点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-20" data-jobs-toc="v2">1.2.6、易错点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 说“Future 就是开子线程”
 - 说“async/await 就是多线程封装”
 - 完全讲不清事件循环
 
-#### 1.2.7、代码干货：队列执行顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-21" data-jobs-toc="v2">1.2.7、代码干货：队列执行顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 void main() {
   print('A');
@@ -231,9 +377,9 @@ B
 
 ---
 
-### 1.3、介绍下 Isolate【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-22" data-jobs-toc="v2">1.3、介绍下 Isolate【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 1.3.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-23" data-jobs-toc="v2">1.3.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > `Isolate` 是 Dart 的并发执行单位，每个 Isolate 都有 **独立内存和事件循环**，彼此通过消息传递通信，不共享可变堆对象。Flutter 的 UI 和业务回调通常运行在主 Isolate；大 JSON 解析、图片处理、加解密等 CPU 重任务可放到工作 Isolate，避免阻塞帧调度。它不是传统共享内存线程，创建和通信也有成本。
 
@@ -246,7 +392,7 @@ B
 
 </details>
 
-#### 1.3.2、干货关键词 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-24" data-jobs-toc="v2">1.3.2、干货关键词 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 独立内存
 - message passing
 - 不共享堆内存
@@ -254,25 +400,25 @@ B
 - CPU 密集型任务
 - 避免阻塞主 Isolate
 
-#### 1.3.3、完整回答（60 秒展开） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-25" data-jobs-toc="v2">1.3.3、完整回答（60 秒展开） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > Dart 没有传统意义上共享内存的多线程模型，核心并发单位是 `Isolate`。  
 > 每个 `Isolate` 都有独立的内存和事件循环，所以天然避免了很多锁竞争问题。  
 > 代价是通信不能直接共享对象，只能通过消息传递。  
 > 在 Flutter 里，Widget 构建和业务回调通常由主 Isolate 执行；如果有 JSON 大解析、图片压缩、加解密、复杂计算这类 CPU 密集型任务，我会考虑放到工作 Isolate，避免阻塞 UI 调度。
 
-#### 1.3.4、干货场景：什么时候该用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-26" data-jobs-toc="v2">1.3.4、干货场景：什么时候该用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 大 JSON 解析
 - 图片处理
 - 压缩 / 解压
 - 加密 / 解密
 - 大批量本地数据转换
 
-#### 1.3.5、边界：什么时候不该用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-27" data-jobs-toc="v2">1.3.5、边界：什么时候不该用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 很轻的小任务
 - 高频、短时、小计算
 - 强依赖 BuildContext / UI 的逻辑
 
-#### 1.3.6、面试追问与答案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-28" data-jobs-toc="v2">1.3.6、面试追问与答案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - **追问：为什么 Isolate 不能共享内存？**
   - **答案：** 这是 Dart 并发模型的隔离保证：每个 Isolate 拥有独立堆和事件循环，另一个 Isolate 不能直接访问它的可变对象，只能通过 `SendPort` / `ReceivePort` 传递可发送消息。运行时可对部分消息做复制、共享不可变数据或所有权转移优化，但不会因此变成共享可变内存。
 - **追问：`compute` 是什么？**
@@ -284,13 +430,13 @@ B
 - **追问：Flutter 为啥不用共享内存多线程？**
   - **答案：** 更准确地说，是 Dart 业务代码采用隔离内存和消息传递模型。这样避免共享可变状态带来的锁竞争、数据竞争和大量同步复杂度，更容易保证 UI 状态的一致性；代价是跨 Isolate 通信和数据传递有成本。它减少的是共享内存并发问题，并不能消除接口竞态、消息乱序等所有业务竞态。
 
-#### 1.3.7、易错点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-29" data-jobs-toc="v2">1.3.7、易错点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 直接说 “Isolate 就是线程”
 - 不知道消息传递
 - 不知道创建成本
 - 什么事都说丢给 Isolate
 
-#### 1.3.8、代码干货：`compute` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-30" data-jobs-toc="v2">1.3.8、代码干货：`compute` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 final result = await compute(parseJson, jsonString);
 
@@ -304,7 +450,7 @@ Map<String, dynamic> parseJson(String source) {
 - 适合单次重任务
 - 参数和返回值要可传递
 
-#### 1.3.9、代码干货：`Isolate.run` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-31" data-jobs-toc="v2">1.3.9、代码干货：`Isolate.run` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'dart:isolate';
@@ -318,14 +464,14 @@ final result = await Isolate.run(() => parseJson(jsonString));
 - `Isolate.spawn()`：适合需要长期收发消息的 Worker；
 - `Future(() { ... })`：仍在当前 Isolate 调度，不会把 CPU 重任务自动移到后台。
 
-#### 1.3.10、加分干货 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-32" data-jobs-toc="v2">1.3.10、加分干货 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > `Isolate` 不是越多越好。因为创建、销毁、消息序列化本身有成本，所以更适合“重任务”，不适合“碎任务”。
 
 ---
 
-### 1.4、如果你从 0 到 1 设计 Flutter 项目，你会怎么设计目录结构？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-33" data-jobs-toc="v2">1.4、如果你从 0 到 1 设计 Flutter 项目，你会怎么设计目录结构？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 1.4.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-34" data-jobs-toc="v2">1.4.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 我会先判断项目规模和协作方式。中小项目可以采用 `data / domain / presentation / core` 的全局分层；业务线多、需要多人并行时，更适合 **feature-first，再在 Feature 内部分层**。核心不是目录名字，而是职责清楚、依赖单向、模块可测试，公共能力可替换，并为后续拆包和组件化留出边界。
 
@@ -346,7 +492,7 @@ final result = await Isolate.run(() => parseJson(jsonString));
 
 </details>
 
-#### 1.4.2、干货拆解：设计原则 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-35" data-jobs-toc="v2">1.4.2、干货拆解：设计原则 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 单一职责
 - 分层清晰
@@ -356,7 +502,7 @@ final result = await Isolate.run(() => parseJson(jsonString));
 - 可替换
 - 便于多人协作
 
-#### 1.4.3、干货拆解：常见目录结构 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-36" data-jobs-toc="v2">1.4.3、干货拆解：常见目录结构 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```text
 lib/
@@ -372,9 +518,9 @@ lib/
 └── main.dart
 ```
 
-#### 1.4.4、干货选型：两种主流思路 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-37" data-jobs-toc="v2">1.4.4、干货选型：两种主流思路 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### 1.4.4.1、方案一：按分层拆 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-38" data-jobs-toc="v2">1.4.4.1、方案一：按分层拆 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 适合：
 
@@ -382,7 +528,7 @@ lib/
 - 团队人数少
 - 先把边界理顺
 
-##### 1.4.4.2、方案二：按 feature 拆，再在 feature 内部分层 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-39" data-jobs-toc="v2">1.4.4.2、方案二：按 feature 拆，再在 feature 内部分层 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 适合：
 
@@ -391,14 +537,14 @@ lib/
 - 多人并行开发
 - 后续模块化 / 组件化
 
-#### 1.4.5、完整回答（60 秒展开） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-40" data-jobs-toc="v2">1.4.5、完整回答（60 秒展开） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 如果是从 0 到 1，我会先判断项目规模。  
 > 中小项目我会用“全局分层结构”，比如 `data / domain / presentation / core`。  
 > 如果项目会持续迭代、多人协作、业务线多，我会用 **feature-first + feature 内部分层** 的结构。  
 > 这样做的目标不是为了目录好看，而是为了让依赖方向清晰、模块边界清晰，后续方便测试、复用和拆包。
 
-#### 1.4.6、面试追问与答案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-41" data-jobs-toc="v2">1.4.6、面试追问与答案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - **追问：为什么需要 `domain` 层？**
   - **答案：** `domain` 层用于承载与 UI 和数据源无关的业务规则或 Use Case，例如组合多个 Repository、复用复杂流程和统一业务校验，让页面状态层保持简单且方便单测。但它不是必选项；简单 CRUD 如果没有复杂或复用逻辑，可以让 ViewModel 直接调用 Repository，避免为了分层而分层。
@@ -411,14 +557,14 @@ lib/
 - **追问：路由、网络、状态管理怎么接进去？**
   - **答案：** 路由在应用层统一注册，Feature 只暴露页面入口或路由契约；网络客户端属于基础设施层，由各 Feature 的 Service / Repository 使用；Provider、Bloc、Riverpod 等状态管理只放在 presentation 层。最终在应用组合根完成依赖注入，让 domain 不依赖路由、网络库和具体状态管理框架。
 
-#### 1.4.7、易错点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-42" data-jobs-toc="v2">1.4.7、易错点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 只会说目录名，不会说设计原因
 - 所有东西都扔 `utils`
 - 所有页面共用一个 provider / bloc
 - `model/entity/vo/dto` 概念混乱
 
-#### 1.4.8、实战干货：简版目录 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-43" data-jobs-toc="v2">1.4.8、实战干货：简版目录 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```text
 lib/
@@ -447,9 +593,9 @@ lib/
 
 ---
 
-### 1.5、你有没有做过跨端的，比如 Flutter 调原生、原生调 Flutter？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-44" data-jobs-toc="v2">1.5、你有没有做过跨端的，比如 Flutter 调原生、原生调 Flutter？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 1.5.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-45" data-jobs-toc="v2">1.5.1、核心回答（30 秒直接说） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 做过。Flutter 和原生互调我通常按场景分三类：  
 > 1. **Flutter 调原生**：比如获取设备信息、调用相机、蓝牙、定位、支付、第三方 SDK；  
@@ -470,8 +616,8 @@ lib/
 
 ---
 
-#### 1.5.2、干货拆解：Flutter 调原生 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-##### 1.5.2.1、关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-46" data-jobs-toc="v2">1.5.2、干货拆解：Flutter 调原生 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-47" data-jobs-toc="v2">1.5.2.1、关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - `MethodChannel`
 - invokeMethod
 - async result
@@ -479,14 +625,14 @@ lib/
 - 参数 Map
 - 错误码约定
 
-##### 1.5.2.2、Flutter 端代码点拨 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-48" data-jobs-toc="v2">1.5.2.2、Flutter 端代码点拨 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 static const channel = MethodChannel('com.demo/device');
 
 final version = await channel.invokeMethod<String>('getAppVersion');
 ```
 
-##### 1.5.2.3、Android 端代码点拨（Kotlin） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-49" data-jobs-toc="v2">1.5.2.3、Android 端代码点拨（Kotlin） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```kotlin
 MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.demo/device")
     .setMethodCallHandler { call, result ->
@@ -499,7 +645,7 @@ MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.demo/device")
     }
 ```
 
-##### 1.5.2.4、iOS 端代码点拨（Swift） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-50" data-jobs-toc="v2">1.5.2.4、iOS 端代码点拨（Swift） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```swift
 let channel = FlutterMethodChannel(
     name: "com.demo/device",
@@ -516,7 +662,7 @@ channel.setMethodCallHandler { call, result in
 }
 ```
 
-##### 1.5.2.5、回答时要补的点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-51" data-jobs-toc="v2">1.5.2.5、回答时要补的点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - Flutter 发起调用
 - 原生执行能力
 - 原生通过 `result.success / error / notImplemented` 回传
@@ -524,27 +670,27 @@ channel.setMethodCallHandler { call, result in
 
 ---
 
-#### 1.5.3、干货拆解：原生调 Flutter <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-##### 1.5.3.1、面试关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-52" data-jobs-toc="v2">1.5.3、干货拆解：原生调 Flutter <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-53" data-jobs-toc="v2">1.5.3.1、面试关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 路由跳转
 - 初始参数注入
 - channel 反向调用
 - FlutterEngine 复用
 - 页面生命周期
 
-##### 1.5.3.2、场景 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-54" data-jobs-toc="v2">1.5.3.2、场景 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 原生首页某个入口进入 Flutter 页面
 - 原生拿到登录态后通知 Flutter 刷新
 - 推送点击进入 Flutter 指定页面
 
-##### 1.5.3.3、代码点拨：原生调用 Flutter 方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-##### 1.5.3.4、Android（Kotlin） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-55" data-jobs-toc="v2">1.5.3.3、代码点拨：原生调用 Flutter 方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-56" data-jobs-toc="v2">1.5.3.4、Android（Kotlin） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```kotlin
 val channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.demo/event")
 channel.invokeMethod("onLogin", mapOf("uid" to "1001"))
 ```
 
-##### 1.5.3.5、Flutter 端接收 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-57" data-jobs-toc="v2">1.5.3.5、Flutter 端接收 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 static const channel = MethodChannel('com.demo/event');
 
@@ -558,15 +704,15 @@ void registerHandler() {
 }
 ```
 
-##### 1.5.3.6、这时你要说的关键点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-58" data-jobs-toc="v2">1.5.3.6、这时你要说的关键点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 原生主动通知 Flutter，本质也是 channel 通信
 - Flutter 页面是否已初始化，要考虑时机
 - 多引擎 / 单引擎复用时，通道注册要统一管理
 
 ---
 
-#### 1.5.4、干货拆解：持续事件流 `EventChannel` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
-##### 1.5.4.1、适用场景 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-59" data-jobs-toc="v2">1.5.4、干货拆解：持续事件流 `EventChannel` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-60" data-jobs-toc="v2">1.5.4.1、适用场景 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 电量变化
 - 网络状态变化
 - 传感器
@@ -574,7 +720,7 @@ void registerHandler() {
 - 下载进度
 - 播放进度
 
-##### 1.5.4.2、Flutter 端代码点拨 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-61" data-jobs-toc="v2">1.5.4.2、Flutter 端代码点拨 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 static const eventChannel = EventChannel('com.demo/network');
 
@@ -583,7 +729,7 @@ eventChannel.receiveBroadcastStream().listen((event) {
 });
 ```
 
-##### 1.5.4.3、关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-62" data-jobs-toc="v2">1.5.4.3、关键字 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 广播流
 - 持续推送
 - 监听取消
@@ -591,7 +737,7 @@ eventChannel.receiveBroadcastStream().listen((event) {
 
 ---
 
-#### 1.5.5、工程化干货 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-63" data-jobs-toc="v2">1.5.5、工程化干货 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 通道命名规范：`com.company.module/action`
 - 参数优先统一成有版本号的 `Map` 协议；`StandardMessageCodec` 支持一组标准 Dart 类型，自定义对象需要先转换，不能直接跨通道传递
 - 错误统一：`code / message / details`
@@ -600,18 +746,18 @@ eventChannel.receiveBroadcastStream().listen((event) {
 - 不要把业务逻辑全塞进 channel handler
 - 桥接层只做协议转换，业务下沉到 service
 
-##### 1.5.5.1、加分表达 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-64" data-jobs-toc="v2">1.5.5.1、加分表达 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > 我一般会把平台通道封装成一层 `platform service`，上层业务只依赖 Dart 接口，不直接到处写 `MethodChannel`，这样便于测试和替换实现。
 
 ---
 
-## 二、Flutter 完整面试题（按级别整理） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-65" data-jobs-toc="v2">二、Flutter 完整面试题（按级别整理） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ---
 
-### 2.1、初级题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-66" data-jobs-toc="v2">2.1、初级题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 2.1.1、StatelessWidget 和 StatefulWidget 区别？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-67" data-jobs-toc="v2">2.1.1、StatelessWidget 和 StatefulWidget 区别？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 是否可变
 - `build`
@@ -630,7 +776,7 @@ eventChannel.receiveBroadcastStream().listen((event) {
 
 ---
 
-#### 2.1.2、`setState` 原理是什么？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-68" data-jobs-toc="v2">2.1.2、`setState` 原理是什么？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 标记 dirty
 - 触发 rebuild
@@ -649,7 +795,7 @@ eventChannel.receiveBroadcastStream().listen((event) {
 
 ---
 
-#### 2.1.3、Flutter 常见生命周期有哪些？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-69" data-jobs-toc="v2">2.1.3、Flutter 常见生命周期有哪些？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - `initState`
 - `didChangeDependencies`
@@ -694,7 +840,7 @@ createState
 
 ---
 
-#### 2.1.4、`const` 在 Flutter 里有什么用？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-70" data-jobs-toc="v2">2.1.4、`const` 在 Flutter 里有什么用？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 编译期常量
 - 减少重复创建
@@ -703,7 +849,7 @@ createState
 
 ---
 
-#### 2.1.5、Flutter 里常见布局组件？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-71" data-jobs-toc="v2">2.1.5、Flutter 里常见布局组件？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - `Row`
 - `Column`
@@ -715,14 +861,14 @@ createState
 
 ---
 
-#### 2.1.6、`Expanded` 和 `Flexible` 区别？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-72" data-jobs-toc="v2">2.1.6、`Expanded` 和 `Flexible` 区别？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 剩余空间分配
 - 紧约束 / 松约束
 
 ---
 
-#### 2.1.7、`ListView.builder` 为什么比直接 children 更合适长列表？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-73" data-jobs-toc="v2">2.1.7、`ListView.builder` 为什么比直接 children 更合适长列表？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 懒加载
 - 按需构建
@@ -730,7 +876,7 @@ createState
 
 ---
 
-#### 2.1.8、Flutter 里如何做页面跳转？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-74" data-jobs-toc="v2">2.1.8、Flutter 里如何做页面跳转？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - `Navigator.push`
 - `pop`
@@ -739,7 +885,7 @@ createState
 
 ---
 
-#### 2.1.9、Flutter 网络请求你怎么做？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-75" data-jobs-toc="v2">2.1.9、Flutter 网络请求你怎么做？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - `dio`
 - 封装
@@ -749,7 +895,7 @@ createState
 
 ---
 
-#### 2.1.10、Flutter 怎么做状态管理？你用过什么？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-76" data-jobs-toc="v2">2.1.10、Flutter 怎么做状态管理？你用过什么？【级别：初级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - `setState`
 - Provider
@@ -764,19 +910,19 @@ createState
 
 ---
 
-### 2.2、中级题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-77" data-jobs-toc="v2">2.2、中级题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 2.2.1、Flutter 的本地存储方案有哪些？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-78" data-jobs-toc="v2">2.2.1、Flutter 的本地存储方案有哪些？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 见上文扩充版。
 
 ---
 
-#### 2.2.2、Future 是不是多线程？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-79" data-jobs-toc="v2">2.2.2、Future 是不是多线程？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 见上文扩充版。
 
 ---
 
-#### 2.2.3、Flutter 中 `async/await` 本质是什么？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-80" data-jobs-toc="v2">2.2.3、Flutter 中 `async/await` 本质是什么？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 语法糖
 - 基于 `Future`
@@ -785,7 +931,7 @@ createState
 
 ---
 
-#### 2.2.4、microtask 和 event queue 区别？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-81" data-jobs-toc="v2">2.2.4、microtask 和 event queue 区别？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - microtask 优先级更高
 - event 存放普通异步任务
@@ -793,7 +939,7 @@ createState
 
 ---
 
-#### 2.2.5、为什么用了异步，页面还是会卡？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-82" data-jobs-toc="v2">2.2.5、为什么用了异步，页面还是会卡？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - CPU 密集型任务仍占主 Isolate
 - `Future` 不等于后台线程
@@ -801,12 +947,12 @@ createState
 
 ---
 
-#### 2.2.6、介绍下 Isolate【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-83" data-jobs-toc="v2">2.2.6、介绍下 Isolate【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 见上文扩充版。
 
 ---
 
-#### 2.2.7、Flutter 和 Dart 的关系？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-84" data-jobs-toc="v2">2.2.7、Flutter 和 Dart 的关系？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - Flutter 是 UI 框架
 - Dart 是语言
@@ -815,7 +961,7 @@ createState
 
 ---
 
-#### 2.2.8、Widget / Element / RenderObject 的关系？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-85" data-jobs-toc="v2">2.2.8、Widget / Element / RenderObject 的关系？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - Widget：配置
 - Element：实例化桥梁
@@ -825,7 +971,7 @@ createState
 
 ---
 
-#### 2.2.9、`BuildContext` 是什么？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-86" data-jobs-toc="v2">2.2.9、`BuildContext` 是什么？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - Element 的抽象引用
 - 用于定位树中位置
@@ -837,7 +983,7 @@ createState
 
 ---
 
-#### 2.2.10、你怎么做网络层封装？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-87" data-jobs-toc="v2">2.2.10、你怎么做网络层封装？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - `dio` 二次封装
 - 统一 baseUrl
@@ -849,7 +995,7 @@ createState
 
 ---
 
-#### 2.2.11、你怎么设计缓存策略？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-88" data-jobs-toc="v2">2.2.11、你怎么设计缓存策略？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 内存缓存
 - 磁盘缓存
@@ -859,7 +1005,7 @@ createState
 
 ---
 
-#### 2.2.12、Flutter 常见性能问题有哪些？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-89" data-jobs-toc="v2">2.2.12、Flutter 常见性能问题有哪些？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 不必要 rebuild
 - 长列表卡顿
@@ -870,7 +1016,7 @@ createState
 
 ---
 
-#### 2.2.13、如何减少不必要的 rebuild？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-90" data-jobs-toc="v2">2.2.13、如何减少不必要的 rebuild？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - `const`
 - 拆小 widget
@@ -881,7 +1027,7 @@ createState
 
 ---
 
-#### 2.2.14、为什么要做 Repository 抽象？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-91" data-jobs-toc="v2">2.2.14、为什么要做 Repository 抽象？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 解耦数据来源
 - 便于测试
@@ -890,7 +1036,7 @@ createState
 
 ---
 
-#### 2.2.15、你怎么处理异常和错误提示？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-92" data-jobs-toc="v2">2.2.15、你怎么处理异常和错误提示？【级别：中级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 网络异常分层
 - 业务错误码
@@ -900,19 +1046,19 @@ createState
 
 ---
 
-#### 2.2.16、如果让你从 0 到 1 搭 Flutter 项目，你怎么设计目录结构？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-93" data-jobs-toc="v2">2.2.16、如果让你从 0 到 1 搭 Flutter 项目，你怎么设计目录结构？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 见上文扩充版。
 
 ---
 
-#### 2.2.17、你有没有做过 Flutter 调原生、原生调 Flutter？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-94" data-jobs-toc="v2">2.2.17、你有没有做过 Flutter 调原生、原生调 Flutter？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 见上文扩充版。
 
 ---
 
-### 2.3、高级题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-95" data-jobs-toc="v2">2.3、高级题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 2.3.1、大型 Flutter 项目怎么做模块化？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-96" data-jobs-toc="v2">2.3.1、大型 Flutter 项目怎么做模块化？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - feature module
 - 业务边界
@@ -926,7 +1072,7 @@ createState
 
 ---
 
-#### 2.3.2、状态管理你怎么选型？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-97" data-jobs-toc="v2">2.3.2、状态管理你怎么选型？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 团队认知成本
 - 可测试性
@@ -941,7 +1087,7 @@ createState
 
 ---
 
-#### 2.3.3、你怎么做 Flutter 性能优化？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-98" data-jobs-toc="v2">2.3.3、你怎么做 Flutter 性能优化？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 首帧优化
 - 列表优化
@@ -951,14 +1097,14 @@ createState
 - DevTools 分析
 - shader / jank / memory
 
-##### 2.3.3.1、推荐答法框架 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+##### <span id="jobs-toc-heading-99" data-jobs-toc="v2">2.3.3.1、推荐答法框架 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 先定位：DevTools / Timeline / Memory
 - 再分类：build、layout、paint、IO、CPU
 - 最后落方案：拆 widget、懒加载、缓存、异步计算
 
 ---
 
-#### 2.3.4、Flutter 页面很复杂，如何控制状态膨胀？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-100" data-jobs-toc="v2">2.3.4、Flutter 页面很复杂，如何控制状态膨胀？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 页面状态 vs 业务状态分离
 - 单向数据流
@@ -967,7 +1113,7 @@ createState
 
 ---
 
-#### 2.3.5、你如何做主题系统 / 设计系统？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-101" data-jobs-toc="v2">2.3.5、你如何做主题系统 / 设计系统？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - design token
 - 颜色 / 字体 / 间距统一
@@ -977,7 +1123,7 @@ createState
 
 ---
 
-#### 2.3.6、Flutter 混编时，你最关注什么？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-102" data-jobs-toc="v2">2.3.6、Flutter 混编时，你最关注什么？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 引擎初始化成本
 - FlutterEngine 复用
@@ -989,7 +1135,7 @@ createState
 
 ---
 
-#### 2.3.7、原生和 Flutter 共存项目，路由怎么设计？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-103" data-jobs-toc="v2">2.3.7、原生和 Flutter 共存项目，路由怎么设计？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 原生路由表
 - Flutter 路由映射
@@ -999,7 +1145,7 @@ createState
 
 ---
 
-#### 2.3.8、Flutter 包体积怎么优化？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-104" data-jobs-toc="v2">2.3.8、Flutter 包体积怎么优化？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 资源压缩
 - 删除无用依赖
@@ -1010,7 +1156,7 @@ createState
 
 ---
 
-#### 2.3.9、如何做埋点、日志、崩溃监控？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-105" data-jobs-toc="v2">2.3.9、如何做埋点、日志、崩溃监控？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 页面埋点
 - 行为埋点
@@ -1021,7 +1167,7 @@ createState
 
 ---
 
-#### 2.3.10、Flutter 启动慢，你怎么排查？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-106" data-jobs-toc="v2">2.3.10、Flutter 启动慢，你怎么排查？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 首屏链路
 - 同步初始化过多
@@ -1032,7 +1178,7 @@ createState
 
 ---
 
-#### 2.3.11、Flutter 中你怎么做 CI/CD？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-107" data-jobs-toc="v2">2.3.11、Flutter 中你怎么做 CI/CD？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 自动打包
 - flavor
@@ -1044,7 +1190,7 @@ createState
 
 ---
 
-#### 2.3.12、如果团队里初中级 Flutter 较多，你怎么推进工程规范？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-108" data-jobs-toc="v2">2.3.12、如果团队里初中级 Flutter 较多，你怎么推进工程规范？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 脚手架
 - lint
@@ -1056,7 +1202,7 @@ createState
 
 ---
 
-#### 2.3.13、如果让你带一个 Flutter 项目，你最先做什么？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-109" data-jobs-toc="v2">2.3.13、如果让你带一个 Flutter 项目，你最先做什么？【级别：高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 **关键字：**
 - 先定边界
 - 先定规范
@@ -1070,18 +1216,18 @@ createState
 
 ---
 
-## 三、跨端互调题的速记模板（面试时可直接背） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-110" data-jobs-toc="v2">三、跨端互调题的速记模板（面试时可直接背） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 3.1、题：你有没有做过跨端的，比如 Flutter 调原生、原生调 Flutter？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-111" data-jobs-toc="v2">3.1、题：你有没有做过跨端的，比如 Flutter 调原生、原生调 Flutter？【级别：中高级】 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### 3.1.1、30 秒版本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-112" data-jobs-toc="v2">3.1.1、30 秒版本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > 做过。Flutter 和原生互调我主要用 `MethodChannel` 和 `EventChannel`。  
 > Flutter 调原生常见于设备能力、支付、定位、第三方 SDK；  
 > 原生调 Flutter常见于页面跳转、登录态同步、推送回传；  
 > 设计上我会关注通道协议、参数结构、错误码、生命周期和线程切换。  
 > 如果项目复杂，我会把平台通道封装成统一的 `platform service`，上层业务不直接依赖 channel。
 
-#### 3.1.2、60 秒版本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-113" data-jobs-toc="v2">3.1.2、60 秒版本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > 做过，而且我一般不把它当成简单 API 调用，而是当成一层桥接协议。  
 > Flutter 调原生，我通常用 `MethodChannel` 调设备信息、相机、蓝牙、支付这类平台能力；  
 > 原生调 Flutter，一般是原生入口跳 Flutter 页、推送点击通知 Flutter、登录态同步；  
@@ -1091,29 +1237,29 @@ createState
 
 ---
 
-## 四、面试定位判断 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-114" data-jobs-toc="v2">四、面试定位判断 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 4.1、这 5 个题说明什么？ <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-115" data-jobs-toc="v2">4.1、这 5 个题说明什么？ <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 这 5 个题整体不是初级面。
 
-#### 4.1.1、偏中级 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-116" data-jobs-toc="v2">4.1.1、偏中级 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - 本地存储方案
 - Future 是否多线程
 
-#### 4.1.2、偏中高级 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+#### <span id="jobs-toc-heading-117" data-jobs-toc="v2">4.1.2、偏中高级 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 - Isolate
 - 从 0 到 1 设计目录结构
 - 跨端互调
 
-### 4.2、结论 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-118" data-jobs-toc="v2">4.2、结论 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 > 这更像 **中级偏上 / 中高级** 面试。  
 > 面试官在看你是不是“能独立负责项目”，不是只看你会不会写页面。
 
 ---
 
-## 五、临场答题原则 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-119" data-jobs-toc="v2">五、临场答题原则 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 5.1、原则 1：先给结论，再展开 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-120" data-jobs-toc="v2">5.1、原则 1：先给结论，再展开 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 别绕。
 
 错误示范：
@@ -1124,12 +1270,12 @@ createState
 
 ---
 
-### 5.2、原则 2：先讲场景，再讲技术 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-121" data-jobs-toc="v2">5.2、原则 2：先讲场景，再讲技术 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 面试官更爱听“你怎么用”，不爱听百科。
 
 ---
 
-### 5.3、原则 3：关键词要硬 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-122" data-jobs-toc="v2">5.3、原则 3：关键词要硬 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 比如：
 - 单 Isolate
 - Event Loop
@@ -1142,7 +1288,7 @@ createState
 
 ---
 
-### 5.4、原则 4：别装懂 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-123" data-jobs-toc="v2">5.4、原则 4：别装懂 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 尤其是：
 - 渲染原理
 - Isolate
@@ -1153,9 +1299,9 @@ createState
 
 ---
 
-## 六、冲刺建议 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-124" data-jobs-toc="v2">六、冲刺建议 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 6.1、你必须重点背熟的 10 个题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-125" data-jobs-toc="v2">6.1、你必须重点背熟的 10 个题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 1. 本地存储方案  
 2. Future 是不是多线程  
 3. async/await 本质  
@@ -1167,7 +1313,7 @@ createState
 9. 从 0 到 1 的目录结构  
 10. Flutter 调原生 / 原生调 Flutter
 
-### 6.2、如果只剩 1 天准备 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-126" data-jobs-toc="v2">6.2、如果只剩 1 天准备 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 优先顺序：
 1. Future / Isolate / 事件循环
 2. 项目架构 / 目录结构
@@ -1177,15 +1323,15 @@ createState
 
 ---
 
-## 七、代码点拨总表（只记关键骨架） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-127" data-jobs-toc="v2">七、代码点拨总表（只记关键骨架） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 7.1、Flutter 调原生 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-128" data-jobs-toc="v2">7.1、Flutter 调原生 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 static const channel = MethodChannel('com.demo/device');
 final result = await channel.invokeMethod('getAppVersion');
 ```
 
-### 7.2、原生回 Flutter <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-129" data-jobs-toc="v2">7.2、原生回 Flutter <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 channel.setMethodCallHandler((call) async {
   if (call.method == 'onLogin') {
@@ -1194,18 +1340,18 @@ channel.setMethodCallHandler((call) async {
 });
 ```
 
-### 7.3、持续事件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-130" data-jobs-toc="v2">7.3、持续事件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 const eventChannel = EventChannel('com.demo/network');
 eventChannel.receiveBroadcastStream().listen((event) {});
 ```
 
-### 7.4、Isolate / compute <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-131" data-jobs-toc="v2">7.4、Isolate / compute <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 final data = await compute(parseJson, jsonString);
 ```
 
-### 7.5、microtask 优先级 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-132" data-jobs-toc="v2">7.5、microtask 优先级 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 ```dart
 Future(() => print('event'));
 scheduleMicrotask(() => print('microtask'));
@@ -1213,17 +1359,17 @@ scheduleMicrotask(() => print('microtask'));
 
 ---
 
-## 八、一句话总评 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-133" data-jobs-toc="v2">八、一句话总评 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 这套题不算纯高级面，但已经明显超出“只会写 UI”的范围。
 >
 > 要拿下这类面试，核心不是死背，而是把 **异步模型、工程结构、跨端互调** 三块讲出独立负责项目的能力。
 
-## 九、并发与帧调度补充 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-134" data-jobs-toc="v2">九、并发与帧调度补充 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 本章由原《Flutter面试 2.md》的独有内容蒸馏而来：保留同/异步辨析、Isolate 选型和帧调度，删除与前文重复的基础题及重复跨端代码。
 
-### 9.1、同步 / 异步与单线程 / 多线程不是一回事 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-135" data-jobs-toc="v2">9.1、同步 / 异步与单线程 / 多线程不是一回事 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 执行模型 | 是否等待结果 | 直观理解 |
 | --- | --- | --- |
@@ -1238,7 +1384,7 @@ scheduleMicrotask(() => print('microtask'));
 - `Future` 表示一个将来完成的结果；其回调通常仍由当前 Isolate 的事件循环调度。
 - 是否真正并行，要看工作是否被放到其它 Isolate、原生线程或操作系统异步 I/O。
 
-### 9.2、事件循环与 Isolate 的边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-136" data-jobs-toc="v2">9.2、事件循环与 Isolate 的边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 每个 Isolate 都有独立内存和事件循环；不同 Isolate 不共享可变状态，只能通过消息通信。主 Isolate 上耗时过长的同步计算会延迟点击、动画和绘制事件，导致掉帧。
 
@@ -1283,13 +1429,13 @@ Future<int> calculate() {
 
 补充边界：Dart Web 不提供与 Dart Native 相同的 Isolate 实现；Flutter Web 中的 `compute` 会在当前事件循环执行，CPU 密集任务应另行评估 Web Worker。
 
-### 9.3、Flutter 业务代码“单线程”不等于引擎只有一个线程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-137" data-jobs-toc="v2">9.3、Flutter 业务代码“单线程”不等于引擎只有一个线程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 日常 Flutter 业务代码主要运行在主 Isolate，包括事件响应、状态更新和 Widget 构建；因此同步阻塞主 Isolate 会直接影响界面响应。
 
 Flutter 引擎内部还会根据平台与渲染后端安排平台、光栅化和 I/O 等执行角色。面试时不要把“主 Isolate 单事件循环”扩大成“整个 Flutter 引擎只有一条线程”。
 
-### 9.4、Flutter UI 按帧调度，`setState` 不会立即完成重建 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-138" data-jobs-toc="v2">9.4、Flutter UI 按帧调度，`setState` 不会立即完成重建 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 简化后的帧流程：
 
@@ -1320,7 +1466,7 @@ WidgetsBinding.instance.addPostFrameCallback((_) {
 });
 ```
 
-## 十、官方资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-139" data-jobs-toc="v2">十、官方资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [**Dart 并发与 Isolate**](https://dart.dev/language/concurrency)
 - [**Flutter 并发与 Isolate**](https://docs.flutter.dev/perf/isolates)

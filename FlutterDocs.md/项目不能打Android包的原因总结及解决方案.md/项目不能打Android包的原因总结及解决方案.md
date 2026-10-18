@@ -2,15 +2,30 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、报错信息](#jobs-toc-heading-2)
+- [二、解决过程](#jobs-toc-heading-3)
+  - [2.1、确保你本机真的装了 Android 34 平台](#jobs-toc-heading-4)
+  - [2.2、快速体检（看哪里没对齐）](#jobs-toc-heading-5)
+  - [2.3、一键体检并抓错（项目根执行）](#jobs-toc-heading-6)
+  - [2.4、查询](#jobs-toc-heading-7)
+  - [2.5、发现新问题](#jobs-toc-heading-8)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 > 记录 [**Flutter**](https://flutter.dev/) 项目构建 Android 包时的典型环境兼容问题、定位过程和修复方式。执行命令前先确认项目所需的 SDK、Gradle 与 Kotlin 版本，不直接照搬历史版本号。
 
-## 一、报错信息 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、报错信息 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```shell
 FAILURE: Build failed with an exception.
@@ -48,9 +63,9 @@ Gradle task assembleRelease failed with exit code 1
 
 > **你的本机 Android 编译环境比项目/插件要求低**。`android:attr/lStar` 是 **Android 12(API 31)** 才有的属性；你的构建在 **低于 31 的 compileSdk** 下跑，AAPT 就找不到它，于是挂在 `flutter_plugin_engagelab` 的资源验证上。同时 Flutter 给出的提示也说明 **Kotlin Gradle 插件过旧**。同组的人能打包，说明他们本机已经升级到匹配版本，而你没跟上
 
-## 二、解决过程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、解决过程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 2.1、确保你本机真的装了 **Android 34** 平台 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-4" data-jobs-toc="v2">2.1、确保你本机真的装了 **Android 34** 平台 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```shell
 ➜  Desktop sdkmanager --list | grep "platforms;android-34" -n || true
@@ -65,7 +80,7 @@ Gradle task assembleRelease failed with exit code 1
 
 > 已经装了 `android-34`，所以**SDK 不缺**
 
-### 2.2、快速体检（看哪里没对齐） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-5" data-jobs-toc="v2">2.2、快速体检（看哪里没对齐） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 在项目根终端里面执行
 
@@ -115,7 +130,7 @@ OpenJDK 64-Bit Server VM Homebrew (build 17.0.16+0, mixed mode, sharing)
 
 > repo 里 `settings.gradle` 固定了 **AGP 7.3.0 + Kotlin 1.7.10**
 
-### 2.3、一键体检并抓错（项目根执行） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-6" data-jobs-toc="v2">2.3、一键体检并抓错（项目根执行） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 体检结论：
 >
@@ -301,7 +316,7 @@ grep -R --line-number "compileSdkVersion" android | grep -v "/build/" || true
 > ➜  flutter_tiyu_app git:(merge_theme（黑金打包分支）) ✗ 
 > ```
 
-### 2.4、查询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-7" data-jobs-toc="v2">2.4、查询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 部分三方包可能还写死了 `intl <0.20`（老库比较常见）。先查一下到底是谁：
 
@@ -320,7 +335,7 @@ You can try the following suggestion to make the pubspec resolve:
 
 > 问题现在非常直接：你的 `pubspec.yaml` 把 `intl` 写死在 `^0.19.0`，而 `flutter_localizations` 强制 **0.20.2**，导致 `pub get` 根本跑不通 → 后续打包必失败。先把依赖树解开
 
-### 2.5、发现新问题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-8" data-jobs-toc="v2">2.5、发现新问题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a><a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 现在已经铁锤：**`flutter_plugin_engagelab` 这个子模块在用低于 31 的 compileSdk**，所以仍旧在它的 `verifyReleaseResources` 阶段爆 `android:attr/lStar not found`。你的 app 已经设到 34 了，但**插件自己没跟着提**。
 

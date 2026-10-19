@@ -1,5 +1,13 @@
 # [**Dart**](https://dart.dev/)@[**🐦`Flutter`**](https://flutter.dev)<font color=red>靶场项目</font>蓝皮书📘
 
+> **项目定位：** `JobsFlutterBaseConfigDemo`，面向 Flutter / Dart 开发者的跨平台基础工程与独立实验示例集；当前默认入口是形状按钮演示，架构入口与学习资料另行保留。
+>
+> **状态与维护：** 维护中（本地提交历史见统计章节）；负责人 Jobs，未登记独立维护团队。运行 / 硬件 / 生产功能须按对应证据验收。
+>
+> **统计基线：** 2026-10-19（Asia/Shanghai）；[项目规模、依赖与接手指南](#project-statistics)，页面、源码和提交分别采用明确口径，原有教程与历史记录继续保留。
+>
+> **版本说明：** 下方版本徽章保留为历史展示；当前最低系统、SDK 与锁文件以[工具链基线](#statistics-toolchain)为准。
+
 <p align="left">
   <a><img src="https://img.shields.io/badge/flutter-3.22.1-blue" alt="Flutter"/></a>
   <a><img src="https://img.shields.io/badge/dart-3.3.4-orange" alt="Dart"/></a>
@@ -535,6 +543,16 @@
   - [24、为什么 iOS 的 UITableView 比 Flutter.ListView 更稳？Flutter 怎么追上？](#jobs-toc-heading-512)
   - [25、不出UI的总结](#jobs-toc-heading-513)
   - [26、其他](#jobs-toc-heading-514)
+- [八、项目统计与接手指南](#project-statistics)
+  - [8.1、SDK、工具链与锁文件](#statistics-toolchain)
+  - [8.2、Git 历史与统计边界](#statistics-history)
+  - [8.3、页面、子页面与路由](#statistics-pages)
+  - [8.4、后端规模适用边界](#statistics-backend)
+  - [8.5、模块依赖与核心流程](#statistics-flows)
+  - [8.6、功能实现与证据](#statistics-features)
+  - [8.7、业务代码占比与复核命令](#statistics-code-share)
+  - [8.8、直接依赖清单与风险](#statistics-dependencies)
+  - [8.9、运行、构建、测试与常见问题](#statistics-run)
 
 </details>
 <!-- jobs-toc:end -->
@@ -20815,5 +20833,294 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     > <img src="./assets/README/image-20250726184439831.png" alt="image-2" style="width:65%; display:inline-block; vertical-align: top;" />
     > <img src="./assets/README/image-20250723010750938.png" alt="image-2" style="width:65%; display:inline-block; vertical-align: top;" />
     > </div>
+
+## 八、<span id="project-statistics">项目统计与接手指南</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+本节记录当前源码与配置基线。数量随代码变化，应在影响统计的提交中重新计算；超出一个迭代周期应视为待复核。锁文件、页面清单、依赖声明或入口改变时，同时更新表格与流程图。依赖用途依据静态引用，不将“已声明”混同于“已实际执行”。
+
+### 8.1、<span id="statistics-toolchain">SDK、工具链与锁文件</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+| 类别 | 名称 | 当前配置 / 已读取证据 | 锁文件入库状态 |
+| --- | --- | --- | --- |
+| 语言 / 框架 | Dart / Flutter | `.fvmrc` 与 `.fvm/fvm_config.json` 均固定 Flutter `3.47.7`；该 SDK 缓存元数据记录 Dart `3.13.5`。`pubspec.yaml` 语言约束为 `>=3.3.1 <4.0.0` | `pubspec.lock` 已入库；SDK 缓存本身不作项目锁文件 |
+| SDK 管理 | [**FVM**](https://fvm.app) | 项目有 FVM 配置，FVM 命令工具自身版本未固定 | 配置已入库，无工具版本锁 |
+| Android 构建 | [**Gradle**](https://gradle.org) / AGP / [**Kotlin**](https://kotlinlang.org) | wrapper `8.12`；`settings.gradle.kts` 中 AGP `8.7.3`、Kotlin `2.1.0`；NDK `27.0.12077973` | wrapper / 构建配置已入库；未发现 Gradle dependency lock |
+| Android 最低支持 | Android SDK | `app/build.gradle.kts` 读取 Flutter 默认值；固定 SDK 的 `FlutterExtension.kt` 为 min `24`、compile / target `36`；源码兼容与 JVM target `11` 不等于 Gradle 运行 JDK 版本 | JDK 发行版与具体版本未固定，须以本机 doctor / 构建结果核实 |
+| Apple 构建 | [**CocoaPods**](https://cocoapods.org/) / [**Xcode**](https://developer.apple.com/xcode) | 两个 Pod 锁文件均记录 CocoaPods `1.16.2`；具体 Xcode / SDK 版本未锁定 | `ios/Podfile.lock`、`macos/Podfile.lock` 已入库 |
+| 最低系统 | iOS / macOS | `ios/Podfile` 为 `13.0`；`macos/Podfile` 为 `10.15`，最终插件最低要求仍以安装解析和构建为准 | 对应配置已入库 |
+| Web / 桌面 | 浏览器、Windows / Linux 工具链 | 存在平台模板，但浏览器最低版本、C++ 编译器与系统最低版本未统一固定 | 未发现独立工具链锁 |
+
+上表的 SDK 缓存信息来自配置所指向 SDK 的 `bin/cache/flutter.version.json`、`bin/cache/dart-sdk/version` 与 `packages/flutter_tools/gradle/src/main/kotlin/FlutterExtension.kt`，不是重新联网查得的“最新版本”。原文顶部 Flutter / Dart 徽章是历史展示值，当前构建应以上表配置为准。
+
+统计 / 核对时间：**2026-10-19**。锁文件“已入库”由 `git ls-files` 精确查询确认，不代表包管理器工具本体已被锁定，也不代表刚完成依赖安装。
+
+### 8.2、<span id="statistics-history">Git 历史与统计边界</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+所有数字采集于 **2026-10-19（Asia/Shanghai）**。历史范围为当前本地 `HEAD` 可达提交；贡献者范围为本地所有 refs，按作者身份字符串计数，没有合并同一人的不同邮箱 / 大小写，也没有查询托管平台后台。
+
+| 指标 | 当前值 | 口径与依据 |
+| --- | --- | --- |
+| 托管平台首次建库时间 | 未知 | 本地 Git 不保存服务端建库时间，不能拿首次提交时间代替 |
+| 首次提交 | `2024-05-16T20:02:29+08:00 0a5917f03fbd4ebc1e62dea647f7822edb95489e jobs` | `git log --reverse --format='%aI %H %an' HEAD` 的首条 |
+| 最近提交 | `2026-10-19T02:35:34+08:00 46871fa4ec60fc4226e16f3c0a89356e3b7d284b` | `git log -1 --format='%aI %H'` |
+| 总提交数 | 482 | `git rev-list --count HEAD`，含合并提交 |
+| 作者身份数 | 4 | `git shortlog -sn --all` 的非空行数，不等于自然人数 |
+
+工作区与提交历史是不同口径：以下源码规模按当前工作区中 **Git 已跟踪文件** 计量；Git 表格记录的是提交历史，不包含尚未提交的 README 内容。
+
+### 8.3、<span id="statistics-pages">页面、子页面与路由</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+计数时间：**2026-10-19**；单位选用**页面组件**，只统计当前默认入口实际装配的全屏根内容，不把控件、Demo 片段、半屏、弹层、浮层或未接入的样例算页面。跨端共用同一套 Dart 页面，平台数不乘进页面总数。
+
+| 端 / 入口 | 页面数（含子页） | 子页面数 | 路由数 | 依据 |
+| --- | ---: | ---: | ---: | --- |
+| iOS / Android / Web / macOS / Windows / Linux，共用 `lib/main.dart` | 1 | 0 | 0 条命名路由 | `main()` 直接运行 `JobsMaterialRunner(Column(...))`；当前内容为形状按钮示例，未装配 `AppPages` |
+| 备用架构 `lib/mainss.dart`，不并入默认入口 | 2 | 1 | 2 | `lib/routes/app_pages.dart` 的 `/` 与 `/home`；启动页和首页组件，由 `mainss.dart` 的 `GetMaterialApp` 配置 |
+
+`GetPage` 路由只是备用架构的静态注册；`lib/JobsDemoTools/` 中的独立 `main()`、演示组件及未验证示例不构成默认 App 的可达页面。平台目录存在代表模板覆盖，不能代替六个平台启动验收。没有独立 H5 容器进入默认入口，相关 WebView Demo 不计入上述数字。
+
+复核：`rg -n 'runApp|JobsMaterialRunner' lib/main.dart`，再对照 `rg -n 'GetPage\(|getPages:|initialRoute:' lib/routes/app_pages.dart lib/mainss.dart`。备用路由中 `Home` / `Splash` 导入大小写与实际 `home` / `splash` 目录不一致，大小写敏感系统上需要先修正源码；README 不能代替这项实现修复。
+
+### 8.4、<span id="statistics-backend">后端规模适用边界</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+本仓是客户端演示 / 基础工程，未交付独立后端，不能把客户端请求样例或本地 URLProtocol / Mock 算成对外服务接口。以下边界均按 **2026-10-19** 本仓源码与配置核对，不覆盖远端服务部署。
+
+| 后端统计项 | 本仓结论与依据 |
+| --- | --- |
+| HTTP / RPC / MQ 对外接口 | 不适用；未发现本仓维护的后端服务入口及 OpenAPI / RPC 服务注册定义。客户端 HTTP / WebSocket / MQTT 演示不计入 |
+| 服务模块 / 部署单元 | 不适用；客户端 target、Pod 或 Pub 包不等于后端部署单元 |
+| 业务主表 | 不适用；本地数据库示例不等于后端业务表 |
+| 业务状态机 | 未建立后端订单、审批或结算对象；UI 状态与定时器状态不计入 |
+| 外部系统集成 | 仅按功能表报告客户端示例，生产服务合同与数量未知 |
+| 定时任务 / 批处理 / 异步消费者 | 客户端 Timer 与 MQTT 订阅示例不计为已部署后端任务 |
+| 中间件依赖 | 没有本仓后端部署清单；Redis、消息队列、对象存储规模不适用 |
+| QPS / 日增 / 存储量 | 未采集生产监控，未知；不从源码行数或页面数推算 |
+
+因此不计算“页面 : 后端接口”的比例，也不把不适用项填成已核验的线上零规模。
+
+### 8.5、<span id="statistics-flows">模块依赖与核心流程</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+```mermaid
+flowchart LR
+    A["lib/main.dart"] --> B["JobsByPubs/JobsRunnersByPub/jobs_material_runner.dart"]
+    B --> C["Flutter Material / Cupertino SDK"]
+    A --> D["CustomShapeButton / ShapePainter"]
+    D --> E["vibration 公共插件"]
+    E --> X[["平台振动 API：外部边界"]]
+    F["备用 lib/mainss.dart"] --> G["lib/routes/app_pages.dart"]
+    G --> H["lib/pages/splash 与 home"]
+    F --> I["theme_service.dart / lang_service.dart"]
+    I --> J["SharedPreferences 本机持久化"]
+```
+
+```mermaid
+flowchart TD
+    A["入口 lib/main.dart main()"] --> B["JobsMaterialRunner 构造页面壳"]
+    B --> C["绘制三角 / 星形 / 平行四边形"]
+    C --> D["点击 CustomShapeButton"]
+    D --> E["_handleTap setState：压下动画"]
+    E --> F["onPressed：日志与 Vibration.vibrate"]
+    F --> G["Future.delayed：恢复按钮尺寸"]
+    G --> C
+```
+
+默认流程不经过统一 API 初始化、路由注册或后端请求；`app_initializer.dart`、`mainss.dart` 与网络 Demo 是独立可复用入口，不能画成当前 `main.dart` 的既有调用链。本仓无 `.codegraph/`，图按源码核实，未主动建图。
+
+### 8.6、<span id="statistics-features">功能实现与证据</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+以下“未核实”表示未完成该项实现 / 配置 / 运行的端到端核查，不表示系统 API 或依赖包本身没有能力。核对日期：**2026-10-19**。
+
+| 类目 | 是否涉及 | 实现方式与证据 / 边界 |
+| --- | --- | --- |
+| 网络与安全 | 示例涉及，默认页未用 | `lib/JobsDemoTools/Data/Data.3rd/MQTT/` 与 pubspec 的 http / dio / mqtt_client；encrypt / pointycastle 是依赖与示例，不等于全接口加密。统一鉴权、SSL Pinning、密钥安全存储未核验；flutter_secure_storage 已注释，不算已接入 |
+| 持久化 / 数据库 / 缓存 | 示例涉及 | `本地数据存取/`、`数据库操作/FMDB_Demo.dart` 与 shared_preferences / sqflite；缓存为 flutter_cache_manager / cached_network_image。迁移策略与生产数据库版本未形成统一基线，具体锁版见依赖表 |
+| 端能力 | 多项示例 | 当前默认页使用 vibration；camera / image_picker / video_player / audioplayers / flutter_plugin_engagelab / flutter_local_notifications 已声明，运行权限、推送厂商 Key 仍需按平台配置。蓝牙、生物识别、NFC、支付不因包清单缺失或注释而视为交付 |
+| 国际化 / 主题 | 已有备用架构 | `lib/services/lang_service.dart`、`theme_service.dart`、`notifier/locale_notifier.dart`、`assets/i18n/`；当前形状按钮页没有装配该完整壳 |
+| 工程 / 监控 / 热更新 | 部分涉及 | FVM、各平台目录、CocoaPods 网络选路与 ScriptsByDevTools；flutter_phoenix 是本地 Widget 重建能力，不等于远程代码热更新；CI、集中埋点和生产崩溃上报未核验 |
+| API 回退 / 列表空态 | 按示例核验 | 默认页无动态列表或 API；JobsRefreshByPub 提供刷新加载组件，不能据此宣称所有独立示例都统一实现服务端优先与失败回退 |
+| 后端能力 | 不适用 | 本仓不交付幂等、限流、熔断、分布式锁、事务或对账后台；客户端例子不构成后端验收 |
+| 隐私 / 权限 / 脱敏 | 平台配置存在，完整性待验 | 查看 `ios/Runner/Info.plist` 与 `android/app/src/main/AndroidManifest.xml`；未完成隐私清单、全部日志 / 数据脱敏及商店发布审计 |
+
+### 8.7、<span id="statistics-code-share">业务代码占比与复核命令</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+统计时间：**2026-10-19（Asia/Shanghai）**。统计单位为物理文本行：`read_text().splitlines()`，包含空行与注释，末尾没有换行的非空尾行仍计一行；不是去注释后的有效代码行。分母只含业务、测试、配置与脚本三类。第三方和生成物只展示排除规模，未扫描的未跟踪依赖缓存不填入排除规模。
+
+| 类别 | 文件数 | 物理行数 | 分母内占比 |
+| --- | ---: | ---: | ---: |
+| 业务代码（含自有基础模块 / 平台胶水） | 345 | 27,036 | 76.70% |
+| 测试代码与回归脚本 | 7 | 1,223 | 3.47% |
+| 配置与脚本 | 76 | 6,992 | 19.83% |
+| 已跟踪第三方源码 / 配置（排除） | 0 | 0 | 不入分母 |
+| 已跟踪生成 / 缓存 / 构建文本（排除） | 32 | 5,605 | 不入分母 |
+
+```mermaid
+pie showData
+    title 自维护文本物理行占比（2026-10-19）
+    "业务代码" : 27036
+    "测试代码" : 1223
+    "配置与脚本" : 6992
+```
+
+只读复核时在仓库根运行下列脚本。它只读取 `git ls-files` 返回的文件；路径排除先于测试分类，资源与文档不计入代码，供应商测试不会混进自有测试。`Data.3rd` / `UI.3rd` 下的自维护使用示例属于业务，实际第三方实现按供应商路径与文件头排除。
+
+```shell
+python3 - <<'PY_STATS'
+from pathlib import Path
+from collections import defaultdict
+import re, subprocess
+source = {'.swift','.m','.mm','.h','.c','.cpp','.cc','.hpp','.dart','.kt','.java'}
+config = {'.command','.sh','.rb','.podspec','.py','.bat','.ps1','.yml','.yaml',
+          '.json','.xml','.plist','.pbxproj','.xcconfig','.gradle','.kts',
+          '.properties','.cmake','.entitlements','.mjs','.toml',
+          '.xcworkspacedata','.xcscheme'}
+names = {'Podfile','Podfile.deps','Gemfile','CMakeLists.txt','gradlew','.fvmrc'}
+excluded = {'.git','.dart_tool','build','DerivedData','.build','.ios','.macos',
+            '.fvm','.codegraph','Unity','Flutter','ephemeral','gen','l10n','Generated','generated'}
+totals = defaultdict(lambda: [0, 0])
+for name in subprocess.check_output(['git','ls-files','-z']).decode().split('\0'):
+    if not name:
+        continue
+    path = Path(name)
+    parts, ext = path.parts, path.suffix.lower()
+    if ext not in source | config and path.name not in names:
+        continue
+    if any(x in {'Pods','node_modules'} or x.startswith(('ManualBy','PodsManual')) for x in parts):
+        category = 'thirdparty'
+    elif any(x in excluded for x in parts) or re.search(
+        r'(?:\.generated\.swift|\.g\.dart|\.freezed\.dart|\.gr\.dart|GeneratedPluginRegistrant\.\w+|'
+        r'generated_plugin_registrant\.\w+|generated_plugins\.cmake)$', name):
+        category = 'generated'
+    elif any(x.lower() in {'assets','assets.xcassets','resource','resources','res'}
+             or x.endswith('.xcassets') for x in parts) or any(x.endswith('.md') for x in parts):
+        continue
+    else:
+        try:
+            text = path.read_text()
+        except (UnicodeError, OSError):
+            continue
+        author = re.search(r'Created by ([^\n]+?) on ', text[:2000])
+        if author and not re.search(r'\b[Jj]obs\b|J0bs', author[1]):
+            category = 'thirdparty'
+        elif any(re.search(r'(?i)(?:^test$|^tests$|tests$|^integration_test$)', x)
+                 for x in parts) or '.github/tests/' in name:
+            category = 'tests'
+        else:
+            category = 'business' if ext in source else 'config'
+    try:
+        lines = len(path.read_text().splitlines())
+    except (UnicodeError, OSError):
+        continue
+    totals[category][0] += 1
+    totals[category][1] += lines
+for category, (files, lines) in sorted(totals.items()):
+    print(category, files, lines)
+PY_STATS
+```
+
+### 8.8、<span id="statistics-dependencies">直接依赖清单与风险</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+统计时间：**2026-10-19**。以根 `pubspec.yaml` 中未注释的 `dependencies` / `dev_dependencies` 名称去重：共 **62 项直接声明**，其中运行依赖 57、开发依赖 5；按来源为 56 项 pub.dev、3 项 SDK、3 项本仓 path 包。只列根工程直接依赖；插件的平台实现和其他传递依赖不加入总数，三个 path 包自身的依赖也不重复累加。
+
+版本来自已入库 `pubspec.lock`；许可证来自当前 package_config 所指向的同版本包 `LICENSE`，BSD 家族的精确条款未逐项法律复核，SDK 子包没有单独许可证时标记待核实。来源地址为 pub.dev 对应包详情或本仓 path；没有发现明确远程私有仓声明，不能把本地 path 假称为私库地址。使用证据仅查自维护业务与测试的静态 package import / export，注释和动态加载、平台注册、构建工具执行不等价。
+
+| 依赖名 | 锁定版本 / 声明 | 来源 | 地址 / 本地位置 | 许可证 | 关系 | 用途模块 | 使用证据 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| flutter | 0.0.0；声明 `SDK / path` | 官方 SDK | 随 Flutter SDK | BSD（条款版本待核实） | 直接 | SDK | 源码引用 `JobsByPubs/JobsRefreshByPub/example/上拉加载&下拉刷新/JobsRefreshLoad.dart` |
+| jobs_refresh_load | 0.0.1；声明 `SDK / path` | 本仓自维护 path | `./JobsByPubs/JobsRefreshByPub` | MIT | 直接 | 刷新 / 加载列表组件 | 源码引用 `JobsByPubs/JobsRefreshByPub/example/上拉加载&下拉刷新/JobsRefreshLoad.dart` |
+| jobs_runners | 0.1.0；声明 `SDK / path` | 本仓自维护 path | `./JobsByPubs/JobsRunnersByPub` | 待核实 | 直接 | Material / Cupertino / GetX 页面运行壳 | 源码引用 `JobsByPubs/JobsRefreshByPub/example/上拉加载&下拉刷新/JobsRefreshLoad.dart` |
+| jobs_safety_get_value | 0.0.1；声明 `SDK / path` | 本仓自维护 path | `./JobsByPubs/JobsSafetyGetValueByPub` | MIT | 直接 | 安全取值辅助函数 | 源码引用 `JobsByPubs/JobsSafetyGetValueByPub/example/lib/main.dart` |
+| flutter_svg | 2.2.4；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_svg) | MIT | 直接 | SVG 解析与显示 | 源码引用 `lib/JobsDemoTools/Utils/JobsTools.dart` |
+| oktoast | 3.4.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/oktoast) | Apache-2.0 | 直接 | 轻量级toast | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/剪切板复制/NativeClipboard.dart` |
+| extended_tabs | 5.0.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/extended_tabs) | MIT | 直接 | 扩展TabBar | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/高仿@JXCategoryView/JobsCategoryPage.dart` |
+| cupertino_icons | 1.0.8；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/cupertino_icons) | MIT | 直接 | Cupertino 图标字体 | 已声明；未命中静态 import，使用待核实 |
+| device_preview | 1.3.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/device_preview) | MIT | 直接 | 多设备模拟器（外部包裹） | 源码引用 `lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/DevicePreviewAppDemo.dart` |
+| easy_localization | 3.0.8；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/easy_localization) | MIT | 直接 | 国际化根容器（外部包裹） | 源码引用 `lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/EasyLocalizationAppDemo.dart` |
+| flutter_phoenix | 1.1.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_phoenix) | MIT | 直接 | 热重启容器（外部包裹） | 源码引用 `lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/PhoenixAppDemo.dart` |
+| screenshot | 3.0.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/screenshot) | MIT | 直接 | 截屏操作 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/截屏操作/Screenshot.dart` |
+| vibration | 3.1.8；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/vibration) | BSD（条款版本待核实） | 直接 | 震动 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/监听/跨页面监听/controllers/form_controller.dart` |
+| carousel_slider | 5.1.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/carousel_slider) | MIT | 直接 | 用于轮播图 | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/轮播图✅/CarouselSliderDemo.dart` |
+| card_swiper | 3.0.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/card_swiper) | MIT | 直接 | 用于轮播图 | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/轮播图✅/CardSwiperDemo.dart` |
+| easy_refresh | 3.5.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/easy_refresh) | MIT | 直接 | 用于下拉刷新 | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/上拉加载、下拉刷新/Easy_refresh_demo.dart` |
+| webview_flutter | 4.13.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/webview_flutter) | BSD（条款版本待核实） | 直接 | 用于显示网页 | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/JobsWebView/JobsWebViewWidget.dart` |
+| camera | 0.12.0+1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/camera) | BSD（条款版本待核实） | 直接 | 用于拍照 | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/调用本地相册+调用本机摄像头拍照✅/AllInOne✅/CameraPicAndVideoDemo.dart` |
+| image_picker | 1.2.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/image_picker) | Apache-2.0 | 直接 | image_picker 插件只能分别调用拍照或录像功能，但不能直接调用系统相机应用的完整界面 | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/调用本地相册+调用本机摄像头拍照✅/CameraPicDemo✅.dart` |
+| flutter_inappwebview | 6.1.5；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_inappwebview) | Apache-2.0 | 直接 | 用于显示网页 (iOS) | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/Inappwebview/InappwebviewDemo1.dart` |
+| flutter_fortune_wheel | 1.3.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_fortune_wheel) | MIT | 直接 | 用于显示抽奖转盘 | 源码引用 `lib/JobsDemoTools/UI/UI.Origin🌍/抽奖轮盘/第三方库flutter_fortune_wheel实现抽奖轮盘/FortuneWheelDemo.dart` |
+| flutter_easyloading | 3.0.5；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_easyloading) | MIT | 直接 | 加载提示 | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/Network/error.dart` |
+| cached_network_image | 3.4.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/cached_network_image) | MIT | 直接 | 用于显示网络图片 | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/广告轮播图/JobsBannerCarousel.dart` |
+| flutter_cache_manager | 3.4.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_cache_manager) | MIT | 直接 | 用于处理网络图片(独立缓存控制) | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/广告轮播图/JobsBannerCarousel.dart` |
+| equatable | 2.0.8；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/equatable) | MIT | 直接 | 用于定义值对象的相等性 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/CounterEvent.dart` |
+| built_value | 8.12.4；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/built_value) | BSD（条款版本待核实） | 直接 | 用于序列化/反序列化数据 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/利用脚本自动生成的built_value序列化文件/serializers.dart` |
+| built_collection | 5.1.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/built_collection) | BSD（条款版本待核实） | 直接 | 用于序列化/反序列化数据 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/利用脚本自动生成的built_value序列化文件/serializers.dart` |
+| shared_preferences | 2.5.4；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/shared_preferences) | BSD（条款版本待核实） | 直接 | 用于存储键值对数据 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/本地数据存取/Storage.dart` |
+| encrypt | 5.0.3；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/encrypt) | BSD（条款版本待核实） | 直接 | 用于加密数据 | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/Network/helper.dart` |
+| pointycastle | 3.9.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/pointycastle) | MIT | 直接 | 用于加密数据 | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/Network/helper.dart` |
+| json_annotation | 4.11.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/json_annotation) | BSD（条款版本待核实） | 直接 | 用于处理json数据 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/Model/UserModel.dart` |
+| get | 4.7.3；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/get) | MIT | 直接 | 用于管理应用状态 | 源码引用 `JobsByPubs/JobsRunnersByPub/lib/src/jobs_cupertino_runner.dart` |
+| provider | 6.1.5+1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/provider) | MIT | 直接 | 用于管理应用状态 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo1/mqtt_demo1.dart` |
+| flutter_riverpod | 2.6.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_riverpod) | MIT | 直接 | 用于管理应用状态 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/Riverpod/Riverpod.dart` |
+| bloc | 9.2.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/bloc) | MIT | 直接 | 用于管理应用状态 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/CounterBloc.dart` |
+| flutter_bloc | 9.1.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_bloc) | MIT | 直接 | 用于管理应用状态 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/BLoC.dart` |
+| dart_ping_ios | 4.0.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/dart_ping_ios) | BSD（条款版本待核实） | 直接 | 用途待核实 | 源码引用 `lib/mainss.dart` |
+| http | 1.6.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/http) | BSD（条款版本待核实） | 直接 | 用于网络请求 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/shared/demo_http.dart` |
+| dio | 5.9.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/dio) | MIT | 直接 | 用于网络请求 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/dio_demo_page.dart` |
+| mqtt_client | 10.11.9；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/mqtt_client) | MIT | 直接 | 用于连接MQTT服务器 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo1/mqtt_manager.dart` |
+| sqflite | 2.4.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/sqflite) | BSD（条款版本待核实） | 直接 | 用于本地数据库 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/数据库操作/FMDB_Demo.dart` |
+| video_player | 2.11.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/video_player) | BSD（条款版本待核实） | 直接 | 用于播放视频 | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/App启动页面/AppLaunchPage_demo1.dart` |
+| audioplayers | 5.2.1；声明 `^5.2.1` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/audioplayers) | MIT | 直接 | 用于播放音频 | 源码引用 `lib/JobsDemoTools/UI/UI.Origin🌍/抽奖轮盘/纯原生Flutter实现抽奖轮/LuckyWheelPage.dart` |
+| intl | 0.20.3；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/intl) | BSD（条款版本待核实） | 直接 | 提供国际化和本地化设施，包括消息翻译、复数和性别、日期/数字格式和解析以及双向文本 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_format_Demo.dart` |
+| timezone | 0.11.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/timezone) | BSD（条款版本待核实） | 直接 | 用于获取设备时区 | 源码引用 `lib/core/app_initializer.dart` |
+| flutter_localizations | 0.0.0；声明 `SDK / path` | 官方 SDK | 随 Flutter SDK | 待核实 | 直接 | 一个使用地图数据进行应用内定位的软件包 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo1/intl_international_Demo1.dart` |
+| wakelock_plus | 1.5.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/wakelock_plus) | BSD（条款版本待核实） | 直接 | 用于保持屏幕常亮 | 源码引用 `lib/mainss.dart` |
+| flutter_plugin_engagelab | 1.3.9+530530；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_plugin_engagelab) | 待核实 | 直接 | 极光推送 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/监听/生命周期的监听/AppLifecycleStateDemo.dart` |
+| file_picker | 10.3.10；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/file_picker) | MIT | 直接 | 实现文件选择器功能，允许用户从本地文件系统中选择任意文件（如图片、PDF、文档、视频等），并获取路径用于上传等操作。 | 已声明；未命中静态 import，使用待核实 |
+| connectivity_plus | 7.0.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/connectivity_plus) | BSD（条款版本待核实） | 直接 | 用于检查设备网络连接状态 | 源码引用 `lib/JobsDemoTools/Utils/AppManager.dart` |
+| url_launcher | 6.3.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/url_launcher) | BSD（条款版本待核实） | 直接 | 用于在移动应用中打开 URLs，包括网页、电子邮件、电话等 | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/App启动页面/AppLaunchPage_demo1.dart` |
+| path | 1.9.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/path) | BSD（条款版本待核实） | 直接 | 用于处理文件路径 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/数据库操作/FMDB_Demo.dart` |
+| path_provider | 2.1.5；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/path_provider) | BSD（条款版本待核实） | 直接 | 用于获取文件路径 | 源码引用 `lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_file_demo.dart` |
+| flutter_local_notifications | 21.0.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_local_notifications) | BSD（条款版本待核实） | 直接 | 用于显示本地通知 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/本地通知✅/LocalNotificationsDemo.dart` |
+| auto_route | 11.1.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/auto_route) | MIT | 直接 | 用于管理应用路由 | 已声明；未命中静态 import，使用待核实 |
+| flutter_screenutil | 5.9.3；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_screenutil) | Apache-2.0 | 直接 | 用于屏幕适配 | 源码引用 `JobsByPubs/JobsRunnersByPub/lib/src/jobs_cupertino_runner.dart` |
+| crypto | 3.0.7；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/crypto) | BSD（条款版本待核实） | 直接 | 摘要与哈希 | 源码引用 `lib/JobsDemoTools/JobsFlutterTools/Network/helper.dart` |
+| flutter_test | 0.0.0；声明 `SDK / path` | 官方 SDK | 随 Flutter SDK | 待核实 | 直接（开发） | SDK | 源码引用 `test/widget_test.dart` |
+| flutter_lints | 6.0.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_lints) | BSD（条款版本待核实） | 直接（开发） | Flutter代码规范 | 开发工具；执行覆盖待核实 |
+| build_runner | 2.13.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/build_runner) | BSD（条款版本待核实） | 直接（开发） | 用途待核实 | 开发工具；执行覆盖待核实 |
+| json_serializable | 6.13.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/json_serializable) | BSD（条款版本待核实） | 直接（开发） | 用途待核实 | 开发工具；执行覆盖待核实 |
+| built_value_generator | 8.12.4；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/built_value_generator) | BSD（条款版本待核实） | 直接（开发） | 用于生成序列化/反序列化代码 | 开发工具；执行覆盖待核实 |
+
+风险与处置：55 项声明使用 `any`，只有 audioplayers 使用 `^5.2.1`，其余 SDK / path 也未锁住工具与本地源码内容；已提交 lock 能限制常规解析结果，不能保证升级 / 重新解算后相同。`jobs_runners` 未发现 LICENSE，flutter_plugin_engagelab 的许可未从本地文件确认；其余待核实项应在商业发布前逐项补齐。依赖是否归档、停止维护或有已知漏洞未做联网审计，状态统一待核实，不能写成“无漏洞 / 无 GPL 风险”。
+
+### 8.9、<span id="statistics-run">运行、构建、测试与常见问题</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+从仓库根执行；以下是操作说明，文档统计没有运行安装、构建或业务脚本。
+
+```shell
+fvm install
+fvm flutter doctor -v
+fvm flutter pub get
+fvm flutter run \
+  -t lib/main.dart
+fvm flutter analyze
+fvm flutter test
+fvm flutter build apk \
+  --release
+fvm flutter build ios \
+  --no-codesign
+```
+
+需要备用架构时用 `fvm flutter run -t lib/mainss.dart`，先处理前述导入大小写。Web / 桌面可使用 `fvm flutter run -d chrome` 等相应设备；插件能否支持该目标必须实机验证，不把拥有平台模板写成全插件兼容。iOS / macOS 插件依赖安装按各平台 Podfile 的自包含网络选路执行；安装会联网、写缓存与锁文件，先检查原锁文件与可用开发环境。
+
+| 环境 / 问题 | 配置位置与处理 |
+| --- | --- |
+| dev / test / prod | 当前没有统一 flavor / .env 发布矩阵；`lib/core/app_config.dart` 仅布局与调试工具，独立网络 Demo 的地址分散维护，不能声称已具备统一生产配置 |
+| SDK 与旧徽章不一致 | 以 `.fvmrc`、`pubspec.lock` 与固定 SDK 元数据为准；不要为了匹配旧徽章降级 |
+| 三方推送 / 相机 / 振动不可用 | 检查 Android manifest placeholder、Apple 权限、真机硬件及包的平台实现；`your_app_key` 等占位符需要合法真实配置，不在 README 写密钥 |
+| widget_test 与默认 App 不一致 | `test/widget_test.dart` 引用 GetX 生命周期示例的 MyApp，未覆盖当前形状按钮页；测试存在不表示默认入口已验收 |
+| 依赖解析漂移 | 先保存 / 比较已提交 `pubspec.lock`，大量 `any` 会在重新解析或升级时漂移；不要删除锁文件后声称可复现 |
+| 离线预览 | 默认形状按钮页不需要后端；依赖与平台工具链须预先安装。网络 / MQTT / 图片 Demo 各有外部条件，不能保证断网运行 |
+
+目录职责：`lib/` 为 App 与演示源码，`JobsByPubs/` 为本仓自有 path 包，`ios` / `android` / `macos` / `windows` / `linux` / `web` 为平台工程，`ScriptsByPods/` 管依赖安装网络模块，`ScriptsByDevTools/` 管开发入口，`FlutterDocs.md/` 与原文主体是学习资料；`.dart_tool`、平台临时目录与构建产物不属于业务规模。
+
+本节验证范围：读取已跟踪文件清单、入口源码、依赖声明与锁文件，复算静态数量，保留原有文档正文并检查新增相对路径 / 围栏 / 目录转换。不执行实际依赖安装、构建、测试、业务脚本、提交或推送；本地 Mermaid 发布形态与真实平台渲染是不同验收层，不能把静态语法检查写成真机功能通过。
 
 <a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>

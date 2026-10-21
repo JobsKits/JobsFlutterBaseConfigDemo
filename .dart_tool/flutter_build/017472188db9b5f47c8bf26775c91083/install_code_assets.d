@@ -1,0 +1,1 @@
+ /Users/jobs/Documents/Github/JobsBaseConfig/JobsBaseConfig@JobsFlutterBaseConfigDemo/.dart_tool/flutter_build/017472188db9b5f47c8bf26775c91083/native_assets.json: 

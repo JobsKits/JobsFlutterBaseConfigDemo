@@ -59,6 +59,8 @@
         "shared_preferences",
         "sqflite",
         "timezone",
+        "umeng_apm_sdk",
+        "umeng_common_sdk",
         "url_launcher",
         "vibration",
         "video_player",
@@ -71,6 +73,16 @@
         "flutter_lints",
         "flutter_test",
         "json_serializable"
+      ]
+    },
+    {
+      "name": "http",
+      "version": "1.6.0",
+      "dependencies": [
+        "async",
+        "http_parser",
+        "meta",
+        "web"
       ]
     },
     {
@@ -164,6 +176,21 @@
         "stream_channel",
         "test_api",
         "vector_math"
+      ]
+    },
+    {
+      "name": "umeng_apm_sdk",
+      "version": "2.3.7",
+      "dependencies": [
+        "flutter",
+        "http"
+      ]
+    },
+    {
+      "name": "umeng_common_sdk",
+      "version": "1.3.0",
+      "dependencies": [
+        "flutter"
       ]
     },
     {
@@ -378,16 +405,6 @@
         "meta",
         "mime",
         "path"
-      ]
-    },
-    {
-      "name": "http",
-      "version": "1.6.0",
-      "dependencies": [
-        "async",
-        "http_parser",
-        "meta",
-        "web"
       ]
     },
     {
@@ -737,6 +754,34 @@
       ]
     },
     {
+      "name": "web",
+      "version": "1.1.1",
+      "dependencies": []
+    },
+    {
+      "name": "meta",
+      "version": "1.19.0",
+      "dependencies": []
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
+      "dependencies": [
+        "collection",
+        "source_span",
+        "string_scanner",
+        "typed_data"
+      ]
+    },
+    {
+      "name": "async",
+      "version": "2.13.0",
+      "dependencies": [
+        "collection",
+        "meta"
+      ]
+    },
+    {
       "name": "source_gen",
       "version": "4.2.2",
       "dependencies": [
@@ -823,11 +868,6 @@
       ]
     },
     {
-      "name": "meta",
-      "version": "1.19.0",
-      "dependencies": []
-    },
-    {
       "name": "dart_style",
       "version": "3.1.7",
       "dependencies": [
@@ -839,14 +879,6 @@
         "pub_semver",
         "source_span",
         "yaml"
-      ]
-    },
-    {
-      "name": "async",
-      "version": "2.13.0",
-      "dependencies": [
-        "collection",
-        "meta"
       ]
     },
     {
@@ -1083,11 +1115,6 @@
       "dependencies": [
         "collection"
       ]
-    },
-    {
-      "name": "web",
-      "version": "1.1.1",
-      "dependencies": []
     },
     {
       "name": "flutter_local_notifications_platform_interface",
@@ -1491,16 +1518,6 @@
         "http_parser",
         "meta",
         "web"
-      ]
-    },
-    {
-      "name": "http_parser",
-      "version": "4.1.2",
-      "dependencies": [
-        "collection",
-        "source_span",
-        "string_scanner",
-        "typed_data"
       ]
     },
     {
@@ -1946,6 +1963,13 @@
       ]
     },
     {
+      "name": "string_scanner",
+      "version": "1.4.1",
+      "dependencies": [
+        "source_span"
+      ]
+    },
+    {
       "name": "source_span",
       "version": "1.10.2",
       "dependencies": [
@@ -1968,13 +1992,6 @@
       "version": "93.0.0",
       "dependencies": [
         "meta",
-        "source_span"
-      ]
-    },
-    {
-      "name": "string_scanner",
-      "version": "1.4.1",
-      "dependencies": [
         "source_span"
       ]
     },

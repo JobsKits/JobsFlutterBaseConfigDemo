@@ -553,6 +553,7 @@
   - [8.7、业务代码占比与复核命令](#statistics-code-share)
   - [8.8、直接依赖清单与风险](#statistics-dependencies)
   - [8.9、运行、构建、测试与常见问题](#statistics-run)
+    - [8.9.1、友盟 U-APM + 移动统计 Demo](#umeng-demo-run)
 
 </details>
 <!-- jobs-toc:end -->
@@ -2151,6 +2152,8 @@ plugins/
   Downloading darwin-x64-release tools...                          1,156ms
   Downloading darwin-x64-release/gen_snapshot tools...                4.6s
   ```
+
+* [**友盟 U-APM + 移动统计**](https://www.umeng.com/apm) 使用独立入口 `lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart`；运行、原生配置与后台验证见[友盟 Demo 运行说明](#umeng-demo-run)。默认 `lib/main.dart` 继续运行原示例。
 
 ## <span id="jobs-toc-heading-36" data-jobs-toc="v2">四、⚖️[**Flutter**](https://flutter.dev/)代码规范 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
@@ -20844,15 +20847,15 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 | --- | --- | --- | --- |
 | 语言 / 框架 | Dart / Flutter | `.fvmrc` 与 `.fvm/fvm_config.json` 均固定 Flutter `3.47.7`；该 SDK 缓存元数据记录 Dart `3.13.5`。`pubspec.yaml` 语言约束为 `>=3.3.1 <4.0.0` | `pubspec.lock` 已入库；SDK 缓存本身不作项目锁文件 |
 | SDK 管理 | [**FVM**](https://fvm.app) | 项目有 FVM 配置，FVM 命令工具自身版本未固定 | 配置已入库，无工具版本锁 |
-| Android 构建 | [**Gradle**](https://gradle.org) / AGP / [**Kotlin**](https://kotlinlang.org) | wrapper `8.12`；`settings.gradle.kts` 中 AGP `8.7.3`、Kotlin `2.1.0`；NDK `27.0.12077973` | wrapper / 构建配置已入库；未发现 Gradle dependency lock |
+| Android 构建 | [**Gradle**](https://gradle.org) / AGP / [**Kotlin**](https://kotlinlang.org) | 2026-10-21 工作区配置：wrapper `8.14`、AGP `8.11.1`、Kotlin `2.2.20`，匹配 Flutter `3.47.7` 的最低构建要求；NDK `27.0.12077973` | wrapper / 构建配置为已跟踪文件，兼容性调整尚未提交；未发现 Gradle dependency lock |
 | Android 最低支持 | Android SDK | `app/build.gradle.kts` 读取 Flutter 默认值；固定 SDK 的 `FlutterExtension.kt` 为 min `24`、compile / target `36`；源码兼容与 JVM target `11` 不等于 Gradle 运行 JDK 版本 | JDK 发行版与具体版本未固定，须以本机 doctor / 构建结果核实 |
-| Apple 构建 | [**CocoaPods**](https://cocoapods.org/) / [**Xcode**](https://developer.apple.com/xcode) | 两个 Pod 锁文件均记录 CocoaPods `1.16.2`；具体 Xcode / SDK 版本未锁定 | `ios/Podfile.lock`、`macos/Podfile.lock` 已入库 |
-| 最低系统 | iOS / macOS | `ios/Podfile` 为 `13.0`；`macos/Podfile` 为 `10.15`，最终插件最低要求仍以安装解析和构建为准 | 对应配置已入库 |
+| Apple 构建 | [**CocoaPods**](https://cocoapods.org/) / [**Xcode**](https://developer.apple.com/xcode) | 2026-10-21 iOS 锁文件记录 CocoaPods `1.17.0`，macOS 原锁文件仍为 `1.16.2`；本次 iOS 构建使用 Xcode / Simulator SDK `27.1`，工具本身未固定 | `ios/Podfile.lock`、`macos/Podfile.lock` 为已跟踪文件；iOS 友盟依赖解析结果尚未提交 |
+| 最低系统 | iOS / macOS | 2026-10-21 工作区 `ios/Podfile` 与主 target 为 `15.0`，Pod 安装 hook 同步为 `15.0` 以适配当前 Xcode 27.1；`macos/Podfile` 为 `10.15`，最终插件最低要求仍以安装解析和构建为准 | 对应文件已跟踪，工作区调整尚未提交 |
 | Web / 桌面 | 浏览器、Windows / Linux 工具链 | 存在平台模板，但浏览器最低版本、C++ 编译器与系统最低版本未统一固定 | 未发现独立工具链锁 |
 
 上表的 SDK 缓存信息来自配置所指向 SDK 的 `bin/cache/flutter.version.json`、`bin/cache/dart-sdk/version` 与 `packages/flutter_tools/gradle/src/main/kotlin/FlutterExtension.kt`，不是重新联网查得的“最新版本”。原文顶部 Flutter / Dart 徽章是历史展示值，当前构建应以上表配置为准。
 
-统计 / 核对时间：**2026-10-19**。锁文件“已入库”由 `git ls-files` 精确查询确认，不代表包管理器工具本体已被锁定，也不代表刚完成依赖安装。
+统计 / 核对时间：原基线为 **2026-10-19**，Android 构建与 iOS 最低系统配置为 **2026-10-21**。锁文件“已入库”由 `git ls-files` 精确查询确认，不代表包管理器工具本体已被锁定；友盟依赖安装结果另见[独立 Demo 验证范围](#umeng-demo-run)。
 
 ### 8.2、<span id="statistics-history">Git 历史与统计边界</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -20870,12 +20873,13 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 
 ### 8.3、<span id="statistics-pages">页面、子页面与路由</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-计数时间：**2026-10-19**；单位选用**页面组件**，只统计当前默认入口实际装配的全屏根内容，不把控件、Demo 片段、半屏、弹层、浮层或未接入的样例算页面。跨端共用同一套 Dart 页面，平台数不乘进页面总数。
+计数时间：默认与备用入口为 **2026-10-19**，友盟独立入口为 **2026-10-21**；单位选用**页面组件**，按每个入口实际装配的全屏根内容分别计数，不把控件、Demo 片段、半屏、弹层、浮层或未接入的样例算页面。跨端共用同一套 Dart 页面，平台数不乘进页面总数。
 
 | 端 / 入口 | 页面数（含子页） | 子页面数 | 路由数 | 依据 |
 | --- | ---: | ---: | ---: | --- |
 | iOS / Android / Web / macOS / Windows / Linux，共用 `lib/main.dart` | 1 | 0 | 0 条命名路由 | `main()` 直接运行 `JobsMaterialRunner(Column(...))`；当前内容为形状按钮示例，未装配 `AppPages` |
 | 备用架构 `lib/mainss.dart`，不并入默认入口 | 2 | 1 | 2 | `lib/routes/app_pages.dart` 的 `/` 与 `/home`；启动页和首页组件，由 `mainss.dart` 的 `GetMaterialApp` 配置 |
+| 友盟独立入口 `lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart`，不并入默认入口 | 2 | 1 | 2 个实际页面路由 | `MaterialApp.home` 的 `/` 与手动压入的 `/umeng/detail`；Android / iOS 执行 SDK，Web / 桌面仅预览界面，鸿蒙宿主尚未适配 |
 
 `GetPage` 路由只是备用架构的静态注册；`lib/JobsDemoTools/` 中的独立 `main()`、演示组件及未验证示例不构成默认 App 的可达页面。平台目录存在代表模板覆盖，不能代替六个平台启动验收。没有独立 H5 容器进入默认入口，相关 WebView Demo 不计入上述数字。
 
@@ -20911,6 +20915,12 @@ flowchart LR
     G --> H["lib/pages/splash 与 home"]
     F --> I["theme_service.dart / lang_service.dart"]
     I --> J["SharedPreferences 本机持久化"]
+    U["独立 Umeng/umeng_demo.dart"] --> V["umeng_demo_page.dart / service.dart"]
+    V --> W["umeng_demo_sdk_client.dart"]
+    W --> N["Android / iOS：sdk_native.dart"]
+    W --> S["Web：sdk_stub.dart 仅预览"]
+    N --> P["umeng_common_sdk / umeng_apm_sdk"]
+    P --> Q[["友盟后台：外部边界，接收待确认"]]
 ```
 
 ```mermaid
@@ -20924,7 +20934,21 @@ flowchart TD
     G --> C
 ```
 
-默认流程不经过统一 API 初始化、路由注册或后端请求；`app_initializer.dart`、`mainss.dart` 与网络 Demo 是独立可复用入口，不能画成当前 `main.dart` 的既有调用链。本仓无 `.codegraph/`，图按源码核实，未主动建图。
+默认流程不经过统一 API 初始化、路由注册或后端请求；`app_initializer.dart`、`mainss.dart`、友盟与网络 Demo 是独立入口，不能画成当前 `main.dart` 的既有调用链。默认流程图沿用源码基线；友盟分支按当前源码与已有 CodeGraph 定位结果核对。
+
+```mermaid
+flowchart TD
+    U["Umeng/umeng_demo.dart：独立启动"] --> P["umeng_demo_page.dart：隐私说明"]
+    P --> C{"用户同意并点击初始化？"}
+    C -->|否| V["仅显示界面，不调用统计与异常 SDK"]
+    C -->|是| S["service.dart：检查平台与插件"]
+    S -->|不支持或检查失败| R["显示原因，支持平台可重试"]
+    S -->|Android / iOS| I["sdk_native.dart：Common 初始化 / U-APM 异常探针"]
+    I --> E["事件 / 测试账号 / 页面起止 / 三类异常测试"]
+    E --> L["本机调用日志：清空 / 重新加载"]
+    E --> B[["友盟 SDK 上传策略与后台采样"]]
+    B --> T["在友盟控制台独立确认接收"]
+```
 
 ### 8.6、<span id="statistics-features">功能实现与证据</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -20936,7 +20960,7 @@ flowchart TD
 | 持久化 / 数据库 / 缓存 | 示例涉及 | `本地数据存取/`、`数据库操作/FMDB_Demo.dart` 与 shared_preferences / sqflite；缓存为 flutter_cache_manager / cached_network_image。迁移策略与生产数据库版本未形成统一基线，具体锁版见依赖表 |
 | 端能力 | 多项示例 | 当前默认页使用 vibration；camera / image_picker / video_player / audioplayers / flutter_plugin_engagelab / flutter_local_notifications 已声明，运行权限、推送厂商 Key 仍需按平台配置。蓝牙、生物识别、NFC、支付不因包清单缺失或注释而视为交付 |
 | 国际化 / 主题 | 已有备用架构 | `lib/services/lang_service.dart`、`theme_service.dart`、`notifier/locale_notifier.dart`、`assets/i18n/`；当前形状按钮页没有装配该完整壳 |
-| 工程 / 监控 / 热更新 | 部分涉及 | FVM、各平台目录、CocoaPods 网络选路与 ScriptsByDevTools；flutter_phoenix 是本地 Widget 重建能力，不等于远程代码热更新；CI、集中埋点和生产崩溃上报未核验 |
+| 工程 / 监控 / 热更新 | 部分涉及 | FVM、各平台目录、CocoaPods 网络选路与 ScriptsByDevTools；友盟独立 Demo（2026-10-21）提供 U-App 事件 / 账号 / 页面时长及 U-APM 主动捕获、框架与异步异常测试，后台接收仍待确认；flutter_phoenix 是本地 Widget 重建能力，不等于远程代码热更新；CI 与生产监控未核验 |
 | API 回退 / 列表空态 | 按示例核验 | 默认页无动态列表或 API；JobsRefreshByPub 提供刷新加载组件，不能据此宣称所有独立示例都统一实现服务端优先与失败回退 |
 | 后端能力 | 不适用 | 本仓不交付幂等、限流、熔断、分布式锁、事务或对账后台；客户端例子不构成后端验收 |
 | 隐私 / 权限 / 脱敏 | 平台配置存在，完整性待验 | 查看 `ios/Runner/Info.plist` 与 `android/app/src/main/AndroidManifest.xml`；未完成隐私清单、全部日志 / 数据脱敏及商店发布审计 |
@@ -21017,11 +21041,13 @@ for category, (files, lines) in sorted(totals.items()):
 PY_STATS
 ```
 
+**2026-10-21 工作区补记**：`lib/JobsDemoTools/Data/Data.3rd/Umeng/` 的 7 个自维护 Dart 文件共 1,050 物理行，`test/umeng_demo_test.dart` 为 1 个测试文件、370 物理行；按读取文件的 `splitlines()` 等价口径计算，含空行与注释。这些新增文件尚未进入上述 `git ls-files` 基线，补记只统计友盟 Dart 模块与其测试，不与原饼图混算，也不代表全仓规模已经重算。
+
 ### 8.8、<span id="statistics-dependencies">直接依赖清单与风险</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-统计时间：**2026-10-19**。以根 `pubspec.yaml` 中未注释的 `dependencies` / `dev_dependencies` 名称去重：共 **62 项直接声明**，其中运行依赖 57、开发依赖 5；按来源为 56 项 pub.dev、3 项 SDK、3 项本仓 path 包。只列根工程直接依赖；插件的平台实现和其他传递依赖不加入总数，三个 path 包自身的依赖也不重复累加。
+统计时间：**2026-10-21**。以根 `pubspec.yaml` 中未注释的 `dependencies` / `dev_dependencies` 名称去重：共 **64 项直接声明**，其中运行依赖 59、开发依赖 5；按来源为 58 项 pub.dev、3 项 SDK、3 项本仓 path 包。只列根工程直接依赖；`dependency_overrides.http` 是既有直接依赖的解析约束，不重复计数；插件的平台实现和其他传递依赖不加入总数，三个 path 包自身的依赖也不重复累加。
 
-版本来自已入库 `pubspec.lock`；许可证来自当前 package_config 所指向的同版本包 `LICENSE`，BSD 家族的精确条款未逐项法律复核，SDK 子包没有单独许可证时标记待核实。来源地址为 pub.dev 对应包详情或本仓 path；没有发现明确远程私有仓声明，不能把本地 path 假称为私库地址。使用证据仅查自维护业务与测试的静态 package import / export，注释和动态加载、平台注册、构建工具执行不等价。
+版本来自工作区 `pubspec.lock`：原依赖沿用 2026-10-19 基线，友盟两项由 2026-10-21 的 `pub get` 解析加入，尚未提交。许可证来自当前 package_config 所指向的同版本包 `LICENSE`，BSD 家族的精确条款未逐项法律复核，SDK 子包没有单独许可证时标记待核实。来源地址为 pub.dev 对应包详情或本仓 path；没有发现明确远程私有仓声明，不能把本地 path 假称为私库地址。使用证据仅查自维护业务与测试的静态 package import / export，注释和动态加载、平台注册、构建工具执行不等价。
 
 | 依赖名 | 锁定版本 / 声明 | 来源 | 地址 / 本地位置 | 许可证 | 关系 | 用途模块 | 使用证据 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -21062,7 +21088,9 @@ PY_STATS
 | bloc | 9.2.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/bloc) | MIT | 直接 | 用于管理应用状态 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/CounterBloc.dart` |
 | flutter_bloc | 9.1.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_bloc) | MIT | 直接 | 用于管理应用状态 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/BLoC.dart` |
 | dart_ping_ios | 4.0.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/dart_ping_ios) | BSD（条款版本待核实） | 直接 | 用途待核实 | 源码引用 `lib/mainss.dart` |
-| http | 1.6.0；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/http) | BSD（条款版本待核实） | 直接 | 用于网络请求 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/shared/demo_http.dart` |
+| http | 1.6.0；声明 `any`，override 精确 `1.6.0` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/http) | BSD（条款版本待核实） | 直接 | 网络请求与 U-APM 兼容 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/shared/demo_http.dart`；override 适配 U-APM 的旧 `^0.13.1` 约束 |
+| umeng_common_sdk | 1.3.0；精确声明 `1.3.0` | 友盟官方公库 pub.dev | [pub.dev](https://pub.dev/packages/umeng_common_sdk/versions/1.3.0) | 待确认；发布包 LICENSE 仅为 `Add your license here.` | 直接 | U-App 移动统计 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_sdk_native.dart`；独立入口使用 |
+| umeng_apm_sdk | 2.3.7；精确声明 `2.3.7` | 友盟官方公库 pub.dev | [pub.dev](https://pub.dev/packages/umeng_apm_sdk/versions/2.3.7) | 待确认；发布包 LICENSE 仅为 `Add your license here.` | 直接 | U-APM 异常监控 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_sdk_native.dart`；独立入口使用 |
 | dio | 5.9.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/dio) | MIT | 直接 | 用于网络请求 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/dio_demo_page.dart` |
 | mqtt_client | 10.11.9；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/mqtt_client) | MIT | 直接 | 用于连接MQTT服务器 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo1/mqtt_manager.dart` |
 | sqflite | 2.4.2；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/sqflite) | BSD（条款版本待核实） | 直接 | 用于本地数据库 | 源码引用 `lib/JobsDemoTools/Data/Data.3rd/数据库操作/FMDB_Demo.dart` |
@@ -21088,7 +21116,7 @@ PY_STATS
 | json_serializable | 6.13.1；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/json_serializable) | BSD（条款版本待核实） | 直接（开发） | 用途待核实 | 开发工具；执行覆盖待核实 |
 | built_value_generator | 8.12.4；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/built_value_generator) | BSD（条款版本待核实） | 直接（开发） | 用于生成序列化/反序列化代码 | 开发工具；执行覆盖待核实 |
 
-风险与处置：55 项声明使用 `any`，只有 audioplayers 使用 `^5.2.1`，其余 SDK / path 也未锁住工具与本地源码内容；已提交 lock 能限制常规解析结果，不能保证升级 / 重新解算后相同。`jobs_runners` 未发现 LICENSE，flutter_plugin_engagelab 的许可未从本地文件确认；其余待核实项应在商业发布前逐项补齐。依赖是否归档、停止维护或有已知漏洞未做联网审计，状态统一待核实，不能写成“无漏洞 / 无 GPL 风险”。
+风险与处置：55 项声明使用 `any`，audioplayers 使用 `^5.2.1`，友盟两项精确锁版；其中 http 另由 override 固定解析版本。其余 SDK / path 未锁住工具与本地源码内容；lock 能限制常规解析结果，不能保证升级 / 重新解算后相同。`jobs_runners` 未发现 LICENSE，flutter_plugin_engagelab 的许可未从本地文件确认；友盟两项发布包 LICENSE 未给出有效许可文本，需向官方确认，不能据此标成 MIT / Apache。其余待核实项应在商业发布前逐项补齐。依赖是否归档、停止维护或有已知漏洞未做完整联网审计，状态待核实，不能写成“无漏洞 / 无 GPL 风险”。
 
 ### 8.9、<span id="statistics-run">运行、构建、测试与常见问题</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -21121,6 +21149,59 @@ fvm flutter build ios \
 
 目录职责：`lib/` 为 App 与演示源码，`JobsByPubs/` 为本仓自有 path 包，`ios` / `android` / `macos` / `windows` / `linux` / `web` 为平台工程，`ScriptsByPods/` 管依赖安装网络模块，`ScriptsByDevTools/` 管开发入口，`FlutterDocs.md/` 与原文主体是学习资料；`.dart_tool`、平台临时目录与构建产物不属于业务规模。
 
-本节验证范围：读取已跟踪文件清单、入口源码、依赖声明与锁文件，复算静态数量，保留原有文档正文并检查新增相对路径 / 围栏 / 目录转换。不执行实际依赖安装、构建、测试、业务脚本、提交或推送；本地 Mermaid 发布形态与真实平台渲染是不同验收层，不能把静态语法检查写成真机功能通过。
+#### 8.9.1、<span id="umeng-demo-run">友盟 U-APM + 移动统计 Demo</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+入口为 [`lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart`](./lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart)，默认 `lib/main.dart` 保持原示例。也可以在 `.vscode/launch.json` 选择“友盟 U-APM + 移动统计 Demo”启动。该页通过官方 Flutter 插件演示友盟 U-App 与 U-APM，异常监控使用 U-APM；[**腾讯 Bugly**](https://bugly.qq.com/) 是另一套产品，不能使用友盟 AppKey 初始化。
+
+1、从仓库根安装依赖。运行 iOS 前，在 `ios/` 安装原生插件依赖；此步骤会联网并更新 Pods / 锁文件，按该目录既有 Podfile 网络选路执行。
+
+  ```shell
+  fvm flutter pub get
+  (
+    cd ios
+    JOBS_SPECS_SOURCE=cdn pod install
+  )
+  fvm flutter devices
+  JOBS_SPECS_SOURCE=cdn fvm flutter run \
+    -t lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart
+  ```
+
+  此 Demo 的启动配置及上述命令只为当前安装 / 启动进程固定官方 CDN Specs，避免自动选中缺少锁定 UMAPM 版本的本地 Git Specs；不修改全局源或代理。
+
+2、在 Android 或 iOS 页面中阅读演示隐私说明，勾选同意后点击初始化；授权前不正式初始化 Common，也不创建异常采集探针。同意状态仅用于当前演示进程，正式 App 应接入自己的隐私政策与持久授权流程。初始化检查失败可以重试；日志中的“已调用”只说明已交给 SDK，后台接收状态需单独确认。
+
+3、依次验证“发送自定义事件”、测试账号登录 / 退出、进入统计子页后返回，以及主动捕获、Flutter 框架、异步三类异常。测试账号固定为 `test_user_001`；测试按钮不会故意终止进程，调试器在异常处暂停时继续运行即可。页面进入 / 退出及切到后台 / 回到前台会配对发送手动页面统计。
+
+4、在对应平台的友盟应用控制台登记自定义事件 `demo_button_click`，检查属性 `source`、`click_count`、`channel`。使用控制台集成测试设备与实时日志验证统计，再到 U-APM 的 Flutter 异常列表确认测试记录；采样、网络及云端开关会影响数据是否出现，不能把界面日志当成服务端验收。
+
+  | 配置 / 文件 | 行为与维护边界 |
+  | --- | --- |
+  | `umeng_demo_config.dart` | 保留 Android / iOS / 鸿蒙三个 AppKey；渠道 `JobsFlutterDemo`，应用版本含构建号 `1.0.0+1`。修改版本时与 `pubspec.yaml` 对齐；平台 Key 应匹配控制台的包名 / Bundle ID |
+  | `umeng_demo.dart` / `umeng_demo_page.dart` | 独立页面壳、白天 / 黑夜 / 跟随系统及 `/umeng/detail` 子页；不接入默认入口 |
+  | `umeng_demo_service.dart` / `umeng_demo_sdk_client.dart` | 授权、初始化防重、事件 / 账号 / 页面统计、异常与本机日志；SDK 接口可注入测试替身 |
+  | `umeng_demo_sdk_native.dart` / `umeng_demo_sdk_stub.dart` | 条件导入隔离原生 SDK 的 `dart:io` 依赖；Android / iOS 执行 SDK，其它端只展示不支持状态 |
+  | `pubspec.yaml` / `pubspec.lock` | 固定 `umeng_common_sdk 1.3.0`、`umeng_apm_sdk 2.3.7`；`http` override 为既有 `1.6.0`，避免 U-APM 的旧 `^0.13.1` 约束导致冲突。Common 1.3.1 发布包包含重复原生插件实现，当前使用 1.3.0 |
+  | `android/app/build.gradle.kts` / `JobsUmengApplication.kt` | 宿主约束 Common `9.9.9`、ASMS `1.8.7.2`，APM 原生依赖为 `2.0.1`；`desugar_jdk_libs 2.1.4` 满足现有通知插件要求。Application 仅配置 Java / Native 崩溃、ANR 和 Flutter 监控并预初始化，关闭其它性能模块；Key / 渠道需与 Dart 配置一致，正式初始化由页面同意操作触发 |
+  | `android/settings.gradle.kts` / `android/gradle/wrapper/gradle-wrapper.properties` | AGP `8.11.1`、Gradle `8.14`、Kotlin `2.2.20`，满足固定 Flutter `3.47.7` 的构建兼容要求，不跳过依赖版本校验；最终构建结果仍以实际日志为准 |
+  | `ios/Runner/AppDelegate.swift` / `Runner-Bridging-Header.h` / `ios/Podfile` | 初始化前配置原生崩溃 / 卡顿开关；关闭启动、内存、OOM、网络、H5、原生页面与日志回捞模块；不在宿主提前调用 Common 正式初始化。Podfile 将 Common 插件的模拟器架构设为 `arm64 x86_64`，并将 Pod 最低系统对齐主 target 的 `15.0`；不修改第三方源码。已解析 UMCommon `7.7.0`、UMDevice `3.6.0`、UMAPM `2.1.7` |
+
+调试模式的 U-APM 环境为 `Dev`，release 模式为 `Release`；当前只验证异常探针与 U-App 手动页面统计，未开启 Flutter FPS、页面性能或全局网络探针，也未验收 U-APM Flutter 页面 PV / 错误率。分析后台时选择正确环境、应用版本与构建号；需要定位发布版堆栈时，按[官方 Flutter 接入文档](https://devs.umeng.com/docs/193624/detail/2521038)上传对应版本的符号表并保留该构建产物，不用其它版本符号表替代。
+
+Web 界面预览与本模块检查命令如下。Web 只展示页面与统计子页，不执行原生 SDK；鸿蒙 AppKey 已保留，但没有 `ohos/` 宿主，当前版本不能据此认定鸿蒙已接通。
+
+```shell
+fvm flutter run -d chrome \
+  -t lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart
+fvm flutter analyze \
+  lib/JobsDemoTools/Data/Data.3rd/Umeng \
+  test/umeng_demo_test.dart
+fvm flutter test test/umeng_demo_test.dart
+```
+
+本 Demo 没有自建业务 API，也没有远程图片；不构造假的上传成功响应。调用日志提供空态、清空和重新加载，重新加载只刷新本机记录，不查询后台、不重发事件。工具链与依赖已安装时可以离线预览页面；断网后的缓存、重试与补报受 SDK 策略控制，Dart 异常不保证跨进程保留，最终上传以友盟控制台为准。
+
+验证范围（2026-10-21）：友盟插件依赖解析、iOS `pod install`、本模块定向静态分析与 10 项测试通过。Android Debug APK 完整构建通过，默认环境增量复验也通过；最终包的 SDK 版本、Application、正常网络权限和 ARM 原生崩溃库已核验，没有引入 `READ_PHONE_STATE`。iOS 在 Xcode 27.1 完成整个模拟器 Debug App 构建并安装至 iPhone 18 Pro 模拟器，AppDelegate / 桥接头与两个友盟 Pod target 也分别通过类型检查 / arm64 编译。模拟器窗口自动操作未能连接，未验收原生页面交互。Web debug 完整构建通过，并在浏览器检查浅色 / 深色切换与页面截图；Web 不执行原生 SDK。真机上传与友盟控制台接收状态仍待验证；测试替身只验证客户端控制流程，不代表真实 SDK 已上传。Android 原生崩溃应使用 ARM 设备验证，当前官方 APM AAR 不含 x86_64 崩溃库。参考：[官方 Common Flutter 文档](https://devs.umeng.com/docs/119267/detail/174923)、[U-APM Flutter 文档](https://devs.umeng.com/docs/193624/detail/2521038)、[iOS 原生配置](https://devs.umeng.com/docs/193624/detail/194595)。
+
+2026-10-19 统计基线的验证范围：读取已跟踪文件清单、入口源码、依赖声明与锁文件，复算静态数量，保留原有文档正文并检查新增相对路径 / 围栏 / 目录转换；该统计过程未执行实际依赖安装、构建、测试、业务脚本、提交或推送。友盟独立模块的验证范围见上文；本地 Mermaid 发布形态与真实平台渲染是不同验收层，不能把静态语法检查写成真机功能通过。
 
 <a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>

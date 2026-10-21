@@ -18,6 +18,18 @@
       //   "JAVA_HOME": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
       //   "PATH": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home/bin:${env:PATH}"
       // }
+    },
+    {
+      "name": "友盟 U-APM + 移动统计 Demo",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart",
+      "env": {
+        "JOBS_SPECS_SOURCE": "cdn"
+      },
+      "flutterMode": "debug",
+      "debugSdkLibraries": false,
+      "debugExternalLibraries": false
     }
     // {
     //     "request": "launch",

@@ -59,7 +59,17 @@ android {
 
 dependencies {
     // ✅ 添加 desugaring 支持库（必须写在外面）
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+
+    // 官方 Flutter 插件使用动态版本，在宿主固定最终 APK 的 SDK 版本。
+    constraints {
+        implementation("com.umeng.umsdk:common:9.9.9") {
+            version { strictly("9.9.9") }
+        }
+        implementation("com.umeng.umsdk:asms:1.8.7.2") {
+            version { strictly("1.8.7.2") }
+        }
+    }
 }
 
 flutter {

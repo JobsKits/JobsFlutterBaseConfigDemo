@@ -60,9 +60,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   DartPingIOS.register();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]).then((_) async {
+  SystemChrome.setPreferredOrientations([]).then((_) async {
     WakelockPlus.enable();
     Get.put(AppLifecycleCtrl()); // 注册生命周期监听
 
@@ -70,14 +68,14 @@ Future<void> main() async {
     final AppNavigatorObserver appNavigatorObserver = AppNavigatorObserver();
 
     runZonedGuarded(() {
-      /// 设置应用的屏幕方向为竖屏。
-      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-          .then((_) {
+      /// 跟随宿主声明的支持方向，开合设备时按当前窗口重新布局。
+      SystemChrome.setPreferredOrientations([]).then((_) {
         runApp(
           ScreenUtilInit(
             designSize: const Size(1125, 2436), // 目前给到的设计图尺寸，如有变动，后续再改
             minTextAdapt: true,
             splitScreenMode: true,
+            rebuildFactor: RebuildFactors.change,
             builder: (context, child) {
               return GetMaterialApp(
                   debugShowCheckedModeBanner: false,
@@ -119,8 +117,7 @@ Future<void> main() async {
 
   await AppInitializer.init();
 
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
+  SystemChrome.setPreferredOrientations([]).then((_) {
     runApp(
       MultiProvider(
         providers: [

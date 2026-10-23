@@ -554,6 +554,9 @@
   - [8.8、直接依赖清单与风险](#statistics-dependencies)
   - [8.9、运行、构建、测试与常见问题](#statistics-run)
     - [8.9.1、友盟 U-APM + 移动统计 Demo](#umeng-demo-run)
+- [九、iPhone Duo 与运行中窗口变化](#iphone-duo-layout)
+  - [9.1、实际处理与保留边界](#iphone-duo-coverage)
+  - [9.2、验证与设备验收](#iphone-duo-validation)
 
 </details>
 <!-- jobs-toc:end -->
@@ -21203,5 +21206,42 @@ fvm flutter test test/umeng_demo_test.dart
 验证范围（2026-10-21）：友盟插件依赖解析、iOS `pod install`、本模块定向静态分析与 10 项测试通过。Android Debug APK 完整构建通过，默认环境增量复验也通过；最终包的 SDK 版本、Application、正常网络权限和 ARM 原生崩溃库已核验，没有引入 `READ_PHONE_STATE`。iOS 在 Xcode 27.1 完成整个模拟器 Debug App 构建并安装至 iPhone 18 Pro 模拟器，AppDelegate / 桥接头与两个友盟 Pod target 也分别通过类型检查 / arm64 编译。模拟器窗口自动操作未能连接，未验收原生页面交互。Web debug 完整构建通过，并在浏览器检查浅色 / 深色切换与页面截图；Web 不执行原生 SDK。真机上传与友盟控制台接收状态仍待验证；测试替身只验证客户端控制流程，不代表真实 SDK 已上传。Android 原生崩溃应使用 ARM 设备验证，当前官方 APM AAR 不含 x86_64 崩溃库。参考：[官方 Common Flutter 文档](https://devs.umeng.com/docs/119267/detail/174923)、[U-APM Flutter 文档](https://devs.umeng.com/docs/193624/detail/2521038)、[iOS 原生配置](https://devs.umeng.com/docs/193624/detail/194595)。
 
 2026-10-19 统计基线的验证范围：读取已跟踪文件清单、入口源码、依赖声明与锁文件，复算静态数量，保留原有文档正文并检查新增相对路径 / 围栏 / 目录转换；该统计过程未执行实际依赖安装、构建、测试、业务脚本、提交或推送。友盟独立模块的验证范围见上文；本地 Mermaid 发布形态与真实平台渲染是不同验收层，不能把静态语法检查写成真机功能通过。
+
+## 九、<span id="iphone-duo-layout">iPhone Duo 与运行中窗口变化</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+工程提供按当前窗口重排、逐边安全区、键盘避让和窄矮窗口滚动的保守适配。原生宿主仍须使用 [**Xcode**](https://developer.apple.com/xcode/) 27.1 / iOS 27.1 SDK 重新构建，并在 iPhone Duo 模拟器或真机验收；Dart 测试通过不代表已经完成原生折叠姿态验收。参考 [Apple Prepare 指南](https://developer.apple.com/iphone-duo/prepare/)。
+
+### 9.1、<span id="iphone-duo-coverage">实际处理与保留边界</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+| 文件 / 范围 | 旧写法 → 当前行为 / 保留原因 |
+| --- | --- |
+| `JobsByPubs/JobsRunnersByPub/lib/src/jobs_material_runner.dart`、`jobs_get_runner.dart`、`jobs_cupertino_runner.dart` | 所有壳启用 `splitScreenMode` 并响应 `MediaQueryData` 变化；body 逐边使用 `SafeArea`，`builder` 收到已消费安全区后的局部 context。保留页面 Element 与导航状态，不通过更换 Key 重启页面 |
+| `lib/JobsDemoTools/JobsFlutterTools/JobsFlutterTool.dart` | 替换全局 `onMetricsChanged` / `views.first`；`JobsScreenListener(context)` 监听所属 `FlutterView`，返回取消函数供 `dispose` 调用，不覆盖 Flutter 的布局刷新回调。仓内没有旧签名调用方 |
+| `lib/JobsDemoTools/JobsFlutterTools/JobsSafeArea/JobsSmartSafeArea.dart`、`JobsSafeArea.dart` | 祖先存在 `SafeArea` 就跳过 → 按当前 MediaQuery 逐边消费；支持仅消费部分边的嵌套。Scaffold 默认保留键盘避让，自定义底栏同样避让左右和底部 |
+| `lib/main.dart` | 形状按钮入口可在窄矮窗口滚动，保留原交互与绘制 |
+| `lib/mainss.dart` | 取消 Dart 层三处强制竖屏，跟随宿主声明的支持方向；保留原备用入口装配与初始化流程 |
+| `lib/pages/splash/splash_page.dart`、`splash_view.dart` | ScreenUtil 适应分屏与 inset 变化；导航计时器在 State 初始化并在释放时取消，尺寸重建不再重复排队跳转 |
+| `lib/JobsDemoTools/JobsFlutterTools/JobsWebView/JobsWebViewWidget.dart` | 全局 `Get.context` 首次高度写进 HTML → 网页按自身 `100vh` / `100dvh` 视口限制图片，保留比例与主体，resize 无须重载网页 |
+| `lib/JobsDemoTools/JobsFlutterTools/广告轮播图/JobsBannerCarousel.dart` | 按所在容器约束实时计算轮播尺寸，保持当前页；图片默认 `BoxFit.contain` 保留主体，明确需要裁切时由 `imageFit` 指定；独立入口逐边避让 |
+| `lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart` | 三个独立入口启用 ScreenUtil 分屏与 MediaQuery 变化刷新；表格已有 LayoutBuilder 与当前 context 像素对齐，继续保留 |
+| `lib/JobsDemoTools/UI/UI.Origin🌍/动画过渡UI/AnimatedDemo.dart` | 全屏宽高定位 → 每帧布局按 body 的局部约束重算并限制在可用范围内，保留展开 / 收起状态 |
+| `lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/PageViewDemo.dart` | 移除子页全屏宽高，让 PageView 按当前局部 viewport 约束铺满；滚动方向通过 `isVertical` 参数选择 |
+| `lib/JobsDemoTools/UI/UI.Origin🌍/Overlay/JobsOverlay.dart`、`❤️页面布局示例❤️/Overlay/Overlay.dart` | 全屏坐标固定定位 → 按 Overlay 当前约束、逐边安全区、最大内容宽度与滚动布局，释放页面时移除浮层 |
+| `lib/JobsDemoTools/UI/UI.Origin🌍/弹出框/弹出框@GridView.dart`、`弹出框@表格.dart` | 去除全屏宽度减常量，按安全区内最大宽高约束弹层；网格按当前可用宽度决定列数，关闭按钮留在可见区域 |
+| `ios/Runner/Info.plist`、`ios/Runner.xcodeproj/project.pbxproj`、`ios/Flutter/*.xcconfig`、`ios/Runner/AppDelegate.swift` | 只读核对：已有 `LaunchScreen`；iPad 四个方向齐全；没有 `UIRequiresFullScreen`；已使用 `FlutterSceneDelegate` 和隐式引擎注册。无须修改或再次迁移 |
+| 其它 `MediaQuery`、`SafeArea` 和组件固定尺寸 | 已按命中反扫；实时读取当前 context 的键盘 / 字体 / DPR、系统 SafeArea 包装和控件设计尺寸继续保留。设计稿 `1125 × 2436` 是缩放参考，不是设备识别表 |
+
+Flutter 层没有原生 `reservedRegions` / 铰链桥接，不能据 `displayFeatures` 为空认定没有折痕或遮挡。本仓完成窗口与 inset 的保守重排，没有把铰链角度用于布局，也不宣称已支持折痕分区、内外屏双屏预览或多窗口；`UIApplicationSupportsMultipleScenes` 继续保持 `false`。第三方、Pods、生成工程和未确认归属的源码未修改。
+
+### 9.2、<span id="iphone-duo-validation">验证与设备验收</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+2026-10-23 使用本仓固定 Flutter `3.47.7` / Dart `3.13.5` 完成定向检查，新增测试入口为 [`test/iphone_duo_layout_test.dart`](./test/iphone_duo_layout_test.dart)。11 项测试覆盖同一页面反复 resize、三种 Runner 的页面 Element 保留、不对称 inset 左右互换、部分嵌套、键盘与底栏、全局 metrics 回调保留、轮播当前页与局部尺寸、默认入口滚动、动画及两类弹层；均通过。变更 Dart 文件逐文件 `dart analyze` 无 error / warning；没有增加依赖或页面路由。新增测试单独统计，不并入上文 2026-10-19 的历史规模基线。
+
+```shell
+fvm flutter test --no-pub test/iphone_duo_layout_test.dart
+dart analyze test/iphone_duo_layout_test.dart
+```
+
+待设备验收：外屏与展开内屏之间连续切换、半折如书 / 桌面姿态、左右分屏各一次、极窄 / 极矮窗口、键盘开合、返回栈 / 输入 / 滚动位置保留、明暗与辅助字号，以及系统保留区附近的实际触控。仅靠通用 Flutter viewport 和 safe area 不能证明所有关键控件已避开 Duo 原生保留区；折痕增强需要后续接入已验证的原生桥。当前未执行 iOS 构建、Duo 模拟器 / 真机操作或上架截图提交。
 
 <a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>

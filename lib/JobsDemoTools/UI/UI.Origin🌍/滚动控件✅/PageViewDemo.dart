@@ -11,21 +11,16 @@ void main() =>
     runApp(const JobsMaterialRunner(PageViewDemo(), title: 'PageView Demo'));
 
 class PageViewDemo extends StatelessWidget {
-  const PageViewDemo({super.key});
+  const PageViewDemo({super.key, this.isVertical = true});
+  final bool isVertical;
   @override
   Widget build(BuildContext context) {
-    const isVertical = true; // 设置为 true 以垂直滚动
-    // const isVertical = false; // 设置为 false 以水平滚动
     return PageView(
       scrollDirection: isVertical ? Axis.vertical : Axis.horizontal,
       pageSnapping: true,
       children: List.generate(
         3,
         (index) => Container(
-          width:
-              isVertical ? double.infinity : MediaQuery.of(context).size.width,
-          height:
-              isVertical ? MediaQuery.of(context).size.height : double.infinity,
           color: index % 2 == 0 ? Colors.red : Colors.blue,
           child: Center(
             child: Text('Page ${index + 1}'),

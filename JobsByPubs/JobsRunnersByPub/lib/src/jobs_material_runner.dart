@@ -30,6 +30,8 @@ class JobsMaterialRunner extends StatelessWidget {
   Widget build(BuildContext context) => ScreenUtilInit(
         designSize: const Size(1125, 2436),
         minTextAdapt: true,
+        splitScreenMode: true,
+        rebuildFactor: RebuildFactors.change,
         child: child,
         builder: (context, _) => MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -56,10 +58,14 @@ class JobsMaterialRunner extends StatelessWidget {
                 title:
                     Text(title ?? (child?.runtimeType.toString() ?? 'Builder')),
               ),
-              body: Center(
-                child: builder != null
-                    ? builder!(ctx)
-                    : child ?? Text('请传入 child 或 builder'.tr),
+              body: SafeArea(
+                child: Builder(
+                  builder: (safeContext) => Center(
+                    child: builder != null
+                        ? builder!(safeContext)
+                        : child ?? Text('请传入 child 或 builder'.tr),
+                  ),
+                ),
               ),
             ),
           ),

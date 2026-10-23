@@ -57,6 +57,8 @@ class JobsGetRunner extends StatelessWidget {
   Widget build(BuildContext context) => ScreenUtilInit(
         designSize: const Size(1125, 2436),
         minTextAdapt: true,
+        splitScreenMode: true,
+        rebuildFactor: RebuildFactors.change,
         builder: (context, _) => GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: title ?? 'GetX Demo'.tr,
@@ -70,9 +72,14 @@ class JobsGetRunner extends StatelessWidget {
                   title ?? (child?.runtimeType.toString() ?? 'Builder'.tr),
                 ),
               ),
-              body: builder != null
-                  ? builder!(ctx)
-                  : child ?? Center(child: Text('请传入 child 或 builder'.tr)),
+              body: SafeArea(
+                child: Builder(
+                  builder: (safeContext) =>
+                      builder?.call(safeContext) ??
+                      child ??
+                      Center(child: Text('请传入 child 或 builder'.tr)),
+                ),
+              ),
             ),
           ),
         ),

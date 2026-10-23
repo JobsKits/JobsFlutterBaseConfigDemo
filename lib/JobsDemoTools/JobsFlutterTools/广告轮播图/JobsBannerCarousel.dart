@@ -11,30 +11,33 @@ void main() {
     ScreenUtilInit(
       designSize: const Size(1125, 2436), // ← 设计稿尺寸
       minTextAdapt: true,
+      splitScreenMode: true,
+      rebuildFactor: RebuildFactors.change,
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: '广告轮播图',
           home: Scaffold(
             appBar: AppBar(title: const Text('广告轮播图')),
-            body: Center(
-              child: JobsBannerCarousel(
-                width: ScreenUtil().screenWidth,
-                height: 455.h,
-                imageUrls: const [
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNaXM5FNZC7-9FDVh9mMMglZv5cuoPAw-6MA&s',
-                  'https://jzmofficial.com/cdn/shop/files/Logo_1200x1200.jpg?v=1624577059',
-                  'https://static.vecteezy.com/system/resources/previews/009/125/398/non_2x/jzm-logo-jzm-letter-jzm-letter-logo-design-initials-jzm-logo-linked-with-circle-and-uppercase-monogram-logo-jzm-typography-for-technology-business-and-real-estate-brand-vector.jpg',
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdsn8QSHQxKyWpG6Qy2ngPM0hQMffP-DYo0FvNbwhx_EYmfl-EeYSZ4g8&s',
-                ],
-                viewportFraction: 1,
-                netImageBuilder: cachedNetImageBuilder,
-                emptyBuilder: (ctx) => Center(
-                  child: JobsEmptyHint(onRetry: () {
-                    debugPrint("外部触发刷新逻辑");
-                  }),
+            body: SafeArea(
+              child: Center(
+                child: JobsBannerCarousel(
+                  height: 455.h,
+                  imageUrls: const [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNaXM5FNZC7-9FDVh9mMMglZv5cuoPAw-6MA&s',
+                    'https://jzmofficial.com/cdn/shop/files/Logo_1200x1200.jpg?v=1624577059',
+                    'https://static.vecteezy.com/system/resources/previews/009/125/398/non_2x/jzm-logo-jzm-letter-jzm-letter-logo-design-initials-jzm-logo-linked-with-circle-and-uppercase-monogram-logo-jzm-typography-for-technology-business-and-real-estate-brand-vector.jpg',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdsn8QSHQxKyWpG6Qy2ngPM0hQMffP-DYo0FvNbwhx_EYmfl-EeYSZ4g8&s',
+                  ],
+                  viewportFraction: 1,
+                  netImageBuilder: cachedNetImageBuilder,
+                  emptyBuilder: (ctx) => Center(
+                    child: JobsEmptyHint(onRetry: () {
+                      debugPrint("外部触发刷新逻辑");
+                    }),
+                  ),
+                  onTap: (i) => debugPrint('tap $i'),
                 ),
-                onTap: (i) => debugPrint('tap $i'),
               ),
             ),
           ),
@@ -186,6 +189,7 @@ class JobsBannerCarousel extends StatefulWidget {
     // 可选：外层尺寸（不传则用屏幕宽、屏幕高的 25%）
     this.width,
     this.height,
+    this.imageFit = BoxFit.contain,
     this.vertical = 0,
     this.horizontal = 0,
     this.viewportFraction = 0,
@@ -218,6 +222,7 @@ class JobsBannerCarousel extends StatefulWidget {
 
   final double? width;
   final double? height;
+  final BoxFit imageFit;
   final double? vertical; // Padding.EdgeInsets.vertical
   final double? horizontal; // Padding.EdgeInsets.horizontal
   final double viewportFraction; // PageController.viewportFraction
@@ -372,11 +377,22 @@ class _JobsBannerCarouselState extends State<JobsBannerCarousel>
 
   @override
   Widget build(BuildContext context) {
-    // 外层尺寸：不传就用屏幕宽 & 屏幕高的 25%
-    final screenW = MediaQuery.of(context).size.width;
-    final screenH = MediaQuery.of(context).size.height;
-    final w = widget.width ?? screenW;
-    final h = widget.height ?? (screenH * 0.25);
+    return LayoutBuilder(builder: (context, constraints) {
+      final viewport = MediaQuery.sizeOf(context);
+      final width = widget.width ??
+          (constraints.hasBoundedWidth ? constraints.maxWidth : viewport.width);
+      final size = constraints.constrain(Size(
+        width,
+        widget.height ??
+            (width * 9 / 16).clamp(0.0, viewport.height * 0.25).toDouble(),
+      ));
+      return _buildBanner(context, size);
+    });
+  }
+
+  Widget _buildBanner(BuildContext context, Size size) {
+    final w = size.width;
+    final h = size.height;
 
     // 无数据：渲染空态（不要建 PageView）
     if (_count == 0) {
@@ -453,7 +469,7 @@ class _JobsBannerCarouselState extends State<JobsBannerCarousel>
     return builder(
       context,
       url,
-      fit: BoxFit.cover,
+      fit: widget.imageFit,
       placeholder: const _DefaultLoading(),
       error: const _DefaultError(),
     );

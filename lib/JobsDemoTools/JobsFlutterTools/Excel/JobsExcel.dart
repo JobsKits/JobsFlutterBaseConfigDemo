@@ -55,6 +55,8 @@ void main1() {
     ScreenUtilInit(
       designSize: const Size(1125, 2436),
       minTextAdapt: true,
+      splitScreenMode: true,
+      rebuildFactor: RebuildFactors.change,
       builder: (context, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
         builder: (context, child) => ScrollConfiguration(
@@ -101,6 +103,8 @@ void main2() {
     ScreenUtilInit(
       designSize: const Size(1125, 2436),
       minTextAdapt: true,
+      splitScreenMode: true,
+      rebuildFactor: RebuildFactors.change,
       builder: (context, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
         builder: (context, child) => ScrollConfiguration(
@@ -145,6 +149,8 @@ void main3() {
     ScreenUtilInit(
       designSize: const Size(1125, 2436),
       minTextAdapt: true,
+      splitScreenMode: true,
+      rebuildFactor: RebuildFactors.change,
       builder: (context, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
         builder: (context, child) => ScrollConfiguration(

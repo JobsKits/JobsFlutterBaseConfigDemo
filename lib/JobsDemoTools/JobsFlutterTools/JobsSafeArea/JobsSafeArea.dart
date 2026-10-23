@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsSafeArea/JobsSmartSafeArea.dart';
 
 /// 不应该在 main() 中用 SafeArea
-/// SafeArea 通常应该放在最外层（或接近最外层），且全局只需要用一次
 /// 每个页面视图结构中合理包裹 SafeArea，并根据情况启用 top、bottom
-/// ⚠️ SafeArea 不能嵌套。如果需要嵌套，则需要使用 MediaQuery.removePadding
-/// ⚠️ SafeArea 不能和 Scaffold.resizeToAvoidBottomInset 同时使用，否则会导致布局错误（布局跳动、挤压、底部空间错误等问题）
+/// SafeArea 可嵌套，已消费的边由 MediaQuery 自动清零，不按祖先类型跳过其余边。
+/// Scaffold 负责键盘避让，SafeArea 负责剩余系统 UI 安全区。
 /// ⚠️ 不能代替键盘避让机制：SafeArea 只考虑系统 UI（如状态栏、刘海、底部 Home 指示器等），不负责键盘避让
 /// ⚠️ 对 Dialog/Overlay 等不是在根节点渲染的内容无效
 /// ⚠️ CupertinoPageScaffold 自带 SafeArea 行为，但自定义页面仍需要手动处理。
@@ -19,6 +18,7 @@ class JobsSafeArea extends StatelessWidget {
   final Widget? bottomNavigationBar;
   final FloatingActionButton? floatingActionButton;
   final Color? backgroundColor;
+  final bool resizeToAvoidBottomInset;
 
   const JobsSafeArea({
     super.key,
@@ -27,16 +27,19 @@ class JobsSafeArea extends StatelessWidget {
     this.bottomNavigationBar,
     this.floatingActionButton,
     this.backgroundColor,
+    this.resizeToAvoidBottomInset = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      resizeToAvoidBottomInset: false, // 避免 SafeArea 冲突
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: appBar,
       body: JobsSmartSafeArea(child: body),
-      bottomNavigationBar: bottomNavigationBar,
+      bottomNavigationBar: bottomNavigationBar == null
+          ? null
+          : JobsSmartSafeArea(top: false, child: bottomNavigationBar!),
       floatingActionButton: floatingActionButton,
     );
   }

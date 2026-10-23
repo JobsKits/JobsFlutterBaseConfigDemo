@@ -16,37 +16,44 @@ class _CustomOverlayDemoState extends State<JobsOverlay> {
 
   OverlayEntry _createOverlayEntry(ThemeData theme) {
     return OverlayEntry(
-      builder: (context) => Positioned(
-        top: 100,
-        left: MediaQuery.of(context).size.width / 4,
-        width: MediaQuery.of(context).size.width / 2,
-        child: Material(
-          elevation: 4.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  'This is a custom overlay',
-                  style: theme.textTheme.headlineLarge,
+      builder: (context) => Positioned.fill(
+        child: SafeArea(
+          minimum: const EdgeInsets.all(16),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 480),
+              child: SingleChildScrollView(
+                child: Material(
+                  elevation: 4.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          'This is a custom overlay',
+                          style: theme.textTheme.headlineLarge,
+                        ),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () {
+                            _overlayEntry?.remove();
+                            _overlayEntry = null;
+                          },
+                          child: const Text('Close'),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    _overlayEntry?.remove();
-                    _overlayEntry = null;
-                  },
-                  child: const Text('Close'),
-                ),
-              ],
+              ),
             ),
           ),
         ),
@@ -60,15 +67,14 @@ class _CustomOverlayDemoState extends State<JobsOverlay> {
       _overlayEntry = null;
     }
 
-    ThemeData customTheme = ThemeData(
-      scaffoldBackgroundColor: Colors.blueAccent,
-      textTheme: const TextTheme(
-        headlineLarge: TextStyle(color: Colors.white, fontSize: 18),
-      ),
-    );
-
-    _overlayEntry = _createOverlayEntry(customTheme);
+    _overlayEntry = _createOverlayEntry(Theme.of(context));
     Overlay.of(context).insert(_overlayEntry!);
+  }
+
+  @override
+  void dispose() {
+    _overlayEntry?.remove();
+    super.dispose();
   }
 
   @override

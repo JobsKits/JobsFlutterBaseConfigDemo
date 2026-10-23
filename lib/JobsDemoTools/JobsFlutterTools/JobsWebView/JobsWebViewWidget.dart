@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/调试/JobsCommonUtil.dart';
 import 'package:jobs_runners/jobs_runners.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -160,7 +159,6 @@ class _JobsUniversalWebViewState extends State<JobsWebViewWidget>
   }
 
   String _wrapHtml(String body) {
-    final screenHeight = Get.context?.mediaQuerySize.height ?? 1000;
     return '''
 <!DOCTYPE html>
 <html>
@@ -178,7 +176,9 @@ class _JobsUniversalWebViewState extends State<JobsWebViewWidget>
       img {
         max-width: 100% !important;
         height: auto !important;
-        max-height: ${screenHeight}px !important;
+        max-height: 100vh !important;
+        max-height: 100dvh !important;
+        object-fit: contain;
       }
       table {
         width: 100% !important;

@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 // JobsSmartSafeArea(
@@ -29,41 +28,15 @@ class JobsSmartSafeArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool alreadyInSafeArea = context.findAncestorWidgetOfExactType<SafeArea>() != null;
-
-    if (alreadyInSafeArea) {
-      // ✅ 如果上层已经是 SafeArea，我们只做 removePadding 避免叠加
-      return MediaQuery.removePadding(
-        context: context,
-        removeTop: top,
-        removeBottom: bottom,
-        removeLeft: left,
-        removeRight: right,
-        child: child,
-      );
-    } else {
-      // ✅ 顶层 SafeArea，正常构建（仿照 Flutter SDK 的 SafeArea 实现）
-      EdgeInsets padding = MediaQuery.paddingOf(context);
-      if (maintainBottomViewPadding) {
-        padding = padding.copyWith(bottom: MediaQuery.viewPaddingOf(context).bottom);
-      }
-
-      return Padding(
-        padding: EdgeInsets.only(
-          left: math.max(left ? padding.left : 0.0, minimum.left),
-          top: math.max(top ? padding.top : 0.0, minimum.top),
-          right: math.max(right ? padding.right : 0.0, minimum.right),
-          bottom: math.max(bottom ? padding.bottom : 0.0, minimum.bottom),
-        ),
-        child: MediaQuery.removePadding(
-          context: context,
-          removeLeft: left,
-          removeTop: top,
-          removeRight: right,
-          removeBottom: bottom,
-          child: child,
-        ),
-      );
-    }
+    // SafeArea 只消费当前 MediaQuery 中尚未消费的边，可正确嵌套及响应不对称 inset。
+    return SafeArea(
+      top: top,
+      bottom: bottom,
+      left: left,
+      right: right,
+      minimum: minimum,
+      maintainBottomViewPadding: maintainBottomViewPadding,
+      child: child,
+    );
   }
 }

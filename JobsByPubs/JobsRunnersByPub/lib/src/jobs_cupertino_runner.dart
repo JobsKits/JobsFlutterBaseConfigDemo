@@ -30,6 +30,8 @@ class JobsCupertinoRunner extends StatelessWidget {
   Widget build(BuildContext context) => ScreenUtilInit(
         designSize: const Size(1125, 2436),
         minTextAdapt: true,
+        splitScreenMode: true,
+        rebuildFactor: RebuildFactors.change,
         child: child,
         builder: (context, _) => CupertinoApp(
           debugShowCheckedModeBanner: false,
@@ -46,9 +48,11 @@ class JobsCupertinoRunner extends StatelessWidget {
                     Text(title ?? (child?.runtimeType.toString() ?? 'Builder')),
               ),
               child: SafeArea(
-                child: builder != null
-                    ? builder!(ctx)
-                    : child ?? Center(child: Text('请传入 child 或 builder'.tr)),
+                child: Builder(
+                  builder: (safeContext) => builder != null
+                      ? builder!(safeContext)
+                      : child ?? Center(child: Text('请传入 child 或 builder'.tr)),
+                ),
               ),
             ),
           ),

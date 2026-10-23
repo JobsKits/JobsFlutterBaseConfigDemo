@@ -4,33 +4,36 @@ import 'package:vibration/vibration.dart';
 import 'dart:math'; // 导入 dart:math 库
 
 void main() => runApp(JobsMaterialRunner(
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        CustomShapeButton(
-          shape: Shape.triangle,
-          onPressed: () {
-            debugPrint('我是三角形按钮');
-            Vibration.vibrate(duration: 200);
-          },
-        ),
-        const SizedBox(height: 20),
-        CustomShapeButton(
-          shape: Shape.star,
-          onPressed: () {
-            debugPrint('我是五角星按钮');
-            Vibration.vibrate(duration: 200);
-          },
-        ),
-        const SizedBox(height: 20),
-        CustomShapeButton(
-          shape: Shape.parallelogram,
-          onPressed: () {
-            debugPrint('我是平行四边形按钮');
-            Vibration.vibrate(duration: 200);
-          },
-        ),
-      ],
+    SingleChildScrollView(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          CustomShapeButton(
+            shape: Shape.triangle,
+            onPressed: () {
+              debugPrint('我是三角形按钮');
+              Vibration.vibrate(duration: 200);
+            },
+          ),
+          const SizedBox(height: 20),
+          CustomShapeButton(
+            shape: Shape.star,
+            onPressed: () {
+              debugPrint('我是五角星按钮');
+              Vibration.vibrate(duration: 200);
+            },
+          ),
+          const SizedBox(height: 20),
+          CustomShapeButton(
+            shape: Shape.parallelogram,
+            onPressed: () {
+              debugPrint('我是平行四边形按钮');
+              Vibration.vibrate(duration: 200);
+            },
+          ),
+        ],
+      ),
     ),
     title: 'Custom Shape Buttons'));
 

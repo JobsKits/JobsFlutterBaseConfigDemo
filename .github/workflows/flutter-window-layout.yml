@@ -1,0 +1,82 @@
+name: Flutter Window Layout and iOS Simulator
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: flutter-window-layout-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  layout-and-ios:
+    name: Scoped Dart analysis, 21 regressions, iOS 27.1 build
+    runs-on: xcode-27
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: /bin/zsh -euo pipefail {0}
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_27.1.app/Contents/Developer
+      JOBS_POD_NETWORK_ADAPT: '0'
+      JOBS_SPECS_SOURCE: cdn
+      COCOAPODS_DISABLE_STATS: 'true'
+    steps:
+      - name: Initialize diagnostic directory
+        run: print -r -- "JOBS_CI_LOG_DIR=$RUNNER_TEMP/jobs-flutter-ci" >> "$GITHUB_ENV"
+
+      - name: Check out the exact revision
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      - name: Set up the repository Flutter version
+        uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.7'
+          architecture: arm64
+          cache: false
+
+      - name: Verify Flutter, Xcode and Simulator SDK
+        run: /bin/zsh .github/ci/verify.zsh toolchain
+
+      - name: Resolve the committed Dart dependency lock
+        timeout-minutes: 10
+        run: |
+          flutter pub get --enforce-lockfile 2>&1 | tee "$JOBS_CI_LOG_DIR/pub-get.log"
+          git diff --exit-code -- pubspec.lock
+
+      - name: Analyze the explicit adaptation and Umeng scope
+        timeout-minutes: 10
+        run: /bin/zsh .github/ci/verify.zsh analyze
+
+      - name: Run window layout and Umeng regression suites
+        timeout-minutes: 10
+        run: /bin/zsh .github/ci/verify.zsh test
+
+      - name: Build the complete default iOS Simulator app
+        timeout-minutes: 35
+        run: /bin/zsh .github/ci/verify.zsh ios
+
+      - name: Upload verified Simulator application
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: flutter-ios-simulator-${{ github.sha }}
+          path: ${{ runner.temp }}/jobs-flutter-ci/Runner.app.zip
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: flutter-ci-logs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/jobs-flutter-ci/*.log
+          if-no-files-found: warn
+          retention-days: 7

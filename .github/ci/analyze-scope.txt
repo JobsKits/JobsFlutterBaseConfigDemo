@@ -1,0 +1,21 @@
+# One repository-relative analysis target per line. Missing targets fail CI.
+JobsByPubs/JobsRunnersByPub/lib
+lib/main.dart
+lib/mainss.dart
+lib/pages/splash/splash_page.dart
+lib/pages/splash/splash_view.dart
+lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart
+lib/JobsDemoTools/JobsFlutterTools/JobsFlutterTool.dart
+lib/JobsDemoTools/JobsFlutterTools/JobsSafeArea/JobsSafeArea.dart
+lib/JobsDemoTools/JobsFlutterTools/JobsSafeArea/JobsSmartSafeArea.dart
+lib/JobsDemoTools/JobsFlutterTools/JobsWebView/JobsWebViewWidget.dart
+lib/JobsDemoTools/JobsFlutterTools/广告轮播图/JobsBannerCarousel.dart
+lib/JobsDemoTools/UI/UI.Origin🌍/Overlay/JobsOverlay.dart
+lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Overlay/Overlay.dart
+lib/JobsDemoTools/UI/UI.Origin🌍/动画过渡UI/AnimatedDemo.dart
+lib/JobsDemoTools/UI/UI.Origin🌍/弹出框/弹出框@GridView.dart
+lib/JobsDemoTools/UI/UI.Origin🌍/弹出框/弹出框@表格.dart
+lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/PageViewDemo.dart
+lib/JobsDemoTools/Data/Data.3rd/Umeng
+test/iphone_duo_layout_test.dart
+test/umeng_demo_test.dart

@@ -557,6 +557,7 @@
 - [九、iPhone Duo 与运行中窗口变化](#iphone-duo-layout)
   - [9.1、实际处理与保留边界](#iphone-duo-coverage)
   - [9.2、验证与设备验收](#iphone-duo-validation)
+  - [9.3、窗口布局回归与 iOS CI](#flutter-ci)
 
 </details>
 <!-- jobs-toc:end -->
@@ -21243,5 +21244,11 @@ dart analyze test/iphone_duo_layout_test.dart
 ```
 
 待设备验收：外屏与展开内屏之间连续切换、半折如书 / 桌面姿态、左右分屏各一次、极窄 / 极矮窗口、键盘开合、返回栈 / 输入 / 滚动位置保留、明暗与辅助字号，以及系统保留区附近的实际触控。仅靠通用 Flutter viewport 和 safe area 不能证明所有关键控件已避开 Duo 原生保留区；折痕增强需要后续接入已验证的原生桥。当前未执行 iOS 构建、Duo 模拟器 / 真机操作或上架截图提交。
+
+### 9.3、<span id="flutter-ci">窗口布局回归与 iOS CI</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+[GitHub Actions 工作流](./.github/workflows/flutter-window-layout.yml) 在 `main` 推送、Pull Request 和手动运行时执行：固定 Flutter `3.47.7`，选择 `xcode-27` runner 的 `Xcode_27.1.app` 并强制校验 Simulator SDK≥27.1，按锁文件解析依赖，真实分析明确的窗口适配 / 友盟范围，运行 11 项布局与 10 项友盟回归，最后完整构建默认入口的 iOS Simulator App。任何阶段失败都会使工作流失败；通过产物身份 / SDK / arm64 校验后才上传 `Runner.app.zip`。
+
+具体分析清单、脚本模式、日志和不覆盖的既有模板测试见 [CI 运行说明](./.github/ci/README.md)。这是明确范围的分析与回归，不代表全仓所有教学示例或所有测试通过；原生姿态、保留区和真机交互仍按上一节单独验收。工作流是否成功以当前提交的真实远端运行记录为准。
 
 <a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>

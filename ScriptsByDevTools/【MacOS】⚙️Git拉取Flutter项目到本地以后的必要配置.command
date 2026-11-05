@@ -4,6 +4,55 @@
 # - 核心用途：Git拉取Flutter项目到本地以后的必要配置。
 # - 影响范围：本机开发工具或用户环境配置；脚本所在工程或指定目标中的文件；本机应用、模拟器或终端窗口。
 # - 运行提示：先阅读自述并按回车确认，按 Ctrl+C 取消。
+# JOBS_FLUTTER_NETWORK_ADAPTER_BEGIN
+# 捕获真实入口参数；后续切换工程目录不影响随包模块定位。
+JOBS_FLUTTER_NETWORK_ENTRY_FILE=$0
+JOBS_FLUTTER_NETWORK_ENTRY_BASE=$PWD
+JOBS_FLUTTER_NETWORK_TASK_CACHE=
+JOBS_FLUTTER_NETWORK_TASK_LOG=
+# 只把SDK命令交给随包子进程，不把代理或源写回当前Shell。
+jobs_flutter_sdk_command() {
+    local entry=$JOBS_FLUTTER_NETWORK_ENTRY_FILE link= directory= adapter= network= count=0
+    case "$entry" in
+        /*) ;;
+        *) entry=$JOBS_FLUTTER_NETWORK_ENTRY_BASE/$entry ;;
+    esac
+    while [ -L "$entry" ]; do
+        count=$((count + 1))
+        [ "$count" -lt 40 ] || return 1
+        link=$(readlink "$entry") || return 1
+        case "$link" in
+            /*) entry=$link ;;
+            *) entry=$(dirname -- "$entry")/$link ;;
+        esac
+    done
+    directory=$(CDPATH= cd -P -- "$(dirname -- "$entry")" && pwd) || return 1
+    adapter=$directory/Scripts/【MacOS】FlutterSDK命令适配.sh/【MacOS】FlutterSDK命令适配.sh
+    network=$directory/Scripts/【MacOS】FlutterSDK网络选路.zsh/【MacOS】FlutterSDK网络选路.zsh
+    [ -f "$adapter" ] && [ -f "$network" ] || {
+        printf '%s\n' '✖ 缺少随包SDK网络资源；请保留入口旁完整Scripts目录。' >&2
+        return 1
+    }
+    if [ -z "$JOBS_FLUTTER_NETWORK_TASK_CACHE" ]; then
+        JOBS_FLUTTER_NETWORK_TASK_CACHE=$(/bin/zsh "$network" --cache-dir) || return $?
+        JOBS_FLUTTER_NETWORK_TASK_LOG=$JOBS_FLUTTER_NETWORK_TASK_CACHE/entry-network.log
+    fi
+    JOBS_FLUTTER_ROUTE_CACHE_DIR="$JOBS_FLUTTER_NETWORK_TASK_CACHE" \
+    JOBS_FLUTTER_ROUTE_LOG="$JOBS_FLUTTER_NETWORK_TASK_LOG" \
+        /bin/sh "$adapter" "$@"
+}
+# 既有选择值仅接受原来的两个Flutter执行器，不eval用户字符串。
+jobs_flutter_sdk_selected() {
+    local selected=$1
+    shift
+    case "$selected" in
+        'fvm flutter') jobs_flutter_sdk_command fvm flutter "$@" ;;
+        flutter) jobs_flutter_sdk_command flutter "$@" ;;
+        *) printf '%s\n' '✖ 未识别原Flutter执行器，未执行任何SDK或业务。' >&2; return 2 ;;
+    esac
+}
+# JOBS_FLUTTER_NETWORK_ADAPTER_END
+
 JOBS_COMMAND_ENTRY_ARG0="$0"
 # 仅渲染自述：标题红色加粗，编号正文蓝色常规字重；非彩色终端输出纯文本。
 jobs_intro_style() {
@@ -166,11 +215,11 @@ setup_fvm_for_project() {
   # 你可以把 stable 换成你想固定的版本号，比如 3.24.5
   local channel_or_version="stable"
 
-  fvm install "$channel_or_version"
-  fvm use "$channel_or_version"
+  jobs_flutter_sdk_command fvm install "$channel_or_version" || return $?
+  jobs_flutter_sdk_command fvm use "$channel_or_version" || return $?
 
   success_echo "FVM 已绑定到项目：$channel_or_version"
-  gray_echo "当前项目 Flutter：$(fvm flutter --version | head -n 1 || true)"
+  gray_echo "当前项目 Flutter：$(jobs_flutter_sdk_command fvm flutter --version | head -n 1 || true)"
 }
 
 # ================================== 写入项目级 VSCode 设置，让 VSCode 跟随 .fvm/flutter_sdk ==================================

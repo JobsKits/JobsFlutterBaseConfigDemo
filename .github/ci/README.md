@@ -22,7 +22,7 @@
 
 ## 二、<span id="commands">脚本入口与日志</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-[`verify.zsh`](./verify.zsh) 按自身路径定位仓库。无参数仅显示帮助；需要已有匹配 SDK 和依赖配置，不自动安装开发工具。可在仓库根目录使用：
+[`verify.zsh`](./verify.zsh) 按自身路径定位仓库。无参数仅显示帮助；复用已有匹配 SDK 和依赖配置；首次Dart自举与iOS平台SDK获取自动持续重试，不安装其它开发工具。可在仓库根目录使用：
 
 ```shell
 /bin/zsh .github/ci/verify.zsh --help
@@ -30,7 +30,7 @@
 /bin/zsh .github/ci/verify.zsh test
 ```
 
-`toolchain` 只读取并核对 Flutter / Xcode / Simulator SDK / CocoaPods 版本；需显式设置有效的 `DEVELOPER_DIR`。`ios` 会解析原生依赖并构建，仅允许在 `GITHUB_ACTIONS=true` 的 runner 中运行。分析和测试复用已有 package configuration；测试会写入正常的构建缓存，不修改依赖声明。
+工作流先通过[自有SDK准备包](./【MacOS】PrepareFlutterSdk.zsh/README.md)获取精确Flutter归档并核验完整SHA；网络失败持续重试，原60分钟作业预算和用户Cancel有效。只写runner临时目录及本job环境，不改系统代理。`toolchain` 补齐SDK首次缓存后核对 Flutter / Xcode / Simulator SDK / CocoaPods 版本；需显式设置有效的 `DEVELOPER_DIR`。`ios` 先独立补齐iOS平台SDK，再解析原生依赖并只构建一次，仅允许在 `GITHUB_ACTIONS=true` 的 runner 中运行。分析和测试复用已有 package configuration；测试会写入正常的构建缓存，不修改依赖声明。
 
 日志默认写入系统临时目录的 `jobs-flutter-ci`；可以用 `JOBS_CI_LOG_DIR` 指定本次目录。CI 成功或失败都尝试上传 `*.log`：版本、工具链、依赖、逐项分析、完整测试、iOS 构建与产物身份。失败日志上传不改变前序失败状态；应用包仅在全部前序步骤通过后上传。
 

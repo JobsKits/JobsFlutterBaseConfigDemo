@@ -20,6 +20,7 @@ initialize() {
     LOG_DIR="${JOBS_CI_LOG_DIR:-${TMPDIR:-/tmp}/jobs-flutter-ci}"
     mkdir -p "$LOG_DIR"
     cd "$PROJECT_ROOT"
+    source "$SCRIPT_DIR/【MacOS】PrepareFlutterSdk.zsh/【MacOS】PrepareFlutterSdk.zsh"
     print -r -- "[Flutter CI] Mode: $1; root: $PROJECT_ROOT; logs: $LOG_DIR"
 }
 
@@ -44,7 +45,7 @@ verify_flutter() {
     local expected_version
     local actual_version
     expected_version="$(jq -er '.flutter' .fvmrc)"
-    flutter --version --machine > "$LOG_DIR/flutter-version.log"
+    jobs_ci_capture_version "$(command -v flutter)" "$LOG_DIR/flutter-version.log" "$LOG_DIR/sdk-version.log"
     actual_version="$(jq -er '.frameworkVersion' "$LOG_DIR/flutter-version.log")"
     [[ "$expected_version" == '3.47.7' && "$actual_version" == "$expected_version" ]] || {
         print -u2 -r -- "Flutter mismatch: .fvmrc=$expected_version actual=$actual_version expected=3.47.7"
@@ -159,6 +160,7 @@ build_ios() {
         return 1
     }
     verify_toolchain
+    jobs_ci_precache_ios "$(command -v flutter)" "$LOG_DIR/sdk-ios-precache.log"
     run_logged ios-build flutter build ios \
         --simulator \
         --debug \

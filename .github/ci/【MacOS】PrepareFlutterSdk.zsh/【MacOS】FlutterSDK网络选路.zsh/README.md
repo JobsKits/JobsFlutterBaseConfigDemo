@@ -51,3 +51,6 @@ CLI还支持 `--once`（参数相同）及 `-- 命令 参数…`（从 `JOBS_FLU
 `jobs_flutter_fvm_runtime 标题 日志 FVM命令`（CLI `--fvm-runtime` 同参数）只在静态确认文本FVM入口依赖外部PATH Dart，且该Dart真实解析为Flutter的bin/dart shim时，先准备这一管理器实际运行时；MachO/AOT、独立Dart及engine stamp匹配的健康原生Dart直接复用。返回stdout保持空，日志/SDK进度走stderr，取消原码阻断后续FVM metadata。未知自改PATH或本地dart函数/alias的wrapper不猜运行依赖。
 
 公共wrapper仅在LOCAL_OPTIONS作用域关闭NOUNSET，返回后保留调用方选项。取消及单次超时只停止本轮自有树：先STOP父进程防止子下载失败后重生，再停止子树并KILL；调用方wait回收自己的子进程。已有其它SDK写入者只等待，不会被STOP或终止。
+
+**终端配色保护：** 独立运行时，在支持完整保存与恢复配色的交互终端中临时使用黑底白字及统一强调色；正常结束、失败或可捕获中断后恢复进入前的配色，不修改终端全局偏好或 Shell 启动配置。不支持完整保护、无交互终端、`NO_COLOR`、既有纯文本模式和 Sourcetree 场景不切换配色，并沿用纯文本输出约定。强制终止（如 `kill -9`）无法由脚本自身保证恢复，请使用运行时显示的独立恢复入口。
+

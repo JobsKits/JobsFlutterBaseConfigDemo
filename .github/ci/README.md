@@ -11,14 +11,14 @@
 | 阶段 | 实际执行与通过条件 |
 | --- | --- |
 | 工具链 | [**GitHub**](https://github.com/) 的 `xcode-27` Apple Silicon runner，显式选择 `Xcode_27.1.app`；运行时核对 [**Xcode**](https://developer.apple.com/xcode/) 与 iOS Simulator SDK 均不低于 `27.1`。缺失时失败，不退回 runner 默认 `27.0` |
-| Flutter | 使用 [**Flutter**](https://flutter.dev/) `3.47.7`，并与根目录 `.fvmrc` 和真实 `flutter --version --machine` 结果逐项匹配 |
+| Flutter | 使用 [**Flutter**](https://flutter.dev/) `3.50.0`，并与根目录 `.fvmrc` 和真实 `flutter --version --machine` 结果逐项匹配 |
 | 依赖 | `flutter pub get --enforce-lockfile` 使用已提交 `pubspec.lock`，锁文件不得漂移。原生完整构建由 Flutter 在 runner 临时检出中正常解析 [**CocoaPods**](https://cocoapods.org/) 依赖 |
-| 分析 | [`analyze-scope.txt`](./analyze-scope.txt) 列出 Runner、本次窗口适配源码、备用入口、友盟模块与两个测试文件。每项真实执行 `dart analyze --fatal-warnings`；error / warning 或文件缺失失败，info 原样保留日志 |
-| 回归 | 明确运行 `test/iphone_duo_layout_test.dart` 的 11 项布局回归与 `test/umeng_demo_test.dart` 的 10 项服务 / 页面回归；不删除或改写既有测试 |
+| 分析 | [`analyze-scope.txt`](./analyze-scope.txt) 列出 Runner、本次窗口适配源码、备用入口、友盟模块与功能实验室、中文功能目录、公共基础包及对应测试。每项真实执行 `dart analyze --fatal-warnings`；error / warning 或文件缺失失败，info 原样保留日志 |
+| 回归 | 运行布局、友盟、形状按钮、功能实验室、旧目录适配及原生对齐 Demo、网络回退恢复和公共交互九个测试文件；不删除或改写既有测试 |
 | iOS 构建 | 对默认 `lib/main.dart` 执行完整 `flutter build ios --simulator --debug --no-pub --no-codesign`，正常链接全部原生插件，不过滤编译失败 |
 | 产物 | 核对固定 `Runner.app`、Bundle ID、真实可执行文件、Simulator 平台、构建 SDK≥27.1 与 arm64；全部成立才上传 `Runner.app.zip`，保存 7 天 |
 
-这是明确范围的回归工作流，不代表全仓教学示例均通过分析或所有测试通过。既有 `test/widget_test.dart` 仍是与所导入 GetX 生命周期页面不匹配的计数器模板，不在本工作流的命名套件中；该文件保持原样。iOS 编译通过不代表已完成 Duo 半折姿态、保留区、键盘交互、原生统计上传、签名真机或上架截图验收。
+这是明确范围的回归工作流。旧教学源码中的第三方、生成文件不作为批量整改对象；弃用信息原样记录。iOS 编译通过不代表已完成全部真机硬件、所有语言设备组合、原生统计上传或签名发布验收。
 
 ## 二、<span id="commands">脚本入口与日志</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 

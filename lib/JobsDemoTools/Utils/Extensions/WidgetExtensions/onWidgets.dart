@@ -108,7 +108,7 @@ extension JobsWidgetExtensions on Widget {
         key: key,
         message: message ?? '暂无数据'.tr,
         richMessage: richMessage,
-        height: height,
+        constraints: height == null ? null : BoxConstraints(minHeight: height),
         padding: padding,
         margin: margin,
         verticalOffset: verticalOffset,
@@ -553,7 +553,7 @@ class JobsStyled extends StatelessWidget {
     Widget w = child;
 
     if (_padding != null) {
-      w = Padding(padding: _padding!, child: w);
+      w = Padding(padding: _padding, child: w);
     }
 
     final dec = _decoration;
@@ -577,7 +577,7 @@ class JobsStyled extends StatelessWidget {
     }
 
     if (_margin != null) {
-      w = Padding(padding: _margin!, child: w);
+      w = Padding(padding: _margin, child: w);
     }
 
     if (_width != null || _height != null) {

@@ -45,12 +45,12 @@ class JobsGetRunner extends StatelessWidget {
     Key? key,
   }) =>
       JobsGetRunner._internal(
-        child: child,
         builder: builder,
         navigatorObservers: navigatorObservers,
         bindings: bindings,
         title: title,
         key: key,
+        child: child,
       );
 
   @override

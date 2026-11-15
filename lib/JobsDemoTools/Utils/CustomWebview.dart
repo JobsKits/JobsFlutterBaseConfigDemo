@@ -18,7 +18,7 @@ class _CustomWebviewState extends State<CustomWebview> {
 
   @override
   void initState() {
-    print("webUri___ ${widget.webUri}");
+    debugPrint("webUri___ ${widget.webUri}");
 
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -44,12 +44,12 @@ class _CustomWebviewState extends State<CustomWebview> {
             ''');
           },
           onPageFinished: (String url) async {
-            print("Page loading finished: $url");
+            debugPrint("Page loading finished: $url");
             // 验证是否从缓存加载
             var isCached = await controller.runJavaScriptReturningResult('''
                 caches.has('$url')
               ''');
-            print("Is page cached: $isCached");
+            debugPrint("Is page cached: $isCached");
           },
           onHttpError: (HttpResponseError error) {},
           onWebResourceError: (WebResourceError error) {},

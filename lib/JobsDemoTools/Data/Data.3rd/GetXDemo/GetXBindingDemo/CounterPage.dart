@@ -1,22 +1,2 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'CounterController.dart';
-/// 页面
-class CounterPage extends GetView<CounterController> {
-  const CounterPage({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('GetView 示例')),
-      body: Center(
-        child: Obx(() => Text('当前计数：${controller.count.value}',
-            style: const TextStyle(fontSize: 24))),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: controller.increment,
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·GetX依赖绑定启动/源码/CounterPage.dart';

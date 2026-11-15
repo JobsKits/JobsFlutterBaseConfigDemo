@@ -364,10 +364,14 @@ class _JobsExcelState extends State<JobsExcel> {
   // ─── Notification 统一处理：到边缘切 Never，离开边缘恢复 ───
   bool _onScrollNotification(ScrollNotification n) {
     // 直透开关优先：开了就不参与任何切换
-    if (widget.disableInternalVerticalScroll && n.metrics.axis == Axis.vertical)
+    if (widget.disableInternalVerticalScroll &&
+        n.metrics.axis == Axis.vertical) {
       return false;
+    }
     if (widget.disableInternalHorizontalScroll &&
-        n.metrics.axis == Axis.horizontal) return false;
+        n.metrics.axis == Axis.horizontal) {
+      return false;
+    }
 
     if (!widget.relayGestureToParentWhenAtEdge) return false;
 
@@ -536,8 +540,9 @@ class _JobsExcelState extends State<JobsExcel> {
 
       w = _px(w);
       if (w < widget.minColWidth) w = widget.minColWidth;
-      if (widget.maxColWidth != null && w > widget.maxColWidth!)
+      if (widget.maxColWidth != null && w > widget.maxColWidth!) {
         w = widget.maxColWidth!;
+      }
       map[c] = FixedColumnWidth(w);
     }
     return map;
@@ -791,7 +796,7 @@ class _JobsExcelState extends State<JobsExcel> {
               );
 
           // ===== 铺满（补列宽） =====
-          double _sumRight(Map<int, TableColumnWidth> m) {
+          double sumRight(Map<int, TableColumnWidth> m) {
             double sum = 0;
             m.forEach((_, v) {
               if (v is FixedColumnWidth) sum += v.value;
@@ -802,7 +807,7 @@ class _JobsExcelState extends State<JobsExcel> {
           if (widget.expandToMaxWidth &&
               availableForRight.isFinite &&
               availableForRight > 0) {
-            final currentRight = _sumRight(rightColWidths);
+            final currentRight = sumRight(rightColWidths);
             final extra = availableForRight - currentRight;
             if (extra > 0 && dataCols > 0) {
               final preferred =

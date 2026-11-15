@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "ཁྱེད་ཀྱིས་འགོ་བཙུགས་པའི་པར་དང་བརྙན་ལེན་པ་ལ་སྤྱོད།";
+"NSMicrophoneUsageDescription" = "ཁྱེད་ཀྱིས་འགོ་བཙུགས་པའི་སྒྲ་ལེན་དང་བརྙན་སྤྲོད་ལ་སྤྱོད།";
+"NSBluetoothAlwaysUsageDescription" = "ཁྱེད་ཀྱིས་འགོ་བཙུགས་པའི་བླུ་ཊུཐ་འབྲེལ་མཐུད་ལ་སྤྱོད།";
+"NSMotionUsageDescription" = "ཁྱེད་ཀྱིས་འགོ་བཙུགས་པའི་འགུལ་ཚོར་དཔེ་སྟོན་ལ་སྤྱོད།";
+"NSPhotoLibraryUsageDescription" = "ཁྱེད་ཀྱིས་པར་དང་བརྙན་འདེམས་པ་ལ་སྤྱོད།";
+"NSPhotoLibraryAddUsageDescription" = "ཁྱེད་ཀྱི་པར་དང་བརྙན་ཉར་བ་ལ་སྤྱོད།";
+"NSLocalNetworkUsageDescription" = "ཁྱེད་ཀྱི་ས་གནས་ཞབས་ཞུ་འབྲེལ་མཐུད་ལ་སྤྱོད།";

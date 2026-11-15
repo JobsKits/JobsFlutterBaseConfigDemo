@@ -1,33 +1,5 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/material.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·设备尺寸预览容器/源码/DevicePreviewAppDemo.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·设备尺寸预览容器/源码/DevicePreviewAppDemo.dart' as migrated;
 
-void main() {
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const DevicePreviewAppDemo(),
-    ),
-  );
-}
-
-class DevicePreviewAppDemo extends StatelessWidget {
-  const DevicePreviewAppDemo({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      home: Scaffold(
-        appBar: AppBar(title: const Text('DevicePreview 示例')),
-        body: const Center(
-          child: Text(
-            '📱 DevicePreview 可模拟设备\n'
-            '• 模拟不同机型、方向、语言\n'
-            '• 用于开发期适配与测试',
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
-    );
-  }
-}
+void main() => migrated.main();

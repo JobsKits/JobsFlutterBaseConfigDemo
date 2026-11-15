@@ -1,21 +1,2 @@
-import 'method_type.dart';
-
-class MethodDemoItem {
-  MethodDemoItem({
-    required this.method,
-    required this.path,
-    required this.description,
-  });
-
-  final MethodType method;
-  final String path;
-  final String description;
-
-  factory MethodDemoItem.fromJson(Map<String, dynamic> json) {
-    return MethodDemoItem(
-      method: MethodType.from('${json['method'] ?? 'GET'}'),
-      path: '${json['path'] ?? ''}',
-      description: '${json['description'] ?? ''}',
-    );
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·Dio网络教学启动/源码/method_demo_item.dart';

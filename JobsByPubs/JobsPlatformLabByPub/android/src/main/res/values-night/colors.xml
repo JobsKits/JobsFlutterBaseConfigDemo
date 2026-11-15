@@ -1,0 +1,5 @@
+<resources>
+    <color name="jobs_widget_background">#151B19</color>
+    <color name="jobs_widget_foreground">#E2E8E3</color>
+    <color name="jobs_widget_accent">#B5DCC9</color>
+</resources>

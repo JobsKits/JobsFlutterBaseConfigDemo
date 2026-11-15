@@ -1,29 +1,5 @@
-import 'package:flutter/material.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·应用生命周期调度/源码/WidgetsBindingDemo2.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·应用生命周期调度/源码/WidgetsBindingDemo2.dart' as migrated;
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  WidgetsBinding.instance.addObserver(MyAppLifecycleObserver());
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Lifecycle Management')),
-        body: const Center(child: Text('Check the console for lifecycle events')),
-      ),
-    );
-  }
-}
-
-class MyAppLifecycleObserver extends WidgetsBindingObserver {
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-    debugPrint('App lifecycle state changed to $state');
-  }
-}
+void main() => migrated.main();

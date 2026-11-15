@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "La caméra sert aux photos, à la RA et aux vidéos que vous lancez.";
+"NSMicrophoneUsageDescription" = "Le microphone sert aux enregistrements et directs que vous lancez.";
+"NSBluetoothAlwaysUsageDescription" = "Le Bluetooth sert aux recherches, connexions et échanges que vous lancez.";
+"NSMotionUsageDescription" = "Les capteurs de mouvement servent aux démonstrations que vous lancez.";
+"NSPhotoLibraryUsageDescription" = "Lire les photos et vidéos que vous choisissez.";
+"NSPhotoLibraryAddUsageDescription" = "Enregistrer les vidéos et images que vous exportez.";
+"NSLocalNetworkUsageDescription" = "Se connecter au serveur local que vous configurez.";

@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "Камера используется для запущенной вами съёмки фото, AR и видео.";
+"NSMicrophoneUsageDescription" = "Микрофон используется для запущенных вами записей и трансляций.";
+"NSBluetoothAlwaysUsageDescription" = "Bluetooth используется для начатого вами поиска, подключения и обмена данными.";
+"NSMotionUsageDescription" = "Датчики движения используются для запущенных вами демонстраций.";
+"NSPhotoLibraryUsageDescription" = "Чтение выбранных вами фотографий и видео.";
+"NSPhotoLibraryAddUsageDescription" = "Сохранение записанного вами видео и экспортированных изображений.";
+"NSLocalNetworkUsageDescription" = "Подключение к настроенному вами локальному серверу.";

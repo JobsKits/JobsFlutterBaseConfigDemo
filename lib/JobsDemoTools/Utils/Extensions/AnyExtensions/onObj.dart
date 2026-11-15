@@ -20,7 +20,7 @@ extension JobsPrintExt<T> on T {
   }
 
   T l(String tag) {
-    JobsPrint({'$tag': this});
+    JobsPrint({tag: this});
     return this;
   }
 }

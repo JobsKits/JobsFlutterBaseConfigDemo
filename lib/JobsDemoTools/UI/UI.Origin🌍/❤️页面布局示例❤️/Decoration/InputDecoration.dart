@@ -1,25 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·输入装饰与提示/源码/InputDecoration.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·输入装饰与提示/源码/InputDecoration.dart' as migrated;
 
-void main() =>
-    runApp(const JobsMaterialRunner(MyApp(), title: 'InputDecoration Demo'));
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Enter your name',
-            hintText: 'Name',
-            icon: Icon(Icons.person),
-          ),
-        ),
-      ),
-    );
-  }
-}
+void main() => migrated.main();

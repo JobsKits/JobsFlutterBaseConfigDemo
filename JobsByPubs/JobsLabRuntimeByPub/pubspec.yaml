@@ -1,0 +1,17 @@
+name: jobs_lab_runtime
+description: Jobs Demo 的白名单桥接、命名空间存储、数据校验、运行时配置和计时器。
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: '>=3.14.0 <4.0.0'
+  flutter: '>=3.50.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.5.3
+  archive: ^4.0.9
+  crypto: ^3.0.6
+  encrypt: ^5.0.3
+flutter:
+  assets:
+    - assets/catalog.json

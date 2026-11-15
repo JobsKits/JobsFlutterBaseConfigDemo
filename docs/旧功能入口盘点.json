@@ -1,0 +1,2755 @@
+{
+  "scope": "lib/JobsDemoTools/**/*.dart (non-generated, top-level main declarations)",
+  "mainDeclarationCount": 175,
+  "coveredMainSources": 175,
+  "catalog": [
+    {
+      "id": "legacy-extra-input",
+      "title": "输入框与多行文本组合",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/输入框与多行文本组合/入口.dart"
+    },
+    {
+      "id": "legacy-extra-refresh",
+      "title": "横纵刷新与加载组合",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/横纵刷新与加载组合/入口.dart"
+    },
+    {
+      "id": "legacy-shapes",
+      "title": "异形按钮",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/异形按钮/异形按钮.dart"
+    },
+    {
+      "id": "legacy-center",
+      "title": "居中布局",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/居中布局/入口.dart",
+      "implementationPath": "lib/demos/居中布局/源码/Center.dart",
+      "entryPath": "lib/demos/居中布局/入口.dart"
+    },
+    {
+      "id": "legacy-constrained",
+      "title": "尺寸约束",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/尺寸约束/入口.dart",
+      "implementationPath": "lib/demos/尺寸约束/源码/ConstrainedBox.dart",
+      "entryPath": "lib/demos/尺寸约束/入口.dart"
+    },
+    {
+      "id": "legacy-unconstrained",
+      "title": "解除尺寸约束",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/解除尺寸约束/入口.dart",
+      "implementationPath": "lib/demos/解除尺寸约束/源码/UnconstrainedBox.dart",
+      "entryPath": "lib/demos/解除尺寸约束/入口.dart"
+    },
+    {
+      "id": "legacy-layout-builder",
+      "title": "响应式布局",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/响应式布局/入口.dart",
+      "implementationPath": "lib/demos/响应式布局/源码/LayoutBuilder.dart",
+      "entryPath": "lib/demos/响应式布局/入口.dart"
+    },
+    {
+      "id": "legacy-single-layout",
+      "title": "单子组件布局代理",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/单子组件布局代理/入口.dart",
+      "implementationPath": "lib/demos/单子组件布局代理/源码/CustomSingleChildLayout.dart",
+      "entryPath": "lib/demos/单子组件布局代理/入口.dart"
+    },
+    {
+      "id": "legacy-multi-layout",
+      "title": "多子组件布局代理",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/多子组件布局代理/入口.dart",
+      "implementationPath": "lib/demos/多子组件布局代理/源码/CustomMultiChildLayout.dart",
+      "entryPath": "lib/demos/多子组件布局代理/入口.dart"
+    },
+    {
+      "id": "legacy-flow",
+      "title": "流式布局代理",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/流式布局代理/入口.dart",
+      "implementationPath": "lib/demos/流式布局代理/源码/Flow.dart",
+      "entryPath": "lib/demos/流式布局代理/入口.dart"
+    },
+    {
+      "id": "legacy-expanded",
+      "title": "弹性填充布局",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/弹性填充布局/入口.dart",
+      "implementationPath": "lib/demos/弹性填充布局/源码/Expanded.dart",
+      "entryPath": "lib/demos/弹性填充布局/入口.dart"
+    },
+    {
+      "id": "legacy-flexible",
+      "title": "弹性文本换行",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/弹性文本换行/入口.dart",
+      "implementationPath": "lib/demos/弹性文本换行/源码/Flexible.dart",
+      "entryPath": "lib/demos/弹性文本换行/入口.dart"
+    },
+    {
+      "id": "legacy-wrap",
+      "title": "自动换行布局",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/自动换行布局/入口.dart",
+      "implementationPath": "lib/demos/自动换行布局/源码/Wrap.dart",
+      "entryPath": "lib/demos/自动换行布局/入口.dart"
+    },
+    {
+      "id": "legacy-expanded-wrap",
+      "title": "填充与换行组合",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/填充与换行组合/入口.dart",
+      "implementationPath": "lib/demos/填充与换行组合/源码/Expanded + Wrap.dart",
+      "entryPath": "lib/demos/填充与换行组合/入口.dart"
+    },
+    {
+      "id": "legacy-flexible-wrap",
+      "title": "弹性与换行组合",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/弹性与换行组合/入口.dart",
+      "implementationPath": "lib/demos/弹性与换行组合/源码/Flexible+Wrap.dart",
+      "entryPath": "lib/demos/弹性与换行组合/入口.dart"
+    },
+    {
+      "id": "legacy-decoration",
+      "title": "边框阴影渐变",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/边框阴影渐变/入口.dart",
+      "implementationPath": "lib/demos/边框阴影渐变/源码/BoxDecoration.dart",
+      "entryPath": "lib/demos/边框阴影渐变/入口.dart"
+    },
+    {
+      "id": "legacy-list",
+      "title": "自定义列表单元格",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/自定义列表单元格/入口.dart",
+      "implementationPath": "lib/demos/自定义列表单元格/源码/UITableViewDemo.dart",
+      "entryPath": "lib/demos/自定义列表单元格/入口.dart"
+    },
+    {
+      "id": "legacy-grid",
+      "title": "网格列表",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/网格列表/入口.dart",
+      "implementationPath": "lib/demos/网格列表/源码/GridViewDemo.dart",
+      "entryPath": "lib/demos/网格列表/入口.dart"
+    },
+    {
+      "id": "legacy-scroll",
+      "title": "组合滚动视图",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/组合滚动视图/入口.dart",
+      "implementationPath": "lib/demos/组合滚动视图/源码/CustomScrollViewDemo.dart",
+      "entryPath": "lib/demos/组合滚动视图/入口.dart"
+    },
+    {
+      "id": "legacy-page-vertical",
+      "title": "纵向分页滚动",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/纵向分页滚动/入口.dart",
+      "implementationPath": "lib/demos/横向分页滚动/源码/PageViewDemo.dart",
+      "entryPath": "lib/demos/纵向分页滚动/入口.dart"
+    },
+    {
+      "id": "legacy-page-horizontal",
+      "title": "横向分页滚动",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/横向分页滚动/入口.dart",
+      "implementationPath": "lib/demos/横向分页滚动/源码/PageViewDemo.dart",
+      "entryPath": "lib/demos/横向分页滚动/入口.dart"
+    },
+    {
+      "id": "legacy-wheel-scroll",
+      "title": "滚轮列表",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/滚轮列表/入口.dart",
+      "implementationPath": "lib/demos/滚轮列表/源码/ListWheelScrollViewDemo.dart",
+      "entryPath": "lib/demos/滚轮列表/入口.dart"
+    },
+    {
+      "id": "legacy-nested-scroll",
+      "title": "嵌套滚动",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/嵌套滚动/入口.dart",
+      "implementationPath": "lib/demos/嵌套滚动与分页/源码/NestedScrollView.dart",
+      "entryPath": "lib/demos/嵌套滚动/入口.dart"
+    },
+    {
+      "id": "legacy-nested-tabs",
+      "title": "嵌套滚动与分页",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/嵌套滚动与分页/入口.dart",
+      "implementationPath": "lib/demos/嵌套滚动与分页/源码/NestedScrollView.dart",
+      "entryPath": "lib/demos/嵌套滚动与分页/入口.dart"
+    },
+    {
+      "id": "legacy-sliver",
+      "title": "折叠头与混合列表",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/折叠头与混合列表/入口.dart",
+      "implementationPath": "lib/demos/折叠头与混合列表/源码/SliverToBoxAdapterDemo1.dart",
+      "entryPath": "lib/demos/折叠头与混合列表/入口.dart"
+    },
+    {
+      "id": "legacy-category",
+      "title": "分类分页标签",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/分类分页标签/入口.dart",
+      "implementationPath": "lib/demos/分类分页标签/源码/JXCategoryView.dart",
+      "entryPath": "lib/demos/分类分页标签/入口.dart"
+    },
+    {
+      "id": "legacy-bottom-tabs",
+      "title": "底部分页导航",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/底部分页导航/入口.dart",
+      "implementationPath": "lib/demos/底部分页导航/源码/UITabbarController.dart",
+      "entryPath": "lib/demos/底部分页导航/入口.dart"
+    },
+    {
+      "id": "legacy-linked-tabs",
+      "title": "首页联动子页面",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/首页联动子页面/入口.dart",
+      "implementationPath": "lib/demos/首页联动子页面/源码/SwitchSubPagesDemo.dart",
+      "entryPath": "lib/demos/首页联动子页面/入口.dart"
+    },
+    {
+      "id": "legacy-tap",
+      "title": "单击双击与长按",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/单击双击与长按/入口.dart",
+      "implementationPath": "lib/demos/单击双击与长按/源码/TapDemo.dart",
+      "entryPath": "lib/demos/单击双击与长按/入口.dart"
+    },
+    {
+      "id": "legacy-drag",
+      "title": "拖动手势",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/拖动手势/入口.dart",
+      "implementationPath": "lib/demos/拖动手势/源码/DragDemo.dart",
+      "entryPath": "lib/demos/拖动手势/入口.dart"
+    },
+    {
+      "id": "legacy-swipe",
+      "title": "滑动手势",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/滑动手势/入口.dart",
+      "implementationPath": "lib/demos/滑动手势/源码/SwipeDemo.dart",
+      "entryPath": "lib/demos/滑动手势/入口.dart"
+    },
+    {
+      "id": "legacy-scale",
+      "title": "缩放手势",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/缩放手势/入口.dart",
+      "implementationPath": "lib/demos/缩放手势/源码/ScaleDemo.dart",
+      "entryPath": "lib/demos/缩放手势/入口.dart"
+    },
+    {
+      "id": "legacy-gesture-dsl",
+      "title": "手势链式扩展",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/手势链式扩展/入口.dart",
+      "implementationPath": "lib/demos/手势链式扩展/源码/WidgetExtensionsDemo.dart",
+      "entryPath": "lib/demos/手势链式扩展/入口.dart"
+    },
+    {
+      "id": "legacy-animated-button",
+      "title": "按钮大小位置动画",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/按钮大小位置动画/入口.dart",
+      "implementationPath": "lib/demos/按钮大小位置动画/源码/AnimatedDemo.dart",
+      "entryPath": "lib/demos/按钮大小位置动画/入口.dart"
+    },
+    {
+      "id": "legacy-tween",
+      "title": "补间动画",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/补间动画/入口.dart",
+      "implementationPath": "lib/demos/补间动画/源码/Tween.dart",
+      "entryPath": "lib/demos/补间动画/入口.dart"
+    },
+    {
+      "id": "legacy-overlay",
+      "title": "自定义浮层",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/自定义浮层/入口.dart",
+      "implementationPath": "lib/demos/自定义浮层/源码/JobsOverlay.dart",
+      "entryPath": "lib/demos/自定义浮层/入口.dart"
+    },
+    {
+      "id": "legacy-dialog",
+      "title": "自定义提示框",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/自定义提示框/入口.dart",
+      "implementationPath": "lib/demos/自定义提示框/源码/JobsAlertDialog.dart",
+      "entryPath": "lib/demos/自定义提示框/入口.dart"
+    },
+    {
+      "id": "legacy-dialog-options",
+      "title": "提示框行为组合",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/提示框行为组合/入口.dart",
+      "implementationPath": "lib/demos/提示框行为组合/源码/TipsDemo.dart",
+      "entryPath": "lib/demos/提示框行为组合/入口.dart"
+    },
+    {
+      "id": "legacy-floating-button",
+      "title": "拖动磁吸旋转按钮",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/拖动磁吸旋转按钮/入口.dart",
+      "implementationPath": "lib/demos/拖动磁吸旋转按钮/源码/HoverBtn.dart",
+      "entryPath": "lib/demos/拖动磁吸旋转按钮/入口.dart"
+    },
+    {
+      "id": "legacy-keyboard",
+      "title": "键盘事件监听",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/键盘事件监听/入口.dart",
+      "implementationPath": "lib/demos/键盘事件监听/源码/Keyboard.dart",
+      "entryPath": "lib/demos/键盘事件监听/入口.dart"
+    },
+    {
+      "id": "legacy-global-key",
+      "title": "表单全局键",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/表单全局键/入口.dart",
+      "implementationPath": "lib/demos/表单全局键/源码/GlobalKeyDemo1.dart",
+      "entryPath": "lib/demos/表单全局键/入口.dart"
+    },
+    {
+      "id": "legacy-stream",
+      "title": "流式数据监听",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/流式数据监听/入口.dart",
+      "implementationPath": "lib/demos/流式数据监听/源码/StreamControllerDemo.dart",
+      "entryPath": "lib/demos/流式数据监听/入口.dart"
+    },
+    {
+      "id": "legacy-instance-method",
+      "title": "通过全局键调用实例",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/通过全局键调用实例/入口.dart",
+      "implementationPath": "lib/demos/通过全局键调用实例/源码/InvokeInstanceFuncDemo.dart",
+      "entryPath": "lib/demos/通过全局键调用实例/入口.dart"
+    },
+    {
+      "id": "legacy-static-method",
+      "title": "跨组件静态方法",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/跨组件静态方法/入口.dart",
+      "implementationPath": "lib/demos/跨组件静态方法/源码/InvokeStaticFuncDemo.dart",
+      "entryPath": "lib/demos/跨组件静态方法/入口.dart"
+    },
+    {
+      "id": "legacy-stateful-lifecycle",
+      "title": "状态组件生命周期",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/状态组件生命周期/入口.dart",
+      "implementationPath": "lib/demos/状态组件生命周期/源码/StatefulWidget.dart",
+      "entryPath": "lib/demos/状态组件生命周期/入口.dart"
+    },
+    {
+      "id": "legacy-lifecycle-base",
+      "title": "页面生命周期基类",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/页面生命周期基类/入口.dart",
+      "implementationPath": "lib/demos/页面生命周期基类/源码/JobsPageDemo.dart",
+      "entryPath": "lib/demos/页面生命周期基类/入口.dart"
+    },
+    {
+      "id": "legacy-storage",
+      "title": "本地数据存取",
+      "group": "网络与存储",
+      "sourcePath": "lib/demos/本地数据存取/入口.dart",
+      "implementationPath": "lib/demos/本地数据存取/源码/StorageHelperDemo.dart",
+      "entryPath": "lib/demos/本地数据存取/入口.dart"
+    },
+    {
+      "id": "legacy-http",
+      "title": "原生网络请求教学",
+      "group": "网络与存储",
+      "sourcePath": "lib/demos/原生网络请求教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·HTTP网络教学启动/源码/http_demo_page.dart",
+      "entryPath": "lib/demos/原生网络请求教学/入口.dart"
+    },
+    {
+      "id": "legacy-dio",
+      "title": "网络请求库教学",
+      "group": "网络与存储",
+      "sourcePath": "lib/demos/网络请求库教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·Dio网络教学启动/源码/dio_demo_page.dart",
+      "entryPath": "lib/demos/网络请求库教学/入口.dart"
+    },
+    {
+      "id": "legacy-json-table",
+      "title": "数据驱动富文本表格",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/数据驱动富文本表格/入口.dart",
+      "implementationPath": "lib/demos/旧例·HTML富文本表格/源码/BonusTablePage.dart",
+      "entryPath": "lib/demos/数据驱动富文本表格/入口.dart"
+    },
+    {
+      "id": "legacy-fortune",
+      "title": "组件抽奖轮盘",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/组件抽奖轮盘/入口.dart",
+      "implementationPath": "lib/demos/组件抽奖轮盘/源码/FortuneWheelDemo.dart",
+      "entryPath": "lib/demos/组件抽奖轮盘/入口.dart"
+    },
+    {
+      "id": "legacy-gallery",
+      "title": "本地相册选图",
+      "group": "媒体与设备",
+      "sourcePath": "lib/demos/本地相册选图/入口.dart",
+      "implementationPath": "lib/demos/本地相册选图/源码/GalleryDemo✅.dart",
+      "entryPath": "lib/demos/本地相册选图/入口.dart"
+    },
+    {
+      "id": "legacy-camera",
+      "title": "系统相机拍照",
+      "group": "媒体与设备",
+      "sourcePath": "lib/demos/系统相机拍照/入口.dart",
+      "implementationPath": "lib/demos/系统相机拍照/源码/CameraPicDemo✅.dart",
+      "entryPath": "lib/demos/系统相机拍照/入口.dart"
+    },
+    {
+      "id": "legacy-local-video",
+      "title": "本地视频播放",
+      "group": "媒体与设备",
+      "sourcePath": "lib/demos/本地视频播放/入口.dart",
+      "implementationPath": "lib/demos/本地视频播放/源码/VideoPlayerController_asset_demo.dart",
+      "entryPath": "lib/demos/本地视频播放/入口.dart"
+    },
+    {
+      "id": "legacy-network-video",
+      "title": "网络视频播放",
+      "group": "媒体与设备",
+      "sourcePath": "lib/demos/网络视频播放/入口.dart",
+      "implementationPath": "lib/demos/网络视频播放/源码/VideoPlayerController_networkUrl_demo.dart",
+      "entryPath": "lib/demos/网络视频播放/入口.dart"
+    },
+    {
+      "id": "legacy-provider",
+      "title": "依赖通知状态管理",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/依赖通知状态管理/入口.dart",
+      "implementationPath": "lib/demos/依赖通知状态管理/源码/Provider.dart",
+      "entryPath": "lib/demos/依赖通知状态管理/入口.dart"
+    },
+    {
+      "id": "legacy-bloc",
+      "title": "事件驱动状态管理",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/事件驱动状态管理/入口.dart",
+      "implementationPath": "lib/demos/事件驱动状态管理/源码/BLoC.dart",
+      "entryPath": "lib/demos/事件驱动状态管理/入口.dart"
+    },
+    {
+      "id": "legacy-get-observer",
+      "title": "控制器生命周期观察",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/控制器生命周期观察/入口.dart",
+      "implementationPath": "lib/demos/控制器生命周期观察/源码/GetView.dart",
+      "entryPath": "lib/demos/控制器生命周期观察/入口.dart"
+    },
+    {
+      "id": "legacy-get-workers",
+      "title": "响应式监听防抖节流",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/响应式监听防抖节流/入口.dart",
+      "implementationPath": "lib/demos/响应式监听防抖节流/源码/GetX_RxListenerDemo.dart",
+      "entryPath": "lib/demos/响应式监听防抖节流/入口.dart"
+    },
+    {
+      "id": "legacy-get-lifecycle",
+      "title": "控制器跨页生命周期",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/控制器跨页生命周期/入口.dart",
+      "implementationPath": "lib/demos/控制器跨页生命周期/源码/LifecycleDemoPage.dart",
+      "entryPath": "lib/demos/控制器跨页生命周期/入口.dart"
+    },
+    {
+      "id": "legacy-get-binding",
+      "title": "控制器绑定与计数",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/控制器绑定与计数/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX依赖绑定启动/源码/CounterPage.dart",
+      "entryPath": "lib/demos/控制器绑定与计数/入口.dart"
+    },
+    {
+      "id": "legacy-pop-confirm",
+      "title": "返回拦截与确认",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/返回拦截与确认/入口.dart",
+      "implementationPath": "lib/demos/返回拦截与确认/源码/PopScope.dart",
+      "entryPath": "lib/demos/返回拦截与确认/入口.dart"
+    },
+    {
+      "id": "legacy-countdown",
+      "title": "倒计时与暂停恢复",
+      "group": "交互与动画",
+      "sourcePath": "lib/demos/倒计时与暂停恢复/入口.dart",
+      "implementationPath": "lib/demos/倒计时与暂停恢复/源码/CountdownBtn.dart",
+      "entryPath": "lib/demos/倒计时与暂停恢复/入口.dart"
+    },
+    {
+      "id": "legacy-excel-equal",
+      "title": "表格等宽列",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/表格等宽列/入口.dart",
+      "implementationPath": "lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart",
+      "entryPath": "lib/demos/表格等宽列/入口.dart"
+    },
+    {
+      "id": "legacy-excel-adaptive",
+      "title": "表格固定首列自适应",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/表格固定首列自适应/入口.dart",
+      "implementationPath": "lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart",
+      "entryPath": "lib/demos/表格固定首列自适应/入口.dart"
+    },
+    {
+      "id": "legacy-excel-fixed",
+      "title": "表格固定首列等宽",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/表格固定首列等宽/入口.dart",
+      "implementationPath": "lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart",
+      "entryPath": "lib/demos/表格固定首列等宽/入口.dart"
+    },
+    {
+      "id": "legacy-adaptive-category",
+      "title": "自适应分类分页",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/自适应分类分页/入口.dart",
+      "implementationPath": "lib/demos/自适应分类分页/源码/JobsCategoryPage.dart",
+      "entryPath": "lib/demos/自适应分类分页/入口.dart"
+    },
+    {
+      "id": "legacy-segment-tabs",
+      "title": "胶囊按钮切页",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/胶囊按钮切页/入口.dart",
+      "implementationPath": "lib/demos/胶囊按钮切页/源码/JobsSegmentTabs.dart",
+      "entryPath": "lib/demos/胶囊按钮切页/入口.dart"
+    },
+    {
+      "id": "legacy-pub-refresh",
+      "title": "公共刷新与加载",
+      "group": "基础与布局",
+      "sourcePath": "lib/demos/公共刷新与加载/入口.dart",
+      "implementationPath": "JobsByPubs/JobsRefreshByPub/lib/jobs_refresh_load.dart",
+      "entryPath": "lib/demos/公共刷新与加载/入口.dart"
+    },
+    {
+      "id": "legacy-pub-safe-value",
+      "title": "公共安全取值",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/公共安全取值/入口.dart",
+      "implementationPath": "JobsByPubs/JobsSafetyGetValueByPub/lib/jobs_safety_get_value.dart",
+      "entryPath": "lib/demos/公共安全取值/入口.dart"
+    },
+    {
+      "id": "legacy-complete-0",
+      "title": "全局路由观察",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·全局路由观察/入口.dart",
+      "implementationPath": "lib/demos/旧例·全局路由观察/源码/JobsRouteObserver.dart",
+      "entryPath": "lib/demos/旧例·全局路由观察/入口.dart"
+    },
+    {
+      "id": "legacy-complete-2",
+      "title": "JSON字段转换",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·JSON字段转换/入口.dart",
+      "implementationPath": "lib/demos/旧例·JSON字段转换/源码/JsonConverterDemo.dart",
+      "entryPath": "lib/demos/旧例·JSON字段转换/入口.dart"
+    },
+    {
+      "id": "legacy-complete-3",
+      "title": "友盟统计与崩溃",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·友盟统计与崩溃/入口.dart",
+      "implementationPath": "lib/demos/旧例·友盟统计与崩溃/源码/umeng_demo.dart",
+      "entryPath": "lib/demos/旧例·友盟统计与崩溃/入口.dart"
+    },
+    {
+      "id": "legacy-complete-4",
+      "title": "SQLite数据库读写",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·SQLite数据库读写/入口.dart",
+      "implementationPath": "lib/demos/旧例·SQLite数据库读写/源码/FMDB_Demo.dart",
+      "entryPath": "lib/demos/旧例·SQLite数据库读写/入口.dart"
+    },
+    {
+      "id": "legacy-complete-5",
+      "title": "Provider通知与计数",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·Provider通知与计数/入口.dart",
+      "implementationPath": "lib/demos/旧例·Provider通知与计数/源码/ProviderDemo1.dart",
+      "entryPath": "lib/demos/旧例·Provider通知与计数/入口.dart"
+    },
+    {
+      "id": "legacy-complete-7",
+      "title": "页面截图与保存",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·页面截图与保存/入口.dart",
+      "implementationPath": "lib/demos/旧例·页面截图与保存/源码/Screenshot.dart",
+      "entryPath": "lib/demos/旧例·页面截图与保存/入口.dart"
+    },
+    {
+      "id": "legacy-complete-11",
+      "title": "输入框封装教学",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·输入框封装教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·输入框封装教学/源码/JobsTextField.dart",
+      "entryPath": "lib/demos/旧例·输入框封装教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-12",
+      "title": "按钮封装教学",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·按钮封装教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·按钮封装教学/源码/JobsButton.dart",
+      "entryPath": "lib/demos/旧例·按钮封装教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-14",
+      "title": "组件互调之父组件",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·组件互调之父组件/入口.dart",
+      "implementationPath": "lib/demos/旧例·组件互调之父组件/源码/Main_Widget.dart",
+      "entryPath": "lib/demos/旧例·组件互调之父组件/入口.dart"
+    },
+    {
+      "id": "legacy-complete-15",
+      "title": "组件互调之子组件",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·组件互调之子组件/入口.dart",
+      "implementationPath": "lib/demos/旧例·组件互调之子组件/源码/A_Widget.dart",
+      "entryPath": "lib/demos/旧例·组件互调之子组件/入口.dart"
+    },
+    {
+      "id": "legacy-complete-16",
+      "title": "回调函数与语言参数",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·回调函数与语言参数/入口.dart",
+      "implementationPath": "lib/demos/旧例·回调函数与语言参数/源码/BlockDemo.dart",
+      "entryPath": "lib/demos/旧例·回调函数与语言参数/入口.dart"
+    },
+    {
+      "id": "legacy-complete-17",
+      "title": "MQTT消息发布订阅二",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·MQTT消息发布订阅二/入口.dart",
+      "implementationPath": "lib/demos/旧例·MQTT消息发布订阅二/源码/mqtt_demo2.dart",
+      "entryPath": "lib/demos/旧例·MQTT消息发布订阅二/入口.dart"
+    },
+    {
+      "id": "legacy-complete-18",
+      "title": "Material应用容器",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·Material应用容器/入口.dart",
+      "implementationPath": "lib/demos/旧例·Material应用容器/源码/MaterialAppDemo.dart",
+      "entryPath": "lib/demos/旧例·Material应用容器/入口.dart"
+    },
+    {
+      "id": "legacy-complete-19",
+      "title": "Cupertino应用容器",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·Cupertino应用容器/入口.dart",
+      "implementationPath": "lib/demos/旧例·Cupertino应用容器/源码/CupertinoAppDemo.dart",
+      "entryPath": "lib/demos/旧例·Cupertino应用容器/入口.dart"
+    },
+    {
+      "id": "legacy-complete-20",
+      "title": "跨页面状态监听",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·跨页面状态监听/入口.dart",
+      "implementationPath": "lib/demos/旧例·跨页面状态监听/源码/CrossPagesListenDemo.dart",
+      "entryPath": "lib/demos/旧例·跨页面状态监听/入口.dart"
+    },
+    {
+      "id": "legacy-complete-21",
+      "title": "MQTT消息发布订阅一",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·MQTT消息发布订阅一/入口.dart",
+      "implementationPath": "lib/demos/旧例·MQTT消息发布订阅一/源码/mqtt_demo1.dart",
+      "entryPath": "lib/demos/旧例·MQTT消息发布订阅一/入口.dart"
+    },
+    {
+      "id": "legacy-complete-23",
+      "title": "应用前后台状态观察",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·应用前后台状态观察/入口.dart",
+      "implementationPath": "lib/demos/旧例·应用前后台状态观察/源码/AppLifecycleStateDemo.dart",
+      "entryPath": "lib/demos/旧例·应用前后台状态观察/入口.dart"
+    },
+    {
+      "id": "legacy-complete-24",
+      "title": "GetX应用容器",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·GetX应用容器/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX应用容器/源码/GetMaterialAppDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX应用容器/入口.dart"
+    },
+    {
+      "id": "legacy-complete-25",
+      "title": "资源词典国际化",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·资源词典国际化/入口.dart",
+      "implementationPath": "lib/demos/旧例·资源词典国际化/源码/EasyLocalizationAppDemo.dart",
+      "entryPath": "lib/demos/旧例·资源词典国际化/入口.dart"
+    },
+    {
+      "id": "legacy-complete-26",
+      "title": "底层应用容器",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·底层应用容器/入口.dart",
+      "implementationPath": "lib/demos/旧例·底层应用容器/源码/WidgetsAppDemo.dart",
+      "entryPath": "lib/demos/旧例·底层应用容器/入口.dart"
+    },
+    {
+      "id": "legacy-complete-27",
+      "title": "设备尺寸预览容器",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·设备尺寸预览容器/入口.dart",
+      "implementationPath": "lib/demos/旧例·设备尺寸预览容器/源码/DevicePreviewAppDemo.dart",
+      "entryPath": "lib/demos/旧例·设备尺寸预览容器/入口.dart"
+    },
+    {
+      "id": "legacy-complete-28",
+      "title": "应用状态树重启",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·应用状态树重启/入口.dart",
+      "implementationPath": "lib/demos/旧例·应用状态树重启/源码/PhoenixAppDemo.dart",
+      "entryPath": "lib/demos/旧例·应用状态树重启/入口.dart"
+    },
+    {
+      "id": "legacy-complete-29",
+      "title": "页面构建过程",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·页面构建过程/入口.dart",
+      "implementationPath": "lib/demos/旧例·页面构建过程/源码/MainBuildPage.dart",
+      "entryPath": "lib/demos/旧例·页面构建过程/入口.dart"
+    },
+    {
+      "id": "legacy-complete-33",
+      "title": "方法重写与继承",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·方法重写与继承/入口.dart",
+      "implementationPath": "lib/demos/旧例·方法重写与继承/源码/JobsOverrideDemo.dart",
+      "entryPath": "lib/demos/旧例·方法重写与继承/入口.dart"
+    },
+    {
+      "id": "legacy-complete-34",
+      "title": "注解与元数据查询",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·注解与元数据查询/入口.dart",
+      "implementationPath": "lib/demos/旧例·注解与元数据查询/源码/AnnotationDemo.dart",
+      "entryPath": "lib/demos/旧例·注解与元数据查询/入口.dart"
+    },
+    {
+      "id": "legacy-complete-35",
+      "title": "国际化示例一",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·国际化示例一/入口.dart",
+      "implementationPath": "lib/demos/旧例·国际化示例一/源码/intl_international_Demo1.dart",
+      "entryPath": "lib/demos/旧例·国际化示例一/入口.dart"
+    },
+    {
+      "id": "legacy-complete-36",
+      "title": "日期货币格式化",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·日期货币格式化/入口.dart",
+      "implementationPath": "lib/demos/旧例·日期货币格式化/源码/intl_format_Demo.dart",
+      "entryPath": "lib/demos/旧例·日期货币格式化/入口.dart"
+    },
+    {
+      "id": "legacy-complete-37",
+      "title": "集合去重与运算",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·集合去重与运算/入口.dart",
+      "implementationPath": "lib/demos/旧例·集合去重与运算/源码/Set.dart",
+      "entryPath": "lib/demos/旧例·集合去重与运算/入口.dart"
+    },
+    {
+      "id": "legacy-complete-40",
+      "title": "GetX国际化词典",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX国际化词典/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX国际化词典/源码/GetX_InternationalDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX国际化词典/入口.dart"
+    },
+    {
+      "id": "legacy-complete-41",
+      "title": "安全图片加载",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·安全图片加载/入口.dart",
+      "implementationPath": "lib/demos/旧例·安全图片加载/源码/JobsSafeImage.dart",
+      "entryPath": "lib/demos/旧例·安全图片加载/入口.dart"
+    },
+    {
+      "id": "legacy-complete-43",
+      "title": "函数参数与返回值",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·函数参数与返回值/入口.dart",
+      "implementationPath": "lib/demos/旧例·函数参数与返回值/源码/FunctionDemo.dart",
+      "entryPath": "lib/demos/旧例·函数参数与返回值/入口.dart"
+    },
+    {
+      "id": "legacy-complete-44",
+      "title": "国际化示例二",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·国际化示例二/入口.dart",
+      "implementationPath": "lib/demos/旧例·国际化示例二/源码/intl_international_Demo2.dart",
+      "entryPath": "lib/demos/旧例·国际化示例二/入口.dart"
+    },
+    {
+      "id": "legacy-complete-45",
+      "title": "GetX控制器删除",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX控制器删除/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX控制器删除/源码/GetX_DeleteDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX控制器删除/入口.dart"
+    },
+    {
+      "id": "legacy-complete-46",
+      "title": "GetX页面状态示例二",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX页面状态示例二/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX页面状态示例二/源码/GetX_PageStateDemo2.dart",
+      "entryPath": "lib/demos/旧例·GetX页面状态示例二/入口.dart"
+    },
+    {
+      "id": "legacy-complete-47",
+      "title": "GetX控制器查找",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX控制器查找/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX控制器查找/源码/GetX_FindDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX控制器查找/入口.dart"
+    },
+    {
+      "id": "legacy-complete-48",
+      "title": "GetX页面状态示例一",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX页面状态示例一/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX页面状态示例一/源码/GetX_PageStateDemo1.dart",
+      "entryPath": "lib/demos/旧例·GetX页面状态示例一/入口.dart"
+    },
+    {
+      "id": "legacy-complete-53",
+      "title": "JSON对象编解码",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·JSON对象编解码/入口.dart",
+      "implementationPath": "lib/demos/旧例·JSON对象编解码/源码/Json.dart",
+      "entryPath": "lib/demos/旧例·JSON对象编解码/入口.dart"
+    },
+    {
+      "id": "legacy-complete-54",
+      "title": "国际化委托与菜单",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·国际化委托与菜单/入口.dart",
+      "implementationPath": "lib/demos/旧例·国际化委托与菜单/源码/intl_international_Demo4.dart",
+      "entryPath": "lib/demos/旧例·国际化委托与菜单/入口.dart"
+    },
+    {
+      "id": "legacy-complete-56",
+      "title": "Riverpod状态管理",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·Riverpod状态管理/入口.dart",
+      "implementationPath": "lib/demos/旧例·Riverpod状态管理/源码/Riverpod.dart",
+      "entryPath": "lib/demos/旧例·Riverpod状态管理/入口.dart"
+    },
+    {
+      "id": "legacy-complete-58",
+      "title": "不可变模型与JSON解析",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·不可变模型与JSON解析/入口.dart",
+      "implementationPath": "lib/demos/旧例·不可变模型与JSON解析/源码/built_value.dart",
+      "entryPath": "lib/demos/旧例·不可变模型与JSON解析/入口.dart"
+    },
+    {
+      "id": "legacy-complete-59",
+      "title": "本地系统通知",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·本地系统通知/入口.dart",
+      "implementationPath": "lib/demos/旧例·本地系统通知/源码/LocalNotificationsDemo.dart",
+      "entryPath": "lib/demos/旧例·本地系统通知/入口.dart"
+    },
+    {
+      "id": "legacy-complete-64",
+      "title": "事件循环与帧调度",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·事件循环与帧调度/入口.dart",
+      "implementationPath": "lib/demos/旧例·事件循环与帧调度/源码/WidgetsBindingDemo1.dart",
+      "entryPath": "lib/demos/旧例·事件循环与帧调度/入口.dart"
+    },
+    {
+      "id": "legacy-complete-66",
+      "title": "控件状态属性",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·控件状态属性/入口.dart",
+      "implementationPath": "lib/demos/旧例·控件状态属性/源码/WidgetStateProperty.dart",
+      "entryPath": "lib/demos/旧例·控件状态属性/入口.dart"
+    },
+    {
+      "id": "legacy-complete-69",
+      "title": "渲染树更新调度",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·渲染树更新调度/入口.dart",
+      "implementationPath": "lib/demos/旧例·渲染树更新调度/源码/WidgetsBindingDemo3.dart",
+      "entryPath": "lib/demos/旧例·渲染树更新调度/入口.dart"
+    },
+    {
+      "id": "legacy-complete-77",
+      "title": "平台消息处理",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·平台消息处理/入口.dart",
+      "implementationPath": "lib/demos/旧例·平台消息处理/源码/WidgetsBindingDemo4.dart",
+      "entryPath": "lib/demos/旧例·平台消息处理/入口.dart"
+    },
+    {
+      "id": "legacy-complete-80",
+      "title": "滚动指示器控制",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·滚动指示器控制/入口.dart",
+      "implementationPath": "lib/demos/旧例·滚动指示器控制/源码/ShowsVerticalScrollIndicator.dart",
+      "entryPath": "lib/demos/旧例·滚动指示器控制/入口.dart"
+    },
+    {
+      "id": "legacy-complete-82",
+      "title": "第三方刷新组件教学",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·第三方刷新组件教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·第三方刷新组件教学/源码/Easy_refresh_demo.dart",
+      "entryPath": "lib/demos/旧例·第三方刷新组件教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-84",
+      "title": "Cupertino风格分页",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·Cupertino风格分页/入口.dart",
+      "implementationPath": "lib/demos/旧例·Cupertino风格分页/源码/Cupertino.dart",
+      "entryPath": "lib/demos/旧例·Cupertino风格分页/入口.dart"
+    },
+    {
+      "id": "legacy-complete-85",
+      "title": "Material风格分页",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·Material风格分页/入口.dart",
+      "implementationPath": "lib/demos/旧例·Material风格分页/源码/Material.dart",
+      "entryPath": "lib/demos/旧例·Material风格分页/入口.dart"
+    },
+    {
+      "id": "legacy-complete-87",
+      "title": "应用生命周期调度",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·应用生命周期调度/入口.dart",
+      "implementationPath": "lib/demos/旧例·应用生命周期调度/源码/WidgetsBindingDemo2.dart",
+      "entryPath": "lib/demos/旧例·应用生命周期调度/入口.dart"
+    },
+    {
+      "id": "legacy-complete-88",
+      "title": "嵌入网页混合滚动",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·嵌入网页混合滚动/入口.dart",
+      "implementationPath": "lib/demos/旧例·嵌入网页混合滚动/源码/InappwebviewDemo1.dart",
+      "entryPath": "lib/demos/旧例·嵌入网页混合滚动/入口.dart"
+    },
+    {
+      "id": "legacy-complete-89",
+      "title": "浮层布局教学",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·浮层布局教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·浮层布局教学/源码/Overlay.dart",
+      "entryPath": "lib/demos/旧例·浮层布局教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-91",
+      "title": "标签分页示例二",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·标签分页示例二/入口.dart",
+      "implementationPath": "lib/demos/旧例·标签分页示例二/源码/HomePage.dart",
+      "entryPath": "lib/demos/旧例·标签分页示例二/入口.dart"
+    },
+    {
+      "id": "legacy-complete-94",
+      "title": "图文混排与样式",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·图文混排与样式/入口.dart",
+      "implementationPath": "lib/demos/旧例·图文混排与样式/源码/Pic_Text.dart",
+      "entryPath": "lib/demos/旧例·图文混排与样式/入口.dart"
+    },
+    {
+      "id": "legacy-complete-95",
+      "title": "层叠布局教学",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·层叠布局教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·层叠布局教学/源码/Stack.dart",
+      "entryPath": "lib/demos/旧例·层叠布局教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-96",
+      "title": "隔离区双向消息",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·隔离区双向消息/入口.dart",
+      "implementationPath": "lib/demos/旧例·隔离区双向消息/源码/IsolateDemo1.dart",
+      "entryPath": "lib/demos/旧例·隔离区双向消息/入口.dart"
+    },
+    {
+      "id": "legacy-complete-97",
+      "title": "隔离区任务计算",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·隔离区任务计算/入口.dart",
+      "implementationPath": "lib/demos/旧例·隔离区任务计算/源码/IsolateDemo2.dart",
+      "entryPath": "lib/demos/旧例·隔离区任务计算/入口.dart"
+    },
+    {
+      "id": "legacy-complete-98",
+      "title": "网络图片缓存组件",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·网络图片缓存组件/入口.dart",
+      "implementationPath": "lib/demos/旧例·网络图片缓存组件/源码/CachedNetworkImageDemo.dart",
+      "entryPath": "lib/demos/旧例·网络图片缓存组件/入口.dart"
+    },
+    {
+      "id": "legacy-complete-99",
+      "title": "原生图片淡入加载",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·原生图片淡入加载/入口.dart",
+      "implementationPath": "lib/demos/旧例·原生图片淡入加载/源码/FadeInImageDemo(系统原生).dart",
+      "entryPath": "lib/demos/旧例·原生图片淡入加载/入口.dart"
+    },
+    {
+      "id": "legacy-complete-100",
+      "title": "文件图片缓存",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·文件图片缓存/入口.dart",
+      "implementationPath": "lib/demos/旧例·文件图片缓存/源码/FileImageCacheDemo.dart",
+      "entryPath": "lib/demos/旧例·文件图片缓存/入口.dart"
+    },
+    {
+      "id": "legacy-complete-101",
+      "title": "标签分页示例一",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·标签分页示例一/入口.dart",
+      "implementationPath": "lib/demos/旧例·标签分页示例一/源码/HomePage.dart",
+      "entryPath": "lib/demos/旧例·标签分页示例一/入口.dart"
+    },
+    {
+      "id": "legacy-complete-103",
+      "title": "元数据与动态表单",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·元数据与动态表单/入口.dart",
+      "implementationPath": "lib/demos/旧例·元数据与动态表单/源码/DartReflect.dart",
+      "entryPath": "lib/demos/旧例·元数据与动态表单/入口.dart"
+    },
+    {
+      "id": "legacy-complete-104",
+      "title": "媒体广告开屏",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·媒体广告开屏/入口.dart",
+      "implementationPath": "lib/demos/旧例·媒体广告开屏/源码/AppLaunchPage_demo1.dart",
+      "entryPath": "lib/demos/旧例·媒体广告开屏/入口.dart"
+    },
+    {
+      "id": "legacy-complete-105",
+      "title": "文字溢出与换行",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·文字溢出与换行/入口.dart",
+      "implementationPath": "lib/demos/旧例·文字溢出与换行/源码/Text.dart",
+      "entryPath": "lib/demos/旧例·文字溢出与换行/入口.dart"
+    },
+    {
+      "id": "legacy-complete-106",
+      "title": "标签分页示例三",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·标签分页示例三/入口.dart",
+      "implementationPath": "lib/demos/旧例·标签分页示例三/源码/HomePage.dart",
+      "entryPath": "lib/demos/旧例·标签分页示例三/入口.dart"
+    },
+    {
+      "id": "legacy-complete-107",
+      "title": "原生画布抽奖轮盘",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·原生画布抽奖轮盘/入口.dart",
+      "implementationPath": "lib/demos/旧例·原生画布抽奖轮盘/源码/LuckyWheelPage.dart",
+      "entryPath": "lib/demos/旧例·原生画布抽奖轮盘/入口.dart"
+    },
+    {
+      "id": "legacy-complete-108",
+      "title": "标签分页示例四",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·标签分页示例四/入口.dart",
+      "implementationPath": "lib/demos/旧例·标签分页示例四/源码/HomePage.dart",
+      "entryPath": "lib/demos/旧例·标签分页示例四/入口.dart"
+    },
+    {
+      "id": "legacy-complete-109",
+      "title": "GetX命名路由示例二",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX命名路由示例二/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX命名路由示例二/源码/GetX_RouteDemo2.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由示例二/入口.dart"
+    },
+    {
+      "id": "legacy-complete-111",
+      "title": "折叠滚动示例三",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·折叠滚动示例三/入口.dart",
+      "implementationPath": "lib/demos/旧例·折叠滚动示例三/源码/SliverToBoxAdapterDemo3.dart",
+      "entryPath": "lib/demos/旧例·折叠滚动示例三/入口.dart"
+    },
+    {
+      "id": "legacy-complete-112",
+      "title": "自动滚动与异形视图",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·自动滚动与异形视图/入口.dart",
+      "implementationPath": "lib/demos/旧例·自动滚动与异形视图/源码/SliverToBoxAdapterDemo2.dart",
+      "entryPath": "lib/demos/旧例·自动滚动与异形视图/入口.dart"
+    },
+    {
+      "id": "legacy-complete-113",
+      "title": "键盘高度与视图指标",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·键盘高度与视图指标/入口.dart",
+      "implementationPath": "lib/demos/旧例·键盘高度与视图指标/源码/Keyboard.dart",
+      "entryPath": "lib/demos/旧例·键盘高度与视图指标/入口.dart"
+    },
+    {
+      "id": "legacy-complete-115",
+      "title": "国际化示例三",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·国际化示例三/入口.dart",
+      "implementationPath": "lib/demos/旧例·国际化示例三/源码/intl_international_Demo3.dart",
+      "entryPath": "lib/demos/旧例·国际化示例三/入口.dart"
+    },
+    {
+      "id": "legacy-complete-117",
+      "title": "控制台打印教学",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·控制台打印教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·控制台打印教学/源码/Print.dart",
+      "entryPath": "lib/demos/旧例·控制台打印教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-118",
+      "title": "GetX路由传参与返回",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX路由传参与返回/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX路由传参与返回/源码/GetX_RouteDemo5.dart",
+      "entryPath": "lib/demos/旧例·GetX路由传参与返回/入口.dart"
+    },
+    {
+      "id": "legacy-complete-119",
+      "title": "弹性换行与填充对照",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·弹性换行与填充对照/入口.dart",
+      "implementationPath": "lib/demos/旧例·弹性换行与填充对照/源码/Flexible + Expanded.dart",
+      "entryPath": "lib/demos/旧例·弹性换行与填充对照/入口.dart"
+    },
+    {
+      "id": "legacy-complete-120",
+      "title": "主题切换示例一",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·主题切换示例一/入口.dart",
+      "implementationPath": "lib/demos/旧例·主题切换示例一/源码/Theme.dart",
+      "entryPath": "lib/demos/旧例·主题切换示例一/入口.dart"
+    },
+    {
+      "id": "legacy-complete-121",
+      "title": "主题切换示例二",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·主题切换示例二/入口.dart",
+      "implementationPath": "lib/demos/旧例·主题切换示例二/源码/Theme2.dart",
+      "entryPath": "lib/demos/旧例·主题切换示例二/入口.dart"
+    },
+    {
+      "id": "legacy-complete-122",
+      "title": "单例模式示例一",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·单例模式示例一/入口.dart",
+      "implementationPath": "lib/demos/旧例·单例模式示例一/源码/MySingletonDemo1.dart",
+      "entryPath": "lib/demos/旧例·单例模式示例一/入口.dart"
+    },
+    {
+      "id": "legacy-complete-123",
+      "title": "单例模式示例二",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·单例模式示例二/入口.dart",
+      "implementationPath": "lib/demos/旧例·单例模式示例二/源码/MySingletonDemo2.dart",
+      "entryPath": "lib/demos/旧例·单例模式示例二/入口.dart"
+    },
+    {
+      "id": "legacy-complete-124",
+      "title": "单例模式示例三",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·单例模式示例三/入口.dart",
+      "implementationPath": "lib/demos/旧例·单例模式示例三/源码/MySingletonDemo3.dart",
+      "entryPath": "lib/demos/旧例·单例模式示例三/入口.dart"
+    },
+    {
+      "id": "legacy-complete-125",
+      "title": "GetX命名路由示例一",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX命名路由示例一/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX命名路由示例一/源码/GetX_RouteDemo1.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由示例一/入口.dart"
+    },
+    {
+      "id": "legacy-complete-126",
+      "title": "GetX命名路由首页",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX命名路由首页/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX命名路由首页/源码/home_view.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由首页/入口.dart"
+    },
+    {
+      "id": "legacy-complete-127",
+      "title": "GetX命名路由示例四",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX命名路由示例四/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX命名路由示例四/源码/GetX_RouteDemo4.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由示例四/入口.dart"
+    },
+    {
+      "id": "legacy-complete-128",
+      "title": "GetX命名路由示例三",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX命名路由示例三/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX命名路由示例三/源码/GetX_RouteDemo3.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由示例三/入口.dart"
+    },
+    {
+      "id": "legacy-complete-129",
+      "title": "GetX依赖绑定启动",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·GetX依赖绑定启动/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX依赖绑定启动/源码/GetXBindingDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX依赖绑定启动/入口.dart"
+    },
+    {
+      "id": "legacy-complete-131",
+      "title": "HTML富文本表格",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·HTML富文本表格/入口.dart",
+      "implementationPath": "lib/demos/旧例·HTML富文本表格/源码/BonusHtmlTableView.dart",
+      "entryPath": "lib/demos/旧例·HTML富文本表格/入口.dart"
+    },
+    {
+      "id": "legacy-complete-134",
+      "title": "临时文件视频播放",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·临时文件视频播放/入口.dart",
+      "implementationPath": "lib/demos/旧例·临时文件视频播放/源码/VideoPlayerController_file_demo.dart",
+      "entryPath": "lib/demos/旧例·临时文件视频播放/入口.dart"
+    },
+    {
+      "id": "legacy-complete-135",
+      "title": "沙盒文件视频播放",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·沙盒文件视频播放/入口.dart",
+      "implementationPath": "lib/demos/旧例·沙盒文件视频播放/源码/VideoPlayerController_sandboxFile_demo.dart",
+      "entryPath": "lib/demos/旧例·沙盒文件视频播放/入口.dart"
+    },
+    {
+      "id": "legacy-complete-136",
+      "title": "Android内容URI视频",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·Android内容URI视频/入口.dart",
+      "implementationPath": "lib/demos/旧例·Android内容URI视频/源码/VideoPlayerController.contentUri_demo（Only_In_Android）.dart",
+      "entryPath": "lib/demos/旧例·Android内容URI视频/入口.dart"
+    },
+    {
+      "id": "legacy-complete-137",
+      "title": "Dio网络教学启动",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·Dio网络教学启动/入口.dart",
+      "implementationPath": "lib/demos/旧例·Dio网络教学启动/源码/dio_demo_main.dart",
+      "entryPath": "lib/demos/旧例·Dio网络教学启动/入口.dart"
+    },
+    {
+      "id": "legacy-complete-140",
+      "title": "相机照片与视频采集",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·相机照片与视频采集/入口.dart",
+      "implementationPath": "lib/demos/旧例·相机照片与视频采集/源码/CameraPicAndVideoDemo.dart",
+      "entryPath": "lib/demos/旧例·相机照片与视频采集/入口.dart"
+    },
+    {
+      "id": "legacy-complete-142",
+      "title": "视图层级调整示例一",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·视图层级调整示例一/入口.dart",
+      "implementationPath": "lib/demos/旧例·视图层级调整示例一/源码/main2.dart",
+      "entryPath": "lib/demos/旧例·视图层级调整示例一/入口.dart"
+    },
+    {
+      "id": "legacy-complete-143",
+      "title": "视图层级调整示例二",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·视图层级调整示例二/入口.dart",
+      "implementationPath": "lib/demos/旧例·视图层级调整示例二/源码/main.dart",
+      "entryPath": "lib/demos/旧例·视图层级调整示例二/入口.dart"
+    },
+    {
+      "id": "legacy-complete-144",
+      "title": "GetX异步界面渲染",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·GetX异步界面渲染/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX异步界面渲染/源码/GetXAsyncUI.dart",
+      "entryPath": "lib/demos/旧例·GetX异步界面渲染/入口.dart"
+    },
+    {
+      "id": "legacy-complete-145",
+      "title": "HTTP网络教学启动",
+      "group": "数据与状态",
+      "sourcePath": "lib/demos/旧例·HTTP网络教学启动/入口.dart",
+      "implementationPath": "lib/demos/旧例·HTTP网络教学启动/源码/http_demo_main.dart",
+      "entryPath": "lib/demos/旧例·HTTP网络教学启动/入口.dart"
+    },
+    {
+      "id": "legacy-complete-146",
+      "title": "复制文字气泡提示",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·复制文字气泡提示/入口.dart",
+      "implementationPath": "lib/demos/旧例·复制文字气泡提示/源码/JobsCopyTips.dart",
+      "entryPath": "lib/demos/旧例·复制文字气泡提示/入口.dart"
+    },
+    {
+      "id": "legacy-complete-147",
+      "title": "网格弹出菜单",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·网格弹出菜单/入口.dart",
+      "implementationPath": "lib/demos/旧例·网格弹出菜单/源码/弹出框@GridView.dart",
+      "entryPath": "lib/demos/旧例·网格弹出菜单/入口.dart"
+    },
+    {
+      "id": "legacy-complete-148",
+      "title": "表格弹出菜单",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·表格弹出菜单/入口.dart",
+      "implementationPath": "lib/demos/旧例·表格弹出菜单/源码/弹出框@表格.dart",
+      "entryPath": "lib/demos/旧例·表格弹出菜单/入口.dart"
+    },
+    {
+      "id": "legacy-complete-150",
+      "title": "段落富文本与交互",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·段落富文本与交互/入口.dart",
+      "implementationPath": "lib/demos/旧例·段落富文本与交互/源码/sample_data.dart",
+      "entryPath": "lib/demos/旧例·段落富文本与交互/入口.dart"
+    },
+    {
+      "id": "legacy-complete-151",
+      "title": "网页容器与资源加载",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·网页容器与资源加载/入口.dart",
+      "implementationPath": "lib/demos/旧例·网页容器与资源加载/源码/JobsWebViewWidget.dart",
+      "entryPath": "lib/demos/旧例·网页容器与资源加载/入口.dart"
+    },
+    {
+      "id": "legacy-complete-152",
+      "title": "响应式网页容器",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·响应式网页容器/入口.dart",
+      "implementationPath": "lib/demos/旧例·响应式网页容器/源码/JobsReactiveWebView.dart",
+      "entryPath": "lib/demos/旧例·响应式网页容器/入口.dart"
+    },
+    {
+      "id": "legacy-complete-153",
+      "title": "GetX双向数值绑定",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·GetX双向数值绑定/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX双向数值绑定/源码/💥GetX的值双向绑定.dart",
+      "entryPath": "lib/demos/旧例·GetX双向数值绑定/入口.dart"
+    },
+    {
+      "id": "legacy-complete-154",
+      "title": "GetX页面生命周期教学",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·GetX页面生命周期教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX页面生命周期教学/源码/GetXLifeCycleDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX页面生命周期教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-155",
+      "title": "卡片图片轮播",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·卡片图片轮播/入口.dart",
+      "implementationPath": "lib/demos/旧例·卡片图片轮播/源码/CardSwiperDemo.dart",
+      "entryPath": "lib/demos/旧例·卡片图片轮播/入口.dart"
+    },
+    {
+      "id": "legacy-complete-156",
+      "title": "滑块图片轮播",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·滑块图片轮播/入口.dart",
+      "implementationPath": "lib/demos/旧例·滑块图片轮播/源码/CarouselSliderDemo.dart",
+      "entryPath": "lib/demos/旧例·滑块图片轮播/入口.dart"
+    },
+    {
+      "id": "legacy-complete-157",
+      "title": "GetX视图控制器教学",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·GetX视图控制器教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·GetX视图控制器教学/源码/GetViewDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX视图控制器教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-158",
+      "title": "不规则按钮绘制",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·不规则按钮绘制/入口.dart",
+      "implementationPath": "lib/demos/旧例·不规则按钮绘制/源码/Irregular_btn.dart",
+      "entryPath": "lib/demos/旧例·不规则按钮绘制/入口.dart"
+    },
+    {
+      "id": "legacy-complete-160",
+      "title": "简易通知封装",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·简易通知封装/入口.dart",
+      "implementationPath": "lib/demos/旧例·简易通知封装/源码/JobsSimplyNotification.dart",
+      "entryPath": "lib/demos/旧例·简易通知封装/入口.dart"
+    },
+    {
+      "id": "legacy-complete-163",
+      "title": "富文本拼接封装",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·富文本拼接封装/入口.dart",
+      "implementationPath": "lib/demos/旧例·富文本拼接封装/源码/JobsRichText.dart",
+      "entryPath": "lib/demos/旧例·富文本拼接封装/入口.dart"
+    },
+    {
+      "id": "legacy-complete-164",
+      "title": "本地消息通知封装",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·本地消息通知封装/入口.dart",
+      "implementationPath": "lib/demos/旧例·本地消息通知封装/源码/JobsNotification.dart",
+      "entryPath": "lib/demos/旧例·本地消息通知封装/入口.dart"
+    },
+    {
+      "id": "legacy-complete-165",
+      "title": "形状与渐变装饰",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·形状与渐变装饰/入口.dart",
+      "implementationPath": "lib/demos/旧例·形状与渐变装饰/源码/ShapeDecoration.dart",
+      "entryPath": "lib/demos/旧例·形状与渐变装饰/入口.dart"
+    },
+    {
+      "id": "legacy-complete-166",
+      "title": "输入装饰与提示",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·输入装饰与提示/入口.dart",
+      "implementationPath": "lib/demos/旧例·输入装饰与提示/源码/InputDecoration.dart",
+      "entryPath": "lib/demos/旧例·输入装饰与提示/入口.dart"
+    },
+    {
+      "id": "legacy-complete-167",
+      "title": "分页下划线指示器",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·分页下划线指示器/入口.dart",
+      "implementationPath": "lib/demos/旧例·分页下划线指示器/源码/UnderlineTabIndicator.dart",
+      "entryPath": "lib/demos/旧例·分页下划线指示器/入口.dart"
+    },
+    {
+      "id": "legacy-complete-168",
+      "title": "Flutter标志装饰",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·Flutter标志装饰/入口.dart",
+      "implementationPath": "lib/demos/旧例·Flutter标志装饰/源码/FlutterLogoDecoration.dart",
+      "entryPath": "lib/demos/旧例·Flutter标志装饰/入口.dart"
+    },
+    {
+      "id": "legacy-complete-169",
+      "title": "容器装饰组合",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·容器装饰组合/入口.dart",
+      "implementationPath": "lib/demos/旧例·容器装饰组合/源码/BoxDecoration.dart",
+      "entryPath": "lib/demos/旧例·容器装饰组合/入口.dart"
+    },
+    {
+      "id": "legacy-complete-171",
+      "title": "模型字典解析教学",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·模型字典解析教学/入口.dart",
+      "implementationPath": "lib/demos/旧例·模型字典解析教学/源码/main.dart",
+      "entryPath": "lib/demos/旧例·模型字典解析教学/入口.dart"
+    },
+    {
+      "id": "legacy-complete-172",
+      "title": "系统剪贴板与邀请码",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·系统剪贴板与邀请码/入口.dart",
+      "implementationPath": "lib/demos/旧例·系统剪贴板与邀请码/源码/NativeClipboard.dart",
+      "entryPath": "lib/demos/旧例·系统剪贴板与邀请码/入口.dart"
+    },
+    {
+      "id": "legacy-complete-173",
+      "title": "广告轮播组件",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·广告轮播组件/入口.dart",
+      "implementationPath": "lib/demos/旧例·广告轮播组件/源码/JobsBannerCarousel.dart",
+      "entryPath": "lib/demos/旧例·广告轮播组件/入口.dart"
+    },
+    {
+      "id": "legacy-complete-174",
+      "title": "调试输出与工具函数",
+      "group": "原有功能",
+      "sourcePath": "lib/demos/旧例·调试输出与工具函数/入口.dart",
+      "implementationPath": "lib/demos/旧例·调试输出与工具函数/源码/JobsCommonUtil.dart",
+      "entryPath": "lib/demos/旧例·调试输出与工具函数/入口.dart"
+    }
+  ],
+  "standalone": [],
+  "migratedMainSources": [
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/路由变化的监听/JobsRouteObserver.dart",
+      "sourcePath": "lib/demos/旧例·全局路由观察/源码/JobsRouteObserver.dart",
+      "entryPath": "lib/demos/旧例·全局路由观察/入口.dart",
+      "id": "legacy-complete-0",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/BLoC.dart",
+      "sourcePath": "lib/demos/事件驱动状态管理/源码/BLoC.dart",
+      "entryPath": "lib/demos/事件驱动状态管理/入口.dart",
+      "id": "legacy-bloc",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/数据处理/JsonConverterDemo.dart",
+      "sourcePath": "lib/demos/旧例·JSON字段转换/源码/JsonConverterDemo.dart",
+      "entryPath": "lib/demos/旧例·JSON字段转换/入口.dart",
+      "id": "legacy-complete-2",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart",
+      "sourcePath": "lib/demos/旧例·友盟统计与崩溃/源码/umeng_demo.dart",
+      "entryPath": "lib/demos/旧例·友盟统计与崩溃/入口.dart",
+      "id": "legacy-complete-3",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/数据库操作/FMDB_Demo.dart",
+      "sourcePath": "lib/demos/旧例·SQLite数据库读写/源码/FMDB_Demo.dart",
+      "entryPath": "lib/demos/旧例·SQLite数据库读写/入口.dart",
+      "id": "legacy-complete-4",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/Provider/ProviderDemo1.dart",
+      "sourcePath": "lib/demos/旧例·Provider通知与计数/源码/ProviderDemo1.dart",
+      "entryPath": "lib/demos/旧例·Provider通知与计数/入口.dart",
+      "id": "legacy-complete-5",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/Provider/Provider.dart",
+      "sourcePath": "lib/demos/依赖通知状态管理/源码/Provider.dart",
+      "entryPath": "lib/demos/依赖通知状态管理/入口.dart",
+      "id": "legacy-provider",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/截屏操作/Screenshot.dart",
+      "sourcePath": "lib/demos/旧例·页面截图与保存/源码/Screenshot.dart",
+      "entryPath": "lib/demos/旧例·页面截图与保存/入口.dart",
+      "id": "legacy-complete-7",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Flow/Flow.dart",
+      "sourcePath": "lib/demos/流式布局代理/源码/Flow.dart",
+      "entryPath": "lib/demos/流式布局代理/入口.dart",
+      "id": "legacy-flow",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/本地数据存取/StorageHelperDemo.dart",
+      "sourcePath": "lib/demos/本地数据存取/源码/StorageHelperDemo.dart",
+      "entryPath": "lib/demos/本地数据存取/入口.dart",
+      "id": "legacy-storage",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/悬浮按钮✅/HoverBtn.dart",
+      "sourcePath": "lib/demos/拖动磁吸旋转按钮/源码/HoverBtn.dart",
+      "entryPath": "lib/demos/拖动磁吸旋转按钮/入口.dart",
+      "id": "legacy-floating-button",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/监听/跨页面监听/widgets/JobsTextField.dart",
+      "sourcePath": "lib/demos/旧例·输入框封装教学/源码/JobsTextField.dart",
+      "entryPath": "lib/demos/旧例·输入框封装教学/入口.dart",
+      "id": "legacy-complete-11",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/监听/跨页面监听/widgets/JobsButton.dart",
+      "sourcePath": "lib/demos/旧例·按钮封装教学/源码/JobsButton.dart",
+      "entryPath": "lib/demos/旧例·按钮封装教学/入口.dart",
+      "id": "legacy-complete-12",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/WidgetExtensionsDemo.dart",
+      "sourcePath": "lib/demos/手势链式扩展/源码/WidgetExtensionsDemo.dart",
+      "entryPath": "lib/demos/手势链式扩展/入口.dart",
+      "id": "legacy-gesture-dsl",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Widget的相互调用/Main_Widget.dart",
+      "sourcePath": "lib/demos/旧例·组件互调之父组件/源码/Main_Widget.dart",
+      "entryPath": "lib/demos/旧例·组件互调之父组件/入口.dart",
+      "id": "legacy-complete-14",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Widget的相互调用/A_Widget.dart",
+      "sourcePath": "lib/demos/旧例·组件互调之子组件/源码/A_Widget.dart",
+      "entryPath": "lib/demos/旧例·组件互调之子组件/入口.dart",
+      "id": "legacy-complete-15",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Block/BlockDemo.dart",
+      "sourcePath": "lib/demos/旧例·回调函数与语言参数/源码/BlockDemo.dart",
+      "entryPath": "lib/demos/旧例·回调函数与语言参数/入口.dart",
+      "id": "legacy-complete-16",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo2/mqtt_demo2.dart",
+      "sourcePath": "lib/demos/旧例·MQTT消息发布订阅二/源码/mqtt_demo2.dart",
+      "entryPath": "lib/demos/旧例·MQTT消息发布订阅二/入口.dart",
+      "id": "legacy-complete-17",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/Sys/MaterialAppDemo.dart",
+      "sourcePath": "lib/demos/旧例·Material应用容器/源码/MaterialAppDemo.dart",
+      "entryPath": "lib/demos/旧例·Material应用容器/入口.dart",
+      "id": "legacy-complete-18",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/Sys/CupertinoAppDemo.dart",
+      "sourcePath": "lib/demos/旧例·Cupertino应用容器/源码/CupertinoAppDemo.dart",
+      "entryPath": "lib/demos/旧例·Cupertino应用容器/入口.dart",
+      "id": "legacy-complete-19",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/监听/跨页面监听/CrossPagesListenDemo.dart",
+      "sourcePath": "lib/demos/旧例·跨页面状态监听/源码/CrossPagesListenDemo.dart",
+      "entryPath": "lib/demos/旧例·跨页面状态监听/入口.dart",
+      "id": "legacy-complete-20",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo1/mqtt_demo1.dart",
+      "sourcePath": "lib/demos/旧例·MQTT消息发布订阅一/源码/mqtt_demo1.dart",
+      "entryPath": "lib/demos/旧例·MQTT消息发布订阅一/入口.dart",
+      "id": "legacy-complete-21",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/StreamController/StreamControllerDemo.dart",
+      "sourcePath": "lib/demos/流式数据监听/源码/StreamControllerDemo.dart",
+      "entryPath": "lib/demos/流式数据监听/入口.dart",
+      "id": "legacy-stream",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/监听/生命周期的监听/AppLifecycleStateDemo.dart",
+      "sourcePath": "lib/demos/旧例·应用前后台状态观察/源码/AppLifecycleStateDemo.dart",
+      "entryPath": "lib/demos/旧例·应用前后台状态观察/入口.dart",
+      "id": "legacy-complete-23",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/GetMaterialAppDemo.dart",
+      "sourcePath": "lib/demos/旧例·GetX应用容器/源码/GetMaterialAppDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX应用容器/入口.dart",
+      "id": "legacy-complete-24",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/EasyLocalizationAppDemo.dart",
+      "sourcePath": "lib/demos/旧例·资源词典国际化/源码/EasyLocalizationAppDemo.dart",
+      "entryPath": "lib/demos/旧例·资源词典国际化/入口.dart",
+      "id": "legacy-complete-25",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/WidgetsAppDemo.dart",
+      "sourcePath": "lib/demos/旧例·底层应用容器/源码/WidgetsAppDemo.dart",
+      "entryPath": "lib/demos/旧例·底层应用容器/入口.dart",
+      "id": "legacy-complete-26",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/DevicePreviewAppDemo.dart",
+      "sourcePath": "lib/demos/旧例·设备尺寸预览容器/源码/DevicePreviewAppDemo.dart",
+      "entryPath": "lib/demos/旧例·设备尺寸预览容器/入口.dart",
+      "id": "legacy-complete-27",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/PhoenixAppDemo.dart",
+      "sourcePath": "lib/demos/旧例·应用状态树重启/源码/PhoenixAppDemo.dart",
+      "entryPath": "lib/demos/旧例·应用状态树重启/入口.dart",
+      "id": "legacy-complete-28",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/MainBuildPage.dart",
+      "sourcePath": "lib/demos/旧例·页面构建过程/源码/MainBuildPage.dart",
+      "entryPath": "lib/demos/旧例·页面构建过程/入口.dart",
+      "id": "legacy-complete-29",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/动画过渡UI/AnimatedDemo.dart",
+      "sourcePath": "lib/demos/按钮大小位置动画/源码/AnimatedDemo.dart",
+      "entryPath": "lib/demos/按钮大小位置动画/入口.dart",
+      "id": "legacy-animated-button",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/StatefulWidget.dart",
+      "sourcePath": "lib/demos/状态组件生命周期/源码/StatefulWidget.dart",
+      "entryPath": "lib/demos/状态组件生命周期/入口.dart",
+      "id": "legacy-stateful-lifecycle",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/动画/Tween.dart",
+      "sourcePath": "lib/demos/补间动画/源码/Tween.dart",
+      "entryPath": "lib/demos/补间动画/入口.dart",
+      "id": "legacy-tween",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/注解的定义和使用/JobsOverrideDemo.dart",
+      "sourcePath": "lib/demos/旧例·方法重写与继承/源码/JobsOverrideDemo.dart",
+      "entryPath": "lib/demos/旧例·方法重写与继承/入口.dart",
+      "id": "legacy-complete-33",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/注解的定义和使用/AnnotationDemo.dart",
+      "sourcePath": "lib/demos/旧例·注解与元数据查询/源码/AnnotationDemo.dart",
+      "entryPath": "lib/demos/旧例·注解与元数据查询/入口.dart",
+      "id": "legacy-complete-34",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo1/intl_international_Demo1.dart",
+      "sourcePath": "lib/demos/旧例·国际化示例一/源码/intl_international_Demo1.dart",
+      "entryPath": "lib/demos/旧例·国际化示例一/入口.dart",
+      "id": "legacy-complete-35",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_format_Demo.dart",
+      "sourcePath": "lib/demos/旧例·日期货币格式化/源码/intl_format_Demo.dart",
+      "entryPath": "lib/demos/旧例·日期货币格式化/入口.dart",
+      "id": "legacy-complete-36",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/Set/Set.dart",
+      "sourcePath": "lib/demos/旧例·集合去重与运算/源码/Set.dart",
+      "entryPath": "lib/demos/旧例·集合去重与运算/入口.dart",
+      "id": "legacy-complete-37",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetView.dart",
+      "sourcePath": "lib/demos/控制器生命周期观察/源码/GetView.dart",
+      "entryPath": "lib/demos/控制器生命周期观察/入口.dart",
+      "id": "legacy-get-observer",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RxListenerDemo.dart",
+      "sourcePath": "lib/demos/响应式监听防抖节流/源码/GetX_RxListenerDemo.dart",
+      "entryPath": "lib/demos/响应式监听防抖节流/入口.dart",
+      "id": "legacy-get-workers",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_InternationalDemo.dart",
+      "sourcePath": "lib/demos/旧例·GetX国际化词典/源码/GetX_InternationalDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX国际化词典/入口.dart",
+      "id": "legacy-complete-40",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/安全加载图片/JobsSafeImage.dart",
+      "sourcePath": "lib/demos/旧例·安全图片加载/源码/JobsSafeImage.dart",
+      "entryPath": "lib/demos/旧例·安全图片加载/入口.dart",
+      "id": "legacy-complete-41",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/手势/点击（Tap）/TapDemo.dart",
+      "sourcePath": "lib/demos/单击双击与长按/源码/TapDemo.dart",
+      "entryPath": "lib/demos/单击双击与长按/入口.dart",
+      "id": "legacy-tap",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Function/FunctionDemo.dart",
+      "sourcePath": "lib/demos/旧例·函数参数与返回值/源码/FunctionDemo.dart",
+      "entryPath": "lib/demos/旧例·函数参数与返回值/入口.dart",
+      "id": "legacy-complete-43",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo2/intl_international_Demo2.dart",
+      "sourcePath": "lib/demos/旧例·国际化示例二/源码/intl_international_Demo2.dart",
+      "entryPath": "lib/demos/旧例·国际化示例二/入口.dart",
+      "id": "legacy-complete-44",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_PageStateDemo/GetX_DeleteDemo.dart",
+      "sourcePath": "lib/demos/旧例·GetX控制器删除/源码/GetX_DeleteDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX控制器删除/入口.dart",
+      "id": "legacy-complete-45",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_PageStateDemo/GetX_PageStateDemo2.dart",
+      "sourcePath": "lib/demos/旧例·GetX页面状态示例二/源码/GetX_PageStateDemo2.dart",
+      "entryPath": "lib/demos/旧例·GetX页面状态示例二/入口.dart",
+      "id": "legacy-complete-46",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_PageStateDemo/GetX_FindDemo.dart",
+      "sourcePath": "lib/demos/旧例·GetX控制器查找/源码/GetX_FindDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX控制器查找/入口.dart",
+      "id": "legacy-complete-47",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_PageStateDemo/GetX_PageStateDemo1.dart",
+      "sourcePath": "lib/demos/旧例·GetX页面状态示例一/源码/GetX_PageStateDemo1.dart",
+      "entryPath": "lib/demos/旧例·GetX页面状态示例一/入口.dart",
+      "id": "legacy-complete-48",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/手势/缩放（Scale）/ScaleDemo.dart",
+      "sourcePath": "lib/demos/缩放手势/源码/ScaleDemo.dart",
+      "entryPath": "lib/demos/缩放手势/入口.dart",
+      "id": "legacy-scale",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Overlay/JobsOverlay.dart",
+      "sourcePath": "lib/demos/自定义浮层/源码/JobsOverlay.dart",
+      "entryPath": "lib/demos/自定义浮层/入口.dart",
+      "id": "legacy-overlay",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/方法调用/InvokeInstanceFuncDemo.dart",
+      "sourcePath": "lib/demos/通过全局键调用实例/源码/InvokeInstanceFuncDemo.dart",
+      "entryPath": "lib/demos/通过全局键调用实例/入口.dart",
+      "id": "legacy-instance-method",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/方法调用/InvokeStaticFuncDemo.dart",
+      "sourcePath": "lib/demos/跨组件静态方法/源码/InvokeStaticFuncDemo.dart",
+      "entryPath": "lib/demos/跨组件静态方法/入口.dart",
+      "id": "legacy-static-method",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Json.dart",
+      "sourcePath": "lib/demos/旧例·JSON对象编解码/源码/Json.dart",
+      "entryPath": "lib/demos/旧例·JSON对象编解码/入口.dart",
+      "id": "legacy-complete-53",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo4/intl_international_Demo4.dart",
+      "sourcePath": "lib/demos/旧例·国际化委托与菜单/源码/intl_international_Demo4.dart",
+      "entryPath": "lib/demos/旧例·国际化委托与菜单/入口.dart",
+      "id": "legacy-complete-54",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/手势/拖动（Drag）/DragDemo.dart",
+      "sourcePath": "lib/demos/拖动手势/源码/DragDemo.dart",
+      "entryPath": "lib/demos/拖动手势/入口.dart",
+      "id": "legacy-drag",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/Riverpod/Riverpod.dart",
+      "sourcePath": "lib/demos/旧例·Riverpod状态管理/源码/Riverpod.dart",
+      "entryPath": "lib/demos/旧例·Riverpod状态管理/入口.dart",
+      "id": "legacy-complete-56",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/🔥首页联动切换子页面/SwitchSubPagesDemo.dart",
+      "sourcePath": "lib/demos/首页联动子页面/源码/SwitchSubPagesDemo.dart",
+      "entryPath": "lib/demos/首页联动子页面/入口.dart",
+      "id": "legacy-linked-tabs",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/built_value.dart",
+      "sourcePath": "lib/demos/旧例·不可变模型与JSON解析/源码/built_value.dart",
+      "entryPath": "lib/demos/旧例·不可变模型与JSON解析/入口.dart",
+      "id": "legacy-complete-58",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/本地通知✅/LocalNotificationsDemo.dart",
+      "sourcePath": "lib/demos/旧例·本地系统通知/源码/LocalNotificationsDemo.dart",
+      "entryPath": "lib/demos/旧例·本地系统通知/入口.dart",
+      "id": "legacy-complete-59",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/手势/滑动（Swipe）/SwipeDemo.dart",
+      "sourcePath": "lib/demos/滑动手势/源码/SwipeDemo.dart",
+      "entryPath": "lib/demos/滑动手势/入口.dart",
+      "id": "legacy-swipe",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/ConstrainedBox/ConstrainedBox.dart",
+      "sourcePath": "lib/demos/尺寸约束/源码/ConstrainedBox.dart",
+      "entryPath": "lib/demos/尺寸约束/入口.dart",
+      "id": "legacy-constrained",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/CustomMultiChildLayout/CustomMultiChildLayout.dart",
+      "sourcePath": "lib/demos/多子组件布局代理/源码/CustomMultiChildLayout.dart",
+      "entryPath": "lib/demos/多子组件布局代理/入口.dart",
+      "id": "legacy-multi-layout",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/BoxDecoration/BoxDecoration.dart",
+      "sourcePath": "lib/demos/边框阴影渐变/源码/BoxDecoration.dart",
+      "entryPath": "lib/demos/边框阴影渐变/入口.dart",
+      "id": "legacy-decoration",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/WidgetsBinding/事件循环和调度/WidgetsBindingDemo1.dart",
+      "sourcePath": "lib/demos/旧例·事件循环与帧调度/源码/WidgetsBindingDemo1.dart",
+      "entryPath": "lib/demos/旧例·事件循环与帧调度/入口.dart",
+      "id": "legacy-complete-64",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/键盘事件监听/Keyboard.dart",
+      "sourcePath": "lib/demos/键盘事件监听/源码/Keyboard.dart",
+      "entryPath": "lib/demos/键盘事件监听/入口.dart",
+      "id": "legacy-keyboard",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/WidgetStateProperty/WidgetStateProperty.dart",
+      "sourcePath": "lib/demos/旧例·控件状态属性/源码/WidgetStateProperty.dart",
+      "entryPath": "lib/demos/旧例·控件状态属性/入口.dart",
+      "id": "legacy-complete-66",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/导航返回键的行为拦截和自定义/PopScope.dart",
+      "sourcePath": "lib/demos/返回拦截与确认/源码/PopScope.dart",
+      "entryPath": "lib/demos/返回拦截与确认/入口.dart",
+      "id": "legacy-pop-confirm",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/倒计时按钮✅/CountdownBtn.dart",
+      "sourcePath": "lib/demos/倒计时与暂停恢复/源码/CountdownBtn.dart",
+      "entryPath": "lib/demos/倒计时与暂停恢复/入口.dart",
+      "id": "legacy-countdown",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/WidgetsBinding/渲染树更新/WidgetsBindingDemo3.dart",
+      "sourcePath": "lib/demos/旧例·渲染树更新调度/源码/WidgetsBindingDemo3.dart",
+      "entryPath": "lib/demos/旧例·渲染树更新调度/入口.dart",
+      "id": "legacy-complete-69",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/UITabbarController.dart",
+      "sourcePath": "lib/demos/底部分页导航/源码/UITabbarController.dart",
+      "entryPath": "lib/demos/底部分页导航/入口.dart",
+      "id": "legacy-bottom-tabs",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/ListWheelScrollViewDemo.dart",
+      "sourcePath": "lib/demos/滚轮列表/源码/ListWheelScrollViewDemo.dart",
+      "entryPath": "lib/demos/滚轮列表/入口.dart",
+      "id": "legacy-wheel-scroll",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/JXCategoryView.dart",
+      "sourcePath": "lib/demos/分类分页标签/源码/JXCategoryView.dart",
+      "entryPath": "lib/demos/分类分页标签/入口.dart",
+      "id": "legacy-category",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/UITableViewDemo.dart",
+      "sourcePath": "lib/demos/自定义列表单元格/源码/UITableViewDemo.dart",
+      "entryPath": "lib/demos/自定义列表单元格/入口.dart",
+      "id": "legacy-list",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/PageViewDemo.dart",
+      "sourcePath": "lib/demos/横向分页滚动/源码/PageViewDemo.dart",
+      "entryPath": "lib/demos/横向分页滚动/入口.dart",
+      "id": "legacy-page-horizontal",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/CustomScrollViewDemo.dart",
+      "sourcePath": "lib/demos/组合滚动视图/源码/CustomScrollViewDemo.dart",
+      "entryPath": "lib/demos/组合滚动视图/入口.dart",
+      "id": "legacy-scroll",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Center/Center.dart",
+      "sourcePath": "lib/demos/居中布局/源码/Center.dart",
+      "entryPath": "lib/demos/居中布局/入口.dart",
+      "id": "legacy-center",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/WidgetsBinding/平台消息处理/WidgetsBindingDemo4.dart",
+      "sourcePath": "lib/demos/旧例·平台消息处理/源码/WidgetsBindingDemo4.dart",
+      "entryPath": "lib/demos/旧例·平台消息处理/入口.dart",
+      "id": "legacy-complete-77",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Expanded + Wrap/Expanded + Wrap.dart",
+      "sourcePath": "lib/demos/填充与换行组合/源码/Expanded + Wrap.dart",
+      "entryPath": "lib/demos/填充与换行组合/入口.dart",
+      "id": "legacy-expanded-wrap",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/NestedScrollView/NestedScrollView.dart",
+      "sourcePath": "lib/demos/嵌套滚动与分页/源码/NestedScrollView.dart",
+      "entryPath": "lib/demos/嵌套滚动与分页/入口.dart",
+      "id": "legacy-nested-tabs",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/SingleChildScrollView/ShowsVerticalScrollIndicator.dart",
+      "sourcePath": "lib/demos/旧例·滚动指示器控制/源码/ShowsVerticalScrollIndicator.dart",
+      "entryPath": "lib/demos/旧例·滚动指示器控制/入口.dart",
+      "id": "legacy-complete-80",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/GridViewDemo.dart",
+      "sourcePath": "lib/demos/网格列表/源码/GridViewDemo.dart",
+      "entryPath": "lib/demos/网格列表/入口.dart",
+      "id": "legacy-grid",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/上拉加载、下拉刷新/Easy_refresh_demo.dart",
+      "sourcePath": "lib/demos/旧例·第三方刷新组件教学/源码/Easy_refresh_demo.dart",
+      "entryPath": "lib/demos/旧例·第三方刷新组件教学/入口.dart",
+      "id": "legacy-complete-82",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/LayoutBuilder/LayoutBuilder.dart",
+      "sourcePath": "lib/demos/响应式布局/源码/LayoutBuilder.dart",
+      "entryPath": "lib/demos/响应式布局/入口.dart",
+      "id": "legacy-layout-builder",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/5rd/Cupertino.dart",
+      "sourcePath": "lib/demos/旧例·Cupertino风格分页/源码/Cupertino.dart",
+      "entryPath": "lib/demos/旧例·Cupertino风格分页/入口.dart",
+      "id": "legacy-complete-84",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/5rd/Material.dart",
+      "sourcePath": "lib/demos/旧例·Material风格分页/源码/Material.dart",
+      "entryPath": "lib/demos/旧例·Material风格分页/入口.dart",
+      "id": "legacy-complete-85",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/UnconstrainedBox/UnconstrainedBox.dart",
+      "sourcePath": "lib/demos/解除尺寸约束/源码/UnconstrainedBox.dart",
+      "entryPath": "lib/demos/解除尺寸约束/入口.dart",
+      "id": "legacy-unconstrained",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/WidgetsBinding/应用生命周期管理/WidgetsBindingDemo2.dart",
+      "sourcePath": "lib/demos/旧例·应用生命周期调度/源码/WidgetsBindingDemo2.dart",
+      "entryPath": "lib/demos/旧例·应用生命周期调度/入口.dart",
+      "id": "legacy-complete-87",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/Inappwebview/InappwebviewDemo1.dart",
+      "sourcePath": "lib/demos/旧例·嵌入网页混合滚动/源码/InappwebviewDemo1.dart",
+      "entryPath": "lib/demos/旧例·嵌入网页混合滚动/入口.dart",
+      "id": "legacy-complete-88",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Overlay/Overlay.dart",
+      "sourcePath": "lib/demos/旧例·浮层布局教学/源码/Overlay.dart",
+      "entryPath": "lib/demos/旧例·浮层布局教学/入口.dart",
+      "id": "legacy-complete-89",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Flexible/Flexible.dart",
+      "sourcePath": "lib/demos/弹性文本换行/源码/Flexible.dart",
+      "entryPath": "lib/demos/弹性文本换行/入口.dart",
+      "id": "legacy-flexible",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/2nd/HomePage.dart",
+      "sourcePath": "lib/demos/旧例·标签分页示例二/源码/HomePage.dart",
+      "entryPath": "lib/demos/旧例·标签分页示例二/入口.dart",
+      "id": "legacy-complete-91",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/提示框/JobsAlertDialog.dart",
+      "sourcePath": "lib/demos/自定义提示框/源码/JobsAlertDialog.dart",
+      "entryPath": "lib/demos/自定义提示框/入口.dart",
+      "id": "legacy-dialog",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/提示框/TipsDemo.dart",
+      "sourcePath": "lib/demos/提示框行为组合/源码/TipsDemo.dart",
+      "entryPath": "lib/demos/提示框行为组合/入口.dart",
+      "id": "legacy-dialog-options",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/图文/Pic_Text.dart",
+      "sourcePath": "lib/demos/旧例·图文混排与样式/源码/Pic_Text.dart",
+      "entryPath": "lib/demos/旧例·图文混排与样式/入口.dart",
+      "id": "legacy-complete-94",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Stack/Stack.dart",
+      "sourcePath": "lib/demos/旧例·层叠布局教学/源码/Stack.dart",
+      "entryPath": "lib/demos/旧例·层叠布局教学/入口.dart",
+      "id": "legacy-complete-95",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Isolate/IsolateDemo1.dart",
+      "sourcePath": "lib/demos/旧例·隔离区双向消息/源码/IsolateDemo1.dart",
+      "entryPath": "lib/demos/旧例·隔离区双向消息/入口.dart",
+      "id": "legacy-complete-96",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Isolate/IsolateDemo2.dart",
+      "sourcePath": "lib/demos/旧例·隔离区任务计算/源码/IsolateDemo2.dart",
+      "entryPath": "lib/demos/旧例·隔离区任务计算/入口.dart",
+      "id": "legacy-complete-97",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/图片缓存/CachedNetworkImageDemo.dart",
+      "sourcePath": "lib/demos/旧例·网络图片缓存组件/源码/CachedNetworkImageDemo.dart",
+      "entryPath": "lib/demos/旧例·网络图片缓存组件/入口.dart",
+      "id": "legacy-complete-98",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/图片缓存/FadeInImageDemo(系统原生).dart",
+      "sourcePath": "lib/demos/旧例·原生图片淡入加载/源码/FadeInImageDemo(系统原生).dart",
+      "entryPath": "lib/demos/旧例·原生图片淡入加载/入口.dart",
+      "id": "legacy-complete-99",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/图片缓存/FileImageCacheDemo.dart",
+      "sourcePath": "lib/demos/旧例·文件图片缓存/源码/FileImageCacheDemo.dart",
+      "entryPath": "lib/demos/旧例·文件图片缓存/入口.dart",
+      "id": "legacy-complete-100",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/1st/HomePage.dart",
+      "sourcePath": "lib/demos/旧例·标签分页示例一/源码/HomePage.dart",
+      "entryPath": "lib/demos/旧例·标签分页示例一/入口.dart",
+      "id": "legacy-complete-101",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/抽奖轮盘/第三方库flutter_fortune_wheel实现抽奖轮盘/FortuneWheelDemo.dart",
+      "sourcePath": "lib/demos/组件抽奖轮盘/源码/FortuneWheelDemo.dart",
+      "entryPath": "lib/demos/组件抽奖轮盘/入口.dart",
+      "id": "legacy-fortune",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Dart反射（全部验证通过）/DartReflect.dart",
+      "sourcePath": "lib/demos/旧例·元数据与动态表单/源码/DartReflect.dart",
+      "entryPath": "lib/demos/旧例·元数据与动态表单/入口.dart",
+      "id": "legacy-complete-103",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/App启动页面/AppLaunchPage_demo1.dart",
+      "sourcePath": "lib/demos/旧例·媒体广告开屏/源码/AppLaunchPage_demo1.dart",
+      "entryPath": "lib/demos/旧例·媒体广告开屏/入口.dart",
+      "id": "legacy-complete-104",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Text/Text.dart",
+      "sourcePath": "lib/demos/旧例·文字溢出与换行/源码/Text.dart",
+      "entryPath": "lib/demos/旧例·文字溢出与换行/入口.dart",
+      "id": "legacy-complete-105",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/3rd/HomePage.dart",
+      "sourcePath": "lib/demos/旧例·标签分页示例三/源码/HomePage.dart",
+      "entryPath": "lib/demos/旧例·标签分页示例三/入口.dart",
+      "id": "legacy-complete-106",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/抽奖轮盘/纯原生Flutter实现抽奖轮/LuckyWheelPage.dart",
+      "sourcePath": "lib/demos/旧例·原生画布抽奖轮盘/源码/LuckyWheelPage.dart",
+      "entryPath": "lib/demos/旧例·原生画布抽奖轮盘/入口.dart",
+      "id": "legacy-complete-107",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/4rd/HomePage.dart",
+      "sourcePath": "lib/demos/旧例·标签分页示例四/源码/HomePage.dart",
+      "entryPath": "lib/demos/旧例·标签分页示例四/入口.dart",
+      "id": "legacy-complete-108",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo2/GetX_RouteDemo2.dart",
+      "sourcePath": "lib/demos/旧例·GetX命名路由示例二/源码/GetX_RouteDemo2.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由示例二/入口.dart",
+      "id": "legacy-complete-109",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/复杂滚动效果·Sliver组件/SliverToBoxAdapterDemo1.dart",
+      "sourcePath": "lib/demos/折叠头与混合列表/源码/SliverToBoxAdapterDemo1.dart",
+      "entryPath": "lib/demos/折叠头与混合列表/入口.dart",
+      "id": "legacy-sliver",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/复杂滚动效果·Sliver组件/SliverToBoxAdapterDemo3.dart",
+      "sourcePath": "lib/demos/旧例·折叠滚动示例三/源码/SliverToBoxAdapterDemo3.dart",
+      "entryPath": "lib/demos/旧例·折叠滚动示例三/入口.dart",
+      "id": "legacy-complete-111",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/复杂滚动效果·Sliver组件/SliverToBoxAdapterDemo2.dart",
+      "sourcePath": "lib/demos/旧例·自动滚动与异形视图/源码/SliverToBoxAdapterDemo2.dart",
+      "entryPath": "lib/demos/旧例·自动滚动与异形视图/入口.dart",
+      "id": "legacy-complete-112",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Keyboard.dart",
+      "sourcePath": "lib/demos/旧例·键盘高度与视图指标/源码/Keyboard.dart",
+      "entryPath": "lib/demos/旧例·键盘高度与视图指标/入口.dart",
+      "id": "legacy-complete-113",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Wrap/Wrap.dart",
+      "sourcePath": "lib/demos/自动换行布局/源码/Wrap.dart",
+      "entryPath": "lib/demos/自动换行布局/入口.dart",
+      "id": "legacy-wrap",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo3/intl_international_Demo3.dart",
+      "sourcePath": "lib/demos/旧例·国际化示例三/源码/intl_international_Demo3.dart",
+      "entryPath": "lib/demos/旧例·国际化示例三/入口.dart",
+      "id": "legacy-complete-115",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/CustomSingleChildLayout/CustomSingleChildLayout.dart",
+      "sourcePath": "lib/demos/单子组件布局代理/源码/CustomSingleChildLayout.dart",
+      "entryPath": "lib/demos/单子组件布局代理/入口.dart",
+      "id": "legacy-single-layout",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/打印/Print.dart",
+      "sourcePath": "lib/demos/旧例·控制台打印教学/源码/Print.dart",
+      "entryPath": "lib/demos/旧例·控制台打印教学/入口.dart",
+      "id": "legacy-complete-117",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo5/GetX_RouteDemo5.dart",
+      "sourcePath": "lib/demos/旧例·GetX路由传参与返回/源码/GetX_RouteDemo5.dart",
+      "entryPath": "lib/demos/旧例·GetX路由传参与返回/入口.dart",
+      "id": "legacy-complete-118",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Flexible + Expanded/Flexible + Expanded.dart",
+      "sourcePath": "lib/demos/旧例·弹性换行与填充对照/源码/Flexible + Expanded.dart",
+      "entryPath": "lib/demos/旧例·弹性换行与填充对照/入口.dart",
+      "id": "legacy-complete-119",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Theme/Theme.dart",
+      "sourcePath": "lib/demos/旧例·主题切换示例一/源码/Theme.dart",
+      "entryPath": "lib/demos/旧例·主题切换示例一/入口.dart",
+      "id": "legacy-complete-120",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Theme/Theme2.dart",
+      "sourcePath": "lib/demos/旧例·主题切换示例二/源码/Theme2.dart",
+      "entryPath": "lib/demos/旧例·主题切换示例二/入口.dart",
+      "id": "legacy-complete-121",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/单例的写法/MySingletonDemo1.dart",
+      "sourcePath": "lib/demos/旧例·单例模式示例一/源码/MySingletonDemo1.dart",
+      "entryPath": "lib/demos/旧例·单例模式示例一/入口.dart",
+      "id": "legacy-complete-122",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/单例的写法/MySingletonDemo2.dart",
+      "sourcePath": "lib/demos/旧例·单例模式示例二/源码/MySingletonDemo2.dart",
+      "entryPath": "lib/demos/旧例·单例模式示例二/入口.dart",
+      "id": "legacy-complete-123",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/单例的写法/MySingletonDemo3.dart",
+      "sourcePath": "lib/demos/旧例·单例模式示例三/源码/MySingletonDemo3.dart",
+      "entryPath": "lib/demos/旧例·单例模式示例三/入口.dart",
+      "id": "legacy-complete-124",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo1/GetX_RouteDemo1.dart",
+      "sourcePath": "lib/demos/旧例·GetX命名路由示例一/源码/GetX_RouteDemo1.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由示例一/入口.dart",
+      "id": "legacy-complete-125",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo1/home_view.dart",
+      "sourcePath": "lib/demos/旧例·GetX命名路由首页/源码/home_view.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由首页/入口.dart",
+      "id": "legacy-complete-126",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo4/GetX_RouteDemo4.dart",
+      "sourcePath": "lib/demos/旧例·GetX命名路由示例四/源码/GetX_RouteDemo4.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由示例四/入口.dart",
+      "id": "legacy-complete-127",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo3/GetX_RouteDemo3.dart",
+      "sourcePath": "lib/demos/旧例·GetX命名路由示例三/源码/GetX_RouteDemo3.dart",
+      "entryPath": "lib/demos/旧例·GetX命名路由示例三/入口.dart",
+      "id": "legacy-complete-128",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetXBindingDemo/GetXBindingDemo.dart",
+      "sourcePath": "lib/demos/旧例·GetX依赖绑定启动/源码/GetXBindingDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX依赖绑定启动/入口.dart",
+      "id": "legacy-complete-129",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetxController的生命周期/LifecycleDemoPage.dart",
+      "sourcePath": "lib/demos/控制器跨页生命周期/源码/LifecycleDemoPage.dart",
+      "entryPath": "lib/demos/控制器跨页生命周期/入口.dart",
+      "id": "legacy-get-lifecycle",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/Json表格/没有合并/BonusHtmlTableView.dart",
+      "sourcePath": "lib/demos/旧例·HTML富文本表格/源码/BonusHtmlTableView.dart",
+      "entryPath": "lib/demos/旧例·HTML富文本表格/入口.dart",
+      "id": "legacy-complete-131",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_networkUrl_demo.dart",
+      "sourcePath": "lib/demos/网络视频播放/源码/VideoPlayerController_networkUrl_demo.dart",
+      "entryPath": "lib/demos/网络视频播放/入口.dart",
+      "id": "legacy-network-video",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_asset_demo.dart",
+      "sourcePath": "lib/demos/本地视频播放/源码/VideoPlayerController_asset_demo.dart",
+      "entryPath": "lib/demos/本地视频播放/入口.dart",
+      "id": "legacy-local-video",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_file_demo.dart",
+      "sourcePath": "lib/demos/旧例·临时文件视频播放/源码/VideoPlayerController_file_demo.dart",
+      "entryPath": "lib/demos/旧例·临时文件视频播放/入口.dart",
+      "id": "legacy-complete-134",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_sandboxFile_demo.dart",
+      "sourcePath": "lib/demos/旧例·沙盒文件视频播放/源码/VideoPlayerController_sandboxFile_demo.dart",
+      "entryPath": "lib/demos/旧例·沙盒文件视频播放/入口.dart",
+      "id": "legacy-complete-135",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController.contentUri_demo（Only_In_Android）.dart",
+      "sourcePath": "lib/demos/旧例·Android内容URI视频/源码/VideoPlayerController.contentUri_demo（Only_In_Android）.dart",
+      "entryPath": "lib/demos/旧例·Android内容URI视频/入口.dart",
+      "id": "legacy-complete-136",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/dio_demo_main.dart",
+      "sourcePath": "lib/demos/旧例·Dio网络教学启动/源码/dio_demo_main.dart",
+      "entryPath": "lib/demos/旧例·Dio网络教学启动/入口.dart",
+      "id": "legacy-complete-137",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调用本地相册+调用本机摄像头拍照✅/GalleryDemo✅.dart",
+      "sourcePath": "lib/demos/本地相册选图/源码/GalleryDemo✅.dart",
+      "entryPath": "lib/demos/本地相册选图/入口.dart",
+      "id": "legacy-gallery",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.Origin🌍/GlobalKey/GlobalKeyDemo1.dart",
+      "sourcePath": "lib/demos/表单全局键/源码/GlobalKeyDemo1.dart",
+      "entryPath": "lib/demos/表单全局键/入口.dart",
+      "id": "legacy-global-key",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调用本地相册+调用本机摄像头拍照✅/AllInOne✅/CameraPicAndVideoDemo.dart",
+      "sourcePath": "lib/demos/旧例·相机照片与视频采集/源码/CameraPicAndVideoDemo.dart",
+      "entryPath": "lib/demos/旧例·相机照片与视频采集/入口.dart",
+      "id": "legacy-complete-140",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调用本地相册+调用本机摄像头拍照✅/CameraPicDemo✅.dart",
+      "sourcePath": "lib/demos/系统相机拍照/源码/CameraPicDemo✅.dart",
+      "entryPath": "lib/demos/系统相机拍照/入口.dart",
+      "id": "legacy-camera",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调整View层级顺序/main2.dart",
+      "sourcePath": "lib/demos/旧例·视图层级调整示例一/源码/main2.dart",
+      "entryPath": "lib/demos/旧例·视图层级调整示例一/入口.dart",
+      "id": "legacy-complete-142",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调整View层级顺序/main.dart",
+      "sourcePath": "lib/demos/旧例·视图层级调整示例二/源码/main.dart",
+      "entryPath": "lib/demos/旧例·视图层级调整示例二/入口.dart",
+      "id": "legacy-complete-143",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/异步渲染UI/GetXAsyncUI.dart",
+      "sourcePath": "lib/demos/旧例·GetX异步界面渲染/源码/GetXAsyncUI.dart",
+      "entryPath": "lib/demos/旧例·GetX异步界面渲染/入口.dart",
+      "id": "legacy-complete-144",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/http_demo_main.dart",
+      "sourcePath": "lib/demos/旧例·HTTP网络教学启动/源码/http_demo_main.dart",
+      "entryPath": "lib/demos/旧例·HTTP网络教学启动/入口.dart",
+      "id": "legacy-complete-145",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/复制内容到剪切板且气泡提醒/JobsCopyTips.dart",
+      "sourcePath": "lib/demos/旧例·复制文字气泡提示/源码/JobsCopyTips.dart",
+      "entryPath": "lib/demos/旧例·复制文字气泡提示/入口.dart",
+      "id": "legacy-complete-146",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/弹出框/弹出框@GridView.dart",
+      "sourcePath": "lib/demos/旧例·网格弹出菜单/源码/弹出框@GridView.dart",
+      "entryPath": "lib/demos/旧例·网格弹出菜单/入口.dart",
+      "id": "legacy-complete-147",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/弹出框/弹出框@表格.dart",
+      "sourcePath": "lib/demos/旧例·表格弹出菜单/源码/弹出框@表格.dart",
+      "entryPath": "lib/demos/旧例·表格弹出菜单/入口.dart",
+      "id": "legacy-complete-148",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Flexible+Wrap/Flexible+Wrap.dart",
+      "sourcePath": "lib/demos/弹性与换行组合/源码/Flexible+Wrap.dart",
+      "entryPath": "lib/demos/弹性与换行组合/入口.dart",
+      "id": "legacy-flexible-wrap",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/一般的富文本/sample_data.dart",
+      "sourcePath": "lib/demos/旧例·段落富文本与交互/源码/sample_data.dart",
+      "entryPath": "lib/demos/旧例·段落富文本与交互/入口.dart",
+      "id": "legacy-complete-150",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/JobsWebView/JobsWebViewWidget.dart",
+      "sourcePath": "lib/demos/旧例·网页容器与资源加载/源码/JobsWebViewWidget.dart",
+      "entryPath": "lib/demos/旧例·网页容器与资源加载/入口.dart",
+      "id": "legacy-complete-151",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/JobsWebView/JobsReactiveWebView.dart",
+      "sourcePath": "lib/demos/旧例·响应式网页容器/源码/JobsReactiveWebView.dart",
+      "entryPath": "lib/demos/旧例·响应式网页容器/入口.dart",
+      "id": "legacy-complete-152",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/💥GetX的值双向绑定/💥GetX的值双向绑定.dart",
+      "sourcePath": "lib/demos/旧例·GetX双向数值绑定/源码/💥GetX的值双向绑定.dart",
+      "entryPath": "lib/demos/旧例·GetX双向数值绑定/入口.dart",
+      "id": "legacy-complete-153",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/GetX管理的页面的生命周期/GetXLifeCycleDemo.dart",
+      "sourcePath": "lib/demos/旧例·GetX页面生命周期教学/源码/GetXLifeCycleDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX页面生命周期教学/入口.dart",
+      "id": "legacy-complete-154",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/轮播图✅/CardSwiperDemo.dart",
+      "sourcePath": "lib/demos/旧例·卡片图片轮播/源码/CardSwiperDemo.dart",
+      "entryPath": "lib/demos/旧例·卡片图片轮播/入口.dart",
+      "id": "legacy-complete-155",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/轮播图✅/CarouselSliderDemo.dart",
+      "sourcePath": "lib/demos/旧例·滑块图片轮播/源码/CarouselSliderDemo.dart",
+      "entryPath": "lib/demos/旧例·滑块图片轮播/入口.dart",
+      "id": "legacy-complete-156",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/GetView/GetViewDemo.dart",
+      "sourcePath": "lib/demos/旧例·GetX视图控制器教学/源码/GetViewDemo.dart",
+      "entryPath": "lib/demos/旧例·GetX视图控制器教学/入口.dart",
+      "id": "legacy-complete-157",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.3rd🌹/不规则图形✅/Irregular_btn.dart",
+      "sourcePath": "lib/demos/旧例·不规则按钮绘制/源码/Irregular_btn.dart",
+      "entryPath": "lib/demos/旧例·不规则按钮绘制/入口.dart",
+      "id": "legacy-complete-158",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/页面的生命周期监听（基类）/JobsPageDemo.dart",
+      "sourcePath": "lib/demos/页面生命周期基类/源码/JobsPageDemo.dart",
+      "entryPath": "lib/demos/页面生命周期基类/入口.dart",
+      "id": "legacy-lifecycle-base",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsSimplyNotification/JobsSimplyNotification.dart",
+      "sourcePath": "lib/demos/旧例·简易通知封装/源码/JobsSimplyNotification.dart",
+      "entryPath": "lib/demos/旧例·简易通知封装/入口.dart",
+      "id": "legacy-complete-160",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@JXCategoryView/JobsCategoryPage.dart",
+      "sourcePath": "lib/demos/自适应分类分页/源码/JobsCategoryPage.dart",
+      "entryPath": "lib/demos/自适应分类分页/入口.dart",
+      "id": "legacy-adaptive-category",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/按钮切换子页面/JobsSegmentTabs.dart",
+      "sourcePath": "lib/demos/胶囊按钮切页/源码/JobsSegmentTabs.dart",
+      "entryPath": "lib/demos/胶囊按钮切页/入口.dart",
+      "id": "legacy-segment-tabs",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/JobsRichText.dart",
+      "sourcePath": "lib/demos/旧例·富文本拼接封装/源码/JobsRichText.dart",
+      "entryPath": "lib/demos/旧例·富文本拼接封装/入口.dart",
+      "id": "legacy-complete-163",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsNotification/JobsNotification.dart",
+      "sourcePath": "lib/demos/旧例·本地消息通知封装/源码/JobsNotification.dart",
+      "entryPath": "lib/demos/旧例·本地消息通知封装/入口.dart",
+      "id": "legacy-complete-164",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/ShapeDecoration.dart",
+      "sourcePath": "lib/demos/旧例·形状与渐变装饰/源码/ShapeDecoration.dart",
+      "entryPath": "lib/demos/旧例·形状与渐变装饰/入口.dart",
+      "id": "legacy-complete-165",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/InputDecoration.dart",
+      "sourcePath": "lib/demos/旧例·输入装饰与提示/源码/InputDecoration.dart",
+      "entryPath": "lib/demos/旧例·输入装饰与提示/入口.dart",
+      "id": "legacy-complete-166",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/UnderlineTabIndicator.dart",
+      "sourcePath": "lib/demos/旧例·分页下划线指示器/源码/UnderlineTabIndicator.dart",
+      "entryPath": "lib/demos/旧例·分页下划线指示器/入口.dart",
+      "id": "legacy-complete-167",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/FlutterLogoDecoration.dart",
+      "sourcePath": "lib/demos/旧例·Flutter标志装饰/源码/FlutterLogoDecoration.dart",
+      "entryPath": "lib/demos/旧例·Flutter标志装饰/入口.dart",
+      "id": "legacy-complete-168",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/BoxDecoration.dart",
+      "sourcePath": "lib/demos/旧例·容器装饰组合/源码/BoxDecoration.dart",
+      "entryPath": "lib/demos/旧例·容器装饰组合/入口.dart",
+      "id": "legacy-complete-169",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Expanded/Expanded.dart",
+      "sourcePath": "lib/demos/弹性填充布局/源码/Expanded.dart",
+      "entryPath": "lib/demos/弹性填充布局/入口.dart",
+      "id": "legacy-expanded",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@iOS李明杰解析/Demo/main.dart",
+      "sourcePath": "lib/demos/旧例·模型字典解析教学/源码/main.dart",
+      "entryPath": "lib/demos/旧例·模型字典解析教学/入口.dart",
+      "id": "legacy-complete-171",
+      "console": true
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/剪切板复制/NativeClipboard.dart",
+      "sourcePath": "lib/demos/旧例·系统剪贴板与邀请码/源码/NativeClipboard.dart",
+      "entryPath": "lib/demos/旧例·系统剪贴板与邀请码/入口.dart",
+      "id": "legacy-complete-172",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/广告轮播图/JobsBannerCarousel.dart",
+      "sourcePath": "lib/demos/旧例·广告轮播组件/源码/JobsBannerCarousel.dart",
+      "entryPath": "lib/demos/旧例·广告轮播组件/入口.dart",
+      "id": "legacy-complete-173",
+      "console": false
+    },
+    {
+      "original": "lib/JobsDemoTools/JobsFlutterTools/调试/JobsCommonUtil.dart",
+      "sourcePath": "lib/demos/旧例·调试输出与工具函数/源码/JobsCommonUtil.dart",
+      "entryPath": "lib/demos/旧例·调试输出与工具函数/入口.dart",
+      "id": "legacy-complete-174",
+      "console": true
+    }
+  ],
+  "preservedOriginalEntrypoints": 175,
+  "dedicatedDependencies": 85,
+  "localization": {
+    "registration": "registerLegacyTranslations",
+    "languages": 10,
+    "scope": "实际 Text、Tab、输入提示、错误、状态和操作按钮；教学数据、代码与资源标识保留原意"
+  },
+  "catalogCount": 189,
+  "verification": {
+    "tests": 306,
+    "result": "passed",
+    "log": ".codex/verification/parity/legacy_final_regression.log",
+    "platformNotes": "全189 Widget入口含原生不支持平台提示；通知使用Android MethodChannel契约替身；真实权限、媒体解码及硬件仍由设备验收记录"
+  }
+}

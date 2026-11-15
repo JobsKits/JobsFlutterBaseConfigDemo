@@ -1,0 +1,1396 @@
+[
+  {
+    "folder": "朋友圈浏览",
+    "class": "MomentsBrowserDemo",
+    "path": "lib/demos/朋友圈浏览/入口.dart",
+    "native": [
+      "JobsSwiftParityMomentsPreviewDemoVC",
+      "GKPhotoBrowserByUIKitDemoVC",
+      "GKPhotoBrowserByTextureSwiftSupportDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-0",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsSwiftParityMomentsPreviewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityMomentsPreviewDemoVC/JobsSwiftParityMomentsPreviewDemoVC.m",
+        "catalog_line": 3638
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsSwiftParityMomentsPreviewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityMomentsPreviewDemoVC/JobsSwiftParityMomentsPreviewDemoVC.m",
+        "catalog_line": 3675
+      },
+      {
+        "project": "swift",
+        "entry": "GKPhotoBrowserByUIKitDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@UIKIit朋友圈ByGKPhotoBrowser/Demo@UIKIit朋友圈ByGKPhotoBrowser.swift",
+        "catalog_line": 277
+      },
+      {
+        "project": "swift",
+        "entry": "GKPhotoBrowserByTextureSwiftSupportDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@TextureSwiftSupport朋友圈ByGKPhotoBrowser/Demo@TextureSwiftSupport朋友圈ByGKPhotoBrowser.swift",
+        "catalog_line": 278
+      }
+    ]
+  },
+  {
+    "folder": "个人资料编辑",
+    "class": "ProfileEditorDemo",
+    "path": "lib/demos/个人资料编辑/入口.dart",
+    "native": [
+      "LGOEditProfileDemoVC",
+      "JobsSwiftParityEditProfileDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-1",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsSwiftParityEditProfileDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityEditProfileDemoVC/JobsSwiftParityEditProfileDemoVC.m",
+        "catalog_line": 3673
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsSwiftParityEditProfileDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityEditProfileDemoVC/JobsSwiftParityEditProfileDemoVC.m",
+        "catalog_line": 3710
+      },
+      {
+        "project": "swift",
+        "entry": "LGOEditProfileDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/临时项目页面/编辑个人资料/VC/LGOEditProfileDemoVC.swift",
+        "catalog_line": 448
+      }
+    ]
+  },
+  {
+    "folder": "发帖草稿",
+    "class": "PostDraftDemo",
+    "path": "lib/demos/发帖草稿/入口.dart",
+    "native": [
+      "JobsPostDraftDemoVC",
+      "JobsPostVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-2",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsPostVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@发帖功能/ViewController/JobsPostVC/JobsPostVC.m",
+        "catalog_line": 3908
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsPostVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@发帖功能/ViewController/JobsPostVC/JobsPostVC.m",
+        "catalog_line": 3946
+      },
+      {
+        "project": "swift",
+        "entry": "JobsPostDraftDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@双端功能对齐/JobsOCParityPostDraftDemoVC/JobsOCParityPostDraftDemoVC.swift",
+        "catalog_line": 447
+      }
+    ]
+  },
+  {
+    "folder": "聊天与站内信",
+    "class": "ChatInboxDemo",
+    "path": "lib/demos/聊天与站内信/入口.dart",
+    "native": [
+      "LiveChatDemoVC",
+      "JobsIMShowVC",
+      "MessageListDemoVC",
+      "UITableViewCellEditorVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-3",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsIMShowVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsIM/JobsIMShowVC/JobsIMShowVC.m",
+        "catalog_line": 4086
+      },
+      {
+        "project": "oc_new",
+        "entry": "UITableViewCellEditorVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UITableViewCellEditorVC/ViewController/UITableViewCellEditorVC/UITableViewCellEditorVC.m",
+        "catalog_line": 4122
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsIMShowVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsIM/JobsIMShowVC/JobsIMShowVC.m",
+        "catalog_line": 4125
+      },
+      {
+        "project": "oc_old",
+        "entry": "UITableViewCellEditorVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UITableViewCellEditorVC/ViewController/UITableViewCellEditorVC/UITableViewCellEditorVC.m",
+        "catalog_line": 4161
+      },
+      {
+        "project": "swift",
+        "entry": "LiveChatDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@LiveChat.swift",
+        "catalog_line": 288
+      },
+      {
+        "project": "swift",
+        "entry": "MessageListDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/临时项目页面/经典的消息页面/MessageListDemoVC.swift",
+        "catalog_line": 446
+      }
+    ]
+  },
+  {
+    "folder": "评论与回复",
+    "class": "CommentsDemo",
+    "path": "lib/demos/评论与回复/入口.dart",
+    "native": [
+      "JobsSwiftCommentDemoVC",
+      "JobsOCCommentDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-4",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsOCCommentDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCComment/JobsOCCommentDemoVC/JobsOCCommentDemoVC.m",
+        "catalog_line": 4021
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsOCCommentDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCComment/JobsOCCommentDemoVC/JobsOCCommentDemoVC.m",
+        "catalog_line": 4060
+      },
+      {
+        "project": "swift",
+        "entry": "JobsSwiftCommentDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@JobsSwiftComment/JobsSwiftCommentDemoVC.swift",
+        "catalog_line": 416
+      }
+    ]
+  },
+  {
+    "folder": "双风格认证",
+    "class": "AuthStylesDemo",
+    "path": "lib/demos/双风格认证/入口.dart",
+    "native": [
+      "JobsAppDoorDemoVC",
+      "JobsAppDoorDemoListVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-5",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsAppDoorDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsAppDoor/JobsAppDoorDemoListVC/JobsAppDoorDemoListVC.m",
+        "catalog_line": 3978
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsAppDoorDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsAppDoor/JobsAppDoorDemoListVC/JobsAppDoorDemoListVC.m",
+        "catalog_line": 4016
+      },
+      {
+        "project": "swift",
+        "entry": "JobsAppDoorDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@注册登陆（JobsAppDoor）/Demo@注册登陆（JobsAppDoor）.swift",
+        "catalog_line": 450
+      }
+    ]
+  },
+  {
+    "folder": "仪表盘",
+    "class": "GaugeDashboardDemo",
+    "path": "lib/demos/仪表盘/入口.dart",
+    "native": [
+      "FTDashboadDemoVC",
+      "JobsSwiftParityDashboardDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-6",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsSwiftParityDashboardDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityDashboardDemoVC/JobsSwiftParityDashboardDemoVC.m",
+        "catalog_line": 3658
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsSwiftParityDashboardDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityDashboardDemoVC/JobsSwiftParityDashboardDemoVC.m",
+        "catalog_line": 3695
+      },
+      {
+        "project": "swift",
+        "entry": "FTDashboadDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@仪表盘/Demo@仪表盘.swift",
+        "catalog_line": 403
+      }
+    ]
+  },
+  {
+    "folder": "购物车步进",
+    "class": "CartStepperDemo",
+    "path": "lib/demos/购物车步进/入口.dart",
+    "native": [
+      "JobsOCNumberStepperDemoVC",
+      "JobsSwiftNumberStepperDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-7",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsOCNumberStepperDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCNumberStepper/JobsOCNumberStepperDemoVC/JobsOCNumberStepperDemoVC.m",
+        "catalog_line": 3858
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsOCNumberStepperDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCNumberStepper/JobsOCNumberStepperDemoVC/JobsOCNumberStepperDemoVC.m",
+        "catalog_line": 3896
+      },
+      {
+        "project": "swift",
+        "entry": "JobsSwiftNumberStepperDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@JobsSwiftNumberStepper/JobsSwiftNumberStepperDemoVC.swift",
+        "catalog_line": 435
+      }
+    ]
+  },
+  {
+    "folder": "骨架与双球刷新",
+    "class": "SkeletonRefreshDemo",
+    "path": "lib/demos/骨架与双球刷新/入口.dart",
+    "native": [
+      "SkeletonViewDemoVC",
+      "JobsOCSkeletonViewDemoVC",
+      "JobsDouyinRefreshDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-8",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsDouyinRefreshDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@抖音双球刷新动画/JobsDouyinRefreshDemoVC/JobsDouyinRefreshDemoVC.m",
+        "catalog_line": 3838
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsOCSkeletonViewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCSkeletonView/JobsOCSkeletonViewDemoVC/JobsOCSkeletonViewDemoVC.m",
+        "catalog_line": 3878
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsDouyinRefreshDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@抖音双球刷新动画/JobsDouyinRefreshDemoVC/JobsDouyinRefreshDemoVC.m",
+        "catalog_line": 3876
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsOCSkeletonViewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCSkeletonView/JobsOCSkeletonViewDemoVC/JobsOCSkeletonViewDemoVC.m",
+        "catalog_line": 3916
+      },
+      {
+        "project": "swift",
+        "entry": "SkeletonViewDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@骨架屏视图/Demo@骨架屏视图.swift",
+        "catalog_line": 286
+      },
+      {
+        "project": "swift",
+        "entry": "JobsDouyinRefreshDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@抖音双球刷新动画/JobsDouyinRefreshDemoVC.swift",
+        "catalog_line": 396
+      }
+    ]
+  },
+  {
+    "folder": "点赞与红包雨",
+    "class": "LikeRainDemo",
+    "path": "lib/demos/点赞与红包雨/入口.dart",
+    "native": [
+      "JobsLongPressLikeDemoVC",
+      "JobsRedPacketRainDemoVC",
+      "RedPacketRainDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-9",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsRedPacketRainDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsTimer/ViewController/JobsRedPacketRainDemoVC/JobsRedPacketRainDemoVC.m",
+        "catalog_line": 3798
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsLongPressLikeDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@长按点赞冒泡/JobsLongPressLikeDemoVC/JobsLongPressLikeDemoVC.m",
+        "catalog_line": 4066
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsRedPacketRainDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsTimer/ViewController/JobsRedPacketRainDemoVC/JobsRedPacketRainDemoVC.m",
+        "catalog_line": 3836
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsLongPressLikeDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@长按点赞冒泡/JobsLongPressLikeDemoVC/JobsLongPressLikeDemoVC.m",
+        "catalog_line": 4105
+      },
+      {
+        "project": "swift",
+        "entry": "RedPacketRainDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@红包雨/Demo@红包雨.swift",
+        "catalog_line": 357
+      },
+      {
+        "project": "swift",
+        "entry": "JobsLongPressLikeDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@长按点赞冒泡/JobsLongPressLikeDemoVC.swift",
+        "catalog_line": 395
+      }
+    ]
+  },
+  {
+    "folder": "导火索倒计时",
+    "class": "FuseCountdownDemo",
+    "path": "lib/demos/导火索倒计时/入口.dart",
+    "native": [
+      "JobsCountdownLayerDemoVC",
+      "JobsSysProgressDemoVC",
+      "JobsProgressDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-10",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsCountdownLayerDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@倒计时进度条/JobsCountdownLayerDemoVC/JobsCountdownLayerDemoVC.m",
+        "catalog_line": 4061
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsSysProgressDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@倒计时进度条/JobsSysProgressDemoVC/JobsSysProgressDemoVC.m",
+        "catalog_line": 4071
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsProgressDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@倒计时进度条/JobsProgressDemoVC/JobsProgressDemoVC.m",
+        "catalog_line": 4076
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsCountdownLayerDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@倒计时进度条/JobsCountdownLayerDemoVC/JobsCountdownLayerDemoVC.m",
+        "catalog_line": 4100
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsSysProgressDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@倒计时进度条/JobsSysProgressDemoVC/JobsSysProgressDemoVC.m",
+        "catalog_line": 4110
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsProgressDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@倒计时进度条/JobsProgressDemoVC/JobsProgressDemoVC.m",
+        "catalog_line": 4115
+      },
+      {
+        "project": "swift",
+        "entry": "JobsCountdownLayerDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@任意UIView.layer倒计时/Demo@任意UIView（此例是UIButton）.swift",
+        "catalog_line": 358
+      },
+      {
+        "project": "swift",
+        "entry": "JobsSysProgressDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@倒计时倒计时Layer/Demo@系统进度条+倒计时JobsTimer+进度（方向）模式/JobsSysProgressDemoVC.swift",
+        "catalog_line": 359
+      },
+      {
+        "project": "swift",
+        "entry": "JobsProgressDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@倒计时倒计时Layer/Demo@自定义进度条（进度值+前进方向）/JobsProgressDemoVC.swift",
+        "catalog_line": 360
+      }
+    ]
+  },
+  {
+    "folder": "马赛克涂抹",
+    "class": "MosaicBrushDemo",
+    "path": "lib/demos/马赛克涂抹/入口.dart",
+    "native": [
+      "JobsMosaicDemoListVC",
+      "MosaicDemoListVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-11",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsMosaicDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@打马赛克/JobsMosaicDemoListVC/JobsMosaicDemoListVC.m",
+        "catalog_line": 4006
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsMosaicDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@打马赛克/JobsMosaicDemoListVC/JobsMosaicDemoListVC.m",
+        "catalog_line": 4045
+      },
+      {
+        "project": "swift",
+        "entry": "MosaicDemoListVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@打马赛克/MosaicDemoListVC.swift",
+        "catalog_line": 394
+      }
+    ],
+    "behavior": "原生整图粗细／手势涂抹两种模式，RGBA采样像素块、启用开关、尺寸和清空；关闭时不记录手势，绘制裁剪在画布内。"
+  },
+  {
+    "folder": "镂空遮罩",
+    "class": "CutoutMaskDemo",
+    "path": "lib/demos/镂空遮罩/入口.dart",
+    "native": [
+      "TransparentRegionVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-12",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "TransparentRegionVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@TransparentRegion/TransparentRegionVC/TransparentRegionVC.m",
+        "catalog_line": 3988
+      },
+      {
+        "project": "oc_old",
+        "entry": "TransparentRegionVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@TransparentRegion/TransparentRegionVC/TransparentRegionVC.m",
+        "catalog_line": 4026
+      },
+      {
+        "project": "swift",
+        "entry": "TransparentRegionVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@镂空特效/Demo@镂空特效.swift",
+        "catalog_line": 393
+      }
+    ]
+  },
+  {
+    "folder": "滑动卡片堆",
+    "class": "SwipeCardsDemo",
+    "path": "lib/demos/滑动卡片堆/入口.dart",
+    "native": [
+      "JobsCardStackDemoVC",
+      "GXCardViewDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-13",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "GXCardViewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@GXCardViewDemo/GXCardViewDemoVC/GXCardViewDemoVC.m",
+        "catalog_line": 4172
+      },
+      {
+        "project": "oc_old",
+        "entry": "GXCardViewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@GXCardViewDemo/GXCardViewDemoVC/GXCardViewDemoVC.m",
+        "catalog_line": 4211
+      },
+      {
+        "project": "swift",
+        "entry": "JobsCardStackDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@双端功能对齐/JobsOCParityCardStackDemoVC/JobsOCParityCardStackDemoVC.swift",
+        "catalog_line": 399
+      }
+    ]
+  },
+  {
+    "folder": "区间拖动吸边",
+    "class": "BoundedDockDemo",
+    "path": "lib/demos/区间拖动吸边/入口.dart",
+    "native": [
+      "JobsDockingScrollDemoVC",
+      "JobsScrollViewVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-14",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsScrollViewVC",
+        "source": "JobsByPods/JobsOCTools@Pods/Core/在指定的y区间内滑动视图/JobsScrollViewVC/JobsScrollViewVC.m",
+        "catalog_line": 4182
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsScrollViewVC",
+        "source": "JobsOCBaseConfigDemo/OCBaseConfig/JobsMixFunc/在指定的y区间内滑动视图/JobsScrollViewVC/JobsScrollViewVC.m",
+        "catalog_line": 4221
+      },
+      {
+        "project": "swift",
+        "entry": "JobsDockingScrollDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@双端功能对齐/JobsOCParityDockingScrollDemoVC/JobsOCParityDockingScrollDemoVC.swift",
+        "catalog_line": 400
+      }
+    ]
+  },
+  {
+    "folder": "联动分类菜单",
+    "class": "LinkedMenuDemo",
+    "path": "lib/demos/联动分类菜单/入口.dart",
+    "native": [
+      "JobsVerticalMenuMainVC",
+      "JobsLinkageMenuViewDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-15",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsVerticalMenuMainVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@竖形菜单选择功能/ViewController/JobsVerticalMenuMainVC/JobsVerticalMenuMainVC.m",
+        "catalog_line": 3823
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsLinkageMenuViewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsLinkageMenuView/JobsLinkageMenuViewDemoVC/JobsLinkageMenuViewDemoVC.m",
+        "catalog_line": 3828
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsVerticalMenuMainVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@竖形菜单选择功能/ViewController/JobsVerticalMenuMainVC/JobsVerticalMenuMainVC.m",
+        "catalog_line": 3861
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsLinkageMenuViewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsLinkageMenuView/JobsLinkageMenuViewDemoVC/JobsLinkageMenuViewDemoVC.m",
+        "catalog_line": 3866
+      }
+    ],
+    "behavior": "菜单固定96／内容固定260／比例.26三配置、index4异高、无内容项回调；单页内容与全部分组双模式，左点右滚及右滚更新左选。"
+  },
+  {
+    "folder": "文字布局策略",
+    "class": "TextStrategiesDemo",
+    "path": "lib/demos/文字布局策略/入口.dart",
+    "native": [
+      "UILabelScrollingDemoVC",
+      "JobsLabelBehaviorDemoVC",
+      "TestLabelVC",
+      "JobsLabelRotationDemoVC",
+      "UILabelWordRotatingVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-16",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "UILabelScrollingDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsTimer/ViewController/UILabelScrollingDemoVC/UILabelScrollingDemoVC.m",
+        "catalog_line": 3778
+      },
+      {
+        "project": "oc_new",
+        "entry": "TestLabelVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@TestLabel/ViewController/TestLabelVC/TestLabelVC.m",
+        "catalog_line": 4091
+      },
+      {
+        "project": "oc_new",
+        "entry": "UILabelWordRotatingVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UILabel文字旋转/ViewController/UILabelWordRotatingVC/UILabelWordRotatingVC.m",
+        "catalog_line": 4147
+      },
+      {
+        "project": "oc_old",
+        "entry": "UILabelScrollingDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsTimer/ViewController/UILabelScrollingDemoVC/UILabelScrollingDemoVC.m",
+        "catalog_line": 3816
+      },
+      {
+        "project": "oc_old",
+        "entry": "TestLabelVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@TestLabel/ViewController/TestLabelVC/TestLabelVC.m",
+        "catalog_line": 4130
+      },
+      {
+        "project": "oc_old",
+        "entry": "UILabelWordRotatingVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UILabel文字旋转/ViewController/UILabelWordRotatingVC/UILabelWordRotatingVC.m",
+        "catalog_line": 4186
+      },
+      {
+        "project": "swift",
+        "entry": "UILabelScrollingDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@UILabel文字滚动/UILabelScrollingDemoVC.swift",
+        "catalog_line": 364
+      },
+      {
+        "project": "swift",
+        "entry": "JobsLabelBehaviorDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@双端功能对齐/JobsOCParityLabelBehaviorDemoVC/JobsOCParityLabelBehaviorDemoVC.swift",
+        "catalog_line": 365
+      },
+      {
+        "project": "swift",
+        "entry": "JobsLabelRotationDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@双端功能对齐/JobsOCParityLabelRotationDemoVC/JobsOCParityLabelRotationDemoVC.swift",
+        "catalog_line": 368
+      }
+    ],
+    "behavior": "Label／Button.titleLabel双目标，单／多行省略、缩放、往返／连续自动滚动、宽度自适应、自动／手动换行、富文本、文字旋转；数字动画另见ui-parity-31。"
+  },
+  {
+    "folder": "交互富文本",
+    "class": "InteractiveTextDemo",
+    "path": "lib/demos/交互富文本/入口.dart",
+    "native": [
+      "JobsInteractiveLabelDemoVC",
+      "TestBaseLabelVC",
+      "JobsBulletTextDemoVC",
+      "PointLabTestVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-17",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "PointLabTestVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@文字前面小圆点/ViewController/PointLabTestVC/PointLabTestVC.m",
+        "catalog_line": 3933
+      },
+      {
+        "project": "oc_new",
+        "entry": "TestBaseLabelVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@TestBaseLabel/ViewController/TestBaseLabelVC/TestBaseLabelVC.m",
+        "catalog_line": 4152
+      },
+      {
+        "project": "oc_old",
+        "entry": "PointLabTestVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@文字前面小圆点/ViewController/PointLabTestVC.m",
+        "catalog_line": 3971
+      },
+      {
+        "project": "oc_old",
+        "entry": "TestBaseLabelVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@TestBaseLabel/ViewController/TestBaseLabelVC/TestBaseLabelVC.m",
+        "catalog_line": 4191
+      },
+      {
+        "project": "swift",
+        "entry": "JobsInteractiveLabelDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@双端功能对齐/JobsOCParityInteractiveLabelDemoVC/JobsOCParityInteractiveLabelDemoVC.swift",
+        "catalog_line": 366
+      },
+      {
+        "project": "swift",
+        "entry": "JobsBulletTextDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@双端功能对齐/JobsOCParityBulletTextDemoVC/JobsOCParityBulletTextDemoVC.swift",
+        "catalog_line": 367
+      }
+    ],
+    "behavior": "真实点击／450ms长按切背景／触感、12pt内边距、异形圆角、自定义图像圆点及多行悬挂缩进。"
+  },
+  {
+    "folder": "控制事件与按钮布局",
+    "class": "ControlEventsDemo",
+    "path": "lib/demos/控制事件与按钮布局/入口.dart",
+    "native": [
+      "JobsControlEventsDemoVC",
+      "JobsSwiftParityControlEventsDemoVC",
+      "JobsButtonCoverCellDemoListVC",
+      "CustomBtnVC",
+      "UIButtonBackgroundColorDemoVC",
+      "UIButtonDemoVC",
+      "JobsButtonDemoVC",
+      "ButtonMenuDemoView"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-18",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsSwiftParityControlEventsDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityControlEventsDemoVC/JobsSwiftParityControlEventsDemoVC.m",
+        "catalog_line": 3663
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsButtonCoverCellDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@按钮完全覆盖Cell/JobsButtonCoverCellDemoListVC/JobsButtonCoverCellDemoListVC.m",
+        "catalog_line": 4011
+      },
+      {
+        "project": "oc_new",
+        "entry": "CustomBtnVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UIButton子控件的排布/ViewController/CustomBtnVC/CustomBtnVC.m",
+        "catalog_line": 4167
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsSwiftParityControlEventsDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityControlEventsDemoVC/JobsSwiftParityControlEventsDemoVC.m",
+        "catalog_line": 3700
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsButtonCoverCellDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@按钮完全覆盖Cell/JobsButtonCoverCellDemoListVC/JobsButtonCoverCellDemoListVC.m",
+        "catalog_line": 4050
+      },
+      {
+        "project": "oc_old",
+        "entry": "CustomBtnVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UIButton子控件的排布/ViewController/CustomBtnVC/CustomBtnVC.m",
+        "catalog_line": 4206
+      },
+      {
+        "project": "swift",
+        "entry": "JobsButtonDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@JobsButton/JobsButtonDemoVC.swift",
+        "catalog_line": 406
+      },
+      {
+        "project": "swift",
+        "entry": "UIButtonDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@按钮.swift",
+        "catalog_line": 407
+      },
+      {
+        "project": "swift",
+        "entry": "UIButtonBackgroundColorDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@UIButton上背景色 ➤ state/Demo@UIButton上背景色 ➤ state.swift",
+        "catalog_line": 408
+      },
+      {
+        "project": "swift",
+        "entry": "JobsButtonCoverCellDemoListVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@按钮完全盖在Cell上/VC/JobsButtonCoverCellDemoListVC.swift",
+        "catalog_line": 419
+      },
+      {
+        "project": "swift",
+        "entry": "JobsControlEventsDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@控制层回调.swift",
+        "catalog_line": 434
+      },
+      {
+        "project": "swiftui",
+        "entry": "ButtonMenuDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/ButtonMenuDemoView.swift",
+        "catalog_line": 194
+      }
+    ],
+    "behavior": "UIButton普通／按下／禁用／悬停／焦点／选择状态与图文四向布局，内边距、主副及富文本标题、主菜单、危险动作、旋转防连点、800ms长按、控制事件、List／Grid按钮覆盖。"
+  },
+  {
+    "folder": "四向页面转场",
+    "class": "DirectionalNavigationDemo",
+    "path": "lib/demos/四向页面转场/入口.dart",
+    "native": [
+      "JobsNavigationDemoVC",
+      "JobsViewPushDemoVC",
+      "SafetyPushDemoVC",
+      "JobsPresentingVC",
+      "DirectionalPushDemoView",
+      "NavigationDemoView"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-19",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsNavigationDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@系统导航栏/JobsNavigationDemoVC/JobsNavigationDemoVC.m",
+        "catalog_line": 3713
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsViewPushDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsViewPush/JobsViewPushDemoVC/JobsViewPushDemoVC.m",
+        "catalog_line": 3843
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsPresentingVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UIPresentationController的使用/JobsPresentingVC/JobsPresentingVC.m",
+        "catalog_line": 4187
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsNavigationDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@系统导航栏/JobsNavigationDemoVC/JobsNavigationDemoVC.m",
+        "catalog_line": 3750
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsViewPushDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsViewPush/JobsViewPushDemoVC/JobsViewPushDemoVC.m",
+        "catalog_line": 3881
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsPresentingVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UIPresentationController的使用/JobsPresentingVC/JobsPresentingVC.m",
+        "catalog_line": 4226
+      },
+      {
+        "project": "swift",
+        "entry": "JobsNavigationDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@系统导航栏.swift",
+        "catalog_line": 420
+      },
+      {
+        "project": "swift",
+        "entry": "JobsViewPushDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@JobsViewPush/JobsViewPushDemoVC.swift",
+        "catalog_line": 459
+      },
+      {
+        "project": "swift",
+        "entry": "SafetyPushDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@推出页面/Demo@安全Push/Demo@支持上下左右安全Push和原路返回.swift",
+        "catalog_line": 461
+      },
+      {
+        "project": "swiftui",
+        "entry": "NavigationDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/NavigationDemoView.swift",
+        "catalog_line": 206
+      },
+      {
+        "project": "swiftui",
+        "entry": "DirectionalPushDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/DirectionalPushDemoView.swift",
+        "catalog_line": 208
+      }
+    ],
+    "behavior": "四向push/pop、重复push保护、富文本导航标题；NavigationDemoView对应普通Push/工具栏/内联标题真实路由和可观测星标状态。"
+  },
+  {
+    "folder": "侧滑多方向配置",
+    "class": "DrawerConfigurationDemo",
+    "path": "lib/demos/侧滑多方向配置/入口.dart",
+    "native": [
+      "JobsSideDrawerDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-20",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsSideDrawerDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsSideDrawer/JobsSideDrawerDemoVC/JobsSideDrawerDemoVC.m",
+        "catalog_line": 3848
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsSideDrawerDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsSideDrawer/JobsSideDrawerDemoVC/JobsSideDrawerDemoVC.m",
+        "catalog_line": 3886
+      },
+      {
+        "project": "swift",
+        "entry": "JobsSideDrawerDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@JobsSideDrawer/JobsSideDrawerDemoVC.swift",
+        "catalog_line": 460
+      }
+    ]
+  },
+  {
+    "folder": "弹出容器",
+    "class": "PresentationContainersDemo",
+    "path": "lib/demos/弹出容器/入口.dart",
+    "native": [
+      "FSPopoverDemoVC",
+      "SwiftEntryKitDemoVC",
+      "JXCategoryPopupVC",
+      "PresentationDemoView",
+      "AlertDialogDemoView"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-21",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JXCategoryPopupVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JXCategoryPopup/JXCategoryPopupVC/JXCategoryPopupVC.m",
+        "catalog_line": 4117
+      },
+      {
+        "project": "oc_old",
+        "entry": "JXCategoryPopupVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JXCategoryPopup/JXCategoryPopupVC/JXCategoryPopupVC.m",
+        "catalog_line": 4156
+      },
+      {
+        "project": "swift",
+        "entry": "FSPopoverDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@FSPopoverView.swift",
+        "catalog_line": 274
+      },
+      {
+        "project": "swift",
+        "entry": "SwiftEntryKitDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@SwiftEntryKit/Demo@SwiftEntryKit.swift",
+        "catalog_line": 287
+      },
+      {
+        "project": "swiftui",
+        "entry": "AlertDialogDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/AlertDialogDemoView.swift",
+        "catalog_line": 210
+      },
+      {
+        "project": "swiftui",
+        "entry": "PresentationDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/PresentationDemoView.swift",
+        "catalog_line": 212
+      }
+    ],
+    "behavior": "Sheet可拖至50%/90%双停靠；Popover在触发按钮下方锚点实际展示内容；Fullscreen独立模态路由，均可操作及关闭。"
+  },
+  {
+    "folder": "综合选择器",
+    "class": "PickerLaboratoryDemo",
+    "path": "lib/demos/综合选择器/入口.dart",
+    "native": [
+      "BRPickerDemoVC",
+      "PickersDemoView"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-22",
+    "native_sources": [
+      {
+        "project": "swift",
+        "entry": "BRPickerDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@BRPickerViewSwift.swift",
+        "catalog_line": 276
+      },
+      {
+        "project": "swiftui",
+        "entry": "PickersDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/PickersDemoView.swift",
+        "catalog_line": 200
+      }
+    ]
+  },
+  {
+    "folder": "国家地区区号",
+    "class": "CountryCallingCodesDemo",
+    "path": "lib/demos/国家地区区号/入口.dart",
+    "native": [
+      "JobsSwiftCountryCodeCtrlDemoVC",
+      "JobsOCCountryCodeCtrl"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-23",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsOCCountryCodeCtrl",
+        "source": "JobsByPods/JobsOCCountryCodeCtrl@Pods/Core/JobsOCCountryCodeCtrl/JobsOCCountryCodeCtrl.m",
+        "catalog_line": 3500
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsOCCountryCodeCtrl",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCCountryCodeCtrl/JobsOCCountryCodeCtrl/JobsOCCountryCodeCtrl.m",
+        "catalog_line": 3532
+      },
+      {
+        "project": "swift",
+        "entry": "JobsSwiftCountryCodeCtrlDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@JobsSwiftCountryCodeCtrl/JobsSwiftCountryCodeCtrlDemoVC.swift",
+        "catalog_line": 430
+      }
+    ]
+  },
+  {
+    "folder": "Markdown文档",
+    "class": "MarkdownDocumentsDemo",
+    "path": "lib/demos/Markdown文档/入口.dart",
+    "native": [
+      "JobsMarkdownDocumentsDemoVC",
+      "JobsOCMarkdownDocumentsDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-24",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsOCMarkdownDocumentsDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCMarkdown/JobsOCMarkdownDocumentsDemoVC/JobsOCMarkdownDocumentsDemoVC.m",
+        "catalog_line": 3888
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsOCMarkdownDocumentsDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsOCMarkdown/JobsOCMarkdownDocumentsDemoVC/JobsOCMarkdownDocumentsDemoVC.m",
+        "catalog_line": 3926
+      },
+      {
+        "project": "swift",
+        "entry": "JobsMarkdownDocumentsDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@JobsSwiftMarkdown/JobsMarkdownDocumentsDemoVC.swift",
+        "catalog_line": 453
+      }
+    ]
+  },
+  {
+    "folder": "Lottie动画",
+    "class": "LottieAnimationDemo",
+    "path": "lib/demos/Lottie动画/入口.dart",
+    "native": [
+      "LottieDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-25",
+    "native_sources": [
+      {
+        "project": "swift",
+        "entry": "LottieDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@Lottie.swift",
+        "catalog_line": 285
+      }
+    ]
+  },
+  {
+    "folder": "分组列表与网格",
+    "class": "GroupedCollectionDemo",
+    "path": "lib/demos/分组列表与网格/入口.dart",
+    "native": [
+      "EmptyTableViewDemoVC",
+      "EmptyCollectionViewDemoVC",
+      "UITableViewCellCornerDemoVC",
+      "CustomTableViewCellVC",
+      "ListFormDemoView",
+      "LayoutDemoView"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-26",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "CustomTableViewCellVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@自定义UITableViewCell内置控件距离并添加复制按钮/ViewController/CustomTableViewCellVC/CustomTableViewCellVC.m",
+        "catalog_line": 4162
+      },
+      {
+        "project": "oc_old",
+        "entry": "CustomTableViewCellVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@自定义UITableViewCell内置控件距离并添加复制按钮/ViewController/CustomTableViewCellVC/CustomTableViewCellVC.m",
+        "catalog_line": 4201
+      },
+      {
+        "project": "swift",
+        "entry": "EmptyTableViewDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@UITableView.swift",
+        "catalog_line": 413
+      },
+      {
+        "project": "swift",
+        "entry": "UITableViewCellCornerDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@UITableViewCell切圆角方案/UITableViewCellCornerDemoVC.swift",
+        "catalog_line": 414
+      },
+      {
+        "project": "swift",
+        "entry": "EmptyCollectionViewDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@UICollectionView.swift",
+        "catalog_line": 415
+      },
+      {
+        "project": "swiftui",
+        "entry": "ListFormDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/ListFormDemoView.swift",
+        "catalog_line": 204
+      },
+      {
+        "project": "swiftui",
+        "entry": "LayoutDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/LayoutDemoView.swift",
+        "catalog_line": 214
+      }
+    ]
+  },
+  {
+    "folder": "界面环境监听",
+    "class": "EnvironmentObserverDemo",
+    "path": "lib/demos/界面环境监听/入口.dart",
+    "native": [
+      "JobsSwiftParityTraitChangeDemoVC",
+      "ControlValuesDemoView",
+      "JobsSwiftUIDebugPanelDemoView"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-27",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsSwiftParityTraitChangeDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityTraitChangeDemoVC/JobsSwiftParityTraitChangeDemoVC.m",
+        "catalog_line": 3668
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsSwiftParityTraitChangeDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityTraitChangeDemoVC/JobsSwiftParityTraitChangeDemoVC.m",
+        "catalog_line": 3705
+      },
+      {
+        "project": "swiftui",
+        "entry": "ControlValuesDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/ControlValuesDemoView.swift",
+        "catalog_line": 198
+      },
+      {
+        "project": "swiftui",
+        "entry": "JobsSwiftUIDebugPanelDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/JobsSwiftUIDebugPanelDemoView.swift",
+        "catalog_line": 227
+      }
+    ]
+  },
+  {
+    "folder": "图标字体实验",
+    "class": "IconFontLaboratoryDemo",
+    "path": "lib/demos/图标字体实验/入口.dart",
+    "native": [
+      "JobsIconfontDemoListVC",
+      "AsyncLinkShareDemoView"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-28",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsIconfontDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsIconfont/JobsIconfontDemoVCs/JobsIconfontDemoVCs.m",
+        "catalog_line": 3995
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsIconfontDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsIconfont/JobsIconfontDemoVCs/JobsIconfontDemoVCs.m",
+        "catalog_line": 4033
+      },
+      {
+        "project": "swift",
+        "entry": "JobsIconfontDemoListVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@JobsIconfont/JobsIconfontDemoListVC.swift",
+        "catalog_line": 371
+      },
+      {
+        "project": "swiftui",
+        "entry": "AsyncLinkShareDemoView",
+        "source": "JobsSwiftUIBaseConfigDemo/Demos/AsyncLinkShareDemoView.swift",
+        "catalog_line": 220
+      }
+    ],
+    "behavior": "复用原生TTF字形与Alimama文字字体；真实PNG栅格化；类型化官方图片、本地首帧和失败兜底、内存／磁盘缓存与清理、复用取消／代际保护。 远图tab同页组合Apple官方链接打开、原生UIActivityViewController/ACTION_SEND或浏览器navigator.share，不把复制链接假称系统分享。"
+  },
+  {
+    "folder": "跑马灯文字",
+    "class": "MarqueeTextDemo",
+    "path": "lib/demos/跑马灯文字/入口.dart",
+    "native": [
+      "JobsMarqueeDemoVC",
+      "JobsMarqueeViewDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-29",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsMarqueeViewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsTimer/ViewController/JobsMarqueeViewDemoVC/JobsMarqueeViewDemoVC.m",
+        "catalog_line": 3813
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsMarqueeViewDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@JobsTimer/ViewController/JobsMarqueeViewDemoVC/JobsMarqueeViewDemoVC.m",
+        "catalog_line": 3851
+      },
+      {
+        "project": "swift",
+        "entry": "JobsMarqueeDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@其他/Demo@跑马灯轮播图.swift",
+        "catalog_line": 353
+      }
+    ],
+    "behavior": "四方向；连续按像素速度、间隔按内容尺寸、整页轮播三种策略；文字按钮／图片、内容尺寸测量、手拖暂停、按钮点击／长按与播放控制。"
+  },
+  {
+    "folder": "并发通知队列",
+    "class": "ConcurrentNotificationsDemo",
+    "path": "lib/demos/并发通知队列/入口.dart",
+    "native": [
+      "CoreTextLearningVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-30",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "CoreTextLearningVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@CoreTextLearning/ViewController/CoreTextLearningVC.m",
+        "catalog_line": 4112
+      },
+      {
+        "project": "oc_old",
+        "entry": "CoreTextLearningVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@CoreTextLearning/ViewController/CoreTextLearningVC.m",
+        "catalog_line": 4151
+      }
+    ],
+    "behavior": "CoreTextLearningVC.makeIt实际行为是NotifiManager四槽并发通知；同key更新重新计时、20条随机延迟入队、3秒更新111、5秒完成及取消。未误标为文字绘制。"
+  },
+  {
+    "folder": "数字标签与按钮动效",
+    "class": "AnimatedNumbersDemo",
+    "path": "lib/demos/数字标签与按钮动效/入口.dart",
+    "native": [
+      "JobsAnimatedNumberLabelDemoVC",
+      "AnimationEffectLabelDemoVC",
+      "AnimatedButtonNumberDemoVC",
+      "JobsSwiftParityAnimatedButtonNumberDemoVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-31",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsSwiftParityAnimatedButtonNumberDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityAnimatedButtonNumberDemoVC/JobsSwiftParityAnimatedButtonNumberDemoVC.m",
+        "catalog_line": 3653
+      },
+      {
+        "project": "oc_new",
+        "entry": "JobsAnimatedNumberLabelDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UILabel数字动效/JobsAnimatedNumberLabelDemoVC/JobsAnimatedNumberLabelDemoVC.m",
+        "catalog_line": 3773
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsSwiftParityAnimatedButtonNumberDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@双端功能对齐/JobsSwiftParityAnimatedButtonNumberDemoVC/JobsSwiftParityAnimatedButtonNumberDemoVC.m",
+        "catalog_line": 3690
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsAnimatedNumberLabelDemoVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@UILabel数字动效/JobsAnimatedNumberLabelDemoVC/JobsAnimatedNumberLabelDemoVC.m",
+        "catalog_line": 3811
+      },
+      {
+        "project": "swift",
+        "entry": "AnimatedButtonNumberDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@动效数字按钮/Demo@动效数字（按钮标题）.swift",
+        "catalog_line": 352
+      },
+      {
+        "project": "swift",
+        "entry": "AnimationEffectLabelDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@动效数字标签/Demo@动效数字（普通标签）.swift",
+        "catalog_line": 363
+      }
+    ],
+    "behavior": "Label整数0.9秒插值、15位输入过滤与停止；按钮主副标题、富文本数字和小数独立样式、千分位、5种示例、最后一例逆时针图标旋转。"
+  },
+  {
+    "folder": "布局节点实验",
+    "class": "LayoutNodesDemo",
+    "path": "lib/demos/布局节点实验/入口.dart",
+    "native": [
+      "ComponentKitLikeKitchenSinkVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-32",
+    "native_sources": [
+      {
+        "project": "swift",
+        "entry": "ComponentKitLikeKitchenSinkVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@Texture/Demo@Texture.swift",
+        "catalog_line": 279
+      }
+    ],
+    "behavior": "Texture KitchenSink原生10类节点逐项：Text/Image/Button/Row/Column/Padding/Background+Overlay/Center/AspectRatio/Stack；打乱、追加、按钮追加与动画更新。"
+  },
+  {
+    "folder": "播放器实验室",
+    "class": "PlayerLaboratoryDemo",
+    "path": "lib/demos/播放器实验室/播放器实验室.dart",
+    "native": [
+      "BMPlayerDemoVC",
+      "PNPlayerDemoVC",
+      "JobsZFPlayerDemoListVC"
+    ],
+    "group": "原生能力对齐",
+    "id": "ui-parity-33",
+    "native_sources": [
+      {
+        "project": "oc_new",
+        "entry": "JobsZFPlayerDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@Douyin_ZFPlayer/ViewController/JobsZFPlayerDemoListVC/JobsZFPlayerDemoListVC.m",
+        "catalog_line": 3983
+      },
+      {
+        "project": "oc_old",
+        "entry": "JobsZFPlayerDemoListVC",
+        "source": "JobsOCBaseConfigDemo/业务逻辑/功能模块/Demo@Douyin_ZFPlayer/ViewController/JobsZFPlayerDemoListVC/JobsZFPlayerDemoListVC.m",
+        "catalog_line": 4021
+      },
+      {
+        "project": "swift",
+        "entry": "BMPlayerDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@BMPlayer/VC/Demo@BMPlayer.swift",
+        "catalog_line": 387
+      },
+      {
+        "project": "swift",
+        "entry": "PNPlayerDemoVC",
+        "source": "JobsSwiftBaseConfigDemo/主业务流程/VC/SubVC/Demo@PNPlayer/Demo@PNPlayer.swift",
+        "catalog_line": 388
+      }
+    ],
+    "behavior": "真实iOS AVPlayerViewController/Android原生PlayerView，local/remote/feed→detail/同view浮窗拖动恢复、播放暂停seek、全屏、系统PiP和真实流量；Android流量明确标应用接收范围。Web真实video_player回退；设备能力独立验收。"
+  }
+]

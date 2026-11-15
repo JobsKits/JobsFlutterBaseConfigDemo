@@ -1,0 +1,34 @@
+name: jobs_demo_foundation
+description: Jobs 演示工程的主题、语言、侧滑菜单与通用交互组件。
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: '>=3.38.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  shared_preferences: ^2.5.3
+  http: ^1.6.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/iconfont/
+    - assets/fonts/OFL.txt
+    - assets/fonts/JobsIconfontCatalog.json
+  fonts:
+    - family: NotoTibetan
+      fonts:
+        - asset: assets/fonts/NotoSerifTibetan-Regular.ttf
+    - family: JobsIconfontSample
+      fonts:
+        - asset: assets/fonts/JobsIconfontSample.ttf
+    - family: JobsAlimamaText
+      fonts:
+        - asset: assets/fonts/AlimamaShuzhiti-Regular.ttf

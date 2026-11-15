@@ -1,0 +1,78 @@
+import 'package:jobs_flutter_base_config/demo_hub/legacy_launch.dart';
+import 'package:flutter/material.dart';
+import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
+
+void main() =>
+    runApp(const JobsDemoApp(home: DragGestureDemo(), title: '拖动手势'));
+Widget buildLegacyDemo(BuildContext context) => const DragGestureDemo();
+
+// 原示例同时启用互斥识别器；分模式展示相同回调，避免运行时断言。
+class DragGestureDemo extends StatefulWidget {
+  const DragGestureDemo({super.key});
+  @override
+  State<DragGestureDemo> createState() => _DragGestureDemoState();
+}
+
+class _DragGestureDemoState extends State<DragGestureDemo> {
+  int mode = 0;
+  Offset position = Offset.zero;
+  String log = '';
+  void update(DragUpdateDetails details) => setState(() {
+    position += details.delta;
+    log = '${details.localPosition} → ${details.delta}';
+  });
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: const LegacyText('拖动手势')),
+    body: Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Wrap(
+            spacing: 8,
+            children: [
+              for (var i = 0; i < 3; i++)
+                ChoiceChip(
+                  label: LegacyText(['自由', '水平', '垂直'][i]),
+                  selected: mode == i,
+                  onSelected: (_) => setState(() {
+                    mode = i;
+                    position = Offset.zero;
+                  }),
+                ),
+            ],
+          ),
+        ),
+        LegacyText(log),
+        Expanded(
+          child: ClipRect(
+            child: Center(
+              child: Transform.translate(
+                offset: position,
+                child: GestureDetector(
+                  onPanUpdate: mode == 0 ? update : null,
+                  onHorizontalDragUpdate: mode == 1 ? update : null,
+                  onVerticalDragUpdate: mode == 2 ? update : null,
+                  child: Container(
+                    width: 120,
+                    height: 120,
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    alignment: Alignment.center,
+                    child: const LegacyText('Drag Me'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: () => setState(() {
+            position = Offset.zero;
+            log = '';
+          }),
+          child: LegacyText(tr(context, '重置')),
+        ),
+      ],
+    ),
+  );
+}

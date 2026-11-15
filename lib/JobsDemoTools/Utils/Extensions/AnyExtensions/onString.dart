@@ -14,12 +14,11 @@ extension StringX on String {
   String operator &(String suffix) => this + suffix; // 运算符重载
 
   Color color() {
-    String _this = this;
-    _this = _this.toUpperCase().replaceAll('#', '');
-    if (_this.length == 6) {
-      _this = 'FF$_this';
+    String colorCode = toUpperCase().replaceAll('#', '');
+    if (colorCode.length == 6) {
+      colorCode = 'FF$colorCode';
     }
-    return Color(int.parse(_this, radix: 16));
+    return Color(int.parse(colorCode, radix: 16));
   }
 
   Map<String, dynamic> toJson() => jsonDecode(this);

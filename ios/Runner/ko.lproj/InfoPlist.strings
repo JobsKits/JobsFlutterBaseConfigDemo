@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "직접 시작한 사진, AR 및 동영상 촬영에 카메라를 사용합니다.";
+"NSMicrophoneUsageDescription" = "직접 시작한 녹음 및 라이브 영상에 마이크를 사용합니다.";
+"NSBluetoothAlwaysUsageDescription" = "직접 시작한 블루투스 검색, 연결 및 데이터 작업에 사용합니다.";
+"NSMotionUsageDescription" = "직접 시작한 가속도계, 자이로 및 나침반 데모에 사용합니다.";
+"NSPhotoLibraryUsageDescription" = "직접 선택한 사진과 동영상을 읽습니다.";
+"NSPhotoLibraryAddUsageDescription" = "직접 녹화한 영상과 내보낸 이미지를 저장합니다.";
+"NSLocalNetworkUsageDescription" = "직접 설정한 로컬 개발 서버에 연결합니다.";

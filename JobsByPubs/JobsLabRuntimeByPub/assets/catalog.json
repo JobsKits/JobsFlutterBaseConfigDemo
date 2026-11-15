@@ -1,0 +1,1 @@
+{"name":"JobsLabRuntime","features":[{"id":"bridge","type":"capability"},{"id":"sandbox","type":"storage"},{"id":"compression","type":"codec"}]}

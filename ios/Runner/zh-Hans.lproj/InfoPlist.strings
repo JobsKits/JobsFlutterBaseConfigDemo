@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "用于你主动打开的拍照、AR及视频录制。";
+"NSMicrophoneUsageDescription" = "用于你主动开始的录音及视频直播。";
+"NSBluetoothAlwaysUsageDescription" = "用于你主动开始的蓝牙扫描、连接与读写。";
+"NSMotionUsageDescription" = "用于你主动开始的加速度、陀螺仪及磁力计演示。";
+"NSPhotoLibraryUsageDescription" = "用于你主动选择照片和视频。";
+"NSPhotoLibraryAddUsageDescription" = "用于保存你主动录制的视频和导出的图片。";
+"NSLocalNetworkUsageDescription" = "用于连接你配置的本地开发服务器。";

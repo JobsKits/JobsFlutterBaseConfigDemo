@@ -1,10 +1,4 @@
-import 'dart:typed_data';
-import 'dart:ui' as ui;
 
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/Utils/JobsTools.const.dart';
 
 // Future<DecorationImage> svgAssetBy(String asset, {JobsSizeSpec? size}) async {
 //     size = size ?? const JobsSizeSpec(w: 24, h: 24);

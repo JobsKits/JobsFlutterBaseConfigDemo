@@ -1,0 +1,37 @@
+{
+  "checked_on": "2026-11-14",
+  "catalog": "fonts/JobsIconfontCatalog.json",
+  "resources": [
+    {
+      "path": "fonts/JobsIconfontSample.ttf",
+      "bytes": 9828,
+      "sha256": "f5533895a5edbe8b8273040d7fe24b0e28c6b7bb068c4a77fcc70e31d9a7acdf"
+    },
+    {
+      "path": "fonts/AlimamaShuzhiti-Regular.ttf",
+      "bytes": 212528,
+      "sha256": "e566ae90ae45cb8a827f62011437588bdfee5bb5ed91355ba40c02ad57fde0e1"
+    },
+    {
+      "path": "fonts/JobsIconfontCatalog.json",
+      "bytes": 858,
+      "sha256": "eea95a181c90472a472ee987482481a00a836d7b0a14bc3346765dc834650458"
+    },
+    {
+      "path": "iconfont/logo.png",
+      "bytes": 2971,
+      "sha256": "7dc79cdc00eecf7333672b62dff1c2b39f53951abc464c3681020e3f6c7271ff"
+    },
+    {
+      "path": "iconfont/font-banner.png",
+      "bytes": 143101,
+      "sha256": "d9167d76f3e1846d10d48251f4ecf87d3d641050fe6c4793137f9360cd660fc6"
+    },
+    {
+      "path": "iconfont/usage-guide.png",
+      "bytes": 227945,
+      "sha256": "12577fd5fbbce6ff0b86ead23736ee39ca88558e7920e80c14b940b672241395"
+    }
+  ],
+  "license_note": "Fonts/images retain original iconfont/Alibaba terms. The adjacent MIT code license does not relicense visual/font resources."
+}

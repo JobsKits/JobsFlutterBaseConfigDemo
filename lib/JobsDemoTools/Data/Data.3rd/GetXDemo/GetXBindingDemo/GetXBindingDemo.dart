@@ -1,14 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'CounterPage.dart';
-import 'CounterBinding.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·GetX依赖绑定启动/源码/GetXBindingDemo.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·GetX依赖绑定启动/源码/GetXBindingDemo.dart' as migrated;
 
-// 启动时注入 binding + view
-void main() {
-  runApp(
-    GetMaterialApp(
-      initialBinding: CounterBinding(), // 注册依赖
-      home: const CounterPage(), // 页面 UI
-    ),
-  );
-}
+void main() => migrated.main();

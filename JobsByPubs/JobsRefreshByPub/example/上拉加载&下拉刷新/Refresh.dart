@@ -521,7 +521,7 @@ class BetRecordTile extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
-                  color: statusColor.withOpacity(.12),
+                  color: statusColor.withValues(alpha: .12),
                   borderRadius: BorderRadius.circular(999),
                   border: Border.all(color: statusColor, width: .8),
                 ),

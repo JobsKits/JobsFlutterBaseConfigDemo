@@ -9,6 +9,9 @@
     "README.md",
     "ScriptsByPods/【MacOS】🌐CocoaPods源自动选择.command/README.md",
     "ScriptsByPods/【MacOS】🌐CocoaPods网络适配.command/README.md",
-    "android/fastlane/README.md"
+    "android/fastlane/README.md",
+    "docs/原生功能对照.md",
+    "JobsByPubs/JobsDemoFoundationByPub/assets/fonts/README.md",
+    "lib/demos/原生与Flutter往返/README.md"
   ]
 }

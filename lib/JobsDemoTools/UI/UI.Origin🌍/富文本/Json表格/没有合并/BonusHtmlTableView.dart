@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:jobs_runners/jobs_runners.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/UI/UI.Origin🌍/富文本/Json表格/没有合并/BonusTablePage.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·HTML富文本表格/源码/BonusHtmlTableView.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·HTML富文本表格/源码/BonusHtmlTableView.dart' as migrated;
 
-void main() => runApp(JobsMaterialRunner(
-      const BonusTablePage(),
-      title: '富文本表格渲染',
-    ));
+void main() => migrated.main();

@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "Use the camera for photos, AR and video recording you start.";
+"NSMicrophoneUsageDescription" = "Use the microphone for recording and live video you start.";
+"NSBluetoothAlwaysUsageDescription" = "Use Bluetooth for device scans, connections and data operations you start.";
+"NSMotionUsageDescription" = "Use motion sensors for the accelerometer, gyroscope and compass demos you start.";
+"NSPhotoLibraryUsageDescription" = "Read the photos and videos you choose.";
+"NSPhotoLibraryAddUsageDescription" = "Save videos you record and images you export.";
+"NSLocalNetworkUsageDescription" = "Connect to the local development server you configure.";

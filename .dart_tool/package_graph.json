@@ -7,8 +7,10 @@
       "name": "jobs_flutter_base_config",
       "version": "1.0.0+1",
       "dependencies": [
+        "archive",
         "audioplayers",
         "auto_route",
+        "barcode_widget",
         "bloc",
         "built_collection",
         "built_value",
@@ -36,6 +38,7 @@
         "flutter_inappwebview",
         "flutter_local_notifications",
         "flutter_localizations",
+        "flutter_markdown_plus",
         "flutter_phoenix",
         "flutter_plugin_engagelab",
         "flutter_riverpod",
@@ -45,10 +48,15 @@
         "http",
         "image_picker",
         "intl",
+        "jobs_demo_foundation",
+        "jobs_lab_runtime",
+        "jobs_platform_lab",
         "jobs_refresh_load",
         "jobs_runners",
         "jobs_safety_get_value",
         "json_annotation",
+        "lottie",
+        "lunar",
         "mqtt_client",
         "oktoast",
         "path",
@@ -65,11 +73,14 @@
         "vibration",
         "video_player",
         "wakelock_plus",
+        "web",
+        "web_socket_channel",
         "webview_flutter"
       ],
       "devDependencies": [
         "build_runner",
         "built_value_generator",
+        "camera_platform_interface",
         "flutter_lints",
         "flutter_test",
         "json_serializable"
@@ -175,6 +186,69 @@
         "stack_trace",
         "stream_channel",
         "test_api",
+        "vector_math"
+      ]
+    },
+    {
+      "name": "camera_platform_interface",
+      "version": "2.12.0",
+      "dependencies": [
+        "cross_file",
+        "flutter",
+        "plugin_platform_interface",
+        "stream_transform"
+      ]
+    },
+    {
+      "name": "flutter_markdown_plus",
+      "version": "1.0.12",
+      "dependencies": [
+        "flutter",
+        "markdown",
+        "meta",
+        "path"
+      ]
+    },
+    {
+      "name": "web",
+      "version": "1.1.2",
+      "dependencies": []
+    },
+    {
+      "name": "web_socket_channel",
+      "version": "3.0.3",
+      "dependencies": [
+        "async",
+        "crypto",
+        "stream_channel",
+        "web",
+        "web_socket"
+      ]
+    },
+    {
+      "name": "archive",
+      "version": "4.7.1",
+      "dependencies": [
+        "path",
+        "posix"
+      ]
+    },
+    {
+      "name": "barcode_widget",
+      "version": "2.0.4",
+      "dependencies": [
+        "barcode",
+        "flutter"
+      ]
+    },
+    {
+      "name": "lottie",
+      "version": "3.8.2",
+      "dependencies": [
+        "archive",
+        "flutter",
+        "http",
+        "path",
         "vector_math"
       ]
     },
@@ -582,6 +656,11 @@
       ]
     },
     {
+      "name": "lunar",
+      "version": "1.7.9",
+      "dependencies": []
+    },
+    {
       "name": "image_picker",
       "version": "1.2.1",
       "dependencies": [
@@ -742,21 +821,45 @@
       ]
     },
     {
+      "name": "jobs_demo_foundation",
+      "version": "0.1.0",
+      "dependencies": [
+        "flutter",
+        "flutter_localizations",
+        "http",
+        "shared_preferences"
+      ]
+    },
+    {
+      "name": "jobs_platform_lab",
+      "version": "0.1.0",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
+      "name": "jobs_lab_runtime",
+      "version": "0.1.0",
+      "dependencies": [
+        "archive",
+        "crypto",
+        "encrypt",
+        "flutter",
+        "shared_preferences"
+      ]
+    },
+    {
       "name": "flutter",
       "version": "0.0.0",
       "dependencies": [
         "characters",
         "collection",
+        "listen",
         "material_color_utilities",
         "meta",
         "sky_engine",
         "vector_math"
       ]
-    },
-    {
-      "name": "web",
-      "version": "1.1.1",
-      "dependencies": []
     },
     {
       "name": "meta",
@@ -888,17 +991,6 @@
         "collection",
         "source_span",
         "string_scanner"
-      ]
-    },
-    {
-      "name": "web_socket_channel",
-      "version": "3.0.3",
-      "dependencies": [
-        "async",
-        "crypto",
-        "stream_channel",
-        "web",
-        "web_socket"
       ]
     },
     {
@@ -1065,14 +1157,14 @@
     },
     {
       "name": "stack_trace",
-      "version": "1.12.1",
+      "version": "1.12.2",
       "dependencies": [
         "path"
       ]
     },
     {
       "name": "clock",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "dependencies": []
     },
     {
@@ -1096,7 +1188,7 @@
     },
     {
       "name": "test_api",
-      "version": "0.7.12",
+      "version": "0.7.14",
       "dependencies": [
         "async",
         "boolean_selector",
@@ -1107,6 +1199,53 @@
         "stream_channel",
         "string_scanner",
         "term_glyph"
+      ]
+    },
+    {
+      "name": "plugin_platform_interface",
+      "version": "2.1.8",
+      "dependencies": [
+        "meta"
+      ]
+    },
+    {
+      "name": "cross_file",
+      "version": "0.3.5+2",
+      "dependencies": [
+        "meta",
+        "web"
+      ]
+    },
+    {
+      "name": "markdown",
+      "version": "7.3.1",
+      "dependencies": [
+        "args",
+        "meta"
+      ]
+    },
+    {
+      "name": "web_socket",
+      "version": "1.0.1",
+      "dependencies": [
+        "web"
+      ]
+    },
+    {
+      "name": "posix",
+      "version": "6.5.4",
+      "dependencies": [
+        "ffi",
+        "meta",
+        "path"
+      ]
+    },
+    {
+      "name": "barcode",
+      "version": "2.2.9",
+      "dependencies": [
+        "meta",
+        "qr"
       ]
     },
     {
@@ -1287,14 +1426,6 @@
       ]
     },
     {
-      "name": "cross_file",
-      "version": "0.3.5+2",
-      "dependencies": [
-        "meta",
-        "web"
-      ]
-    },
-    {
       "name": "win32",
       "version": "5.15.0",
       "dependencies": [
@@ -1305,13 +1436,6 @@
       "name": "ffi",
       "version": "2.2.0",
       "dependencies": []
-    },
-    {
-      "name": "plugin_platform_interface",
-      "version": "2.1.8",
-      "dependencies": [
-        "meta"
-      ]
     },
     {
       "name": "flutter_plugin_android_lifecycle",
@@ -1807,23 +1931,13 @@
     },
     {
       "name": "camera_web",
-      "version": "0.3.5+3",
+      "version": "0.3.6",
       "dependencies": [
         "camera_platform_interface",
         "flutter",
         "flutter_web_plugins",
         "stream_transform",
         "web"
-      ]
-    },
-    {
-      "name": "camera_platform_interface",
-      "version": "2.12.0",
-      "dependencies": [
-        "cross_file",
-        "flutter",
-        "plugin_platform_interface",
-        "stream_transform"
       ]
     },
     {
@@ -1963,6 +2077,13 @@
       ]
     },
     {
+      "name": "listen",
+      "version": "1.0.1",
+      "dependencies": [
+        "meta"
+      ]
+    },
+    {
       "name": "string_scanner",
       "version": "1.4.1",
       "dependencies": [
@@ -1996,13 +2117,6 @@
       ]
     },
     {
-      "name": "web_socket",
-      "version": "1.0.1",
-      "dependencies": [
-        "web"
-      ]
-    },
-    {
       "name": "leak_tracker_testing",
       "version": "3.0.2",
       "dependencies": [
@@ -2033,6 +2147,13 @@
       "dependencies": [
         "source_span",
         "string_scanner"
+      ]
+    },
+    {
+      "name": "qr",
+      "version": "3.0.3",
+      "dependencies": [
+        "meta"
       ]
     },
     {

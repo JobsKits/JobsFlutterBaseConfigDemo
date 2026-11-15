@@ -1,0 +1,6 @@
+// Gradle 9 removed jcenter(). The retained Umeng plugin still calls it while
+// configuring every project. Resolve that legacy declaration against Maven Central.
+allprojects { project ->
+    project.repositories.metaClass.jcenter = { -> project.repositories.mavenCentral() }
+    project.buildscript.repositories.metaClass.jcenter = { -> project.buildscript.repositories.mavenCentral() }
+}

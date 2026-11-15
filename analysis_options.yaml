@@ -10,6 +10,12 @@
 analyzer:
   exclude:
     - build/**
+    - .codex/** # Task logs, isolated dependency cache and verification fixtures.
+    # Immutable legacy generated snapshots; their parent paths are now export adapters.
+    # The active generated parts under lib/demos remain analyzed with their libraries.
+    - lib/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/利用脚本自动生成的built_value序列化文件/serializers.g.dart
+    - lib/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/利用脚本自动生成的built_value序列化文件/video_item.g.dart
+    - lib/JobsDemoTools/Data/Data.3rd/数据处理/example_model.g.dart
     - android/**
     - ios/**
     - web/**

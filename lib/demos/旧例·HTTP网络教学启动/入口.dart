@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:jobs_flutter_base_config/demo_hub/legacy_launch.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·HTTP网络教学启动/源码/http_demo_main.dart'
+    as source;
+
+void main() =>
+    launchLegacyStandalone(source.legacyOriginalMain, title: 'http_demo_main');
+
+Widget buildLegacyDemo(BuildContext context) => LegacyLaunchPage(
+  action: source.legacyOriginalMain,
+  title: 'http_demo_main',
+);

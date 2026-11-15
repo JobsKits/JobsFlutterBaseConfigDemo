@@ -1,55 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·GetX命名路由示例二/源码/GetX_RouteDemo2.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·GetX命名路由示例二/源码/GetX_RouteDemo2.dart' as migrated;
 
-// 定义了如何注入HomeController
-// 利用GetX做路由管理
-void main() {
-  runApp(GetMaterialApp(
-    title: 'Navigation Demo',
-    initialRoute: '/',
-    getPages: [
-      GetPage(name: '/', page: () => const HomeScreen()),
-      GetPage(name: '/details', page: () => const DetailsScreen()),
-    ],
-  ));
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Get.toNamed('/details');
-          },
-          child: const Text('Go to Details'),
-        ),
-      ),
-    );
-  }
-}
-
-class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Details'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Get.back(); // 返回上一个页面
-          },
-          child: const Text('Go back'),
-        ),
-      ),
-    );
-  }
-}
+void main() => migrated.main();

@@ -14,6 +14,12 @@ PODS:
   - flutter_plugin_engagelab (0.0.3):
     - Flutter
     - MTPush (= 5.3.0)
+  - HaishinKit (2.0.9):
+    - Logboard (~> 2.5.0)
+  - jobs_platform_lab (0.1.0):
+    - Flutter
+    - HaishinKit (= 2.0.9)
+  - Logboard (2.5.0)
   - MTPush (5.3.0)
   - OrderedSet (6.0.3)
   - UMAPM (2.1.7):
@@ -35,11 +41,14 @@ DEPENDENCIES:
   - flutter_icmp_ping (from `.symlinks/plugins/flutter_icmp_ping/ios`)
   - flutter_inappwebview_ios (from `.symlinks/plugins/flutter_inappwebview_ios/ios`)
   - flutter_plugin_engagelab (from `.symlinks/plugins/flutter_plugin_engagelab/ios`)
+  - jobs_platform_lab (from `.symlinks/plugins/jobs_platform_lab/ios`)
   - umeng_apm_sdk (from `.symlinks/plugins/umeng_apm_sdk/ios`)
   - umeng_common_sdk (from `.symlinks/plugins/umeng_common_sdk/ios`)
 
 SPEC REPOS:
   trunk:
+    - HaishinKit
+    - Logboard
     - MTPush
     - OrderedSet
     - UMAPM
@@ -57,6 +66,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_inappwebview_ios/ios"
   flutter_plugin_engagelab:
     :path: ".symlinks/plugins/flutter_plugin_engagelab/ios"
+  jobs_platform_lab:
+    :path: ".symlinks/plugins/jobs_platform_lab/ios"
   umeng_apm_sdk:
     :path: ".symlinks/plugins/umeng_apm_sdk/ios"
   umeng_common_sdk:
@@ -68,6 +79,9 @@ SPEC CHECKSUMS:
   flutter_icmp_ping: 47c1df3440c18ddd39fc457e607bb3b42d4a339f
   flutter_inappwebview_ios: b89ba3482b96fb25e00c967aae065701b66e9b99
   flutter_plugin_engagelab: f8f43c301aab184bef2370c131c50385321d1c12
+  HaishinKit: add48c1321b98351e38498fe869efee230c92d05
+  jobs_platform_lab: 006666b47dea7576a62641df1df4e8f16f4c27d8
+  Logboard: 4674a3d86681539a0ad1fca528d888b90871e268
   MTPush: a801354d9a8a9191819a8a9e03484531cc702ede
   OrderedSet: e539b66b644ff081c73a262d24ad552a69be3a94
   UMAPM: 24c100a2ec8ffd710f4f25575d92b46b9e4e63dd

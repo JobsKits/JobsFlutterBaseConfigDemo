@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'dart:convert';
@@ -75,7 +75,7 @@ class NetworkError {
       return json.decode(msg);
     } catch (e) {
       // 处理解析错误，可以记录日志或返回一个默认值
-      print('解析 JSON 时出错: $e');
+      debugPrint('解析 JSON 时出错: $e');
       return {};
     }
   }

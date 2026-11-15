@@ -123,3 +123,5 @@ graphify-out/
 
 # FVM Version Cache
 .fvm/
+# Flutter build and hook caches (tracked files are unaffected).
+.dart_tool/

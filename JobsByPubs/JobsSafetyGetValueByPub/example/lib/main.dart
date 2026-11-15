@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:jobs_safety_get_value/jobs_safety_get_value.dart';
 
 void main() {
@@ -8,17 +10,17 @@ void main() {
   };
 
   final String? name = safeGet<String>(user, 'name');
-  print(name);
+  stdout.writeln(name);
 
   final String? gender = safeGet<String>(user, 'gender');
-  print(gender);
+  stdout.writeln(gender);
 
   final String gender2 = safeGet<String>(user, 'gender', '男')!;
-  print(gender2);
+  stdout.writeln(gender2);
 
   final bool? vip = safeGet<bool>(user, 'isVip');
-  print(vip);
+  stdout.writeln(vip);
 
   final int? wrongType = safeGet<int>(user, 'name', -1);
-  print(wrongType);
+  stdout.writeln(wrongType);
 }

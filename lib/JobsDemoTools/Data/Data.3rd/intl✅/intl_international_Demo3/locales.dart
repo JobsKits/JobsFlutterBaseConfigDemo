@@ -1,18 +1,2 @@
-import 'package:flutter/material.dart';
-
-List<PopupMenuEntry<Locale>> getLocaleMenuItems() {
-  return const <PopupMenuEntry<Locale>>[
-    PopupMenuItem<Locale>(
-      value: Locale('zh', ''),
-      child: Text('中文'),
-    ),
-    PopupMenuItem<Locale>(
-      value: Locale('en', ''),
-      child: Text('English'),
-    ),
-    PopupMenuItem<Locale>(
-      value: Locale('ja', ''),
-      child: Text('日本語'),
-    ),
-  ];
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·国际化示例三/源码/locales.dart';

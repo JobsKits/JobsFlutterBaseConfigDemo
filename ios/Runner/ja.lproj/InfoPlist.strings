@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "操作した写真撮影・AR・動画録画にカメラを使用します。";
+"NSMicrophoneUsageDescription" = "操作して開始した録音・ライブ動画にマイクを使用します。";
+"NSBluetoothAlwaysUsageDescription" = "操作して開始したBluetooth検索・接続・データ送受信に使用します。";
+"NSMotionUsageDescription" = "操作して開始した加速度・ジャイロ・磁気センサーデモに使用します。";
+"NSPhotoLibraryUsageDescription" = "選択した写真と動画を読み込みます。";
+"NSPhotoLibraryAddUsageDescription" = "録画した動画と書き出した画像を保存します。";
+"NSLocalNetworkUsageDescription" = "設定したローカル開発サーバーに接続します。";

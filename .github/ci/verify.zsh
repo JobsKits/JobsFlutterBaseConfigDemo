@@ -373,8 +373,8 @@ verify_flutter() {
     expected_version="$(jq -er '.flutter' .fvmrc)"
     jobs_ci_capture_version "$(command -v flutter)" "$LOG_DIR/flutter-version.log" "$LOG_DIR/sdk-version.log"
     actual_version="$(jq -er '.frameworkVersion' "$LOG_DIR/flutter-version.log")"
-    [[ "$expected_version" == '3.47.7' && "$actual_version" == "$expected_version" ]] || {
-        print -u2 -r -- "Flutter mismatch: .fvmrc=$expected_version actual=$actual_version expected=3.47.7"
+    [[ "$expected_version" == '3.50.0' && "$actual_version" == "$expected_version" ]] || {
+        print -u2 -r -- "Flutter mismatch: .fvmrc=$expected_version actual=$actual_version expected=3.50.0"
         return 1
     }
     cat "$LOG_DIR/flutter-version.log"
@@ -441,9 +441,11 @@ run_regressions() {
     verify_flutter
     run_logged tests flutter test \
         --no-pub \
+        --packages "$PROJECT_ROOT/.dart_tool/package_config.json" \
         --reporter expanded \
-        test/iphone_duo_layout_test.dart \
-        test/umeng_demo_test.dart
+        --concurrency=4 \
+        test \
+        JobsByPubs/JobsDemoFoundationByPub/test
 }
 
 verify_simulator_app() {

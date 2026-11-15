@@ -1,9 +1,2 @@
-import 'package:get/get.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/Common/MyTabCtrl.dart';
-
-class HomeBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut<MyTabCtrl>(() => MyTabCtrl());
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·标签分页示例四/源码/HomeBinding.dart';

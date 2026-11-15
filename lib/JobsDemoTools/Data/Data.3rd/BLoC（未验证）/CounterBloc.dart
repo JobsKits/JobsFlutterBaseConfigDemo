@@ -1,12 +1,2 @@
-// counter_bloc.dart
-import 'package:bloc/bloc.dart';
-import 'CounterEvent.dart';
-import 'CounterState.dart';
-
-class CounterBloc extends Bloc<CounterEvent, CounterState> {
-  CounterBloc() : super(const CounterState(counter: 0)) {
-    on<IncrementCounter>((event, emit) {
-      emit(CounterState(counter: state.counter + 1));
-    });
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/事件驱动状态管理/源码/CounterBloc.dart';

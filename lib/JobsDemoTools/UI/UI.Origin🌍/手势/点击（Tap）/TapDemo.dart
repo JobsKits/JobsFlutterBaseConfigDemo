@@ -1,32 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:jobs_runners/jobs_runners.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/单击双击与长按/源码/TapDemo.dart';
+import 'package:jobs_flutter_base_config/demos/单击双击与长按/源码/TapDemo.dart' as migrated;
 
-void main() =>
-    runApp(const JobsMaterialRunner(TapDemo(), title: 'Tap Gesture Demo'));
-
-class TapDemo extends StatelessWidget {
-  const TapDemo({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: GestureDetector(
-        onTap: () {
-          debugPrint('Single tap');
-        },
-        onDoubleTap: () {
-          debugPrint('Double tap');
-        },
-        onLongPress: () {
-          debugPrint('Long press');
-        },
-        child: Container(
-          color: Colors.blue,
-          width: 100,
-          height: 100,
-          child: const Center(
-              child: Text('Tap Me', style: TextStyle(color: Colors.white))),
-        ),
-      ),
-    );
-  }
-}
+void main() => migrated.main();

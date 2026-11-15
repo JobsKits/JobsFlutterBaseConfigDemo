@@ -13,7 +13,7 @@ class ThemeService {
   final ThemeData darkTheme = ThemeData.dark(useMaterial3: true);
 
   Future<void> init() async {
-    final index = await SpUtil.getInt(_themeKey);
+    final index = SpUtil.getInt(_themeKey);
     if (index != null) {
       themeMode = ThemeMode.values[index];
     }

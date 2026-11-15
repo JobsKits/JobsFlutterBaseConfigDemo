@@ -1,17 +1,5 @@
-import 'package:flutter/foundation.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·隔离区任务计算/源码/IsolateDemo2.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·隔离区任务计算/源码/IsolateDemo2.dart' as migrated;
 
-// 带参数和返回值的 compute（推荐）
-// 自动封装 Isolate 创建、端口通信
-// 不用手动处理 ReceivePort 和 SendPort
-// 适合大多数场景
-
-// compute() 方法仅接受一个参数，如果你要传多个参数，可以用 Map 或封装类。
-// 通信只能使用 SendPort/ReceivePort 或 IsolateChannel（第三方简化包）。
-void main() async {
-  int result = await compute(sumUpTo, 10000000);
-  print('✅ 结果是：$result');
-}
-
-int sumUpTo(int n) {
-  return List.generate(n + 1, (i) => i).reduce((a, b) => a + b);
-}
+void main() => migrated.main();

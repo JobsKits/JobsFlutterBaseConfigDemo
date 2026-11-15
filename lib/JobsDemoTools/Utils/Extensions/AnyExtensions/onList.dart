@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension JobsWidgetsListX on List<Widget> {
-  /// 🔑 把一个 List<Widget> 转换为 Row
+  /// 🔑 把一个 `List<Widget>` 转换为 Row
   Widget row({
     Key? key,
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
@@ -23,7 +23,7 @@ extension JobsWidgetsListX on List<Widget> {
     );
   }
 
-  /// 🔑 把一个 List<Widget> 转换为 Column
+  /// 🔑 把一个 `List<Widget>` 转换为 Column
   Widget column({
     Key? key,
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,

@@ -1,27 +1,2 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:vibration/vibration.dart';
-
-class FormController extends GetxController {
-  final firstTextController = TextEditingController();
-  final secondTextController = TextEditingController();
-  var isButtonEnabled = false.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-    firstTextController.addListener(_validateForm);
-    secondTextController.addListener(_validateForm);
-  }
-
-  void _validateForm() {
-    isButtonEnabled.value = firstTextController.text.isNotEmpty && secondTextController.text.isNotEmpty;
-  }
-
-  void onButtonPressed() {
-    if (isButtonEnabled.value) {
-      Vibration.vibrate();
-      Get.snackbar('Success', 'Button Pressed and Phone Vibrated!');
-    }
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·跨页面状态监听/源码/form_controller.dart';

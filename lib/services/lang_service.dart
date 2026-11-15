@@ -11,7 +11,7 @@ class LangService {
   Locale get defaultLocale => const Locale('zh');
 
   Future<void> init() async {
-    final code = await SpUtil.getString(_langKey);
+    final code = SpUtil.getString(_langKey);
     if (code == null) return;
     updateLocale(Locale(code));
   }

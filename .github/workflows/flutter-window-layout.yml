@@ -1,4 +1,4 @@
-name: Flutter Window Layout and iOS Simulator
+name: Flutter Demo Lab validation
 
 on:
   push:
@@ -15,9 +15,9 @@ concurrency:
 
 jobs:
   layout-and-ios:
-    name: Scoped Dart analysis, 21 regressions, iOS 27.1 build
+    name: Dart analysis, complete demo regressions, Web and iOS builds
     runs-on: xcode-27
-    timeout-minutes: 60
+    timeout-minutes: 90
     defaults:
       run:
         shell: /bin/zsh -euo pipefail {0}
@@ -36,7 +36,7 @@ jobs:
           persist-credentials: false
 
       - name: Prepare the repository Flutter SDK with validated network routes
-        run: /bin/zsh .github/ci/【MacOS】PrepareFlutterSdk.zsh/【MacOS】PrepareFlutterSdk.zsh --install 3.47.7 arm64
+        run: /bin/zsh .github/ci/【MacOS】PrepareFlutterSdk.zsh/【MacOS】PrepareFlutterSdk.zsh --install 3.50.0 arm64
 
       - name: Verify Flutter, Xcode and Simulator SDK
         run: /bin/zsh .github/ci/verify.zsh toolchain
@@ -47,13 +47,17 @@ jobs:
           flutter pub get --enforce-lockfile 2>&1 | tee "$JOBS_CI_LOG_DIR/pub-get.log"
           git diff --exit-code -- pubspec.lock
 
-      - name: Analyze the explicit adaptation and Umeng scope
+      - name: Analyze the demo, public package and compatibility scope
         timeout-minutes: 10
         run: /bin/zsh .github/ci/verify.zsh analyze
 
-      - name: Run window layout and Umeng regression suites
+      - name: Run every registered regression suite
         timeout-minutes: 10
         run: /bin/zsh .github/ci/verify.zsh test
+
+      - name: Build the complete Web app
+        timeout-minutes: 15
+        run: flutter build web --no-pub 2>&1 | tee "$JOBS_CI_LOG_DIR/web-build.log"
 
       - name: Build the complete default iOS Simulator app
         timeout-minutes: 35

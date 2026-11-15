@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:jobs_flutter_base_config/demo_hub/legacy_strings.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_page.dart';
 import 'package:jobs_flutter_base_config/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_sdk_client.dart';
@@ -207,7 +208,8 @@ void main() {
     expect(
       tester
           .widget<FilledButton>(
-              find.widgetWithText(FilledButton, '同意并初始化 / 重试'))
+            find.widgetWithText(FilledButton, '同意并初始化 / 重试'),
+          )
           .onPressed,
       isNull,
     );
@@ -225,20 +227,24 @@ void main() {
     var reportDuringBuild = false;
 
     Widget harness() => MaterialApp(
-          home: Column(
-            children: [
-              Expanded(child: UmengDemoPage(service: service)),
-              Builder(builder: (context) {
-                if (reportDuringBuild) {
-                  reportDuringBuild = false;
-                  sdk.onError!(
-                      StateError('SDK build callback'), StackTrace.empty);
-                }
-                return const SizedBox.shrink();
-              }),
-            ],
+      home: Column(
+        children: [
+          Expanded(child: UmengDemoPage(service: service)),
+          Builder(
+            builder: (context) {
+              if (reportDuringBuild) {
+                reportDuringBuild = false;
+                sdk.onError!(
+                  StateError('SDK build callback'),
+                  StackTrace.empty,
+                );
+              }
+              return const SizedBox.shrink();
+            },
           ),
-        );
+        ],
+      ),
+    );
 
     await tester.pumpWidget(harness());
     reportDuringBuild = true;
@@ -269,7 +275,12 @@ Future<void> _tapVisible(WidgetTester tester, Finder finder) async {
 }
 
 Future<void> _selectTheme(WidgetTester tester, String label) async {
-  await tester.tap(find.widgetWithText(ChoiceChip, label));
+  final locale = Localizations.localeOf(
+    tester.element(find.byType(UmengDemoPage)),
+  );
+  await tester.tap(
+    find.widgetWithText(ChoiceChip, legacyUiTextForLocale(locale, label)),
+  );
   await tester.pumpAndSettle();
 }
 

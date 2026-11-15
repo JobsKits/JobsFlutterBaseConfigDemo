@@ -1,13 +1,2 @@
-/// 仅隔离平台能力，业务按钮仍调用官方 Flutter 插件。
-abstract class UmengSdkClient {
-  bool get isSupported;
-  String get platformLabel;
-  Future<void> initialize(void Function(Object, StackTrace?) onError);
-  void trackEvent(String eventId, Map<String, Object> properties);
-  void signIn(String userId);
-  void signOut();
-  void pageStart(String name);
-  void pageEnd(String name);
-  void captureException(Exception exception, StackTrace stack);
-  void captureUnhandled(Object error, StackTrace stack);
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·友盟统计与崩溃/源码/umeng_demo_sdk_client.dart';

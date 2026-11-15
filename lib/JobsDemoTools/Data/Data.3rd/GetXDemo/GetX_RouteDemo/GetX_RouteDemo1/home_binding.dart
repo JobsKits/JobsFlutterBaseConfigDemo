@@ -1,11 +1,2 @@
-import 'package:get/get.dart';
-import 'home_controller.dart';
-
-// 定义了如何注入HomeController
-class HomeBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut<HomeController>(() => HomeController());
-    // 你可以在这里添加更多的依赖
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·GetX命名路由示例一/源码/home_binding.dart';

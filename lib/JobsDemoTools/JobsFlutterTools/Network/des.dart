@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'int32.dart';
 
 List<int> desCreateKeys(String key) {
@@ -920,7 +918,7 @@ String des(String key, String message, bool encrypt, int mode, String iv,
       len += 8;
     }
   } else if (padding == 0) {
-    message += '\0' * 8;
+    message += '0' * 8;
   }
   // print('des len: $len');
   // Store the result here

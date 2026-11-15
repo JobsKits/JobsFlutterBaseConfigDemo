@@ -1,15 +1,2 @@
-import 'package:get/get.dart';
-
-/// 自动注册或获取 Controller（立即创建并返回）
-/// 用法：
-/// final MyController c = JobsFind(MyController());
-T JobsFind<T extends GetxController>(
-  T instance, {
-  bool permanent = true,
-}) {
-  if (Get.isRegistered<T>()) {
-    return Get.find<T>();
-  } else {
-    return Get.put<T>(instance, permanent: permanent);
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·标签分页示例二/源码/JobsGetXTool.dart';

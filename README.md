@@ -1,6 +1,6 @@
 # [**Dart**](https://dart.dev/)@[**🐦`Flutter`**](https://flutter.dev)<font color=red>靶场项目</font>蓝皮书📘
 
-> **项目定位：** `JobsFlutterBaseConfigDemo`，面向 Flutter / Dart 开发者的跨平台基础工程与独立实验示例集；当前默认入口是形状按钮演示，架构入口与学习资料另行保留。
+> **项目定位：** `JobsFlutterBaseConfigDemo`，面向 Flutter / Dart 开发者的跨平台基础工程与独立实验示例集；默认入口为开屏 → 可搜索分组目录 → 独立功能 Demo，原有实验与学习资料继续保留。
 >
 > **状态与维护：** 维护中（本地提交历史见统计章节）；负责人 Jobs，未登记独立维护团队。运行 / 硬件 / 生产功能须按对应证据验收。
 >
@@ -30,519 +30,520 @@
 <summary>📚 目录（点击展开 / 收起）</summary>
 
 - [🔥前言](#jobs-toc-heading-1)
+- [功能实验室与独立预览](#demo-hub)
 - [CocoaPods 安装网络选路](#cocoapods-network-route)
-- [一、🎯项目白皮书](#jobs-toc-heading-3)
-- [二、开发周边](#jobs-toc-heading-4)
-  - [1、Jobs的个人技术博客](#jobs-toc-heading-5)
-  - [2、系统相关配置](#jobs-toc-heading-6)
-  - [3、JobsGenesis](#jobs-toc-heading-7)
-  - [4、工具网站](#jobs-toc-heading-8)
-  - [5、Git忽略文件](#jobs-toc-heading-9)
-- [三、相关配置](#jobs-toc-heading-10)
-  - [1、🌱环境配置 ➤ Flutter](#jobs-toc-heading-11)
-  - [2、Flutter 对 HarmonyOS / OpenHarmony 的支持边界](#jobs-toc-heading-12)
-    - [2.1、仍兼容 Android APK 的鸿蒙系统](#jobs-toc-heading-13)
-    - [2.2、HarmonyOS NEXT 不能直接使用官方原版 Flutter SDK](#jobs-toc-heading-14)
-    - [2.3、使用鸿蒙社区适配版 Flutter SDK](#jobs-toc-heading-15)
-    - [2.4、多端工程的推荐拆分](#jobs-toc-heading-16)
-    - [2.5、插件兼容性是主要成本](#jobs-toc-heading-17)
-    - [2.6、项目选型建议](#jobs-toc-heading-18)
-  - [3、FVM](#jobs-toc-heading-19)
-  - [4、IDE](#jobs-toc-heading-20)
-    - [4.1、Xcode](#jobs-toc-heading-21)
-      - [4.1.1、网站限制](#jobs-toc-heading-22)
-      - [4.1.2、📱关于iOS模拟器（最新版本XCode：16.4）](#jobs-toc-heading-23)
-    - [4.2、Android Studio](#jobs-toc-heading-24)
-      - [4.2.1、点我 ➤下载Android Studio历史版本](#jobs-toc-heading-25)
-      - [4.2.2、配置JDK的地方和其他SDK的不一样](#jobs-toc-heading-26)
-      - [4.2.3、./android/gradlew](#jobs-toc-heading-27)
-      - [4.2.4、🤖关于Android模拟器](#jobs-toc-heading-28)
-    - [4.3、VSCode](#jobs-toc-heading-29)
-      - [4.3.1、🔔温馨提示](#jobs-toc-heading-30)
-      - [4.3.2、🔧 安装插件](#jobs-toc-heading-31)
-      - [4.3.3、⚙️VSCode的配置文件](#jobs-toc-heading-32)
-      - [4.3.4、设备选择](#jobs-toc-heading-33)
-  - [5、安装 Rosetta](#jobs-toc-heading-34)
-  - [6、flutter run](#jobs-toc-heading-35)
-- [四、⚖️Flutter代码规范](#jobs-toc-heading-36)
-- [五、💥Flutter代码讲解](#jobs-toc-heading-37)
-  - [1、🖨️调试打印](#jobs-toc-heading-38)
-    - [1.1、🖨️系统自带的打印方法：debugPrint](#jobs-toc-heading-39)
-    - [1.2、🖨️第三方封装的打印方法：🌌极光原生推送全局打印（🧨强烈推荐）](#jobs-toc-heading-40)
-    - [1.3、对系统&自定义打印方法的二次封装](#jobs-toc-heading-41)
-    - [1.4、🖨️自定义打印（对象）方法](#jobs-toc-heading-42)
-      - [1.4.1、控制台打印](#jobs-toc-heading-43)
-      - [1.4.2、程序内打印](#jobs-toc-heading-44)
-  - [2、SystemChrome常用于设置状态栏和系统底部导航栏样式的配置](#jobs-toc-heading-45)
-  - [3、🚪配置入口](#jobs-toc-heading-46)
-    - [3.1、🚪配置项目入口](#jobs-toc-heading-47)
-    - [3.2、🚪配置页面的入口](#jobs-toc-heading-48)
-      - [3.2.1、🚪配置首页入口](#jobs-toc-heading-49)
-      - [3.2.2、搭建页面的基本结构](#jobs-toc-heading-50)
-  - [4、Flutter项目中比较标准且完整的启动流程](#jobs-toc-heading-51)
-  - [5、WidgetsFlutterBinding确保Flutter框架与底层平台（如 MethodChannel、插件）之间的桥梁已完成初始化](#jobs-toc-heading-52)
-  - [6、DartPingIOS在 iOS 上启用 native 层实现的 ping 功能](#jobs-toc-heading-53)
-  - [7、利用SharedPreferences对数据进行存取](#jobs-toc-heading-54)
-  - [8、Flutter.SDK标准模态弹窗组件（截至 2025）](#jobs-toc-heading-55)
-  - [9、第三方@EasyLoading](#jobs-toc-heading-56)
-  - [10、极光原生推送：FlutterPluginEngagelab](#jobs-toc-heading-57)
-  - [11、OpenInstall：移动端的安装/拉新/渠道统计 SDK](#jobs-toc-heading-58)
-  - [12、⏰获取当前时间](#jobs-toc-heading-59)
-  - [13、🔜  推页面](#jobs-toc-heading-60)
-    - [13.1、🔜 Navigator](#jobs-toc-heading-61)
-      - [13.1.1、🔜 正向传参](#jobs-toc-heading-62)
-      - [13.1.2、🔜 返向传参](#jobs-toc-heading-63)
-    - [13.2、🔜GetX路由（跳转查看）](#jobs-toc-heading-64)
-    - [13.3、🔜GetX正向路由传参（跳转查看）](#jobs-toc-heading-65)
-    - [13.4、🔜 弹出页面](#jobs-toc-heading-66)
-      - [13.4.1、🔜GetX弹出框（跳转查看）](#jobs-toc-heading-67)
-      - [13.4.2、🔜 Flutter原生弹出框](#jobs-toc-heading-68)
-    - [13.5、🔜 按钮的封装（跳转查看）](#jobs-toc-heading-69)
-  - [14、🔙 导航栏返回按钮](#jobs-toc-heading-70)
-  - [15、🖥️Flutter屏幕尺寸方案](#jobs-toc-heading-71)
-    - [15.1、ScreenUtil](#jobs-toc-heading-72)
-    - [15.2、WidgetsBinding](#jobs-toc-heading-73)
-    - [15.3、MediaQuery](#jobs-toc-heading-74)
-    - [15.4、SafeArea](#jobs-toc-heading-75)
-    - [15.5、flutter\_screenutil](#jobs-toc-heading-76)
-    - [15.6、📐 键盘遮挡通用处理方案](#jobs-toc-heading-77)
-    - [15.7、🔄 响应式布局：根据宽度切换布局](#jobs-toc-heading-78)
-  - [16、Dart.Object](#jobs-toc-heading-79)
-  - [17、在Flutter中，支持滑动的所有核心Widget](#jobs-toc-heading-80)
-  - [18、👋Flutter手势](#jobs-toc-heading-81)
-    - [18.1、👋Flutter中的手势系统本质（由三层机制组成）](#jobs-toc-heading-82)
-    - [18.2、👋滚动控件的特殊性](#jobs-toc-heading-83)
-    - [18.3、👋Flutter 中所有手势相关 Widget 一览（全量分类）](#jobs-toc-heading-84)
-    - [18.4、👋通用点击组件](#jobs-toc-heading-85)
-    - [18.5、👋Flutter手势竞争](#jobs-toc-heading-86)
-      - [18.5.1、👋手势竞争的原理](#jobs-toc-heading-87)
-      - [18.5.2、👋胜负决策规则](#jobs-toc-heading-88)
-      - [18.5.3、👋常用的手势冲突场景以及解决技巧（范式）](#jobs-toc-heading-89)
-        - [18.5.3.1、👋ListView 滑动 🆚 GestureDetector onTap](#jobs-toc-heading-90)
-        - [18.5.3.2、👋HorizontalDrag 🆚  VerticalDrag 冲突](#jobs-toc-heading-91)
-        - [18.5.3.3、👋嵌套 InkWell / GestureDetector（内层不触发或波纹丢失）](#jobs-toc-heading-92)
-        - [18.5.3.4、👋PageView（横向滚动）嵌在可垂直滚动的父容器](#jobs-toc-heading-93)
-        - [18.5.3.5、👋GestureDetector + ListView 同时存在，希望：点击 + 长按拖动排序](#jobs-toc-heading-94)
-        - [18.5.3.6、👋InteractiveViewer（可缩放/拖拽）内的点击热区失效](#jobs-toc-heading-95)
-        - [18.5.3.7、👋横向可滚容器中的纵向手势（或反之）](#jobs-toc-heading-96)
-        - [18.5.3.8、👋父层 GestureDetector 抢走子层点击](#jobs-toc-heading-97)
-        - [18.5.3.9、👋IgnorePointer / AbsorbPointer 精确阻断或穿透](#jobs-toc-heading-98)
-        - [18.5.3.10、👋自定义 GestureRecognizer（精细控制胜负时机）](#jobs-toc-heading-99)
-    - [18.6、Flutter手势冲突⚔️（iOS/Android的核心差异）](#jobs-toc-heading-100)
-      - [18.6.1、👋手势竞技场机制差异](#jobs-toc-heading-101)
-      - [18.6.2、👋滚动物理差异](#jobs-toc-heading-102)
-      - [18.6.3、👋Pointer监听的限制](#jobs-toc-heading-103)
-      - [18.6.4、👋通用解释](#jobs-toc-heading-104)
-    - [18.7、👋Flutter手势语法糖🍬](#jobs-toc-heading-105)
-    - [18.8、👋HitTestBehavior](#jobs-toc-heading-106)
-  - [19、🧱 Flutter布局类@Widget](#jobs-toc-heading-107)
-    - [19.1、🧱线性布局（类似 iOS 的 UIStackView）](#jobs-toc-heading-108)
-      - [19.1.1、🧱Row   ⬆️](#jobs-toc-heading-109)
-      - [19.1.2、🧱Column  ⬆️](#jobs-toc-heading-110)
-      - [19.1.3、🧱Flex   ⬆️](#jobs-toc-heading-111)
-      - [19.1.4、🧱Expanded   ⬆️](#jobs-toc-heading-112)
-      - [19.1.5、🧱Flexible   ⬆️](#jobs-toc-heading-113)
-      - [19.1.6、🧱Spacer  ⬆️](#jobs-toc-heading-114)
-      - [19.1.7、🧱SizedBox   ⬆️](#jobs-toc-heading-115)
-    - [19.2、🧱层叠布局（类似 iOS 的 Frame 布局 + zIndex）](#jobs-toc-heading-116)
-      - [19.2.1、🧱Stack   ⬆️](#jobs-toc-heading-117)
-      - [19.2.2、🧱Positioned   ⬆️](#jobs-toc-heading-118)
-      - [19.2.3、🧱Align   ⬆️](#jobs-toc-heading-119)
-      - [19.2.4、🧱Center   ⬆️](#jobs-toc-heading-120)
-    - [19.3、🧱约束类布局（最接近 Masonry 的思想）](#jobs-toc-heading-121)
-      - [19.3.1、🧱ConstrainedBox   ⬆️](#jobs-toc-heading-122)
-      - [19.3.2、🧱UnconstrainedBox   ⬆️](#jobs-toc-heading-123)
-      - [19.3.3、🧱SizedBox   ⬆️](#jobs-toc-heading-124)
-      - [19.3.4、🧱FractionallySizedBox   ⬆️](#jobs-toc-heading-125)
-      - [19.3.5、🧱AspectRatio   ⬆️](#jobs-toc-heading-126)
-      - [19.3.6、🧱LimitedBox   ⬆️](#jobs-toc-heading-127)
-    - [19.4、🧱自动换行&流式布局](#jobs-toc-heading-128)
-      - [19.4.1、🧱Wrap   ⬆️](#jobs-toc-heading-129)
-      - [19.4.2、🧱Flow   ⬆️](#jobs-toc-heading-130)
-    - [19.5、🧱表格&网格布局](#jobs-toc-heading-131)
-      - [19.5.1、🧱Table   ⬆️](#jobs-toc-heading-132)
-      - [19.5.2、🧱GridView   ⬆️](#jobs-toc-heading-133)
-      - [19.5.3、🧱SliverGrid   ⬆️](#jobs-toc-heading-134)
-    - [19.6、🧱滚动 & Sliver 布局](#jobs-toc-heading-135)
-      - [19.6.1、🧱单子滚动   ⬆️](#jobs-toc-heading-136)
-        - [19.6.1.1、🧱SingleChildScrollView —— 单个子节点的滚动容器   ⬆️](#jobs-toc-heading-137)
-      - [19.6.2、🧱高级滚动视图   ⬆️](#jobs-toc-heading-138)
-        - [19.6.2.1、ListView —— 基于 SliverList 的线性滚动列表   ⬆️](#jobs-toc-heading-139)
-        - [19.6.2.2、GridView —— 基于 SliverGrid 的网格滚动列表   ⬆️](#jobs-toc-heading-140)
-        - [19.6.2.3、PageView —— 基于 SliverFillViewport 的分页滚动   ⬆️](#jobs-toc-heading-141)
-      - [19.6.3、🧱通用Sliver容器 ⬆️](#jobs-toc-heading-142)
-        - [19.6.3.1、CustomScrollView —— 容器，支持组合多个 Sliver   ⬆️](#jobs-toc-heading-143)
-        - [19.6.3.2、NestedScrollView —— 支持嵌套滚动，常用场景：带 SliverAppBar + TabBarView   ⬆️](#jobs-toc-heading-144)
-      - [19.6.4、🧱Sliver基础组件   ⬆️](#jobs-toc-heading-145)
-        - [19.6.4.1、🧱SliverList —— 列表（线性）  ⬆️](#jobs-toc-heading-146)
-        - [19.6.4.2、🧱SliverFixedExtentList —— 固定高度列表   ⬆️](#jobs-toc-heading-147)
-        - [19.6.4.3、🧱SliverGrid —— 网格   ⬆️](#jobs-toc-heading-148)
-        - [19.6.4.4、🧱SliverAppBar —— 可折叠头部   ⬆️](#jobs-toc-heading-149)
-        - [19.6.4.5、🧱SliverPersistentHeader —— 固定或吸顶头部   ⬆️](#jobs-toc-heading-150)
-        - [19.6.4.6、🧱SliverToBoxAdapter —— 把普通 widget 适配成 Sliver   ⬆️](#jobs-toc-heading-151)
-      - [19.6.5、🧱Sliver布局控制  ⬆️](#jobs-toc-heading-152)
-        - [19.6.5.1、🧱SliverPadding —— Sliver 外边距   ⬆️](#jobs-toc-heading-153)
-        - [19.6.5.2、🧱SliverFillRemaining —— 占满剩余空间   ⬆️](#jobs-toc-heading-154)
-        - [19.6.5.3、🧱SliverFillViewport —— 类似 PageView 效果   ⬆️](#jobs-toc-heading-155)
-    - [19.7、🧱边距&填充&对齐](#jobs-toc-heading-156)
-      - [19.7.1、🧱Padding   ⬆️](#jobs-toc-heading-157)
-      - [19.7.2、🧱Margin   ⬆️](#jobs-toc-heading-158)
-      - [19.7.3、🧱Container   ⬆️](#jobs-toc-heading-159)
-      - [19.7.4、🧱Align   ⬆️](#jobs-toc-heading-160)
-      - [19.7.5、🧱Center   ⬆️](#jobs-toc-heading-161)
-      - [19.7.6、🧱Baseline   ⬆️](#jobs-toc-heading-162)
-      - [19.7.7、🧱Transform   ⬆️](#jobs-toc-heading-163)
-    - [19.8、🧱布局辅助](#jobs-toc-heading-164)
-      - [19.8.1、🧱Offstage   ⬆️](#jobs-toc-heading-165)
-      - [19.8.2、🧱Visibility   ⬆️](#jobs-toc-heading-166)
-      - [19.8.3、🧱LayoutBuilder   ⬆️](#jobs-toc-heading-167)
-      - [19.8.4、🧱CustomSingleChildLayout / CustomMultiChildLayout    ⬆️](#jobs-toc-heading-168)
-  - [20、✅ Flutter中，实现相对位置布局的几种方式](#jobs-toc-heading-169)
-    - [20.1、使用 Column / Row（线性排列 + 间距控制）](#jobs-toc-heading-170)
-    - [20.2、使用 Stack + Positioned（绝对锚点式）](#jobs-toc-heading-171)
-    - [20.3、使用 Align + FractionalOffset](#jobs-toc-heading-172)
-    - [20.4、使用 CustomMultiChildLayout 实现锚定兄弟 Widget](#jobs-toc-heading-173)
-  - [21、🎍Flutter装饰相关@Widget](#jobs-toc-heading-174)
-    - [21.1、🎍装饰容器组件（具备布局和装饰能力）](#jobs-toc-heading-175)
-    - [21.2、🎍装饰构建类（Decoration 体系）](#jobs-toc-heading-176)
-      - [21.2.1、TextField](#jobs-toc-heading-177)
-    - [21.3、🎍装饰参数 / 协作类（Decoration 构成元素）](#jobs-toc-heading-178)
-    - [21.4、🎍视觉增强类（非 Decoration，但常用于装饰）](#jobs-toc-heading-179)
-  - [22、其他Widget 分类](#jobs-toc-heading-180)
-    - [22.1、♻️ 交互类](#jobs-toc-heading-181)
-      - [22.1.1、DropdownButton](#jobs-toc-heading-182)
-    - [22.2、🧭 导航 & 路由类](#jobs-toc-heading-183)
-    - [22.3、🪓 功能控制类](#jobs-toc-heading-184)
-      - [22.3.1、Widget.FutureBuilder](#jobs-toc-heading-185)
-    - [22.4、🖥️ 内容展示类](#jobs-toc-heading-186)
-    - [22.5、🪣 容器类](#jobs-toc-heading-187)
-  - [23、Dart.Flutter访问：🖼️相册、📹摄像头、🎤麦克风等系统级功能](#jobs-toc-heading-188)
-  - [24、👂监听](#jobs-toc-heading-189)
-    - [24.1、👂监听@路由：NavigatorObserver](#jobs-toc-heading-190)
-    - [24.2、👂监听@APP 生命周期：WidgetsBindingObserver](#jobs-toc-heading-191)
-    - [24.3、👂监听@滚动（未完待续）](#jobs-toc-heading-192)
-    - [24.4、👂监听@数据变化通知（未完待续）](#jobs-toc-heading-193)
-    - [24.5、👂监听@键盘（弹起&落下）](#jobs-toc-heading-194)
-    - [24.6、👂监听@网络（未完待续）](#jobs-toc-heading-195)
-  - [25、富文本](#jobs-toc-heading-196)
-    - [25.1、风评](#jobs-toc-heading-197)
-    - [25.2、JobsRichText](#jobs-toc-heading-198)
-  - [26、Tab切换：IndexedStack](#jobs-toc-heading-199)
-  - [27、状态管理工具](#jobs-toc-heading-200)
-    - [27.1、Provider](#jobs-toc-heading-201)
-    - [27.2、riverpod](#jobs-toc-heading-202)
-    - [27.3、flutter\_bloc](#jobs-toc-heading-203)
-    - [27.4、🉐GetX](#jobs-toc-heading-204)
-      - [27.4.1、🉐GetX （六种）依赖注册方式对比表](#jobs-toc-heading-205)
-      - [27.4.2、🉐GetX 的销毁机制](#jobs-toc-heading-206)
-      - [27.4.3、🉐GetX 页面解耦绑定数据源💥](#jobs-toc-heading-207)
-        - [27.4.3.1、🉐 GetxController](#jobs-toc-heading-208)
-        - [27.4.3.2、🉐 binding](#jobs-toc-heading-209)
-        - [27.4.3.3、🉐 GetX （正向）路由传参](#jobs-toc-heading-210)
-        - [27.4.3.4、🉐 GetView\<T\>](#jobs-toc-heading-211)
-        - [27.4.3.5、🉐 GetX 值的双向绑定：Obx](#jobs-toc-heading-212)
-        - [27.4.3.6、🉐 GetPage()📃](#jobs-toc-heading-213)
-        - [27.4.3.7、🉐 基于GetX 最佳实践的完整项目结构模板（项目名为：getx\_demo）](#jobs-toc-heading-214)
-      - [27.4.4、🉐 GetX 路由🧭](#jobs-toc-heading-215)
-        - [27.4.4.1、🉐 GetX 免路由管理页面（直接跳 Widget）](#jobs-toc-heading-216)
-        - [27.4.4.2、🉐 命名路由（推荐方式）](#jobs-toc-heading-217)
-      - [27.4.5、🉐 GetxService](#jobs-toc-heading-218)
-      - [27.4.6、🉐 GetX  具有 UI 效果的函数方法（非 Widget）](#jobs-toc-heading-219)
-      - [27.4.7、🉐 GetX 的 UI 控制行为函数](#jobs-toc-heading-220)
-      - [27.4.8、🉐 \*Get.key🔑 \*](#jobs-toc-heading-221)
-      - [27.4.9、🉐 GetX 多语言化](#jobs-toc-heading-222)
-      - [27.4.10、🉐 关于GetX 的二次封装（语法糖🍬）](#jobs-toc-heading-223)
-      - [27.4.11、🉐 GetInterface](#jobs-toc-heading-224)
-      - [27.4.12、🉐 GetX@通知📢](#jobs-toc-heading-225)
-      - [27.4.13、🉐 GetX@弹出框🪟](#jobs-toc-heading-226)
-        - [27.4.13.1、🉐 Get.dialog(widget)](#jobs-toc-heading-227)
-        - [27.4.13.2、🉐Get.defaultDialog(widget)](#jobs-toc-heading-228)
-        - [27.4.13.3、🉐Get.snackbar("标题", "副标题");](#jobs-toc-heading-229)
-        - [27.4.13.4、🉐Get.bottomSheet(Widget)](#jobs-toc-heading-230)
-        - [27.4.13.5、🉐Get.rawSnackbar()](#jobs-toc-heading-231)
-        - [27.4.13.6、🉐Get.generalDialog(pageBuilder:X)](#jobs-toc-heading-232)
-  - [28、导航栏左上角的返回按钮🔙的行为拦截和自定义](#jobs-toc-heading-233)
-  - [29、图片缓存框架](#jobs-toc-heading-234)
-    - [29.1、CachedNetworkImage](#jobs-toc-heading-235)
-    - [29.2、flutter\_advanced\_networkimage\_2](#jobs-toc-heading-236)
-    - [29.4、flutter\_cache\_manager](#jobs-toc-heading-237)
-    - [29.5、octo\_image](#jobs-toc-heading-238)
-    - [29.6、FadeInImage (by@Flutter.SDK)](#jobs-toc-heading-239)
-  - [30、数据处理&转化](#jobs-toc-heading-240)
-    - [30.1、取整](#jobs-toc-heading-241)
-    - [30.2、有效数据](#jobs-toc-heading-242)
-    - [30.3、小数=\>百分比%](#jobs-toc-heading-243)
-    - [30.4、字符串（≥）拼接➕数据（int）截取3位（3个0，即：参数1000）](#jobs-toc-heading-244)
-    - [30.5、数字位分隔符](#jobs-toc-heading-245)
-    - [30.6、♻️循环处理数据（以下写法等价）](#jobs-toc-heading-246)
-  - [31、字符串处理](#jobs-toc-heading-247)
-    - [31.1、多行字符串语法](#jobs-toc-heading-248)
-    - [31.2、字符串拼接](#jobs-toc-heading-249)
-    - [31.3、字符串防空](#jobs-toc-heading-250)
-  - [32、🧭 可以承载一切的WebViewWidget 工具模版](#jobs-toc-heading-251)
-  - [33、Dart.Flutter.Future](#jobs-toc-heading-252)
-  - [34、Dart.Flutter 多线程](#jobs-toc-heading-253)
-  - [35、Dart.Flutter.Stream](#jobs-toc-heading-254)
-  - [36、🧬Widget的生命周期](#jobs-toc-heading-255)
-    - [36.1、StatefulWidget 和 StatelessWidget 的关系](#jobs-toc-heading-256)
-    - [36.2、🧬StatelessWidget 的生命周期](#jobs-toc-heading-257)
-    - [36.3、🧬StatefulWidget 的生命周期](#jobs-toc-heading-258)
-  - [37、🧬 Flutter.App的生命周期监听](#jobs-toc-heading-259)
-    - [37.1、混入 （mixin）观察者](#jobs-toc-heading-260)
-    - [37.2、添加观察者](#jobs-toc-heading-261)
-    - [37.3、监听变化](#jobs-toc-heading-262)
-    - [37.4、移除观察者](#jobs-toc-heading-263)
-  - [38、Flutter原生动画](#jobs-toc-heading-264)
-    - [38.1、🟩 隐式动画组件](#jobs-toc-heading-265)
-    - [38.2、🟥 显式动画核心类](#jobs-toc-heading-266)
-    - [38.3、🎬 过渡（Transition）动画组件](#jobs-toc-heading-267)
-    - [38.4、⚙️ 动画控制类](#jobs-toc-heading-268)
-    - [38.5、🌀曲线函数（Curves 类）](#jobs-toc-heading-269)
-    - [38.6、🚀  页面切换动画](#jobs-toc-heading-270)
-  - [39、⌨️ 键盘行为](#jobs-toc-heading-271)
-  - [40、🛜 网络请求](#jobs-toc-heading-272)
-    - [40.1、Dio](#jobs-toc-heading-273)
-  - [41、🧩 数据建模](#jobs-toc-heading-274)
-    - [41.1、🧩 数据模型的建立](#jobs-toc-heading-275)
-    - [41.2、🧩 安全取（📚字典）值](#jobs-toc-heading-276)
-    - [41.3、🧩 模型处理Json字符串（一种优雅的 json\_serializable框架的高级用法）](#jobs-toc-heading-277)
-  - [42、中国公民身份证校验规则](#jobs-toc-heading-278)
-  - [43、推送](#jobs-toc-heading-279)
-  - [44、 🍬Widget拓展语法糖](#jobs-toc-heading-280)
-    - [44.1、onGestures.dart](#jobs-toc-heading-281)
-      - [44.1.1、点击/双击/长按](#jobs-toc-heading-282)
-      - [44.1.2、自由拖拽（Pan 系列）](#jobs-toc-heading-283)
-      - [44.1.3、缩放 ➕ 平移（仅 Scale 系列）](#jobs-toc-heading-284)
-      - [44.1.4、二级/三级点击（桌面/鼠标有用，移动端通常无效）](#jobs-toc-heading-285)
-    - [44.2、onList.dart](#jobs-toc-heading-286)
-    - [44.3、onText.dart](#jobs-toc-heading-287)
-    - [44.4、onWidgets.dart](#jobs-toc-heading-288)
-    - [44.5、onTransform.dart](#jobs-toc-heading-289)
-    - [44.6、onNum.dart](#jobs-toc-heading-290)
-    - [44.7、onDateTime.dart](#jobs-toc-heading-291)
-    - [44.8、onImage.dart](#jobs-toc-heading-292)
-  - [45、区间数值：clamp](#jobs-toc-heading-293)
-    - [45.1、处理闭区间数值](#jobs-toc-heading-294)
-    - [45.2、处理开区间数值](#jobs-toc-heading-295)
-    - [45.3、处理半开半闭区间数值](#jobs-toc-heading-296)
-  - [46、圆角](#jobs-toc-heading-297)
-    - [46.1、让容器的背景有圆角](#jobs-toc-heading-298)
-    - [46.2、真正裁剪子组件的圆角](#jobs-toc-heading-299)
-  - [47、广告轮播图@JobsBannerCarousel使用说明](#jobs-toc-heading-300)
-  - [48、JobsExcel](#jobs-toc-heading-301)
-    - [48.1、模式 1➤首列与其它列一起等宽分配；不需要 fixedWidth](#jobs-toc-heading-302)
-    - [48.2、模式 2➤首列固定宽度，其余列按内容/约束自适应（支持min/maxColWidth）](#jobs-toc-heading-303)
-    - [48.3、模式 3➤首列固定宽度，其余列等宽均分](#jobs-toc-heading-304)
-  - [49、空态（占位）组件](#jobs-toc-heading-305)
-  - [50、字体](#jobs-toc-heading-306)
-    - [50.1、字体介绍](#jobs-toc-heading-307)
-      - [50.1.1、🎨基础属性](#jobs-toc-heading-308)
-      - [50.1.2、🖋️装饰属性](#jobs-toc-heading-309)
-      - [50.1.3、📏布局相关](#jobs-toc-heading-310)
-      - [50.1.4、🌈高级属性](#jobs-toc-heading-311)
-    - [50.2、引入外来字体](#jobs-toc-heading-312)
-      - [50.2.1、Google Fonts](#jobs-toc-heading-313)
-      - [50.2.2、其他商业字体](#jobs-toc-heading-314)
-  - [51、Tips](#jobs-toc-heading-315)
-    - [51.1、Dart.Flutter自带的showSnackBar](#jobs-toc-heading-316)
-    - [51.2、第三方库@oktoast](#jobs-toc-heading-317)
-    - [51.3、第三方库@overlay\_support](#jobs-toc-heading-318)
-  - [52、🔘按钮的封装](#jobs-toc-heading-319)
-  - [53、⏲️定时器](#jobs-toc-heading-320)
-    - [53.1、普通定时器：Timer](#jobs-toc-heading-321)
-      - [53.1.1、单次定时](#jobs-toc-heading-322)
-      - [53.1.2、周期定时](#jobs-toc-heading-323)
-    - [53.2、Flutter 特有的：Ticker / AnimationController](#jobs-toc-heading-324)
-    - [53.3、UI 刷新相关：Future.delayed](#jobs-toc-heading-325)
-    - [53.4、引擎层调度：SchedulerBinding](#jobs-toc-heading-326)
-  - [54、JobsRefreshLoad：下拉刷新&上拉加载](#jobs-toc-heading-327)
-  - [55、加/解密](#jobs-toc-heading-328)
-  - [56、小部件写法的替换](#jobs-toc-heading-329)
-    - [56.1、Class返回Widget](#jobs-toc-heading-330)
-    - [56.2、函数式返回Widget](#jobs-toc-heading-331)
-  - [57、List奇偶行切换背景色](#jobs-toc-heading-332)
-  - [58、列表渲染完之后，把滚动条强制拉到最底部](#jobs-toc-heading-333)
-  - [59、✂️剪切板](#jobs-toc-heading-334)
-  - [60、⌨️ 输入框](#jobs-toc-heading-335)
-  - [61、级联选择器](#jobs-toc-heading-336)
-  - [62、自动化代码生成应用外观资源](#jobs-toc-heading-337)
-    - [62.1、App启动图标](#jobs-toc-heading-338)
-      - [62.1.1、使用插件flutter\_launcher\_icons替换](#jobs-toc-heading-339)
-      - [62.1.2、手动替换](#jobs-toc-heading-340)
-      - [62.1.3、验证图标资源是否存在](#jobs-toc-heading-341)
-    - [62.2、启动页（Splash）](#jobs-toc-heading-342)
-    - [62.3、资源/字体/颜色常量（类型安全）](#jobs-toc-heading-343)
-  - [63、🔄 轮询](#jobs-toc-heading-344)
-    - [63.1、🔄 轮询（安全）代码](#jobs-toc-heading-345)
-      - [63.1.1、🔄 最小可用且安全的轮询器](#jobs-toc-heading-346)
-      - [63.1.2、🔄 GetX 控制器内的轮询](#jobs-toc-heading-347)
-    - [63.2、🔄 指数退避 + 抖动模板](#jobs-toc-heading-348)
-    - [63.3、🔄 防卡关键点](#jobs-toc-heading-349)
-    - [63.4、🔄 什么时候不要轮询](#jobs-toc-heading-350)
-    - [63.5、🔄 快速自检清单](#jobs-toc-heading-351)
-  - [64、唤醒（TODO）](#jobs-toc-heading-352)
-  - [65、热更新（TODO）](#jobs-toc-heading-353)
-  - [66、调取设备摄像头（TODO）](#jobs-toc-heading-354)
-  - [67、调取设备相册（TODO）](#jobs-toc-heading-355)
-  - [68、音视频（TODO）](#jobs-toc-heading-356)
-- [六、📃其他](#jobs-toc-heading-357)
-  - [1、修复平台目录：定位到Flutter项目根目录，执行➤flutter create .](#jobs-toc-heading-358)
-  - [2、/android/build.gradle的配置](#jobs-toc-heading-359)
-  - [4、🎯 Dart 命名规则大全（官方风格指南）](#jobs-toc-heading-360)
-  - [5、🗺️ 重定向技巧](#jobs-toc-heading-361)
-  - [6、💼 package](#jobs-toc-heading-362)
-  - [7、🔥Firebase](#jobs-toc-heading-363)
-  - [8、📂Dart.Flutter系统文件目录](#jobs-toc-heading-364)
-    - [8.1、📁$HOME/.pub-cache/hosted/pub.dev/文件夹](#jobs-toc-heading-365)
-    - [8.2、📁$HOME/.pub-cache/ 文件夹](#jobs-toc-heading-366)
-    - [8.3、📁$HOME/.flutter/文件夹](#jobs-toc-heading-367)
-    - [8.4、📁$HOME/Library/Flutter/ 文件夹（按需出现，非必备）](#jobs-toc-heading-368)
-    - [8.5、📁$HOME/.dart/ 文件夹](#jobs-toc-heading-369)
-    - [8.6、📁$HOME/fvm/文件夹](#jobs-toc-heading-370)
-  - [9、📂Dart.Flutter项目文件（夹）](#jobs-toc-heading-371)
-    - [9.1、📁./.fvm/flutter\_sdk/ 文件夹](#jobs-toc-heading-372)
-    - [9.2、📁 ./linux/ 文件夹](#jobs-toc-heading-373)
-    - [9.3、📁./.idea/ 文件夹](#jobs-toc-heading-374)
-    - [9.4、📁./plugins/ 文件夹](#jobs-toc-heading-375)
-    - [9.5、📃./.flutter-plugins](#jobs-toc-heading-376)
-    - [9.6、📃./.flutter-plugins-dependencies](#jobs-toc-heading-377)
-    - [9.7、📃./.java-version](#jobs-toc-heading-378)
-    - [9.8、📃./pubspec.yaml](#jobs-toc-heading-379)
-    - [9.9、  📃./pubspec.lock](#jobs-toc-heading-380)
-    - [9.10、📃./.metadata](#jobs-toc-heading-381)
-  - [10、注解](#jobs-toc-heading-382)
-  - [11、Dart.Flutter单例](#jobs-toc-heading-383)
-    - [📌11.1、✅ 最推荐写法（懒汉式 + 工厂构造）](#jobs-toc-heading-384)
-    - [📌11.2、饿汉式（类加载就创建）](#jobs-toc-heading-385)
-    - [📌11.3、静态变量初始化（等效饿汉）](#jobs-toc-heading-386)
-    - [📌11.4、懒汉式 getter（懒加载写法）](#jobs-toc-heading-387)
-    - [📌11.5、Dart 单例完整封装模板（带线程安全/泛型支持）](#jobs-toc-heading-388)
-    - [📌11.6、使用GetIt➤实现全局单例（推荐用于大型项目）](#jobs-toc-heading-389)
-  - [12、Dart.abstract](#jobs-toc-heading-390)
-  - [13、Dart.factory](#jobs-toc-heading-391)
-  - [14、Comparable \<T\>](#jobs-toc-heading-392)
-  - [15、全局事件监听器：WidgetsBindingObserver](#jobs-toc-heading-393)
-  - [16、纯静态类 的（常见）写法](#jobs-toc-heading-394)
-  - [17、Dart.Symbol](#jobs-toc-heading-395)
-  - [18、上下文 BuildContext](#jobs-toc-heading-396)
-  - [19、InheritedWidget](#jobs-toc-heading-397)
-  - [20、混入with👈mixin➤on](#jobs-toc-heading-398)
-    - [20.1、混入的基本语法](#jobs-toc-heading-399)
-    - [20.2、混入的继承写法](#jobs-toc-heading-400)
-    - [20.3、混入的复杂用法](#jobs-toc-heading-401)
-  - [21、基础的数据类型](#jobs-toc-heading-402)
-    - [21.1、int](#jobs-toc-heading-403)
-    - [21.2、Long](#jobs-toc-heading-404)
-    - [21.3、bool](#jobs-toc-heading-405)
-    - [21.4、double](#jobs-toc-heading-406)
-    - [21.5、Float](#jobs-toc-heading-407)
-    - [21.6、String](#jobs-toc-heading-408)
-    - [21.7、List](#jobs-toc-heading-409)
-    - [21.8、Map](#jobs-toc-heading-410)
-    - [21.9、Set](#jobs-toc-heading-411)
-  - [22、入参](#jobs-toc-heading-412)
-    - [22.1、必传入参](#jobs-toc-heading-413)
-    - [22.2、可选入参](#jobs-toc-heading-414)
-      - [22.2.1、可选位置参数：传值时 按顺序，但不带参数名 \[\]](#jobs-toc-heading-415)
-      - [22.2.2、可选命名参数：传值时用 参数名，顺序无关 {}](#jobs-toc-heading-416)
-      - [22.2.3、可选入参中必传： \*required 带参数名 \*](#jobs-toc-heading-417)
-  - [23、🔧自动化代码生成工具](#jobs-toc-heading-418)
-  - [24、🏗️构造函数](#jobs-toc-heading-419)
-    - [24.1、默认构造函数（不能有两个默认构造函数（名字相同，参数不同也不行））](#jobs-toc-heading-420)
-    - [24.2、命名构造函数（可以有多个命名构造函数，但是：必须有唯一名字）](#jobs-toc-heading-421)
-    - [24.3、初始化列表构造函数](#jobs-toc-heading-422)
-    - [24.4、const 构造函数（Widget 常用）](#jobs-toc-heading-423)
-    - [24.5、factory 构造函数（高级构建方式）](#jobs-toc-heading-424)
-  - [25、📦构建打包](#jobs-toc-heading-425)
-    - [25.1、配置Shell打包命令](#jobs-toc-heading-426)
-    - [25.2、配置SourceTree打包脚本](#jobs-toc-heading-427)
-    - [25.3、Flutter打包和运行流程](#jobs-toc-heading-428)
-    - [25.4、📦 Flutter.Android（较为复杂和繁琐）](#jobs-toc-heading-429)
-      - [25.4.1、 Android Command Line Tools.sdkmanager](#jobs-toc-heading-430)
-      - [25.4.2、Gradle](#jobs-toc-heading-431)
-      - [25.4.6、如何加快Flutter.Android的打包速度？](#jobs-toc-heading-432)
-      - [25.4.7、🪖构建指令：flutter build apk](#jobs-toc-heading-433)
-      - [25.4.8、⚙️ 相关配置](#jobs-toc-heading-434)
-      - [25.4.9、📦 Flutter.Android 打包脚本（MacOS）](#jobs-toc-heading-435)
-      - [25.4.10、打包成品](#jobs-toc-heading-436)
-    - [25.5、📦 Flutter.iOS（相对简单）](#jobs-toc-heading-437)
-      - [25.5.1、🪖构建指令：flutter build ios 和 flutter build ipa](#jobs-toc-heading-438)
-      - [25.5.2、📁生成的包目录](#jobs-toc-heading-439)
-      - [25.5.3、📦 打包脚本](#jobs-toc-heading-440)
-      - [25.5.4、⚠️注意事项](#jobs-toc-heading-441)
-  - [26、颜色格式的转换](#jobs-toc-heading-442)
-  - [27、在 child: 中写条件判断 (if)](#jobs-toc-heading-443)
-    - [27.1、方案一：三元运算符（最常用）](#jobs-toc-heading-444)
-    - [27.2、方案二：使用 Builder 包裹 if/else](#jobs-toc-heading-445)
-    - [27.3、方案三：用 children 和集合展开（if 控制多个组件）](#jobs-toc-heading-446)
-  - [28、扩展运算符](#jobs-toc-heading-447)
-  - [29、（两个点）级联运算符](#jobs-toc-heading-448)
-  - [30、（三个点）展开运算符](#jobs-toc-heading-449)
-    - [30.1、最小例子](#jobs-toc-heading-450)
-    - [30.2、配合条件使用（高频）](#jobs-toc-heading-451)
-    - [30.3、空安全版本：...?](#jobs-toc-heading-452)
-  - [31、switch](#jobs-toc-heading-453)
-  - [32、Function（回调）的使用](#jobs-toc-heading-454)
-  - [33、Flutter.三棵树](#jobs-toc-heading-455)
-  - [34、稳定 key](#jobs-toc-heading-456)
-  - [35、Flutter.set/get](#jobs-toc-heading-457)
-  - [36、var、dynamic、object](#jobs-toc-heading-458)
-  - [37、const\*和final\*](#jobs-toc-heading-459)
-  - [38、Dart.Lambda表达式(箭头函数)](#jobs-toc-heading-460)
-  - [39、Dart.import](#jobs-toc-heading-461)
-    - [39.1、Dart.part](#jobs-toc-heading-462)
-  - [40、Dart.事件循环（Event Loop）](#jobs-toc-heading-463)
-  - [41、🧵Dart.线程处理](#jobs-toc-heading-464)
-    - [41.2、🧵Dart.Isolate](#jobs-toc-heading-465)
-    - [41.3、🧵Dart.Future](#jobs-toc-heading-466)
-      - [41.3.1、🧵快速入手](#jobs-toc-heading-467)
-      - [41.3.2、🧵 FutureBuilder（跳转查看）](#jobs-toc-heading-468)
-      - [41.3.3、🧵异步操作的结果](#jobs-toc-heading-469)
-      - [41.3.4、🧵代码执行优先级](#jobs-toc-heading-470)
-      - [41.3.5、🧵then()方法](#jobs-toc-heading-471)
-      - [41.3.6、🧵Dart.async](#jobs-toc-heading-472)
-      - [41.3.7、🧵Dart.await 和 Dart.async](#jobs-toc-heading-473)
-      - [41.3.8、🧵Dart.error](#jobs-toc-heading-474)
-      - [41.3.9、🧵Dart.Flutter.FutureBuilder](#jobs-toc-heading-475)
-      - [41.3.10、🧵Dart.Flutter.AsyncSnapshot](#jobs-toc-heading-476)
-  - [44、Dart.Stream](#jobs-toc-heading-477)
-    - [44.1、相关细节](#jobs-toc-heading-478)
-    - [44.2、Dart.Flutter.Widget.StreamBuilder](#jobs-toc-heading-479)
-    - [44.3、Dart.Flutter.StreamController](#jobs-toc-heading-480)
-  - [45、Dart.Flutter@页面的销毁](#jobs-toc-heading-481)
-  - [46、Dart.Flutter@定时机制](#jobs-toc-heading-482)
-    - [46.1、Timer](#jobs-toc-heading-483)
-    - [46.2、Future.delayed](#jobs-toc-heading-484)
-    - [46.3、帧回调 / 动画时钟](#jobs-toc-heading-485)
-    - [46.4、事件循环任务](#jobs-toc-heading-486)
-    - [46.5、周期异步流](#jobs-toc-heading-487)
-- [七、FAQ](#jobs-toc-heading-488)
-  - [1、Flutter 本地存储方案](#jobs-toc-heading-489)
-  - [2、Future 是不是多线程？](#jobs-toc-heading-490)
-  - [3、Future / async-await 本质是什么？](#jobs-toc-heading-491)
-  - [4、async 会不会开线程？](#jobs-toc-heading-492)
-  - [5、什么时候用 Isolate？](#jobs-toc-heading-493)
-  - [6、什么是 Isolate？](#jobs-toc-heading-494)
-  - [7、为什么 Flutter 不用多线程？](#jobs-toc-heading-495)
-  - [8、手势](#jobs-toc-heading-496)
-  - [9、为什么状态不会丢？](#jobs-toc-heading-497)
-  - [10、Future 在哪个队列里面？](#jobs-toc-heading-498)
-  - [11、为什么会这样？已完成的 Future，会立即进入 Microtask Queue 执行回调](#jobs-toc-heading-499)
-  - [12、为什么 Release 没有热重载？](#jobs-toc-heading-500)
-  - [13、Hot Reload 🆚 Hot Restart 的本质区别](#jobs-toc-heading-501)
-  - [14、Hot Reload 🆚 Hot Restart 🆚 Run（重新运行）](#jobs-toc-heading-502)
-  - [15、Hot Restart 本质](#jobs-toc-heading-503)
-  - [16、为什么有些修改必须 Restart？这些修改已经固化在内存里，VM 没法动态替换](#jobs-toc-heading-504)
-  - [17、VM（虚拟机） 和 Engine 有什么区别？](#jobs-toc-heading-505)
-  - [18、VM 的两种模式](#jobs-toc-heading-506)
-  - [19、setState() 之后到底发生了什么？](#jobs-toc-heading-507)
-  - [20、GetX状态管理基于什么实现?](#jobs-toc-heading-508)
-  - [21、GetX 的状态管理主要有两套](#jobs-toc-heading-509)
-  - [22、GetX 🆚 GetBuilder 🆚 Obx](#jobs-toc-heading-510)
-  - [23、GetX 🆚 Provider 🆚 Bloc](#jobs-toc-heading-511)
-  - [24、为什么 iOS 的 UITableView 比 Flutter.ListView 更稳？Flutter 怎么追上？](#jobs-toc-heading-512)
-  - [25、不出UI的总结](#jobs-toc-heading-513)
-  - [26、其他](#jobs-toc-heading-514)
+- [一、🎯项目白皮书](#jobs-toc-heading-4)
+- [二、开发周边](#jobs-toc-heading-5)
+  - [1、Jobs的个人技术博客](#jobs-toc-heading-6)
+  - [2、系统相关配置](#jobs-toc-heading-7)
+  - [3、JobsGenesis](#jobs-toc-heading-8)
+  - [4、工具网站](#jobs-toc-heading-9)
+  - [5、Git忽略文件](#jobs-toc-heading-10)
+- [三、相关配置](#jobs-toc-heading-11)
+  - [1、🌱环境配置 ➤ Flutter](#jobs-toc-heading-12)
+  - [2、Flutter 对 HarmonyOS / OpenHarmony 的支持边界](#jobs-toc-heading-13)
+    - [2.1、仍兼容 Android APK 的鸿蒙系统](#jobs-toc-heading-14)
+    - [2.2、HarmonyOS NEXT 不能直接使用官方原版 Flutter SDK](#jobs-toc-heading-15)
+    - [2.3、使用鸿蒙社区适配版 Flutter SDK](#jobs-toc-heading-16)
+    - [2.4、多端工程的推荐拆分](#jobs-toc-heading-17)
+    - [2.5、插件兼容性是主要成本](#jobs-toc-heading-18)
+    - [2.6、项目选型建议](#jobs-toc-heading-19)
+  - [3、FVM](#jobs-toc-heading-20)
+  - [4、IDE](#jobs-toc-heading-21)
+    - [4.1、Xcode](#jobs-toc-heading-22)
+      - [4.1.1、网站限制](#jobs-toc-heading-23)
+      - [4.1.2、📱关于iOS模拟器（最新版本XCode：16.4）](#jobs-toc-heading-24)
+    - [4.2、Android Studio](#jobs-toc-heading-25)
+      - [4.2.1、点我 ➤下载Android Studio历史版本](#jobs-toc-heading-26)
+      - [4.2.2、配置JDK的地方和其他SDK的不一样](#jobs-toc-heading-27)
+      - [4.2.3、./android/gradlew](#jobs-toc-heading-28)
+      - [4.2.4、🤖关于Android模拟器](#jobs-toc-heading-29)
+    - [4.3、VSCode](#jobs-toc-heading-30)
+      - [4.3.1、🔔温馨提示](#jobs-toc-heading-31)
+      - [4.3.2、🔧 安装插件](#jobs-toc-heading-32)
+      - [4.3.3、⚙️VSCode的配置文件](#jobs-toc-heading-33)
+      - [4.3.4、设备选择](#jobs-toc-heading-34)
+  - [5、安装 Rosetta](#jobs-toc-heading-35)
+  - [6、flutter run](#jobs-toc-heading-36)
+- [四、⚖️Flutter代码规范](#jobs-toc-heading-37)
+- [五、💥Flutter代码讲解](#jobs-toc-heading-38)
+  - [1、🖨️调试打印](#jobs-toc-heading-39)
+    - [1.1、🖨️系统自带的打印方法：debugPrint](#jobs-toc-heading-40)
+    - [1.2、🖨️第三方封装的打印方法：🌌极光原生推送全局打印（🧨强烈推荐）](#jobs-toc-heading-41)
+    - [1.3、对系统&自定义打印方法的二次封装](#jobs-toc-heading-42)
+    - [1.4、🖨️自定义打印（对象）方法](#jobs-toc-heading-43)
+      - [1.4.1、控制台打印](#jobs-toc-heading-44)
+      - [1.4.2、程序内打印](#jobs-toc-heading-45)
+  - [2、SystemChrome常用于设置状态栏和系统底部导航栏样式的配置](#jobs-toc-heading-46)
+  - [3、🚪配置入口](#jobs-toc-heading-47)
+    - [3.1、🚪配置项目入口](#jobs-toc-heading-48)
+    - [3.2、🚪配置页面的入口](#jobs-toc-heading-49)
+      - [3.2.1、🚪配置首页入口](#jobs-toc-heading-50)
+      - [3.2.2、搭建页面的基本结构](#jobs-toc-heading-51)
+  - [4、Flutter项目中比较标准且完整的启动流程](#jobs-toc-heading-52)
+  - [5、WidgetsFlutterBinding确保Flutter框架与底层平台（如 MethodChannel、插件）之间的桥梁已完成初始化](#jobs-toc-heading-53)
+  - [6、DartPingIOS在 iOS 上启用 native 层实现的 ping 功能](#jobs-toc-heading-54)
+  - [7、利用SharedPreferences对数据进行存取](#jobs-toc-heading-55)
+  - [8、Flutter.SDK标准模态弹窗组件（截至 2025）](#jobs-toc-heading-56)
+  - [9、第三方@EasyLoading](#jobs-toc-heading-57)
+  - [10、极光原生推送：FlutterPluginEngagelab](#jobs-toc-heading-58)
+  - [11、OpenInstall：移动端的安装/拉新/渠道统计 SDK](#jobs-toc-heading-59)
+  - [12、⏰获取当前时间](#jobs-toc-heading-60)
+  - [13、🔜  推页面](#jobs-toc-heading-61)
+    - [13.1、🔜 Navigator](#jobs-toc-heading-62)
+      - [13.1.1、🔜 正向传参](#jobs-toc-heading-63)
+      - [13.1.2、🔜 返向传参](#jobs-toc-heading-64)
+    - [13.2、🔜GetX路由（跳转查看）](#jobs-toc-heading-65)
+    - [13.3、🔜GetX正向路由传参（跳转查看）](#jobs-toc-heading-66)
+    - [13.4、🔜 弹出页面](#jobs-toc-heading-67)
+      - [13.4.1、🔜GetX弹出框（跳转查看）](#jobs-toc-heading-68)
+      - [13.4.2、🔜 Flutter原生弹出框](#jobs-toc-heading-69)
+    - [13.5、🔜 按钮的封装（跳转查看）](#jobs-toc-heading-70)
+  - [14、🔙 导航栏返回按钮](#jobs-toc-heading-71)
+  - [15、🖥️Flutter屏幕尺寸方案](#jobs-toc-heading-72)
+    - [15.1、ScreenUtil](#jobs-toc-heading-73)
+    - [15.2、WidgetsBinding](#jobs-toc-heading-74)
+    - [15.3、MediaQuery](#jobs-toc-heading-75)
+    - [15.4、SafeArea](#jobs-toc-heading-76)
+    - [15.5、flutter\_screenutil](#jobs-toc-heading-77)
+    - [15.6、📐 键盘遮挡通用处理方案](#jobs-toc-heading-78)
+    - [15.7、🔄 响应式布局：根据宽度切换布局](#jobs-toc-heading-79)
+  - [16、Dart.Object](#jobs-toc-heading-80)
+  - [17、在Flutter中，支持滑动的所有核心Widget](#jobs-toc-heading-81)
+  - [18、👋Flutter手势](#jobs-toc-heading-82)
+    - [18.1、👋Flutter中的手势系统本质（由三层机制组成）](#jobs-toc-heading-83)
+    - [18.2、👋滚动控件的特殊性](#jobs-toc-heading-84)
+    - [18.3、👋Flutter 中所有手势相关 Widget 一览（全量分类）](#jobs-toc-heading-85)
+    - [18.4、👋通用点击组件](#jobs-toc-heading-86)
+    - [18.5、👋Flutter手势竞争](#jobs-toc-heading-87)
+      - [18.5.1、👋手势竞争的原理](#jobs-toc-heading-88)
+      - [18.5.2、👋胜负决策规则](#jobs-toc-heading-89)
+      - [18.5.3、👋常用的手势冲突场景以及解决技巧（范式）](#jobs-toc-heading-90)
+        - [18.5.3.1、👋ListView 滑动 🆚 GestureDetector onTap](#jobs-toc-heading-91)
+        - [18.5.3.2、👋HorizontalDrag 🆚  VerticalDrag 冲突](#jobs-toc-heading-92)
+        - [18.5.3.3、👋嵌套 InkWell / GestureDetector（内层不触发或波纹丢失）](#jobs-toc-heading-93)
+        - [18.5.3.4、👋PageView（横向滚动）嵌在可垂直滚动的父容器](#jobs-toc-heading-94)
+        - [18.5.3.5、👋GestureDetector + ListView 同时存在，希望：点击 + 长按拖动排序](#jobs-toc-heading-95)
+        - [18.5.3.6、👋InteractiveViewer（可缩放/拖拽）内的点击热区失效](#jobs-toc-heading-96)
+        - [18.5.3.7、👋横向可滚容器中的纵向手势（或反之）](#jobs-toc-heading-97)
+        - [18.5.3.8、👋父层 GestureDetector 抢走子层点击](#jobs-toc-heading-98)
+        - [18.5.3.9、👋IgnorePointer / AbsorbPointer 精确阻断或穿透](#jobs-toc-heading-99)
+        - [18.5.3.10、👋自定义 GestureRecognizer（精细控制胜负时机）](#jobs-toc-heading-100)
+    - [18.6、Flutter手势冲突⚔️（iOS/Android的核心差异）](#jobs-toc-heading-101)
+      - [18.6.1、👋手势竞技场机制差异](#jobs-toc-heading-102)
+      - [18.6.2、👋滚动物理差异](#jobs-toc-heading-103)
+      - [18.6.3、👋Pointer监听的限制](#jobs-toc-heading-104)
+      - [18.6.4、👋通用解释](#jobs-toc-heading-105)
+    - [18.7、👋Flutter手势语法糖🍬](#jobs-toc-heading-106)
+    - [18.8、👋HitTestBehavior](#jobs-toc-heading-107)
+  - [19、🧱 Flutter布局类@Widget](#jobs-toc-heading-108)
+    - [19.1、🧱线性布局（类似 iOS 的 UIStackView）](#jobs-toc-heading-109)
+      - [19.1.1、🧱Row   ⬆️](#jobs-toc-heading-110)
+      - [19.1.2、🧱Column  ⬆️](#jobs-toc-heading-111)
+      - [19.1.3、🧱Flex   ⬆️](#jobs-toc-heading-112)
+      - [19.1.4、🧱Expanded   ⬆️](#jobs-toc-heading-113)
+      - [19.1.5、🧱Flexible   ⬆️](#jobs-toc-heading-114)
+      - [19.1.6、🧱Spacer  ⬆️](#jobs-toc-heading-115)
+      - [19.1.7、🧱SizedBox   ⬆️](#jobs-toc-heading-116)
+    - [19.2、🧱层叠布局（类似 iOS 的 Frame 布局 + zIndex）](#jobs-toc-heading-117)
+      - [19.2.1、🧱Stack   ⬆️](#jobs-toc-heading-118)
+      - [19.2.2、🧱Positioned   ⬆️](#jobs-toc-heading-119)
+      - [19.2.3、🧱Align   ⬆️](#jobs-toc-heading-120)
+      - [19.2.4、🧱Center   ⬆️](#jobs-toc-heading-121)
+    - [19.3、🧱约束类布局（最接近 Masonry 的思想）](#jobs-toc-heading-122)
+      - [19.3.1、🧱ConstrainedBox   ⬆️](#jobs-toc-heading-123)
+      - [19.3.2、🧱UnconstrainedBox   ⬆️](#jobs-toc-heading-124)
+      - [19.3.3、🧱SizedBox   ⬆️](#jobs-toc-heading-125)
+      - [19.3.4、🧱FractionallySizedBox   ⬆️](#jobs-toc-heading-126)
+      - [19.3.5、🧱AspectRatio   ⬆️](#jobs-toc-heading-127)
+      - [19.3.6、🧱LimitedBox   ⬆️](#jobs-toc-heading-128)
+    - [19.4、🧱自动换行&流式布局](#jobs-toc-heading-129)
+      - [19.4.1、🧱Wrap   ⬆️](#jobs-toc-heading-130)
+      - [19.4.2、🧱Flow   ⬆️](#jobs-toc-heading-131)
+    - [19.5、🧱表格&网格布局](#jobs-toc-heading-132)
+      - [19.5.1、🧱Table   ⬆️](#jobs-toc-heading-133)
+      - [19.5.2、🧱GridView   ⬆️](#jobs-toc-heading-134)
+      - [19.5.3、🧱SliverGrid   ⬆️](#jobs-toc-heading-135)
+    - [19.6、🧱滚动 & Sliver 布局](#jobs-toc-heading-136)
+      - [19.6.1、🧱单子滚动   ⬆️](#jobs-toc-heading-137)
+        - [19.6.1.1、🧱SingleChildScrollView —— 单个子节点的滚动容器   ⬆️](#jobs-toc-heading-138)
+      - [19.6.2、🧱高级滚动视图   ⬆️](#jobs-toc-heading-139)
+        - [19.6.2.1、ListView —— 基于 SliverList 的线性滚动列表   ⬆️](#jobs-toc-heading-140)
+        - [19.6.2.2、GridView —— 基于 SliverGrid 的网格滚动列表   ⬆️](#jobs-toc-heading-141)
+        - [19.6.2.3、PageView —— 基于 SliverFillViewport 的分页滚动   ⬆️](#jobs-toc-heading-142)
+      - [19.6.3、🧱通用Sliver容器 ⬆️](#jobs-toc-heading-143)
+        - [19.6.3.1、CustomScrollView —— 容器，支持组合多个 Sliver   ⬆️](#jobs-toc-heading-144)
+        - [19.6.3.2、NestedScrollView —— 支持嵌套滚动，常用场景：带 SliverAppBar + TabBarView   ⬆️](#jobs-toc-heading-145)
+      - [19.6.4、🧱Sliver基础组件   ⬆️](#jobs-toc-heading-146)
+        - [19.6.4.1、🧱SliverList —— 列表（线性）  ⬆️](#jobs-toc-heading-147)
+        - [19.6.4.2、🧱SliverFixedExtentList —— 固定高度列表   ⬆️](#jobs-toc-heading-148)
+        - [19.6.4.3、🧱SliverGrid —— 网格   ⬆️](#jobs-toc-heading-149)
+        - [19.6.4.4、🧱SliverAppBar —— 可折叠头部   ⬆️](#jobs-toc-heading-150)
+        - [19.6.4.5、🧱SliverPersistentHeader —— 固定或吸顶头部   ⬆️](#jobs-toc-heading-151)
+        - [19.6.4.6、🧱SliverToBoxAdapter —— 把普通 widget 适配成 Sliver   ⬆️](#jobs-toc-heading-152)
+      - [19.6.5、🧱Sliver布局控制  ⬆️](#jobs-toc-heading-153)
+        - [19.6.5.1、🧱SliverPadding —— Sliver 外边距   ⬆️](#jobs-toc-heading-154)
+        - [19.6.5.2、🧱SliverFillRemaining —— 占满剩余空间   ⬆️](#jobs-toc-heading-155)
+        - [19.6.5.3、🧱SliverFillViewport —— 类似 PageView 效果   ⬆️](#jobs-toc-heading-156)
+    - [19.7、🧱边距&填充&对齐](#jobs-toc-heading-157)
+      - [19.7.1、🧱Padding   ⬆️](#jobs-toc-heading-158)
+      - [19.7.2、🧱Margin   ⬆️](#jobs-toc-heading-159)
+      - [19.7.3、🧱Container   ⬆️](#jobs-toc-heading-160)
+      - [19.7.4、🧱Align   ⬆️](#jobs-toc-heading-161)
+      - [19.7.5、🧱Center   ⬆️](#jobs-toc-heading-162)
+      - [19.7.6、🧱Baseline   ⬆️](#jobs-toc-heading-163)
+      - [19.7.7、🧱Transform   ⬆️](#jobs-toc-heading-164)
+    - [19.8、🧱布局辅助](#jobs-toc-heading-165)
+      - [19.8.1、🧱Offstage   ⬆️](#jobs-toc-heading-166)
+      - [19.8.2、🧱Visibility   ⬆️](#jobs-toc-heading-167)
+      - [19.8.3、🧱LayoutBuilder   ⬆️](#jobs-toc-heading-168)
+      - [19.8.4、🧱CustomSingleChildLayout / CustomMultiChildLayout    ⬆️](#jobs-toc-heading-169)
+  - [20、✅ Flutter中，实现相对位置布局的几种方式](#jobs-toc-heading-170)
+    - [20.1、使用 Column / Row（线性排列 + 间距控制）](#jobs-toc-heading-171)
+    - [20.2、使用 Stack + Positioned（绝对锚点式）](#jobs-toc-heading-172)
+    - [20.3、使用 Align + FractionalOffset](#jobs-toc-heading-173)
+    - [20.4、使用 CustomMultiChildLayout 实现锚定兄弟 Widget](#jobs-toc-heading-174)
+  - [21、🎍Flutter装饰相关@Widget](#jobs-toc-heading-175)
+    - [21.1、🎍装饰容器组件（具备布局和装饰能力）](#jobs-toc-heading-176)
+    - [21.2、🎍装饰构建类（Decoration 体系）](#jobs-toc-heading-177)
+      - [21.2.1、TextField](#jobs-toc-heading-178)
+    - [21.3、🎍装饰参数 / 协作类（Decoration 构成元素）](#jobs-toc-heading-179)
+    - [21.4、🎍视觉增强类（非 Decoration，但常用于装饰）](#jobs-toc-heading-180)
+  - [22、其他Widget 分类](#jobs-toc-heading-181)
+    - [22.1、♻️ 交互类](#jobs-toc-heading-182)
+      - [22.1.1、DropdownButton](#jobs-toc-heading-183)
+    - [22.2、🧭 导航 & 路由类](#jobs-toc-heading-184)
+    - [22.3、🪓 功能控制类](#jobs-toc-heading-185)
+      - [22.3.1、Widget.FutureBuilder](#jobs-toc-heading-186)
+    - [22.4、🖥️ 内容展示类](#jobs-toc-heading-187)
+    - [22.5、🪣 容器类](#jobs-toc-heading-188)
+  - [23、Dart.Flutter访问：🖼️相册、📹摄像头、🎤麦克风等系统级功能](#jobs-toc-heading-189)
+  - [24、👂监听](#jobs-toc-heading-190)
+    - [24.1、👂监听@路由：NavigatorObserver](#jobs-toc-heading-191)
+    - [24.2、👂监听@APP 生命周期：WidgetsBindingObserver](#jobs-toc-heading-192)
+    - [24.3、👂监听@滚动（未完待续）](#jobs-toc-heading-193)
+    - [24.4、👂监听@数据变化通知（未完待续）](#jobs-toc-heading-194)
+    - [24.5、👂监听@键盘（弹起&落下）](#jobs-toc-heading-195)
+    - [24.6、👂监听@网络（未完待续）](#jobs-toc-heading-196)
+  - [25、富文本](#jobs-toc-heading-197)
+    - [25.1、风评](#jobs-toc-heading-198)
+    - [25.2、JobsRichText](#jobs-toc-heading-199)
+  - [26、Tab切换：IndexedStack](#jobs-toc-heading-200)
+  - [27、状态管理工具](#jobs-toc-heading-201)
+    - [27.1、Provider](#jobs-toc-heading-202)
+    - [27.2、riverpod](#jobs-toc-heading-203)
+    - [27.3、flutter\_bloc](#jobs-toc-heading-204)
+    - [27.4、🉐GetX](#jobs-toc-heading-205)
+      - [27.4.1、🉐GetX （六种）依赖注册方式对比表](#jobs-toc-heading-206)
+      - [27.4.2、🉐GetX 的销毁机制](#jobs-toc-heading-207)
+      - [27.4.3、🉐GetX 页面解耦绑定数据源💥](#jobs-toc-heading-208)
+        - [27.4.3.1、🉐 GetxController](#jobs-toc-heading-209)
+        - [27.4.3.2、🉐 binding](#jobs-toc-heading-210)
+        - [27.4.3.3、🉐 GetX （正向）路由传参](#jobs-toc-heading-211)
+        - [27.4.3.4、🉐 GetView\<T\>](#jobs-toc-heading-212)
+        - [27.4.3.5、🉐 GetX 值的双向绑定：Obx](#jobs-toc-heading-213)
+        - [27.4.3.6、🉐 GetPage()📃](#jobs-toc-heading-214)
+        - [27.4.3.7、🉐 基于GetX 最佳实践的完整项目结构模板（项目名为：getx\_demo）](#jobs-toc-heading-215)
+      - [27.4.4、🉐 GetX 路由🧭](#jobs-toc-heading-216)
+        - [27.4.4.1、🉐 GetX 免路由管理页面（直接跳 Widget）](#jobs-toc-heading-217)
+        - [27.4.4.2、🉐 命名路由（推荐方式）](#jobs-toc-heading-218)
+      - [27.4.5、🉐 GetxService](#jobs-toc-heading-219)
+      - [27.4.6、🉐 GetX  具有 UI 效果的函数方法（非 Widget）](#jobs-toc-heading-220)
+      - [27.4.7、🉐 GetX 的 UI 控制行为函数](#jobs-toc-heading-221)
+      - [27.4.8、🉐 \*Get.key🔑 \*](#jobs-toc-heading-222)
+      - [27.4.9、🉐 GetX 多语言化](#jobs-toc-heading-223)
+      - [27.4.10、🉐 关于GetX 的二次封装（语法糖🍬）](#jobs-toc-heading-224)
+      - [27.4.11、🉐 GetInterface](#jobs-toc-heading-225)
+      - [27.4.12、🉐 GetX@通知📢](#jobs-toc-heading-226)
+      - [27.4.13、🉐 GetX@弹出框🪟](#jobs-toc-heading-227)
+        - [27.4.13.1、🉐 Get.dialog(widget)](#jobs-toc-heading-228)
+        - [27.4.13.2、🉐Get.defaultDialog(widget)](#jobs-toc-heading-229)
+        - [27.4.13.3、🉐Get.snackbar("标题", "副标题");](#jobs-toc-heading-230)
+        - [27.4.13.4、🉐Get.bottomSheet(Widget)](#jobs-toc-heading-231)
+        - [27.4.13.5、🉐Get.rawSnackbar()](#jobs-toc-heading-232)
+        - [27.4.13.6、🉐Get.generalDialog(pageBuilder:X)](#jobs-toc-heading-233)
+  - [28、导航栏左上角的返回按钮🔙的行为拦截和自定义](#jobs-toc-heading-234)
+  - [29、图片缓存框架](#jobs-toc-heading-235)
+    - [29.1、CachedNetworkImage](#jobs-toc-heading-236)
+    - [29.2、flutter\_advanced\_networkimage\_2](#jobs-toc-heading-237)
+    - [29.4、flutter\_cache\_manager](#jobs-toc-heading-238)
+    - [29.5、octo\_image](#jobs-toc-heading-239)
+    - [29.6、FadeInImage (by@Flutter.SDK)](#jobs-toc-heading-240)
+  - [30、数据处理&转化](#jobs-toc-heading-241)
+    - [30.1、取整](#jobs-toc-heading-242)
+    - [30.2、有效数据](#jobs-toc-heading-243)
+    - [30.3、小数=\>百分比%](#jobs-toc-heading-244)
+    - [30.4、字符串（≥）拼接➕数据（int）截取3位（3个0，即：参数1000）](#jobs-toc-heading-245)
+    - [30.5、数字位分隔符](#jobs-toc-heading-246)
+    - [30.6、♻️循环处理数据（以下写法等价）](#jobs-toc-heading-247)
+  - [31、字符串处理](#jobs-toc-heading-248)
+    - [31.1、多行字符串语法](#jobs-toc-heading-249)
+    - [31.2、字符串拼接](#jobs-toc-heading-250)
+    - [31.3、字符串防空](#jobs-toc-heading-251)
+  - [32、🧭 可以承载一切的WebViewWidget 工具模版](#jobs-toc-heading-252)
+  - [33、Dart.Flutter.Future](#jobs-toc-heading-253)
+  - [34、Dart.Flutter 多线程](#jobs-toc-heading-254)
+  - [35、Dart.Flutter.Stream](#jobs-toc-heading-255)
+  - [36、🧬Widget的生命周期](#jobs-toc-heading-256)
+    - [36.1、StatefulWidget 和 StatelessWidget 的关系](#jobs-toc-heading-257)
+    - [36.2、🧬StatelessWidget 的生命周期](#jobs-toc-heading-258)
+    - [36.3、🧬StatefulWidget 的生命周期](#jobs-toc-heading-259)
+  - [37、🧬 Flutter.App的生命周期监听](#jobs-toc-heading-260)
+    - [37.1、混入 （mixin）观察者](#jobs-toc-heading-261)
+    - [37.2、添加观察者](#jobs-toc-heading-262)
+    - [37.3、监听变化](#jobs-toc-heading-263)
+    - [37.4、移除观察者](#jobs-toc-heading-264)
+  - [38、Flutter原生动画](#jobs-toc-heading-265)
+    - [38.1、🟩 隐式动画组件](#jobs-toc-heading-266)
+    - [38.2、🟥 显式动画核心类](#jobs-toc-heading-267)
+    - [38.3、🎬 过渡（Transition）动画组件](#jobs-toc-heading-268)
+    - [38.4、⚙️ 动画控制类](#jobs-toc-heading-269)
+    - [38.5、🌀曲线函数（Curves 类）](#jobs-toc-heading-270)
+    - [38.6、🚀  页面切换动画](#jobs-toc-heading-271)
+  - [39、⌨️ 键盘行为](#jobs-toc-heading-272)
+  - [40、🛜 网络请求](#jobs-toc-heading-273)
+    - [40.1、Dio](#jobs-toc-heading-274)
+  - [41、🧩 数据建模](#jobs-toc-heading-275)
+    - [41.1、🧩 数据模型的建立](#jobs-toc-heading-276)
+    - [41.2、🧩 安全取（📚字典）值](#jobs-toc-heading-277)
+    - [41.3、🧩 模型处理Json字符串（一种优雅的 json\_serializable框架的高级用法）](#jobs-toc-heading-278)
+  - [42、中国公民身份证校验规则](#jobs-toc-heading-279)
+  - [43、推送](#jobs-toc-heading-280)
+  - [44、 🍬Widget拓展语法糖](#jobs-toc-heading-281)
+    - [44.1、onGestures.dart](#jobs-toc-heading-282)
+      - [44.1.1、点击/双击/长按](#jobs-toc-heading-283)
+      - [44.1.2、自由拖拽（Pan 系列）](#jobs-toc-heading-284)
+      - [44.1.3、缩放 ➕ 平移（仅 Scale 系列）](#jobs-toc-heading-285)
+      - [44.1.4、二级/三级点击（桌面/鼠标有用，移动端通常无效）](#jobs-toc-heading-286)
+    - [44.2、onList.dart](#jobs-toc-heading-287)
+    - [44.3、onText.dart](#jobs-toc-heading-288)
+    - [44.4、onWidgets.dart](#jobs-toc-heading-289)
+    - [44.5、onTransform.dart](#jobs-toc-heading-290)
+    - [44.6、onNum.dart](#jobs-toc-heading-291)
+    - [44.7、onDateTime.dart](#jobs-toc-heading-292)
+    - [44.8、onImage.dart](#jobs-toc-heading-293)
+  - [45、区间数值：clamp](#jobs-toc-heading-294)
+    - [45.1、处理闭区间数值](#jobs-toc-heading-295)
+    - [45.2、处理开区间数值](#jobs-toc-heading-296)
+    - [45.3、处理半开半闭区间数值](#jobs-toc-heading-297)
+  - [46、圆角](#jobs-toc-heading-298)
+    - [46.1、让容器的背景有圆角](#jobs-toc-heading-299)
+    - [46.2、真正裁剪子组件的圆角](#jobs-toc-heading-300)
+  - [47、广告轮播图@JobsBannerCarousel使用说明](#jobs-toc-heading-301)
+  - [48、JobsExcel](#jobs-toc-heading-302)
+    - [48.1、模式 1➤首列与其它列一起等宽分配；不需要 fixedWidth](#jobs-toc-heading-303)
+    - [48.2、模式 2➤首列固定宽度，其余列按内容/约束自适应（支持min/maxColWidth）](#jobs-toc-heading-304)
+    - [48.3、模式 3➤首列固定宽度，其余列等宽均分](#jobs-toc-heading-305)
+  - [49、空态（占位）组件](#jobs-toc-heading-306)
+  - [50、字体](#jobs-toc-heading-307)
+    - [50.1、字体介绍](#jobs-toc-heading-308)
+      - [50.1.1、🎨基础属性](#jobs-toc-heading-309)
+      - [50.1.2、🖋️装饰属性](#jobs-toc-heading-310)
+      - [50.1.3、📏布局相关](#jobs-toc-heading-311)
+      - [50.1.4、🌈高级属性](#jobs-toc-heading-312)
+    - [50.2、引入外来字体](#jobs-toc-heading-313)
+      - [50.2.1、Google Fonts](#jobs-toc-heading-314)
+      - [50.2.2、其他商业字体](#jobs-toc-heading-315)
+  - [51、Tips](#jobs-toc-heading-316)
+    - [51.1、Dart.Flutter自带的showSnackBar](#jobs-toc-heading-317)
+    - [51.2、第三方库@oktoast](#jobs-toc-heading-318)
+    - [51.3、第三方库@overlay\_support](#jobs-toc-heading-319)
+  - [52、🔘按钮的封装](#jobs-toc-heading-320)
+  - [53、⏲️定时器](#jobs-toc-heading-321)
+    - [53.1、普通定时器：Timer](#jobs-toc-heading-322)
+      - [53.1.1、单次定时](#jobs-toc-heading-323)
+      - [53.1.2、周期定时](#jobs-toc-heading-324)
+    - [53.2、Flutter 特有的：Ticker / AnimationController](#jobs-toc-heading-325)
+    - [53.3、UI 刷新相关：Future.delayed](#jobs-toc-heading-326)
+    - [53.4、引擎层调度：SchedulerBinding](#jobs-toc-heading-327)
+  - [54、JobsRefreshLoad：下拉刷新&上拉加载](#jobs-toc-heading-328)
+  - [55、加/解密](#jobs-toc-heading-329)
+  - [56、小部件写法的替换](#jobs-toc-heading-330)
+    - [56.1、Class返回Widget](#jobs-toc-heading-331)
+    - [56.2、函数式返回Widget](#jobs-toc-heading-332)
+  - [57、List奇偶行切换背景色](#jobs-toc-heading-333)
+  - [58、列表渲染完之后，把滚动条强制拉到最底部](#jobs-toc-heading-334)
+  - [59、✂️剪切板](#jobs-toc-heading-335)
+  - [60、⌨️ 输入框](#jobs-toc-heading-336)
+  - [61、级联选择器](#jobs-toc-heading-337)
+  - [62、自动化代码生成应用外观资源](#jobs-toc-heading-338)
+    - [62.1、App启动图标](#jobs-toc-heading-339)
+      - [62.1.1、使用插件flutter\_launcher\_icons替换](#jobs-toc-heading-340)
+      - [62.1.2、手动替换](#jobs-toc-heading-341)
+      - [62.1.3、验证图标资源是否存在](#jobs-toc-heading-342)
+    - [62.2、启动页（Splash）](#jobs-toc-heading-343)
+    - [62.3、资源/字体/颜色常量（类型安全）](#jobs-toc-heading-344)
+  - [63、🔄 轮询](#jobs-toc-heading-345)
+    - [63.1、🔄 轮询（安全）代码](#jobs-toc-heading-346)
+      - [63.1.1、🔄 最小可用且安全的轮询器](#jobs-toc-heading-347)
+      - [63.1.2、🔄 GetX 控制器内的轮询](#jobs-toc-heading-348)
+    - [63.2、🔄 指数退避 + 抖动模板](#jobs-toc-heading-349)
+    - [63.3、🔄 防卡关键点](#jobs-toc-heading-350)
+    - [63.4、🔄 什么时候不要轮询](#jobs-toc-heading-351)
+    - [63.5、🔄 快速自检清单](#jobs-toc-heading-352)
+  - [64、唤醒（TODO）](#jobs-toc-heading-353)
+  - [65、热更新（TODO）](#jobs-toc-heading-354)
+  - [66、调取设备摄像头（TODO）](#jobs-toc-heading-355)
+  - [67、调取设备相册（TODO）](#jobs-toc-heading-356)
+  - [68、音视频（TODO）](#jobs-toc-heading-357)
+- [六、📃其他](#jobs-toc-heading-358)
+  - [1、修复平台目录：定位到Flutter项目根目录，执行➤flutter create .](#jobs-toc-heading-359)
+  - [2、/android/build.gradle的配置](#jobs-toc-heading-360)
+  - [4、🎯 Dart 命名规则大全（官方风格指南）](#jobs-toc-heading-361)
+  - [5、🗺️ 重定向技巧](#jobs-toc-heading-362)
+  - [6、💼 package](#jobs-toc-heading-363)
+  - [7、🔥Firebase](#jobs-toc-heading-364)
+  - [8、📂Dart.Flutter系统文件目录](#jobs-toc-heading-365)
+    - [8.1、📁$HOME/.pub-cache/hosted/pub.dev/文件夹](#jobs-toc-heading-366)
+    - [8.2、📁$HOME/.pub-cache/ 文件夹](#jobs-toc-heading-367)
+    - [8.3、📁$HOME/.flutter/文件夹](#jobs-toc-heading-368)
+    - [8.4、📁$HOME/Library/Flutter/ 文件夹（按需出现，非必备）](#jobs-toc-heading-369)
+    - [8.5、📁$HOME/.dart/ 文件夹](#jobs-toc-heading-370)
+    - [8.6、📁$HOME/fvm/文件夹](#jobs-toc-heading-371)
+  - [9、📂Dart.Flutter项目文件（夹）](#jobs-toc-heading-372)
+    - [9.1、📁./.fvm/flutter\_sdk/ 文件夹](#jobs-toc-heading-373)
+    - [9.2、📁 ./linux/ 文件夹](#jobs-toc-heading-374)
+    - [9.3、📁./.idea/ 文件夹](#jobs-toc-heading-375)
+    - [9.4、📁./plugins/ 文件夹](#jobs-toc-heading-376)
+    - [9.5、📃./.flutter-plugins](#jobs-toc-heading-377)
+    - [9.6、📃./.flutter-plugins-dependencies](#jobs-toc-heading-378)
+    - [9.7、📃./.java-version](#jobs-toc-heading-379)
+    - [9.8、📃./pubspec.yaml](#jobs-toc-heading-380)
+    - [9.9、  📃./pubspec.lock](#jobs-toc-heading-381)
+    - [9.10、📃./.metadata](#jobs-toc-heading-382)
+  - [10、注解](#jobs-toc-heading-383)
+  - [11、Dart.Flutter单例](#jobs-toc-heading-384)
+    - [📌11.1、✅ 最推荐写法（懒汉式 + 工厂构造）](#jobs-toc-heading-385)
+    - [📌11.2、饿汉式（类加载就创建）](#jobs-toc-heading-386)
+    - [📌11.3、静态变量初始化（等效饿汉）](#jobs-toc-heading-387)
+    - [📌11.4、懒汉式 getter（懒加载写法）](#jobs-toc-heading-388)
+    - [📌11.5、Dart 单例完整封装模板（带线程安全/泛型支持）](#jobs-toc-heading-389)
+    - [📌11.6、使用GetIt➤实现全局单例（推荐用于大型项目）](#jobs-toc-heading-390)
+  - [12、Dart.abstract](#jobs-toc-heading-391)
+  - [13、Dart.factory](#jobs-toc-heading-392)
+  - [14、Comparable \<T\>](#jobs-toc-heading-393)
+  - [15、全局事件监听器：WidgetsBindingObserver](#jobs-toc-heading-394)
+  - [16、纯静态类 的（常见）写法](#jobs-toc-heading-395)
+  - [17、Dart.Symbol](#jobs-toc-heading-396)
+  - [18、上下文 BuildContext](#jobs-toc-heading-397)
+  - [19、InheritedWidget](#jobs-toc-heading-398)
+  - [20、混入with👈mixin➤on](#jobs-toc-heading-399)
+    - [20.1、混入的基本语法](#jobs-toc-heading-400)
+    - [20.2、混入的继承写法](#jobs-toc-heading-401)
+    - [20.3、混入的复杂用法](#jobs-toc-heading-402)
+  - [21、基础的数据类型](#jobs-toc-heading-403)
+    - [21.1、int](#jobs-toc-heading-404)
+    - [21.2、Long](#jobs-toc-heading-405)
+    - [21.3、bool](#jobs-toc-heading-406)
+    - [21.4、double](#jobs-toc-heading-407)
+    - [21.5、Float](#jobs-toc-heading-408)
+    - [21.6、String](#jobs-toc-heading-409)
+    - [21.7、List](#jobs-toc-heading-410)
+    - [21.8、Map](#jobs-toc-heading-411)
+    - [21.9、Set](#jobs-toc-heading-412)
+  - [22、入参](#jobs-toc-heading-413)
+    - [22.1、必传入参](#jobs-toc-heading-414)
+    - [22.2、可选入参](#jobs-toc-heading-415)
+      - [22.2.1、可选位置参数：传值时 按顺序，但不带参数名 \[\]](#jobs-toc-heading-416)
+      - [22.2.2、可选命名参数：传值时用 参数名，顺序无关 {}](#jobs-toc-heading-417)
+      - [22.2.3、可选入参中必传： \*required 带参数名 \*](#jobs-toc-heading-418)
+  - [23、🔧自动化代码生成工具](#jobs-toc-heading-419)
+  - [24、🏗️构造函数](#jobs-toc-heading-420)
+    - [24.1、默认构造函数（不能有两个默认构造函数（名字相同，参数不同也不行））](#jobs-toc-heading-421)
+    - [24.2、命名构造函数（可以有多个命名构造函数，但是：必须有唯一名字）](#jobs-toc-heading-422)
+    - [24.3、初始化列表构造函数](#jobs-toc-heading-423)
+    - [24.4、const 构造函数（Widget 常用）](#jobs-toc-heading-424)
+    - [24.5、factory 构造函数（高级构建方式）](#jobs-toc-heading-425)
+  - [25、📦构建打包](#jobs-toc-heading-426)
+    - [25.1、配置Shell打包命令](#jobs-toc-heading-427)
+    - [25.2、配置SourceTree打包脚本](#jobs-toc-heading-428)
+    - [25.3、Flutter打包和运行流程](#jobs-toc-heading-429)
+    - [25.4、📦 Flutter.Android（较为复杂和繁琐）](#jobs-toc-heading-430)
+      - [25.4.1、 Android Command Line Tools.sdkmanager](#jobs-toc-heading-431)
+      - [25.4.2、Gradle](#jobs-toc-heading-432)
+      - [25.4.6、如何加快Flutter.Android的打包速度？](#jobs-toc-heading-433)
+      - [25.4.7、🪖构建指令：flutter build apk](#jobs-toc-heading-434)
+      - [25.4.8、⚙️ 相关配置](#jobs-toc-heading-435)
+      - [25.4.9、📦 Flutter.Android 打包脚本（MacOS）](#jobs-toc-heading-436)
+      - [25.4.10、打包成品](#jobs-toc-heading-437)
+    - [25.5、📦 Flutter.iOS（相对简单）](#jobs-toc-heading-438)
+      - [25.5.1、🪖构建指令：flutter build ios 和 flutter build ipa](#jobs-toc-heading-439)
+      - [25.5.2、📁生成的包目录](#jobs-toc-heading-440)
+      - [25.5.3、📦 打包脚本](#jobs-toc-heading-441)
+      - [25.5.4、⚠️注意事项](#jobs-toc-heading-442)
+  - [26、颜色格式的转换](#jobs-toc-heading-443)
+  - [27、在 child: 中写条件判断 (if)](#jobs-toc-heading-444)
+    - [27.1、方案一：三元运算符（最常用）](#jobs-toc-heading-445)
+    - [27.2、方案二：使用 Builder 包裹 if/else](#jobs-toc-heading-446)
+    - [27.3、方案三：用 children 和集合展开（if 控制多个组件）](#jobs-toc-heading-447)
+  - [28、扩展运算符](#jobs-toc-heading-448)
+  - [29、（两个点）级联运算符](#jobs-toc-heading-449)
+  - [30、（三个点）展开运算符](#jobs-toc-heading-450)
+    - [30.1、最小例子](#jobs-toc-heading-451)
+    - [30.2、配合条件使用（高频）](#jobs-toc-heading-452)
+    - [30.3、空安全版本：...?](#jobs-toc-heading-453)
+  - [31、switch](#jobs-toc-heading-454)
+  - [32、Function（回调）的使用](#jobs-toc-heading-455)
+  - [33、Flutter.三棵树](#jobs-toc-heading-456)
+  - [34、稳定 key](#jobs-toc-heading-457)
+  - [35、Flutter.set/get](#jobs-toc-heading-458)
+  - [36、var、dynamic、object](#jobs-toc-heading-459)
+  - [37、const\*和final\*](#jobs-toc-heading-460)
+  - [38、Dart.Lambda表达式(箭头函数)](#jobs-toc-heading-461)
+  - [39、Dart.import](#jobs-toc-heading-462)
+    - [39.1、Dart.part](#jobs-toc-heading-463)
+  - [40、Dart.事件循环（Event Loop）](#jobs-toc-heading-464)
+  - [41、🧵Dart.线程处理](#jobs-toc-heading-465)
+    - [41.2、🧵Dart.Isolate](#jobs-toc-heading-466)
+    - [41.3、🧵Dart.Future](#jobs-toc-heading-467)
+      - [41.3.1、🧵快速入手](#jobs-toc-heading-468)
+      - [41.3.2、🧵 FutureBuilder（跳转查看）](#jobs-toc-heading-469)
+      - [41.3.3、🧵异步操作的结果](#jobs-toc-heading-470)
+      - [41.3.4、🧵代码执行优先级](#jobs-toc-heading-471)
+      - [41.3.5、🧵then()方法](#jobs-toc-heading-472)
+      - [41.3.6、🧵Dart.async](#jobs-toc-heading-473)
+      - [41.3.7、🧵Dart.await 和 Dart.async](#jobs-toc-heading-474)
+      - [41.3.8、🧵Dart.error](#jobs-toc-heading-475)
+      - [41.3.9、🧵Dart.Flutter.FutureBuilder](#jobs-toc-heading-476)
+      - [41.3.10、🧵Dart.Flutter.AsyncSnapshot](#jobs-toc-heading-477)
+  - [44、Dart.Stream](#jobs-toc-heading-478)
+    - [44.1、相关细节](#jobs-toc-heading-479)
+    - [44.2、Dart.Flutter.Widget.StreamBuilder](#jobs-toc-heading-480)
+    - [44.3、Dart.Flutter.StreamController](#jobs-toc-heading-481)
+  - [45、Dart.Flutter@页面的销毁](#jobs-toc-heading-482)
+  - [46、Dart.Flutter@定时机制](#jobs-toc-heading-483)
+    - [46.1、Timer](#jobs-toc-heading-484)
+    - [46.2、Future.delayed](#jobs-toc-heading-485)
+    - [46.3、帧回调 / 动画时钟](#jobs-toc-heading-486)
+    - [46.4、事件循环任务](#jobs-toc-heading-487)
+    - [46.5、周期异步流](#jobs-toc-heading-488)
+- [七、FAQ](#jobs-toc-heading-489)
+  - [1、Flutter 本地存储方案](#jobs-toc-heading-490)
+  - [2、Future 是不是多线程？](#jobs-toc-heading-491)
+  - [3、Future / async-await 本质是什么？](#jobs-toc-heading-492)
+  - [4、async 会不会开线程？](#jobs-toc-heading-493)
+  - [5、什么时候用 Isolate？](#jobs-toc-heading-494)
+  - [6、什么是 Isolate？](#jobs-toc-heading-495)
+  - [7、为什么 Flutter 不用多线程？](#jobs-toc-heading-496)
+  - [8、手势](#jobs-toc-heading-497)
+  - [9、为什么状态不会丢？](#jobs-toc-heading-498)
+  - [10、Future 在哪个队列里面？](#jobs-toc-heading-499)
+  - [11、为什么会这样？已完成的 Future，会立即进入 Microtask Queue 执行回调](#jobs-toc-heading-500)
+  - [12、为什么 Release 没有热重载？](#jobs-toc-heading-501)
+  - [13、Hot Reload 🆚 Hot Restart 的本质区别](#jobs-toc-heading-502)
+  - [14、Hot Reload 🆚 Hot Restart 🆚 Run（重新运行）](#jobs-toc-heading-503)
+  - [15、Hot Restart 本质](#jobs-toc-heading-504)
+  - [16、为什么有些修改必须 Restart？这些修改已经固化在内存里，VM 没法动态替换](#jobs-toc-heading-505)
+  - [17、VM（虚拟机） 和 Engine 有什么区别？](#jobs-toc-heading-506)
+  - [18、VM 的两种模式](#jobs-toc-heading-507)
+  - [19、setState() 之后到底发生了什么？](#jobs-toc-heading-508)
+  - [20、GetX状态管理基于什么实现?](#jobs-toc-heading-509)
+  - [21、GetX 的状态管理主要有两套](#jobs-toc-heading-510)
+  - [22、GetX 🆚 GetBuilder 🆚 Obx](#jobs-toc-heading-511)
+  - [23、GetX 🆚 Provider 🆚 Bloc](#jobs-toc-heading-512)
+  - [24、为什么 iOS 的 UITableView 比 Flutter.ListView 更稳？Flutter 怎么追上？](#jobs-toc-heading-513)
+  - [25、不出UI的总结](#jobs-toc-heading-514)
+  - [26、其他](#jobs-toc-heading-515)
 - [八、项目统计与接手指南](#project-statistics)
   - [8.1、SDK、工具链与锁文件](#statistics-toolchain)
   - [8.2、Git 历史与统计边界](#statistics-history)
@@ -580,6 +581,24 @@
 
     ![image-20260209141216136](./assets/image-20260209141216136.png)
 
+## <span id="demo-hub">功能实验室与独立预览</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+默认 `lib/main.dart` 进入开屏，结束后替换路由进入分组目录；首页支持搜索、收藏、最近使用与左侧手势菜单，设置提供半开／全开、十种语言和白天／黑夜／跟随系统。功能入口统一在 `lib/demos/中文功能目录/`，原有源码通过适配入口保留；公共壳、菜单、空态与设置在 `JobsByPubs/JobsDemoFoundationByPub/`。
+
+- [功能实验室开发与运行](./docs/功能实验室.md)：目录职责、独立运行、API 回退和验证命令。
+- [原生功能逐项对照](./docs/原生功能对照.md)：OC／Swift 首页真实清单与移植范围，不能把目录接入当成全部功能已达成 1:1。
+- [机器可读原生清单](./docs/native_feature_inventory.json)：保留来源路径、入口和分组。
+
+```shell
+flutter pub get
+flutter run -t lib/main.dart
+flutter run -t lib/demos/异形按钮/异形按钮.dart
+flutter test
+flutter build ios --simulator --debug
+```
+
+[**VS Code**](https://code.visualstudio.com/) 打开某个 `lib/demos/` 页面，选择“运行当前 Demo 文件”即可直接调试；首页每行“更多”也能查看源码位置、复制运行命令。独立入口与主 App 使用同一个页面 Widget，不在主 App 中二次 `runApp`。旧 Demo 的内部固定文案／主题仍按原代码保留，全局壳支持十语不等于所有历史示例已完成逐词翻译。
+
 ## <span id="cocoapods-network-route">CocoaPods 安装网络选路</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 [**CocoaPods**](https://cocoapods.org/) 的安装和更新在解析依赖前，先准备本次下载链路，再实测公共 Specs；终端、已有手动入口与 CI 使用同一 Podfile 挂载。
@@ -601,7 +620,7 @@ pod install
 
 [网络适配、开关与测试](<./ScriptsByPods/【MacOS】🌐CocoaPods网络适配.command/README.md>) · [Specs 选源、超时与日志](<./ScriptsByPods/【MacOS】🌐CocoaPods源自动选择.command/README.md>)。迁移时保留完整 ScriptsByPods 包及各 Podfile 的相对加载路径。网络摘要显示在安装输出中，Specs 日志写系统临时目录并按 Podfile 所在目录隔离。
 
-## <span id="jobs-toc-heading-3" data-jobs-toc="v2">一、🎯项目白皮书 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">一、🎯项目白皮书 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 程序员是一个高消耗的职业，除了日常基本的业务开发以外，新事物的不断涌现也需要持续性的学习，所以是一件非常消耗精力的事；而且由于长期的高压、高情绪、熬夜，**会打乱人体内正常的内分泌节奏**，大概率也会逐渐的引发各种职业疾病。业内普遍认为程序员的**黄金年龄在25～35周岁**。那么，还是希望，在我们（亦或者是暂时性的）离开这个行业的时候，一定要为自己或者后人，留下点什么，算是这么多年的一个工作总结。此外，能最大化的辅助人，帮助其在极短的时间内去：<u>回忆/上手/学习/实验</u>这个编程语言下的工程项目。所以，此项目就一定是要结合商业需求去务实拓展，解决当前痛点。
 
@@ -649,11 +668,11 @@ pod install
     * [**Flutter**](https://flutter.dev/)易用语法糖
     * 独立[**Dart**](https://dart.dev/)文件的[**Flutter**](https://flutter.dev/).**Demo**
 
-## <span id="jobs-toc-heading-4" data-jobs-toc="v2">二、开发周边 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">二、开发周边 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-5" data-jobs-toc="v2">1、[**Jobs的个人技术博客**](https://jobsdocs.ccwu.cc/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-6" data-jobs-toc="v2">1、[**Jobs的个人技术博客**](https://jobsdocs.ccwu.cc/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-6" data-jobs-toc="v2">2、[**系统相关配置**](https://github.com/JobsKits/JobsConfigOS) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-7" data-jobs-toc="v2">2、[**系统相关配置**](https://github.com/JobsKits/JobsConfigOS) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `【MacOS】🆕新系统配置.command`
 
@@ -799,7 +818,7 @@ pod install
 
 * [**🦞Openclaw配置**](https://github.com/JobsKits/JobsInstallOpenClaw)
 
-### <span id="jobs-toc-heading-7" data-jobs-toc="v2">3、[**JobsGenesis**](https://github.com/JobsKits/JobsGenesis) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-8" data-jobs-toc="v2">3、[**JobsGenesis**](https://github.com/JobsKits/JobsGenesis) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**配置SourceTree脚本**](https://github.com/JobsKits/SourceTree.sh)
 * [**配置Flutter脚本**](https://github.com/JobsKits/JobsCommand-Flutter)
@@ -808,7 +827,7 @@ pod install
 * [**其他配置脚本**](https://github.com/JobsKits/JobsCommand-Others)
   * [**文件分拆（合并）测试**](https://github.com/JobsKits/JobsCommand-Others/tree/main/【MacOS】文件分拆（合并）测试)
 
-### <span id="jobs-toc-heading-8" data-jobs-toc="v2">4、工具网站 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-9" data-jobs-toc="v2">4、工具网站 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**CocoaPods**](https://cocoapods.org/)
 
@@ -840,7 +859,7 @@ pod install
     npm install -g quicktype
     ```
 
-### <span id="jobs-toc-heading-9" data-jobs-toc="v2">5、**Git**忽略文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-10" data-jobs-toc="v2">5、**Git**忽略文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```shell
 # Flutter/Dart/Pub related
@@ -896,9 +915,9 @@ plugins/
 /android/
 ```
 
-## <span id="jobs-toc-heading-10" data-jobs-toc="v2">三、相关配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+## <span id="jobs-toc-heading-11" data-jobs-toc="v2">三、相关配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-11" data-jobs-toc="v2">1、🌱[**环境配置**](https://github.com/JobsKit/JobsMacEnvVarConfig) ➤ [**Flutter**](https://flutter.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-12" data-jobs-toc="v2">1、🌱[**环境配置**](https://github.com/JobsKit/JobsMacEnvVarConfig) ➤ [**Flutter**](https://flutter.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 📃`MacOS` 系统环境变量文件 ➤ 写于`.zshrc`里面的函数，**在终端直接通过函数名进行调用**（不断更新中...）
 
@@ -1290,11 +1309,11 @@ plugins/
   ```
   </details>
 
-### <span id="jobs-toc-heading-12" data-jobs-toc="v2">2、[**Flutter**](https://flutter.dev/) 对 HarmonyOS / OpenHarmony 的支持边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-13" data-jobs-toc="v2">2、[**Flutter**](https://flutter.dev/) 对 HarmonyOS / OpenHarmony 的支持边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 截至 **2026 年 8 月**，[**Flutter**](https://flutter.dev/) 技术路线可以覆盖鸿蒙，但必须区分系统版本：仍兼容 Android APK 的鸿蒙设备可以运行 Android 构建产物；HarmonyOS NEXT / OpenHarmony 则必须使用鸿蒙社区适配版 Flutter SDK，不能直接使用 Google 官方上游原版 Flutter SDK 构建 HAP。
 
-#### <span id="jobs-toc-heading-13" data-jobs-toc="v2">2.1、仍兼容 Android APK 的鸿蒙系统</span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-14" data-jobs-toc="v2">2.1、仍兼容 Android APK 的鸿蒙系统</span><!-- jobs-toc:heading-end -->
 
 - 如果目标设备和系统版本仍保留 Android 应用兼容能力，可以把 Flutter 项目构建成 APK 后按 Android 应用运行。
 
@@ -1304,7 +1323,7 @@ plugins/
 
 - 这条路线本质上仍是 Android 应用，不是鸿蒙原生应用，也不能覆盖已经不支持 APK 的 HarmonyOS NEXT。
 
-#### <span id="jobs-toc-heading-14" data-jobs-toc="v2">2.2、HarmonyOS NEXT 不能直接使用官方原版 Flutter SDK</span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-15" data-jobs-toc="v2">2.2、HarmonyOS NEXT 不能直接使用官方原版 Flutter SDK</span><!-- jobs-toc:heading-end -->
 
 - [**Flutter 官方支持平台列表**](https://docs.flutter.dev/reference/supported-platforms)当前覆盖 Android、iOS、Web、Windows、macOS 和 Linux，没有把 HarmonyOS 或 OpenHarmony 列为官方支持的部署平台。
 - 因此，Google 官方上游原版 Flutter SDK 不能直接执行下面这类鸿蒙构建命令：
@@ -1315,7 +1334,7 @@ plugins/
 
 - 官方原版 Flutter SDK 也不能直接生成 HarmonyOS NEXT 使用的 HAP 安装包。
 
-#### <span id="jobs-toc-heading-15" data-jobs-toc="v2">2.3、使用鸿蒙社区适配版 Flutter SDK</span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-16" data-jobs-toc="v2">2.3、使用鸿蒙社区适配版 Flutter SDK</span><!-- jobs-toc:heading-end -->
 
 - [**OpenHarmony-SIG/flutter_flutter**](https://gitee.com/openharmony-sig/flutter_flutter)是在 Flutter SDK 基础上增加 OpenHarmony 平台支持的社区适配版本；社区后续代码也可从 [**OpenHarmony-TPC/flutter_flutter**](https://gitcode.com/openharmony-tpc/flutter_flutter)核对。
 - 这套技术路线仍然使用 [**Dart**](https://dart.dev/) 和 Flutter 编写界面及业务代码，但构建工具、引擎、平台目录和插件需要使用鸿蒙适配实现。
@@ -1340,7 +1359,7 @@ plugins/
 
 - 执行这些命令前，`PATH` 中的 `flutter` 必须指向鸿蒙社区适配版 Flutter SDK，并按[**鸿蒙版 Flutter 环境搭建指导**](https://gitee.com/openharmony-sig/flutter_samples/blob/master/ohos/docs/03_environment/%E9%B8%BF%E8%92%99%E7%89%88Flutter%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC.md)配置 DevEco Studio、HarmonyOS SDK、Java、Node.js、`ohpm`、`hvigor` 和签名环境。
 
-#### <span id="jobs-toc-heading-16" data-jobs-toc="v2">2.4、多端工程的推荐拆分</span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-17" data-jobs-toc="v2">2.4、多端工程的推荐拆分</span><!-- jobs-toc:heading-end -->
 
 | 目标平台 | Flutter SDK 路线 | 构建产物 | 说明 |
 | --- | --- | --- | --- |
@@ -1354,7 +1373,7 @@ plugins/
 
   > Android 和 iOS 使用 Google 官方 Flutter SDK；HarmonyOS NEXT 使用鸿蒙社区适配版 Flutter SDK，并为鸿蒙系统能力及不兼容插件单独开发适配层。
 
-#### <span id="jobs-toc-heading-17" data-jobs-toc="v2">2.5、插件兼容性是主要成本</span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-18" data-jobs-toc="v2">2.5、插件兼容性是主要成本</span><!-- jobs-toc:heading-end -->
 
 - 选择插件时必须检查它是否提供 `ohos/` 平台实现，或社区插件仓库是否已有与当前 SDK 分支匹配的适配版本。
 - 如果一个插件只有下面两个平台目录：
@@ -1367,7 +1386,7 @@ plugins/
   那么它通常不能直接用于 HarmonyOS NEXT，需要使用 ArkTS、C++ 或鸿蒙原生接口补充 `ohos/` 实现，并通过 Platform Channel 等方式连接 Dart 层。
 - 不要只检查插件名称是否存在；还要核对版本、分支、HarmonyOS API Level、编译工具链、签名和真机行为。
 
-#### <span id="jobs-toc-heading-18" data-jobs-toc="v2">2.6、项目选型建议</span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-19" data-jobs-toc="v2">2.6、项目选型建议</span><!-- jobs-toc:heading-end -->
 
 - 新项目把 HarmonyOS NEXT 作为核心平台，并且深度依赖系统能力时，优先采用华为官方推荐的 [**ArkTS + ArkUI**](https://developer.huawei.com/consumer/cn/app/planning) 原生路线。
 - 已有大量 Flutter UI 和业务代码时，可以采用“Android / iOS 官方 Flutter + HarmonyOS NEXT 社区版 Flutter”的双 SDK 路线。
@@ -1376,7 +1395,7 @@ plugins/
 
 > 当前仓库根目录尚未包含 `ohos/` 平台工程，因此本节记录的是可采用的鸿蒙技术路线和接入边界，不代表本仓库已经完成 HarmonyOS NEXT 构建、签名、真机验证或上架验证。
 
-### <span id="jobs-toc-heading-19" data-jobs-toc="v2">3、[<font color=red>**FVM**</font>](https://fvm.app/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-20" data-jobs-toc="v2">3、[<font color=red>**FVM**</font>](https://fvm.app/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > <font color=red>**F**</font>lutter <font color=red>**V**</font>ersion <font color=red>**M**</font>anagement
 >
@@ -1523,14 +1542,14 @@ plugins/
     | `fvm global stable`  | 设置全局默认版本                                             | ✅（全局）                       |
     | `fvm upgrade`        | 1️⃣ **获取当前项目 `.fvm/fvm_config.json` 中配置的 `flutterSdkVersion` 所属 channel（如 stable、beta、dev、master）**；<br>2️⃣ 然后从该 **channel** 中 **升级到该 channel 的最新版本** | ✅（更新版本但不换 **channel**） |
 
-### <span id="jobs-toc-heading-20" data-jobs-toc="v2">4、IDE <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-21" data-jobs-toc="v2">4、IDE <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-21" data-jobs-toc="v2">4.1、[**Xcode**](https://developer.apple.com/xcode/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-22" data-jobs-toc="v2">4.1、[**Xcode**](https://developer.apple.com/xcode/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-22" data-jobs-toc="v2">4.1.1、网站限制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-23" data-jobs-toc="v2">4.1.1、网站限制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * 个别地区（比如：柬埔寨），需要将浏览器语言改为英文状态，方可进入[**苹果开发者网站**](https://developer.apple.com/)
 
-##### <span id="jobs-toc-heading-23" data-jobs-toc="v2">4.1.2、📱关于**iOS**模拟器（最新版本[**XCode**](https://developer.apple.com/xcode/)：16.4）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-24" data-jobs-toc="v2">4.1.2、📱关于**iOS**模拟器（最新版本[**XCode**](https://developer.apple.com/xcode/)：16.4）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * [**过期的模拟器配件**](https://github.com/JobsKits/Xcode_Sys_lib)
 
@@ -1624,13 +1643,13 @@ plugins/
   * 如果更新或者删除**xcode**，那么下载的**iOS**模拟器将会丢失
 
 
-#### <span id="jobs-toc-heading-24" data-jobs-toc="v2">4.2、[**Android Studio**](https://developer.android.com/studio?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-25" data-jobs-toc="v2">4.2、[**Android Studio**](https://developer.android.com/studio?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-25" data-jobs-toc="v2">4.2.1、[**点我 ➤下载Android Studio历史版本**](https://developer.android.com/studio/archive?utm_source=chatgpt.com&hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-26" data-jobs-toc="v2">4.2.1、[**点我 ➤下载Android Studio历史版本**](https://developer.android.com/studio/archive?utm_source=chatgpt.com&hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <img src="./assets/image-20250806172656678.png" alt="image-20250806172656678" style="zoom:50%;" />
 
-##### <span id="jobs-toc-heading-26" data-jobs-toc="v2">4.2.2、<font color=red>**配置JDK的地方和其他SDK的不一样**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-27" data-jobs-toc="v2">4.2.2、<font color=red>**配置JDK的地方和其他SDK的不一样**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 配置**JDK**：
 
@@ -1646,7 +1665,7 @@ plugins/
   <img src="./assets/image-20250806165822643.png" alt="image-4" style="width:65%; display:inline-block; vertical-align: top;" />
   </div>
 
-##### <span id="jobs-toc-heading-27" data-jobs-toc="v2">4.2.3、**`./android/gradlew`** </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-28" data-jobs-toc="v2">4.2.3、**`./android/gradlew`** </font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 这个文件是来自：`android/gradle/wrapper/gradle-wrapper.propertie`
 >
@@ -1660,7 +1679,7 @@ plugins/
 ./android/gradlew -v # 先定位到Flutter项目的根目录。运行成功的前提是指定项目使用的Jenv.JDK或者是全局配置的Java变量
 ```
 
-##### <span id="jobs-toc-heading-28" data-jobs-toc="v2">4.2.4、🤖关于[**Android**](https://www.android.com/)模拟器</span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-29" data-jobs-toc="v2">4.2.4、🤖关于[**Android**](https://www.android.com/)模拟器</span><!-- jobs-toc:heading-end -->
 
 * 查看已有**AVD**模拟器
 
@@ -1760,15 +1779,15 @@ plugins/
   adb emu kill
   ```
 
-#### <span id="jobs-toc-heading-29" data-jobs-toc="v2">4.3、[**VSCode**](https://code.visualstudio.com/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-30" data-jobs-toc="v2">4.3、[**VSCode**](https://code.visualstudio.com/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-30" data-jobs-toc="v2">4.3.1、🔔温馨提示 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-31" data-jobs-toc="v2">4.3.1、🔔温馨提示 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**VSCode**](https://code.visualstudio.com/) 里面有一个终端，是实际上运行项目时候调用的
 
 * **MacOS**@[**VSCode**](https://code.visualstudio.com/) 格式化`*.json`快捷键：`option`➕`shift`➕`f`
 
-##### <span id="jobs-toc-heading-31" data-jobs-toc="v2">4.3.2、🔧 <font color=red>**安装插件**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-32" data-jobs-toc="v2">4.3.2、🔧 <font color=red>**安装插件**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [<font color=red>**Language Support for Java(TM) by Red Hat**</font>](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 
@@ -1824,7 +1843,7 @@ plugins/
   <img src="./assets/image-20250713101045523.png" alt="image-4" style="width:65%; display:inline-block; vertical-align: top;" />
   </div>
 
-##### <span id="jobs-toc-heading-32" data-jobs-toc="v2">4.3.3、⚙️[**VSCode**](https://code.visualstudio.com/)的配置文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-33" data-jobs-toc="v2">4.3.3、⚙️[**VSCode**](https://code.visualstudio.com/)的配置文件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**VSCode**](https://code.visualstudio.com/)键盘快捷键：打开命令面板 (**`⌘`**➕**`Shift`**➕**`P`**) ，输入➤  **`Preferences: Open Keyboard Shortcuts (JSON)`**
 
@@ -2127,17 +2146,17 @@ plugins/
     ```
 
 
-##### <span id="jobs-toc-heading-33" data-jobs-toc="v2">4.3.4、设备选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-34" data-jobs-toc="v2">4.3.4、设备选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 `Cmd + Shift + P`  ➤ 输入：`Flutter: Select Device`
 
-### <span id="jobs-toc-heading-34" data-jobs-toc="v2">5、安装 `Rosetta` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-35" data-jobs-toc="v2">5、安装 `Rosetta` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   ```shell
   softwareupdate --install-rosetta --agree-to-license
   ```
 
-### <span id="jobs-toc-heading-35" data-jobs-toc="v2">6、`flutter run` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-36" data-jobs-toc="v2">6、`flutter run` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * <font color=red size=5>`flutter run`</font> <font color=red>**在执行时会自动下载项目依赖**，即使刚刚执行了 `flutter clean`</font>
 
@@ -2159,7 +2178,7 @@ plugins/
 
 * [**友盟 U-APM + 移动统计**](https://www.umeng.com/apm) 使用独立入口 `lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart`；运行、原生配置与后台验证见[友盟 Demo 运行说明](#umeng-demo-run)。默认 `lib/main.dart` 继续运行原示例。
 
-## <span id="jobs-toc-heading-36" data-jobs-toc="v2">四、⚖️[**Flutter**](https://flutter.dev/)代码规范 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+## <span id="jobs-toc-heading-37" data-jobs-toc="v2">四、⚖️[**Flutter**](https://flutter.dev/)代码规范 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 无状态的**`Widget`**用函数式表达，没有必要用**Class**表达。**`Widget`** 的名字小写字母开头。
 
@@ -2179,11 +2198,11 @@ plugins/
 
 * 因为[**Flutter**](https://flutter.dev/)里面<font color=red>万物皆**`Widget`**</font>，所以从代码功能解耦的角度，有必要对**`Widget`**进行<a href="#Widget拓展语法糖" style="font-size:17px; color:green;"><b>相关扩充</b></a>
 
-## <span id="jobs-toc-heading-37" data-jobs-toc="v2">五、💥[**Flutter**](https://flutter.dev/)代码讲解 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+## <span id="jobs-toc-heading-38" data-jobs-toc="v2">五、💥[**Flutter**](https://flutter.dev/)代码讲解 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-38" data-jobs-toc="v2">1、🖨️调试打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-39" data-jobs-toc="v2">1、🖨️调试打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-39" data-jobs-toc="v2">1.1、🖨️系统自带的打印方法：`debugPrint` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-40" data-jobs-toc="v2">1.1、🖨️系统自带的打印方法：`debugPrint` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```dart
   debugPrint(this);
@@ -2193,7 +2212,7 @@ plugins/
   print(this);
   ```
 
-#### <span id="jobs-toc-heading-40" data-jobs-toc="v2">1.2、🖨️第三方封装的打印方法：<font id=极光原生推送>🌌</font><a href="#极光原生推送" style="font-size:20px; color:green;"><b>极光原生推送</b></a>全局打印（🧨强烈推荐）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-41" data-jobs-toc="v2">1.2、🖨️第三方封装的打印方法：<font id=极光原生推送>🌌</font><a href="#极光原生推送" style="font-size:20px; color:green;"><b>极光原生推送</b></a>全局打印（🧨强烈推荐）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 虽然这个方法原本是插件内部封装的，但它本质上是一个对 `print()` 的增强封装，用法通用、效果更强大。
 
@@ -2209,7 +2228,7 @@ FlutterPluginEngagelab.printMy(xxx);
 | ✅ 可屏蔽 **Release** 输出 | 保证线上不暴露调试信息  |
 | ✅ 日志更美观 / 可写文件   | 后期接入文件记录也方便  |
 
-#### <span id="jobs-toc-heading-41" data-jobs-toc="v2">1.3、对系统&自定义打印方法的二次封装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-42" data-jobs-toc="v2">1.3、对系统&自定义打印方法的二次封装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'package:flutter_tiyu_app/utils/JobsCommonUtil.dart';
@@ -2247,7 +2266,7 @@ extension JobsPrintExt<T> on T {
 > rawList.p;
 > ```
 
-####  <span id="jobs-toc-heading-42" data-jobs-toc="v2">1.4、🖨️自定义打印（对象）方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+####  <span id="jobs-toc-heading-43" data-jobs-toc="v2">1.4、🖨️自定义打印（对象）方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >* **Mock**数据：最外层字典
 >
@@ -2354,7 +2373,7 @@ extension JobsPrintExt<T> on T {
 >  >   JobsPrint(mockListData);
 >  >   ```
 
-##### <span id="jobs-toc-heading-43" data-jobs-toc="v2">1.4.1、控制台打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-44" data-jobs-toc="v2">1.4.1、控制台打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <span>
   <img src="./assets/image-20250901191221540.png" alt="image-20250901191221540" style="zoom:30%; display:inline-block;" />
@@ -2781,7 +2800,7 @@ String _pretty(
 }
 ```
 
-##### <span id="jobs-toc-heading-44" data-jobs-toc="v2">1.4.2、程序内打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-45" data-jobs-toc="v2">1.4.2、程序内打印 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'dart:convert';
@@ -3001,7 +3020,7 @@ bool isOver18Years(int y, int m, int d) {
 }
 ```
 
-### <span id="jobs-toc-heading-45" data-jobs-toc="v2">2、`SystemChrome`常用于设置<u>**状态栏和系统底部导航栏样式**</u>的配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-46" data-jobs-toc="v2">2、`SystemChrome`常用于设置<u>**状态栏和系统底部导航栏样式**</u>的配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <font color=red>**尤其在 APP 启动时、页面初始化时非常常见**</font>
 
@@ -3021,9 +3040,9 @@ SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
   ));
 ```
 
-###  <span id="jobs-toc-heading-46" data-jobs-toc="v2">3、🚪配置入口 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###  <span id="jobs-toc-heading-47" data-jobs-toc="v2">3、🚪配置入口 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-47" data-jobs-toc="v2">3.1、🚪配置项目入口   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-48" data-jobs-toc="v2">3.1、🚪配置项目入口   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Future<void> main() async{return runApp(XXX)};
@@ -3091,9 +3110,9 @@ void main() {
 ```
 </details>
 
-#### <span id="jobs-toc-heading-48" data-jobs-toc="v2">3.2、🚪配置页面的入口   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-49" data-jobs-toc="v2">3.2、🚪配置页面的入口   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-49" data-jobs-toc="v2">3.2.1、🚪配置首页入口   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-50" data-jobs-toc="v2">3.2.1、🚪配置首页入口   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>点击展开代码</summary>
@@ -3141,7 +3160,7 @@ CupertinoApp(
 
 </details>
 
-##### <span id="jobs-toc-heading-50" data-jobs-toc="v2">3.2.2、搭建页面的基本结构   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-51" data-jobs-toc="v2">3.2.2、搭建页面的基本结构   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > [**Flutter**](https://flutter.dev/) 页面如果没有被如下👇结构组件包裹，就没有默认 UI 背景结构（如白底、**AppBar**、状态栏空间等）——看起来就像“一片黑”或者“没有显示内容”。
 
@@ -3160,7 +3179,7 @@ CupertinoApp(
 | **Phoenix**                               | `flutter_phoenix`                        | 用于“热重启”整个 app 的容器结构                              |
 | **DevicePreview**                         | `device_preview`                         | 用于响应式预览，模拟不同设备的结构容器                       |
 
-### <span id="jobs-toc-heading-51" data-jobs-toc="v2">4、[**Flutter**](https://flutter.dev/)<font color=red>**项目中比较标准且完整的启动流程**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-52" data-jobs-toc="v2">4、[**Flutter**](https://flutter.dev/)<font color=red>**项目中比较标准且完整的启动流程**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ `SystemChrome` 限制方向
 >
@@ -3227,7 +3246,7 @@ SystemChrome.setPreferredOrientations([
 ```
 </details>
 
-### <span id="jobs-toc-heading-52" data-jobs-toc="v2">5、`WidgetsFlutterBinding`确保[**Flutter**](https://flutter.dev/)框架与底层平台（如 `MethodChannel`、插件）之间的桥梁已完成初始化 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-53" data-jobs-toc="v2">5、`WidgetsFlutterBinding`确保[**Flutter**](https://flutter.dev/)框架与底层平台（如 `MethodChannel`、插件）之间的桥梁已完成初始化 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > [**Flutter**](https://flutter.dev/) 有一个叫做 **`WidgetsBinding`** 的东西，它是所有 **`Widget`** 框架的核心，它负责：
 >
@@ -3255,7 +3274,7 @@ WidgetsFlutterBinding.ensureInitialized();
 > Binding has not yet been initialized.
 > ```
 
-### <span id="jobs-toc-heading-53" data-jobs-toc="v2">6、`DartPingIOS`在 **iOS** 上启用 **native** 层实现的 <font color=red>**ping 功能**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-54" data-jobs-toc="v2">6、`DartPingIOS`在 **iOS** 上启用 **native** 层实现的 <font color=red>**ping 功能**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 因为 **iOS** 的网络权限和限制较多，`dart_ping` 需要通过原生插件配合实现 `ping`，所以需要先进行手动注册
 >
@@ -3303,7 +3322,7 @@ ping.stream.listen((event) {
   dart_ping_ios: any
   ```
 
-### <span id="jobs-toc-heading-54" data-jobs-toc="v2">7、利用**`SharedPreferences`**对数据进行存取 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-55" data-jobs-toc="v2">7、利用**`SharedPreferences`**对数据进行存取 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 封装原生 `SharedPreferences` 支持的所有类型
 >
@@ -3403,7 +3422,7 @@ class SpUtil {
 ```
 </details>
 
-### <span id="jobs-toc-heading-55" data-jobs-toc="v2">8、[**Flutter**](https://flutter.dev/).**SDK**标准<a href="#模态" style="color:green; font-size:25px;"><b>模态</b></a>弹窗组件（截至 2025）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-56" data-jobs-toc="v2">8、[**Flutter**](https://flutter.dev/).**SDK**标准<a href="#模态" style="color:green; font-size:25px;"><b>模态</b></a>弹窗组件（截至 2025）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 名称                            | 类型                        | 用途说明                       | 所属库                           |
 | ------------------------------- | --------------------------- | ------------------------------ | -------------------------------- |
@@ -3581,7 +3600,7 @@ class SpUtil {
   ...demo未完待补充
 
 
-### <span id="jobs-toc-heading-56" data-jobs-toc="v2">9、第三方@[**`EasyLoading`**](https://pub.dev/documentation/flutter_easyloading/latest/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-57" data-jobs-toc="v2">9、第三方@[**`EasyLoading`**](https://pub.dev/documentation/flutter_easyloading/latest/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 类型       | 方法                                    | 说明                |
 | ---------- | --------------------------------------- | ------------------- |
@@ -3662,7 +3681,7 @@ class SpUtil {
   EasyLoading.dismiss();
   ```
 
-### <span id="jobs-toc-heading-57" data-jobs-toc="v2">10、<font id=极光原生推送>[**极光原生推送**](https://www.engagelab.com/zh_CN)</font>：[**`FlutterPluginEngagelab`**](https://pub.dev/packages/flutter_plugin_engagelab) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-58" data-jobs-toc="v2">10、<font id=极光原生推送>[**极光原生推送**](https://www.engagelab.com/zh_CN)</font>：[**`FlutterPluginEngagelab`**](https://pub.dev/packages/flutter_plugin_engagelab) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 来自于：`package:flutter_plugin_engagelab/flutter_plugin_engagelab.dart`
 >
@@ -3694,7 +3713,7 @@ dependencies:
   flutter_plugin_engagelab: any
 ```
 
-### <span id="jobs-toc-heading-58" data-jobs-toc="v2">11、[**`OpenInstall`**](https://www.openinstallglobal.com/)：移动端的安装/拉新/渠道统计 SDK <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-59" data-jobs-toc="v2">11、[**`OpenInstall`**](https://www.openinstallglobal.com/)：移动端的安装/拉新/渠道统计 SDK <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Future<void> initOpeninstall() async {
@@ -3713,7 +3732,7 @@ Future wakeupHandler(Map<String, Object> data) async {
 
 * `install()` 是用于获取安装参数的，**只能调用一次且应当在需要时（如首次打开 APP 的时候）调用**。否则可能时机不对导致参数获取不到。
 
-### <span id="jobs-toc-heading-59" data-jobs-toc="v2">12、⏰获取当前时间 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-60" data-jobs-toc="v2">12、⏰获取当前时间 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <a href="#onDateTime.dart" style="font-size:17px; color:green;"><b>➤onDateTime.dart</b></a>
 
@@ -3808,9 +3827,9 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
   | `k` / `kk` | 24小时制（1–24）         | `24`（不会是 0）                    |
   | `K` / `KK` | 12小时制（0–11）         | `0` 表示 12点                       |
 
-### <span id="jobs-toc-heading-60" data-jobs-toc="v2">13、🔜  <font color=red>**推页面**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-61" data-jobs-toc="v2">13、🔜  <font color=red>**推页面**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-61" data-jobs-toc="v2">13.1、🔜 <font id=Navigator>**`Navigator`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-62" data-jobs-toc="v2">13.1、🔜 <font id=Navigator>**`Navigator`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 在 [**Flutter**](https://flutter.dev/) 中，每一个 `Navigator` 都会有**自己的路由栈**，并不是全局唯一的
 >
@@ -3823,7 +3842,7 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
 >
 > 3️⃣ 默认调用 `Navigator.of(context)`，是**从当前 context 向上查找最近的 Navigator**，**而不是找最上层的**
 
-##### <span id="jobs-toc-heading-62" data-jobs-toc="v2">13.1.1、🔜 正向传参 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-63" data-jobs-toc="v2">13.1.1、🔜 正向传参 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 构造函数传参（✅最推荐）
 
@@ -4149,7 +4168,7 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
 
   </details>
 
-##### <span id="jobs-toc-heading-63" data-jobs-toc="v2">13.1.2、🔜 返向传参 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-64" data-jobs-toc="v2">13.1.2、🔜 返向传参 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 标准型
 
@@ -4275,20 +4294,20 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
     ```
     </details>
 
-#### <span id="jobs-toc-heading-64" data-jobs-toc="v2">13.2、🔜[**GetX**](https://pub.dev/packages/get)<a href="#GetX路由" style="font-size:20px; color:green;"><b>路由（跳转查看）</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-65" data-jobs-toc="v2">13.2、🔜[**GetX**](https://pub.dev/packages/get)<a href="#GetX路由" style="font-size:20px; color:green;"><b>路由（跳转查看）</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-65" data-jobs-toc="v2">13.3、🔜[**GetX**](https://pub.dev/packages/get)<a href="#Getx@正向路由传参" style="font-size:20px; color:green;"><b>正向路由传参（跳转查看）</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-66" data-jobs-toc="v2">13.3、🔜[**GetX**](https://pub.dev/packages/get)<a href="#Getx@正向路由传参" style="font-size:20px; color:green;"><b>正向路由传参（跳转查看）</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 
-#### <span id="jobs-toc-heading-66" data-jobs-toc="v2">13.4、🔜 弹出页面 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-67" data-jobs-toc="v2">13.4、🔜 弹出页面 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-67" data-jobs-toc="v2">13.4.1、🔜[**GetX**](https://pub.dev/packages/get)<a href="#GetX弹出框" style="font-size:20px; color:green;"><b>弹出框（跳转查看）</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-68" data-jobs-toc="v2">13.4.1、🔜[**GetX**](https://pub.dev/packages/get)<a href="#GetX弹出框" style="font-size:20px; color:green;"><b>弹出框（跳转查看）</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 本质上只是对 [**Flutter**](https://flutter.dev/) 原生弹窗 API 的封装。
 * 简化了 **context** 传递，不用层层传 **context**，也省去了 **Navigator** 调用。
 * <font color=red>**顶层必须是在`GetMaterialApp`之下**</font>，方可起作用。否则点击弹出无效
 
-##### <span id="jobs-toc-heading-68" data-jobs-toc="v2">13.4.2、🔜 [**Flutter**](https://flutter.dev/)原生弹出框 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-69" data-jobs-toc="v2">13.4.2、🔜 [**Flutter**](https://flutter.dev/)原生弹出框 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 中间弹出
 
@@ -4369,9 +4388,9 @@ print(now.weekday);    // 星期几（1=星期一，7=星期日）
   );
   ```
 
-#### <span id="jobs-toc-heading-69" data-jobs-toc="v2">13.5、🔜 <a href="#按钮的封装" style="font-size:20px; color:green;"><b>按钮的封装</b></a>（跳转查看）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-70" data-jobs-toc="v2">13.5、🔜 <a href="#按钮的封装" style="font-size:20px; color:green;"><b>按钮的封装</b></a>（跳转查看）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-70" data-jobs-toc="v2">14、🔙 导航栏返回按钮 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-71" data-jobs-toc="v2">14、🔙 导航栏返回按钮 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>点击展开代码➤自定义点击事件（返回）</summary>
@@ -4474,7 +4493,7 @@ abstract class RouteAwareState<T extends RouteAwareStatefulPage>
 
 </details>
 
-### <span id="jobs-toc-heading-71" data-jobs-toc="v2">15、🖥️[**Flutter**](https://flutter.dev)屏幕尺寸方案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-72" data-jobs-toc="v2">15、🖥️[**Flutter**](https://flutter.dev)屏幕尺寸方案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 工具/方式            | 作用                              | 用法示例                                                     |
 | -------------------- | --------------------------------- | ------------------------------------------------------------ |
@@ -4484,7 +4503,7 @@ abstract class RouteAwareState<T extends RouteAwareStatefulPage>
 | `LayoutBuilder`      | 自适应布局大小判断                | `constraints.maxWidth < 600 ? PhoneLayout() : TabletLayout()` |
 | `KeyboardVisibility` | 键盘弹出监听，处理遮挡问题        | `KeyboardVisibilityController().onChange.listen(...)`        |
 
-#### <span id="jobs-toc-heading-72" data-jobs-toc="v2">15.1、[**`ScreenUtil`**](https://pub.dev/packages/flutter_screenutil)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-73" data-jobs-toc="v2">15.1、[**`ScreenUtil`**](https://pub.dev/packages/flutter_screenutil)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```yaml
 dependencies:
@@ -4504,7 +4523,7 @@ dependencies:
 > ScreenUtil().scaleText         /// 计算字体缩放比例：
 > ```
 
-#### <span id="jobs-toc-heading-73" data-jobs-toc="v2">15.2、**`WidgetsBinding`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-74" data-jobs-toc="v2">15.2、**`WidgetsBinding`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 不依托于**`BuildContext`**，从 [**Flutter**](https://flutter.dev/) Engine 直接拿底层数据
   * **一次性获取**，不会自动触发 `build`
@@ -4522,7 +4541,7 @@ void JobsScreenListener() {
 }
 ```
 
-#### <span id="jobs-toc-heading-74" data-jobs-toc="v2">15.3、**`MediaQuery`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-75" data-jobs-toc="v2">15.3、**`MediaQuery`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 依托于**`BuildContext`**
 
@@ -4552,7 +4571,7 @@ void JobsScreenListener() {
                    - MediaQuery.of(context).padding.bottom;
   ```
 
-#### <span id="jobs-toc-heading-75" data-jobs-toc="v2">15.4、<font color=red>**`SafeArea`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-76" data-jobs-toc="v2">15.4、<font color=red>**`SafeArea`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 参考资料
   * [**SafeArea & MediaQuery**](https://docs.flutter.dev/ui/adaptive-responsive/safearea-mediaquery)
@@ -4633,7 +4652,7 @@ void JobsScreenListener() {
 
   * ⚠️ **与 `AppBar` 共用时应只作用于 body**：否则会让 AppBar 有额外顶部边距，一般只包裹 `Scaffold.body` 即可。
 
-#### <span id="jobs-toc-heading-76" data-jobs-toc="v2">15.5、[**`flutter_screenutil`**](https://pub.dev/packages/flutter_screenutil)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-77" data-jobs-toc="v2">15.5、[**`flutter_screenutil`**](https://pub.dev/packages/flutter_screenutil)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ‼️重要说明
 
@@ -4697,7 +4716,7 @@ void JobsScreenListener() {
 
   </details>
 
-#### <span id="jobs-toc-heading-77" data-jobs-toc="v2">15.6、📐 键盘遮挡通用处理方案  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-78" data-jobs-toc="v2">15.6、📐 键盘遮挡通用处理方案  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 🌹类似于**iOS**里面的[**IQKeyboardManager**](https://github.com/hackiftekhar/IQKeyboardManager)，➤ **监听键盘的高度变化，动态将视图往上推这么多距离，避免输入控件被遮挡。**
 
@@ -4756,7 +4775,7 @@ SafeArea(
 
   手动加 `ScrollView + Padding`，就等同于**Flutter 版 IQKeyboardManager**
 
-#### <span id="jobs-toc-heading-78" data-jobs-toc="v2">15.7、🔄 响应式布局：根据宽度切换布局  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-79" data-jobs-toc="v2">15.7、🔄 响应式布局：根据宽度切换布局  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 LayoutBuilder(
@@ -4770,7 +4789,7 @@ LayoutBuilder(
 )
 ```
 
-### <span id="jobs-toc-heading-79" data-jobs-toc="v2">16、[**Dart**](https://dart.dev/).**Object** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-80" data-jobs-toc="v2">16、[**Dart**](https://dart.dev/).**Object** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 在 Dart 中，**所有类最终都继承自 `Object`**，所以这些方法每个类都自动拥有
 
@@ -4789,7 +4808,7 @@ class XXX{}
 class XXX extends Object{}
 ```
 
-### <span id="jobs-toc-heading-80" data-jobs-toc="v2">17、在[**Flutter**](https://flutter.dev/)中，支持<font color=red>**滑动**</font>的所有核心**`Widget`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-81" data-jobs-toc="v2">17、在[**Flutter**](https://flutter.dev/)中，支持<font color=red>**滑动**</font>的所有核心**`Widget`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **Grid**：网格
 
@@ -5302,7 +5321,7 @@ class XXX extends Object{}
   | `pull_to_refresh`                    | 下拉刷新/上拉加载的封装库                                    |
   | `flutter_easyrefresh`（已停更）      | 曾经流行的刷新库（不推荐新项目用）                           |
 
-### <span id="jobs-toc-heading-81" data-jobs-toc="v2">18、👋[**Flutter**](https://flutter.dev/)<font color=red>**手势**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-82" data-jobs-toc="v2">18、👋[**Flutter**](https://flutter.dev/)<font color=red>**手势**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 虽然本质是响应用户输入（如点击、滑动、拖动、缩放等），但它们的使用方式**确实也是通过 `Widget` 实现的**
 >
@@ -5319,7 +5338,7 @@ flowchart LR
     C --> D
 ```
 
-#### <span id="jobs-toc-heading-82" data-jobs-toc="v2">18.1、👋[**Flutter**](https://flutter.dev/)中的手势系统本质（由三层机制组成）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-83" data-jobs-toc="v2">18.1、👋[**Flutter**](https://flutter.dev/)中的手势系统本质（由三层机制组成）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 层级   | 名称                                                         | 说明                                                         |
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -5327,7 +5346,7 @@ flowchart LR
 | 2️⃣ 中层 | **Gesture 识别**：`GestureDetector`<br/>➤负责仲裁，一旦胜出就独占事件。 | 对原始事件进行识别封装<br/>如：**TapGestureRecognizer**、**DragGestureRecognizer**、**ScrollView**，等 |
 | 3️⃣ 高层 | `InkWell`, `InkResponse`                                     | 组件化的手势 + 视觉反馈（如水波纹）                          |
 
-#### <span id="jobs-toc-heading-83" data-jobs-toc="v2">18.2、👋滚动控件的特殊性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-84" data-jobs-toc="v2">18.2、👋滚动控件的特殊性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 滚动相关的组件（`ListView`、`SingleChildScrollView`、`PageView`）内部有自己的手势识别器
 
@@ -5340,7 +5359,7 @@ flowchart LR
 
 ➤ 所以 **Pointer 监听无法改变滚动控件的既定行为**
 
-#### <span id="jobs-toc-heading-84" data-jobs-toc="v2">18.3、👋[**Flutter**](https://flutter.dev/) 中所有手势相关 **`Widget`** 一览（全量分类）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-85" data-jobs-toc="v2">18.3、👋[**Flutter**](https://flutter.dev/) 中所有手势相关 **`Widget`** 一览（全量分类）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 🔹原始指针事件层（Pointer 级）：处理最底层的触摸事件（**pointer down** / **move** / **up** 等）
 
@@ -5397,7 +5416,7 @@ flowchart LR
   | `Slider` / `RangeSlider` | 拖动滑块（拖拽 + tap）                        |
   | `Switch` / `Checkbox`    | 也支持手势（tap）但通常不直接作为手势组件使用 |
 
-#### <span id="jobs-toc-heading-85" data-jobs-toc="v2">18.4、👋通用点击组件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-86" data-jobs-toc="v2">18.4、👋通用点击组件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// - ripple=true 走 Material+InkWell（有水波纹）
@@ -5500,16 +5519,16 @@ class CommonRipple extends StatelessWidget {
 >);
 >```
 
-#### <span id="jobs-toc-heading-86" data-jobs-toc="v2">18.5、👋[**Flutter**](https://flutter.dev/)<font color=red>**手势竞争**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-87" data-jobs-toc="v2">18.5、👋[**Flutter**](https://flutter.dev/)<font color=red>**手势竞争**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-87" data-jobs-toc="v2">18.5.1、👋手势竞争的原理 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-88" data-jobs-toc="v2">18.5.1、👋手势竞争的原理 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 事件发生后，所有对此事件感兴趣的手势识别器（recognizers）都会进入这个 **Gesture Arena**；
 * 这些识别器先处于 **待定（pending）** 状态，等待更多事件来判断是否要**放弃**或**胜出**；
 * 一旦某个识别器确认可以处理这个手势，就会尝试 **宣告胜利**；
 * 其他竞争者可以选择放弃，也可能还在等待，但一旦胜者确定，其余的都被强制取消；
 
-##### <span id="jobs-toc-heading-88" data-jobs-toc="v2">18.5.2、👋胜负决策规则 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-89" data-jobs-toc="v2">18.5.2、👋胜负决策规则 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 优先级不是全局固定的，不同 recognizer 之间的实现有差异
 
@@ -5528,7 +5547,7 @@ flowchart TD
 * 如果一个手势识别器 **先确定识别成功**（`acceptGesture`），就会成为赢家，其他全部失败；
 * 如果大家都没明确放弃，[**Flutter**](https://flutter.dev/) 会根据**优先级规则**决定赢家（比如拖拽比点击优先）；
 
-##### <span id="jobs-toc-heading-89" data-jobs-toc="v2">18.5.3、👋常用的手势冲突场景以及解决技巧（范式） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-90" data-jobs-toc="v2">18.5.3、👋常用的手势冲突场景以及解决技巧（范式） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **尽早决策**：基于位移阈值（6~10px）尽快确定方向，另一方向立刻**沉默**
 >
@@ -5540,7 +5559,7 @@ flowchart TD
 >
 > **原始监听**：统计/埋点走 `Listener`，不要和手势识别器抢
 
-###### <span id="jobs-toc-heading-90" data-jobs-toc="v2">18.5.3.1、👋`ListView` 滑动 🆚 `GestureDetector` onTap <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-91" data-jobs-toc="v2">18.5.3.1、👋`ListView` 滑动 🆚 `GestureDetector` onTap <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **现象**：轻扫/轻移后点击不触发，或只能点到文字不点空白
 >
@@ -5572,7 +5591,7 @@ class ListViewTapFix extends StatelessWidget {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-91" data-jobs-toc="v2">18.5.3.2、👋`HorizontalDrag` 🆚  `VerticalDrag` 冲突 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-92" data-jobs-toc="v2">18.5.3.2、👋`HorizontalDrag` 🆚  `VerticalDrag` 冲突 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **现象**：横竖两个拖拽识别器互相抢手势
 >
@@ -5626,7 +5645,7 @@ class _S extends State<DragAxisArbiter> {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-92" data-jobs-toc="v2">18.5.3.3、👋嵌套 `InkWell` / `GestureDetector`（内层不触发或波纹丢失） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-93" data-jobs-toc="v2">18.5.3.3、👋嵌套 `InkWell` / `GestureDetector`（内层不触发或波纹丢失） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **现象**：外层先赢导致内层不响应；波纹不显示
 >
@@ -5659,7 +5678,7 @@ class NestedInkWellFix extends StatelessWidget {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-93" data-jobs-toc="v2">18.5.3.4、👋`PageView`（横向滚动）嵌在可垂直滚动的父容器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-94" data-jobs-toc="v2">18.5.3.4、👋`PageView`（横向滚动）嵌在可垂直滚动的父容器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **现象**：横向翻页与父容器纵向滚动抢手势，翻页吃力。
 >
@@ -5693,7 +5712,7 @@ class PageInScrollFix extends StatelessWidget {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-94" data-jobs-toc="v2">18.5.3.5、👋`GestureDetector` + `ListView` 同时存在，希望：点击 + 长按拖动排序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-95" data-jobs-toc="v2">18.5.3.5、👋`GestureDetector` + `ListView` 同时存在，希望：点击 + 长按拖动排序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **现象**：拖动排序和点击互斥，偶发点击不触发
 >
@@ -5735,7 +5754,7 @@ class _S extends State<TapAndDragThreshold> {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-95" data-jobs-toc="v2">18.5.3.6、👋`InteractiveViewer`（可缩放/拖拽）内的点击热区失效 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-96" data-jobs-toc="v2">18.5.3.6、👋`InteractiveViewer`（可缩放/拖拽）内的点击热区失效 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **现象**：里层按钮/点击不触发
 >
@@ -5775,7 +5794,7 @@ class InteractiveViewerTapFix extends StatelessWidget {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-96" data-jobs-toc="v2">18.5.3.7、👋横向可滚容器中的纵向手势（或反之） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-97" data-jobs-toc="v2">18.5.3.7、👋横向可滚容器中的纵向手势（或反之） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **现象**：内层短轴方向手势不灵
 >
@@ -5812,7 +5831,7 @@ class AxisClearanceFix extends StatelessWidget {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-97" data-jobs-toc="v2">18.5.3.8、👋父层 `GestureDetector` 抢走子层点击 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-98" data-jobs-toc="v2">18.5.3.8、👋父层 `GestureDetector` 抢走子层点击 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **现象**：父层 `onTap` 吃掉事件，子层不触发
 >
@@ -5847,7 +5866,7 @@ class ParentStealFix extends StatelessWidget {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-98" data-jobs-toc="v2">18.5.3.9、👋`IgnorePointer` / `AbsorbPointer` 精确阻断或穿透 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-99" data-jobs-toc="v2">18.5.3.9、👋`IgnorePointer` / `AbsorbPointer` 精确阻断或穿透 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>点击查看代码</summary>
@@ -5899,7 +5918,7 @@ class DemoIgnoreAbsorb extends StatelessWidget {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-99" data-jobs-toc="v2">18.5.3.10、👋自定义 `GestureRecognizer`（精细控制胜负时机） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-100" data-jobs-toc="v2">18.5.3.10、👋自定义 `GestureRecognizer`（精细控制胜负时机） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>点击查看代码</summary>
@@ -5970,9 +5989,9 @@ class DemoCustomRecognizer extends StatelessWidget {
 ```
 </details>
 
-#### <span id="jobs-toc-heading-100" data-jobs-toc="v2">18.6、[**Flutter**](https://flutter.dev/)手势冲突⚔️（**iOS**/**Android**的核心差异） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-101" data-jobs-toc="v2">18.6、[**Flutter**](https://flutter.dev/)手势冲突⚔️（**iOS**/**Android**的核心差异） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-101" data-jobs-toc="v2">18.6.1、👋手势竞技场机制差异 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-102" data-jobs-toc="v2">18.6.1、👋手势竞技场机制差异 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **Android**
   * 底层基于 `View.onInterceptTouchEvent`
@@ -5983,7 +6002,7 @@ class DemoCustomRecognizer extends StatelessWidget {
   * **iOS** 认为「垂直滚动」是一个整体区域，不轻易释放手势
   * 子 `ScrollView` 到边缘后，仍然尝试继续消费，不把事件交给父级
 
-##### <span id="jobs-toc-heading-102" data-jobs-toc="v2">18.6.2、👋滚动物理差异 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-103" data-jobs-toc="v2">18.6.2、👋滚动物理差异 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **Android 默认 → `ClampingScrollPhysics`**
 
@@ -5993,15 +6012,15 @@ class DemoCustomRecognizer extends StatelessWidget {
   * 滚动到边界还能**拉出一截回弹**
   * 子视图觉得自己还能继续滚动 → 不释放给父级
 
-##### <span id="jobs-toc-heading-103" data-jobs-toc="v2">18.6.3、👋`Pointer`监听的限制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-104" data-jobs-toc="v2">18.6.3、👋`Pointer`监听的限制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-104" data-jobs-toc="v2">18.6.4、👋通用解释 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-105" data-jobs-toc="v2">18.6.4、👋通用解释 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **Android** 的手势分发更**宽松**，子控件到边界会放手给父级
 
 * **iOS** 的手势分发更“顽固”，子控件即使到边界也会继续尝试消费，导致父级无法接管
 
-#### <span id="jobs-toc-heading-105" data-jobs-toc="v2">18.7、👋[**Flutter**](https://flutter.dev/)手势语法糖🍬 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-106" data-jobs-toc="v2">18.7、👋[**Flutter**](https://flutter.dev/)手势语法糖🍬 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>Widget关于手势的拓展</summary>
@@ -6322,7 +6341,7 @@ class _GestureDemoPageState extends State<GestureDemoPage> {
 ```
 </details>
 
-#### <span id="jobs-toc-heading-106" data-jobs-toc="v2">18.8、👋<font color=red>**`HitTestBehavior`**</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-107" data-jobs-toc="v2">18.8、👋<font color=red>**`HitTestBehavior`**</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 enum HitTestBehavior {
@@ -6384,11 +6403,11 @@ enum HitTestBehavior {
   );
   ```
 
-### <span id="jobs-toc-heading-107" data-jobs-toc="v2">19、<font id=线性布局>🧱</font> [**Flutter**](https://flutter.dev/)布局类@**`Widget`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-108" data-jobs-toc="v2">19、<font id=线性布局>🧱</font> [**Flutter**](https://flutter.dev/)布局类@**`Widget`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 🔹 布局类：**看不见的结构控制**（渲染、显示逻辑、动态构建...）。类似 iOS 中的 [**Masonry**](https://github.com/SnapKit/Masonry) 或 **AutoLayout**
 
-#### <span id="jobs-toc-heading-108" data-jobs-toc="v2">19.1、🧱<font id=线性布局>线性布局（类似 iOS 的 `UIStackView`）</font><a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-109" data-jobs-toc="v2">19.1、🧱<font id=线性布局>线性布局（类似 iOS 的 `UIStackView`）</font><a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget                                                       | 功能说明                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -6408,9 +6427,9 @@ enum HitTestBehavior {
 > | 常用场景 | 占满空间、均分            | 需要灵活控制内容大小时使用     |
 > | 包装效果 | 是 `Flexible(fit: tight)` | 可自定义 `fit: tight/loose`    |
 
-##### <span id="jobs-toc-heading-109" data-jobs-toc="v2">19.1.1、🧱<font id=Row>`Row`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-110" data-jobs-toc="v2">19.1.1、🧱<font id=Row>`Row`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-110" data-jobs-toc="v2">19.1.2、🧱<font id=Column>`Column`</font><a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-111" data-jobs-toc="v2">19.1.2、🧱<font id=Column>`Column`</font><a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// 无数据占位图
@@ -6429,7 +6448,7 @@ Column(
 )
 ```
 
-##### <span id="jobs-toc-heading-111" data-jobs-toc="v2">19.1.3、🧱<font id=Flex>`Flex`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-112" data-jobs-toc="v2">19.1.3、🧱<font id=Flex>`Flex`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Flex(
@@ -6453,7 +6472,7 @@ Flex(
   | `Row`    | 水平（左右）                  | 竖直（上下）            |
   | `Flex`   | 可变（通过 `direction` 指定） | 取决于 `direction`      |
 
-##### <span id="jobs-toc-heading-112" data-jobs-toc="v2">19.1.4、🧱<font id=Expanded>**`Expanded`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-113" data-jobs-toc="v2">19.1.4、🧱<font id=Expanded>**`Expanded`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 > 在**主轴方向**撑满父组件剩余空间
 
@@ -6483,7 +6502,7 @@ Row(
 )
 ```
 
-##### <span id="jobs-toc-heading-113" data-jobs-toc="v2">19.1.5、🧱<font id=Flexible>`Flexible`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-114" data-jobs-toc="v2">19.1.5、🧱<font id=Flexible>`Flexible`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 | 特性         | Expanded                   | Flexible                       |
 | ------------ | -------------------------- | ------------------------------ |
@@ -6491,7 +6510,7 @@ Row(
 | `fit` 属性   | 固定为 `tight`（填满空间） | `loose`（尽量小）或 `tight`    |
 | 使用频率     | 更高                       | 多用于需要灵活缩放但不强制填满 |
 
-##### <span id="jobs-toc-heading-114" data-jobs-toc="v2">19.1.6、🧱<font id=Spacer>`Spacer`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽 </b></a><a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-115" data-jobs-toc="v2">19.1.6、🧱<font id=Spacer>`Spacer`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽 </b></a><a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 > `Spacer` 用来占据 **可伸缩的空白区域**，常用于“把两个组件拉开”或“均分距离”。
 
@@ -6507,13 +6526,13 @@ Row(
 )
 ```
 
-##### <span id="jobs-toc-heading-115" data-jobs-toc="v2">19.1.7、🧱<font id=SizedBox>`SizedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-116" data-jobs-toc="v2">19.1.7、🧱<font id=SizedBox>`SizedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#线性布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-#### <span id="jobs-toc-heading-116" data-jobs-toc="v2">19.2、🧱<font id=层叠布局>层叠布局（类似 iOS 的 Frame 布局 + zIndex）</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-117" data-jobs-toc="v2">19.2、🧱<font id=层叠布局>层叠布局（类似 iOS 的 Frame 布局 + zIndex）</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget                                                       | 功能说明                                          |
 | ------------------------------------------------------------ | ------------------------------------------------- |
@@ -6522,7 +6541,7 @@ Row(
 | <a href="#Align" style="font-size:17px; color:green;"><b>`Align`</b></a> | 子组件对齐（用于 **`Stack`**、普通 **`Widget`**） |
 | <a href="#Center" style="font-size:17px; color:green;"><b>`Center`</b></a> | 子组件居中                                        |
 
-##### <span id="jobs-toc-heading-117" data-jobs-toc="v2">19.2.1、🧱<font id=Stack>`Stack`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#层叠布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-118" data-jobs-toc="v2">19.2.1、🧱<font id=Stack>`Stack`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#层叠布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// 在 Flutter 中，Positioned 不能 放在 Stack 外面，必须作为 Stack 的直接子组件。这是因为 Positioned 只在 Stack 内部生效，它的布局行为依赖于父级是 Stack。
@@ -6552,13 +6571,13 @@ Stack(
 )
 ```
 
-##### <span id="jobs-toc-heading-118" data-jobs-toc="v2">19.2.2、🧱<font id=Positioned>`Positioned`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#层叠布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-119" data-jobs-toc="v2">19.2.2、🧱<font id=Positioned>`Positioned`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#层叠布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 > 精确像素位置
 >
 > <font color=red>只能与 `Stack` 搭配，不能与其他容器搭配</font>
 
-##### <span id="jobs-toc-heading-119" data-jobs-toc="v2">19.2.3、🧱<font id=Align>`Align`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#层叠布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-120" data-jobs-toc="v2">19.2.3、🧱<font id=Align>`Align`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#层叠布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 > `Align` 用来在父容器中对齐子组件的位置，支持各种方向（上下左右、居中等）
 
@@ -6601,7 +6620,7 @@ Align(
 )
 ```
 
-##### <span id="jobs-toc-heading-120" data-jobs-toc="v2">19.2.4、🧱<font id=Align>`Center`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#层叠布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-121" data-jobs-toc="v2">19.2.4、🧱<font id=Align>`Center`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#层叠布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 > | 参数名         | 类型      | 说明                                                         |
 > | -------------- | --------- | ------------------------------------------------------------ |
@@ -6653,7 +6672,7 @@ class CenterDemo extends StatelessWidget {
 }
 ```
 
-#### <span id="jobs-toc-heading-121" data-jobs-toc="v2">19.3、🧱<font id=约束类布局>约束类布局（最接近 [**Masonry**](https://github.com/SnapKit/Masonry) 的思想）</font><a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-122" data-jobs-toc="v2">19.3、🧱<font id=约束类布局>约束类布局（最接近 [**Masonry**](https://github.com/SnapKit/Masonry) 的思想）</font><a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget                                                       | 功能说明                 |
 | ------------------------------------------------------------ | ------------------------ |
@@ -6664,7 +6683,7 @@ class CenterDemo extends StatelessWidget {
 | <a href="#AspectRatio" style="font-size:17px; color:green;"><b>`AspectRatio`</b></a> | 按宽高比自动调整尺寸     |
 | <a href="#LimitedBox" style="font-size:17px; color:green;"><b>`LimitedBox`</b></a> | 超出最大尺寸时才应用限制 |
 
-##### <span id="jobs-toc-heading-122" data-jobs-toc="v2">19.3.1、🧱<font id=ConstrainedBox>`ConstrainedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-123" data-jobs-toc="v2">19.3.1、🧱<font id=ConstrainedBox>`ConstrainedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 > 用来设置子组件的**最大/最小宽高限制**，不管子组件本身多大。
 
@@ -6699,13 +6718,13 @@ minHeight: 取两个 minHeight 中较大的：60
 ➡️ 最终为：90 x 60
 ```
 
-##### <span id="jobs-toc-heading-123" data-jobs-toc="v2">19.3.2、🧱<font id=UnconstrainedBox>`UnconstrainedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-124" data-jobs-toc="v2">19.3.2、🧱<font id=UnconstrainedBox>`UnconstrainedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-124" data-jobs-toc="v2">19.3.3、🧱<font id=SizedBox>`SizedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-125" data-jobs-toc="v2">19.3.3、🧱<font id=SizedBox>`SizedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-125" data-jobs-toc="v2">19.3.4、🧱<font id=FractionallySizedBox>`FractionallySizedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-126" data-jobs-toc="v2">19.3.4、🧱<font id=FractionallySizedBox>`FractionallySizedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-126" data-jobs-toc="v2">19.3.5、🧱<font id=AspectRatio>`AspectRatio`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-127" data-jobs-toc="v2">19.3.5、🧱<font id=AspectRatio>`AspectRatio`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 > `aspectRatio: 1.0` → 正方形
 >
@@ -6729,18 +6748,18 @@ AspectRatio(
 > 3️⃣ 如果父容器宽度无限制（如 `Column` 没有约束），它会尝试根据高度来算宽度；
 > 4️⃣ 如果高度无限制（如 `Row` 没有限制），它会根据宽度来算高度。
 
-##### <span id="jobs-toc-heading-127" data-jobs-toc="v2">19.3.6、🧱<font id=LimitedBox>`LimitedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-128" data-jobs-toc="v2">19.3.6、🧱<font id=LimitedBox>`LimitedBox`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#约束类布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-128" data-jobs-toc="v2">19.4、🧱<font id=自动换行&流式布局>自动换行&流式布局</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-129" data-jobs-toc="v2">19.4、🧱<font id=自动换行&流式布局>自动换行&流式布局</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget                                                       | 功能说明                                     |
 | ------------------------------------------------------------ | -------------------------------------------- |
 | <a href="#Wrap" style="font-size:17px; color:green;"><b>`Wrap`</b></a> | 自动换行布局（类似 **HTML** 的 `flex-wrap`） |
 | <a href="#Flow" style="font-size:17px; color:green;"><b>`Flow`</b></a> | 高级流式布局（需手动实现 **delegate**）      |
 
-##### <span id="jobs-toc-heading-129" data-jobs-toc="v2">19.4.1、🧱<font id=Wrap>`Wrap`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#自动换行&流式布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-130" data-jobs-toc="v2">19.4.1、🧱<font id=Wrap>`Wrap`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#自动换行&流式布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-130" data-jobs-toc="v2">19.4.2、🧱<font id=Flow>`Flow`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#自动换行&流式布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-131" data-jobs-toc="v2">19.4.2、🧱<font id=Flow>`Flow`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#自动换行&流式布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'package:flutter/material.dart';
@@ -6797,7 +6816,7 @@ class MyFlowDelegate extends FlowDelegate {
 }
 ```
 
-#### <span id="jobs-toc-heading-131" data-jobs-toc="v2">19.5、🧱<font id=表格&网格布局>表格&网格布局</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-132" data-jobs-toc="v2">19.5、🧱<font id=表格&网格布局>表格&网格布局</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget                                                       | 功能说明               |
 | ------------------------------------------------------------ | ---------------------- |
@@ -6805,21 +6824,21 @@ class MyFlowDelegate extends FlowDelegate {
 | <a href="#GridView" style="font-size:17px; color:green;"><b>`GridView`</b></a> | 网格布局（支持滚动）   |
 | <a href="#SliverGrid" style="font-size:17px; color:green;"><b>`SliverGrid`</b></a> | 滚动性能优化的网格布局 |
 
-##### <span id="jobs-toc-heading-132" data-jobs-toc="v2">19.5.1、🧱<font id=Table>`Table`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#表格&网格布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-133" data-jobs-toc="v2">19.5.1、🧱<font id=Table>`Table`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#表格&网格布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-133" data-jobs-toc="v2">19.5.2、🧱<font id=GridView>`GridView`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#表格&网格布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-134" data-jobs-toc="v2">19.5.2、🧱<font id=GridView>`GridView`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#表格&网格布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-134" data-jobs-toc="v2">19.5.3、🧱<font id=SliverGrid>`SliverGrid`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#表格&网格布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-135" data-jobs-toc="v2">19.5.3、🧱<font id=SliverGrid>`SliverGrid`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#表格&网格布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-135" data-jobs-toc="v2">19.6、🧱<font id=滚动&Sliver布局>滚动 & `Sliver` 布局</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-136" data-jobs-toc="v2">19.6、🧱<font id=滚动&Sliver布局>滚动 & `Sliver` 布局</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-136" data-jobs-toc="v2">19.6.1、🧱单子滚动 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-137" data-jobs-toc="v2">19.6.1、🧱单子滚动 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-###### <span id="jobs-toc-heading-137" data-jobs-toc="v2">19.6.1.1、🧱`SingleChildScrollView` —— 单个子节点的滚动容器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-138" data-jobs-toc="v2">19.6.1.1、🧱`SingleChildScrollView` —— 单个子节点的滚动容器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-138" data-jobs-toc="v2">19.6.2、🧱高级滚动视图 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-139" data-jobs-toc="v2">19.6.2、🧱高级滚动视图 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-###### <span id="jobs-toc-heading-139" data-jobs-toc="v2">19.6.2.1、`ListView` —— 基于 `SliverList` 的线性滚动列表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-140" data-jobs-toc="v2">19.6.2.1、`ListView` —— 基于 `SliverList` 的线性滚动列表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 * `Column`.`children`.`Expanded`.`child`.`ListView.separated`（`row`同理）
 
@@ -6829,21 +6848,21 @@ class MyFlowDelegate extends FlowDelegate {
   >
   > `Expanded` → 把 `ListView` 包起来，强制它“占据剩余空间”，这样就有了明确的高度约束。
 
-###### <span id="jobs-toc-heading-140" data-jobs-toc="v2">19.6.2.2、`GridView` —— 基于 `SliverGrid` 的网格滚动列表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-141" data-jobs-toc="v2">19.6.2.2、`GridView` —— 基于 `SliverGrid` 的网格滚动列表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-###### <span id="jobs-toc-heading-141" data-jobs-toc="v2">19.6.2.3、`PageView` —— 基于 `SliverFillViewport` 的分页滚动 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-142" data-jobs-toc="v2">19.6.2.3、`PageView` —— 基于 `SliverFillViewport` 的分页滚动 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-142" data-jobs-toc="v2">19.6.3、🧱通用`Sliver`容器 <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-143" data-jobs-toc="v2">19.6.3、🧱通用`Sliver`容器 <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-###### <span id="jobs-toc-heading-143" data-jobs-toc="v2">19.6.3.1、`CustomScrollView` —— 容器，支持组合多个 Sliver <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-144" data-jobs-toc="v2">19.6.3.1、`CustomScrollView` —— 容器，支持组合多个 Sliver <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-###### <span id="jobs-toc-heading-144" data-jobs-toc="v2">19.6.3.2、`NestedScrollView` —— 支持嵌套滚动，常用场景：带 `SliverAppBar` + `TabBarView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-145" data-jobs-toc="v2">19.6.3.2、`NestedScrollView` —— 支持嵌套滚动，常用场景：带 `SliverAppBar` + `TabBarView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-145" data-jobs-toc="v2">19.6.4、🧱`Sliver`基础组件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-146" data-jobs-toc="v2">19.6.4、🧱`Sliver`基础组件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 > 低层 API，**ListView**/**GridView** 的底层
 
-###### <span id="jobs-toc-heading-146" data-jobs-toc="v2">19.6.4.1、🧱`SliverList` —— 列表（线性）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-147" data-jobs-toc="v2">19.6.4.1、🧱`SliverList` —— 列表（线性）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 * **`ListView`** 本质就是 **`SliverList` + `Scrollable` 的高级封装**，用户不用自己写 **Sliver** 也能用。
 
@@ -6866,19 +6885,19 @@ class MyFlowDelegate extends FlowDelegate {
   }
   ```
 
-###### <span id="jobs-toc-heading-147" data-jobs-toc="v2">19.6.4.2、🧱`SliverFixedExtentList` —— 固定高度列表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
-###### <span id="jobs-toc-heading-148" data-jobs-toc="v2">19.6.4.3、🧱`SliverGrid` —— 网格 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
-###### <span id="jobs-toc-heading-149" data-jobs-toc="v2">19.6.4.4、🧱`SliverAppBar` —— 可折叠头部 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
-###### <span id="jobs-toc-heading-150" data-jobs-toc="v2">19.6.4.5、🧱`SliverPersistentHeader` —— 固定或吸顶头部 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
-###### <span id="jobs-toc-heading-151" data-jobs-toc="v2">19.6.4.6、🧱`SliverToBoxAdapter` —— 把普通 **widget** 适配成 **Sliver** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-148" data-jobs-toc="v2">19.6.4.2、🧱`SliverFixedExtentList` —— 固定高度列表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-149" data-jobs-toc="v2">19.6.4.3、🧱`SliverGrid` —— 网格 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-150" data-jobs-toc="v2">19.6.4.4、🧱`SliverAppBar` —— 可折叠头部 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-151" data-jobs-toc="v2">19.6.4.5、🧱`SliverPersistentHeader` —— 固定或吸顶头部 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-152" data-jobs-toc="v2">19.6.4.6、🧱`SliverToBoxAdapter` —— 把普通 **widget** 适配成 **Sliver** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-152" data-jobs-toc="v2">19.6.5、🧱`Sliver`布局控制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a><a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-153" data-jobs-toc="v2">19.6.5、🧱`Sliver`布局控制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a><a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-###### <span id="jobs-toc-heading-153" data-jobs-toc="v2">19.6.5.1、🧱`SliverPadding` —— **Sliver** 外边距 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
-###### <span id="jobs-toc-heading-154" data-jobs-toc="v2">19.6.5.2、🧱`SliverFillRemaining` —— 占满剩余空间 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
-###### <span id="jobs-toc-heading-155" data-jobs-toc="v2">19.6.5.3、🧱`SliverFillViewport` —— 类似 **PageView** 效果 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-154" data-jobs-toc="v2">19.6.5.1、🧱`SliverPadding` —— **Sliver** 外边距 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-155" data-jobs-toc="v2">19.6.5.2、🧱`SliverFillRemaining` —— 占满剩余空间 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-156" data-jobs-toc="v2">19.6.5.3、🧱`SliverFillViewport` —— 类似 **PageView** 效果 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#滚动&Sliver布局" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-156" data-jobs-toc="v2">19.7、🧱<font id=边距&填充&对齐>边距&填充&对齐</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-157" data-jobs-toc="v2">19.7、🧱<font id=边距&填充&对齐>边距&填充&对齐</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget                                                       | 功能说明                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -6890,19 +6909,19 @@ class MyFlowDelegate extends FlowDelegate {
 | <a href="#Baseline" style="font-size:17px; color:green;"><b>`Baseline`</b></a> | 按基线对齐                                                   |
 | <a href="#Baseline" style="font-size:17px; color:green;"><b>`Transform`</b></a> | 用于任何**`Widget`**外部来实现相对原位置的偏移               |
 
-##### <span id="jobs-toc-heading-157" data-jobs-toc="v2">19.7.1、🧱<font id=Padding>`Padding`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-158" data-jobs-toc="v2">19.7.1、🧱<font id=Padding>`Padding`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-158" data-jobs-toc="v2">19.7.2、🧱<font id=Margin>`Margin`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-159" data-jobs-toc="v2">19.7.2、🧱<font id=Margin>`Margin`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-159" data-jobs-toc="v2">19.7.3、🧱<font id=Container>`Container`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-160" data-jobs-toc="v2">19.7.3、🧱<font id=Container>`Container`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-160" data-jobs-toc="v2">19.7.4、🧱<font id=Align>`Align`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-161" data-jobs-toc="v2">19.7.4、🧱<font id=Align>`Align`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-161" data-jobs-toc="v2">19.7.5、🧱<font id=Center>`Center`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-162" data-jobs-toc="v2">19.7.5、🧱<font id=Center>`Center`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-162" data-jobs-toc="v2">19.7.6、🧱<font id=Baseline>`Baseline`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-163" data-jobs-toc="v2">19.7.6、🧱<font id=Baseline>`Baseline`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-163" data-jobs-toc="v2">19.7.7、🧱<font id=Baseline>`Transform`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-164" data-jobs-toc="v2">19.7.7、🧱<font id=Baseline>`Transform`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#边距&填充&对齐" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Transform.translate(
@@ -6922,7 +6941,7 @@ Transform.translate(
 | 可以动画使用      | ❌ 手动实现动画             | ✅ 可配合动画控制偏移                   |
 | 适用场景          | 精确放置子组件位置         | 轻量位置偏移、动画滑动、视觉错位效果等 |
 
-#### <span id="jobs-toc-heading-164" data-jobs-toc="v2">19.8、🧱<font id=布局辅助>布局辅助</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-165" data-jobs-toc="v2">19.8、🧱<font id=布局辅助>布局辅助</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget                                                       | 功能说明                   |
 | ------------------------------------------------------------ | -------------------------- |
@@ -6931,25 +6950,25 @@ Transform.translate(
 | <a href="#LayoutBuilder" style="font-size:17px; color:green;"><b>`LayoutBuilder`</b></a> | 可根据父约束动态构建子组件 |
 | <a href="#CustomSingleChildLayout/CustomMultiChildLayout" style="font-size:17px; color:green;"><b>`CustomSingleChildLayout` / `CustomMultiChildLayout`</b></a> | 高级自定义布局逻辑         |
 
-##### <span id="jobs-toc-heading-165" data-jobs-toc="v2">19.8.1、🧱<font id=Offstage>`Offstage`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#布局辅助" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-166" data-jobs-toc="v2">19.8.1、🧱<font id=Offstage>`Offstage`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#布局辅助" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-##### <span id="jobs-toc-heading-166" data-jobs-toc="v2">19.8.2、🧱<font id=Visibility>`Visibility`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#布局辅助" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-167" data-jobs-toc="v2">19.8.2、🧱<font id=Visibility>`Visibility`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#布局辅助" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-##### <span id="jobs-toc-heading-167" data-jobs-toc="v2">19.8.3、🧱<font id=LayoutBuilder>`LayoutBuilder`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#布局辅助" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-168" data-jobs-toc="v2">19.8.3、🧱<font id=LayoutBuilder>`LayoutBuilder`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#布局辅助" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-##### <span id="jobs-toc-heading-168" data-jobs-toc="v2">19.8.4、🧱<font id=CustomSingleChildLayout/CustomMultiChildLayout>`CustomSingleChildLayout` / `CustomMultiChildLayout`</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#布局辅助" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-169" data-jobs-toc="v2">19.8.4、🧱<font id=CustomSingleChildLayout/CustomMultiChildLayout>`CustomSingleChildLayout` / `CustomMultiChildLayout`</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a> <a href="#布局辅助" style="font-size:17px; color:green;"><b>⬆️</b></a></span><!-- jobs-toc:heading-end -->
 
 * **`CustomSingleChildLayout `**
 
@@ -7078,9 +7097,9 @@ Transform.translate(
   }
   ```
 
-### <span id="jobs-toc-heading-169" data-jobs-toc="v2">20、✅ [**Flutter**](https://flutter.dev/)中，实现相对位置布局的几种方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-170" data-jobs-toc="v2">20、✅ [**Flutter**](https://flutter.dev/)中，实现相对位置布局的几种方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-170" data-jobs-toc="v2">20.1、使用 `Column` / `Row`（线性排列 + 间距控制） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-171" data-jobs-toc="v2">20.1、使用 `Column` / `Row`（线性排列 + 间距控制） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>点击展开代码</summary>
@@ -7096,7 +7115,7 @@ Column(
 ```
 </details>
 
-#### <span id="jobs-toc-heading-171" data-jobs-toc="v2">20.2、使用 `Stack + Positioned`（绝对锚点式） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-172" data-jobs-toc="v2">20.2、使用 `Stack + Positioned`（绝对锚点式） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>点击展开代码</summary>
@@ -7119,7 +7138,7 @@ Stack(
 ```
 </details>
 
-#### <span id="jobs-toc-heading-172" data-jobs-toc="v2">20.3、使用 `Align` + `FractionalOffset`  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-173" data-jobs-toc="v2">20.3、使用 `Align` + `FractionalOffset`  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > ✅ 适合相对父组件的对齐布局。相对“容器”对齐，但不能锚定某个兄弟控件
 
@@ -7134,7 +7153,7 @@ Align(
 ```
 </details>
 
-#### <span id="jobs-toc-heading-173" data-jobs-toc="v2">20.4、使用 `CustomMultiChildLayout` 实现锚定兄弟 **`Widget`**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-174" data-jobs-toc="v2">20.4、使用 `CustomMultiChildLayout` 实现锚定兄弟 **`Widget`**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > [**Flutter**](https://flutter.dev/) 的高级布局 **`Widget`**，支持**通过 key 锚定某个子`Widget` 的位置来放置另一个子 Widget**
 
@@ -7166,11 +7185,11 @@ class _AnchorLayoutDelegate extends MultiChildLayoutDelegate {
 ```
 </details>
 
-### <span id="jobs-toc-heading-174" data-jobs-toc="v2">21、🎍[**Flutter**](https://flutter.dev/)装饰相关@**`Widget`**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-175" data-jobs-toc="v2">21、🎍[**Flutter**](https://flutter.dev/)装饰相关@**`Widget`**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 🔹 装饰类：**看得见的美化**（颜色、边框、阴影、裁剪...）
 
-#### <span id="jobs-toc-heading-175" data-jobs-toc="v2">21.1、🎍装饰容器组件（具备布局和装饰能力） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-176" data-jobs-toc="v2">21.1、🎍装饰容器组件（具备布局和装饰能力） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | Widget / 类名            | 类型     | 功能说明                                                     |
 | ------------------------ | -------- | ------------------------------------------------------------ |
@@ -7180,7 +7199,7 @@ class _AnchorLayoutDelegate extends MultiChildLayoutDelegate {
 | `Material`               | `Widget` | **Material** 风格容器，可设置阴影、圆角、颜色等              |
 | `Ink`                    | `Widget` | 与 `InkWell` 配合实现水波纹背景、圆角、装饰色等              |
 
-#### <span id="jobs-toc-heading-176" data-jobs-toc="v2">21.2、🎍装饰构建类（**`Decoration`** 体系）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-177" data-jobs-toc="v2">21.2、🎍装饰构建类（**`Decoration`** 体系）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 类名                    | 类型                      | 功能说明                                               |
 | ----------------------- | ------------------------- | ------------------------------------------------------ |
@@ -7190,7 +7209,7 @@ class _AnchorLayoutDelegate extends MultiChildLayoutDelegate {
 | `UnderlineTabIndicator` | **`Decoration`**          | TabBar 下划线装饰                                      |
 | `InputDecoration`       | 类（非 **`Decoration`**） | TextField 输入框样式结构，字段名相似但独立体系         |
 
-##### <span id="jobs-toc-heading-177" data-jobs-toc="v2">21.2.1、**`TextField`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-178" data-jobs-toc="v2">21.2.1、**`TextField`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 控制器 / 焦点
 
@@ -7295,7 +7314,7 @@ class _AnchorLayoutDelegate extends MultiChildLayoutDelegate {
   - **restorationId**：状态恢复用 ID。
   - **groupId**：多个输入框共享输入法。
 
-#### <span id="jobs-toc-heading-178" data-jobs-toc="v2">21.3、🎍装饰参数 / 协作类（**`Decoration`** 构成元素）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-179" data-jobs-toc="v2">21.3、🎍装饰参数 / 协作类（**`Decoration`** 构成元素）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 类名                   | 类型                           | 功能说明                         |
 | ---------------------- | ------------------------------ | -------------------------------- |
@@ -7314,7 +7333,7 @@ class _AnchorLayoutDelegate extends MultiChildLayoutDelegate {
 | `BlendMode`            | 枚举                           | 图像混合模式（与 `color` 联用）  |
 | `FilterQuality`        | 枚举                           | 图片缩放质量选项                 |
 
-#### <span id="jobs-toc-heading-179" data-jobs-toc="v2">21.4、🎍视觉增强类（非 **`Decoration`**，但常用于装饰）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-180" data-jobs-toc="v2">21.4、🎍视觉增强类（非 **`Decoration`**，但常用于装饰）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | `Widget` / 类名   | 类型     | 功能说明                             |
 | ----------------- | -------- | ------------------------------------ |
@@ -7329,9 +7348,9 @@ class _AnchorLayoutDelegate extends MultiChildLayoutDelegate {
 | `CustomPaint`     | `Widget` | 自定义绘制（绘图）                   |
 | `RepaintBoundary` | `Widget` | 性能优化：阻断重绘区域（不具装饰性） |
 
-### <span id="jobs-toc-heading-180" data-jobs-toc="v2">22、其他**`Widget`** 分类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-181" data-jobs-toc="v2">22、其他**`Widget`** 分类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-181" data-jobs-toc="v2">22.1、♻️ 交互类  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-182" data-jobs-toc="v2">22.1、♻️ 交互类  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 提供用户输入、点击、拖拽、手势等功能
 
@@ -7342,7 +7361,7 @@ class _AnchorLayoutDelegate extends MultiChildLayoutDelegate {
 | 滑动/拖动类 | `Slider`, `Switch`, `Draggable`, `Dismissible` |
 | 手势类      | `GestureDetector`, `InkWell`                   |
 
-##### <span id="jobs-toc-heading-182" data-jobs-toc="v2">22.1.1、`DropdownButton` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-183" data-jobs-toc="v2">22.1.1、`DropdownButton` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 DropdownButtonHideUnderline(
@@ -7360,7 +7379,7 @@ DropdownButtonHideUnderline(
 )
 ```
 
-#### <span id="jobs-toc-heading-183" data-jobs-toc="v2">22.2、🧭 导航 & 路由类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-184" data-jobs-toc="v2">22.2、🧭 导航 & 路由类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 用于构建页面跳转、Tab 切换等
 
@@ -7369,7 +7388,7 @@ DropdownButtonHideUnderline(
 | 路由相关 | `Navigator`, `PageView`, `MaterialPageRoute`  |
 | Tab 切换 | `TabBar`, `TabBarView`, `BottomNavigationBar` |
 
-#### <span id="jobs-toc-heading-184" data-jobs-toc="v2">22.3、🪓 功能控制类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-185" data-jobs-toc="v2">22.3、🪓 功能控制类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 用于生命周期控制、可见性、构建逻辑等
 
@@ -7379,7 +7398,7 @@ DropdownButtonHideUnderline(
 | 显隐控制     | `Visibility`, `Offstage`, `Opacity`             |
 | 占位/延迟    | `FutureBuilder`, `StreamBuilder`, `Placeholder` |
 
-##### <span id="jobs-toc-heading-185" data-jobs-toc="v2">22.3.1、<font id=FutureBuilder>**`Widget`.`FutureBuilder`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-186" data-jobs-toc="v2">22.3.1、<font id=FutureBuilder>**`Widget`.`FutureBuilder`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > `FutureBuilder` 是 [**Flutter**](https://flutter.dev/) 里专门用来处理 <a href="#Future" style="font-size:17px; color:green;"><b>异步任务（Future）</b></a>**结果** 的 **Widget**。它的核心作用就是：在等待异步任务完成前、完成后、以及出错时，自动帮你切换 UI。
 
@@ -7411,7 +7430,7 @@ DropdownButtonHideUnderline(
   )
   ```
 
-#### <span id="jobs-toc-heading-186" data-jobs-toc="v2">22.4、🖥️ 内容展示类  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-187" data-jobs-toc="v2">22.4、🖥️ 内容展示类  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 用来呈现用户可见的内容：文字、图片、图标、视频等
 
@@ -7422,7 +7441,7 @@ DropdownButtonHideUnderline(
 | 图标类   | `Icon`, `IconButton`                         |
 | 其他媒体 | `VideoPlayer`, `Canvas`, `CustomPaint`       |
 
-#### <span id="jobs-toc-heading-187" data-jobs-toc="v2">22.5、🪣 容器类  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-188" data-jobs-toc="v2">22.5、🪣 容器类  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >  用来包裹内容并提供 **样式、装饰、边框、背景、阴影**
 
@@ -7434,7 +7453,7 @@ DropdownButtonHideUnderline(
 | `PhysicalModel` | 控制阴影、抗锯齿、透明等底层视觉效果   |
 | `Material`      | 实现 **material** 效果（配合 **Ink**） |
 
-### <span id="jobs-toc-heading-188" data-jobs-toc="v2">23、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)访问：🖼️相册、📹摄像头、🎤麦克风等系统级功能 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-189" data-jobs-toc="v2">23、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)访问：🖼️相册、📹摄像头、🎤麦克风等系统级功能 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > <font color=red>**办不到**</font>。**必须依赖原生平台能力（如 [**Android**](https://www.android.com/) 的 Java/Kotlin、iOS 的 Objective-C/Swift）**，因此这类功能在 [**Dart**](https://dart.dev/) 层都需要通过 **Platform Channel 或插件** 实现。
 >
@@ -7449,9 +7468,9 @@ DropdownButtonHideUnderline(
 >
 > 这些都需要平台（[**Android**](https://www.android.com/)/**iOS**）的 **原生 API 提供支持**。
 
-### <span id="jobs-toc-heading-189" data-jobs-toc="v2">24、👂监听 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-190" data-jobs-toc="v2">24、👂监听 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-190" data-jobs-toc="v2">24.1、👂监听@路由：`NavigatorObserver` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-191" data-jobs-toc="v2">24.1、👂监听@路由：`NavigatorObserver` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ `class RouteObserver<R extends Route<dynamic>> extends NavigatorObserver `
 >
@@ -7504,7 +7523,7 @@ builder: (context, child) {
 
 </details>
 
-#### <span id="jobs-toc-heading-191" data-jobs-toc="v2">24.2、👂监听@APP 生命周期：`WidgetsBindingObserver` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-192" data-jobs-toc="v2">24.2、👂监听@APP 生命周期：`WidgetsBindingObserver` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 主要通过实现 `WidgetsBindingObserver` 接口来完成
 
@@ -7513,11 +7532,11 @@ builder: (context, child) {
 * 语言切换
 * 内存压力警告等
 
-#### <span id="jobs-toc-heading-192" data-jobs-toc="v2">24.3、👂监听@滚动（未完待续） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-193" data-jobs-toc="v2">24.3、👂监听@滚动（未完待续） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-193" data-jobs-toc="v2">24.4、👂监听@数据变化通知（未完待续） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-194" data-jobs-toc="v2">24.4、👂监听@数据变化通知（未完待续） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-194" data-jobs-toc="v2">24.5、👂<font id=监听@键盘（弹起&落下）>监听@键盘（弹起&落下）</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-195" data-jobs-toc="v2">24.5、👂<font id=监听@键盘（弹起&落下）>监听@键盘（弹起&落下）</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 全局键盘状态管理器，不依赖第三方，任何地方都能拿到
 
@@ -7659,11 +7678,11 @@ builder: (context, child) {
   });
   ```
 
-#### <span id="jobs-toc-heading-195" data-jobs-toc="v2">24.6、👂监听@网络（未完待续） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-196" data-jobs-toc="v2">24.6、👂监听@网络（未完待续） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-196" data-jobs-toc="v2">25、富文本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-197" data-jobs-toc="v2">25、富文本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-197" data-jobs-toc="v2">25.1、风评 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-198" data-jobs-toc="v2">25.1、风评 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 🍎 **iOS** 🆚 🐦 [**Flutter**](https://flutter.dev/)
 
@@ -7688,7 +7707,7 @@ builder: (context, child) {
   >
   > 所以，[**Flutter**](https://flutter.dev/) 没办法像 iOS 那样，一行代码全搞定。
 
-#### <span id="jobs-toc-heading-198" data-jobs-toc="v2">25.2、[**JobsRichText**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/JobsRichText.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-199" data-jobs-toc="v2">25.2、[**JobsRichText**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/JobsRichText.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'package:flutter/material.dart';
@@ -7717,7 +7736,7 @@ Widget buildAmountShort() {
 }
 ```
 
-### <span id="jobs-toc-heading-199" data-jobs-toc="v2">26、Tab切换：**`IndexedStack`**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-200" data-jobs-toc="v2">26、Tab切换：**`IndexedStack`**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 
 <details>
@@ -7788,9 +7807,9 @@ Obx(() => IndexedStack(
 
 </details>
 
-### <span id="jobs-toc-heading-200" data-jobs-toc="v2">27、状态管理工具  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-201" data-jobs-toc="v2">27、状态管理工具  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-201" data-jobs-toc="v2">27.1、[**`Provider`**](https://pub.dev/packages/provider)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-202" data-jobs-toc="v2">27.1、[**`Provider`**](https://pub.dev/packages/provider)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 by [**Rémi Rousselet**](https://github.com/rrousselGit)
 
@@ -7848,13 +7867,13 @@ by [**Rémi Rousselet**](https://github.com/rrousselGit)
   ```
   </details>
 
-#### <span id="jobs-toc-heading-202" data-jobs-toc="v2">27.2、[**`riverpod`**](https://riverpod.dev/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-203" data-jobs-toc="v2">27.2、[**`riverpod`**](https://riverpod.dev/)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 by [**Rémi Rousselet**](https://github.com/rrousselGit)
 
 >  [**`Provider`**](https://pub.dev/packages/provider) 的升级（完全）重构版，解决了  [**`Provider`**](https://pub.dev/packages/provider)  的所有限制和设计缺陷，**推荐用于大型项目**
 
-#### <span id="jobs-toc-heading-203" data-jobs-toc="v2">27.3、[**`flutter_bloc`**](https://pub.dev/packages/flutter_bloc) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-204" data-jobs-toc="v2">27.3、[**`flutter_bloc`**](https://pub.dev/packages/flutter_bloc) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ [**flutter_bloc**](https://pub.dev/packages/flutter_bloc) 是 [**Google**](https://www.google.com/) 官方支持的 [**Flutter**](https://flutter.dev/) 状态管理库，基于 **BLoC**（<font color=red>**B**</font>usiness <font color=red>**Lo**</font>gic <font color=red>**C**</font>omponent） 思想封装，功能非常完整，尤其适合中大型项目。（不再手动管理 `StreamController`，代码更简洁）
 >
@@ -7889,9 +7908,9 @@ by [**Rémi Rousselet**](https://github.com/rrousselGit)
 > | **`context.watch<T>()`**     | 方法   | 获取并监听 **Bloc**/**Cubit**，状态变化时触发 **`rebuild`**  |
 > | **`context.select<T, R>()`** | 方法   | 精准监听某个属性变化，避免无意义重建                         |
 
-#### <span id="jobs-toc-heading-204" data-jobs-toc="v2">27.4、🉐[**`GetX`**](https://pub.dev/packages/get) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-205" data-jobs-toc="v2">27.4、🉐[**`GetX`**](https://pub.dev/packages/get) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-205" data-jobs-toc="v2">27.4.1、🉐[**`GetX`**](https://pub.dev/packages/get) （六种）依赖注册方式对比表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-206" data-jobs-toc="v2">27.4.1、🉐[**`GetX`**](https://pub.dev/packages/get) （六种）依赖注册方式对比表 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 在不设置 `permanent: true` 的默认情况下，**Get.put()**、**Get.lazyPut()**、**Get.create()** 所创建的对象，**生命周期都不会永久保留**，用完就“没了”或“会被释放”，只不过：
 >
@@ -8090,7 +8109,7 @@ by [**Rémi Rousselet**](https://github.com/rrousselGit)
   /// TODO
   ```
   </details>
-##### <span id="jobs-toc-heading-206" data-jobs-toc="v2">27.4.2、🉐[**`GetX`**](https://pub.dev/packages/get) 的销毁机制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-207" data-jobs-toc="v2">27.4.2、🉐[**`GetX`**](https://pub.dev/packages/get) 的销毁机制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ [**`GetX`**](https://pub.dev/packages/get)  中的依赖对象如果不是 `permanent: true`，默认在无人使用时可以被释放（或你手动释放）。
 >
@@ -8107,7 +8126,7 @@ by [**Rémi Rousselet**](https://github.com/rrousselGit)
 | `Get.reset()`              | 重置整个依赖管理系统（清空所有 Controller、Service、路由信息等） |
 | `Get.resetLazy<T>()`       | 重置指定类型的懒加载依赖（配合 `lazyPut`）                   |
 
-##### <span id="jobs-toc-heading-207" data-jobs-toc="v2">27.4.3、🉐[**`GetX`**](https://pub.dev/packages/get) <font color=red>**页面解耦绑定数据源**</font>💥 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-208" data-jobs-toc="v2">27.4.3、🉐[**`GetX`**](https://pub.dev/packages/get) <font color=red>**页面解耦绑定数据源**</font>💥 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >  [**`GetX`**](https://pub.dev/packages/get)  推荐的最佳实践方式：**`GetPage`** ➕ **`Binding`** ➕ **`GetView` ** ➕ **`Controller`**
 
@@ -8222,7 +8241,7 @@ class CounterPage extends GetView<CounterController> {
 
 </details>
 
-###### <span id="jobs-toc-heading-208" data-jobs-toc="v2">27.4.3.1、🉐 **`GetxController`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-209" data-jobs-toc="v2">27.4.3.1、🉐 **`GetxController`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ `GetxController` 是一个继承自 `Controller` 的类，用于管理你的页面状态和业务逻辑。
 >
@@ -8288,7 +8307,7 @@ class CounterPage extends GetView<CounterController> {
   }
   ```
 
-###### <span id="jobs-toc-heading-209" data-jobs-toc="v2">27.4.3.2、🉐 **`binding`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-210" data-jobs-toc="v2">27.4.3.2、🉐 **`binding`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **`binding` 就是提前绑定 `controller` 的地方。**让你不需要在页面里手动写 **`Get.put()`** 或 **`Get.lazyPut()`**
 
@@ -8325,7 +8344,7 @@ class CounterPage extends GetView<CounterController> {
   ),
   ```
 
-###### <span id="jobs-toc-heading-210" data-jobs-toc="v2">27.4.3.3、🉐 <font id=Getx@正向路由传参>**[`GetX`](https://pub.dev/packages/get) （正向）路由传参**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-211" data-jobs-toc="v2">27.4.3.3、🉐 <font id=Getx@正向路由传参>**[`GetX`](https://pub.dev/packages/get) （正向）路由传参**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 数据绑定
 
@@ -8365,7 +8384,7 @@ class CounterPage extends GetView<CounterController> {
   }
   ```
 
-###### <span id="jobs-toc-heading-211" data-jobs-toc="v2">27.4.3.4、🉐 <font id=GetView>**`GetView<T>`**</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-212" data-jobs-toc="v2">27.4.3.4、🉐 <font id=GetView>**`GetView<T>`**</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > * 是 `StatelessWidget` 的子类：`class GetView<T extends GetxController> extends StatelessWidget`
 > * 适用于 `StatelessWidget`。<font color=red>不能用于 `StatefulWidget`</font>
@@ -8417,7 +8436,7 @@ class CounterPage extends StatelessWidget {
 ```
 </details>
 
-###### <span id="jobs-toc-heading-212" data-jobs-toc="v2">27.4.3.5、🉐 [**`GetX`**](https://pub.dev/packages/get) 值的双向绑定：<font color=red>**`Obx`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-213" data-jobs-toc="v2">27.4.3.5、🉐 [**`GetX`**](https://pub.dev/packages/get) 值的双向绑定：<font color=red>**`Obx`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >  ```dart
 >  final RxBool loading = false.obs;// 数据的包装
@@ -8543,7 +8562,7 @@ class JobsBinding extends Bindings {
 
 </details>
 
-###### <span id="jobs-toc-heading-213" data-jobs-toc="v2">27.4.3.6、🉐 <font id=GetPage>**`GetPage()`**</font>📃 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-214" data-jobs-toc="v2">27.4.3.6、🉐 <font id=GetPage>**`GetPage()`**</font>📃 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 用于在 `GetMaterialApp` 中注册页面，它包含了页面路径、页面构造函数、绑定依赖、转场动画等信息。
 >
@@ -8579,7 +8598,7 @@ GetPage(
 )
 ```
 
-###### <span id="jobs-toc-heading-214" data-jobs-toc="v2">27.4.3.7、🉐 基于[**`GetX`**](https://pub.dev/packages/get) 最佳实践的完整项目结构模板（项目名为：`getx_demo`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-215" data-jobs-toc="v2">27.4.3.7、🉐 基于[**`GetX`**](https://pub.dev/packages/get) 最佳实践的完整项目结构模板（项目名为：`getx_demo`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>点击展开代码</summary>
@@ -8700,7 +8719,7 @@ class MyApp extends StatelessWidget {
 
 </details>
 
-##### <span id="jobs-toc-heading-215" data-jobs-toc="v2">27.4.4、🉐 <font id=GetX路由>[**`GetX`**](https://pub.dev/packages/get) 路由</font>🧭 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-216" data-jobs-toc="v2">27.4.4、🉐 <font id=GetX路由>[**`GetX`**](https://pub.dev/packages/get) 路由</font>🧭 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >  [**`GetX`**](https://pub.dev/packages/get)  的路由系统是一套集命名路由、依赖注入、中间件、动画于一体的强大路由管理机制，推荐用 `GetPage` + 命名跳转方式为主线结构！
 
@@ -8714,7 +8733,7 @@ class MyApp extends StatelessWidget {
 | 转场动画           | 复杂                  | 简单（内建 `Transition` 枚举）    |
 | 嵌套路由 / 子路由  | 较复杂                | ✅ 支持 children 嵌套路由          |
 
-###### <span id="jobs-toc-heading-216" data-jobs-toc="v2">27.4.4.1、🉐 [**`GetX`**](https://pub.dev/packages/get) 免路由管理页面（直接跳 **`Widget`**） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-217" data-jobs-toc="v2">27.4.4.1、🉐 [**`GetX`**](https://pub.dev/packages/get) 免路由管理页面（直接跳 **`Widget`**） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   > ✅ 优点：不用提前注册页面
   > ❌ 缺点：不支持 **binding**、动画、中间件
@@ -8774,7 +8793,7 @@ Get.offAll(LoginView());      // 清空栈后跳转
 
 </details>
 
-###### <span id="jobs-toc-heading-217" data-jobs-toc="v2">27.4.4.2、🉐 命名路由（推荐方式） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-218" data-jobs-toc="v2">27.4.4.2、🉐 命名路由（推荐方式） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 需要配合<a href="#GetPage" style="font-size:17px; color:green;"><b>GetPage()</b></a> 注册
 
@@ -8862,7 +8881,7 @@ Get.offAllNamed('/splash');
   ```dart
   Get.toNamed('/home');
   ```
-##### <span id="jobs-toc-heading-218" data-jobs-toc="v2">27.4.5、🉐 **`GetxService`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-219" data-jobs-toc="v2">27.4.5、🉐 **`GetxService`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > `GetxService` 是 [**`GetX`**](https://pub.dev/packages/get)  提供的**专门用于全局单例管理的服务类**，适合放一些只需要创建一次，整个 App 生命周期中都不释放的“后台服务”
 
@@ -8919,7 +8938,7 @@ print(authService.token);
 ```
 </details>
 
-##### <span id="jobs-toc-heading-219" data-jobs-toc="v2">27.4.6、🉐 [**`GetX`**](https://pub.dev/packages/get)  具有 UI 效果的函数方法（非 **`Widget`**） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-220" data-jobs-toc="v2">27.4.6、🉐 [**`GetX`**](https://pub.dev/packages/get)  具有 UI 效果的函数方法（非 **`Widget`**） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 方法名                    | 用途/效果            | 说明                                                     |
 | ------------------------- | -------------------- | -------------------------------------------------------- |
@@ -9020,7 +9039,7 @@ print(authService.token);
   ```
   </details>
 
-##### <span id="jobs-toc-heading-220" data-jobs-toc="v2">27.4.7、🉐 [**`GetX`**](https://pub.dev/packages/get) 的 UI 控制行为函数 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-221" data-jobs-toc="v2">27.4.7、🉐 [**`GetX`**](https://pub.dev/packages/get) 的 UI 控制行为函数 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | **方法名**                       | **行为描述**                                         | **说明**                                                     |
 | -------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ |
@@ -9040,7 +9059,7 @@ print(authService.token);
 | **`Get.isSnackbarOpen`**         | 当前是否有 **snackbar** 被打开                       | 判断是否有提示条正在显示中                                   |
 | **`Get.isBottomSheetOpen`**      | 当前是否有 **bottomSheet** 被打开                    | 判断是否有底部弹窗正在显示中                                 |
 
-##### <span id="jobs-toc-heading-221" data-jobs-toc="v2">27.4.8、🉐 **`Get.key`🔑 **<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-222" data-jobs-toc="v2">27.4.8、🉐 **`Get.key`🔑 **<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **`Get.key` 就是给全局 Navigator 打了个 tag（标签）**，即：**全局 Navigator Key**。[**`GetX`**](https://pub.dev/packages/get)  把它注册到自己的容器里，之后你所有（**push**、**pop**、**dialog** 等）相关操作都可以**不需要 context，直接通过这个 tag 找到并调用 Navigator 的功能。**（<font color=red>类似于iOS的**通知机制**</font>）
 
@@ -9131,7 +9150,7 @@ ElevatedButton(
 > ➤ **任何时候用 `Get.dialog()`，都写上 `navigatorKey: Get.key`**，
 > ✅ 兼容所有场景、生命周期、嵌套结构，绝对不翻车。
 
-##### <span id="jobs-toc-heading-222" data-jobs-toc="v2">27.4.9、🉐 [**`GetX`**](https://pub.dev/packages/get) 多语言化  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-223" data-jobs-toc="v2">27.4.9、🉐 [**`GetX`**](https://pub.dev/packages/get) 多语言化  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 如果找不到对应 key，会 **原样返回原始字符串**（即 `"等待状态变化"`），不会报错或崩溃。
 
@@ -9139,7 +9158,7 @@ ElevatedButton(
 String status = "等待状态变化".tr;
 ```
 
-##### <span id="jobs-toc-heading-223" data-jobs-toc="v2">27.4.10、🉐 关于[**`GetX`**](https://pub.dev/packages/get) 的二次封装（语法糖🍬）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-224" data-jobs-toc="v2">27.4.10、🉐 关于[**`GetX`**](https://pub.dev/packages/get) 的二次封装（语法糖🍬）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>点击展开代码</summary>
@@ -9182,11 +9201,11 @@ late final MyTabCtrl tabController = getOrPut(() => MyTabCtrl());
 
 </details>
 
-##### <span id="jobs-toc-heading-224" data-jobs-toc="v2">27.4.11、🉐 **`GetInterface`**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-225" data-jobs-toc="v2">27.4.11、🉐 **`GetInterface`**  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > `GetInterface` 是 [**GetX**](https://pub.dev/packages/get)  全部功能 API 的“目录规范”，而 `Get` 是它的唯一实现。
 
-##### <span id="jobs-toc-heading-225" data-jobs-toc="v2">27.4.12、🉐 [**`GetX`**](https://pub.dev/packages/get)@通知📢  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-226" data-jobs-toc="v2">27.4.12、🉐 [**`GetX`**](https://pub.dev/packages/get)@通知📢  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 *  <a href="#InheritedWidget" style="font-size:17px; color:green;"><b>InheritedWidget</b></a>
 
@@ -9295,9 +9314,9 @@ late final MyTabCtrl tabController = getOrPut(() => MyTabCtrl());
     > class GetObserver extends NavigatorObserver with WidgetsBindingObserver
     > ```
 
-##### <span id="jobs-toc-heading-226" data-jobs-toc="v2">27.4.13、🉐<font id=GetX弹出框> [**`GetX`**](https://pub.dev/packages/get)@弹出框</font>🪟 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-227" data-jobs-toc="v2">27.4.13、🉐<font id=GetX弹出框> [**`GetX`**](https://pub.dev/packages/get)@弹出框</font>🪟 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-###### <span id="jobs-toc-heading-227" data-jobs-toc="v2">27.4.13.1、🉐 `Get.dialog(widget)` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-228" data-jobs-toc="v2">27.4.13.1、🉐 `Get.dialog(widget)` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Future<T?> dialog<T>(
@@ -9337,7 +9356,7 @@ Future<T?> dialog<T>(
 })
 ```
 
-###### <span id="jobs-toc-heading-228" data-jobs-toc="v2">27.4.13.2、🉐`Get.defaultDialog(widget)`<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-229" data-jobs-toc="v2">27.4.13.2、🉐`Get.defaultDialog(widget)`<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Future<T?> defaultDialog<T>({
@@ -9422,7 +9441,7 @@ Future<T?> defaultDialog<T>({
 })
 ```
 
-###### <span id="jobs-toc-heading-229" data-jobs-toc="v2">27.4.13.3、🉐`Get.snackbar("标题", "副标题");` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-230" data-jobs-toc="v2">27.4.13.3、🉐`Get.snackbar("标题", "副标题");` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 SnackbarController snackbar(
@@ -9541,7 +9560,7 @@ SnackbarController snackbar(
 })
 ```
 
-###### <span id="jobs-toc-heading-230" data-jobs-toc="v2">27.4.13.4、🉐`Get.bottomSheet(Widget)` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-231" data-jobs-toc="v2">27.4.13.4、🉐`Get.bottomSheet(Widget)` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 extension ExtensionBottomSheet on GetInterface {
@@ -9599,7 +9618,7 @@ extension ExtensionBottomSheet on GetInterface {
 }
 ```
 
-###### <span id="jobs-toc-heading-231" data-jobs-toc="v2">27.4.13.5、🉐`Get.rawSnackbar()` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-232" data-jobs-toc="v2">27.4.13.5、🉐`Get.rawSnackbar()` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 比 `Get.snackbar` 更底层的版本，完全自定义内容
 
@@ -9720,7 +9739,7 @@ extension ExtensionSnackbar on GetInterface {
 }
 ```
 
-###### <span id="jobs-toc-heading-232" data-jobs-toc="v2">27.4.13.6、🉐`Get.generalDialog(pageBuilder:X)` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+###### <span id="jobs-toc-heading-233" data-jobs-toc="v2">27.4.13.6、🉐`Get.generalDialog(pageBuilder:X)` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Future<T?> generalDialog<T>({
@@ -9757,7 +9776,7 @@ Future<T?> generalDialog<T>({
 })
 ```
 
-### <span id="jobs-toc-heading-233" data-jobs-toc="v2">28、导航栏左上角的<font color=green>**返回按钮🔙**</font>的<font color=red>**行为拦截和自定义**</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-234" data-jobs-toc="v2">28、导航栏左上角的<font color=green>**返回按钮🔙**</font>的<font color=red>**行为拦截和自定义**</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 用户点击 **iOS** 的导航栏返回键（左上角）
 >
@@ -9846,9 +9865,9 @@ abstract class RouteAwareState<T extends RouteAwareStatefulPage>
 
 </details>
 
-### <span id="jobs-toc-heading-234" data-jobs-toc="v2">29、图片缓存框架 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-235" data-jobs-toc="v2">29、图片缓存框架 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-235" data-jobs-toc="v2">29.1、[**CachedNetworkImage**](https://pub.dev/packages/cached_network_image)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-236" data-jobs-toc="v2">29.1、[**CachedNetworkImage**](https://pub.dev/packages/cached_network_image)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 == [**iOS.SDWebimage**](https://github.com/SDWebImage/SDWebImage)
 
@@ -9964,7 +9983,7 @@ class MyCustomCacheManager extends CacheManager {
 ```
 </details>
 
-#### <span id="jobs-toc-heading-236" data-jobs-toc="v2">29.2、[**`flutter_advanced_networkimage_2`**](https://pub.dev/packages/flutter_advanced_networkimage_2/versions)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-237" data-jobs-toc="v2">29.2、[**`flutter_advanced_networkimage_2`**](https://pub.dev/packages/flutter_advanced_networkimage_2/versions)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>flutter_advanced_networkimage_2</summary>
@@ -10064,7 +10083,7 @@ class AdvancedNetworkImageDemo extends StatelessWidget {
 ```
 </details>
 
-#### <span id="jobs-toc-heading-237" data-jobs-toc="v2">29.4、[**`flutter_cache_manager`**](https://pub.dev/packages/flutter_cache_manager)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-238" data-jobs-toc="v2">29.4、[**`flutter_cache_manager`**](https://pub.dev/packages/flutter_cache_manager)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>flutter_cache_manager + Image.file</summary>
@@ -10145,13 +10164,13 @@ class MyCustomCacheManager extends CacheManager {
 ```
 </details>
 
-#### <span id="jobs-toc-heading-238" data-jobs-toc="v2">29.5、[**`octo_image`**](https://pub.dev/packages/octo_image)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-239" data-jobs-toc="v2">29.5、[**`octo_image`**](https://pub.dev/packages/octo_image)  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-#### <span id="jobs-toc-heading-239" data-jobs-toc="v2">29.6、[**`FadeInImage`**](https://api.flutter.dev/flutter/widgets/FadeInImage-class.html) (by@[<font color=red>**Flutter**</font>.**SDK**](https://flutter.dev/)) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-240" data-jobs-toc="v2">29.6、[**`FadeInImage`**](https://api.flutter.dev/flutter/widgets/FadeInImage-class.html) (by@[<font color=red>**Flutter**</font>.**SDK**](https://flutter.dev/)) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <details>
 <summary>FadeInImage</summary>
@@ -10193,9 +10212,9 @@ class FadeInImageDemo extends StatelessWidget {
 ```
 </details>
 
-### <span id="jobs-toc-heading-240" data-jobs-toc="v2">30、<font color=red>**数据处理&转化**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-241" data-jobs-toc="v2">30、<font color=red>**数据处理&转化**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-241" data-jobs-toc="v2">30.1、取整 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-242" data-jobs-toc="v2">30.1、取整 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 表达式                             | 结果         | 返回类型 | 属于实例方法 | 说明                                                         |
 | ---------------------------------- | ------------ | -------- | ------------ | ------------------------------------------------------------ |
@@ -10209,7 +10228,7 @@ class FadeInImageDemo extends StatelessWidget {
 | `double.parse("3.14")`             | `3.14`       | `double` | ❌ 否         | String → double                                              |
 | `num.parse("5.5")`                 | `5.5`        | `num`    | ❌ 否         | String → 自动识别 int 或 double                              |
 
-#### <span id="jobs-toc-heading-242" data-jobs-toc="v2">30.2、有效数据 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-243" data-jobs-toc="v2">30.2、有效数据 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 直接取**整数**，小数部分会被丢掉
 
@@ -10231,19 +10250,19 @@ class FadeInImageDemo extends StatelessWidget {
   print('≥$text');
   ```
 
-#### <span id="jobs-toc-heading-243" data-jobs-toc="v2">30.3、小数=>百分比%  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-244" data-jobs-toc="v2">30.3、小数=>百分比%  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 '${((data ?? 0) * 100).toStringAsFixed(0)}%'
 ```
 
-#### <span id="jobs-toc-heading-244" data-jobs-toc="v2">30.4、字符串（≥）拼接➕数据（int）截取3位（3个0，即：参数1000） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-245" data-jobs-toc="v2">30.4、字符串（≥）拼接➕数据（int）截取3位（3个0，即：参数1000） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>'≥${(data ?? 0) ~/ 1000}',
 ```
 
-#### <span id="jobs-toc-heading-245" data-jobs-toc="v2">30.5、数字位分隔符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-246" data-jobs-toc="v2">30.5、数字位分隔符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 千分位（3位分隔）
 
@@ -10274,7 +10293,7 @@ class FadeInImageDemo extends StatelessWidget {
   }
   ```
 
-#### <span id="jobs-toc-heading-246" data-jobs-toc="v2">30.6、♻️<font color=red>**循环处理数据**</font>（以下写法等价） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-247" data-jobs-toc="v2">30.6、♻️<font color=red>**循环处理数据**</font>（以下写法等价） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > ```dart
 > /// 遍历 List 的每个元素 item
@@ -10362,9 +10381,9 @@ final rows = list
 >     * 遍历时才会临时生成数据，如果不存下来，数据用完就没了
 >     * **只有 `.toList()` / `.toSet()`** 这种收集操作，才会把数据铺成连续内存
 
-### <span id="jobs-toc-heading-247" data-jobs-toc="v2">31、[<font color=red>**字符串处理**</font>](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onString.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-248" data-jobs-toc="v2">31、[<font color=red>**字符串处理**</font>](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onString.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-248" data-jobs-toc="v2">31.1、多行字符串语法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-249" data-jobs-toc="v2">31.1、多行字符串语法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 三引号的目的：每一行省略都要加入的 `\n`（换行符）
 >
@@ -10375,7 +10394,7 @@ final rows = list
 | `'''多行内容'''` | `'''line1\nline2'''` | 三个单引号，适合内容中含有双引号 |
 | `"""多行内容"""` | `"""line1\nline2"""` | 三个双引号，适合内容中含有单引号 |
 
-#### <span id="jobs-toc-heading-249" data-jobs-toc="v2">31.2、字符串拼接 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-250" data-jobs-toc="v2">31.2、字符串拼接 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```dart
   /// 避免与系统其他的函数（add）重名
@@ -10400,7 +10419,7 @@ final rows = list
   > print("abc" & "123"); // abc123
   > ```
 
-#### <span id="jobs-toc-heading-250" data-jobs-toc="v2">31.3、字符串防空 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-251" data-jobs-toc="v2">31.3、字符串防空 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```dart
   (title?.isEmpty ?? true) ? '暂无数据'.tr : title!
@@ -10426,7 +10445,7 @@ final rows = list
   (title == null || title.isEmpty) ? '暂无数据'.tr : title
   ```
 
-### <span id="jobs-toc-heading-251" data-jobs-toc="v2">32、🧭 可以承载一切的**`WebViewWidget`** 工具模版 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-252" data-jobs-toc="v2">32、🧭 可以承载一切的**`WebViewWidget`** 工具模版 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 本质上是对 [**Flutter**](https://flutter.dev/) 官方的 `WebViewWidget`（来自 `webview_flutter` 插件）的 **二次封装增强版**
 
@@ -10741,7 +10760,7 @@ final rows = list
   ```
   </details>
 
-### <span id="jobs-toc-heading-252" data-jobs-toc="v2">33、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`Future`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-253" data-jobs-toc="v2">33、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`Future`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **`Future`** 有三种状态：
 
@@ -10997,7 +11016,7 @@ final rows = list
   * 同步 （带阻塞性）
   * 异步（不带阻塞性）：类似于C语言中的Block，其实还是一条线程，只是等待完成后用处理的结果
 
-### <span id="jobs-toc-heading-253" data-jobs-toc="v2">34、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/) 多线程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-254" data-jobs-toc="v2">34、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/) 多线程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **在 Dart / [Flutter](https://flutter.dev/) 中，唯一支持的“多线程”机制就是 `Isolate`**，没有像其他语言（**Java**/**Kotlin**/**Swift**）那样的真正**多线程（共享内存线程）机制**。
 >
@@ -11057,7 +11076,7 @@ final rows = list
     | 简单封装，只想隔离执行函数             | `easy_isolate` / `simple_isolate` ✅ |
     | 已使用 Bloc，希望脱离主线程逻辑        | `isolate_bloc` ✅                    |
 
-### <span id="jobs-toc-heading-254" data-jobs-toc="v2">35、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**Stream** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-255" data-jobs-toc="v2">35、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**Stream** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > `Stream` 就是一个可以 **持续发出数据（异步事件）** 的对象。
 >
@@ -11158,9 +11177,9 @@ final rows = list
   )
   ```
 
-### <span id="jobs-toc-heading-255" data-jobs-toc="v2">36、🧬<font id=Widget的生命周期>**`Widget`**的生命周期</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-256" data-jobs-toc="v2">36、🧬<font id=Widget的生命周期>**`Widget`**的生命周期</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-256" data-jobs-toc="v2">36.1、**`StatefulWidget`** 和 **`StatelessWidget`** 的关系 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-257" data-jobs-toc="v2">36.1、**`StatefulWidget`** 和 **`StatelessWidget`** 的关系 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 共同点
 
@@ -11185,7 +11204,7 @@ final rows = list
   | 是否有对应的 `State` 类 | ❌ 没有             | ✅ 有（通过 `createState()` 创建）                      |
   | 生命周期复杂度          | 简单               | 更完整（**initState**、**dispose**、**didUpdate**...） |
 
-#### <span id="jobs-toc-heading-257" data-jobs-toc="v2">36.2、🧬**`StatelessWidget`** 的生命周期 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-258" data-jobs-toc="v2">36.2、🧬**`StatelessWidget`** 的生命周期 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `StatelessWidget` 生命周期非常短，只有一次 `build` 调用：
 
@@ -11199,7 +11218,7 @@ final rows = list
   }
   ```
 
-#### <span id="jobs-toc-heading-258" data-jobs-toc="v2">36.3、🧬**`StatefulWidget`** 的生命周期 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-259" data-jobs-toc="v2">36.3、🧬**`StatefulWidget`** 的生命周期 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
  ```mermaid
  %% Flutter StatefulWidget 生命周期（含中文注释）
@@ -11286,15 +11305,15 @@ final rows = list
   }
   ```
 
-### <span id="jobs-toc-heading-259" data-jobs-toc="v2">37、🧬 <font id=Flutt.App的生命周期>[**Flutter**](https://flutter.dev/).**App**的生命周期</font>监听 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-260" data-jobs-toc="v2">37、🧬 <font id=Flutt.App的生命周期>[**Flutter**](https://flutter.dev/).**App**的生命周期</font>监听 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-260" data-jobs-toc="v2">37.1、<a href="#混入" style="font-size:20px; color:green;"><b>混入</b></a> （mixin）观察者 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-261" data-jobs-toc="v2">37.1、<a href="#混入" style="font-size:20px; color:green;"><b>混入</b></a> （mixin）观察者 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class MyController extends GetxController with WidgetsBindingObserver
 ```
 
-#### <span id="jobs-toc-heading-261" data-jobs-toc="v2">37.2、添加观察者 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-262" data-jobs-toc="v2">37.2、添加观察者 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 @override
@@ -11305,7 +11324,7 @@ void onInit() {
 }
 ```
 
-#### <span id="jobs-toc-heading-262" data-jobs-toc="v2">37.3、监听变化 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-263" data-jobs-toc="v2">37.3、监听变化 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 @override
@@ -11339,7 +11358,7 @@ void didChangeAppLifecycleState(AppLifecycleState state) {
 }
 ```
 
-#### <span id="jobs-toc-heading-263" data-jobs-toc="v2">37.4、移除观察者 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-264" data-jobs-toc="v2">37.4、移除观察者 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 @override
@@ -11349,7 +11368,7 @@ void onClose() {
 }
 ```
 
-### <span id="jobs-toc-heading-264" data-jobs-toc="v2">38、[**Flutter**](https://flutter.dev/)原生动画 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-265" data-jobs-toc="v2">38、[**Flutter**](https://flutter.dev/)原生动画 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > ➕ 组件类（AnimatedXxx）
 >
@@ -11359,7 +11378,7 @@ void onClose() {
 >
 > ➕ 动画基类/接口（Animation、Ticker 等）
 
-#### <span id="jobs-toc-heading-265" data-jobs-toc="v2">38.1、🟩 隐式动画组件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-266" data-jobs-toc="v2">38.1、🟩 隐式动画组件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 组件名                          | 描述                                                 |
 | ------------------------------- | ---------------------------------------------------- |
@@ -11379,7 +11398,7 @@ void onClose() {
 | `AnimatedSlide`                 | 平移动画（[**Flutter**](https://flutter.dev/) 2.5+） |
 | `AnimatedIcon`                  | 内置图标动画（如菜单 ⇄ 返回箭头）                    |
 
-#### <span id="jobs-toc-heading-266" data-jobs-toc="v2">38.2、🟥 显式动画核心类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-267" data-jobs-toc="v2">38.2、🟥 显式动画核心类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 类名                     | 说明                                 |
 | ------------------------ | ------------------------------------ |
@@ -11395,7 +11414,7 @@ void onClose() {
 | `ProxyAnimation`         | 动态代理不同动画                     |
 | `TrainHoppingAnimation`  | 切换动画序列                         |
 
-#### <span id="jobs-toc-heading-267" data-jobs-toc="v2">38.3、🎬 过渡（Transition）动画组件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-268" data-jobs-toc="v2">38.3、🎬 过渡（Transition）动画组件 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 用于构建显式动画
 
@@ -11410,7 +11429,7 @@ void onClose() {
 | `PositionedTransition`         | Stack 中定位动画       |
 | `RelativePositionedTransition` | 相对定位（Flutter 3+） |
 
-#### <span id="jobs-toc-heading-268" data-jobs-toc="v2">38.4、⚙️ 动画控制类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-269" data-jobs-toc="v2">38.4、⚙️ 动画控制类 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 控制动画时钟（Ticker）
 
@@ -11422,7 +11441,7 @@ void onClose() {
 | `SingleTickerProviderStateMixin`                             | 一个控制器使用                    |
 | `TickerProviderStateMixin`                                   | 多个控制器使用                    |
 
-#### <span id="jobs-toc-heading-269" data-jobs-toc="v2">38.5、🌀曲线函数（Curves 类） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-270" data-jobs-toc="v2">38.5、🌀曲线函数（Curves 类） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 常用曲线        | 动画节奏          |
 | --------------- | ----------------- |
@@ -11436,7 +11455,7 @@ void onClose() {
 | `fastOutSlowIn` | Material 动画推荐 |
 | `cubic(...)`    | 自定义贝塞尔曲线  |
 
-#### <span id="jobs-toc-heading-270" data-jobs-toc="v2">38.6、🚀  页面切换动画 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-271" data-jobs-toc="v2">38.6、🚀  页面切换动画 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 类名               | 功能说明                           |
 | ------------------ | ---------------------------------- |
@@ -11446,7 +11465,7 @@ void onClose() {
 | `buildTransitions` | 可 override 修改默认路由切换效果   |
 
 
-### <span id="jobs-toc-heading-271" data-jobs-toc="v2">39、⌨️ 键盘行为 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-272" data-jobs-toc="v2">39、⌨️ 键盘行为 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * <a href="#监听@键盘（弹起&落下）" style="font-size:17px; color:green;"><b>👂监听@键盘（弹起&落下）</b></a>
 
@@ -11506,9 +11525,9 @@ void onClose() {
     }
     ```
 
-### <span id="jobs-toc-heading-272" data-jobs-toc="v2">40、🛜 网络请求 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-273" data-jobs-toc="v2">40、🛜 网络请求 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-273" data-jobs-toc="v2">40.1、[**Dio**](https://pub.dev/packages/dio) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-274" data-jobs-toc="v2">40.1、[**Dio**](https://pub.dev/packages/dio) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 执行链  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -11706,9 +11725,9 @@ void onClose() {
 
 * <font color=red>**`@RestApi`**</font>：是 [**Retrofit**](https://pub.dev/packages/retrofit)  提供的一个注解，用来声明一个 HTTP API 客户端接口，它的作用是**让 [Retrofit](https://pub.dev/packages/retrofit)  自动生成实现类，帮你把 Dart 方法和 HTTP 请求绑定起来**，这样就不用手写繁琐的 Dio 请求逻辑
 
-### <span id="jobs-toc-heading-274" data-jobs-toc="v2">41、🧩 数据建模 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-275" data-jobs-toc="v2">41、🧩 数据建模 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-275" data-jobs-toc="v2">41.1、🧩 数据模型的建立 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-276" data-jobs-toc="v2">41.1、🧩 数据模型的建立 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * <a href="#json_serializable" style="font-size:17px; color:green;"><b>使用json_serializable自动化建模</b></a>
 
@@ -11778,7 +11797,7 @@ void onClose() {
     - 如果 `t` 是一个对象引用（class），新对象里还是用的同一个引用。
     - 如果你希望 `t` 也复制一份新的，就得在 `copyWith` 里显式调用 `t.copyWith(...)`。
 
-#### <span id="jobs-toc-heading-276" data-jobs-toc="v2">41.2、🧩 安全取（📚字典）值 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-277" data-jobs-toc="v2">41.2、🧩 安全取（📚字典）值 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// 安全获取 Map 中的值，支持类型推断与默认值
@@ -11823,7 +11842,7 @@ void main() {
 ```
 </details>
 
-#### <span id="jobs-toc-heading-277" data-jobs-toc="v2">41.3、🧩 模型处理`Json`字符串（一种优雅的 [**`json_serializable`**](https://pub.dev/packages/json_serializable)框架的高级用法） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-278" data-jobs-toc="v2">41.3、🧩 模型处理`Json`字符串（一种优雅的 [**`json_serializable`**](https://pub.dev/packages/json_serializable)框架的高级用法） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 平时我们 `fromJson` 都是在整个 model 级别改逻辑，但那样会污染整个类。
 >
@@ -11965,17 +11984,17 @@ void main() {
   }
   ```
 
-### <span id="jobs-toc-heading-278" data-jobs-toc="v2">42、[**中国公民身份证校验规则**](https://github.com/JobsKit/JobsDocs/blob/main/中国公民身份证校验规则.md/中国公民身份证校验规则.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-279" data-jobs-toc="v2">42、[**中国公民身份证校验规则**](https://github.com/JobsKit/JobsDocs/blob/main/中国公民身份证校验规则.md/中国公民身份证校验规则.md) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-279" data-jobs-toc="v2">43、推送 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-280" data-jobs-toc="v2">43、推送 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**iOS推送证书：`*.p12`**](https://github.com/JobsKit/JobsDocs/blob/main/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6/Apple%E7%94%9F%E6%88%90%20*.p12%E6%96%87%E4%BB%B6.md)
 
-### <span id="jobs-toc-heading-280" data-jobs-toc="v2">44、 <font id=Widget拓展语法糖>🍬**`Widget`**拓展语法糖</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-281" data-jobs-toc="v2">44、 <font id=Widget拓展语法糖>🍬**`Widget`**拓展语法糖</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-281" data-jobs-toc="v2">44.1、[**`onGestures.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onGestures.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-282" data-jobs-toc="v2">44.1、[**`onGestures.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onGestures.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-282" data-jobs-toc="v2">44.1.1、点击/双击/长按 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-283" data-jobs-toc="v2">44.1.1、点击/双击/长按 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Center(
@@ -11996,7 +12015,7 @@ Center(
 ),
 ```
 
-##### <span id="jobs-toc-heading-283" data-jobs-toc="v2">44.1.2、自由拖拽（Pan 系列）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-284" data-jobs-toc="v2">44.1.2、自由拖拽（Pan 系列）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Positioned(
@@ -12025,7 +12044,7 @@ Positioned(
 ),
 ```
 
-##### <span id="jobs-toc-heading-284" data-jobs-toc="v2">44.1.3、缩放 ➕ 平移（仅 Scale 系列）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-285" data-jobs-toc="v2">44.1.3、缩放 ➕ 平移（仅 Scale 系列）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Positioned.fill(
@@ -12077,7 +12096,7 @@ Positioned.fill(
 ),
 ```
 
-##### <span id="jobs-toc-heading-285" data-jobs-toc="v2">44.1.4、二级/三级点击（桌面/鼠标有用，移动端通常无效）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-286" data-jobs-toc="v2">44.1.4、二级/三级点击（桌面/鼠标有用，移动端通常无效）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Positioned(
@@ -12105,7 +12124,7 @@ Positioned(
 ),
 ```
 
-#### <span id="jobs-toc-heading-286" data-jobs-toc="v2">44.2、[**`onList.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onList.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-287" data-jobs-toc="v2">44.2、[**`onList.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onList.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 [
@@ -12128,7 +12147,7 @@ Positioned(
 ),
 ```
 
-#### <span id="jobs-toc-heading-287" data-jobs-toc="v2">44.3、[**`onText.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onText.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-288" data-jobs-toc="v2">44.3、[**`onText.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onText.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 return Text("点我试试,试试就试试")
@@ -12151,7 +12170,7 @@ return Text("点我试试,试试就试试")
     .scrollable();
 ```
 
-#### <span id="jobs-toc-heading-288" data-jobs-toc="v2">44.4、[**`onWidgets.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onWidgets.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-289" data-jobs-toc="v2">44.4、[**`onWidgets.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onWidgets.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 最基础卡片
 
@@ -12253,7 +12272,7 @@ return Text("点我试试,试试就试试")
         .shadow();
     ```
 
-#### <span id="jobs-toc-heading-289" data-jobs-toc="v2">44.5、[**`onTransform.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onTransform.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-290" data-jobs-toc="v2">44.5、[**`onTransform.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onTransform.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 const Text("你好 Jobs")
@@ -12261,7 +12280,7 @@ const Text("你好 Jobs")
     .translate3D(0, 20, 0); // 🔄 三维平移：向下 20
 ```
 
-#### <span id="jobs-toc-heading-290" data-jobs-toc="v2">44.6、[**`onNum.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onNum.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-291" data-jobs-toc="v2">44.6、[**`onNum.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onNum.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 转换为`BorderRadiusGeometry`
 
@@ -12276,7 +12295,7 @@ const Text("你好 Jobs")
   1.str
   ```
 
-#### <span id="jobs-toc-heading-291" data-jobs-toc="v2">44.7、[<font id=onDateTime.dart>**`onDateTime.dart`**</font>](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onDateTime.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-292" data-jobs-toc="v2">44.7、[<font id=onDateTime.dart>**`onDateTime.dart`**</font>](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/AnyExtensions/onDateTime.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Now.ymd;       // 2025-08-25
@@ -12285,7 +12304,7 @@ Now.ymdCn;     // 2025年08月25日
 Now.ymdHmsCn;  // 2025年08月25日 16时12分41秒
 ```
 
-#### <span id="jobs-toc-heading-292" data-jobs-toc="v2">44.8、[**`onImage.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onImage.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-293" data-jobs-toc="v2">44.8、[**`onImage.dart`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onImage.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 背景图是 **Asset**
 
@@ -12315,7 +12334,7 @@ Now.ymdHmsCn;  // 2025年08月25日 16时12分41秒
       .imageByMemoryOnContain(bytes);// 🔑 背景用内存字节
   ```
 
-### <span id="jobs-toc-heading-293" data-jobs-toc="v2">45、区间数值：`clamp` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-294" data-jobs-toc="v2">45、区间数值：`clamp` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > ```dart
 > /// 通用区间工具：限制 value 落在指定区间
@@ -12377,14 +12396,14 @@ Now.ymdHmsCn;  // 2025年08月25日 16时12分41秒
 > >}
 > >```
 
-#### <span id="jobs-toc-heading-294" data-jobs-toc="v2">45.1、处理<font color=red>**闭区间**</font>数值 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-295" data-jobs-toc="v2">45.1、处理<font color=red>**闭区间**</font>数值 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// [0.5, 1.0]
 final v = x.clamp(0.5, 1.0);
 ```
 
-#### <span id="jobs-toc-heading-295" data-jobs-toc="v2">45.2、处理<font color=red>**开区间**</font>数值 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-296" data-jobs-toc="v2">45.2、处理<font color=red>**开区间**</font>数值 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// (0.5, 1.0)
@@ -12393,7 +12412,7 @@ if (v <= 0.5) v = 0.5000001;  // 或者干脆 v = min + ε
 if (v >= 1.0) v = 0.9999999;  // 或者 v = max - ε
 ```
 
-#### <span id="jobs-toc-heading-296" data-jobs-toc="v2">45.3、处理<font color=red>**半开半闭区间**</font>数值 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-297" data-jobs-toc="v2">45.3、处理<font color=red>**半开半闭区间**</font>数值 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// (0.5, 1.0]
@@ -12402,9 +12421,9 @@ if (v <= 0.5) v = 0.5000001;  // 强制大于 0.5
 if (v > 1.0) v = 1.0;         // 允许等于 1
 ```
 
-### <span id="jobs-toc-heading-297" data-jobs-toc="v2">46、圆角 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-298" data-jobs-toc="v2">46、圆角 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-298" data-jobs-toc="v2">46.1、让<font color=red>**容器的背景**</font>有圆角 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-299" data-jobs-toc="v2">46.1、让<font color=red>**容器的背景**</font>有圆角 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 背景圆角会显示出来。但如果 `child` 超出了边界（比如放一张大图片），它不会被裁剪，还是会溢出。
 
@@ -12419,7 +12438,7 @@ Container(
 )
 ```
 
-#### <span id="jobs-toc-heading-299" data-jobs-toc="v2">46.2、真正<font color=red>**裁剪子组件**</font>的圆角 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-300" data-jobs-toc="v2">46.2、真正<font color=red>**裁剪子组件**</font>的圆角 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 圆角范围之外的图片会被裁掉，不会溢出。
 
@@ -12435,7 +12454,7 @@ ClipRRect(
 )
 ```
 
-### <span id="jobs-toc-heading-300" data-jobs-toc="v2">47、广告轮播图@[**`JobsBannerCarousel`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/%E5%B9%BF%E5%91%8A%E8%BD%AE%E6%92%AD%E5%9B%BE/JobsBannerCarousel.dart)使用说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-301" data-jobs-toc="v2">47、广告轮播图@[**`JobsBannerCarousel`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/%E5%B9%BF%E5%91%8A%E8%BD%AE%E6%92%AD%E5%9B%BE/JobsBannerCarousel.dart)使用说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > ```dart
 > /// 空态组件
@@ -12649,7 +12668,7 @@ ClipRRect(
   }
   ```
 
-### <span id="jobs-toc-heading-301" data-jobs-toc="v2">48、[**`JobsExcel`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-302" data-jobs-toc="v2">48、[**`JobsExcel`**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/blob/main/lib/JobsDemoTools/JobsFlutterTools/Excel/JobsExcel.dart) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > ```dart
 > /// 使用说明
@@ -12691,7 +12710,7 @@ ClipRRect(
 > ///    - fillColumn：可指定把富余宽度补给哪一列（数据列索引 0..N-1，null=最后一列）。
 > ```
 
-#### <span id="jobs-toc-heading-302" data-jobs-toc="v2">48.1、模式 1➤首列与其它列一起等宽分配；不需要 `fixedWidth` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-303" data-jobs-toc="v2">48.1、模式 1➤首列与其它列一起等宽分配；不需要 `fixedWidth` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 void main1() {
@@ -12741,7 +12760,7 @@ void main1() {
 }
 ```
 
-#### <span id="jobs-toc-heading-303" data-jobs-toc="v2">48.2、模式 2➤首列固定宽度，其余列按内容/约束自适应（支持`min/maxColWidth`）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-304" data-jobs-toc="v2">48.2、模式 2➤首列固定宽度，其余列按内容/约束自适应（支持`min/maxColWidth`）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 void main2() {
@@ -12789,7 +12808,7 @@ void main2() {
 }
 ```
 
-#### <span id="jobs-toc-heading-304" data-jobs-toc="v2">48.3、模式 3➤首列固定宽度，其余列等宽均分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-305" data-jobs-toc="v2">48.3、模式 3➤首列固定宽度，其余列等宽均分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 void main3() {
@@ -12835,7 +12854,7 @@ void main3() {
 }
 ```
 
-### <span id="jobs-toc-heading-305" data-jobs-toc="v2">49、空态（占位）组件  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-306" data-jobs-toc="v2">49、空态（占位）组件  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `JobsEmptyHint`
 
@@ -12953,11 +12972,11 @@ void main3() {
     )
     ```
 
-### <span id="jobs-toc-heading-306" data-jobs-toc="v2">50、字体 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-307" data-jobs-toc="v2">50、字体 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-307" data-jobs-toc="v2">50.1、字体介绍 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-308" data-jobs-toc="v2">50.1、字体介绍 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-308" data-jobs-toc="v2">50.1.1、🎨基础属性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-309" data-jobs-toc="v2">50.1.1、🎨基础属性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 日常开发中最常调用的
 
@@ -12983,7 +13002,7 @@ void main3() {
   | `FontWeight.w800` | ExtraBold（特粗）   |
   | `FontWeight.w900` | Black（极粗）       |
 
-##### <span id="jobs-toc-heading-309" data-jobs-toc="v2">50.1.2、🖋️装饰属性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-310" data-jobs-toc="v2">50.1.2、🖋️装饰属性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 给文字加修饰效果
 
@@ -12994,7 +13013,7 @@ void main3() {
 | **decorationStyle**     | 装饰线样式（实线、虚线、波浪） | `decorationStyle: TextDecorationStyle.dotted` |
 | **decorationThickness** | 装饰线粗细                     | `decorationThickness: 2`                      |
 
-##### <span id="jobs-toc-heading-310" data-jobs-toc="v2">50.1.3、📏布局相关 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-311" data-jobs-toc="v2">50.1.3、📏布局相关 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 影响排版和对齐
 
@@ -13005,7 +13024,7 @@ void main3() {
 | **height**        | 行高（倍数，基于 fontSize）          | `height: 1.5`                           |
 | **textBaseline**  | 对齐基线（alphabetic / ideographic） | `textBaseline: TextBaseline.alphabetic` |
 
-##### <span id="jobs-toc-heading-311" data-jobs-toc="v2">50.1.4、🌈高级属性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-312" data-jobs-toc="v2">50.1.4、🌈高级属性 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 少见但非常强大
 
@@ -13016,7 +13035,7 @@ void main3() {
 | **shadows**    | 阴影效果（可叠加）                                           | `shadows: [Shadow(color: Colors.black, offset: Offset(2,2), blurRadius: 4)]` |
 | **overflow**   | 超出处理方式（clip、ellipsis、fade）                         | `overflow: TextOverflow.ellipsis`                            |
 
-#### <span id="jobs-toc-heading-312" data-jobs-toc="v2">50.2、引入外来字体 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-313" data-jobs-toc="v2">50.2、引入外来字体 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > <font color=red>**Release 构建会自动做字体子集（减包体积：只用到的字体会被打包进应用）；Debug 不会**</font>
 >
@@ -13024,7 +13043,7 @@ void main3() {
 >
 > 中文（CJK）字体体积大
 
-##### <span id="jobs-toc-heading-313" data-jobs-toc="v2">50.2.1、[**Google Fonts**](https://pub.dev/packages/google_fonts) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-314" data-jobs-toc="v2">50.2.1、[**Google Fonts**](https://pub.dev/packages/google_fonts) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > ```dart
 > /// 上线建议禁掉运行时下载，避免首启拉取字体
@@ -13048,7 +13067,7 @@ Text('Hello',
 );
 ```
 
-##### <span id="jobs-toc-heading-314" data-jobs-toc="v2">50.2.2、其他商业字体 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-315" data-jobs-toc="v2">50.2.2、其他商业字体 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 放置字体到项目里，并配置`pubspec.yaml` <font color=red>**别用中文名**</font>。后执行`flutter pub get`
 
@@ -13100,9 +13119,9 @@ Text('Hello',
   );
   ```
 
-### <span id="jobs-toc-heading-315" data-jobs-toc="v2">51、Tips <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-316" data-jobs-toc="v2">51、Tips <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-316" data-jobs-toc="v2">51.1、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)自带的`showSnackBar` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-317" data-jobs-toc="v2">51.1、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)自带的`showSnackBar` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 需要传入<a href="#BuildContext" style="font-size:17px; color:green;"><b>上下文**`BuildContext`**</b></a>，比较繁琐
 
@@ -13117,7 +13136,7 @@ ScaffoldMessenger.of(context).showSnackBar(
 );
 ```
 
-#### <span id="jobs-toc-heading-317" data-jobs-toc="v2">51.2、[**第三方库**](https://pub.dev)@[**oktoast**](https://pub.dev/packages/oktoast) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-318" data-jobs-toc="v2">51.2、[**第三方库**](https://pub.dev)@[**oktoast**](https://pub.dev/packages/oktoast) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```yaml
 dependencies:
@@ -13142,7 +13161,7 @@ void main() {
 showToast("邀请码已复制到剪切板");
 ```
 
-#### <span id="jobs-toc-heading-318" data-jobs-toc="v2">51.3、[**第三方库**](https://pub.dev)@[**overlay_support**](https://pub.dev/packages/overlay_support/versions) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-319" data-jobs-toc="v2">51.3、[**第三方库**](https://pub.dev)@[**overlay_support**](https://pub.dev/packages/overlay_support/versions) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```yaml
 dependencies:
@@ -13167,7 +13186,7 @@ showSimpleNotification(
 );
 ```
 
-### <span id="jobs-toc-heading-319" data-jobs-toc="v2">52、🔘<font id=按钮的封装>**按钮的封装**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-320" data-jobs-toc="v2">52、🔘<font id=按钮的封装>**按钮的封装**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 快速设定按钮的**文本**、**背景色**、**点击事件**、**尺寸**
 
@@ -13246,15 +13265,15 @@ showSimpleNotification(
     ),
     ```
 
-### <span id="jobs-toc-heading-320" data-jobs-toc="v2">53、⏲️定时器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-321" data-jobs-toc="v2">53、⏲️定时器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 [**Flutter**](https://flutter.dev/)定时机制对比表
 
 <img src="./assets/image-20250821214200162.png" alt="image-20250821214200162" style="zoom:50%;" />
 
-#### <span id="jobs-toc-heading-321" data-jobs-toc="v2">53.1、普通定时器：`Timer` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-322" data-jobs-toc="v2">53.1、普通定时器：`Timer` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-322" data-jobs-toc="v2">53.1.1、**单次定时** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-323" data-jobs-toc="v2">53.1.1、**单次定时** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Timer(Duration(seconds: 2), () {
@@ -13262,7 +13281,7 @@ Timer(Duration(seconds: 2), () {
 });
 ```
 
-##### <span id="jobs-toc-heading-323" data-jobs-toc="v2">53.1.2、**周期定时** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-324" data-jobs-toc="v2">53.1.2、**周期定时** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Timer.periodic(Duration(seconds: 1), (timer) {
@@ -13270,7 +13289,7 @@ Timer.periodic(Duration(seconds: 1), (timer) {
 });
 ```
 
-#### <span id="jobs-toc-heading-324" data-jobs-toc="v2">53.2、[**Flutter**](https://flutter.dev/) 特有的：`Ticker` / `AnimationController`<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-325" data-jobs-toc="v2">53.2、[**Flutter**](https://flutter.dev/) 特有的：`Ticker` / `AnimationController`<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ `Ticker` 是 Flutter 内部的心跳计时器，跟屏幕刷新频率（一般 60fps）同步。
 >  它常用在动画相关场景，比如 `AnimationController`。
@@ -13285,7 +13304,7 @@ final ticker = Ticker((elapsed) {
 ticker.start();
 ```
 
-#### <span id="jobs-toc-heading-325" data-jobs-toc="v2">53.3、UI 刷新相关：`Future.delayed`<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-326" data-jobs-toc="v2">53.3、UI 刷新相关：`Future.delayed`<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 不是严格意义的定时器，但常常被用来做**延时执行**
 
@@ -13295,7 +13314,7 @@ Future.delayed(Duration(seconds: 1), () {
 });
 ```
 
-#### <span id="jobs-toc-heading-326" data-jobs-toc="v2">53.4、引擎层调度：`SchedulerBinding`<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-327" data-jobs-toc="v2">53.4、引擎层调度：`SchedulerBinding`<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**Flutter**](https://flutter.dev/) 提供 `SchedulerBinding.instance.scheduleFrameCallback`，可以在下一帧绘制前回调，相当于浏览器里的 `requestAnimationFrame`
 
@@ -13339,7 +13358,7 @@ Future.delayed(Duration(seconds: 1), () {
   > | **scheduleFrameCallback** | 下一帧开始绘制前 | 和 UI 同步，做动画逻辑、依赖帧的计算      |
   > | **addPostFrameCallback**  | 当前帧绘制结束后 | 获取布局信息、调用 `setState` 安全更新 UI |
 
-### <span id="jobs-toc-heading-327" data-jobs-toc="v2">54、[**`JobsRefreshLoad`：下拉刷新&上拉加载**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/tree/main/lib/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-328" data-jobs-toc="v2">54、[**`JobsRefreshLoad`：下拉刷新&上拉加载**](https://github.com/JobsKit/JobsFlutterBaseConfigDemo/tree/main/lib/JobsDemoTools/JobsFlutterTools/JobsRefreshLoad) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ **`RefreshIndicator` 只支持下拉刷新**，[**Flutter**](https://flutter.dev/) 没有内建**上拉释放加载更多**
 >
@@ -13656,15 +13675,15 @@ Future.delayed(Duration(seconds: 1), () {
     }
     ```
 
-### <span id="jobs-toc-heading-328" data-jobs-toc="v2">55、加/解密 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-329" data-jobs-toc="v2">55、加/解密 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'package:pointycastle/stream/chacha20poly1305.dart';
 ```
 
-### <span id="jobs-toc-heading-329" data-jobs-toc="v2">56、小部件写法的替换 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-330" data-jobs-toc="v2">56、小部件写法的替换 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-330" data-jobs-toc="v2">56.1、`Class`返回`Widget` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-331" data-jobs-toc="v2">56.1、`Class`返回`Widget` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class KLabel extends StatelessWidget {
@@ -13685,7 +13704,7 @@ class KLabel extends StatelessWidget {
 }
 ```
 
-#### <span id="jobs-toc-heading-331" data-jobs-toc="v2">56.2、函数式返回`Widget` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-332" data-jobs-toc="v2">56.2、函数式返回`Widget` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Widget KLabel(String text) {
@@ -13699,7 +13718,7 @@ Widget KLabel(String text) {
   );
 }
 ```
-### <span id="jobs-toc-heading-332" data-jobs-toc="v2">57、`List`奇偶行切换背景色 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-333" data-jobs-toc="v2">57、`List`奇偶行切换背景色 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// ✅ 奇偶行切换背景色
@@ -13754,7 +13773,7 @@ Expanded(
 ),
 ```
 
-### <span id="jobs-toc-heading-333" data-jobs-toc="v2">58、列表渲染完之后，把滚动条强制拉到最底部 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-334" data-jobs-toc="v2">58、列表渲染完之后，把滚动条强制拉到最底部 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 一般这种逻辑要放到：
 >
@@ -13793,7 +13812,7 @@ ScrollController mainScrollController = ScrollController();
   }
   ```
 
-### <span id="jobs-toc-heading-334" data-jobs-toc="v2">59、✂️剪切板 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-335" data-jobs-toc="v2">59、✂️剪切板 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 操作                                     | 可同步剪贴板？ | 方向   |
 | ---------------------------------------- | -------------- | ------ |
@@ -13894,7 +13913,7 @@ class ClipboardUtil {
 }
 ```
 
-### <span id="jobs-toc-heading-335" data-jobs-toc="v2">60、⌨️ 输入框 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-336" data-jobs-toc="v2">60、⌨️ 输入框 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```dart
   final TextEditingController textFieldCtrl = TextEditingController();
@@ -14130,7 +14149,7 @@ class ClipboardUtil {
   }
   ```
 
-### <span id="jobs-toc-heading-336" data-jobs-toc="v2">61、[**级联选择器**](https://pub.dev/packages/ym_flutter_widget) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-337" data-jobs-toc="v2">61、[**级联选择器**](https://pub.dev/packages/ym_flutter_widget) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 引入
 
@@ -14236,13 +14255,13 @@ class ClipboardUtil {
   }
   ```
 
-### <span id="jobs-toc-heading-337" data-jobs-toc="v2">62、<font id=自动化代码生成应用外观资源>[**自动化代码生成应用外观资源**](https://github.com/JobsKit/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%90%A6Flutter%E8%87%AA%E5%8A%A8%E5%8C%96%E7%94%9F%E4%BA%A7%E4%BB%A3%E7%A0%81.command)</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-338" data-jobs-toc="v2">62、<font id=自动化代码生成应用外观资源>[**自动化代码生成应用外观资源**](https://github.com/JobsKit/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%90%A6Flutter%E8%87%AA%E5%8A%A8%E5%8C%96%E7%94%9F%E4%BA%A7%E4%BB%A3%E7%A0%81.command)</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > <a href="#构建打包" style="font-size:17px; color:green;"><b>➤构建打包📦</b></a>
 
-#### <span id="jobs-toc-heading-338" data-jobs-toc="v2">62.1、App启动图标 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-339" data-jobs-toc="v2">62.1、App启动图标 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-339" data-jobs-toc="v2">62.1.1、使用插件[**`flutter_launcher_icons`**](https://pub.dev/packages/flutter_launcher_icons)替换  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-340" data-jobs-toc="v2">62.1.1、使用插件[**`flutter_launcher_icons`**](https://pub.dev/packages/flutter_launcher_icons)替换  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 🚨 常见问题
 >
@@ -14313,7 +14332,7 @@ class ClipboardUtil {
 
   > 生成后的图标会自动覆盖 `android/app/src/main/res/mipmap-*/ic_launcher.png` 和 `ios/Runner/Assets.xcassets/AppIcon.appiconset`。
 
-##### <span id="jobs-toc-heading-340" data-jobs-toc="v2">62.1.2、手动替换  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-341" data-jobs-toc="v2">62.1.2、手动替换  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [**Android**](https://www.android.com/) ：
   - 图标在：`android/app/src/main/res/`
@@ -14322,7 +14341,7 @@ class ClipboardUtil {
   - 图标在：`ios/Runner/Assets.xcassets/AppIcon.appiconset/`
   - 用 **Xcode** 打开项目，点击 **Runner** ➤ **General** ➤ **App Icon**，然后替换对应尺寸的图标。
 
-##### <span id="jobs-toc-heading-341" data-jobs-toc="v2">62.1.3、验证图标资源是否存在  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-342" data-jobs-toc="v2">62.1.3、验证图标资源是否存在  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **iOS**
 
@@ -14336,7 +14355,7 @@ class ClipboardUtil {
   ls -1 android/app/src/main/res/mipmap-*/ic_launcher.*
   ```
 
-#### <span id="jobs-toc-heading-342" data-jobs-toc="v2">62.2、启动页（Splash）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-343" data-jobs-toc="v2">62.2、启动页（Splash）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```yaml
   dev_dependencies:
@@ -14352,7 +14371,7 @@ class ClipboardUtil {
   dart run flutter_native_splash:create
   ```
 
-#### <span id="jobs-toc-heading-343" data-jobs-toc="v2">62.3、资源/字体/颜色常量（类型安全）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-344" data-jobs-toc="v2">62.3、资源/字体/颜色常量（类型安全）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```yaml
   dev_dependencies:
@@ -14369,13 +14388,13 @@ class ClipboardUtil {
   flutter pub get
   ```
 
-### <span id="jobs-toc-heading-344" data-jobs-toc="v2">63、🔄 轮询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-345" data-jobs-toc="v2">63、🔄 轮询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 如果没有科学合理的使用轮询，当页面请求过多的情况下，会造成一定概率的页面卡死
 
-#### <span id="jobs-toc-heading-345" data-jobs-toc="v2">63.1、🔄 轮询（安全）代码 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-346" data-jobs-toc="v2">63.1、🔄 轮询（安全）代码 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-346" data-jobs-toc="v2">63.1.1、🔄 最小可用且安全的轮询器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-347" data-jobs-toc="v2">63.1.1、🔄 最小可用且安全的轮询器 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class Poller {
@@ -14442,7 +14461,7 @@ class Poller {
 > }
 > ```
 
-##### <span id="jobs-toc-heading-347" data-jobs-toc="v2">63.1.2、🔄 [`GetX`](https://pub.dev/packages/get) 控制器内的轮询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-348" data-jobs-toc="v2">63.1.2、🔄 [`GetX`](https://pub.dev/packages/get) 控制器内的轮询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class StatusController extends GetxController with WidgetsBindingObserver {
@@ -14501,7 +14520,7 @@ class StatusController extends GetxController with WidgetsBindingObserver {
 }
 ```
 
-#### <span id="jobs-toc-heading-348" data-jobs-toc="v2">63.2、🔄 指数退避 + 抖动模板 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-349" data-jobs-toc="v2">63.2、🔄 指数退避 + 抖动模板 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > <font color=red>**指数退避**</font>：一种**失败重试策略**，常用于网络请求、轮询等场景，避免“疯狂重试”把服务器打爆
 >
@@ -14549,7 +14568,7 @@ Future<void> resilientLoop(Future<void> Function() task,
 }
 ```
 
-#### <span id="jobs-toc-heading-349" data-jobs-toc="v2">63.3、🔄 防卡关键点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-350" data-jobs-toc="v2">63.3、🔄 防卡关键点 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **串行执行**：一轮完成后再发下一轮（上面用 `Future.delayed` + `await` 实现）。别让请求堆积。
 
@@ -14567,7 +14586,7 @@ Future<void> resilientLoop(Future<void> Function() task,
 
 * **合并多源**：多个地方想轮询同一接口？做一个 **共享仓库/Service**，下游订阅数据流，别各自开定时器。
 
-#### <span id="jobs-toc-heading-350" data-jobs-toc="v2">63.4、🔄 什么时候不要轮询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-351" data-jobs-toc="v2">63.4、🔄 什么时候不要轮询 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 需要接近实时（<1s）的状态同步 → **WebSocket/SSE**。
 
@@ -14575,7 +14594,7 @@ Future<void> resilientLoop(Future<void> Function() task,
 
 * 用户不在该页面/应用在后台 → **停止**，等回到前台再继续。
 
-#### <span id="jobs-toc-heading-351" data-jobs-toc="v2">63.5、🔄 快速自检清单 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-352" data-jobs-toc="v2">63.5、🔄 快速自检清单 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 只有一个轮询源？（统一在 Service/Controller，别到处开定时器）
 
@@ -14589,31 +14608,31 @@ Future<void> resilientLoop(Future<void> Function() task,
 
 * 仅在数据变更时触发 `update/Obx` 重建
 
-### <span id="jobs-toc-heading-352" data-jobs-toc="v2">64、唤醒（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-353" data-jobs-toc="v2">64、唤醒（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-### <span id="jobs-toc-heading-353" data-jobs-toc="v2">65、热更新（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-354" data-jobs-toc="v2">65、热更新（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-### <span id="jobs-toc-heading-354" data-jobs-toc="v2">66、调取设备摄像头（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-355" data-jobs-toc="v2">66、调取设备摄像头（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-### <span id="jobs-toc-heading-355" data-jobs-toc="v2">67、调取设备相册（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-356" data-jobs-toc="v2">67、调取设备相册（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 /// TODO
 ```
 
-### <span id="jobs-toc-heading-356" data-jobs-toc="v2">68、音视频（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-357" data-jobs-toc="v2">68、音视频（TODO） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 *  [***flutter_ffmpeg***](https://github.com/tanersener/flutter-ffmpeg)：
    * ***开源项目*** <font color="red">**（停止维护）**</font>；
@@ -14638,9 +14657,9 @@ Future<void> resilientLoop(Future<void> Function() task,
    * *ExoPlayer* 是一个功能强大的跨平台媒体播放器，***支持 Android、iOS 和 Web 平台***；
    * 使用 *flutter_exoplayer*，您可以方便地在 Dart.Flutter 应用程序中实现高性能的音视频播放功能；
 
-## <span id="jobs-toc-heading-357" data-jobs-toc="v2">六、📃其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+## <span id="jobs-toc-heading-358" data-jobs-toc="v2">六、📃其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-358" data-jobs-toc="v2">1、修复平台目录：定位到[**Flutter**](https://flutter.dev/)项目根目录，执行➤`flutter create .`  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-359" data-jobs-toc="v2">1、修复平台目录：定位到[**Flutter**](https://flutter.dev/)项目根目录，执行➤`flutter create .`  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 仅<font color=red>**生成/修复**</font>默认平台（通常是 [**Android**](https://www.android.com/) + **iOS**）
 
@@ -14658,7 +14677,7 @@ Future<void> resilientLoop(Future<void> Function() task,
   flutter create --platforms=android,ios,web,linux,macos,windows .
   ```
 
-### <span id="jobs-toc-heading-359" data-jobs-toc="v2">2、`/android/build.gradle`的配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-360" data-jobs-toc="v2">2、`/android/build.gradle`的配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```Groovy
 /// 显式声明了 Kotlin 版本
@@ -14693,7 +14712,7 @@ tasks.register("clean", Delete) {
 }
 ```
 
-### <span id="jobs-toc-heading-360" data-jobs-toc="v2">4、🎯 [**Dart**](https://dart.dev/) 命名规则大全（官方风格指南） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-361" data-jobs-toc="v2">4、🎯 [**Dart**](https://dart.dev/) 命名规则大全（官方风格指南） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 类型            | 命名规则                                                     | 格式示例                             | 是否允许下划线 `_`  | 是否允许 `$`                                         |
 | --------------- | ------------------------------------------------------------ | ------------------------------------ | ------------------- | ---------------------------------------------------- |
@@ -14704,7 +14723,7 @@ tasks.register("clean", Delete) {
 | 文件名 / 路径   | **蛇形命名法** snake_case：<br><font color=red>**每个空格皆以底线（_）取代的书写风格，<br/>且每个单字的第一个字母皆为小写**</font> | `user_model.dart`, `home_page.dart`  | ✅ 推荐              | ❌ 不推荐                                             |
 | 私有变量 / 方法 | 下划线开头<br>**只在当前 Dart 文件里能访问，其他文件即使导入了也访问不到** | `_user`, `_fetchData()`              | ✅ 必须用 `_`        | ❌ 不推荐                                             |
 
-### <span id="jobs-toc-heading-361" data-jobs-toc="v2">5、🗺️ 重定向技巧  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-362" data-jobs-toc="v2">5、🗺️ 重定向技巧  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 保留多个构造方式（如 builder 模式 🆚 普通 child 模式）；
 >
@@ -14725,7 +14744,7 @@ class Person {
 }
 ```
 
-### <span id="jobs-toc-heading-362" data-jobs-toc="v2">6、💼 **package** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-363" data-jobs-toc="v2">6、💼 **package** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **package:**这种路径前缀只能用于 **`lib/` 目录下的 [Dart](https://dart.dev/) 文件**。 表示从 `pubspec.yaml` 中定义的包或当前项目的 `lib/` 目录开始引用
 
@@ -14737,7 +14756,7 @@ class Person {
   | `lib/` 以外的文件夹 | 比如 `test/`、`bin/`、`web/`、`ios/`、`android/` 等不能被 `package:` 引用 |
   | `lib/` 外 Dart 文件 | 比如 `tools/util.dart`，不是 `lib/` 下的无法被 `package:` 访问 |
 
-### <span id="jobs-toc-heading-363" data-jobs-toc="v2">7、🔥[**Firebase**](https://firebase.google.com/?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-364" data-jobs-toc="v2">7、🔥[**Firebase**](https://firebase.google.com/?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**Firebase**](https://firebase.google.com/?hl=zh-cn)：**Google 提供的一整套后端云服务平台**，专门为移动 App（[**Android**](https://www.android.com/)/**iOS**）、Web 应用开发者提供“后端即服务”（BaaS）能力
 
@@ -14766,9 +14785,9 @@ class Person {
   | Unity   | ✅ 支持游戏开发                                               |
   | C++     | ✅ 支持部分模块                                               |
 
-### <span id="jobs-toc-heading-364" data-jobs-toc="v2">8、📂[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)系统文件目录 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-365" data-jobs-toc="v2">8、📂[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)系统文件目录 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-365" data-jobs-toc="v2">8.1、📁`$HOME/.pub-cache/hosted/pub.dev/`文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-366" data-jobs-toc="v2">8.1、📁`$HOME/.pub-cache/hosted/pub.dev/`文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 存放从 [**pub.dev**](https://pub.dev) 下载的所有依赖包源码（包括版本号）
 
@@ -14794,7 +14813,7 @@ class Person {
   | ✅ 安全性         | ✔️ 官方支持，保守修复          | ⚠️ 有风险，完全清空，依赖全部重拉                          |
   | ✅ 使用场景       | 依赖异常、下载中断、构建失败  | 彻底清理后重建缓存、解决极端冲突                          |
 
-#### <span id="jobs-toc-heading-366" data-jobs-toc="v2">8.2、📁`$HOME/.pub-cache/` 文件夹<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-367" data-jobs-toc="v2">8.2、📁`$HOME/.pub-cache/` 文件夹<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 路径                               | 说明                                                         | 是否可删                             |
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------ |
@@ -14803,13 +14822,13 @@ class Person {
 | `$HOME/.pub-cache/bin/`            | 全局安装的 [**Dart**](https://dart.dev/) 命令行工具（如 `webdev`, `melos` 等） | ⚠️ 慎删，删了要重新` global activate` |
 | `$HOME/.pub-cache/_temp/`          | 临时下载缓存                                                 | ✅ 安全清理                           |
 
-#### <span id="jobs-toc-heading-367" data-jobs-toc="v2">8.3、📁`$HOME/.flutter/`文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-368" data-jobs-toc="v2">8.3、📁`$HOME/.flutter/`文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 路径              | 说明                                                         | 是否可删                              |
 | ----------------- | ------------------------------------------------------------ | ------------------------------------- |
 | `$HOME/.flutter/` | [**Flutter**](https://flutter.dev/) 工具缓存（例如 [**Flutter**](https://flutter.dev/) Web 的调试资源） | ✅ 可删，运行任何 `flutter` 命令会重建 |
 
-#### <span id="jobs-toc-heading-368" data-jobs-toc="v2">8.4、📁`$HOME/Library/Flutter/` 文件夹（按需出现，非必备）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-369" data-jobs-toc="v2">8.4、📁`$HOME/Library/Flutter/` 文件夹（按需出现，非必备）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 这个目录只有在你满足以下条件时才会出现：
 >
@@ -14825,7 +14844,7 @@ class Person {
 | ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `$HOME/Library/Flutter/` | **MacOS** 专属的 [**Flutter**](https://flutter.dev/) 工具缓存 | ✅ 可删， [**Flutter**](https://flutter.dev/)  会重新拉取所需工具 |
 
-#### <span id="jobs-toc-heading-369" data-jobs-toc="v2">8.5、📁`$HOME/.dart/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-370" data-jobs-toc="v2">8.5、📁`$HOME/.dart/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >  [**Dart**](https://dart.dev/) CLI 的缓存目录，只有在以下情况出现时才会生成：
 >
@@ -14841,15 +14860,15 @@ class Person {
 | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `$HOME/.dart/` | [**Dart**](https://dart.dev/).**SDK** 和 tools 的缓存（部分版本依赖此目录） | ⚠️ 慎删，如果你使用 [**Dart**](https://dart.dev/)  CLI 频繁切换 SDK，建议保留 |
 
-#### <span id="jobs-toc-heading-370" data-jobs-toc="v2">8.6、📁`$HOME/fvm/`文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-371" data-jobs-toc="v2">8.6、📁`$HOME/fvm/`文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 位于**MacOS**系统根目录下。[**FVM** ](https://fvm.app/) 的所有 [**Flutter**](https://flutter.dev/).**SDK** 存放地
 >
 > ⚠️ 慎删，删了旧版本就无法使用
 
-### <span id="jobs-toc-heading-371" data-jobs-toc="v2">9、📂[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)项目文件（夹） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-372" data-jobs-toc="v2">9、📂[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)项目文件（夹） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-372" data-jobs-toc="v2">9.1、📁`./.fvm/flutter_sdk/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-373" data-jobs-toc="v2">9.1、📁`./.fvm/flutter_sdk/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > [**FVM（<font color=red>F</font>lutter <font color=red>V</font>ersion <font color=red>M</font>anagement）** ](https://fvm.app/) 相关：
 >
@@ -14857,7 +14876,7 @@ class Person {
 >
 > * 可以不加入 **Git** 管理
 
-#### <span id="jobs-toc-heading-373" data-jobs-toc="v2">9.2、📁 `./linux/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-374" data-jobs-toc="v2">9.2、📁 `./linux/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >如果只是专注于 **[Flutter](https://flutter.dev/) 移动端开发（Android / iOS）**，那么`inux/` 文件夹可以不加入 **Git** 管理
 
@@ -14917,7 +14936,7 @@ class Person {
     # https://dart.dev/guides/language/analysis-options
     ```
 
-#### <span id="jobs-toc-heading-374" data-jobs-toc="v2">9.3、📁`./.idea/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-375" data-jobs-toc="v2">9.3、📁`./.idea/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 通常是 [**JetBrains**](https://www.jetbrains.com/) 的集成开发环境（IDE）如 [**IntelliJ IDEA**](https://www.jetbrains.com/idea/) 或 [**Android Studio**](https://developer.android.com/studio?hl=zh-cn) 在项目中生成的隐藏文件夹
 >
@@ -14934,7 +14953,7 @@ class Person {
 
 总的来说，`.idea` 文件夹是  [**JetBrains**](https://www.jetbrains.com/)  IDE 用于存储项目配置和元数据的文件夹，**它通常不应该被版本控制系统跟踪**，因为这些配置文件通常是特定于开发者的，并且可能会因为 IDE 版本的不同而有所变化。
 
-#### <span id="jobs-toc-heading-375" data-jobs-toc="v2">9.4、📁`./plugins/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-376" data-jobs-toc="v2">9.4、📁`./plugins/` 文件夹 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >1️⃣ `flutter` 项目根目录下的 `plugins/` 文件夹**并不是[Flutter](https://flutter.dev/)官方结构的一部分**
 >
@@ -14942,7 +14961,7 @@ class Person {
 >
 >3️⃣ **不推荐将 `plugins/` 文件夹加入 Git 管理**
 
-#### <span id="jobs-toc-heading-376" data-jobs-toc="v2">9.5、📃`./.flutter-plugins` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-377" data-jobs-toc="v2">9.5、📃`./.flutter-plugins` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 是[**Flutter**](https://flutter.dev/)项目中的一个隐藏文件，它用于跟踪 [**Flutter**](https://flutter.dev/)插件的信息；
 >
@@ -14961,7 +14980,7 @@ camera=plugins/camera/
 location=plugins/location/
 ```
 
-#### <span id="jobs-toc-heading-377" data-jobs-toc="v2">9.6、📃`./.flutter-plugins-dependencies` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-378" data-jobs-toc="v2">9.6、📃`./.flutter-plugins-dependencies` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 是一个用来存储[**Flutter**](https://flutter.dev/)插件依赖信息的隐藏文件；
 >
@@ -14987,7 +15006,7 @@ dependencies:
 # 在这个示例中，`camera` 和 `image_picker` 是两个插件，它们分别有自己的依赖关系记录，包括依赖类型（`dependency`）、名称（`name`）、URL 和版本号。
 ```
 
-#### <span id="jobs-toc-heading-378" data-jobs-toc="v2">9.7、📃`./.java-version` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-379" data-jobs-toc="v2">9.7、📃`./.java-version` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 此文件由[<font color=red>jenv</font>](https://github.com/jenv/jenv)生成。对单个[**Flutter**](https://flutter.dev/)项目锚定的[**Java**](https://www.java.com/zh-CN/)环境配置文件。如果没有，则向上查找，读取**MacOS**系统大环境的[**Java**](https://www.java.com/zh-CN/)环境
 
@@ -15005,7 +15024,7 @@ dependencies:
     jenv local > 系统环境变量文件 > jenv global
     ```
 
-#### <span id="jobs-toc-heading-379" data-jobs-toc="v2">9.8、📃`./pubspec.yaml` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-380" data-jobs-toc="v2">9.8、📃`./pubspec.yaml` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 是[**Dart**](https://dart.dev/)语言中用于管理项目依赖和元数据的文件。这个文件通常位于 [**Dart**](https://dart.dev/) 项目的根目录中，其中包含了项目的名称、版本、作者信息等基本元数据，以及项目所依赖的第三方库（通过 [**Dart**](https://dart.dev/) 包管理器 pub 安装）；
 >
@@ -15098,7 +15117,7 @@ assets: # 路径名不能有中文，否则可能无法正常读取
     flutter_unused_packages --fix
     ```
 
-#### <span id="jobs-toc-heading-380" data-jobs-toc="v2">9.9、  📃`./pubspec.lock` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-381" data-jobs-toc="v2">9.9、  📃`./pubspec.lock` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >  是 [**Dart**](https://dart.dev/) 项目中的自动生成文件，用于锁定项目依赖的版本信息。
 >
@@ -15124,7 +15143,7 @@ packages:
     version: "0.17.0"
 ```
 
-#### <span id="jobs-toc-heading-381" data-jobs-toc="v2">9.10、📃`./.metadata` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-382" data-jobs-toc="v2">9.10、📃`./.metadata` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >  是一个二进制文件，[**Dart**](https://dart.dev/) 项目中的一个隐藏文件，通常存储在项目的根目录下，用于保存与[**Dart**](https://dart.dev/) 包管理器 `pub` 相关的元数据信息。
 >
@@ -15136,7 +15155,7 @@ packages:
 >
 > 4️⃣ 删除 `.metadata` 文件后，`pub`  会重新生成一个新的 `.metadata` 文件，其中包含了当前项目的元数据信息；
 
-### <span id="jobs-toc-heading-382" data-jobs-toc="v2">10、注解 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-383" data-jobs-toc="v2">10、注解 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 确实都达到了**在不改动原类结构下，增加功能**的目的
 
@@ -15174,7 +15193,7 @@ packages:
   * `@Deprecated`: 用于标记一个成员已经被弃用，在使用时应该考虑替代方案。
   * `@internal`: 用于标记一个成员是内部的，不应该被外部使用。
 
-### <span id="jobs-toc-heading-383" data-jobs-toc="v2">11、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)单例 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-384" data-jobs-toc="v2">11、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)单例 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 使用场景            | 推荐写法                           |
 | ------------------- | ---------------------------------- |
@@ -15183,7 +15202,7 @@ packages:
 | 大型项目 / 解耦依赖 | 使用 `GetIt` / `riverpod` 管理单例 |
 | 多类型缓存管理      | 泛型单例封装模板                   |
 
-#### <span id="jobs-toc-heading-384" data-jobs-toc="v2">📌11.1、✅ 最推荐写法（懒汉式 + 工厂构造）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-385" data-jobs-toc="v2">📌11.1、✅ 最推荐写法（懒汉式 + 工厂构造）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class Singleton {
@@ -15201,7 +15220,7 @@ class Singleton {
 }
 ```
 
-#### <span id="jobs-toc-heading-385" data-jobs-toc="v2">📌11.2、饿汉式（类加载就创建）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-386" data-jobs-toc="v2">📌11.2、饿汉式（类加载就创建）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class Singleton {
@@ -15213,7 +15232,7 @@ class Singleton {
 }
 ```
 
-#### <span id="jobs-toc-heading-386" data-jobs-toc="v2">📌11.3、静态变量初始化（等效饿汉）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-387" data-jobs-toc="v2">📌11.3、静态变量初始化（等效饿汉）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class Singleton {
@@ -15229,7 +15248,7 @@ class Singleton {
 Singleton.instance.foo();
 ```
 
-#### <span id="jobs-toc-heading-387" data-jobs-toc="v2">📌11.4、懒汉式 `getter`（懒加载写法）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-388" data-jobs-toc="v2">📌11.4、懒汉式 `getter`（懒加载写法）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class Singleton {
@@ -15243,7 +15262,7 @@ class Singleton {
 }
 ```
 
-#### <span id="jobs-toc-heading-388" data-jobs-toc="v2">📌11.5、[**Dart**](https://dart.dev/) 单例完整封装模板（带线程安全/泛型支持）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-389" data-jobs-toc="v2">📌11.5、[**Dart**](https://dart.dev/) 单例完整封装模板（带线程安全/泛型支持）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class Singleton<T> {
@@ -15268,7 +15287,7 @@ class MyService {
 final service = Singleton.getInstance(() => MyService());
 ```
 
-#### <span id="jobs-toc-heading-389" data-jobs-toc="v2">📌11.6、使用[**GetIt**](https://pub.dev/packages/get_it)➤实现全局单例（推荐用于大型项目）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-390" data-jobs-toc="v2">📌11.6、使用[**GetIt**](https://pub.dev/packages/get_it)➤实现全局单例（推荐用于大型项目）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 import 'package:get_it/get_it.dart';
@@ -15291,7 +15310,7 @@ void example() {
 }
 ```
 
-### <span id="jobs-toc-heading-390" data-jobs-toc="v2">12、[**Dart**](https://dart.dev/).<font color=red>**`abstract`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-391" data-jobs-toc="v2">12、[**Dart**](https://dart.dev/).<font color=red>**`abstract`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 防止被实例化
 >
@@ -15308,7 +15327,7 @@ void example() {
 | **实例化行为**         | ❌ 抽象类不能直接实例化                                 | ❌ 协议本身不能实例化                                         |
 | **用途区别**           | 更接近 Java 的抽象类，可用作逻辑模板                   | 更像纯接口，只定义行为规范                                   |
 
-### <span id="jobs-toc-heading-391" data-jobs-toc="v2">13、[**Dart**](https://dart.dev/).<font color=red>**`factory`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-392" data-jobs-toc="v2">13、[**Dart**](https://dart.dev/).<font color=red>**`factory`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 类似于[**Swift**](https://www.swift.org/)里面的**便捷构造器**
 
@@ -15365,7 +15384,7 @@ void example() {
 
 * 大多数人习惯用 `factory` 来写 `fromJson`，因为它不一定只是简单地 new 一个对象
 
-### <span id="jobs-toc-heading-392" data-jobs-toc="v2">14、**Comparable** <font color=red><b>&lt;T&gt;</b></font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-393" data-jobs-toc="v2">14、**Comparable** <font color=red><b>&lt;T&gt;</b></font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ **Dart** 中的一个接口（mixin），表示 **“可比较”类型**
 >
@@ -15383,7 +15402,7 @@ Comparable.compare(a, b)
 
   * 返回 **正数**：表示 `a > b`
 
-### <span id="jobs-toc-heading-393" data-jobs-toc="v2">15、全局事件监听器：**`WidgetsBindingObserver`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-394" data-jobs-toc="v2">15、全局事件监听器：**`WidgetsBindingObserver`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 无需额外依赖，原生[**Flutter**](https://flutter.dev/).**API**：**观察者接口（Mixin）**
 
@@ -15420,7 +15439,7 @@ Comparable.compare(a, b)
 
   * 和 `MediaQuery` 区别：`MediaQuery` 是构建 UI 时读状态，`WidgetsBindingObserver` 是实时监听变化。
 
-### <span id="jobs-toc-heading-394" data-jobs-toc="v2">16、**纯静态类** 的（常见）写法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-395" data-jobs-toc="v2">16、**纯静态类** 的（常见）写法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ [**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)里面没有反射（尤其是 **release** 模式）根本不支持 `dart:mirrors`（导入报错）
 >
@@ -15490,7 +15509,7 @@ Comparable.compare(a, b)
   }
   ```
 
-### <span id="jobs-toc-heading-395" data-jobs-toc="v2">17、**Dart**.<font color=red>**`Symbol`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-396" data-jobs-toc="v2">17、**Dart**.<font color=red>**`Symbol`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 写法为 `#标识符`。例如：`#name`, `#sayHello`, `#toString`
 >
@@ -15543,7 +15562,7 @@ Comparable.compare(a, b)
   | 用来告诉 Dart：我要操作这个名字                    | 用来展示、存储内容  |
   | [**Dart**](https://dart.dev/)  编译时会优化 Symbol | String 是运行时的值 |
 
-### <span id="jobs-toc-heading-396" data-jobs-toc="v2">18、<font id=BuildContext color=red>上下文 **`BuildContext`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-397" data-jobs-toc="v2">18、<font id=BuildContext color=red>上下文 **`BuildContext`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 🧠 举个比喻：
 >
@@ -15586,7 +15605,7 @@ Comparable.compare(a, b)
   final h = context.keyboardHeight;
   ```
 
-### <span id="jobs-toc-heading-397" data-jobs-toc="v2">19、<font id=InheritedWidget>**`InheritedWidget`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-398" data-jobs-toc="v2">19、<font id=InheritedWidget>**`InheritedWidget`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 官方定义：`InheritedWidget` 是一种可以**将数据从父`Widget`向下传递并提供响应式更新**的**`Widget`**
 
@@ -15636,7 +15655,7 @@ Comparable.compare(a, b)
   );
   ```
 
-### <span id="jobs-toc-heading-398" data-jobs-toc="v2">20、混入<font id=混入 color=red>**`with`**👈**`mixin`**➤**`on`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-399" data-jobs-toc="v2">20、混入<font id=混入 color=red>**`with`**👈**`mixin`**➤**`on`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > * 可以理解成**代码片段**🎬
 >
@@ -15647,7 +15666,7 @@ Comparable.compare(a, b)
 >  * **with**：用模块（<a href="#混入" style="font-size:17px; color:green;"><b>混入</b></a> 类）
 >   * **on**：限定模块（必须基于谁才能用）
 
-#### <span id="jobs-toc-heading-399" data-jobs-toc="v2">20.1、混入的基本语法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-400" data-jobs-toc="v2">20.1、混入的基本语法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 * <font color=red size=5>**`with`**👈**`mixin`**</font>
 
   * <font color=red>**最常见**</font>：`with` + `mixin`：在 [**Flutter**](https://flutter.dev/) 源码中，`with` 后面 99% 的情况是 `mixin`
@@ -15704,7 +15723,7 @@ Comparable.compare(a, b)
   class Car with Walker {} // ❌ 报错，因为 Car 不是 Animal
   ```
 
-#### <span id="jobs-toc-heading-400" data-jobs-toc="v2">20.2、混入的`继承`写法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-401" data-jobs-toc="v2">20.2、混入的`继承`写法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 使用关键字<font color=red>**`implements`**</font>
 
@@ -15716,7 +15735,7 @@ Comparable.compare(a, b)
   }
   ```
 
-#### <span id="jobs-toc-heading-401" data-jobs-toc="v2">20.3、混入的复杂用法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-402" data-jobs-toc="v2">20.3、混入的复杂用法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * Dart 规则：带 `on SomeType` 约束的 mixin，必须出现在 `with` 列表里 **SomeType 之后**。否则类型约束不成立会报错
 
@@ -15778,20 +15797,20 @@ Comparable.compare(a, b)
     > ```
 
 
-### <span id="jobs-toc-heading-402" data-jobs-toc="v2">21、基础的数据类型 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-403" data-jobs-toc="v2">21、基础的数据类型 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **abstract**：类本身不能被实例化
 >
 > **final**：类不能被继承
 
-#### <span id="jobs-toc-heading-403" data-jobs-toc="v2">21.1、**`int`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-404" data-jobs-toc="v2">21.1、**`int`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 abstract final class int extends num
 sealed class num implements Comparable<num>
 ```
 
-#### <span id="jobs-toc-heading-404" data-jobs-toc="v2">21.2、**`Long`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-405" data-jobs-toc="v2">21.2、**`Long`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 final class Long extends AbiSpecificInteger
@@ -15825,20 +15844,20 @@ AbiSpecificInteger <|.. SizedNativeType : implements
 SizedNativeType <|.. NativeType : implements
 ```
 
-#### <span id="jobs-toc-heading-405" data-jobs-toc="v2">21.3、**`bool`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-406" data-jobs-toc="v2">21.3、**`bool`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 final class bool
 ```
 
-#### <span id="jobs-toc-heading-406" data-jobs-toc="v2">21.4、**`double`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-407" data-jobs-toc="v2">21.4、**`double`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 abstract final class double extends num
 sealed class num implements Comparable<num>
 ```
 
-#### <span id="jobs-toc-heading-407" data-jobs-toc="v2">21.5、**`Float`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-408" data-jobs-toc="v2">21.5、**`Float`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 final class Float implements _NativeDouble
@@ -15872,7 +15891,7 @@ _NativeDouble <|.. SizedNativeType : implements
 SizedNativeType <|.. NativeType : implements
 ```
 
-#### <span id="jobs-toc-heading-408" data-jobs-toc="v2">21.6、**`String`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-409" data-jobs-toc="v2">21.6、**`String`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 abstract final class String implements Comparable<String>, Pattern
@@ -15900,7 +15919,7 @@ String <|.. Comparable~String~ : implements
 String <|.. Pattern : implements
 ```
 
-#### <span id="jobs-toc-heading-409" data-jobs-toc="v2">21.7、**`List`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-410" data-jobs-toc="v2">21.7、**`List`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 abstract interface class List<E> implements Iterable<E>, _ListIterable<E>
@@ -15945,13 +15964,13 @@ EfficientLengthIterable~T~ <|-- Iterable~T~ : extends
 HideEfficientLengthIterable~T~ <|.. Iterable~T~ : implements
 ```
 
-#### <span id="jobs-toc-heading-410" data-jobs-toc="v2">21.8、**`Map`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-411" data-jobs-toc="v2">21.8、**`Map`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 abstract interface class Map<K, V>
 ```
 
-#### <span id="jobs-toc-heading-411" data-jobs-toc="v2">21.9、**`Set`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-412" data-jobs-toc="v2">21.9、**`Set`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 abstract interface class Set<E> implements Iterable<E>, _SetIterable<E>
@@ -15996,11 +16015,11 @@ EfficientLengthIterable~T~ <|-- Iterable~T~ : extends
 HideEfficientLengthIterable~T~ <|.. Iterable~T~ : implements
 ```
 
-### <span id="jobs-toc-heading-412" data-jobs-toc="v2">22、入参  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-413" data-jobs-toc="v2">22、入参  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > ⚠️<font color=red>**必须是编译期常量**</font>`const`。也就是意味着➤ 类似于：`X.w`、`X.h`之类的[**flutter_screenutil**](https://pub.dev/packages/flutter_screenutil)的扩展 `getter`（需要在 **运行时有 BuildContext**）。<u>故此时使用，即会报错</u>
 
-#### <span id="jobs-toc-heading-413" data-jobs-toc="v2">22.1、必传入参  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-414" data-jobs-toc="v2">22.1、必传入参  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > <font color=red>**直接传，不用带参数名。但是序号不能乱**</font>
 
@@ -16016,11 +16035,11 @@ void main() {
 }
 ```
 
-#### <span id="jobs-toc-heading-414" data-jobs-toc="v2">22.2、可选入参  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-415" data-jobs-toc="v2">22.2、可选入参  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 在众多的参数列表中，序号可以乱，但是必须带参数名
 
-##### <span id="jobs-toc-heading-415" data-jobs-toc="v2">22.2.1、可选位置参数：传值时 **按顺序，但不带参数名** <font color=red>`[]`</font>   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-416" data-jobs-toc="v2">22.2.1、可选位置参数：传值时 **按顺序，但不带参数名** <font color=red>`[]`</font>   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 // 多个可选位置参数
@@ -16055,7 +16074,7 @@ void main() {
 
 ```
 
-##### <span id="jobs-toc-heading-416" data-jobs-toc="v2">22.2.2、可选命名参数：传值时用 **参数名**，顺序无关 <font color=red>`{}`</font>   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-417" data-jobs-toc="v2">22.2.2、可选命名参数：传值时用 **参数名**，顺序无关 <font color=red>`{}`</font>   <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 void greet(String name, {String suffix = ''}) {
@@ -16068,7 +16087,7 @@ void main() {
 }
 ```
 
-##### <span id="jobs-toc-heading-417" data-jobs-toc="v2">22.2.3、可选入参中必传： <font color=red>**required 带参数名 **</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-418" data-jobs-toc="v2">22.2.3、可选入参中必传： <font color=red>**required 带参数名 **</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 void greet(String name, {required String mood}) {
@@ -16081,7 +16100,7 @@ void main() {
 }
 ```
 
-### <span id="jobs-toc-heading-418" data-jobs-toc="v2">23、🔧**自动化代码生成工具** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-419" data-jobs-toc="v2">23、🔧**自动化代码生成工具** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [<font color=red>**build_runner**</font>](https://pub.dev/packages/build_runner)
 
@@ -16281,9 +16300,9 @@ void main() {
   | ✅ 测试 mock       | 自动生成 `@Mock()`、伪接口                         | `mockito` + `build_runner`                        |
   | ✅ Dart FFI        | 自动生成 FFI 对应的 dart wrapper                   | `ffigen`                                          |
 
-### <span id="jobs-toc-heading-419" data-jobs-toc="v2">24、🏗️构造函数 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-420" data-jobs-toc="v2">24、🏗️构造函数 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-420" data-jobs-toc="v2">24.1、**默认构造函数**（<font color=red>**不能有两个默认构造函数（名字相同，参数不同也不行）**</font>） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-421" data-jobs-toc="v2">24.1、**默认构造函数**（<font color=red>**不能有两个默认构造函数（名字相同，参数不同也不行）**</font>） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 默认构造函数 == 没写名字的命名构造函数。
 
@@ -16295,7 +16314,7 @@ class Person {
 }
 ```
 
-#### <span id="jobs-toc-heading-421" data-jobs-toc="v2">24.2、**命名构造函数**（<font color=red>**可以有多个命名构造函数，但是：必须有唯一名字**</font>） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-422" data-jobs-toc="v2">24.2、**命名构造函数**（<font color=red>**可以有多个命名构造函数，但是：必须有唯一名字**</font>） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
  class Person {
@@ -16318,7 +16337,7 @@ void main() {
 }
 ```
 
-#### <span id="jobs-toc-heading-422" data-jobs-toc="v2">24.3、**初始化列表构造函数** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-423" data-jobs-toc="v2">24.3、**初始化列表构造函数** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class User {
@@ -16336,7 +16355,7 @@ void main() {
 }
 ```
 
-#### <span id="jobs-toc-heading-423" data-jobs-toc="v2">24.4、**`const` 构造函数**（**`Widget`** 常用）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-424" data-jobs-toc="v2">24.4、**`const` 构造函数**（**`Widget`** 常用）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > | 作用                          | 好处                                                         |
 > | ----------------------------- | ------------------------------------------------------------ |
@@ -16370,7 +16389,7 @@ void main() {
 }
 ```
 
-#### <span id="jobs-toc-heading-424" data-jobs-toc="v2">24.5、**`factory` 构造函数**（高级构建方式） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-425" data-jobs-toc="v2">24.5、**`factory` 构造函数**（高级构建方式） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 class Person {
@@ -16383,7 +16402,7 @@ class Person {
 }
 ```
 
-### <span id="jobs-toc-heading-425" data-jobs-toc="v2">25、📦<font id=构建打包>**构建打包**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-426" data-jobs-toc="v2">25、📦<font id=构建打包>**构建打包**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ <a href="#自动化代码生成应用外观资源" style="font-size:17px; color:green;"><b>自动化代码生成应用外观资源</b></a>
 >
@@ -16463,7 +16482,7 @@ class Person {
   | **dynamic**                        | [**Flutter**](https://flutter.dev/) 动态集成场景 | **JIT + AOT**      | 依项目配置 | 依项目配置   | Add-to-App 混合开发               | **Android**<br/>**iOS**               | 原生动态加载 Flutter            |
   | **flavor 模式**                    | `flutter build apk --flavor staging`             | 依所选模式         | 依所选模式 | 依所选模式   | 多环境打包（`staging`、`uat` 等） | **Android**<br/>**iOS**               | 非编译模式，属于构建配置        |
 
-#### <span id="jobs-toc-heading-426" data-jobs-toc="v2">25.1、[**配置Shell打包命令**](https://github.com/JobsKit/JobsMacEnvVarConfig) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-427" data-jobs-toc="v2">25.1、[**配置Shell打包命令**](https://github.com/JobsKit/JobsMacEnvVarConfig) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 直接写入`.zshrc`➤[**Flutter**](https://flutter.dev/)的版本锁定+用于[**Android**](https://www.android.com/)的**Java**环境的锁定
 >
@@ -16705,7 +16724,7 @@ ipa() {
 }
 ```
 
-#### <span id="jobs-toc-heading-427" data-jobs-toc="v2">25.2、配置[**`SourceTree`**](https://www.sourcetreeapp.com/)打包脚本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-428" data-jobs-toc="v2">25.2、配置[**`SourceTree`**](https://www.sourcetreeapp.com/)打包脚本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**打包Flutter.Android**](https://github.com/JobsKit/SourceTree.sh/blob/main/%E3%80%90MacOS%40SourceTree%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.android.command)
 
@@ -17186,7 +17205,7 @@ ipa() {
   main "$@"
   ```
 
-#### <span id="jobs-toc-heading-428" data-jobs-toc="v2">25.3、[**Flutter**](https://flutter.dev/)打包和运行流程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-429" data-jobs-toc="v2">25.3、[**Flutter**](https://flutter.dev/)打包和运行流程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 打包只依赖于 **SDK、编译工具链（Android SDK / NDK / Xcode）**，不需要设备。
 >
@@ -17237,9 +17256,9 @@ ipa() {
       class F,G device;
   ```
 
-#### <span id="jobs-toc-heading-429" data-jobs-toc="v2">25.4、📦 [**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/)（较为复杂和繁琐）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-430" data-jobs-toc="v2">25.4、📦 [**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/)（较为复杂和繁琐）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-430" data-jobs-toc="v2">25.4.1、 [**`Android Command Line Tools`**](https://developer.android.com/tools?hl=zh-cn).[**sdkmanager**](https://developer.android.com/tools/sdkmanager?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-431" data-jobs-toc="v2">25.4.1、 [**`Android Command Line Tools`**](https://developer.android.com/tools?hl=zh-cn).[**sdkmanager**](https://developer.android.com/tools/sdkmanager?hl=zh-cn) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 >  [**sdkmanager**](https://developer.android.com/tools/sdkmanager?hl=zh-cn) （<font color=red>**建议保持最新**</font>）是[**Android**](https://www.android.com/).**SDK**命令行工具：[**Android  Command Line Tools**](https://developer.android.com/tools?hl=zh-cn)的一部分，用于管理 [**Android**](https://www.android.com/).**SDK** 的组件。它允许你从终端安装、更新、查看和卸载[**Android**](https://www.android.com/).**SDK**中的各种包，比如：
 >
@@ -17281,7 +17300,7 @@ ipa() {
 
     * 用于自定义 **CI/CD** 环境（如 [**Docker**](https://www.docker.com/)镜像）
 
-##### <span id="jobs-toc-heading-431" data-jobs-toc="v2">25.4.2、[**Gradle**](https://gradle.org/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-432" data-jobs-toc="v2">25.4.2、[**Gradle**](https://gradle.org/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 一个高度可配置、插件化、现代化的自动化构建工具（平台无关）
 
@@ -17423,7 +17442,7 @@ graph TD
     F --> G[Generate final APK]
 ```
 
-##### <span id="jobs-toc-heading-432" data-jobs-toc="v2">25.4.6、如何加快[**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/)的打包速度？ <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-433" data-jobs-toc="v2">25.4.6、如何加快[**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/)的打包速度？ <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 优化方式                                            | 操作说明                                                     |
 | --------------------------------------------------- | ------------------------------------------------------------ |
@@ -17436,7 +17455,7 @@ graph TD
 | ✅ **设置构建线程数**                                | [**Gradle**](https://gradle.org/) 中设置：`org.gradle.parallel=true` |
 | ✅ [**Flutter**](https://flutter.dev/) **版本更新**  | 新版本通常对构建性能有优化                                   |
 
-##### <span id="jobs-toc-heading-433" data-jobs-toc="v2">25.4.7、🪖<font color=red>**构建指令**</font>：`flutter build apk` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-434" data-jobs-toc="v2">25.4.7、🪖<font color=red>**构建指令**</font>：`flutter build apk` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 模式      | 命令                                                   | 简称说明             |
 | --------- | ------------------------------------------------------ | -------------------- |
@@ -17478,7 +17497,7 @@ graph TD
   | `-Psplit-debug-info`      | 是否分离调试信息                                |
   | `assembleRelease`         | 构建 release 产物，最终生成 `app-release.apk`   |
 
-##### <span id="jobs-toc-heading-434" data-jobs-toc="v2">25.4.8、⚙️ 相关配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-435" data-jobs-toc="v2">25.4.8、⚙️ 相关配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/)打包需要涉及到**Java**环境推荐使用[<font color=red>**openJDK**</font>](https://openjdk.org/)
 
@@ -17536,7 +17555,7 @@ graph TD
   | 第三方依赖                                                   | 来自 [**pub.dev**](https://pub.dev/) 的插件中声明的 AAR/JAR，如 [`image_gallery_saver`](https://pub.dev/packages/image_gallery_saver)、[`engagelab`](https://pub.dev/packages?q=engagelab) |
   | [**Google Maven**](https://maven.google.com/web/index.html) / [**JCenter**](https://mvnrepository.com/repos/jcenter) / [**MavenCentral**](https://central.sonatype.com/) | 默认构建源，国内访问会慢                                     |
 
-##### <span id="jobs-toc-heading-435" data-jobs-toc="v2">25.4.9、📦 [**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/) [打包脚本（MacOS）](https://github.com/JobsKit/JobsCommand-Flutter/blob/main/%E3%80%90MacOS%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.Android.command) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-436" data-jobs-toc="v2">25.4.9、📦 [**Flutter**](https://flutter.dev/).[**Android**](https://www.android.com/) [打包脚本（MacOS）](https://github.com/JobsKit/JobsCommand-Flutter/blob/main/%E3%80%90MacOS%E3%80%91%F0%9F%93%A6%E5%8F%8C%E5%87%BB%E6%89%93%E5%8C%85Flutter.Android.command) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ><font color=red>**阻碍打包进程的几个关键点**</font>
 >
@@ -18093,7 +18112,7 @@ main "$@"
 ```
 </details>
 
-##### <span id="jobs-toc-heading-436" data-jobs-toc="v2">25.4.10、打包成品  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-437" data-jobs-toc="v2">25.4.10、打包成品  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > [**Flutter**](https://flutter.dev/) 和 [**Gradle**](https://gradle.org/)  的构建系统默认会将最新产物**覆盖上一次的构建产物**
 
@@ -18125,9 +18144,9 @@ graph TD
 | 🚀 提测/发包                                         | `apk/release/app-release.apk`（需签名）                  |
 | 🌐 上架  [**Google Play**](https://play.google.com/) | `bundle/release/app-release.aab`                         |
 
-#### <span id="jobs-toc-heading-437" data-jobs-toc="v2">25.5、📦 [**Flutter**](https://flutter.dev/).**iOS**（相对简单）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-438" data-jobs-toc="v2">25.5、📦 [**Flutter**](https://flutter.dev/).**iOS**（相对简单）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-438" data-jobs-toc="v2">25.5.1、🪖<font color=red>**构建指令**</font>：`flutter build ios` 和 <font color=red>**`flutter build ipa`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-439" data-jobs-toc="v2">25.5.1、🪖<font color=red>**构建指令**</font>：`flutter build ios` 和 <font color=red>**`flutter build ipa`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **iOS** 项目主流是使用[**XCode**](https://developer.apple.com/xcode/) + [**XCode**](https://developer.apple.com/xcode/) **build system** 来进行构建
 
@@ -18145,7 +18164,7 @@ graph TD
 | `--export-options-plist` | `--export-options-plist=ios/ExportOptions.plist` | 指定导出 **ipa** 所需的 **plist**        |
 | `--no-codesign`          | `flutter build ios --no-codesign`                | 构建时跳过签名，常用于 CI 环境或手动签名 |
 
-##### <span id="jobs-toc-heading-439" data-jobs-toc="v2">25.5.2、📁生成的包目录  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-440" data-jobs-toc="v2">25.5.2、📁生成的包目录  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 虽然[**Flutter**](https://flutter.dev/)构建**iOS**的`.ipa`包最终还是调用**Xcode**的内部组件，<font color=red>但是生成的`.ipa`包的物理位置，与**Xcode**打正常的**iOS**原生`.ipa`是不同的</font>
 
@@ -18186,7 +18205,7 @@ graph TD
     F --> F2[📄 ExportOptions.plist<br/>导出配置文件<br/>📝 控制签名/上传方式]
 ```
 
-##### <span id="jobs-toc-heading-440" data-jobs-toc="v2">25.5.3、📦 打包脚本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-441" data-jobs-toc="v2">25.5.3、📦 打包脚本 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```shell
 # shell: zsh
@@ -18405,7 +18424,7 @@ main() {
 main "$@"
 ```
 
-##### <span id="jobs-toc-heading-441" data-jobs-toc="v2">25.5.4、⚠️注意事项  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-442" data-jobs-toc="v2">25.5.4、⚠️注意事项  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 必须要有苹果的开发者账号（普通账户充值）
 
@@ -18477,7 +18496,7 @@ main "$@"
     ```
     </details>
 
-### <span id="jobs-toc-heading-442" data-jobs-toc="v2">26、[**颜色格式的转换**](https://github.com/JobsKit/JobsCommand-Flutter/blob/42822411fe3dba59a4c37e2c4abd3df9f11db289/%E3%80%90MacOS%E3%80%91%F0%9F%8C%9E%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2.command) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-443" data-jobs-toc="v2">26、[**颜色格式的转换**](https://github.com/JobsKit/JobsCommand-Flutter/blob/42822411fe3dba59a4c37e2c4abd3df9f11db289/%E3%80%90MacOS%E3%80%91%F0%9F%8C%9E%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2.command) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 <img src="./assets/image-20250819172458483.png" alt="image-20250819172458483" style="zoom:40%;" />
 
@@ -18644,11 +18663,11 @@ main() {
 main "$@"
 ```
 
-### <span id="jobs-toc-heading-443" data-jobs-toc="v2">27、在 `child:` 中写条件判断 (`if`) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-444" data-jobs-toc="v2">27、在 `child:` 中写条件判断 (`if`) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > <font color=red>**不能直接写if，只能对接一个`Widget`**</font>
 
-#### <span id="jobs-toc-heading-444" data-jobs-toc="v2">27.1、方案一：三元运算符（最常用）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-445" data-jobs-toc="v2">27.1、方案一：三元运算符（最常用）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Container(
@@ -18658,7 +18677,7 @@ Container(
 );
 ```
 
-#### <span id="jobs-toc-heading-445" data-jobs-toc="v2">27.2、方案二：使用 `Builder` 包裹 `if/else` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-446" data-jobs-toc="v2">27.2、方案二：使用 `Builder` 包裹 `if/else` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 适合逻辑复杂、需要 **return** 不同 `widget` 的情况。
 
@@ -18676,7 +18695,7 @@ Container(
 );
 ```
 
-#### <span id="jobs-toc-heading-446" data-jobs-toc="v2">27.3、方案三：用 `children` 和集合展开（if 控制多个组件）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-447" data-jobs-toc="v2">27.3、方案三：用 `children` 和集合展开（if 控制多个组件）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 当父组件是 `Column`、`Row`、`ListView` 等 **可接收多个 children** 的情况，可以直接写 `if`
 
@@ -18690,7 +18709,7 @@ Column(
 );
 ```
 
-### <span id="jobs-toc-heading-447" data-jobs-toc="v2">28、扩展运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-448" data-jobs-toc="v2">28、扩展运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 会把一个 **List** 的元素逐个展开，放进父 **List**
 
@@ -18710,7 +18729,7 @@ children: [
 ]
 ```
 
-### <span id="jobs-toc-heading-448" data-jobs-toc="v2">29、（两个点）级联运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-449" data-jobs-toc="v2">29、（两个点）级联运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 级联运算符适合的场景主要是：
 >
@@ -18731,9 +18750,9 @@ list.add('B');
 list.add('C');
 ```
 
-### <span id="jobs-toc-heading-449" data-jobs-toc="v2">30、（三个点）展开运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-450" data-jobs-toc="v2">30、（三个点）展开运算符 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-450" data-jobs-toc="v2">30.1、最小例子 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-451" data-jobs-toc="v2">30.1、最小例子 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **list**
 
@@ -18762,7 +18781,7 @@ list.add('C');
   final set = {1, 2, ...{3, 4}};
   ```
 
-#### <span id="jobs-toc-heading-451" data-jobs-toc="v2">30.2、配合条件使用（高频）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-452" data-jobs-toc="v2">30.2、配合条件使用（高频）<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 比传统写法干净很多
 
@@ -18783,7 +18802,7 @@ Column(
 )
 ```
 
-#### <span id="jobs-toc-heading-452" data-jobs-toc="v2">30.3、空安全版本：`...?` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-453" data-jobs-toc="v2">30.3、空安全版本：`...?` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 如果 list 是 null ➤ 不展开
 >
@@ -18799,7 +18818,7 @@ final result = [
 ];
 ```
 
-### <span id="jobs-toc-heading-453" data-jobs-toc="v2">31、`switch` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-454" data-jobs-toc="v2">31、`switch` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `switch` 表达式要求**穷尽匹配**。如果搭配万用类型**`dynamic`**则需要同时实现**兜底分支**
 
@@ -18828,7 +18847,7 @@ final result = [
       };
   ```
 
-### <span id="jobs-toc-heading-454" data-jobs-toc="v2">32、<font color=blue>**Function**</font>（回调）的使用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-455" data-jobs-toc="v2">32、<font color=blue>**Function**</font>（回调）的使用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 定义
 
@@ -18864,7 +18883,7 @@ final result = [
   }
   ```
 
-### <span id="jobs-toc-heading-455" data-jobs-toc="v2">33、[**Flutter**](https://flutter.dev/).三棵树 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-456" data-jobs-toc="v2">33、[**Flutter**](https://flutter.dev/).三棵树 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **Widget** 是临时配置，**Element** 是长期存在的挂载实例
 
@@ -18893,7 +18912,7 @@ final result = [
   * **hitTest**：命中测试
   * 有些还参与语义、无障碍等
 
-### <span id="jobs-toc-heading-456" data-jobs-toc="v2">34、<font id=稳定key>稳定 `key`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-457" data-jobs-toc="v2">34、<font id=稳定key>稳定 `key`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * key是***Widgets***，***Elements***和***SemanticsNodes***的标识符；
 
@@ -18997,7 +19016,7 @@ final result = [
     >
     > 结果就是：**UI 出现闪烁 / 滚动错乱**，比如明明是另一条订单，但动画/状态还残留。
 
-### <span id="jobs-toc-heading-457" data-jobs-toc="v2">35、[**Flutter**](https://flutter.dev/).<font color="red">**`set/get`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-458" data-jobs-toc="v2">35、[**Flutter**](https://flutter.dev/).<font color="red">**`set/get`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * ```dart
     import 'dart:async';
@@ -19079,14 +19098,14 @@ final result = [
     flutter: event 3
     ```
 
-### <span id="jobs-toc-heading-458" data-jobs-toc="v2">36、<font color="red">***`var`***</font>、<font color="red">***`dynamic`***</font>、<font color="red">***`object`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-459" data-jobs-toc="v2">36、<font color="red">***`var`***</font>、<font color="red">***`dynamic`***</font>、<font color="red">***`object`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * <font color="red">***`var`***</font>定义的类型是不可变的；
 * <font color="red">***`dynamic`***</font>和<font color="red">***`object`***</font>类型是可以变的，而<font color="red">***`dynamic`***</font>与<font color="red">***`object`***</font>的区别是在静态类型检查上；
   * <font color="red">***`dynamic`***</font>：编译时**不**进行静态类型检查的类型（更灵活），而是在运行期间进行类型检查。（被编译后，实际是一个<font color="red">***`object`***</font>类型）
   * <font color="red">***`object`***</font>：编译时会进行类型检查（更安全）
 
-### <span id="jobs-toc-heading-459" data-jobs-toc="v2">37、<font color="red">***`const`***</font>和<font color="red">***`final`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-460" data-jobs-toc="v2">37、<font color="red">***`const`***</font>和<font color="red">***`final`***</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***相同点***
   * <font color="red">***`final`***</font>、<font color="red">***`const`***</font>必须初始化；
@@ -19203,7 +19222,7 @@ final result = [
     | `NextPage()`       | 每次都创建新实例                 | 普通 new 调用，像构造函数    |
     | `const NextPage()` | 复用内存中已存在的实例（如果有） | 更像类级别方法或单例构造优化 |
 
-### <span id="jobs-toc-heading-460" data-jobs-toc="v2">38、[**Dart**](https://dart.dev/).<font color=red>**Lambda表达式(箭头函数)**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-461" data-jobs-toc="v2">38、[**Dart**](https://dart.dev/).<font color=red>**Lambda表达式(箭头函数)**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```dart
   class LaunchScreen extends StatefulWidget {
@@ -19268,7 +19287,7 @@ final result = [
     }
     ```
 
-### <span id="jobs-toc-heading-461" data-jobs-toc="v2">39、[**Dart**](https://dart.dev/).**import** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-462" data-jobs-toc="v2">39、[**Dart**](https://dart.dev/).**import** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 导入方式                       | 含义                                   |
 | ------------------------------ | -------------------------------------- |
@@ -19276,7 +19295,7 @@ final result = [
 | `import 'xxx.dart' show A, B;` | 只导入 `A` 和 `B`                      |
 | `import 'xxx.dart' hide A;`    | 导入除 `A` 以外的所有成员              |
 
-#### <span id="jobs-toc-heading-462" data-jobs-toc="v2">39.1、[**Dart**](https://dart.dev/).<font color="red">**`part`**</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-463" data-jobs-toc="v2">39.1、[**Dart**](https://dart.dev/).<font color="red">**`part`**</font>  <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 用于将一个源文件分割成多个部分，每个部分被称为一个<font color="red">*`part`*</font>。通常情况下，一个库（库是Dart中代码组织的单元）可以由多个源文件组成，这些源文件通过<font color="red">*`part`*</font>关键字进行引入;
 
@@ -19308,7 +19327,7 @@ final result = [
     * 使用<font color="red">*`part of`*</font>关键字，将部分文件与主文件关联起来，形成一个完整的库；
     * 这种方式可以将大型代码库拆分成更小的模块，提高代码的可维护性和可读性；
 
-### <span id="jobs-toc-heading-463" data-jobs-toc="v2">40、[**Dart**](https://dart.dev/).**事件循环（Event Loop）** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-464" data-jobs-toc="v2">40、[**Dart**](https://dart.dev/).**事件循环（Event Loop）** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ![image-20240321163915070](./assets/image-20240321163915070.png)
 
@@ -19321,20 +19340,20 @@ final result = [
   * 主要就是不停的检查**Event Queue**（事件队列），如果有新的事件，就要把响应的代码送去执行；
   * 所谓异步操作，其实就是在**Event Queue**（事件队列）上添加事件；
 
-### <span id="jobs-toc-heading-464" data-jobs-toc="v2">41、🧵[**Dart**](https://dart.dev/).**线程处理** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-465" data-jobs-toc="v2">41、🧵[**Dart**](https://dart.dev/).**线程处理** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > <font color="red">**值得注意的是：在Dart中，异步操作不是多线程（有别于Java）**</font>
 
-#### <span id="jobs-toc-heading-465" data-jobs-toc="v2">41.2、🧵[**Dart**](https://dart.dev/).<font id="Isolate">**`Isolate`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-466" data-jobs-toc="v2">41.2、🧵[**Dart**](https://dart.dev/).<font id="Isolate">**`Isolate`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 在[**Dart**](https://dart.dev/) 2.6 版本中引入。**`Isolate`** 是 [**Dart**](https://dart.dev/) 中的<u>并发执行单元</u>，<font color="red">***类似于线程***</font>（即，[**Dart**](https://dart.dev/)**的线程是被封装在Isolate里面的**）。但具有独立的堆内存；
 * **`Isolate`** 之间通过**消息传递**进行通信，这种模型<u>有助于避免共享内存的并发问题</u>。( JS里面也是模拟多线程，<font color="red">**因为总共才一个线程**</font>)
 
-#### <span id="jobs-toc-heading-466" data-jobs-toc="v2">41.3、🧵[**Dart**](https://dart.dev/).<font id="Future">**`Future`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-467" data-jobs-toc="v2">41.3、🧵[**Dart**](https://dart.dev/).<font id="Future">**`Future`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **`Future`** 是一个***用于表示异步操作结果的对象***。通常用于处理需要等待一段时间才能完成的操作。它表示一个在某个未来时刻会产生值或错误的计算过程；
 
-##### <span id="jobs-toc-heading-467" data-jobs-toc="v2">41.3.1、🧵快速入手 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-468" data-jobs-toc="v2">41.3.1、🧵快速入手 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 示例一：以下这三种方式等价
 
@@ -19380,14 +19399,14 @@ final result = [
     getFuture().then((value) => debugPrint(value));/// Future对象用then打开。这里的value就是String，也就是"Alice"
   }
   ```
-##### <span id="jobs-toc-heading-468" data-jobs-toc="v2">41.3.2、🧵 <a href="#FutureBuilder" style="font-size:17px; color:green;"><b>`FutureBuilder`</b></a>（跳转查看） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-469" data-jobs-toc="v2">41.3.2、🧵 <a href="#FutureBuilder" style="font-size:17px; color:green;"><b>`FutureBuilder`</b></a>（跳转查看） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-##### <span id="jobs-toc-heading-469" data-jobs-toc="v2">41.3.3、🧵异步操作的结果 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-470" data-jobs-toc="v2">41.3.3、🧵异步操作的结果 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ***Future*** 代表一个异步操作的结果。当异步操作完成时，***Future*** 将会返回一个值（data）或一个错误（error）。*错误和值不可能同时出现*；
 * 所以，***Future*** 总共有3种形态：**刚进来没有完成的状态**、**正常完成以后得状态**、**异常完成以后得到的错误信息**；
 
-##### <span id="jobs-toc-heading-470" data-jobs-toc="v2">41.3.4、🧵代码执行优先级 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-471" data-jobs-toc="v2">41.3.4、🧵代码执行优先级 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * [**Dart**](https://dart.dev/)代码直接<u>Debug</u>模式运行**立即执行的**
 
@@ -19497,7 +19516,7 @@ final result = [
     flutter: event 3
     ```
 
-##### <span id="jobs-toc-heading-471" data-jobs-toc="v2">41.3.5、🧵`then()`方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-472" data-jobs-toc="v2">41.3.5、🧵`then()`方法 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ 可以使用**`Future`对象的`then()`方法注册回调函数**
 >
@@ -19577,7 +19596,7 @@ Continuing Execution...
 Error Fetching Number: Exception: Failed To Fetch Number
 ```
 
-##### <span id="jobs-toc-heading-472" data-jobs-toc="v2">41.3.6、🧵[**Dart**](https://dart.dev/).**`async`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-473" data-jobs-toc="v2">41.3.6、🧵[**Dart**](https://dart.dev/).**`async`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 以下3种写法等价
 
@@ -19601,7 +19620,7 @@ getFuture(){
 }
 ```
 
-##### <span id="jobs-toc-heading-473" data-jobs-toc="v2">41.3.7、🧵[**Dart**](https://dart.dev/).<font color="red">`await`</font> 和 [**Dart**](https://dart.dev/).<font color="red">`async`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-474" data-jobs-toc="v2">41.3.7、🧵[**Dart**](https://dart.dev/).<font color="red">`await`</font> 和 [**Dart**](https://dart.dev/).<font color="red">`async`</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > * 通过<font color="red">*`async`*</font>关键字标记的函数可以使用<font color="red">*`await`*</font>关键字来等待*Future*的完成，而不必使用`then()`方法注册回调函数
 > * <font color="red">***`await`是`async`的反义词***</font>
@@ -19646,7 +19665,7 @@ Connecting to VM Service at ws://127.0.0.1:59963/uNDeeaH8Z-0=/ws
 flutter: oops
   ```
 
-##### <span id="jobs-toc-heading-474" data-jobs-toc="v2">41.3.8、🧵[**Dart**](https://dart.dev/).**`error`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-475" data-jobs-toc="v2">41.3.8、🧵[**Dart**](https://dart.dev/).**`error`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 Future<String> getFuture(){
@@ -19698,7 +19717,7 @@ flutter: 5
 flutter: complete
 ```
 
-##### <span id="jobs-toc-heading-475" data-jobs-toc="v2">41.3.9、🧵[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`FutureBuilder`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-476" data-jobs-toc="v2">41.3.9、🧵[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`FutureBuilder`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 1️⃣ **`Future`**提供了一个名为 **`FutureBuilder`** 的**`Widget`**，<font color="red">**用于在Future完成后构建UI**</font>。
 >
@@ -19783,15 +19802,15 @@ class _MyHomePageState extends State<MyHomePage> {
 // 运行效果：设备屏幕正中央，先出现72，等待2秒以后，出现错误图标
 ```
 
-##### <span id="jobs-toc-heading-476" data-jobs-toc="v2">41.3.10、🧵[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).<font id="AsyncSnapshot">**`AsyncSnapshot`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+##### <span id="jobs-toc-heading-477" data-jobs-toc="v2">41.3.10、🧵[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).<font id="AsyncSnapshot">**`AsyncSnapshot`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 只存在于[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)中；
 * **`AsyncSnashot`** 是[**Flutter**](https://flutter.dev/)中用于表示异步操作的快照的类。它通常与 [***FutureBuilder***](#FutureBuilder) 或 [***StreamBuilder***](#StreamBuilder) 一起使用，用于获取异步操作的结果或状态，并在 UI 中进行相应的处理。
 * **`AsyncSnashot`**包含了有关异步操作当前状态的信息，例如数据、错误、连接状态等；
 
-### <span id="jobs-toc-heading-477" data-jobs-toc="v2">44、[**Dart**](https://dart.dev/).<font id="Stream">**`Stream`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-478" data-jobs-toc="v2">44、[**Dart**](https://dart.dev/).<font id="Stream">**`Stream`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-478" data-jobs-toc="v2">44.1、相关细节 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-479" data-jobs-toc="v2">44.1、相关细节 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 在使用[***GetX***](#GetX)框架时，通常可以避免使用显式的***Stream***；
 * 在 [**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/) 中有两种处理异步操作的方式 ***Future*** 和 ***Stream***；
@@ -19829,7 +19848,7 @@ flutter: future complete:42
 53 flutter: steam :42 （源源不断的打印 42）
 ```
 
-#### <span id="jobs-toc-heading-479" data-jobs-toc="v2">44.2、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`Widget`**.**`StreamBuilder`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-480" data-jobs-toc="v2">44.2、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`Widget`**.**`StreamBuilder`** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`Widget`**.**`StreamBuilder`** *.builder.[**snapshot**](#AsyncSnapshot).ConectionState* 比 ***FutureBuilder*** *.builder.snapshot.ConectionState* 多一个 ***active***状态；
 * [**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).**`Widget`**.**`StreamBuilder`** *.builder.[**snapshot**](#AsyncSnapshot).ConectionState === active* 可以出现无数新的数值（data）和错误（error）；
@@ -19923,7 +19942,7 @@ class _RandomNumberScreenState extends State<RandomNumberScreen> {
 */
 ```
 
-#### <span id="jobs-toc-heading-480" data-jobs-toc="v2">44.3、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).<font id="StreamController">**`StreamController`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-481" data-jobs-toc="v2">44.3、[**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/).<font id="StreamController">**`StreamController`**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**Dart**](https://dart.dev/).[**Flutter**](https://flutter.dev/)中用于创建和管理流（[**Dart**](https://dart.dev/).`Stream`）的类。充当了流的生产者，可以使用它来创建一个新的流，并在需要时向该流中添加数据；
 
@@ -19979,7 +19998,7 @@ controller.stream.map((event) => event * 2).where((event) => event is int).disti
 final controller = StreamController.broadcast();
 ```
 
-### <span id="jobs-toc-heading-481" data-jobs-toc="v2">45、[**Dart**](https://dart.dev/)**.**[**Flutter**](https://flutter.dev/)@**页面的销毁** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-482" data-jobs-toc="v2">45、[**Dart**](https://dart.dev/)**.**[**Flutter**](https://flutter.dev/)@**页面的销毁** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 当通过`Navigator.push()`方法将一个新页面推送到导航堆栈时，通常情况下该页面并不会被销毁。相反，它会被添加到导航堆栈中，并且保持在内存中，直到你显式地将其从导航堆栈中移除。
 * 然而，如果内存资源不足或者 Flutter 的路由管理系统认为需要释放页面以节省内存，那么这个页面可能会被销毁。Flutter提供了一些机制来帮助你管理页面的生命周期和内存使用，例如使用`AutomaticKeepAliveClientMixin`混入类可以在页面切换时保持页面状态。
@@ -19990,9 +20009,9 @@ final controller = StreamController.broadcast();
   * **手动调用`Navigator.removeRoute()`或`Navigator.removeRouteBelow()`**：这两个方法可以手动从导航栈中移除指定的路由或指定路由下面的所有路由。但是要小心使用，因为**直接操作导航栈可能会导致意外的行为**。
   * **使用`PageRoute`的回调函数**：你可以通过`PageRoute`的回调函数来监听页面的生命周期事件，并在适当的时候执行一些操作。例如，你可以在页面`dispose`时执行一些清理操作。
 
-### <span id="jobs-toc-heading-482" data-jobs-toc="v2">46、[**Dart**](https://dart.dev/)**.**[**Flutter**](https://flutter.dev/)@定时机制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-483" data-jobs-toc="v2">46、[**Dart**](https://dart.dev/)**.**[**Flutter**](https://flutter.dev/)@定时机制 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-#### <span id="jobs-toc-heading-483" data-jobs-toc="v2">46.1、Timer <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-484" data-jobs-toc="v2">46.1、Timer <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 延迟执行一次 ➕ 周期执行
 
@@ -20001,7 +20020,7 @@ Timer(const Duration(seconds: 1), () {});
 Timer.periodic(const Duration(seconds: 1), (_) {});
 ```
 
-#### <span id="jobs-toc-heading-484" data-jobs-toc="v2">46.2、Future.delayed <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-485" data-jobs-toc="v2">46.2、Future.delayed <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 一次性延迟任务 ➕ 写异步流程更顺
 
@@ -20012,7 +20031,7 @@ Future.delayed(const Duration(seconds: 1), () {
 });
 ```
 
-#### <span id="jobs-toc-heading-485" data-jobs-toc="v2">46.3、帧回调 / 动画时钟 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-486" data-jobs-toc="v2">46.3、帧回调 / 动画时钟 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 每一帧回调一次，适合动画
 
@@ -20032,7 +20051,7 @@ Future.delayed(const Duration(seconds: 1), () {
   });
   ```
 
-#### <span id="jobs-toc-heading-486" data-jobs-toc="v2">46.4、事件循环任务 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-487" data-jobs-toc="v2">46.4、事件循环任务 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```dart
 scheduleMicrotask(() {
@@ -20044,7 +20063,7 @@ Future(() {
 });
 ```
 
-#### <span id="jobs-toc-heading-487" data-jobs-toc="v2">46.5、周期异步流 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+#### <span id="jobs-toc-heading-488" data-jobs-toc="v2">46.5、周期异步流 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 周期产生数据流和响应式写法更搭
 
@@ -20055,9 +20074,9 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 });
 ```
 
-## <span id="jobs-toc-heading-488" data-jobs-toc="v2">七、<font color=red>**F**</font><font color=green>**A**</font><font color=blue>**Q**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+## <span id="jobs-toc-heading-489" data-jobs-toc="v2">七、<font color=red>**F**</font><font color=green>**A**</font><font color=blue>**Q**</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### <span id="jobs-toc-heading-489" data-jobs-toc="v2">1、[**Flutter**](https://flutter.dev/) 本地存储方案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-490" data-jobs-toc="v2">1、[**Flutter**](https://flutter.dev/) 本地存储方案 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 轻量键值存储（最常见，底层就是平台提供的轻量 **key-value** 存储 ➤ **shared_preferences**）
 
@@ -20170,34 +20189,34 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   }
   ```
 
-### <span id="jobs-toc-heading-490" data-jobs-toc="v2">2、**Future** **是不是多线程**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-491" data-jobs-toc="v2">2、**Future** **是不是多线程**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 不是。是事件循环调度
 
-### <span id="jobs-toc-heading-491" data-jobs-toc="v2">3、Future / async-await 本质是什么？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-492" data-jobs-toc="v2">3、Future / async-await 本质是什么？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 只是把任务丢进队列，不是开线
 
-### <span id="jobs-toc-heading-492" data-jobs-toc="v2">4、<font color=red>**async**</font> **会不会开线程**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-493" data-jobs-toc="v2">4、<font color=red>**async**</font> **会不会开线程**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 不会
 
-### <span id="jobs-toc-heading-493" data-jobs-toc="v2">5、**什么时候用** **Isolate**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-494" data-jobs-toc="v2">5、**什么时候用** **Isolate**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * CPU 密集任务
 
-### <span id="jobs-toc-heading-494" data-jobs-toc="v2">6、什么是 **Isolate**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-495" data-jobs-toc="v2">6、什么是 **Isolate**？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 一个独立的 Dart 运行实例（类似进程）
 * 有自己的内存
 * 不共享变量（避免锁和线程安全问题）
 * 通过消息通信
 
-### <span id="jobs-toc-heading-495" data-jobs-toc="v2">7、**为什么** [**Flutter**](https://flutter.dev/) 不用多线程？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-496" data-jobs-toc="v2">7、**为什么** [**Flutter**](https://flutter.dev/) 不用多线程？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 因为 UI 操作必须在主线程，同时 Dart 通过 **Isolate** 避免共享内存带来的复杂性
 
-### <span id="jobs-toc-heading-496" data-jobs-toc="v2">8、手势 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-497" data-jobs-toc="v2">8、手势 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 不管图形是如何（自定义绘制），点击的时候响应都是矩形
 
@@ -20218,12 +20237,12 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   * accept ≠ 立刻赢（但会推动裁决）
   * 没有人 accept 时，靠“谁先不合格”淘汰
 
-### <span id="jobs-toc-heading-497" data-jobs-toc="v2">9、**为什么状态不会丢？**<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-498" data-jobs-toc="v2">9、**为什么状态不会丢？**<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **Element 和 State 没被销毁**
 * 只是 **Widget** 重新 build
 
-### <span id="jobs-toc-heading-498" data-jobs-toc="v2">10、**Future** 在哪个队列里面？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-499" data-jobs-toc="v2">10、**Future** 在哪个队列里面？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > **Future** 默认在 **event queue**，但完成态 **Future** 的回调在 **Microtask Queue**
 
@@ -20264,20 +20283,20 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 
   * <font color=red>**await**</font> 后续  **Microtask Queue**
 
-### <span id="jobs-toc-heading-499" data-jobs-toc="v2">11、为什么会这样？已完成的 **Future**，会立即进入 **Microtask Queue** 执行回调 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-500" data-jobs-toc="v2">11、为什么会这样？已完成的 **Future**，会立即进入 **Microtask Queue** 执行回调 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   | 类型             | 本质           |
   | ---------------- | -------------- |
   | **Future**()     | 新任务（事件） |
   | **Future.value** | 已完成任务     |
 
-### <span id="jobs-toc-heading-500" data-jobs-toc="v2">12、**为什么** **Release** **没有热重载？**<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-501" data-jobs-toc="v2">12、**为什么** **Release** **没有热重载？**<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * Release 使用 **AOT（Ahead-of-Time）编译**
 * 没有 Dart VM
 * 代码已经变成机器码
 
-### <span id="jobs-toc-heading-501" data-jobs-toc="v2">13、**Hot Reload** 🆚 **Hot Restart** 的本质区别 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-502" data-jobs-toc="v2">13、**Hot Reload** 🆚 **Hot Restart** 的本质区别 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   | 项目        | Hot Reload | Hot Restart  |
   | ----------- | ---------- | ------------ |
@@ -20286,7 +20305,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   | `State`     | 保留       | **丢失**     |
   | `main()`    | 不执行     | **重新执行** |
 
-### <span id="jobs-toc-heading-502" data-jobs-toc="v2">14、**Hot Reload** 🆚 **Hot Restart** 🆚 **Run（重新运行）** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-503" data-jobs-toc="v2">14、**Hot Reload** 🆚 **Hot Restart** 🆚 **Run（重新运行）** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   | 操作                | 本质              | 速度 | 状态 |
   | ------------------- | ----------------- | ---- | ---- |
@@ -20294,14 +20313,14 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   | **Hot Restart**     | **重建 Dart VM**  | 较快 | 清空 |
   | **Run（重新运行）** | **整个 App 重启** | 最慢 | 清空 |
 
-### <span id="jobs-toc-heading-503" data-jobs-toc="v2">15、**Hot Restart** 本质 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-504" data-jobs-toc="v2">15、**Hot Restart** 本质 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * 销毁 Dart VM 当前状态
     * 重新初始化
     * 执行 `main() `
     *  重建 **Widget** 树 
 
-### <span id="jobs-toc-heading-504" data-jobs-toc="v2">16、为什么有些修改必须 **Restart**？这些修改已经<u>固化在内存里</u>，**VM** 没法动态替换 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-505" data-jobs-toc="v2">16、为什么有些修改必须 **Restart**？这些修改已经<u>固化在内存里</u>，**VM** 没法动态替换 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * 修改 `main()`
 
@@ -20346,17 +20365,17 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     }
     ```
 
-### <span id="jobs-toc-heading-505" data-jobs-toc="v2">17、**VM（虚拟机）** 和 **Engine** 有什么区别？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-506" data-jobs-toc="v2">17、**VM（虚拟机）** 和 **Engine** 有什么区别？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * **VM**：执行 Dart 代码
   * **Engine**：负责渲染（Skia）
 
-### <span id="jobs-toc-heading-506" data-jobs-toc="v2">18、**VM** 的两种模式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-507" data-jobs-toc="v2">18、**VM** 的两种模式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * **JIT**（**J**ust-**I**n-**T**ime）➤  用在 **debug**：代码运行时编译/支持热重载
   * **AOT**（**A**head-**O**f-**T**ime）➤ 用在 **release**：提前编译成机器码/没有 **VM**（或者 **VM** 不参与执行）
 
-### <span id="jobs-toc-heading-507" data-jobs-toc="v2">19、`setState()` 之后到底发生了什么？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-508" data-jobs-toc="v2">19、`setState()` 之后到底发生了什么？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   > 并不是整棵树瞎重建 ➤ 生成新的 **Widget**、和旧 **Widget** 对比、由 **Element** 决定是否更新、复用、替换
 
@@ -20368,7 +20387,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   * 如有必要，更新 `RenderObject`
   * 重新 `layout` / `paint`
 
-### <span id="jobs-toc-heading-508" data-jobs-toc="v2">20、[**GetX**](https://pub.dev/packages/get)状态管理基于什么实现? <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-509" data-jobs-toc="v2">20、[**GetX**](https://pub.dev/packages/get)状态管理基于什么实现? <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 基于观察者模式实现响应式更新，最终通过 [**Flutter**](https://flutter.dev/) 的 rebuild 机制刷新界面
 
@@ -20376,7 +20395,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   * **Stream**/事件通知思想
   * [**Flutter**](https://flutter.dev/)  的 **Element** / **Widget** rebuild 机制
 
-### <span id="jobs-toc-heading-509" data-jobs-toc="v2">21、[**GetX**](https://pub.dev/packages/get) 的状态管理主要有两套 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-510" data-jobs-toc="v2">21、[**GetX**](https://pub.dev/packages/get) 的状态管理主要有两套 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   > 底层最终还是依赖  [**Flutter**](https://flutter.dev/) 自身的 **widget** rebuild 机制，不是脱离 [**Flutter**](https://flutter.dev/) 单独实现渲染。
 
@@ -20391,7 +20410,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     * 用起来更爽
     * 适合表单、计数器、开关、局部联动 UI
 
-### <span id="jobs-toc-heading-510" data-jobs-toc="v2">22、[**GetX**](https://pub.dev/packages/get) 🆚 **GetBuilder** 🆚 **Obx** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-511" data-jobs-toc="v2">22、[**GetX**](https://pub.dev/packages/get) 🆚 **GetBuilder** 🆚 **Obx** <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   | 组件                                     | 类型           | 是否响应式 | 触发方式        | 使用场景     |
   | ---------------------------------------- | -------------- | ---------- | --------------- | ------------ |
@@ -20399,13 +20418,13 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
   | **Obx**                                  | 响应式         | ✅ 是       | `.obs` 自动触发 | 局部联动 UI  |
   | [**GetX**](https://pub.dev/packages/get) | 响应式（增强） | ✅ 是       | `.obs` 自动触发 | 多状态组合   |
 
-### <span id="jobs-toc-heading-511" data-jobs-toc="v2">23、[**GetX**](https://pub.dev/packages/get) 🆚 [**Provider**](https://pub.dev/packages/provider) 🆚 [**Bloc**](https://bloclibrary.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-512" data-jobs-toc="v2">23、[**GetX**](https://pub.dev/packages/get) 🆚 [**Provider**](https://pub.dev/packages/provider) 🆚 [**Bloc**](https://bloclibrary.dev/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * [**Provider**](https://pub.dev/packages/provider)：更多是依赖注入 + `ChangeNotifier` 这种模式
   * [**Bloc**](https://bloclibrary.dev/)：更强调事件流、状态流，规范更强
   * [**GetX**](https://pub.dev/packages/get)：更轻，写法更少，响应式更直接
 
-### <span id="jobs-toc-heading-512" data-jobs-toc="v2">24、为什么 **iOS** 的 **UITableView** 比 [**Flutter**](https://flutter.dev/).**ListView** 更稳？[**Flutter**](https://flutter.dev/) 怎么追上？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-513" data-jobs-toc="v2">24、为什么 **iOS** 的 **UITableView** 比 [**Flutter**](https://flutter.dev/).**ListView** 更稳？[**Flutter**](https://flutter.dev/) 怎么追上？<a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   > 👉 **UITableView 靠“复用 cell”，Flutter 靠“重建 + diff”**
   > 👉 iOS 更**保守稳定**，[**Flutter**](https://flutter.dev/) 更“灵活但吃实现质量”
@@ -20461,7 +20480,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
       ```dart
       CachedNetworkImage(...)
       ```
-### <span id="jobs-toc-heading-513" data-jobs-toc="v2">25、<font color=red>不出**UI**的总结</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-514" data-jobs-toc="v2">25、<font color=red>不出**UI**的总结</font> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
   * `Expanded` 不能直接作为 `Container`.`child`
 
@@ -20542,7 +20561,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
     | `Row` 内多个子项按比例分配空间                               | ✅ 可以     | ✅ 用 `Expanded(flex: n)`     | 或 `Flexible`；`Spacer` 等价 `Expanded(child: SizedBox.shrink())` |
     | `GridView` / `ListView.builder` 顶层直接作为 `Scaffold.body` | ✅ 可以     | ❌ 不需要                     | 顶层约束由屏幕提供                                           |
 
-### <span id="jobs-toc-heading-514" data-jobs-toc="v2">26、其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
+### <span id="jobs-toc-heading-515" data-jobs-toc="v2">26、其他 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**Dart**](https://dart.dev/)（[**Flutter**](https://flutter.dev/)）不支持真正的内部类
 
@@ -20849,7 +20868,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 
 | 类别 | 名称 | 当前配置 / 已读取证据 | 锁文件入库状态 |
 | --- | --- | --- | --- |
-| 语言 / 框架 | Dart / Flutter | `.fvmrc` 与 `.fvm/fvm_config.json` 均固定 Flutter `3.47.7`；该 SDK 缓存元数据记录 Dart `3.13.5`。`pubspec.yaml` 语言约束为 `>=3.3.1 <4.0.0` | `pubspec.lock` 已入库；SDK 缓存本身不作项目锁文件 |
+| 语言 / 框架 | Dart / Flutter | `.fvmrc` 与 `.fvm/fvm_config.json` 均固定 Flutter `3.50.0` / Dart `3.14.0`（2026-11-14 官方稳定版核对）；`pubspec.yaml` 约束为 Dart `>=3.14.0 <4.0.0`、Flutter `>=3.50.0` | `pubspec.lock` 已入库；SDK 缓存本身不作项目锁文件 |
 | SDK 管理 | [**FVM**](https://fvm.app) | 项目有 FVM 配置，FVM 命令工具自身版本未固定 | 配置已入库，无工具版本锁 |
 | Android 构建 | [**Gradle**](https://gradle.org) / AGP / [**Kotlin**](https://kotlinlang.org) | 2026-10-21 工作区配置：wrapper `8.14`、AGP `8.11.1`、Kotlin `2.2.20`，匹配 Flutter `3.47.7` 的最低构建要求；NDK `27.0.12077973` | wrapper / 构建配置为已跟踪文件，兼容性调整尚未提交；未发现 Gradle dependency lock |
 | Android 最低支持 | Android SDK | `app/build.gradle.kts` 读取 Flutter 默认值；固定 SDK 的 `FlutterExtension.kt` 为 min `24`、compile / target `36`；源码兼容与 JVM target `11` 不等于 Gradle 运行 JDK 版本 | JDK 发行版与具体版本未固定，须以本机 doctor / 构建结果核实 |
@@ -20877,17 +20896,17 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 
 ### 8.3、<span id="statistics-pages">页面、子页面与路由</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-计数时间：默认与备用入口为 **2026-10-19**，友盟独立入口为 **2026-10-21**；单位选用**页面组件**，按每个入口实际装配的全屏根内容分别计数，不把控件、Demo 片段、半屏、弹层、浮层或未接入的样例算页面。跨端共用同一套 Dart 页面，平台数不乘进页面总数。
+计数时间：默认功能实验室为 **2026-11-14**；备用入口原基线 **2026-10-19**，友盟独立入口原基线 **2026-10-21**；单位选用**页面组件**，按每个入口实际装配的全屏根内容分别计数，不把控件、Demo 片段、半屏、弹层、浮层或未接入的样例算页面。跨端共用同一套 Dart 页面，平台数不乘进页面总数。
 
 | 端 / 入口 | 页面数（含子页） | 子页面数 | 路由数 | 依据 |
 | --- | ---: | ---: | ---: | --- |
-| iOS / Android / Web / macOS / Windows / Linux，共用 `lib/main.dart` | 1 | 0 | 0 条命名路由 | `main()` 直接运行 `JobsMaterialRunner(Column(...))`；当前内容为形状按钮示例，未装配 `AppPages` |
+| 共用 `lib/main.dart` 功能实验室 | 3 个框架页＋281 个功能入口 | 开屏／首页／设置；功能内部子页未全量计数 | 替换开屏与即时 push；281 个可运行功能入口 | `demo_hub` 八份注册表：189 个旧功能／配置入口＋92 个补充与平行功能；385 条原生注册映射及平台验证范围见对照文档 |
 | 备用架构 `lib/mainss.dart`，不并入默认入口 | 2 | 1 | 2 | `lib/routes/app_pages.dart` 的 `/` 与 `/home`；启动页和首页组件，由 `mainss.dart` 的 `GetMaterialApp` 配置 |
 | 友盟独立入口 `lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart`，不并入默认入口 | 2 | 1 | 2 个实际页面路由 | `MaterialApp.home` 的 `/` 与手动压入的 `/umeng/detail`；Android / iOS 执行 SDK，Web / 桌面仅预览界面，鸿蒙宿主尚未适配 |
 
 `GetPage` 路由只是备用架构的静态注册；`lib/JobsDemoTools/` 中的独立 `main()`、演示组件及未验证示例不构成默认 App 的可达页面。平台目录存在代表模板覆盖，不能代替六个平台启动验收。没有独立 H5 容器进入默认入口，相关 WebView Demo 不计入上述数字。
 
-复核：`rg -n 'runApp|JobsMaterialRunner' lib/main.dart`，再对照 `rg -n 'GetPage\(|getPages:|initialRoute:' lib/routes/app_pages.dart lib/mainss.dart`。备用路由中 `Home` / `Splash` 导入大小写与实际 `home` / `splash` 目录不一致，大小写敏感系统上需要先修正源码；README 不能代替这项实现修复。
+复核默认入口三份注册表 `legacy_catalog.dart`、`parallel_catalog.dart`、`native_catalog.dart`；备用架构对照 `rg -n 'GetPage\(|getPages:|initialRoute:' lib/routes/app_pages.dart lib/mainss.dart`。备用路由中 `Home` / `Splash` 导入大小写与实际 `home` / `splash` 目录不一致，大小写敏感系统上需要先修正源码；README 不能代替这项实现修复。
 
 ### 8.4、<span id="statistics-backend">后端规模适用边界</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -20910,9 +20929,10 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 
 ```mermaid
 flowchart LR
-    A["lib/main.dart"] --> B["JobsByPubs/JobsRunnersByPub/jobs_material_runner.dart"]
-    B --> C["Flutter Material / Cupertino SDK"]
-    A --> D["CustomShapeButton / ShapePainter"]
+    A["lib/main.dart"] --> B["DemoHubApp / JobsDemoFoundationByPub"]
+    B --> C["全局设置、十语、主题与手势菜单"]
+    B --> R["三份功能注册目录 / lib/demos 中文目录"]
+    R --> D["异形按钮：CustomShapeButton / ShapePainter"]
     D --> E["vibration 公共插件"]
     E --> X[["平台振动 API：外部边界"]]
     F["备用 lib/mainss.dart"] --> G["lib/routes/app_pages.dart"]
@@ -20929,16 +20949,19 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A["入口 lib/main.dart main()"] --> B["JobsMaterialRunner 构造页面壳"]
-    B --> C["绘制三角 / 星形 / 平行四边形"]
-    C --> D["点击 CustomShapeButton"]
-    D --> E["_handleTap setState：压下动画"]
-    E --> F["onPressed：日志与 Vibration.vibrate"]
-    F --> G["Future.delayed：恢复按钮尺寸"]
-    G --> C
+    A["入口 main / 加载设置"] --> B["开屏"]
+    B -->|计时结束或跳过，替换路由| C["分组功能首页"]
+    C --> D["搜索 / 收藏 / 最近使用 / 菜单"]
+    D --> E["功能 WidgetBuilder"]
+    E --> F["同一中文目录页面可独立运行"]
+    C --> G["GET目录 / PUT偏好"]
+    G -->|失败或超时| H["本地目录与可演示操作"]
+    G -->|成功| I["服务端排序覆盖"]
+    H --> C
+    I --> C
 ```
 
-默认流程不经过统一 API 初始化、路由注册或后端请求；`app_initializer.dart`、`mainss.dart`、友盟与网络 Demo 是独立入口，不能画成当前 `main.dart` 的既有调用链。默认流程图沿用源码基线；友盟分支按当前源码与已有 CodeGraph 定位结果核对。
+默认流程通过 CatalogRepository 请求目录与偏好，并在未部署服务端时快速回退；具体接口契约见[功能实验室](./docs/功能实验室.md)。`app_initializer.dart` 与 `mainss.dart` 仍是备用初始化链；友盟保留独立入口。
 
 ```mermaid
 flowchart TD
@@ -21057,6 +21080,7 @@ PY_STATS
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | flutter | 0.0.0；声明 `SDK / path` | 官方 SDK | 随 Flutter SDK | BSD（条款版本待核实） | 直接 | SDK | 源码引用 `JobsByPubs/JobsRefreshByPub/example/上拉加载&下拉刷新/JobsRefreshLoad.dart` |
 | jobs_refresh_load | 0.0.1；声明 `SDK / path` | 本仓自维护 path | `./JobsByPubs/JobsRefreshByPub` | MIT | 直接 | 刷新 / 加载列表组件 | 源码引用 `JobsByPubs/JobsRefreshByPub/example/上拉加载&下拉刷新/JobsRefreshLoad.dart` |
+| jobs_demo_foundation | 0.1.0；声明 `path` | 本仓自维护 | `./JobsByPubs/JobsDemoFoundationByPub` | MIT；Noto字体OFL | 直接 | 十语、主题、菜单、空态、预览壳与算法 | 主入口及中文功能目录实际复用 |
 | jobs_runners | 0.1.0；声明 `SDK / path` | 本仓自维护 path | `./JobsByPubs/JobsRunnersByPub` | 待核实 | 直接 | Material / Cupertino / GetX 页面运行壳 | 源码引用 `JobsByPubs/JobsRefreshByPub/example/上拉加载&下拉刷新/JobsRefreshLoad.dart` |
 | jobs_safety_get_value | 0.0.1；声明 `SDK / path` | 本仓自维护 path | `./JobsByPubs/JobsSafetyGetValueByPub` | MIT | 直接 | 安全取值辅助函数 | 源码引用 `JobsByPubs/JobsSafetyGetValueByPub/example/lib/main.dart` |
 | flutter_svg | 2.2.4；声明 `any` | 公库 pub.dev | [pub.dev](https://pub.dev/packages/flutter_svg) | MIT | 直接 | SVG 解析与显示 | 源码引用 `lib/JobsDemoTools/Utils/JobsTools.dart` |
@@ -21155,7 +21179,7 @@ fvm flutter build ios \
 
 #### 8.9.1、<span id="umeng-demo-run">友盟 U-APM + 移动统计 Demo</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-入口为 [`lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart`](./lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart)，默认 `lib/main.dart` 保持原示例。也可以在 `.vscode/launch.json` 选择“友盟 U-APM + 移动统计 Demo”启动。该页通过官方 Flutter 插件演示友盟 U-App 与 U-APM，异常监控使用 U-APM；[**腾讯 Bugly**](https://bugly.qq.com/) 是另一套产品，不能使用友盟 AppKey 初始化。
+入口为 [`lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart`](./lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart)，默认 `lib/main.dart` 为功能实验室。也可以在 `.vscode/launch.json` 选择“友盟 U-APM + 移动统计 Demo”启动。该页通过官方 Flutter 插件演示友盟 U-App 与 U-APM，异常监控使用 U-APM；[**腾讯 Bugly**](https://bugly.qq.com/) 是另一套产品，不能使用友盟 AppKey 初始化。
 
 1、从仓库根安装依赖。运行 iOS 前，在 `ios/` 安装原生插件依赖；此步骤会联网并更新 Pods / 锁文件，按该目录既有 Podfile 网络选路执行。
 
@@ -21219,7 +21243,7 @@ fvm flutter test test/umeng_demo_test.dart
 | `JobsByPubs/JobsRunnersByPub/lib/src/jobs_material_runner.dart`、`jobs_get_runner.dart`、`jobs_cupertino_runner.dart` | 所有壳启用 `splitScreenMode` 并响应 `MediaQueryData` 变化；body 逐边使用 `SafeArea`，`builder` 收到已消费安全区后的局部 context。保留页面 Element 与导航状态，不通过更换 Key 重启页面 |
 | `lib/JobsDemoTools/JobsFlutterTools/JobsFlutterTool.dart` | 替换全局 `onMetricsChanged` / `views.first`；`JobsScreenListener(context)` 监听所属 `FlutterView`，返回取消函数供 `dispose` 调用，不覆盖 Flutter 的布局刷新回调。仓内没有旧签名调用方 |
 | `lib/JobsDemoTools/JobsFlutterTools/JobsSafeArea/JobsSmartSafeArea.dart`、`JobsSafeArea.dart` | 祖先存在 `SafeArea` 就跳过 → 按当前 MediaQuery 逐边消费；支持仅消费部分边的嵌套。Scaffold 默认保留键盘避让，自定义底栏同样避让左右和底部 |
-| `lib/main.dart` | 形状按钮入口可在窄矮窗口滚动，保留原交互与绘制 |
+| `lib/demos/异形按钮/异形按钮.dart` | 保留原形状按钮入口，在窄矮窗口可滚动；默认主入口为功能实验室 |
 | `lib/mainss.dart` | 取消 Dart 层三处强制竖屏，跟随宿主声明的支持方向；保留原备用入口装配与初始化流程 |
 | `lib/pages/splash/splash_page.dart`、`splash_view.dart` | ScreenUtil 适应分屏与 inset 变化；导航计时器在 State 初始化并在释放时取消，尺寸重建不再重复排队跳转 |
 | `lib/JobsDemoTools/JobsFlutterTools/JobsWebView/JobsWebViewWidget.dart` | 全局 `Get.context` 首次高度写进 HTML → 网页按自身 `100vh` / `100dvh` 视口限制图片，保留比例与主体，resize 无须重载网页 |
@@ -21247,7 +21271,7 @@ dart analyze test/iphone_duo_layout_test.dart
 
 ### 9.3、<span id="flutter-ci">窗口布局回归与 iOS CI</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-[GitHub Actions 工作流](./.github/workflows/flutter-window-layout.yml) 在 `main` 推送、Pull Request 和手动运行时执行：固定 Flutter `3.47.7`，选择 `xcode-27` runner 的 `Xcode_27.1.app` 并强制校验 Simulator SDK≥27.1，按锁文件解析依赖，真实分析明确的窗口适配 / 友盟范围，运行 11 项布局与 10 项友盟回归，最后完整构建默认入口的 iOS Simulator App。任何阶段失败都会使工作流失败；通过产物身份 / SDK / arm64 校验后才上传 `Runner.app.zip`。
+[GitHub Actions 工作流](./.github/workflows/flutter-window-layout.yml) 在 `main` 推送、Pull Request 和手动运行时执行：固定 Flutter `3.50.0`，选择 `xcode-27` runner 的 `Xcode_27.1.app` 并强制校验 Simulator SDK≥27.1，按锁文件解析依赖，分析窗口适配／友盟／功能实验室及公共包范围，运行九份回归测试，最后完整构建默认入口的 iOS Simulator App。任何阶段失败都会使工作流失败；通过产物身份 / SDK / arm64 校验后才上传 `Runner.app.zip`。
 
 具体分析清单、脚本模式、日志和不覆盖的既有模板测试见 [CI 运行说明](./.github/ci/README.md)。这是明确范围的分析与回归，不代表全仓所有教学示例或所有测试通过；原生姿态、保留区和真机交互仍按上一节单独验收。工作流是否成功以当前提交的真实远端运行记录为准。
 

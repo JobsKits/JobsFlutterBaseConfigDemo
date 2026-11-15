@@ -1,33 +1,5 @@
-import 'package:flutter/material.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·方法重写与继承/源码/JobsOverrideDemo.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·方法重写与继承/源码/JobsOverrideDemo.dart' as migrated;
 
-void main() {
-  SubClass().someMethod();  // Output: SubClass someMethod
-  SubClass().nonExistentMethod();  // Output: SubClass nonExistentMethod
-}
-
-class JobsOverride {
-  const JobsOverride();
-}
-
-const jobsOverride = JobsOverride();
-
-class SuperClass {
-  void someMethod() {
-    debugPrint("SuperClass someMethod");
-  }
-}
-
-class SubClass extends SuperClass {
-  @override
-  @jobsOverride
-  void someMethod() {
-    debugPrint("SubClass someMethod");
-  }
-
-  // This should ideally cause an error, but Dart does not enforce it at compile time
-  @jobsOverride
-  void nonExistentMethod() {
-    debugPrint("SubClass nonExistentMethod");
-  }
-}
-
+void main() => migrated.main();

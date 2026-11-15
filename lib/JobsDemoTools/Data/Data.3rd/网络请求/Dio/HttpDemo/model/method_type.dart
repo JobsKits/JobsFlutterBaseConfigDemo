@@ -1,20 +1,2 @@
-enum MethodType {
-  get('GET'),
-  post('POST'),
-  put('PUT'),
-  patch('PATCH'),
-  delete('DELETE'),
-  upload('UPLOAD'),
-  download('DOWNLOAD');
-
-  const MethodType(this.label);
-
-  final String label;
-
-  static MethodType from(String value) {
-    return MethodType.values.firstWhere(
-      (element) => element.label == value.toUpperCase(),
-      orElse: () => MethodType.get,
-    );
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·HTTP网络教学启动/源码/method_type.dart';

@@ -1,20 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/UI/UI.3rd🌹/GetX/💥GetX的值双向绑定/Counter/jobs_binding.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/UI/UI.3rd🌹/GetX/💥GetX的值双向绑定/Counter/jobs_page.dart';
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·GetX双向数值绑定/源码/💥GetX的值双向绑定.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·GetX双向数值绑定/源码/💥GetX的值双向绑定.dart' as migrated;
 
-void main() {
-  runApp(
-    GetMaterialApp(
-      title: '💥GetX的值双向绑定',
-      initialRoute: '/jobs',
-      getPages: [
-        GetPage(
-          name: '/jobs',
-          page: () => const JobsPage(),
-          binding: JobsBinding(),
-        ),
-      ],
-    ),
-  );
-}
+void main() => migrated.main();

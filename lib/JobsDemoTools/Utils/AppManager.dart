@@ -15,7 +15,7 @@ class AppManager {
   }
 
   void _initialize() async {
-    bool? enabled = await SpUtil.getBool('VibrationEnabled');
+    bool? enabled = SpUtil.getBool('VibrationEnabled');
     if (enabled == null) {
       await SpUtil.setBool('VibrationEnabled', true);
       isVibrationEnabled.value = true;

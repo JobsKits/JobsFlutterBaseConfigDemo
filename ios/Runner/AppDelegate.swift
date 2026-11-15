@@ -6,6 +6,7 @@
 //
 
 import Flutter
+import jobs_platform_lab
 import UIKit
 
 @main
@@ -14,6 +15,9 @@ import UIKit
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+    JobsPlatformLabPlugin.registerSecondaryEngine = { engine in
+      GeneratedPluginRegistrant.register(with: engine)
+    }
     configureUmengApm()
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

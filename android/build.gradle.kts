@@ -1,9 +1,12 @@
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
 
+apply(from = "legacy-repositories.gradle")
+
 allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
@@ -15,12 +18,10 @@ subprojects {
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
 subprojects {
-    if (name in setOf("umeng_common_sdk", "umeng_apm_sdk")) {
-        plugins.withId("com.android.library") {
-            extensions.configure<LibraryAndroidComponentsExtension> {
-                // 仅补齐友盟插件的旧 compileSdk，不修改第三方插件源码。
-                finalizeDsl { it.compileSdk = 36 }
-            }
+    plugins.withId("com.android.library") {
+        extensions.configure<LibraryAndroidComponentsExtension> {
+            // Keep retained plugins on the host SDK without editing vendor sources.
+            finalizeDsl { it.compileSdk = 36 }
         }
     }
 }

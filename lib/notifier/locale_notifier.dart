@@ -10,8 +10,8 @@ class LocaleNotifier extends ChangeNotifier {
     _load();
   }
 
-  void _load() async {
-    final langCode = await SpUtil.getString('app_language');
+  void _load() {
+    final langCode = SpUtil.getString('app_language');
     if (langCode != null) {
       _locale = Locale(langCode);
       notifyListeners();

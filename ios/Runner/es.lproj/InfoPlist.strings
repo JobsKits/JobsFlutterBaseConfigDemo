@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "La cámara se usa para las fotos, RA y vídeos que inicies.";
+"NSMicrophoneUsageDescription" = "El micrófono se usa para las grabaciones y directos que inicies.";
+"NSBluetoothAlwaysUsageDescription" = "Bluetooth se usa para búsquedas, conexiones e intercambios que inicies.";
+"NSMotionUsageDescription" = "Los sensores de movimiento se usan en las demostraciones que inicies.";
+"NSPhotoLibraryUsageDescription" = "Leer las fotos y vídeos que elijas.";
+"NSPhotoLibraryAddUsageDescription" = "Guardar los vídeos grabados y las imágenes exportadas.";
+"NSLocalNetworkUsageDescription" = "Conectar al servidor local que configures.";

@@ -1,31 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:jobs_runners/jobs_runners.dart'; // 公共测试器路径
+// 兼容旧导入路径；功能源码统一维护在中文目录。
+export 'package:jobs_flutter_base_config/demos/旧例·按钮封装教学/源码/JobsButton.dart';
+import 'package:jobs_flutter_base_config/demos/旧例·按钮封装教学/源码/JobsButton.dart' as migrated;
 
-void main() => runApp(JobsMaterialRunner(
-    JobsButton(
-      onPressed: () {
-        print('s');
-      },
-      isButtonEnabled: true.obs,
-    ),
-    title: 'JobsButton'));
-
-class JobsButton extends StatelessWidget {
-  final VoidCallback? onPressed;
-  final RxBool isButtonEnabled;
-  const JobsButton({
-    super.key,
-    required this.onPressed,
-    required this.isButtonEnabled,
-  });
-  @override
-  Widget build(BuildContext context) {
-    return Obx(() {
-      return ElevatedButton(
-        onPressed: isButtonEnabled.value ? onPressed : null,
-        child: const Text('Submit'),
-      );
-    });
-  }
-}
+void main() => migrated.main();

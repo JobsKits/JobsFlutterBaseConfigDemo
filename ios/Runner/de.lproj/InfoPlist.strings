@@ -1,0 +1,7 @@
+"NSCameraUsageDescription" = "Die Kamera wird für von dir gestartete Fotos, AR und Videos verwendet.";
+"NSMicrophoneUsageDescription" = "Das Mikrofon wird für von dir gestartete Aufnahmen und Livestreams verwendet.";
+"NSBluetoothAlwaysUsageDescription" = "Bluetooth wird für von dir gestartete Suche, Verbindungen und Daten verwendet.";
+"NSMotionUsageDescription" = "Bewegungssensoren werden für von dir gestartete Sensordemos verwendet.";
+"NSPhotoLibraryUsageDescription" = "Von dir ausgewählte Fotos und Videos lesen.";
+"NSPhotoLibraryAddUsageDescription" = "Aufgenommene Videos und exportierte Bilder speichern.";
+"NSLocalNetworkUsageDescription" = "Mit deinem konfigurierten lokalen Entwicklungsserver verbinden.";

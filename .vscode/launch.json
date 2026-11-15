@@ -6,6 +6,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "运行当前 Demo 文件",
+      "request": "launch",
+      "type": "dart",
+      "program": "${file}",
+      "flutterMode": "debug",
+      "cwd": "${workspaceFolder}"
+    },
+    {
       "name": "JobsFlutterBaseConfigDemo", // 调试配置名称
       "request": "launch", // 调试器请求类型，通常为 "launch" 或 "attach"
       "type": "dart", // 调试器类型，通常为 "dart" 或 "flutter"

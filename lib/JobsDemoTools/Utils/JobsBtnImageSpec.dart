@@ -128,7 +128,7 @@ class JobsBtnLabel extends StatelessWidget {
     );
 
     final textW =
-        cfg.expandText ? Flexible(child: label, fit: FlexFit.loose) : label;
+        cfg.expandText ? Flexible(fit: FlexFit.loose, child: label) : label;
 
     List<Widget> rowChildren(Widget a, Widget b) => [
           if (cfg.position == JobsIconPosition.left) a,

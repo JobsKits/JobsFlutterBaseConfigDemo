@@ -1,19 +1,2 @@
-import 'package:dio/dio.dart';
-
-class DemoDio {
-  DemoDio._();
-
-  static final Dio instance = Dio(
-    BaseOptions(
-      baseUrl: 'http://127.0.0.1:18080',
-      connectTimeout: const Duration(seconds: 5),
-      receiveTimeout: const Duration(seconds: 5),
-      sendTimeout: const Duration(seconds: 5),
-      headers: const {
-        'Content-Type': 'application/json',
-      },
-      validateStatus: (status) =>
-          status != null && status >= 200 && status < 500,
-    ),
-  );
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·Dio网络教学启动/源码/demo_dio.dart';

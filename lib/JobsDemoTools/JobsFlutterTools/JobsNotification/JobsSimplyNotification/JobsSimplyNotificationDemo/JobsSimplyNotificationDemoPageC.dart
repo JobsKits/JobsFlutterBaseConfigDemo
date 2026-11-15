@@ -1,19 +1,2 @@
-import 'package:flutter/material.dart';
-import 'package:jobs_flutter_base_config/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsSimplyNotification/JobsSimplyNotification.dart';
-
-class JobsSimplyNotificationDemoPageC extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Page C - 监听通知')),
-      body: Center(
-        child: JobsSimplyNotification.listen('hello', (data) {
-          return Text(
-            'Page C 收到：$data',
-            style: TextStyle(fontSize: 18, color: Colors.green),
-          );
-        }),
-      ),
-    );
-  }
-}
+// 兼容旧导入；专属实现与教学页面同目录维护。
+export 'package:jobs_flutter_base_config/demos/旧例·简易通知封装/源码/JobsSimplyNotificationDemoPageC.dart';

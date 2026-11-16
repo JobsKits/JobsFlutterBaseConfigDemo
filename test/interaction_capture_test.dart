@@ -17,6 +17,9 @@ import 'package:jobs_flutter_base_config/demos/聊天阅读锚点/聊天阅读�
 import 'package:jobs_flutter_base_config/demos/麦位互动与声浪/麦位互动与声浪.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/demo_toolbar.dart';
+import 'support/flutter_fonts.dart';
+
 // Opt-in artifacts. Explicit system fonts replace Ahem; no font enters the app.
 void main() {
   testWidgets(
@@ -57,8 +60,8 @@ void main() {
           ..addFont(
             Future.value(
               ByteData.sublistView(
-                await File(
-                  '.fvm/flutter_sdk/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf',
+                await flutterMaterialFont(
+                  'MaterialIcons-Regular.otf',
                 ).readAsBytes(),
               ),
             ),
@@ -134,8 +137,14 @@ void main() {
                 .controller!;
             scroll.jumpTo(170);
             await tester.pump();
-            await tester.tap(find.byKey(const ValueKey('prepend-history')));
-            await tester.tap(find.byKey(const ValueKey('receive-message')));
+            await tapDemoMenuAction(
+              tester,
+              find.byKey(const ValueKey('prepend-history')),
+            );
+            await tapDemoMenuAction(
+              tester,
+              find.byKey(const ValueKey('receive-message')),
+            );
           } else if (name == '同轴滚动接力') {
             relay.begin(inside: true);
             relay.move(relay.inner.position.maxScrollExtent + 60);

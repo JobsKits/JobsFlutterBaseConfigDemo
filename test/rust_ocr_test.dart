@@ -18,6 +18,8 @@ import 'package:jobs_rust_ocr/jobs_rust_ocr.dart';
 import 'package:jobs_flutter_base_config/demos/离线文字识别/离线文字识别.dart';
 import 'package:jobs_flutter_base_config/demos/离线文字识别/识别文案.dart';
 
+import 'support/flutter_fonts.dart';
+
 final _sample = base64Decode(
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a7h8AAAAASUVORK5CYII=',
 );
@@ -425,8 +427,8 @@ void main() {
           ..addFont(
             Future.value(
               ByteData.sublistView(
-                await File(
-                  '.fvm/flutter_sdk/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf',
+                await flutterMaterialFont(
+                  'MaterialIcons-Regular.otf',
                 ).readAsBytes(),
               ),
             ),

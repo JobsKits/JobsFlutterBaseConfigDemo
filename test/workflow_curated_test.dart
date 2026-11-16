@@ -24,19 +24,24 @@ import 'package:jobs_flutter_base_config/demos/多来源额度归集/归集模�
 import 'package:jobs_flutter_base_config/demos/工作流共用/演示数据.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/flutter_fonts.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
+    final robotoFont = flutterMaterialFont('Roboto-Regular.ttf');
     final fonts = {
-      'Roboto': '.fvm/flutter_sdk/bin/cache/artifacts/material_fonts/Roboto-Regular.ttf',
-      'monospace': '.fvm/flutter_sdk/bin/cache/artifacts/material_fonts/Roboto-Regular.ttf',
-      'Ahem': '.fvm/flutter_sdk/bin/cache/artifacts/material_fonts/Roboto-Regular.ttf',
-      'MaterialIcons': '.fvm/flutter_sdk/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf',
-      'packages/jobs_demo_foundation/NotoTibetan': 'JobsByPubs/JobsDemoFoundationByPub/assets/fonts/NotoSerifTibetan-Regular.ttf',
+      'Roboto': robotoFont,
+      'monospace': robotoFont,
+      'Ahem': robotoFont,
+      'MaterialIcons': flutterMaterialFont('MaterialIcons-Regular.otf'),
+      'packages/jobs_demo_foundation/NotoTibetan': File(
+        'JobsByPubs/JobsDemoFoundationByPub/assets/fonts/NotoSerifTibetan-Regular.ttf',
+      ),
     };
     for (final entry in fonts.entries) {
       final loader = FontLoader(entry.key)
-        ..addFont(File(entry.value).readAsBytes().then(ByteData.sublistView));
+        ..addFont(entry.value.readAsBytes().then(ByteData.sublistView));
       await loader.load();
     }
   });

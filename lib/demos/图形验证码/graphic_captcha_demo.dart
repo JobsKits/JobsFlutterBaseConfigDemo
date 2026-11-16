@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/图形验证码/graphic_captcha_demo.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -68,7 +71,7 @@ class _GraphicCaptchaDemoState extends State<GraphicCaptchaDemo> {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return Scaffold(
-      appBar: AppBar(title: Text(tr(context, '图形验证码'))),
+      appBar: JobsDemoAppBar(title: Text(tr(context, '图形验证码'))),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [

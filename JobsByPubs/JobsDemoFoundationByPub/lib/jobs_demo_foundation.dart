@@ -1,8 +1,11 @@
 library;
 
 export 'src/demo_app.dart';
+export 'src/demo_app_bar.dart';
 export 'src/demo_strings.dart';
 export 'src/side_menu.dart';
+export 'src/adaptive_refresh.dart';
+export 'jobs_edge_refresh.dart';
 export 'src/empty_state.dart';
 
 export 'src/demo_algorithms.dart';

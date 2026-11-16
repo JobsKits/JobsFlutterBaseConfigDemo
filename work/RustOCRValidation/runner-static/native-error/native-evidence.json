@@ -1,0 +1,1 @@
+{"schema_version": 1, "run_id": "validation-nonce", "source": "JobsRustOCR/real-native-sample", "engine": "jobs-rust-ocr/indra", "platform": "iOS", "width": 200, "height": 100, "line_count": 35, "anchor_found": true, "text_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "passed": false}

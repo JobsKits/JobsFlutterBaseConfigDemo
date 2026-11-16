@@ -12,6 +12,23 @@
     "android/fastlane/README.md",
     "docs/原生功能对照.md",
     "JobsByPubs/JobsDemoFoundationByPub/assets/fonts/README.md",
-    "lib/demos/原生与Flutter往返/README.md"
+    "lib/demos/原生与Flutter往返/README.md",
+    "项目相关报告/App骨架对照与补齐清单.md",
+    "项目相关报告/Flutter-App骨架资产盘点.md",
+    "项目相关报告/Flutter-iOS帧时间错误排查.md",
+    "assets/Images/JobsDebugPanelButton-SOURCE.md",
+    "项目相关报告/四库功能与UI蒸馏盘点.md",
+    "项目相关报告/来源盘点-GSY视觉.md",
+    "项目相关报告/来源盘点-GitHub与业务.md",
+    "项目相关报告/来源盘点-基础工程与依赖.md",
+    "项目相关报告/Rust-OCR集成资产盘点.md",
+    "项目相关报告/Demo源码目录整理.md",
+    "JobsByPubs/JobsRustOCRByPub/README.md",
+    "JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/README.md",
+    "JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Scripts/README.md",
+    "JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Source/JobsOCR/README.md",
+    "JobsByPubs/JobsRustOCRByPub/macos/JobsRustOCR/README.md",
+    "JobsByPubs/JobsRustOCRByPub/macos/JobsRustOCR/Scripts/README.md",
+    "JobsByPubs/JobsRustOCRByPub/macos/JobsRustOCR/Source/JobsOCR/README.md"
   ]
 }

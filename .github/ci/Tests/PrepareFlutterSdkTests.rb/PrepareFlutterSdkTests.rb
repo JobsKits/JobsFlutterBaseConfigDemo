@@ -252,7 +252,7 @@ require 'yaml'
 class PrepareFlutterSdkTests < Minitest::Test
   CI = File.expand_path('../..', __dir__)
   INSTALLER = File.join(CI, '【MacOS】PrepareFlutterSdk.zsh/【MacOS】PrepareFlutterSdk.zsh')
-  CLEAR = %w[FLUTTER_STORAGE_BASE_URL PUB_HOSTED_URL HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy NO_PROXY no_proxy FLUTTER_REALM FLUTTER_PREBUILT_ENGINE_VERSION JOBS_FLUTTER_ROUTE_CACHE_DIR CURL_HOME XDG_CONFIG_HOME].freeze
+  CLEAR = %w[FLUTTER_STORAGE_BASE_URL PUB_HOSTED_URL HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy NO_PROXY no_proxy FLUTTER_REALM FLUTTER_PREBUILT_ENGINE_VERSION JOBS_FLUTTER_ROUTE_CACHE_DIR JOBS_CI_FLUTTER_VERSION CURL_HOME XDG_CONFIG_HOME].freeze
   def setup
     @tmp=Dir.mktmpdir('jobs-ci-sdk-test-'); @runner=File.join(@tmp,'runner'); @sdk=File.join(@tmp,'source/flutter'); @log=File.join(@tmp,'logs')
     FileUtils.mkdir_p([@runner,@log,File.join(@sdk,'bin/cache/dart-sdk/bin'),File.join(@sdk,'bin/internal')])
@@ -264,7 +264,7 @@ class PrepareFlutterSdkTests < Minitest::Test
       case "$action" in
         --version)
           if [[ "${FIXTURE_VERSION_FAIL:-0}" == 1 && "$count" == 1 ]]; then print 'Failed to download SDK'; exit 0; fi
-          print '{"frameworkVersion":"3.47.7","engineRevision":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}' ;;
+          print -r -- "{\"frameworkVersion\":\"${FIXTURE_VERSION:-3.47.7}\",\"channel\":\"${FIXTURE_CHANNEL:-stable}\",\"engineRevision\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}" ;;
         precache) if [[ "${FIXTURE_PRECACHE_FAIL:-0}" == 1 && "$count" == 1 ]]; then print -u2 'Failed to download SDK'; exit 28; fi ;;
         build) exit 7 ;;
       esac
@@ -331,6 +331,14 @@ class PrepareFlutterSdkTests < Minitest::Test
   def install(extra={})
     run_code("/bin/zsh #{INSTALLER.shellescape} --install 3.47.7 #{@arch}",extra)
   end
+  # 只在私有目录写项目声明，并对假 SDK 执行生产版本校验函数。
+  def verify_flutter(declaration,extra={})
+    File.write(File.join(@tmp,'.fvmrc'),JSON.generate(flutter:declaration))
+    verification=File.read(File.join(CI,'verify.zsh')).sub(/\nmain "\$@"\s*\z/,"\n")
+    library=File.join(@tmp,'verify-library.zsh');File.write(library,verification)
+    body="set -euo pipefail; source #{library.shellescape}; source #{INSTALLER.shellescape}; PROJECT_ROOT=#{@tmp.shellescape}; LOG_DIR=#{@log.shellescape}; cd #{@tmp.shellescape}; verify_flutter"
+    run_code(body,{'PATH'=>File.join(@sdk,'bin')+':'+ENV.fetch('PATH')}.merge(extra))
+  end
   def test_partial_transfer_resumes_and_only_verified_sdk_is_published_and_reused
     out,err,status=install('FIXTURE_DOWNLOAD_FAIL'=>'1');assert status.success?,err+out
     assert_equal '2',File.read(File.join(@tmp,'download.count')).strip
@@ -340,7 +348,7 @@ class PrepareFlutterSdkTests < Minitest::Test
     assert File.executable?(File.join(sdk,'bin/flutter'));assert File.executable?(File.join(sdk,'bin/cache/dart-sdk/bin/dart'))
     assert_includes File.read(File.join(sdk,'.jobs-ci-trusted')),@sha
     assert_includes File.read(File.join(@tmp,'github-env')),"FLUTTER_ROOT=#{sdk}"
-    assert_includes File.read(File.join(@log,'sdk-download.log')),'原60分钟预算'
+    assert_includes File.read(File.join(@log,'sdk-download.log')),'作业90分钟预算'
     _,again,status=install;assert status.success?,again
     assert_equal '2',File.read(File.join(@tmp,'download.count')).strip,'trusted same SHA SDK should not be re-downloaded'
   end
@@ -349,6 +357,53 @@ class PrepareFlutterSdkTests < Minitest::Test
     assert_equal '2',File.read(File.join(@tmp,'download.count')).strip
     assert_equal 1,Dir.glob(File.join(@runner,'JobsCiFlutterSdk.*/archive.part.bad-sha.*')).length
     assert_includes File.read(File.join(@log,'sdk-download.log')),'完整SHA校验失败'
+  end
+  # stable 根据 current_release 选择当前版本，不能复用列表中的旧版本。
+  def test_stable_resolves_current_release_and_publishes_the_concrete_version
+    manifest=JSON.parse(File.read(File.join(@tmp,'releases.json')))
+    latest=manifest.fetch('releases').first.merge('version'=>'3.48.0','hash'=>'d'*40,'archive'=>"stable/macos/flutter_macos_#{@arch}_3.48.0-stable.zip")
+    manifest['current_release']['stable']=latest.fetch('hash')
+    manifest['releases'] << latest
+    File.write(File.join(@tmp,'releases.json'),JSON.generate(manifest))
+    metadata=JSON.parse(File.read(File.join(@tmp,'metadata.json')))
+    metadata['name']="releases/#{latest.fetch('archive')}"
+    File.write(File.join(@tmp,'metadata.json'),JSON.generate(metadata))
+
+    out,err,status=run_code("/bin/zsh #{INSTALLER.shellescape} --install stable #{@arch}")
+    assert status.success?,err+out
+    sdk=File.read(File.join(@tmp,'github-path')).strip.sub(%r{/bin$},'')
+    assert_equal File.realpath(@runner)+"/jobs-flutter-sdk/3.48.0-#{@arch}-#{@sha}",sdk
+    assert File.read(File.join(sdk,'.jobs-ci-trusted')).start_with?("3.48.0|#{@arch}|#{@sha}|")
+    assert_includes File.read(File.join(@tmp,'github-env')),'JOBS_CI_FLUTTER_VERSION=3.48.0'
+    assert_includes File.read(File.join(@tmp,'curl.calls')),latest.fetch('archive')
+    refute_includes File.read(File.join(@tmp,'curl.calls')),@archive
+  end
+  # 频道声明按真实频道和本 job 解析的数字版本验收，不能比较 stable == 版本号。
+  def test_stable_project_declaration_accepts_the_matching_channel_and_resolved_version
+    out,err,status=verify_flutter('stable','JOBS_CI_FLUTTER_VERSION'=>'3.47.7')
+    assert status.success?,err+out
+    assert_equal 'stable',JSON.parse(File.read(File.join(@log,'flutter-version.log')))['channel']
+    refute File.exist?(File.join(@tmp,'download.count'))
+  end
+  # 即使数字版本一致，也不能把 beta SDK 当成 stable。
+  def test_stable_project_declaration_rejects_another_channel
+    out,err,status=verify_flutter('stable','FIXTURE_CHANNEL'=>'beta','JOBS_CI_FLUTTER_VERSION'=>'3.47.7')
+    refute status.success?,err+out
+    assert_includes err,'Flutter channel mismatch'
+  end
+  # 同为 stable 时仍检查实际 SDK 与本 job 已按 SHA 解析的具体版本一致。
+  def test_stable_project_declaration_rejects_another_resolved_version
+    out,err,status=verify_flutter('stable','JOBS_CI_FLUTTER_VERSION'=>'3.48.0')
+    refute status.success?,err+out
+    assert_includes err,'Flutter resolved version mismatch'
+  end
+  # 精确版本声明保留原有严格验收，不因新增频道支持而放宽。
+  def test_numeric_project_declaration_still_requires_the_exact_version
+    out,err,status=verify_flutter('3.47.7')
+    assert status.success?,err+out
+    out,err,status=verify_flutter('3.48.0')
+    refute status.success?,err+out
+    assert_includes err,'Flutter mismatch'
   end
   def test_machine_json_is_published_only_after_successful_bootstrap
     destination=File.join(@tmp,'version.json')
@@ -401,12 +456,12 @@ class PrepareFlutterSdkTests < Minitest::Test
     assert_includes File.read(File.join(@tmp,'curl.calls')),'/releases/stable/macos/'
     refute_includes File.read(File.join(@tmp,'curl.calls')),('/flutter/'+('a'*40))
   end
-  def test_workflow_keeps_version_architecture_and_job_budget_without_upstream_source_changes
+  def test_workflow_reads_the_project_declaration_and_keeps_architecture_and_job_budget
     workflow=YAML.load_file(File.join(CI,'../workflows/flutter-window-layout.yml'))
     job=workflow.fetch('jobs').fetch('layout-and-ios')
-    assert_equal 'xcode-27',job['runs-on'];assert_equal 60,job['timeout-minutes']
+    assert_equal 'xcode-27',job['runs-on'];assert_equal 90,job['timeout-minutes']
     command=job['steps'].find{|step|step['name'].include?('validated network routes')}.fetch('run')
-    assert_includes command,'--install 3.47.7 arm64'
+    assert_includes command,%q{--install "$(jq -er '.flutter' .fvmrc)" arm64}
     refute job['steps'].any?{|step|step.fetch('uses','').include?('subosito/flutter-action')}
     assert_includes File.read(INSTALLER),'JOBS_FLUTTER_ROUTE_MODE=archive'
   end

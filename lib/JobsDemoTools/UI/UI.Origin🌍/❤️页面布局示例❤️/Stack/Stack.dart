@@ -1,5 +1,5 @@
 // 兼容旧导入路径；功能源码统一维护在中文目录。
-export 'package:jobs_flutter_base_config/demos/旧例·层叠布局教学/源码/Stack.dart';
-import 'package:jobs_flutter_base_config/demos/旧例·层叠布局教学/源码/Stack.dart' as migrated;
+export 'package:jobs_flutter_base_config/demos/层叠布局教学/Stack.dart';
+import 'package:jobs_flutter_base_config/demos/层叠布局教学/Stack.dart' as migrated;
 
 void main() => migrated.main();

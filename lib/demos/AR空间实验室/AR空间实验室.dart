@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/AR空间实验室/AR空间实验室.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';

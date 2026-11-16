@@ -6,14 +6,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 import 'package:jobs_demo_foundation/jobs_input_tools.dart';
 import 'package:jobs_demo_foundation/jobs_edge_refresh.dart';
 import 'package:jobs_flutter_base_config/demo_hub/legacy_strings.dart';
-import 'package:jobs_flutter_base_config/demos/输入框与多行文本组合/入口.dart';
-import 'package:jobs_flutter_base_config/demos/横纵刷新与加载组合/入口.dart';
+import 'package:jobs_flutter_base_config/demos/输入框与多行文本组合/输入框与多行文本组合.dart';
+import 'package:jobs_flutter_base_config/demos/横纵刷新与加载组合/横纵刷新与加载组合.dart';
 
 void main() {
+  setUp(() => SharedPreferences.setMockInitialValues({}));
   test('输入格式化保留输入法组合区，金额及手机号实际约束', () {
     final money = JobsMoneyInputFormatter(), phone = JobsPhoneInputFormatter();
     TextEditingValue input(String value) => TextEditingValue(
@@ -119,15 +121,19 @@ void main() {
     );
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 150));
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('横向refresh')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 150));
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('横向load')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 150));
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('纵向load')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 150));
+    await tester.pumpAndSettle();
     expect(requests, 4);
     expect(find.textContaining('横向刷新 1 / 加载 1'), findsOneWidget);
     for (final name in ['头条', '抖音', '单图', '多图', 'GIF', 'Lottie', '系统指示器']) {
@@ -143,6 +149,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 30));
       if (name == 'Lottie') expect(find.byType(Lottie), findsOneWidget);
       await tester.pump(const Duration(milliseconds: 200));
+      await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
     }
     await tester.pumpWidget(const SizedBox());

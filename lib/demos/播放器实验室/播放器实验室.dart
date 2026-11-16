@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/播放器实验室/播放器实验室.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -10,6 +13,11 @@ import 'package:video_player/video_player.dart';
 
 import '../../demo_hub/ui_parity_strings.dart';
 import '../../demo_hub/ui_parity_support.dart';
+import '播放质量状态.dart';
+import '播放质量文案.dart';
+
+void main() =>
+    runApp(const JobsDemoApp(home: PlayerLaboratoryDemo(), title: '播放器实验室'));
 
 class PlayerLaboratoryDemo extends StatefulWidget {
   const PlayerLaboratoryDemo({
@@ -47,35 +55,100 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
   Offset floatOffset = const Offset(12, 12);
   String status = '等待';
   Map<String, dynamic>? traffic;
+  final quality = PlayerQualityState();
+  Timer? readinessDeadline;
+  Completer<int?>? pendingNativeView;
+  String? activeSource;
+  PlayerCheckpoint? restoring;
+  int failedGeneration = -1;
+  static const loadTimeout = Duration(
+    milliseconds: int.fromEnvironment(
+      'PLAYER_LOAD_TIMEOUT_MS',
+      defaultValue: 4000,
+    ),
+  );
   @override
   void initState() {
     super.initState();
     mode = widget.initialMode;
-    if (widget.initialSource != null)
+    if (widget.initialSource != null) {
       url.text = widget.initialSource!;
-    else
+    } else {
       unawaited(preferences());
-    if (widget.autoStart)
+    }
+    if (widget.autoStart) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) unawaited(start());
       });
+    }
   }
 
   Future<void> preferences() async {
     final value = await UiDemoStore.read('player-preferences', {
       'url': initialURL,
     });
-    if (mounted && value is Map && value['url'] is String)
+    if (mounted && value is Map && value['url'] is String) {
       url.text = value['url'] as String;
+    }
   }
 
   @override
   void dispose() {
     generation++;
+    readinessDeadline?.cancel();
+    if (pendingNativeView?.isCompleted == false) {
+      pendingNativeView!.complete(null);
+    }
+    quality.dispose();
     subscription?.cancel();
     webController?.dispose();
     url.dispose();
     super.dispose();
+  }
+
+  void rememberPosition() {
+    if (ready &&
+        activeSource != null &&
+        (position > 0 || quality.checkpoint(activeSource!) == null)) {
+      quality.remember(activeSource!, position, quality.intendedPlaying);
+    }
+  }
+
+  Future<void> loadingFailed(int current) async {
+    if (!mounted || current != generation || failedGeneration == current) {
+      return;
+    }
+    failedGeneration = current;
+    readinessDeadline?.cancel();
+    rememberPosition();
+    quality.failed();
+    if (mode != 0 && !localFallback) {
+      localFallback = true;
+      quality.fellBack();
+      await load();
+    } else {
+      setState(() {
+        loading = false;
+        ready = false;
+        status = '失败';
+      });
+    }
+  }
+
+  Future<void> restoreNative(int current) async {
+    final point = restoring;
+    restoring = null;
+    if (point == null) return;
+    try {
+      await command('seek', {'seconds': point.seekPosition(duration)});
+      if (!mounted || current != generation) return;
+      await command(point.playing ? 'play' : 'pause');
+    } catch (_) {
+      if (mounted && current == generation) {
+        quality.failed();
+        uiNotice(context, '失败');
+      }
+    }
   }
 
   void event(Map<String, dynamic> envelope) {
@@ -83,29 +156,33 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
     final data = raw is Map ? Map<String, dynamic>.from(raw) : envelope;
     if (!mounted || data['viewId'] != viewId) return;
     final kind = data['event'];
+    final nextPosition = data['position'];
+    final nextDuration = data['duration'];
+    if (nextPosition is num && nextPosition.isFinite && nextPosition >= 0) {
+      position = nextPosition.toDouble();
+    }
+    if (nextDuration is num && nextDuration.isFinite && nextDuration >= 0) {
+      duration = nextDuration.toDouble();
+    }
+    if (data['isPlaying'] is bool) playing = data['isPlaying'] as bool;
     if (kind == 'error') {
-      if (mode != 0 && !localFallback) {
-        localFallback = true;
-        unawaited(load());
-      } else
-        setState(() {
-          loading = false;
-          ready = false;
-          status = '失败';
-        });
+      unawaited(loadingFailed(generation));
       return;
     }
+    if (kind == 'ready') {
+      readinessDeadline?.cancel();
+      ready = true;
+      loading = false;
+      status = localFallback ? '本地视频回退' : '完成';
+      unawaited(restoreNative(generation));
+    }
+    if (kind == 'progress' && ready) rememberPosition();
+    quality.observe(
+      position: position,
+      playing: playing,
+      ready: kind == 'ready',
+    );
     setState(() {
-      if (data['position'] is num)
-        position = (data['position'] as num).toDouble();
-      if (data['duration'] is num)
-        duration = (data['duration'] as num).toDouble();
-      if (data['isPlaying'] is bool) playing = data['isPlaying'] as bool;
-      if (kind == 'ready') {
-        ready = true;
-        loading = false;
-        status = localFallback ? '本地视频回退' : '完成';
-      }
       if (kind == 'traffic') traffic = Map<String, dynamic>.from(data);
       if (kind == 'pipStarted') status = '画中画已开启';
       if (kind == 'pipStopped') status = '画中画已结束';
@@ -125,7 +202,7 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
     });
   }
 
-  Future<void> start() async {
+  Future<void> start({bool resume = false}) async {
     FocusManager.instance.primaryFocus?.unfocus();
     if (mode != 0) {
       final parsed = Uri.tryParse(url.text.trim());
@@ -137,6 +214,8 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
         UiDemoStore.write('player-preferences', {'url': url.text.trim()}),
       );
     }
+    rememberPosition();
+    if (resume) quality.recovering();
     setState(() {
       started = true;
       if (mode == 3) floating = true;
@@ -147,40 +226,69 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
       subscription ??= JobsPlatformLab.events('player').listen(
         event,
         onError: (_) {
-          if (mounted) setState(() => status = '失败');
+          if (mounted) unawaited(loadingFailed(generation));
         },
       );
-      if (nativeView == null) {
-        void created(int id) {
-          viewId = id;
-          unawaited(load());
-        }
-
-        nativeView = defaultTargetPlatform == TargetPlatform.iOS
-            ? UiKitView(
-                key: const ValueKey('native-player-view'),
-                viewType: 'jobs_platform_lab/player',
-                layoutDirection: TextDirection.ltr,
-                onPlatformViewCreated: created,
-              )
-            : AndroidView(
-                key: const ValueKey('native-player-view'),
-                viewType: 'jobs_platform_lab/player',
-                layoutDirection: TextDirection.ltr,
-                onPlatformViewCreated: created,
-              );
-        setState(() {});
-      } else {
-        await load();
-      }
+      await load(resume: resume);
     } else {
-      await load();
+      await load(resume: resume);
     }
   }
 
-  Future<void> load() async {
+  Future<int?> installNativeView(int current) {
+    if (pendingNativeView?.isCompleted == false) {
+      pendingNativeView!.complete(null);
+    }
+    final created = Completer<int?>();
+    pendingNativeView = created;
+    viewId = null;
+    void receive(int id) {
+      if (!created.isCompleted) created.complete(id);
+    }
+
+    // A fresh view ID is the existing native protocol's source-generation token.
+    final key = ValueKey('native-player-attempt-$current');
+    final platformView = defaultTargetPlatform == TargetPlatform.iOS
+        ? UiKitView(
+            key: key,
+            viewType: 'jobs_platform_lab/player',
+            layoutDirection: TextDirection.ltr,
+            onPlatformViewCreated: receive,
+          )
+        : AndroidView(
+            key: key,
+            viewType: 'jobs_platform_lab/player',
+            layoutDirection: TextDirection.ltr,
+            onPlatformViewCreated: receive,
+          );
+    setState(
+      () => nativeView = KeyedSubtree(
+        key: const ValueKey('native-player-view'),
+        child: platformView,
+      ),
+    );
+    return created.future.timeout(
+      loadTimeout,
+      onTimeout: () {
+        if (!created.isCompleted) created.complete(null);
+        return null;
+      },
+    );
+  }
+
+  Future<void> load({bool resume = false}) async {
+    rememberPosition();
     final current = ++generation;
-    if (mounted)
+    readinessDeadline?.cancel();
+    final local = mode == 0 || localFallback;
+    activeSource = local ? 'asset:$localAsset' : 'url:${url.text.trim()}';
+    restoring = resume ? quality.checkpoint(activeSource!) : null;
+    quality.begin(
+      activeSource!,
+      reportsBuffering: !JobsPlatformLab.hasNativeBridge,
+      restoring: restoring,
+    );
+    if (mounted) {
       setState(() {
         loading = true;
         ready = false;
@@ -188,8 +296,8 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
         duration = 0;
         status = localFallback ? '本地视频回退' : '等待';
       });
+    }
     try {
-      final local = mode == 0 || localFallback;
       if (JobsPlatformLab.hasNativeBridge) {
         final payload = local
             ? {
@@ -198,15 +306,31 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
               }
             : {'url': url.text.trim()};
         if (!mounted || current != generation) return;
-        final result = await command('load', {...payload, 'autoplay': true});
-        if (mounted && current == generation && result is Map)
+        final id = await installNativeView(current);
+        if (!mounted || current != generation) return;
+        if (id == null) {
+          await loadingFailed(current);
+          return;
+        }
+        viewId = id;
+        readinessDeadline = Timer(loadTimeout, () {
+          if (mounted && current == generation && loading) {
+            unawaited(loadingFailed(current));
+          }
+        });
+        final result = await command('load', {
+          ...payload,
+          'autoplay': restoring == null,
+        }).timeout(loadTimeout);
+        if (mounted && current == generation && result is Map) {
           setState(() => pipSupported = result['pipSupported'] == true);
+        }
       } else {
         final next = local
             ? VideoPlayerController.asset(localAsset)
             : VideoPlayerController.networkUrl(Uri.parse(url.text.trim()));
         try {
-          await next.initialize().timeout(const Duration(seconds: 6));
+          await next.initialize().timeout(loadTimeout);
           if (!mounted || current != generation) {
             await next.dispose();
             return;
@@ -215,35 +339,61 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
           webController = next;
           next.addListener(webChanged);
           await previous?.dispose();
-          await next.play();
-          if (mounted)
+          if (!mounted || current != generation) return;
+          final point = restoring;
+          restoring = null;
+          quality.observe(
+            position: point?.position ?? 0,
+            playing: false,
+            ready: true,
+          );
+          if (point != null) {
+            await next.seekTo(
+              Duration(
+                milliseconds:
+                    (point.seekPosition(
+                              next.value.duration.inMilliseconds / 1000,
+                            ) *
+                            1000)
+                        .round(),
+              ),
+            );
+          }
+          if (!mounted || current != generation) return;
+          if (point?.playing ?? true) {
+            await next.play();
+          } else {
+            await next.pause();
+          }
+          if (mounted && current == generation) {
             setState(() {
               ready = true;
               loading = false;
               status = localFallback ? '本地视频回退' : '完成';
             });
+          }
         } catch (_) {
           await next.dispose();
           rethrow;
         }
       }
     } catch (_) {
-      if (!mounted || current != generation) return;
-      if (mode != 0 && !localFallback) {
-        localFallback = true;
-        await load();
-      } else
-        setState(() {
-          loading = false;
-          ready = false;
-          status = '失败';
-        });
+      await loadingFailed(current);
     }
   }
 
   void webChanged() {
     if (!mounted || webController == null) return;
     final value = webController!.value;
+    if (value.hasError && ready) {
+      unawaited(loadingFailed(generation));
+      return;
+    }
+    quality.observe(
+      position: value.position.inMilliseconds / 1000,
+      playing: value.isPlaying,
+      isBuffering: value.isBuffering,
+    );
     setState(() {
       playing = value.isPlaying;
       position = value.position.inMilliseconds / 1000;
@@ -252,22 +402,24 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
   }
 
   Future<void> action(String name) async {
+    if (name == 'play' || name == 'pause') quality.intent(name == 'play');
     try {
       if (JobsPlatformLab.hasNativeBridge) {
         final result = await command(name);
-        if (mounted && name == 'traffic' && result is Map)
+        if (mounted && name == 'traffic' && result is Map) {
           setState(() => traffic = Map<String, dynamic>.from(result));
+        }
       } else if (name == 'play') {
         await webController?.play();
       } else if (name == 'pause') {
         await webController?.pause();
       } else if (name == 'fullScreen') {
-        if (mounted)
+        if (mounted) {
           await Navigator.push<void>(
             context,
             MaterialPageRoute(
               builder: (context) => Scaffold(
-                appBar: AppBar(title: Text(uiTr(context, '全屏'))),
+                appBar: JobsDemoAppBar(title: Text(uiTr(context, '全屏'))),
                 body: Center(
                   child: AspectRatio(
                     aspectRatio: webController!.value.aspectRatio,
@@ -277,6 +429,7 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
               ),
             ),
           );
+        }
       } else if (mounted) {
         uiNotice(context, '当前平台不支持此能力');
       }
@@ -294,6 +447,9 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
           Duration(milliseconds: (value * 1000).round()),
         );
       }
+      if (mounted && activeSource != null) {
+        quality.remember(activeSource!, value, quality.intendedPlaying);
+      }
     } catch (_) {
       if (mounted) uiNotice(context, '失败');
     }
@@ -306,8 +462,9 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
 
   Widget video() {
     if (nativeView != null) return nativeView!;
-    if (webController != null && webController!.value.isInitialized)
+    if (webController != null && webController!.value.isInitialized) {
       return VideoPlayer(webController!);
+    }
     return Center(
       child: loading
           ? const CircularProgressIndicator()
@@ -345,9 +502,62 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
     );
   }
 
+  Widget qualityPanel() => AnimatedBuilder(
+    animation: quality,
+    builder: (context, _) {
+      String elapsed(Duration? value) => value == null
+          ? qualityTr(context, '未收到测量事件')
+          : '${value.inMilliseconds} ms';
+      return Card(
+        key: const ValueKey('player-quality-panel'),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                qualityTr(context, '播放质量与恢复'),
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                '${qualityTr(context, '就绪耗时')}: ${elapsed(quality.readyLatency)}',
+              ),
+              Text(
+                '${qualityTr(context, '首次进度推进耗时')}: ${elapsed(quality.firstProgressLatency)}',
+              ),
+              Text(
+                '${qualityTr(context, '缓冲次数与时长')}: ${quality.bufferingReported ? '${quality.bufferingCount} / ${quality.bufferedDuration.inMilliseconds} ms' : qualityTr(context, '当前适配器未提供')}',
+              ),
+              Text(
+                '${qualityTr(context, '错误次数')}: ${quality.errorCount} · ${qualityTr(context, '恢复尝试')}: ${quality.recoveryCount} · ${qualityTr(context, '本地回退次数')}: ${quality.fallbackCount}',
+              ),
+              const SizedBox(height: 6),
+              Text(
+                qualityTr(context, '就绪与进度不等于首帧或掉帧指标'),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              Text(
+                qualityTr(context, '恢复检查点仅保留本页会话'),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              const SizedBox(height: 8),
+              OutlinedButton.icon(
+                key: const ValueKey('player-recover'),
+                onPressed: loading ? null : () => start(resume: true),
+                icon: const Icon(Icons.replay),
+                label: Text(qualityTr(context, '重试原地址并恢复进度')),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(uiTr(context, '播放器实验室'))),
+    appBar: JobsDemoAppBar(title: Text(uiTr(context, '播放器实验室'))),
     body: LayoutBuilder(
       builder: (context, constraints) {
         final regularHeight = math.min(240.0, constraints.maxHeight * .4);
@@ -451,6 +661,7 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
                     ],
                   ),
                   trafficPanel(),
+                  qualityPanel(),
                 ],
                 if (mode == 2) ...[
                   const SizedBox(height: 16),
@@ -540,6 +751,3 @@ class _PlayerLaboratoryState extends State<PlayerLaboratoryDemo> {
     ),
   );
 }
-
-void main() =>
-    runApp(const JobsDemoApp(home: PlayerLaboratoryDemo(), title: '播放器实验室'));

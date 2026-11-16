@@ -1,9 +1,14 @@
+// 独立运行：flutter run -t "lib/demos/农历与节气/农历与节气.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
 import '../../demo_hub/extra_support.dart';
 
 import 'package:lunar/lunar.dart';
+
+void main() => runApp(const JobsDemoApp(home: LunarCalendarLabDemo()));
 
 class LunarCalendarLabDemo extends StatefulWidget {
   const LunarCalendarLabDemo({super.key});
@@ -42,5 +47,3 @@ class _State extends State<LunarCalendarLabDemo> {
     );
   }
 }
-
-void main() => runApp(const JobsDemoApp(home: LunarCalendarLabDemo()));

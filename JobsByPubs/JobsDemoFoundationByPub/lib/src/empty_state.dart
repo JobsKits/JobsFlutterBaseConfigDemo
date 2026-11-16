@@ -6,10 +6,12 @@ class JobsEmptyState extends StatelessWidget {
     super.key,
     required this.title,
     this.message,
+    this.action,
     required this.onReload,
   });
   final String title;
   final String? message;
+  final Widget? action;
   final VoidCallback onReload;
 
   @override
@@ -17,6 +19,7 @@ class JobsEmptyState extends StatelessWidget {
     builder: (context, constraints) => SingleChildScrollView(
       child: ConstrainedBox(
         constraints: BoxConstraints(
+          minWidth: constraints.maxWidth.isFinite ? constraints.maxWidth : 0,
           minHeight: constraints.maxHeight.isFinite ? constraints.maxHeight : 0,
         ),
         child: Padding(
@@ -47,6 +50,7 @@ class JobsEmptyState extends StatelessWidget {
                 ),
               ],
               const SizedBox(height: 20),
+              if (action != null) ...[action!, const SizedBox(height: 8)],
               FilledButton.icon(
                 onPressed: onReload,
                 icon: const Icon(Icons.refresh),

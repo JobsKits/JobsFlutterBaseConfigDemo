@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/雪花编号/snowflake_demo.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
@@ -60,7 +63,7 @@ class _SnowflakeDemoState extends State<SnowflakeDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '雪花ID'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '雪花ID'))),
     body: ListView(
       padding: const EdgeInsets.all(20),
       children: [

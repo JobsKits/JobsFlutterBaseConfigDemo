@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/节流防抖/throttle_debounce_demo.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
@@ -49,7 +52,7 @@ class _ThrottleDebounceDemoState extends State<ThrottleDebounceDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '节流防抖'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '节流防抖'))),
     body: ListView(
       padding: const EdgeInsets.all(20),
       children: [

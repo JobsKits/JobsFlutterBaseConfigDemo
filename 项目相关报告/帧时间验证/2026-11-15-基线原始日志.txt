@@ -1,0 +1,5 @@
+2026-11-15 22:11:47.189 Runner[65290:5650680] Warning: Unable to create restoration in progress marker file
+2026-11-15 22:11:47.191 Runner[65290:5650680] logCollectUserId must be less than 128.
+2026-11-15 22:11:47.630 Runner[65290:5650680] | MTPushEngagelab | Flutter | iOS | application:didFinishLaunchingWithOptions
+objc[65290]: Class UIAccessibilityLoaderWebShared is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.awLWFK/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x114c38310) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.awLWFK/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10fbd4398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+com.jobs.frameprobe.baseline: 65290

@@ -7,6 +7,9 @@ import 'package:jobs_flutter_base_config/demos/图形验证码/graphic_captcha_d
 import 'package:jobs_flutter_base_config/demos/手写签名板/handwriting_demo.dart';
 import 'package:jobs_flutter_base_config/demos/日历选择/calendar_demo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'support/demo_toolbar.dart';
+
 import 'package:jobs_flutter_base_config/demos/多会话隔离/session_isolation_demo.dart';
 import 'package:jobs_flutter_base_config/demos/节流防抖/throttle_debounce_demo.dart';
 import 'package:jobs_flutter_base_config/demos/任务依赖编排/task_dependency_demo.dart';
@@ -41,7 +44,7 @@ void main() {
     await tester.pumpAndSettle();
     final canvas = find.byKey(const ValueKey('handwriting-canvas'));
     await tester.drag(canvas, const Offset(40, 24));
-    await tester.tap(find.text('保存'));
+    await tapDemoMenuAction(tester, find.text('保存'));
     await tester.pumpAndSettle();
     final preferences = await SharedPreferences.getInstance();
     final strokes =

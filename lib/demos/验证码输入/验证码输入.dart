@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/验证码输入/验证码输入.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
@@ -22,7 +25,7 @@ class _CodeInputDemoState extends State<CodeInputDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '验证码输入'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '验证码输入'))),
     body: ListView(
       padding: const EdgeInsets.all(24),
       children: [

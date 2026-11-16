@@ -1,0 +1,87 @@
+[
+  {
+    "name": "JobsDemoSharedFinal3",
+    "id": "A3D63D0E-2664-41BE-BB7B-A3407F5CA05F",
+    "isSupported": true,
+    "targetPlatform": "ios",
+    "cpuArch": "arm64",
+    "emulator": true,
+    "sdk": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": true,
+      "flutterExit": true,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  },
+  {
+    "name": "JobsIM S2 Native 20261116-182125",
+    "id": "0EE39534-95F7-4624-A395-D51F65B70E7F",
+    "isSupported": true,
+    "targetPlatform": "ios",
+    "cpuArch": "arm64",
+    "emulator": true,
+    "sdk": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": true,
+      "flutterExit": true,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  },
+  {
+    "name": "JobsOCR Acceptance 20261116",
+    "id": "F831217D-ECCA-4C53-8D01-992653E4CF1D",
+    "isSupported": true,
+    "targetPlatform": "ios",
+    "cpuArch": "arm64",
+    "emulator": true,
+    "sdk": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": true,
+      "flutterExit": true,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  },
+  {
+    "name": "macOS",
+    "id": "macos",
+    "isSupported": true,
+    "targetPlatform": "darwin",
+    "cpuArch": "arm64",
+    "emulator": false,
+    "sdk": "macOS 27.2.1 26B131 darwin-arm64",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": false,
+      "flutterExit": true,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  },
+  {
+    "name": "Chrome",
+    "id": "chrome",
+    "isSupported": true,
+    "targetPlatform": "web-javascript",
+    "cpuArch": "unknown",
+    "emulator": false,
+    "sdk": "Google Chrome 157.0.8103.79",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": false,
+      "flutterExit": false,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  }
+]

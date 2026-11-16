@@ -18,6 +18,8 @@ public final class JobsPlatformLabPlugin: NSObject, FlutterPlugin, FlutterStream
     private var sink: FlutterEventSink?
     private var observers: [NSObjectProtocol] = []
     private let motion = CMMotionManager()
+    private let shakeMotion = CMMotionManager()
+    private var lastShakeTime: TimeInterval = 0
     private var cover: UIView?
     private var shieldEnabled = false
     private var shieldMessage = "Content hidden while recording"
@@ -121,6 +123,14 @@ public final class JobsPlatformLabPlugin: NSObject, FlutterPlugin, FlutterStream
             /// 执行 motion.stop 原生操作。
             case "motion.stop":
                 stopMotion()
+                result(true)
+            /// 首页摇动恢复入口使用独立管理器，避免改变传感器 Demo 的采样。
+            case "shake.start":
+                try startShake()
+                result(true)
+            /// 停止首页摇动监听。
+            case "shake.stop":
+                shakeMotion.stopAccelerometerUpdates()
                 result(true)
             /// 执行 ar.command 原生操作。
             case "ar.command":
@@ -271,6 +281,27 @@ public final class JobsPlatformLabPlugin: NSObject, FlutterPlugin, FlutterStream
         }
     }
 
+    private func startShake() throws {
+        guard shakeMotion.isAccelerometerAvailable else {
+            throw JobsLabError("Accelerometer unavailable")
+        }
+        shakeMotion.stopAccelerometerUpdates()
+        shakeMotion.accelerometerUpdateInterval = 0.05
+        shakeMotion.startAccelerometerUpdates(to: .main) { [weak self] sample, _ in
+            guard let self, let sample else {
+                return
+            }
+            let a = sample.acceleration
+            let strength = sqrt(a.x * a.x + a.y * a.y + a.z * a.z)
+            let now = ProcessInfo.processInfo.systemUptime
+            guard strength > 2.2, now - self.lastShakeTime > 1 else {
+                return
+            }
+            self.lastShakeTime = now
+            self.publish("shake", ["event": "shake"])
+        }
+    }
+
     private func startMotion(_ args: [String: Any]) throws {
         stopMotion()
         let interval = min(max((args["intervalMs"] as? Double ?? 100) / 1000, 0.02), 1)
@@ -401,6 +432,7 @@ public final class JobsPlatformLabPlugin: NSObject, FlutterPlugin, FlutterStream
     deinit {
         observers.forEach(NotificationCenter.default.removeObserver)
         stopMotion()
+        shakeMotion.stopAccelerometerUpdates()
         cover?.removeFromSuperview()
     }
 }

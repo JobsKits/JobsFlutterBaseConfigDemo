@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   shared_preferences: ^2.5.3
   http: ^1.6.0
+  audioplayers: ^5.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -19,6 +20,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/audio/
     - assets/iconfont/
     - assets/fonts/OFL.txt
     - assets/fonts/JobsIconfontCatalog.json

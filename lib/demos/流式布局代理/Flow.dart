@@ -1,0 +1,71 @@
+// 独立运行：flutter run -t "lib/demos/流式布局代理/Flow.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
+import 'package:jobs_flutter_base_config/demo_hub/legacy_launch.dart';
+import 'package:flutter/material.dart';
+import 'package:jobs_runners/jobs_runners.dart';
+import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
+
+/// 独立运行与目录预览共用同一份原始教学逻辑。
+void main() => launchLegacyStandalone(legacyOriginalMain, title: '流式布局代理');
+
+void legacyOriginalMain() =>
+    legacyCaptureApp(const JobsMaterialRunner(FlowApp(), title: 'Flow 示例'));
+
+class FlowApp extends StatelessWidget {
+  const FlowApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Flow(
+        delegate: MyFlowDelegate(),
+        children: List.generate(10, (i) {
+          return Container(
+            width: 60,
+            height: 40,
+            color: Colors.primaries[i % Colors.primaries.length],
+            alignment: Alignment.center,
+            margin: const EdgeInsets.all(2),
+            child: LegacyText(
+              '$i',
+              style: const TextStyle(color: Colors.white),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+}
+
+class MyFlowDelegate extends FlowDelegate {
+  @override
+  void paintChildren(FlowPaintingContext context) {
+    double x = 0.0, y = 0.0;
+    const spacing = 8.0;
+    final maxWidth = context.size.width;
+
+    for (int i = 0; i < context.childCount; i++) {
+      final size = context.getChildSize(i)!;
+      if (x + size.width > maxWidth) {
+        x = 0;
+        y += size.height + spacing;
+      }
+      context.paintChild(i, transform: Matrix4.translationValues(x, y, 0));
+      x += size.width + spacing;
+    }
+  }
+
+  @override
+  Size getSize(BoxConstraints constraints) => Size(constraints.maxWidth, 200);
+
+  @override
+  bool shouldRepaint(covariant FlowDelegate oldDelegate) => false;
+}
+
+Widget buildLegacyDemo(BuildContext context) => JobsDemoActionHost(
+  child: Scaffold(
+    appBar: JobsDemoAppBar(actionHost: true, title: const LegacyText('流式布局代理')),
+    body: SafeArea(child: const FlowApp()),
+  ),
+);

@@ -1,7 +1,12 @@
+// 独立运行：flutter run -t "lib/demos/四向进度/四向进度.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
 import '../../demo_hub/extra_support.dart';
+
+void main() => runApp(const JobsDemoApp(home: DirectionalProgressLabDemo()));
 
 class DirectionalProgressLabDemo extends StatefulWidget {
   const DirectionalProgressLabDemo({super.key});
@@ -68,5 +73,3 @@ class _State extends State<DirectionalProgressLabDemo> {
     ],
   );
 }
-
-void main() => runApp(const JobsDemoApp(home: DirectionalProgressLabDemo()));

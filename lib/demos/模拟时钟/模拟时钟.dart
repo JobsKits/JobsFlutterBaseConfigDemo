@@ -1,7 +1,12 @@
+// 独立运行：flutter run -t "lib/demos/模拟时钟/模拟时钟.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
 import '../../demo_hub/extra_support.dart';
+
+void main() => runApp(const JobsDemoApp(home: AnalogClockLabDemo()));
 
 class AnalogClockLabDemo extends StatefulWidget {
   const AnalogClockLabDemo({super.key});
@@ -67,5 +72,3 @@ class _State extends State<AnalogClockLabDemo>
     ],
   );
 }
-
-void main() => runApp(const JobsDemoApp(home: AnalogClockLabDemo()));

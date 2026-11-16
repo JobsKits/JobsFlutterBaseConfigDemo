@@ -2,7 +2,7 @@
   {
     "folder": "朋友圈浏览",
     "class": "MomentsBrowserDemo",
-    "path": "lib/demos/朋友圈浏览/入口.dart",
+    "path": "lib/demos/朋友圈浏览/朋友圈浏览.dart",
     "native": [
       "JobsSwiftParityMomentsPreviewDemoVC",
       "GKPhotoBrowserByUIKitDemoVC",
@@ -40,7 +40,7 @@
   {
     "folder": "个人资料编辑",
     "class": "ProfileEditorDemo",
-    "path": "lib/demos/个人资料编辑/入口.dart",
+    "path": "lib/demos/个人资料编辑/个人资料编辑.dart",
     "native": [
       "LGOEditProfileDemoVC",
       "JobsSwiftParityEditProfileDemoVC"
@@ -71,7 +71,7 @@
   {
     "folder": "发帖草稿",
     "class": "PostDraftDemo",
-    "path": "lib/demos/发帖草稿/入口.dart",
+    "path": "lib/demos/发帖草稿/发帖草稿.dart",
     "native": [
       "JobsPostDraftDemoVC",
       "JobsPostVC"
@@ -102,7 +102,7 @@
   {
     "folder": "聊天与站内信",
     "class": "ChatInboxDemo",
-    "path": "lib/demos/聊天与站内信/入口.dart",
+    "path": "lib/demos/聊天与站内信/聊天与站内信.dart",
     "native": [
       "LiveChatDemoVC",
       "JobsIMShowVC",
@@ -153,7 +153,7 @@
   {
     "folder": "评论与回复",
     "class": "CommentsDemo",
-    "path": "lib/demos/评论与回复/入口.dart",
+    "path": "lib/demos/评论与回复/评论与回复.dart",
     "native": [
       "JobsSwiftCommentDemoVC",
       "JobsOCCommentDemoVC"
@@ -184,7 +184,7 @@
   {
     "folder": "双风格认证",
     "class": "AuthStylesDemo",
-    "path": "lib/demos/双风格认证/入口.dart",
+    "path": "lib/demos/双风格认证/双风格认证.dart",
     "native": [
       "JobsAppDoorDemoVC",
       "JobsAppDoorDemoListVC"
@@ -215,7 +215,7 @@
   {
     "folder": "仪表盘",
     "class": "GaugeDashboardDemo",
-    "path": "lib/demos/仪表盘/入口.dart",
+    "path": "lib/demos/仪表盘/仪表盘.dart",
     "native": [
       "FTDashboadDemoVC",
       "JobsSwiftParityDashboardDemoVC"
@@ -246,7 +246,7 @@
   {
     "folder": "购物车步进",
     "class": "CartStepperDemo",
-    "path": "lib/demos/购物车步进/入口.dart",
+    "path": "lib/demos/购物车步进/购物车步进.dart",
     "native": [
       "JobsOCNumberStepperDemoVC",
       "JobsSwiftNumberStepperDemoVC"
@@ -277,7 +277,7 @@
   {
     "folder": "骨架与双球刷新",
     "class": "SkeletonRefreshDemo",
-    "path": "lib/demos/骨架与双球刷新/入口.dart",
+    "path": "lib/demos/骨架与双球刷新/骨架与双球刷新.dart",
     "native": [
       "SkeletonViewDemoVC",
       "JobsOCSkeletonViewDemoVC",
@@ -327,7 +327,7 @@
   {
     "folder": "点赞与红包雨",
     "class": "LikeRainDemo",
-    "path": "lib/demos/点赞与红包雨/入口.dart",
+    "path": "lib/demos/点赞与红包雨/点赞与红包雨.dart",
     "native": [
       "JobsLongPressLikeDemoVC",
       "JobsRedPacketRainDemoVC",
@@ -377,7 +377,7 @@
   {
     "folder": "导火索倒计时",
     "class": "FuseCountdownDemo",
-    "path": "lib/demos/导火索倒计时/入口.dart",
+    "path": "lib/demos/导火索倒计时/导火索倒计时.dart",
     "native": [
       "JobsCountdownLayerDemoVC",
       "JobsSysProgressDemoVC",
@@ -445,7 +445,7 @@
   {
     "folder": "马赛克涂抹",
     "class": "MosaicBrushDemo",
-    "path": "lib/demos/马赛克涂抹/入口.dart",
+    "path": "lib/demos/马赛克涂抹/马赛克涂抹.dart",
     "native": [
       "JobsMosaicDemoListVC",
       "MosaicDemoListVC"
@@ -477,7 +477,7 @@
   {
     "folder": "镂空遮罩",
     "class": "CutoutMaskDemo",
-    "path": "lib/demos/镂空遮罩/入口.dart",
+    "path": "lib/demos/镂空遮罩/镂空遮罩.dart",
     "native": [
       "TransparentRegionVC"
     ],
@@ -507,7 +507,7 @@
   {
     "folder": "滑动卡片堆",
     "class": "SwipeCardsDemo",
-    "path": "lib/demos/滑动卡片堆/入口.dart",
+    "path": "lib/demos/滑动卡片堆/滑动卡片堆.dart",
     "native": [
       "JobsCardStackDemoVC",
       "GXCardViewDemoVC"
@@ -538,7 +538,7 @@
   {
     "folder": "区间拖动吸边",
     "class": "BoundedDockDemo",
-    "path": "lib/demos/区间拖动吸边/入口.dart",
+    "path": "lib/demos/区间拖动吸边/区间拖动吸边.dart",
     "native": [
       "JobsDockingScrollDemoVC",
       "JobsScrollViewVC"
@@ -569,7 +569,7 @@
   {
     "folder": "联动分类菜单",
     "class": "LinkedMenuDemo",
-    "path": "lib/demos/联动分类菜单/入口.dart",
+    "path": "lib/demos/联动分类菜单/联动分类菜单.dart",
     "native": [
       "JobsVerticalMenuMainVC",
       "JobsLinkageMenuViewDemoVC"
@@ -607,7 +607,7 @@
   {
     "folder": "文字布局策略",
     "class": "TextStrategiesDemo",
-    "path": "lib/demos/文字布局策略/入口.dart",
+    "path": "lib/demos/文字布局策略/文字布局策略.dart",
     "native": [
       "UILabelScrollingDemoVC",
       "JobsLabelBehaviorDemoVC",
@@ -678,7 +678,7 @@
   {
     "folder": "交互富文本",
     "class": "InteractiveTextDemo",
-    "path": "lib/demos/交互富文本/入口.dart",
+    "path": "lib/demos/交互富文本/交互富文本.dart",
     "native": [
       "JobsInteractiveLabelDemoVC",
       "TestBaseLabelVC",
@@ -730,7 +730,7 @@
   {
     "folder": "控制事件与按钮布局",
     "class": "ControlEventsDemo",
-    "path": "lib/demos/控制事件与按钮布局/入口.dart",
+    "path": "lib/demos/控制事件与按钮布局/控制事件与按钮布局.dart",
     "native": [
       "JobsControlEventsDemoVC",
       "JobsSwiftParityControlEventsDemoVC",
@@ -822,7 +822,7 @@
   {
     "folder": "四向页面转场",
     "class": "DirectionalNavigationDemo",
-    "path": "lib/demos/四向页面转场/入口.dart",
+    "path": "lib/demos/四向页面转场/四向页面转场.dart",
     "native": [
       "JobsNavigationDemoVC",
       "JobsViewPushDemoVC",
@@ -906,7 +906,7 @@
   {
     "folder": "侧滑多方向配置",
     "class": "DrawerConfigurationDemo",
-    "path": "lib/demos/侧滑多方向配置/入口.dart",
+    "path": "lib/demos/侧滑多方向配置/侧滑多方向配置.dart",
     "native": [
       "JobsSideDrawerDemoVC"
     ],
@@ -936,7 +936,7 @@
   {
     "folder": "弹出容器",
     "class": "PresentationContainersDemo",
-    "path": "lib/demos/弹出容器/入口.dart",
+    "path": "lib/demos/弹出容器/弹出容器.dart",
     "native": [
       "FSPopoverDemoVC",
       "SwiftEntryKitDemoVC",
@@ -989,7 +989,7 @@
   {
     "folder": "综合选择器",
     "class": "PickerLaboratoryDemo",
-    "path": "lib/demos/综合选择器/入口.dart",
+    "path": "lib/demos/综合选择器/综合选择器.dart",
     "native": [
       "BRPickerDemoVC",
       "PickersDemoView"
@@ -1014,7 +1014,7 @@
   {
     "folder": "国家地区区号",
     "class": "CountryCallingCodesDemo",
-    "path": "lib/demos/国家地区区号/入口.dart",
+    "path": "lib/demos/国家地区区号/国家地区区号.dart",
     "native": [
       "JobsSwiftCountryCodeCtrlDemoVC",
       "JobsOCCountryCodeCtrl"
@@ -1045,7 +1045,7 @@
   {
     "folder": "Markdown文档",
     "class": "MarkdownDocumentsDemo",
-    "path": "lib/demos/Markdown文档/入口.dart",
+    "path": "lib/demos/Markdown文档/Markdown文档.dart",
     "native": [
       "JobsMarkdownDocumentsDemoVC",
       "JobsOCMarkdownDocumentsDemoVC"
@@ -1076,7 +1076,7 @@
   {
     "folder": "Lottie动画",
     "class": "LottieAnimationDemo",
-    "path": "lib/demos/Lottie动画/入口.dart",
+    "path": "lib/demos/Lottie动画/Lottie动画.dart",
     "native": [
       "LottieDemoVC"
     ],
@@ -1094,7 +1094,7 @@
   {
     "folder": "分组列表与网格",
     "class": "GroupedCollectionDemo",
-    "path": "lib/demos/分组列表与网格/入口.dart",
+    "path": "lib/demos/分组列表与网格/分组列表与网格.dart",
     "native": [
       "EmptyTableViewDemoVC",
       "EmptyCollectionViewDemoVC",
@@ -1153,7 +1153,7 @@
   {
     "folder": "界面环境监听",
     "class": "EnvironmentObserverDemo",
-    "path": "lib/demos/界面环境监听/入口.dart",
+    "path": "lib/demos/界面环境监听/界面环境监听.dart",
     "native": [
       "JobsSwiftParityTraitChangeDemoVC",
       "ControlValuesDemoView",
@@ -1191,7 +1191,7 @@
   {
     "folder": "图标字体实验",
     "class": "IconFontLaboratoryDemo",
-    "path": "lib/demos/图标字体实验/入口.dart",
+    "path": "lib/demos/图标字体实验/图标字体实验.dart",
     "native": [
       "JobsIconfontDemoListVC",
       "AsyncLinkShareDemoView"
@@ -1229,7 +1229,7 @@
   {
     "folder": "跑马灯文字",
     "class": "MarqueeTextDemo",
-    "path": "lib/demos/跑马灯文字/入口.dart",
+    "path": "lib/demos/跑马灯文字/跑马灯文字.dart",
     "native": [
       "JobsMarqueeDemoVC",
       "JobsMarqueeViewDemoVC"
@@ -1261,7 +1261,7 @@
   {
     "folder": "并发通知队列",
     "class": "ConcurrentNotificationsDemo",
-    "path": "lib/demos/并发通知队列/入口.dart",
+    "path": "lib/demos/并发通知队列/并发通知队列.dart",
     "native": [
       "CoreTextLearningVC"
     ],
@@ -1286,7 +1286,7 @@
   {
     "folder": "数字标签与按钮动效",
     "class": "AnimatedNumbersDemo",
-    "path": "lib/demos/数字标签与按钮动效/入口.dart",
+    "path": "lib/demos/数字标签与按钮动效/数字标签与按钮动效.dart",
     "native": [
       "JobsAnimatedNumberLabelDemoVC",
       "AnimationEffectLabelDemoVC",
@@ -1338,7 +1338,7 @@
   {
     "folder": "布局节点实验",
     "class": "LayoutNodesDemo",
-    "path": "lib/demos/布局节点实验/入口.dart",
+    "path": "lib/demos/布局节点实验/布局节点实验.dart",
     "native": [
       "ComponentKitLikeKitchenSinkVC"
     ],

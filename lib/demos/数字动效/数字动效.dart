@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/数字动效/数字动效.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
@@ -18,7 +21,7 @@ class _AnimatedNumberDemoState extends State<AnimatedNumberDemo> {
   });
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '数字动效'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '数字动效'))),
     body: ListView(
       padding: const EdgeInsets.all(24),
       children: [

@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/手写签名板/handwriting_demo.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -128,7 +131,7 @@ class _HandwritingDemoState extends State<HandwritingDemo> {
         if (!didPop) _requestLeave();
       },
       child: Scaffold(
-        appBar: AppBar(
+        appBar: JobsDemoAppBar(
           title: Text(tr(context, '手写板')),
           actions: [
             TextButton(

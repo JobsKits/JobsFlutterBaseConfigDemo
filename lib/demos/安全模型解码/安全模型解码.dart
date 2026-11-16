@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/安全模型解码/安全模型解码.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';

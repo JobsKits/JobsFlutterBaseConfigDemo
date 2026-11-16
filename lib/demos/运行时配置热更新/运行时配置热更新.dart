@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/运行时配置热更新/运行时配置热更新.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';

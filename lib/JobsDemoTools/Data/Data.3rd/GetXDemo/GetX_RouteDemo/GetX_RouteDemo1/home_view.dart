@@ -1,5 +1,5 @@
 // 兼容旧导入路径；功能源码统一维护在中文目录。
-export 'package:jobs_flutter_base_config/demos/旧例·GetX命名路由首页/源码/home_view.dart';
-import 'package:jobs_flutter_base_config/demos/旧例·GetX命名路由首页/源码/home_view.dart' as migrated;
+export 'package:jobs_flutter_base_config/demos/GetX命名路由首页/home_view.dart';
+import 'package:jobs_flutter_base_config/demos/GetX命名路由首页/home_view.dart' as migrated;
 
 void main() => migrated.main();

@@ -1,0 +1,172 @@
+{
+  "date": "2026-11-15",
+  "scope": "App骨架，排除Demo子页面功能盘点",
+  "sdk": {
+    "flutter": "3.50.0",
+    "dart": "3.14.0",
+    "engine": "371f77202a73e8dff57a8b3bff75bca55c090aee"
+  },
+  "tests": {
+    "app": {
+      "passed": 556,
+      "exit": 0
+    },
+    "foundation": {
+      "passed": 15,
+      "exit": 0
+    },
+    "total": 571
+  },
+  "analysis": {
+    "exit": 0,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 819
+  },
+  "builds": {
+    "iosSimulatorDebug": {
+      "exit": 0,
+      "seconds": 21.8,
+      "target": "lib/main.dart"
+    },
+    "androidDebug": {
+      "exit": 0,
+      "seconds": 75.5,
+      "note": "原生shake已包含；末次UI细化仅iOS重新构建，Dart全仓测试覆盖最终状态"
+    }
+  },
+  "ui": {
+    "device": "iPhone18Pro/iOS27.2",
+    "udid": "88AD269D-2D0B-4A34-A49D-B121B74527DC",
+    "observed": [
+      "三项右上菜单",
+      "独占搜索无首页浮控",
+      "取消恢复首页",
+      "半屏push菜单与首页连缝",
+      "设置全局刷新样式选中切换",
+      "实测后原宽度/刷新偏好恢复"
+    ],
+    "notCompleted": [
+      "设备UI输入calendar未成功，匹配仅Widget用例验证",
+      "最后返回首页动作遇Mac锁屏",
+      "真机摇动/触觉/声音",
+      "长组跨屏拖动"
+    ],
+    "frameClamping": "未稳定复现，未修复，未启用未经验证的帧调度实验"
+  },
+  "nativeReports": {
+    "assetsPerReport": 25,
+    "sourceLinksVerified": 125,
+    "ocRequirementMatrixSame": true,
+    "movedRootDocuments": 6,
+    "inboundLinksVerified": 119,
+    "preservedDocuments": 184,
+    "generatedCatalogWriteException": "两OC共6份Coverage文档清单由既有生成器--apply更新；没有可靠生成前快照，未从HEAD覆盖用户已有改动"
+  },
+  "links": {
+    "checked": 39,
+    "broken": []
+  },
+  "logDirectory": "/Users/jobs/.codex/visualizations/2026/11/15/flutter-app-skeleton",
+  "searchEmptyAlignment": {
+    "date": "2026-11-15",
+    "change": "公共JobsEmptyState在宽度有界时占满可用宽度，保留原高度约束与超高滚动",
+    "tests": {
+      "homePassed": 8,
+      "foundationPassed": 15,
+      "totalScoped": 23,
+      "note": "本批限定回归，未重跑先前556全仓"
+    },
+    "analysis": {
+      "exit": 0,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 2
+    },
+    "iosBuild": {
+      "exit": 0,
+      "seconds": 30.8
+    },
+    "simulator": {
+      "installed": true,
+      "observed": "iPhone18Pro/iOS27.2独占搜索无历史空态在键盘上方居中，图标、标题、说明、重新加载共用水平中心轴",
+      "physicalDevice": false
+    }
+  },
+  "homeBehaviorNativeParity": {
+    "started": "2026-11-15",
+    "updated": "2026-11-16",
+    "changes": [
+      "Flutter首页Clamping滚动物理，保留Material和Jobs刷新提示",
+      "Flutter移除收藏入口及读写，保留旧键而不主动删除",
+      "最近使用独立展开，稳定ID前插去重、最多30项、持久化及忽略失效入口",
+      "OC新旧、Swift UIKit菜单按Flutter圆角阴影和真实按钮锚点调整",
+      "OC新旧、Swift UIKit、SwiftUI接入真实最近使用入口"
+    ],
+    "flutter": {
+      "tests": {
+        "homePassed": 10,
+        "legacyEdgeCombinationsPassed": 6,
+        "foundationPassed": 15,
+        "totalScoped": 31,
+        "heldDragPixels": 1200,
+        "refreshStyles": ["material", "jobs"],
+        "note": "本批限定回归，不替换此前556项全仓基线"
+      },
+      "analysis": {"errors": 0, "warnings": 0, "infos": 8, "scope": "3个修改文件"},
+      "iosBuild": {"exit": 0, "seconds": 276.6, "installed": true},
+      "uiObserved": [
+        "新版首页启动",
+        "侧栏只有全部功能、最近使用、设置、开屏演示，没有收藏",
+        "最近使用空态与重新加载",
+        "行菜单仅源码位置、复制运行命令"
+      ],
+      "uiNotCompleted": [
+        "真实长下拉：noWindowsAvailable及超时；一次返回成功的坐标动作无法确认落点，不计通过",
+        "本批实际搜索打开及最近冷启动路径仅Widget回归覆盖"
+      ]
+    },
+    "ocNew": {
+      "arm64SimulatorBuildExit": 0,
+      "uiObserved": ["中文浅色三项菜单圆角、阴影和按钮右缘定位", "菜单搜索到关键词结果并打开沙箱示例"],
+      "persistedRecentIdObserved": "cls:JobsMicroSandboxDemoVC",
+      "recentRestartUi": "pending",
+      "accessibilityFollowupBuildExit": 0,
+      "accessibilityUi": "已安装最新包并核对debug.dylib哈希；CUA仍未暴露左按钮及完整三行，不计无障碍通过"
+    },
+    "ocOld": {
+      "arm64SimulatorBuildExit": 0,
+      "uiObserved": ["中文浅色三项菜单圆角、阴影、按钮右缘及下方定位与新OC一致，右缘未裁切"],
+      "recentUi": "pending",
+      "accessibilityFollowupBuildExit": 0,
+      "accessibilityUi": "与新OC相同的CUA暴露限制，未计通过"
+    },
+    "swiftUIKit": {
+      "modelAssertionsPassed": 7,
+      "originalWorkspaceBuildExit": 65,
+      "originalBlocker": "内嵌Flutter旧package_config/锁版本与当前stable SDK不匹配，主App尚未编译",
+      "isolatedValidationBuildExit": 0,
+      "isolatedValidation": "完整正常phase含Flutter/Sourcery均通过；SDK传递依赖重解仅在artifact副本，原生真实复制快照构建，本轮4个责任文件与原文件hash匹配；并发CoreData快照差异不作为当前验证",
+      "originalEmbeddedMetadataUnchanged": true,
+      "originalMetadataHashFilesVerified": 6,
+      "originalWorkspaceDirectBuild": "仍受旧Flutter锁与当前SDK不匹配限制，未修改原锁；不将隔离通过写成原workspace直接通过",
+      "uiObserved": ["隔离最终App安装并启动iPhone18Pro/iOS27.2主首页"],
+      "uiNotCompleted": ["菜单及最近页：AX未暴露自定义导航按钮，坐标点击noWindowsAvailable，未验收菜单展开、最近入口与重启返回"]
+    },
+    "swiftUI": {
+      "arm64SimulatorBuildExit": 0,
+      "modelAssertionsPassed": 13,
+      "uiObserved": ["空态及重载", "普通示例进入后最近记录", "最近项打开并返回最近来源", "冷启动恢复与去重"],
+      "uiNotCompleted": ["搜索与Gallery实际路径", "十语及主题全部交互组合"]
+    },
+    "reports": {
+      "currentScopedRelativeLinksChecked": 49,
+      "brokenScopedLinks": [],
+      "scopedDiffCheckExit": 0,
+      "tocVerify": "本批前段Flutter16份与SwiftUI29份只读验证通过；末次正文同步后的重验受本机Node缺少libsimdutf.37.dylib阻塞，未改环境",
+      "diffFilterOverride": "只读命令临时将TOC过滤器设为cat，未修改Git配置；全仓缓存stdout存在既有尾随空格，任务源码与报告限定范围通过"
+    },
+    "physicalDevice": false,
+    "logDirectory": "/Users/jobs/.codex/visualizations/2026/11/15/native-home-menu"
+  }
+}

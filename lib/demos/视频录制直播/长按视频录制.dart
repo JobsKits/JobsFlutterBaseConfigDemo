@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/视频录制直播/长按视频录制.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -924,7 +927,7 @@ class _HoldVideoRecorderState extends State<HoldVideoRecorderDemo>
         !_recording;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
+      appBar: JobsDemoAppBar(
         backgroundColor: colors.surface.withValues(alpha: .96),
         foregroundColor: colors.onSurface,
         title: Text(holdVideoText(context, '长按录制视频')),

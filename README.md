@@ -1,12 +1,14 @@
 # [**Dart**](https://dart.dev/)@[**🐦`Flutter`**](https://flutter.dev)<font color=red>靶场项目</font>蓝皮书📘
 
+OCR 自建核心按源码交付，入口为 [Source/JobsOCR](<./JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Source/JobsOCR/README.md>)；首次使用及修改源码后运行 [本地构建器](<./JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Scripts/README.md>)，再执行原有依赖安装和 App 构建。自建 `libJobsOCRCore.a` 只在本机生成，不提交到仓库；第三方运行时及模型来源、参数和验证见[源码交付盘点](<./项目相关报告/Rust-OCR集成资产盘点.md#source-delivery>)。
+
 > **项目定位：** `JobsFlutterBaseConfigDemo`，面向 Flutter / Dart 开发者的跨平台基础工程与独立实验示例集；默认入口为开屏 → 可搜索分组目录 → 独立功能 Demo，原有实验与学习资料继续保留。
 >
 > **状态与维护：** 维护中（本地提交历史见统计章节）；负责人 Jobs，未登记独立维护团队。运行 / 硬件 / 生产功能须按对应证据验收。
 >
 > **统计基线：** 2026-10-19（Asia/Shanghai）；[项目规模、依赖与接手指南](#project-statistics)，页面、源码和提交分别采用明确口径，原有教程与历史记录继续保留。
 >
-> **版本说明：** 下方版本徽章保留为历史展示；当前最低系统、SDK 与锁文件以[工具链基线](#statistics-toolchain)为准。
+> **版本说明：** 项目通过 `.fvmrc` 的 `stable` 频道跟随最新稳定版，编辑器使用 `.fvm/flutter_sdk`；下方版本徽章保留为历史展示，当前最低系统、SDK 与锁文件以[工具链基线](#statistics-toolchain)为准。
 
 <p align="left">
   <a><img src="https://img.shields.io/badge/flutter-3.22.1-blue" alt="Flutter"/></a>
@@ -583,9 +585,22 @@
 
 ## <span id="demo-hub">功能实验室与独立预览</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-默认 `lib/main.dart` 进入开屏，结束后替换路由进入分组目录；首页支持搜索、收藏、最近使用与左侧手势菜单，设置提供半开／全开、十种语言和白天／黑夜／跟随系统。功能入口统一在 `lib/demos/中文功能目录/`，原有源码通过适配入口保留；公共壳、菜单、空态与设置在 `JobsByPubs/JobsDemoFoundationByPub/`。
+默认 `lib/main.dart` 进入开屏，结束后替换路由进入按实际用途归组的功能目录，不显示来源新旧标签；圆圈省略号菜单进入独占搜索／批量折叠／设置。首页采用与Swift一致的圆角分组卡片、主副文字及行内分隔，支持分组拖放、置顶、布局记忆、最近使用、左侧覆盖或平移菜单，以及时间／长按／旋转计时／Bug悬浮工具；开屏与覆盖路由期间浮钟隐藏并停计时。组头保留折叠、数量与拖动柄，功能行保留源码／运行命令菜单。功能入口统一在 `lib/demos/中文功能目录/`，公共壳、菜单、空态与设置在 `JobsByPubs/JobsDemoFoundationByPub/`。
+
+最近使用从侧栏进入，按最近打开顺序独立展开，不受首页分组折叠或置顶排序影响，也不手工拖排；普通目录、搜索和最近列表打开功能均前插去重，最多记住 30 项。收藏入口和行菜单收藏项已移除，旧收藏数据保留但不再读写。
+
+首页主标题为“功能实验室”，副标题标注 `JobsFlutterBaseConfigDemo`。悬浮时间按钮按实际文字、语言、字号和安全区自适应留白；短按进入独立世界时钟页，长按拖动后吸边，显隐从设置控制。世界时钟显示当前时区，以及每个有效 UTC 偏移的一处代表城市，含日期、星期和秒级时间；“12小时制”开关立即切换全部时区的24／12小时表达并记住选择，12小时明确标注 AM／PM。该页属于骨架，不增加功能目录计数或最近使用记录。
+
+设置提供半开／全开、Material默认／Jobs刷新提示、十种语言和白天／黑夜／跟随系统，以及默认开启、分别记忆的刷新触觉／声音开关。普通适配与分页列表共用刷新模型，支持横纵两端、reverse／RTL、成功刷新和加载时间分别记录、失败重试及无更多；首次明确无时间记录。列表随手势移动、渐增阻尼，最大越界120逻辑像素，松手回弹；横向指示按腾出宽度自然换行、按可用高度整体缩放，完整显示状态与历史时间。Jobs手动操作提供单次音震，自动初载安静、离屏不补放。专门教学控件保留自身配置，实际界面范围、真机声音触觉及其它待验条件见资产表。
+
+每个已注册Demo右上角共用唯一动作入口：无其它动作时直接切换白天／黑夜，有业务动作时收进同一菜单并保留原功能，主题提示显示下一行为。主App、嵌套应用容器和源码独立运行共享设置；“跟随系统”仍在完整设置面板选择。
 
 - [功能实验室开发与运行](./docs/功能实验室.md)：目录职责、独立运行、API 回退和验证命令。
+- [刷新交互与Demo公共入口资产盘点](./项目相关报告/刷新交互与Demo公共入口资产盘点.md)：刷新成功时间、横向刷新／加载、声音触觉、公共主题动作及首页卡片的需求合同、实现位置与验证边界。
+- [Rust OCR 集成资产盘点](./项目相关报告/Rust-OCR集成资产盘点.md)：共享 Rust 核心的离线识别 Demo、JobsByPubs 插件、样本／选图／行框／取消与 Apple SDK 接入状态；本入口使当前目录由299增至300项，不外推旧299项验证证据到新增OCR。
+- [Demo 源码目录整理](./项目相关报告/Demo源码目录整理.md)：移除独立转发入口与源码中间目录，登记迁移范围、引用更新及本批验证。
+- [四库功能与 UI 蒸馏盘点](./项目相关报告/四库功能与UI蒸馏盘点.md)：18 个新增入口、公共交互几何包、播放器诊断恢复、来源依赖与取舍；每项记录默认值、持久化、生命周期及验证边界。
+- [App 骨架资产对照与补齐清单](./项目相关报告/App骨架对照与补齐清单.md)：OC 两工程／Swift UIKit／SwiftUI 与 Flutter 的入口、行为、默认值、持久化、实现差异及验证边界；SwiftUI按增量范围盘点，每次修改 App 同步维护。
 - [原生功能逐项对照](./docs/原生功能对照.md)：OC／Swift 首页真实清单与移植范围，不能把目录接入当成全部功能已达成 1:1。
 - [机器可读原生清单](./docs/native_feature_inventory.json)：保留来源路径、入口和分组。
 
@@ -597,7 +612,7 @@ flutter test
 flutter build ios --simulator --debug
 ```
 
-[**VS Code**](https://code.visualstudio.com/) 打开某个 `lib/demos/` 页面，选择“运行当前 Demo 文件”即可直接调试；首页每行“更多”也能查看源码位置、复制运行命令。独立入口与主 App 使用同一个页面 Widget，不在主 App 中二次 `runApp`。旧 Demo 的内部固定文案／主题仍按原代码保留，全局壳支持十语不等于所有历史示例已完成逐词翻译。
+[**VS Code**](https://code.visualstudio.com/) 直接打开某个 `lib/demos/<中文功能>/` 下的实现源码，文件头注给出 `flutter run -t` 命令，导入／part指令后即为 `main`；选择“运行当前 Demo 文件”即可调试。首页每行“更多”的源码定位与复制运行命令指向同一实际文件；已删除175个纯转发 `入口.dart`，46个带实现的入口按功能命名，175个 `源码/` 中间目录的内容已上移。原 `lib/JobsDemoTools` 的包级兼容导出仍直接指向真实实现。独立入口与主 App 使用同一个页面 Widget，不在主 App 中二次 `runApp`；公共主题入口与十语设置保持响应式，代码名、教学数据和控制台输出保留教学含义。
 
 ## <span id="cocoapods-network-route">CocoaPods 安装网络选路</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -1401,6 +1416,8 @@ plugins/
 >
 > 为每一个项目配置（锁定🔒）一个单独的[**Flutter**](https://flutter.dev/)环境，和系统环境区分开，方便切环境运行（测试）代码
 
+本仓当前使用根目录 `.fvmrc` 的 JSON 配置 `{"flutter":"stable"}` 跟随稳定频道；下方固定版本号及旧版 `.fvm/fvm_config.json` 片段作为教学示例保留，不作为本仓当前绑定。
+
 * 安装[**FVM**](https://fvm.app/)
 
   * 官方 Install Script（推荐，自动配置 PATH）
@@ -1479,7 +1496,7 @@ plugins/
 
   | 文件/路径                                                    | 位置                                              | 是否建议提交   | 作用                                                         | 备注说明                                                     |
   | ------------------------------------------------------------ | ------------------------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | `.fvmrc`                                                     | 项目根目录                                        | ✅ **建议提交** | 显式标记希望使用的 [**Flutter**](https://flutter.dev/) 版本（如 `3.32.6` 或 `stable`）方便团队协作、CI 自动读取 | 仅一行纯文本，不支持注释，适用于版本声明                     |
+  | `.fvmrc`                                                     | 项目根目录                                        | ✅ **建议提交** | 显式标记希望使用的 [**Flutter**](https://flutter.dev/) 版本或频道，方便团队协作、CI 自动读取；本仓为 `stable` | 本仓使用 JSON 格式，`flutter` 字段声明频道，不手填当前数字版本 |
   | `.fvm/fvm_config.json`                                       | 项目目录内 `.fvm/`                                | ❌ **建议忽略** | 实际执行时 FVM 内部记录的配置信息：包含 `flutterSdkVersion`、`channel`、`cachePath` 等 | [**FVM**](https://fvm.app/) 自动生成，用于代理和定位 [**Flutter**](https://flutter.dev/).**SDK** ，不可手动编辑 |
   | `.fvm/flutter_sdk`                                           | `.fvm/` 中软链接                                  | ❌ 忽略         | 指向你电脑上的实际 [**Flutter**](https://flutter.dev/).**SDK**  位置（`~/.fvm/versions/3.32.6`） | 用于让 `fvm flutter` 命令生效，指向实际安装版本              |
   | `~/.fvm/versions/<version>`                                  | 全局路径                                          | ✅ 本地缓存     | 实际安装的 [**Flutter**](https://flutter.dev/).**SDK** ，供多个项目共用 | 每个版本只安装一次，多项目共享此目录，无需提交               |
@@ -1537,10 +1554,10 @@ plugins/
 
     | 命令                 | 含义                                                         | 是否修改项目配置                |
     | -------------------- | ------------------------------------------------------------ | ------------------------------- |
-    | `fvm install stable` | 安装**最新稳定版本**到本地缓存                               | ❌                               |
-    | `fvm use stable`     | 设置当前项目使用最新稳定版本                                 | ✅                               |
+    | `fvm install stable` | 安装或复用 `stable` 频道缓存；已有缓存的刷新由项目初始化脚本处理 | ❌                               |
+    | `fvm use stable`     | 设置当前项目跟随 `stable` 频道                               | ✅                               |
     | `fvm global stable`  | 设置全局默认版本                                             | ✅（全局）                       |
-    | `fvm upgrade`        | 1️⃣ **获取当前项目 `.fvm/fvm_config.json` 中配置的 `flutterSdkVersion` 所属 channel（如 stable、beta、dev、master）**；<br>2️⃣ 然后从该 **channel** 中 **升级到该 channel 的最新版本** | ✅（更新版本但不换 **channel**） |
+    | `fvm flutter upgrade` | 通过当前项目 FVM SDK 执行 Flutter 升级；在项目内运行可能同时更新项目依赖锁。只升级 SDK 时，应在项目外调用 SDK 实际入口；本项目初始化脚本已隔离处理 | 更新 SDK 缓存，可能更新项目依赖锁，不切换频道 |
 
 ### <span id="jobs-toc-heading-21" data-jobs-toc="v2">4、IDE <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
@@ -2083,8 +2100,8 @@ plugins/
         // ✅ 始终高亮当前括号对
         "editor.matchBrackets": "always",
       
-        // ✅ Flutter SDK 路径（使用 FVM 管理的版本路径）
-        "dart.flutterSdkPath": ".fvm/versions/3.24.5",
+        // ✅ Flutter SDK 路径（跟随 FVM 当前项目绑定）
+        "dart.flutterSdkPath": ".fvm/flutter_sdk",
         "dart.sdkPath": ".fvm/flutter_sdk/bin/cache/dart-sdk",
       
         // ✅ 让 VSCode 终端继承 Shell 环境（通常默认 true）
@@ -20868,15 +20885,15 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 
 | 类别 | 名称 | 当前配置 / 已读取证据 | 锁文件入库状态 |
 | --- | --- | --- | --- |
-| 语言 / 框架 | Dart / Flutter | `.fvmrc` 与 `.fvm/fvm_config.json` 均固定 Flutter `3.50.0` / Dart `3.14.0`（2026-11-14 官方稳定版核对）；`pubspec.yaml` 约束为 Dart `>=3.14.0 <4.0.0`、Flutter `>=3.50.0` | `pubspec.lock` 已入库；SDK 缓存本身不作项目锁文件 |
-| SDK 管理 | [**FVM**](https://fvm.app) | 项目有 FVM 配置，FVM 命令工具自身版本未固定 | 配置已入库，无工具版本锁 |
+| 语言 / 框架 | Dart / Flutter | `.fvmrc` 绑定 `stable`，由 FVM 跟随最新稳定 SDK；Flutter `3.50.0` / Dart `3.14.0` 为 2026-11-14 已验基线。`pubspec.yaml` 保留 Dart `>=3.14.0 <4.0.0`、Flutter `>=3.50.0` 兼容下限，不作为版本锁 | `pubspec.lock` 已入库；SDK 缓存本身不作项目锁文件 |
+| SDK 管理 | [**FVM**](https://fvm.app) | 项目 SDK 由 FVM 管理，编辑器统一使用 `.fvm/flutter_sdk`；CI 从 `.fvmrc` 读取频道并解析当次稳定版的具体版本，FVM 命令工具自身版本未固定 | 频道配置已入库；本地解析结果与缓存不作固定版本锁 |
 | Android 构建 | [**Gradle**](https://gradle.org) / AGP / [**Kotlin**](https://kotlinlang.org) | 2026-10-21 工作区配置：wrapper `8.14`、AGP `8.11.1`、Kotlin `2.2.20`，匹配 Flutter `3.47.7` 的最低构建要求；NDK `27.0.12077973` | wrapper / 构建配置为已跟踪文件，兼容性调整尚未提交；未发现 Gradle dependency lock |
-| Android 最低支持 | Android SDK | `app/build.gradle.kts` 读取 Flutter 默认值；固定 SDK 的 `FlutterExtension.kt` 为 min `24`、compile / target `36`；源码兼容与 JVM target `11` 不等于 Gradle 运行 JDK 版本 | JDK 发行版与具体版本未固定，须以本机 doctor / 构建结果核实 |
+| Android 最低支持 | Android SDK | `app/build.gradle.kts` 读取 Flutter 默认值；已验 SDK 的 `FlutterExtension.kt` 为 min `24`、compile / target `36`，频道更新后须重新核对；源码兼容与 JVM target `11` 不等于 Gradle 运行 JDK 版本 | JDK 发行版与具体版本未固定，须以本机 doctor / 构建结果核实 |
 | Apple 构建 | [**CocoaPods**](https://cocoapods.org/) / [**Xcode**](https://developer.apple.com/xcode) | 2026-10-21 iOS 锁文件记录 CocoaPods `1.17.0`，macOS 原锁文件仍为 `1.16.2`；本次 iOS 构建使用 Xcode / Simulator SDK `27.1`，工具本身未固定 | `ios/Podfile.lock`、`macos/Podfile.lock` 为已跟踪文件；iOS 友盟依赖解析结果尚未提交 |
 | 最低系统 | iOS / macOS | 2026-10-21 工作区 `ios/Podfile` 与主 target 为 `15.0`，Pod 安装 hook 同步为 `15.0` 以适配当前 Xcode 27.1；`macos/Podfile` 为 `10.15`，最终插件最低要求仍以安装解析和构建为准 | 对应文件已跟踪，工作区调整尚未提交 |
 | Web / 桌面 | 浏览器、Windows / Linux 工具链 | 存在平台模板，但浏览器最低版本、C++ 编译器与系统最低版本未统一固定 | 未发现独立工具链锁 |
 
-上表的 SDK 缓存信息来自配置所指向 SDK 的 `bin/cache/flutter.version.json`、`bin/cache/dart-sdk/version` 与 `packages/flutter_tools/gradle/src/main/kotlin/FlutterExtension.kt`，不是重新联网查得的“最新版本”。原文顶部 Flutter / Dart 徽章是历史展示值，当前构建应以上表配置为准。
+上表的已验 SDK 信息来自当时配置所指向 SDK 的 `bin/cache/flutter.version.json`、`bin/cache/dart-sdk/version` 与 `packages/flutter_tools/gradle/src/main/kotlin/FlutterExtension.kt`。`stable` 是动态频道，不保证普通运行时自动更新缓存；更新后以实际 SDK 元数据及验证结果为准。原文顶部 Flutter / Dart 徽章是历史展示值，当前构建应以上表配置为准。
 
 统计 / 核对时间：原基线为 **2026-10-19**，Android 构建与 iOS 最低系统配置为 **2026-10-21**。锁文件“已入库”由 `git ls-files` 精确查询确认，不代表包管理器工具本体已被锁定；友盟依赖安装结果另见[独立 Demo 验证范围](#umeng-demo-run)。
 
@@ -20896,17 +20913,17 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 
 ### 8.3、<span id="statistics-pages">页面、子页面与路由</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-计数时间：默认功能实验室为 **2026-11-14**；备用入口原基线 **2026-10-19**，友盟独立入口原基线 **2026-10-21**；单位选用**页面组件**，按每个入口实际装配的全屏根内容分别计数，不把控件、Demo 片段、半屏、弹层、浮层或未接入的样例算页面。跨端共用同一套 Dart 页面，平台数不乘进页面总数。
+计数时间：默认功能实验室为 **2026-11-16**；备用入口原基线 **2026-10-19**，友盟独立入口原基线 **2026-10-21**；单位选用**页面组件**，按每个入口实际装配的全屏根内容分别计数，不把控件、Demo 片段、半屏、弹层、浮层或未接入的样例算页面。跨端共用同一套 Dart 页面，平台数不乘进页面总数。
 
 | 端 / 入口 | 页面数（含子页） | 子页面数 | 路由数 | 依据 |
 | --- | ---: | ---: | ---: | --- |
-| 共用 `lib/main.dart` 功能实验室 | 3 个框架页＋281 个功能入口 | 开屏／首页／设置；功能内部子页未全量计数 | 替换开屏与即时 push；281 个可运行功能入口 | `demo_hub` 八份注册表：189 个旧功能／配置入口＋92 个补充与平行功能；385 条原生注册映射及平台验证范围见对照文档 |
+| 共用 `lib/main.dart` 功能实验室 | 5 个框架页＋300 个功能入口（2026-11-16核对） | 开屏／首页／独占搜索／设置／世界时钟；功能内部子页未全量计数 | 替换开屏与独立 push；300 个源码入口，OCR原生接入与实跑状态另见资产表 | `demo_hub` 九份注册表：原281项＋四库蒸馏18项＋Rust OCR 1项；世界时钟只增骨架页，ID全表去重，旧299项验证基线保留 |
 | 备用架构 `lib/mainss.dart`，不并入默认入口 | 2 | 1 | 2 | `lib/routes/app_pages.dart` 的 `/` 与 `/home`；启动页和首页组件，由 `mainss.dart` 的 `GetMaterialApp` 配置 |
 | 友盟独立入口 `lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart`，不并入默认入口 | 2 | 1 | 2 个实际页面路由 | `MaterialApp.home` 的 `/` 与手动压入的 `/umeng/detail`；Android / iOS 执行 SDK，Web / 桌面仅预览界面，鸿蒙宿主尚未适配 |
 
 `GetPage` 路由只是备用架构的静态注册；`lib/JobsDemoTools/` 中的独立 `main()`、演示组件及未验证示例不构成默认 App 的可达页面。平台目录存在代表模板覆盖，不能代替六个平台启动验收。没有独立 H5 容器进入默认入口，相关 WebView Demo 不计入上述数字。
 
-复核默认入口三份注册表 `legacy_catalog.dart`、`parallel_catalog.dart`、`native_catalog.dart`；备用架构对照 `rg -n 'GetPage\(|getPages:|initialRoute:' lib/routes/app_pages.dart lib/mainss.dart`。备用路由中 `Home` / `Splash` 导入大小写与实际 `home` / `splash` 目录不一致，大小写敏感系统上需要先修正源码；README 不能代替这项实现修复。
+复核默认入口的九份注册表，以 `lib/demo_hub/home_page.dart` 中 `demos` 聚合为准；世界时钟由首页浮钟独立push，不属于这九份Demo注册表。备用架构对照 `rg -n 'GetPage\(|getPages:|initialRoute:' lib/routes/app_pages.dart lib/mainss.dart`。备用路由中 `Home` / `Splash` 导入大小写与实际 `home` / `splash` 目录不一致，大小写敏感系统上需要先修正源码；README 不能代替这项实现修复。
 
 ### 8.4、<span id="statistics-backend">后端规模适用边界</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
@@ -20931,7 +20948,7 @@ Stream.periodic(const Duration(seconds: 1), (count) => count)
 flowchart LR
     A["lib/main.dart"] --> B["DemoHubApp / JobsDemoFoundationByPub"]
     B --> C["全局设置、十语、主题与手势菜单"]
-    B --> R["三份功能注册目录 / lib/demos 中文目录"]
+    B --> R["九份功能注册目录 / lib/demos 中文目录"]
     R --> D["异形按钮：CustomShapeButton / ShapePainter"]
     D --> E["vibration 公共插件"]
     E --> X[["平台振动 API：外部边界"]]
@@ -20951,8 +20968,14 @@ flowchart LR
 flowchart TD
     A["入口 main / 加载设置"] --> B["开屏"]
     B -->|计时结束或跳过，替换路由| C["分组功能首页"]
-    C --> D["搜索 / 收藏 / 最近使用 / 菜单"]
+    C --> D["菜单 / 独占搜索"]
+    C --> R["侧栏最近使用：按打开顺序，始终展开"]
+    C -->|短按首页时间浮钮| T["世界时钟：本地时区＋全球偏移代表"]
+    T --> K["12小时制开关：即时刷新AM/PM并记忆"]
+    T -->|返回，保留原布局| C
     D --> E["功能 WidgetBuilder"]
+    R --> E
+    E --> J["最近 ID 前插去重，最多30项"]
     E --> F["同一中文目录页面可独立运行"]
     C --> G["GET目录 / PUT偏好"]
     G -->|失败或超时| H["本地目录与可演示操作"]
@@ -21164,12 +21187,14 @@ fvm flutter build ios \
   --no-codesign
 ```
 
+通过项目初始化脚本刷新已绑定的 `stable` SDK；脚本在无工程的临时目录调用 SDK 实际入口升级，隔离项目依赖锁。普通 `fvm flutter run` 不自动升级 SDK，也不改变本机独立全局 Flutter。SDK 更新后再单独执行必要的依赖解析与验证。
+
 需要备用架构时用 `fvm flutter run -t lib/mainss.dart`，先处理前述导入大小写。Web / 桌面可使用 `fvm flutter run -d chrome` 等相应设备；插件能否支持该目标必须实机验证，不把拥有平台模板写成全插件兼容。iOS / macOS 插件依赖安装按各平台 Podfile 的自包含网络选路执行；安装会联网、写缓存与锁文件，先检查原锁文件与可用开发环境。
 
 | 环境 / 问题 | 配置位置与处理 |
 | --- | --- |
 | dev / test / prod | 当前没有统一 flavor / .env 发布矩阵；`lib/core/app_config.dart` 仅布局与调试工具，独立网络 Demo 的地址分散维护，不能声称已具备统一生产配置 |
-| SDK 与旧徽章不一致 | 以 `.fvmrc`、`pubspec.lock` 与固定 SDK 元数据为准；不要为了匹配旧徽章降级 |
+| SDK 与旧徽章不一致 | 以 `.fvmrc` 的 `stable` 频道、FVM 当前 SDK 元数据及 `pubspec.lock` 为准；不要为了匹配旧徽章降级 |
 | 三方推送 / 相机 / 振动不可用 | 检查 Android manifest placeholder、Apple 权限、真机硬件及包的平台实现；`your_app_key` 等占位符需要合法真实配置，不在 README 写密钥 |
 | widget_test 与默认 App 不一致 | `test/widget_test.dart` 引用 GetX 生命周期示例的 MyApp，未覆盖当前形状按钮页；测试存在不表示默认入口已验收 |
 | 依赖解析漂移 | 先保存 / 比较已提交 `pubspec.lock`，大量 `any` 会在重新解析或升级时漂移；不要删除锁文件后声称可复现 |
@@ -21271,7 +21296,7 @@ dart analyze test/iphone_duo_layout_test.dart
 
 ### 9.3、<span id="flutter-ci">窗口布局回归与 iOS CI</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
-[GitHub Actions 工作流](./.github/workflows/flutter-window-layout.yml) 在 `main` 推送、Pull Request 和手动运行时执行：固定 Flutter `3.50.0`，选择 `xcode-27` runner 的 `Xcode_27.1.app` 并强制校验 Simulator SDK≥27.1，按锁文件解析依赖，分析窗口适配／友盟／功能实验室及公共包范围，运行九份回归测试，最后完整构建默认入口的 iOS Simulator App。任何阶段失败都会使工作流失败；通过产物身份 / SDK / arm64 校验后才上传 `Runner.app.zip`。
+[GitHub Actions 工作流](./.github/workflows/flutter-window-layout.yml) 在 `main` 推送、Pull Request 和手动运行时执行：从 `.fvmrc` 的 `stable` 频道解析当次最新稳定 Flutter，核对实际频道、具体版本与发布归档身份；选择 `xcode-27` runner 的 `Xcode_27.1.app` 并强制校验 Simulator SDK≥27.1，按锁文件解析依赖，分析窗口适配／友盟／功能实验室及公共包范围，运行九份回归测试，最后完整构建默认入口的 iOS Simulator App。任何阶段失败都会使工作流失败；通过产物身份 / SDK / arm64 校验后才上传 `Runner.app.zip`。Flutter `3.50.0` 为已验基线，后续稳定版须以对应运行结果验收。
 
 具体分析清单、脚本模式、日志和不覆盖的既有模板测试见 [CI 运行说明](./.github/ci/README.md)。这是明确范围的分析与回归，不代表全仓所有教学示例或所有测试通过；原生姿态、保留区和真机交互仍按上一节单独验收。工作流是否成功以当前提交的真实远端运行记录为准。
 

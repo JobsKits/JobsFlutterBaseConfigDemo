@@ -1,5 +1,5 @@
 // 兼容旧导入路径；功能源码统一维护在中文目录。
-export 'package:jobs_flutter_base_config/demos/旧例·GetX国际化词典/源码/GetX_InternationalDemo.dart';
-import 'package:jobs_flutter_base_config/demos/旧例·GetX国际化词典/源码/GetX_InternationalDemo.dart' as migrated;
+export 'package:jobs_flutter_base_config/demos/GetX国际化词典/GetX_InternationalDemo.dart';
+import 'package:jobs_flutter_base_config/demos/GetX国际化词典/GetX_InternationalDemo.dart' as migrated;
 
 void main() => migrated.main();

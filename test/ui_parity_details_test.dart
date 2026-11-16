@@ -8,14 +8,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
-import 'package:jobs_flutter_base_config/demos/交互富文本/入口.dart';
-import 'package:jobs_flutter_base_config/demos/数字标签与按钮动效/入口.dart';
-import 'package:jobs_flutter_base_config/demos/四向页面转场/入口.dart';
-import 'package:jobs_flutter_base_config/demos/弹出容器/入口.dart';
-import 'package:jobs_flutter_base_config/demos/布局节点实验/入口.dart';
-import 'package:jobs_flutter_base_config/demos/联动分类菜单/入口.dart';
-import 'package:jobs_flutter_base_config/demos/控制事件与按钮布局/入口.dart';
+import 'package:jobs_flutter_base_config/demos/交互富文本/交互富文本.dart';
+import 'package:jobs_flutter_base_config/demos/数字标签与按钮动效/数字标签与按钮动效.dart';
+import 'package:jobs_flutter_base_config/demos/四向页面转场/四向页面转场.dart';
+import 'package:jobs_flutter_base_config/demos/弹出容器/弹出容器.dart';
+import 'package:jobs_flutter_base_config/demos/布局节点实验/布局节点实验.dart';
+import 'package:jobs_flutter_base_config/demos/联动分类菜单/联动分类菜单.dart';
+import 'package:jobs_flutter_base_config/demos/控制事件与按钮布局/控制事件与按钮布局.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'support/demo_toolbar.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -361,7 +363,10 @@ void main() {
         ),
       );
       expect(find.text('工具栏: 未点亮'), findsOneWidget);
-      await tester.tap(find.byKey(const ValueKey('navigation-toolbar-star')));
+      await tapDemoMenuAction(
+        tester,
+        find.byKey(const ValueKey('navigation-toolbar-star')),
+      );
       await tester.pump();
       expect(find.text('工具栏: 已点亮'), findsOneWidget);
       await tester.tap(find.widgetWithText(ListTile, '内联标题'));
@@ -414,10 +419,10 @@ void main() {
       );
       await tester.pump();
       expect(find.byType(Card), findsNWidgets(10));
-      await tester.tap(find.byIcon(Icons.add));
+      await tapDemoMenuAction(tester, find.byIcon(Icons.add));
       await tester.pump();
       expect(find.byType(Card), findsNWidgets(11));
-      await tester.tap(find.byIcon(Icons.shuffle));
+      await tapDemoMenuAction(tester, find.byIcon(Icons.shuffle));
       await tester.pump(const Duration(milliseconds: 350));
       expect(find.byType(Card), findsNWidgets(11));
       expect(tester.takeException(), isNull);

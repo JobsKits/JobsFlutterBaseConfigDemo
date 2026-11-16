@@ -8,6 +8,7 @@ void main() {
     WidgetTester tester,
     JobsSideMenuController controller, {
     bool fullWidth = false,
+    JobsSideMenuPresentation presentation = JobsSideMenuPresentation.overlay,
   }) => tester.pumpWidget(
     MaterialApp(
       locale: const Locale('en'),
@@ -16,8 +17,15 @@ void main() {
       home: JobsSideMenu(
         controller: controller,
         fullWidth: fullWidth,
-        menu: const Center(child: Text('menu-content')),
-        child: const Scaffold(body: Center(child: Text('body-content'))),
+        presentation: presentation,
+        menu: const Center(
+          key: ValueKey('menu-panel'),
+          child: Text('menu-content'),
+        ),
+        child: const Scaffold(
+          key: ValueKey('home-page'),
+          body: Center(child: Text('body-content')),
+        ),
       ),
     ),
   );
@@ -103,6 +111,95 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('body'), findsOneWidget);
     expect(tester.getRect(find.text('menu')).right, lessThanOrEqualTo(0));
+    await tester.pumpWidget(const SizedBox());
+    controller.dispose();
+  });
+
+  for (final fullWidth in [false, true]) {
+    testWidgets(
+      'push joins the menu and full page at every frame ($fullWidth)',
+      (tester) async {
+        final controller = JobsSideMenuController();
+        await mount(
+          tester,
+          controller,
+          fullWidth: fullWidth,
+          presentation: JobsSideMenuPresentation.push,
+        );
+        final page = find.byKey(const ValueKey('home-page'));
+        final menu = find.byKey(const ValueKey('menu-panel'));
+        expect(tester.getRect(page).left, 0);
+        expect(tester.getRect(menu).right, closeTo(0, .01));
+        controller.open();
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 90));
+        final during = tester.getRect(page);
+        expect(during.left, greaterThan(0));
+        expect(during.left, lessThan(fullWidth ? 800 : 624));
+        expect(during.width, closeTo(800, .01));
+        expect(tester.getRect(menu).right, closeTo(during.left, .01));
+        await tester.pumpAndSettle();
+        final opened = tester.getRect(page);
+        expect(opened.left, closeTo(fullWidth ? 800 : 624, .01));
+        expect(opened.width, closeTo(800, .01));
+        expect(opened.height, closeTo(600, .01));
+        expect(tester.getRect(menu).right, closeTo(opened.left, .01));
+        await tester.tap(find.byTooltip('Close menu'));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 90));
+        expect(
+          tester.getRect(menu).right,
+          closeTo(tester.getRect(page).left, .01),
+        );
+        await tester.pumpAndSettle();
+        expect(tester.getRect(page).left, 0);
+        await tester.pumpWidget(const SizedBox());
+        controller.dispose();
+      },
+    );
+  }
+
+  testWidgets('push edge drag, exposed page scrim and back all work', (
+    tester,
+  ) async {
+    final controller = JobsSideMenuController();
+    await mount(
+      tester,
+      controller,
+      presentation: JobsSideMenuPresentation.push,
+    );
+    await tester.dragFrom(const Offset(8, 300), const Offset(610, 0));
+    await tester.pumpAndSettle();
+    expect(controller.isOpen, isTrue);
+    await tester.tapAt(const Offset(760, 300));
+    await tester.pumpAndSettle();
+    expect(controller.isOpen, isFalse);
+    expect(tester.getRect(find.byKey(const ValueKey('home-page'))).left, 0);
+    controller.open();
+    await tester.pumpAndSettle();
+    await tester.dragFrom(const Offset(500, 300), const Offset(-500, 0));
+    await tester.pumpAndSettle();
+    expect(controller.isOpen, isFalse);
+    controller.open();
+    await tester.pumpAndSettle();
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(controller.isOpen, isFalse);
+    await tester.pumpWidget(const SizedBox());
+    controller.dispose();
+  });
+
+  testWidgets('overlay keeps the page stationary while the menu moves', (
+    tester,
+  ) async {
+    final controller = JobsSideMenuController();
+    await mount(tester, controller);
+    controller.open();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 90));
+    expect(tester.getRect(find.byKey(const ValueKey('home-page'))).left, 0);
+    await tester.pumpAndSettle();
+    expect(tester.getRect(find.byKey(const ValueKey('home-page'))).left, 0);
     await tester.pumpWidget(const SizedBox());
     controller.dispose();
   });

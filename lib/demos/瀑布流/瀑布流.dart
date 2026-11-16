@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/瀑布流/瀑布流.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
@@ -14,7 +17,7 @@ class _MasonryDemoState extends State<MasonryDemo> {
   final Set<int> _favorites = {};
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '瀑布流'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '瀑布流'))),
     body: LayoutBuilder(
       builder: (context, constraints) {
         final columns = (constraints.maxWidth / 220).floor().clamp(2, 4);

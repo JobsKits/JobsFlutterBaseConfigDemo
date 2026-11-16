@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/手势解锁/手势解锁.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -60,7 +63,7 @@ class _PatternUnlockDemoState extends State<PatternUnlockDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '手势解锁'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '手势解锁'))),
     body: ListView(
       padding: const EdgeInsets.all(24),
       children: [

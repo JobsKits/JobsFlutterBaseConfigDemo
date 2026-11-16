@@ -1,23 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
 import 'jobs_refresh_load_controller.dart';
 
-/// 通用列表组件
+/// 普通分页列表接全局样式；横纵两端、短列表与空态使用同一刷新机制。
 class JobsRefreshLoadList<T> extends StatefulWidget {
-  final JobsRefreshLoadController<T> controller;
-  final Widget Function(BuildContext ctx, T item, int index) itemBuilder;
-  final Widget? Function(BuildContext ctx, int index)? separatorBuilder;
-  final EdgeInsetsGeometry? padding;
-  final ScrollPhysics? physics;
-  final Color? refreshColor;
-  final bool zebra;
-  final Color? zebraOddColor;
-  final Color? zebraEvenColor;
-  final Widget Function(BuildContext ctx)? emptyBuilder;
-  final Widget Function(BuildContext ctx)? loadingBuilder;
-  final Widget Function(BuildContext ctx)? footerLoadingBuilder;
-  final Widget Function(BuildContext ctx)? footerNoMoreBuilder;
-
   const JobsRefreshLoadList({
     super.key,
     required this.controller,
@@ -33,128 +22,175 @@ class JobsRefreshLoadList<T> extends StatefulWidget {
     this.loadingBuilder,
     this.footerLoadingBuilder,
     this.footerNoMoreBuilder,
-  });
+    this.scrollDirection = Axis.vertical,
+    this.reverse = false,
+    this.horizontalItemExtent = 220,
+    this.autoLoadMore = false,
+  }) : assert(horizontalItemExtent > 0);
+  final JobsRefreshLoadController<T> controller;
+  final Widget Function(BuildContext, T, int) itemBuilder;
+  final Widget? Function(BuildContext, int)? separatorBuilder;
+  final EdgeInsetsGeometry? padding;
+  final ScrollPhysics? physics;
+  final Color? refreshColor;
+  final bool zebra;
+  final Color? zebraOddColor;
+  final Color? zebraEvenColor;
+  final Widget Function(BuildContext)? emptyBuilder;
+  final Widget Function(BuildContext)? loadingBuilder;
+  final Widget Function(BuildContext)? footerLoadingBuilder;
+  final Widget Function(BuildContext)? footerNoMoreBuilder;
+  final Axis scrollDirection;
+  final bool reverse;
+  final double horizontalItemExtent;
+  final bool autoLoadMore;
 
   @override
   State<JobsRefreshLoadList<T>> createState() => _JobsRefreshLoadListState<T>();
 }
 
 class _JobsRefreshLoadListState<T> extends State<JobsRefreshLoadList<T>> {
-  final _scrollCtrl = ScrollController();
+  final scroll = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    widget.controller.addListener(_onChanged);
-    _scrollCtrl.addListener(_onScroll);
-    WidgetsBinding.instance.addPostFrameCallback((_) => widget.controller.refresh());
+    widget.controller.addListener(changed);
+    scroll.addListener(scrolled);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) unawaited(widget.controller.refresh(userInitiated: false));
+    });
   }
 
   @override
-  void didUpdateWidget(covariant JobsRefreshLoadList<T> oldWidget) {
+  void didUpdateWidget(JobsRefreshLoadList<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller != widget.controller) {
-      oldWidget.controller.removeListener(_onChanged);
-      widget.controller.addListener(_onChanged);
+      oldWidget.controller.removeListener(changed);
+      widget.controller.addListener(changed);
+    }
+  }
+
+  void changed() {
+    if (mounted) setState(() {});
+  }
+
+  void scrolled() {
+    final c = widget.controller;
+    if (widget.autoLoadMore &&
+        c.hasMore &&
+        !c.isLoadingMore &&
+        !c.isRefreshing &&
+        scroll.hasClients &&
+        scroll.position.extentAfter <= 200) {
+      unawaited(c.loadMore(userInitiated: false));
     }
   }
 
   @override
   void dispose() {
-    _scrollCtrl.dispose();
-    widget.controller.removeListener(_onChanged);
+    widget.controller.removeListener(changed);
+    scroll.dispose();
     super.dispose();
   }
 
-  void _onChanged() => setState(() {});
-
-  void _onScroll() {
+  Widget footer(BuildContext context) {
     final c = widget.controller;
-    if (c.hasMore &&
-        !c.isLoadingMore &&
-        !c.isRefreshing &&
-        _scrollCtrl.position.pixels >= _scrollCtrl.position.maxScrollExtent - 200) {
-      c.loadMore();
+    if (c.isLoadingMore && widget.footerLoadingBuilder != null) {
+      return widget.footerLoadingBuilder!(context);
     }
+    if (!c.hasMore && widget.footerNoMoreBuilder != null) {
+      return widget.footerNoMoreBuilder!(context);
+    }
+    final colors = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(tr(
+              context,
+              !c.hasMore
+                  ? '没有更多了'
+                  : c.isLoadingMore
+                      ? '正在加载'
+                      : widget.scrollDirection == Axis.horizontal
+                          ? '侧拉加载'
+                          : '上拉加载')),
+          const SizedBox(height: 4),
+          Text(
+              jobsRefreshHistoryText(context,
+                  refresh: false, time: c.lastLoadedAt),
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12, color: colors.onSurfaceVariant)),
+        ],
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final c = widget.controller;
-
-    if (c.items.isEmpty && (c.isRefreshing || c.isLoadingMore)) {
-      return widget.loadingBuilder?.call(context) ??
-          const Center(child: CircularProgressIndicator(strokeWidth: 2));
-    }
-
-    if (c.items.isEmpty) {
-      return RefreshIndicator(
-        onRefresh: c.refresh,
-        color: widget.refreshColor,
-        child: ListView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 80),
-              child: widget.emptyBuilder?.call(context) ?? const Center(child: Text('暂无数据')),
-            ),
-          ],
-        ),
-      );
-    }
-
-    return RefreshIndicator(
-      onRefresh: c.refresh,
-      color: widget.refreshColor,
-      child: ListView.separated(
-        controller: _scrollCtrl,
-        physics: widget.physics ?? const AlwaysScrollableScrollPhysics(),
-        padding: widget.padding,
-        itemCount: c.items.length + 1,
-        separatorBuilder: (ctx, i) =>
-            widget.separatorBuilder?.call(ctx, i) ?? const SizedBox.shrink(),
-        itemBuilder: (ctx, i) {
-          if (i == c.items.length) {
-            if (c.isLoadingMore) {
-              return widget.footerLoadingBuilder?.call(ctx) ??
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    child: Center(
-                      child: SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      ),
+    final horizontal = widget.scrollDirection == Axis.horizontal;
+    return LayoutBuilder(
+        builder: (context, bounds) => JobsAdaptiveRefresh(
+              onRefresh: c.refresh,
+              onLoadMore: c.loadMore,
+              controller: c.edgeController,
+              color: widget.refreshColor,
+              hasMore: c.hasMore,
+              axis: widget.scrollDirection,
+              child: ListView.separated(
+                controller: scroll,
+                scrollDirection: widget.scrollDirection,
+                reverse: widget.reverse,
+                physics: widget.physics ??
+                    const JobsRefreshScrollPhysics(
+                      parent: AlwaysScrollableScrollPhysics(),
                     ),
-                  );
-            }
-            if (!c.hasMore) {
-              return widget.footerNoMoreBuilder?.call(ctx) ??
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    child: Center(
-                      child: Text('没有更多了', style: TextStyle(fontSize: 12)),
-                    ),
-                  );
-            }
-            return const SizedBox(height: 12);
-          }
-
-          final item = c.items[i];
-          Widget child = widget.itemBuilder(ctx, item, i);
-
-          if (widget.zebra) {
-            final odd = widget.zebraOddColor ?? const Color(0xFF262C39);
-            final even = widget.zebraEvenColor ?? const Color(0xFF1E232F);
-            child = Container(
-              color: i.isEven ? even : odd,
-              child: child,
-            );
-          }
-
-          return child;
-        },
-      ),
-    );
+                padding: widget.padding,
+                itemCount: c.items.isEmpty ? 1 : c.items.length + 1,
+                separatorBuilder: (context, index) =>
+                    widget.separatorBuilder?.call(context, index) ??
+                    const SizedBox.shrink(),
+                itemBuilder: (context, index) {
+                  if (c.items.isEmpty) {
+                    final body = c.isRefreshing && widget.loadingBuilder != null
+                        ? widget.loadingBuilder!(context)
+                        : widget.emptyBuilder?.call(context) ??
+                            JobsEmptyState(
+                              title: tr(context, '无数据'),
+                              onReload: c.refresh,
+                            );
+                    return SizedBox(
+                      width: horizontal ? bounds.maxWidth : null,
+                      height: horizontal ? null : bounds.maxHeight,
+                      child: body,
+                    );
+                  }
+                  if (index == c.items.length) {
+                    return SizedBox(
+                      width: horizontal ? widget.horizontalItemExtent : null,
+                      child: footer(context),
+                    );
+                  }
+                  Widget item =
+                      widget.itemBuilder(context, c.items[index], index);
+                  if (widget.zebra) {
+                    final colors = Theme.of(context).colorScheme;
+                    item = ColoredBox(
+                      color: index.isOdd
+                          ? widget.zebraOddColor ?? colors.surfaceContainer
+                          : widget.zebraEvenColor ?? colors.surface,
+                      child: item,
+                    );
+                  }
+                  return horizontal
+                      ? SizedBox(
+                          width: widget.horizontalItemExtent, child: item)
+                      : item;
+                },
+              ),
+            ));
   }
 }

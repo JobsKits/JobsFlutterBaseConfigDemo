@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/PDF文档浏览/PDF文档浏览.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:typed_data';
 import 'dart:async';
 

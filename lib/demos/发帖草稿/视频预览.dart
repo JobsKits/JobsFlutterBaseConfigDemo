@@ -5,6 +5,8 @@ import '../../demo_hub/ui_parity_strings.dart';
 import '../../demo_hub/ui_parity_support.dart';
 import '视频来源.dart';
 
+import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
+
 class DraftVideoPreview extends StatefulWidget {
   const DraftVideoPreview({super.key, required this.source});
   final String source;
@@ -55,7 +57,7 @@ class _DraftVideoState extends State<DraftVideoPreview> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(uiTr(context, '视频'))),
+    appBar: JobsDemoAppBar(title: Text(uiTr(context, '视频'))),
     body: error
         ? uiEmpty(context, load)
         : controller == null

@@ -4,14 +4,14 @@
 
 ---
 
-[`../workflows/flutter-window-layout.yml`](../workflows/flutter-window-layout.yml) 在 `main` 推送、Pull Request 和手动运行时执行。只读仓库权限、完整 SHA 固定的 Actions 和单次 60 分钟限时；任何依赖解析、分析、测试、完整构建或产物校验失败都会使任务失败。
+[`../workflows/flutter-window-layout.yml`](../workflows/flutter-window-layout.yml) 在 `main` 推送、Pull Request 和手动运行时执行。只读仓库权限、完整 SHA 固定的 Actions 和单次 90 分钟限时；任何依赖解析、分析、测试、完整构建或产物校验失败都会使任务失败。
 
 ## 一、<span id="coverage">执行范围</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 | 阶段 | 实际执行与通过条件 |
 | --- | --- |
 | 工具链 | [**GitHub**](https://github.com/) 的 `xcode-27` Apple Silicon runner，显式选择 `Xcode_27.1.app`；运行时核对 [**Xcode**](https://developer.apple.com/xcode/) 与 iOS Simulator SDK 均不低于 `27.1`。缺失时失败，不退回 runner 默认 `27.0` |
-| Flutter | 使用 [**Flutter**](https://flutter.dev/) `3.50.0`，并与根目录 `.fvmrc` 和真实 `flutter --version --machine` 结果逐项匹配 |
+| Flutter | 从根目录 `.fvmrc` 读取 `stable` 频道并解析当次最新稳定 [**Flutter**](https://flutter.dev/) 归档；核对真实 `flutter --version --machine` 的频道及解析出的具体版本，不把 `stable` 与数字版本直接比较。Flutter `3.50.0` / Dart `3.14.0` 为已验基线 |
 | 依赖 | `flutter pub get --enforce-lockfile` 使用已提交 `pubspec.lock`，锁文件不得漂移。原生完整构建由 Flutter 在 runner 临时检出中正常解析 [**CocoaPods**](https://cocoapods.org/) 依赖 |
 | 分析 | [`analyze-scope.txt`](./analyze-scope.txt) 列出 Runner、本次窗口适配源码、备用入口、友盟模块与功能实验室、中文功能目录、公共基础包及对应测试。每项真实执行 `dart analyze --fatal-warnings`；error / warning 或文件缺失失败，info 原样保留日志 |
 | 回归 | 运行布局、友盟、形状按钮、功能实验室、旧目录适配及原生对齐 Demo、网络回退恢复和公共交互九个测试文件；不删除或改写既有测试 |
@@ -30,7 +30,7 @@
 /bin/zsh .github/ci/verify.zsh test
 ```
 
-工作流先通过[自有SDK准备包](./【MacOS】PrepareFlutterSdk.zsh/README.md)获取精确Flutter归档并核验完整SHA；网络失败持续重试，原60分钟作业预算和用户Cancel有效。只写runner临时目录及本job环境，不改系统代理。`toolchain` 补齐SDK首次缓存后核对 Flutter / Xcode / Simulator SDK / CocoaPods 版本；需显式设置有效的 `DEVELOPER_DIR`。`ios` 先独立补齐iOS平台SDK，再解析原生依赖并只构建一次，仅允许在 `GITHUB_ACTIONS=true` 的 runner 中运行。分析和测试复用已有 package configuration；测试会写入正常的构建缓存，不修改依赖声明。
+工作流先从 `.fvmrc` 读取 SDK 声明，再通过[自有SDK准备包](./【MacOS】PrepareFlutterSdk.zsh/README.md)解析 `stable` 的当前发布版本、获取精确 Flutter 归档并核验完整 SHA；网络失败持续重试，作业预算和用户 Cancel 有效。只写 runner 临时目录及本 job 环境，不改系统代理、项目 FVM 绑定或本机全局 SDK。`toolchain` 补齐 SDK 首次缓存后核对 Flutter 的实际频道与版本，以及 Xcode / Simulator SDK / CocoaPods 版本；需显式设置有效的 `DEVELOPER_DIR`。`ios` 先独立补齐 iOS 平台 SDK，再解析原生依赖并只构建一次，仅允许在 `GITHUB_ACTIONS=true` 的 runner 中运行。分析和测试复用已有 package configuration；测试会写入正常的构建缓存，不修改依赖声明。
 
 日志默认写入系统临时目录的 `jobs-flutter-ci`；可以用 `JOBS_CI_LOG_DIR` 指定本次目录。CI 成功或失败都尝试上传 `*.log`：版本、工具链、依赖、逐项分析、完整测试、iOS 构建与产物身份。失败日志上传不改变前序失败状态；应用包仅在全部前序步骤通过后上传。
 

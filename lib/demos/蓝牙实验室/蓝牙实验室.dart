@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/蓝牙实验室/蓝牙实验室.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_platform_lab/jobs_platform_lab.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';

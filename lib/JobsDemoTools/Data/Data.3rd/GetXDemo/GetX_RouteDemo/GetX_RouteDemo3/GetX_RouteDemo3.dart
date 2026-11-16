@@ -1,5 +1,5 @@
 // 兼容旧导入路径；功能源码统一维护在中文目录。
-export 'package:jobs_flutter_base_config/demos/旧例·GetX命名路由示例三/源码/GetX_RouteDemo3.dart';
-import 'package:jobs_flutter_base_config/demos/旧例·GetX命名路由示例三/源码/GetX_RouteDemo3.dart' as migrated;
+export 'package:jobs_flutter_base_config/demos/GetX命名路由示例三/GetX_RouteDemo3.dart';
+import 'package:jobs_flutter_base_config/demos/GetX命名路由示例三/GetX_RouteDemo3.dart' as migrated;
 
 void main() => migrated.main();

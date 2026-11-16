@@ -49,10 +49,12 @@
         "image_picker",
         "intl",
         "jobs_demo_foundation",
+        "jobs_interactive_geometry",
         "jobs_lab_runtime",
         "jobs_platform_lab",
         "jobs_refresh_load",
         "jobs_runners",
+        "jobs_rust_ocr",
         "jobs_safety_get_value",
         "json_annotation",
         "lottie",
@@ -817,17 +819,34 @@
       "name": "jobs_refresh_load",
       "version": "0.0.1",
       "dependencies": [
-        "flutter"
+        "flutter",
+        "jobs_demo_foundation"
+      ]
+    },
+    {
+      "name": "jobs_interactive_geometry",
+      "version": "0.1.0",
+      "dependencies": [
+        "flutter",
+        "vector_math"
       ]
     },
     {
       "name": "jobs_demo_foundation",
       "version": "0.1.0",
       "dependencies": [
+        "audioplayers",
         "flutter",
         "flutter_localizations",
         "http",
         "shared_preferences"
+      ]
+    },
+    {
+      "name": "jobs_rust_ocr",
+      "version": "0.1.0",
+      "dependencies": [
+        "flutter"
       ]
     },
     {

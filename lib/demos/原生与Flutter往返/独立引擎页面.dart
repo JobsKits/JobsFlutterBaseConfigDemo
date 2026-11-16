@@ -137,7 +137,7 @@ class _NativeBridgeEmbeddedState extends State<NativeBridgeEmbeddedDemo> {
       if (!didPop) finish(cancelled: true);
     },
     child: Scaffold(
-      appBar: AppBar(
+      appBar: JobsDemoAppBar(
         title: Text(interopTr(context, '独立Flutter引擎')),
         leading: IconButton(
           onPressed: busy ? null : () => finish(cancelled: true),

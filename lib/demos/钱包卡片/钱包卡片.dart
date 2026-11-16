@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/钱包卡片/钱包卡片.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
@@ -13,7 +16,7 @@ class _WalletCardsDemoState extends State<WalletCardsDemo> {
   int _index = 0;
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '钱包卡片'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '钱包卡片'))),
     body: LayoutBuilder(
       builder: (context, constraints) {
         final width = (constraints.maxWidth - 40).clamp(180.0, 440.0);

@@ -17,7 +17,9 @@ class JobsSideMenuController extends ChangeNotifier {
   void toggle() => isOpen ? close() : open();
 }
 
-/// 从左边缘拖动打开，遮罩、返回键和向左拖动关闭；不抢夺正文横向手势。
+enum JobsSideMenuPresentation { overlay, push }
+
+/// 从左边缘拖动打开；覆盖或连同正文平移，宽度与呈现方式相互独立。
 class JobsSideMenu extends StatefulWidget {
   const JobsSideMenu({
     super.key,
@@ -27,6 +29,7 @@ class JobsSideMenu extends StatefulWidget {
     this.fullWidth = false,
     this.widthFactor = .78,
     this.enabled = true,
+    this.presentation = JobsSideMenuPresentation.overlay,
   });
   final JobsSideMenuController controller;
   final Widget menu;
@@ -34,6 +37,7 @@ class JobsSideMenu extends StatefulWidget {
   final bool fullWidth;
   final double widthFactor;
   final bool enabled;
+  final JobsSideMenuPresentation presentation;
   @override
   State<JobsSideMenu> createState() => _JobsSideMenuState();
 }
@@ -109,83 +113,100 @@ class _JobsSideMenuState extends State<JobsSideMenu>
         builder: (context, _) {
           final progress = Curves.easeOutCubic.transform(_animation.value);
           final visible = _animation.value > 0;
+          final contentOffset =
+              widget.presentation == JobsSideMenuPresentation.push
+              ? Offset(_width * progress, 0)
+              : Offset.zero;
           return PopScope(
             canPop: !visible,
             onPopInvokedWithResult: (didPop, _) {
               if (!didPop) widget.controller.close();
             },
-            child: Stack(
-              children: [
-                ExcludeFocus(
-                  excluding: visible,
-                  child: ExcludeSemantics(
-                    excluding: visible,
-                    child: widget.child,
-                  ),
-                ),
-                if (widget.enabled)
-                  Positioned(
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
-                    width: 24,
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onHorizontalDragUpdate: _drag,
-                      onHorizontalDragEnd: _end,
-                      onHorizontalDragCancel: _cancel,
-                    ),
-                  ),
-                Positioned.fill(
-                  child: IgnorePointer(
-                    ignoring: !visible,
-                    child: GestureDetector(
-                      onTap: widget.controller.close,
-                      onHorizontalDragUpdate: _drag,
-                      onHorizontalDragEnd: _end,
-                      onHorizontalDragCancel: _cancel,
-                      child: ColoredBox(
-                        color: Colors.black.withValues(alpha: .38 * progress),
+            child: ClipRect(
+              child: Stack(
+                children: [
+                  Transform.translate(
+                    offset: contentOffset,
+                    child: ExcludeFocus(
+                      excluding: visible,
+                      child: ExcludeSemantics(
+                        excluding: visible,
+                        child: widget.child,
                       ),
                     ),
                   ),
-                ),
-                Positioned(
-                  left: -_width * (1 - progress),
-                  top: 0,
-                  bottom: 0,
-                  width: _width,
-                  child: IgnorePointer(
-                    ignoring: !visible,
-                    child: ExcludeSemantics(
-                      excluding: !visible,
+                  if (widget.enabled)
+                    Positioned(
+                      left: 0,
+                      top: 0,
+                      bottom: 0,
+                      width: 24,
                       child: GestureDetector(
+                        behavior: HitTestBehavior.translucent,
                         onHorizontalDragUpdate: _drag,
                         onHorizontalDragEnd: _end,
                         onHorizontalDragCancel: _cancel,
-                        child: Material(
-                          elevation: 12,
-                          child: SafeArea(
-                            child: Column(
-                              children: [
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: IconButton(
-                                    tooltip: tr(context, '关闭菜单'),
-                                    onPressed: widget.controller.close,
-                                    icon: const Icon(Icons.close),
-                                  ),
-                                ),
-                                Expanded(child: widget.menu),
-                              ],
+                      ),
+                    ),
+                  Positioned.fill(
+                    child: Transform.translate(
+                      offset: contentOffset,
+                      child: IgnorePointer(
+                        ignoring: !visible,
+                        child: GestureDetector(
+                          onTap: widget.controller.close,
+                          onHorizontalDragUpdate: _drag,
+                          onHorizontalDragEnd: _end,
+                          onHorizontalDragCancel: _cancel,
+                          child: ColoredBox(
+                            color: Colors.black.withValues(
+                              alpha: .38 * progress,
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                  Positioned(
+                    left: -_width * (1 - progress),
+                    top: 0,
+                    bottom: 0,
+                    width: _width,
+                    child: IgnorePointer(
+                      ignoring: !visible,
+                      child: ExcludeFocus(
+                        excluding: !visible,
+                        child: ExcludeSemantics(
+                          excluding: !visible,
+                          child: GestureDetector(
+                            onHorizontalDragUpdate: _drag,
+                            onHorizontalDragEnd: _end,
+                            onHorizontalDragCancel: _cancel,
+                            child: Material(
+                              elevation: 12,
+                              child: SafeArea(
+                                child: Column(
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: IconButton(
+                                        tooltip: tr(context, '关闭菜单'),
+                                        onPressed: widget.controller.close,
+                                        icon: const Icon(Icons.close),
+                                      ),
+                                    ),
+                                    Expanded(child: widget.menu),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },

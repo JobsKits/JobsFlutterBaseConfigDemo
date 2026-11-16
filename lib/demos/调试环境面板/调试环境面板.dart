@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/调试环境面板/调试环境面板.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:async';
 import 'dart:convert';
 

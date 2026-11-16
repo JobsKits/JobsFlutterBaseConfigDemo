@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/环形进度/环形进度.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -42,7 +45,7 @@ class _CircularProgressDemoState extends State<CircularProgressDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '环形进度'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '环形进度'))),
     body: ListView(
       padding: const EdgeInsets.all(24),
       children: [

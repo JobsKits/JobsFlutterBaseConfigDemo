@@ -1,17 +1,22 @@
+// 独立运行：flutter run -t "lib/demos/异形按钮/异形按钮.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 import 'package:vibration/vibration.dart';
 
-import 'dart:math'; // 导入 dart:math 库
+import 'dart:math';
 
 void main() =>
     runApp(const JobsDemoApp(home: ShapeButtonsDemo(), title: '异形按钮'));
+
+// 导入 dart:math 库
 
 class ShapeButtonsDemo extends StatelessWidget {
   const ShapeButtonsDemo({super.key});
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('异形按钮')),
+    appBar: JobsDemoAppBar(title: const Text('异形按钮')),
     body: SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(

@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
-import 'package:jobs_flutter_base_config/demos/旧例·本地系统通知/源码/LocalNotificationsDemo.dart'
+import 'package:jobs_flutter_base_config/demos/本地系统通知/LocalNotificationsDemo.dart'
     as example;
 import 'package:jobs_flutter_base_config/demo_hub/legacy_strings.dart';
 

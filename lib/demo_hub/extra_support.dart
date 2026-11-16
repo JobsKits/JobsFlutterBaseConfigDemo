@@ -14,7 +14,7 @@ class ExtraFrame extends StatelessWidget {
   final List<Widget> children;
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(extraTr(context, title))),
+    appBar: JobsDemoAppBar(title: Text(extraTr(context, title))),
     body: ListView(
       padding: const EdgeInsets.all(16),
       children: [

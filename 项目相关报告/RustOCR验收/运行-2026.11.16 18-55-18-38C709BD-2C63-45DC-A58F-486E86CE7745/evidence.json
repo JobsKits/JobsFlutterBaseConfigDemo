@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "not_run",
+  "reason": "list_only",
+  "message": "只读设备列表，未构建或启动。",
+  "run_id": "38C709BD-2C63-45DC-A58F-486E86CE7745",
+  "mode": "device",
+  "device_id": "",
+  "device_name": "",
+  "recorded_at": "2026-11-16T10:55:41.750Z",
+  "native": null,
+  "scope": "actual Flutter app launch and bundled-sample OCR; not a full OCR accuracy evaluation"
+}

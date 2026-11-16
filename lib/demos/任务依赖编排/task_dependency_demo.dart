@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/任务依赖编排/task_dependency_demo.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -107,7 +110,7 @@ class _TaskDependencyDemoState extends State<TaskDependencyDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '任务依赖'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '任务依赖'))),
     body: ListView(
       padding: const EdgeInsets.all(20),
       children: [

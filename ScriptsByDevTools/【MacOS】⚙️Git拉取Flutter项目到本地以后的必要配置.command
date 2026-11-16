@@ -706,6 +706,17 @@ ensure_fvm() {
   success_echo "fvm 安装完成：$(command -v fvm)"
 }
 
+# 在空目录升级项目SDK，避免Flutter顺带对当前工程执行pub upgrade。
+upgrade_project_flutter_sdk() {
+  local project_root="${1:A}" upgrade_dir='' upgrade_result=0
+  upgrade_dir="$(/usr/bin/mktemp -d "${TMPDIR:-/tmp}/JobsFlutterUpgrade.XXXXXX")" || return 1
+  (
+    cd "$upgrade_dir" || exit 1
+    jobs_flutter_sdk_command "$project_root/.fvm/flutter_sdk/bin/flutter" upgrade
+  ) || upgrade_result=$?
+  /bin/rmdir "$upgrade_dir" 2>/dev/null || warn_echo "SDK升级临时目录仍有内容，已保留：$upgrade_dir"
+  return "$upgrade_result"
+}
 # ================================== 配置项目级 FVM（只在项目根目录生效） ==================================
 setup_fvm_for_project() {
   local project_root="$1"
@@ -714,11 +725,12 @@ setup_fvm_for_project() {
   info_echo "项目根目录：$project_root"
   info_echo "开始配置项目级 FVM（写入 $project_root/.fvm）"
 
-  # 你可以把 stable 换成你想固定的版本号，比如 3.24.5
+  # 该工程跟随稳定频道，初始化时刷新缓存，避免旧缓存继续绑定旧SDK。
   local channel_or_version="stable"
 
   jobs_flutter_sdk_command fvm install "$channel_or_version" || return $?
-  jobs_flutter_sdk_command fvm use "$channel_or_version" || return $?
+  jobs_flutter_sdk_command fvm use "$channel_or_version" --skip-pub-get || return $?
+  upgrade_project_flutter_sdk "$project_root" || return $?
 
   success_echo "FVM 已绑定到项目：$channel_or_version"
   gray_echo "当前项目 Flutter：$(jobs_flutter_sdk_command fvm flutter --version | head -n 1 || true)"

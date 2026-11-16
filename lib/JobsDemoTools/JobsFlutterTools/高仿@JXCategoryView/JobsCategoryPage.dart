@@ -1,5 +1,5 @@
 // 兼容旧导入路径；功能源码统一维护在中文目录。
-export 'package:jobs_flutter_base_config/demos/自适应分类分页/源码/JobsCategoryPage.dart';
-import 'package:jobs_flutter_base_config/demos/自适应分类分页/源码/JobsCategoryPage.dart' as migrated;
+export 'package:jobs_flutter_base_config/demos/自适应分类分页/JobsCategoryPage.dart';
+import 'package:jobs_flutter_base_config/demos/自适应分类分页/JobsCategoryPage.dart' as migrated;
 
 void main() => migrated.main();

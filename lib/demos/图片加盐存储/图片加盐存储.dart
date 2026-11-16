@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/图片加盐存储/图片加盐存储.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';

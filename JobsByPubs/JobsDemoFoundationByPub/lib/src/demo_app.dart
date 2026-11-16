@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'demo_strings.dart';
+import 'refresh_strings.dart';
 
 const jobsDemoLocales = <Locale>[
   Locale('zh'),
@@ -68,14 +69,24 @@ class _CupertinoDelegate extends LocalizationsDelegate<CupertinoLocalizations> {
   bool shouldReload(_CupertinoDelegate old) => false;
 }
 
+enum JobsRefreshStyle { flutter, jobs }
+
 class JobsDemoSettings extends ChangeNotifier {
   JobsDemoSettings({
     this.themeMode = ThemeMode.system,
     this.locale = const Locale('zh'),
-  });
+    this.refreshStyle = JobsRefreshStyle.flutter,
+    this.refreshHaptics = true,
+    this.refreshSound = true,
+  }) {
+    JobsDemoStrings.registerTranslations(jobsRefreshTranslations);
+  }
 
   ThemeMode themeMode;
   Locale locale;
+  JobsRefreshStyle refreshStyle;
+  bool refreshHaptics;
+  bool refreshSound;
   SharedPreferences? _prefs;
   bool _disposed = false;
 
@@ -96,6 +107,15 @@ class JobsDemoSettings extends ChangeNotifier {
         orElse: () => const Locale('zh'),
       );
     }
+    final refresh = prefs.getString('jobs_demo_refresh_style');
+    if (refresh != null) {
+      refreshStyle = JobsRefreshStyle.values.firstWhere(
+        (value) => value.name == refresh,
+        orElse: () => JobsRefreshStyle.flutter,
+      );
+    }
+    refreshHaptics = prefs.getBool('jobs_demo_refresh_haptics') ?? true;
+    refreshSound = prefs.getBool('jobs_demo_refresh_sound') ?? true;
     notifyListeners();
   }
 
@@ -114,6 +134,24 @@ class JobsDemoSettings extends ChangeNotifier {
   void setLocale(Locale value) {
     locale = value;
     _prefs?.setString('jobs_demo_locale', value.toLanguageTag());
+    notifyListeners();
+  }
+
+  void setRefreshStyle(JobsRefreshStyle value) {
+    refreshStyle = value;
+    _prefs?.setString('jobs_demo_refresh_style', value.name);
+    notifyListeners();
+  }
+
+  void setRefreshHaptics(bool value) {
+    refreshHaptics = value;
+    _prefs?.setBool('jobs_demo_refresh_haptics', value);
+    notifyListeners();
+  }
+
+  void setRefreshSound(bool value) {
+    refreshSound = value;
+    _prefs?.setBool('jobs_demo_refresh_sound', value);
     notifyListeners();
   }
 }
@@ -236,13 +274,15 @@ class _JobsDemoAppState extends State<JobsDemoApp> {
 }
 
 class JobsDemoSettingsPanel extends StatelessWidget {
-  const JobsDemoSettingsPanel({super.key});
+  const JobsDemoSettingsPanel({super.key, this.scrollable = true});
+  final bool scrollable;
   @override
   Widget build(BuildContext context) {
     final settings = JobsDemoScope.of(context);
     return SafeArea(
       child: ListView(
         shrinkWrap: true,
+        physics: scrollable ? null : const NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.all(20),
         children: [
           Text(
@@ -281,8 +321,63 @@ class JobsDemoSettingsPanel extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(height: 24),
+          const JobsControlStyleSettings(),
         ],
       ),
+    );
+  }
+}
+
+/// 主工程与独立 Demo 共用同一组选项，切换立即作用于已有页面。
+class JobsControlStyleSettings extends StatelessWidget {
+  const JobsControlStyleSettings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final settings = JobsDemoScope.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          tr(context, '全局控件样式'),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const SizedBox(height: 12),
+        Text(tr(context, '下拉刷新')),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final style in JobsRefreshStyle.values)
+              ChoiceChip(
+                label: Text(
+                  tr(
+                    context,
+                    style == JobsRefreshStyle.flutter
+                        ? 'Flutter 默认'
+                        : 'Jobs 封装',
+                  ),
+                ),
+                selected: settings.refreshStyle == style,
+                onSelected: (_) => settings.setRefreshStyle(style),
+              ),
+          ],
+        ),
+        SwitchListTile.adaptive(
+          contentPadding: EdgeInsets.zero,
+          title: Text(tr(context, '刷新触觉反馈')),
+          value: settings.refreshHaptics,
+          onChanged: settings.setRefreshHaptics,
+        ),
+        SwitchListTile.adaptive(
+          contentPadding: EdgeInsets.zero,
+          title: Text(tr(context, '刷新提示音')),
+          value: settings.refreshSound,
+          onChanged: settings.setRefreshSound,
+        ),
+      ],
     );
   }
 }

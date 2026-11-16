@@ -14,7 +14,7 @@ class LabFrame extends StatelessWidget {
   final List<Widget> children;
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(labTr(context, title))),
+    appBar: JobsDemoAppBar(title: Text(labTr(context, title))),
     body: ListView(
       padding: const EdgeInsets.all(20),
       children: [

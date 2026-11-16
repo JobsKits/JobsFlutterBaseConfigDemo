@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/随机数实验/随机数实验.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';

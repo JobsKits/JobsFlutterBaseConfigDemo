@@ -24,8 +24,12 @@ dependencies:
     path: ./JobsByPubs/JobsLabRuntimeByPub
   jobs_platform_lab:
     path: ./JobsByPubs/JobsPlatformLabByPub
+  jobs_rust_ocr:
+    path: ./JobsByPubs/JobsRustOCRByPub
   jobs_demo_foundation:
     path: ./JobsByPubs/JobsDemoFoundationByPub
+  jobs_interactive_geometry:
+    path: ./JobsByPubs/JobsInteractiveGeometryByPub
   jobs_refresh_load:
     path: ./JobsByPubs/JobsRefreshByPub
   jobs_runners:
@@ -146,6 +150,8 @@ flutter_gen:
 # following page: https://dart.dev/tools/pub/pubspec
 flutter:
   uses-material-design: true # 指示应用程序是否应该使用 Material Design 风格
+  shaders:
+    - shaders/jobs_visual_effects.frag
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

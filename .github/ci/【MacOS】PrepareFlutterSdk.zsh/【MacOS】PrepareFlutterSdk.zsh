@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Created by Jobs on 2026年11月4日，星期三.
 # CI SDK准备：只写runner临时目录和本job环境；失败持续获取，作业取消/预算结束会终止子树。
-# source用于verify版本补齐；--install用于GitHub Actions，不执行项目依赖、测试或业务构建。
+# source用于verify版本补齐；--install接受项目频道或精确版本，只用于GitHub Actions，不执行业务构建。
 # >>> Jobs terminal style protection v1 >>>
 # 临时保护当前终端配色，业务进程自行管理原有退出清理。
 jobs_terminal_style_run() {
@@ -351,12 +351,19 @@ if rename(os.fsencode(source), os.fsencode(target), 0x00000004):
     raise SystemExit('invalid argument: SDK原子发布失败，未覆盖：' + os.strerror(code))
 PYCODE
 }
+# 按发布清单解析出的实际版本和SHA发布SDK，频道别名不作为缓存身份。
 jobs_ci_archive_once() {
     local object="${JOBS_FLUTTER_ROUTE_OBJECT_PATH:-}" sha="${JOBS_FLUTTER_ROUTE_EXPECTED_SHA256:-}" resolved="${JOBS_FLUTTER_ROUTE_RESOLVED_VERSION:-}"
     local archive="$JCI_TASK/archive.part" identity='' root='' extracted='' code=0 digest='' previous=''
-    [[ "$resolved" == "$JCI_VERSION" && "$sha" =~ '^[0-9a-fA-F]{64}$' && "$object" == flutter_infra_release/releases/*/macos/flutter_macos_*.zip ]] || { print -u2 'invalid argument: SDK发布清单没有匹配的版本/架构/可信SHA。'; return 2; }
-    identity="$JCI_VERSION|$JCI_ARCH|$sha|$object"
-    root="$JCI_RUNNER/jobs-flutter-sdk/$JCI_VERSION-$JCI_ARCH-$sha"
+    [[ "$resolved" =~ '^[0-9]+\.[0-9]+\.[0-9]+([-+][A-Za-z0-9.+-]+)?$' && "$sha" =~ '^[0-9a-fA-F]{64}$' && "$object" == flutter_infra_release/releases/*/macos/flutter_macos_*.zip ]] || { print -u2 'invalid argument: SDK发布清单没有匹配的版本/架构/可信SHA。'; return 2; }
+    case "$JCI_VERSION" in
+        stable|beta|dev)
+            [[ "$object" == "flutter_infra_release/releases/$JCI_VERSION/macos/"* ]] || return 2
+            ;;
+        *) [[ "$resolved" == "$JCI_VERSION" ]] || return 2 ;;
+    esac
+    identity="$resolved|$JCI_ARCH|$sha|$object"
+    root="$JCI_RUNNER/jobs-flutter-sdk/$resolved-$JCI_ARCH-$sha"
     [[ ! -L "${root:h}" && -d "${root:h}" ]] || { print -u2 'invalid argument: SDK发布父目录被替换，未写入。'; return 2; }
     if [[ -L "$root" ]]; then print -u2 'invalid argument: SDK目标为链接，未跟随或覆盖。'; return 2; fi
     if [[ -e "$root" ]]; then
@@ -389,12 +396,13 @@ jobs_ci_archive_once() {
     jobs_ci_publish_sdk "$extracted/flutter" "$root" || return $?
     print -r -- "$root" > "$JCI_RESULT"
 }
+# 从项目声明的频道或版本准备本job SDK，并向后续校验传递实际解析版本。
 jobs_ci_install_flutter() {
     setopt LOCAL_OPTIONS
     unsetopt NOUNSET
-    local JCI_VERSION="$1" JCI_ARCH="$2" JCI_RUNNER="${RUNNER_TEMP:-}" JCI_TASK='' JCI_RESULT='' native=x64 sdk=''
+    local JCI_VERSION="$1" JCI_ARCH="$2" JCI_RUNNER="${RUNNER_TEMP:-}" JCI_TASK='' JCI_RESULT='' native=x64 sdk='' resolved_version=''
     [[ "${GITHUB_ACTIONS:-}" == true && -d "$JCI_RUNNER" && -n "${GITHUB_PATH:-}" && -n "${GITHUB_ENV:-}" ]] || { print -u2 'SDK安装只允许GitHub Actions runner及本job环境文件。'; return 2; }
-    [[ "$JCI_VERSION" =~ '^[0-9]+\.[0-9]+\.[0-9]+([-+][A-Za-z0-9.+-]+)?$' && "$JCI_ARCH" == (arm64|x64) ]] || return 2
+    [[ ( "$JCI_VERSION" == (stable|beta|dev) || "$JCI_VERSION" =~ '^[0-9]+\.[0-9]+\.[0-9]+([-+][A-Za-z0-9.+-]+)?$' ) && "$JCI_ARCH" == (arm64|x64) ]] || return 2
     [[ "$(/usr/sbin/sysctl -n hw.optional.arm64 2>/dev/null)" != 1 ]] || native=arm64
     [[ "$native" == "$JCI_ARCH" ]] || { print -u2 'SDK要求架构与runner实际架构不一致，未下载其它架构代替。'; return 2; }
     JCI_RUNNER="${JCI_RUNNER:A}"
@@ -410,14 +418,17 @@ jobs_ci_install_flutter() {
     /bin/chmod 700 "$JCI_TASK"; JCI_RESULT="$JCI_TASK/ready.path"
     local sdk_log="${JOBS_CI_LOG_DIR:-$JCI_TASK}/sdk-download.log"
     /bin/mkdir -p "${sdk_log:h}"
-    jfs_route_note "$sdk_log" "CI准备Flutter $JCI_VERSION / macOS $JCI_ARCH；只写RUNNER_TEMP。SDK获取无内部次数限制；GitHub作业原60分钟预算及用户Cancel仍终止本轮任务。"
+    jfs_route_note "$sdk_log" "CI准备Flutter $JCI_VERSION / macOS $JCI_ARCH；只写RUNNER_TEMP。SDK获取无内部次数限制；GitHub作业90分钟预算及用户Cancel仍终止本轮任务。"
     JOBS_FLUTTER_ROUTE_MODE=archive JOBS_FLUTTER_ROUTE_CAPTURE_OUTPUT=1 jobs_flutter_sdk_retry 'CI Flutter SDK归档' "$sdk_log" "$JCI_TASK/sdk-target" "$JCI_VERSION" jobs_ci_archive_once || return $?
     [[ -s "$JCI_RESULT" ]] || return 1
     sdk="$(<"$JCI_RESULT")"
     [[ "$sdk" == "$JCI_RUNNER/jobs-flutter-sdk/"* && -x "$sdk/bin/flutter" ]] || return 2
+    resolved_version="$(<"$sdk/.jobs-ci-trusted")"
+    resolved_version="${resolved_version%%|*}"
     print -r -- "$sdk/bin" >> "$GITHUB_PATH"
     print -r -- "FLUTTER_ROOT=$sdk" >> "$GITHUB_ENV"
-    print -r -- "Flutter $JCI_VERSION / $JCI_ARCH SDK已核验：$sdk"
+    print -r -- "JOBS_CI_FLUTTER_VERSION=$resolved_version" >> "$GITHUB_ENV"
+    print -r -- "Flutter $JCI_VERSION -> $resolved_version / $JCI_ARCH SDK已核验：$sdk"
 }
 jobs_ci_version_once() {
     local tool="$1" destination="$2" temporary="$3" code=0
@@ -444,7 +455,7 @@ jobs_ci_precache_ios() {
 jobs_ci_sdk_main() {
     case "${1:-}" in
         --install) (( $#==3 )) || return 2; jobs_ci_install_flutter "$2" "$3" ;;
-        *) print -u2 '用法：PrepareFlutterSdk.zsh --install <精确Flutter版本> <arm64|x64>；只用于CI，不执行项目构建。'; return 2 ;;
+        *) print -u2 '用法：PrepareFlutterSdk.zsh --install <stable|beta|dev|精确Flutter版本> <arm64|x64>；只用于CI，不执行项目构建。'; return 2 ;;
     esac
 }
 if [[ "$ZSH_EVAL_CONTEXT" == toplevel ]]; then jobs_ci_sdk_main "$@"; fi

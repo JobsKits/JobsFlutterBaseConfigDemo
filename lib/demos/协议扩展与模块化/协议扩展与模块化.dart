@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/协议扩展与模块化/协议扩展与模块化.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:async';
 import 'dart:convert';
 

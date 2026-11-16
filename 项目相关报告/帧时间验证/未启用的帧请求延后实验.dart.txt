@@ -1,0 +1,56 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
+
+/// Keeps an iOS touch-triggered frame request outside UIKit's synchronous
+/// pointer dispatch, avoiding the engine's synthetic-first-frame shortcut.
+class JobsWidgetsFlutterBinding extends WidgetsFlutterBinding
+    with JobsIOSPointerFrameScheduling {
+  JobsWidgetsFlutterBinding({bool? deferIOSPointerFrames})
+    : deferIOSPointerFrames =
+          deferIOSPointerFrames ??
+          (!kIsWeb &&
+              defaultTargetPlatform == TargetPlatform.iOS &&
+              const bool.fromEnvironment(
+                'JOBS_DEFER_IOS_POINTER_FRAMES',
+                defaultValue: true,
+              ));
+
+  @override
+  final bool deferIOSPointerFrames;
+}
+
+/// Defers only requests made while a pointer event is on the native call stack.
+mixin JobsIOSPointerFrameScheduling on GestureBinding, SchedulerBinding {
+  bool get deferIOSPointerFrames;
+
+  int _pointerDispatchDepth = 0;
+  Timer? _pendingPointerFrame;
+
+  @override
+  void handlePointerEvent(PointerEvent event) {
+    _pointerDispatchDepth++;
+    try {
+      super.handlePointerEvent(event);
+    } finally {
+      _pointerDispatchDepth--;
+    }
+  }
+
+  @override
+  void scheduleFrame() {
+    if (deferIOSPointerFrames && _pointerDispatchDepth > 0) {
+      if (!hasScheduledFrame && framesEnabled && _pendingPointerFrame == null) {
+        _pendingPointerFrame = Timer(Duration.zero, () {
+          _pendingPointerFrame = null;
+          super.scheduleFrame();
+        });
+      }
+      return;
+    }
+    super.scheduleFrame();
+  }
+}

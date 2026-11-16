@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/PWA离线容器/PWA离线容器.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

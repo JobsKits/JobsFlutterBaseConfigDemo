@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "date": "2026-11-16",
+  "scope": "Flutter Demo目录整理、OCR相机与结果交互、共享Rust源码SDK合入后的实际主工程",
+  "toolchain": {
+    "flutter": "3.50.0",
+    "dart": "3.14.0",
+    "channel": "stable"
+  },
+  "analyze": {
+    "command": "fvm flutter analyze --no-pub --no-fatal-infos",
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 700,
+    "log": "analyze.log"
+  },
+  "tests": {
+    "command": "fvm flutter test --no-pub --reporter compact",
+    "exitCode": 0,
+    "passed": 710,
+    "skipped": 2,
+    "durationSeconds": 262,
+    "log": "tests.log"
+  },
+  "ios": {
+    "command": "fvm flutter build ios --simulator --debug --no-codesign --no-pub",
+    "exitCode": 0,
+    "xcodeBuildSeconds": 394.4,
+    "usesOfficialSPMCache": true,
+    "log": "build-ios.log",
+    "bundleIdentifier": "com.example.jobsFlutterBaseConfigDemo",
+    "artifact": {
+      "app": "build/ios/iphonesimulator/Runner.app",
+      "dartSourceFiles": 823,
+      "changedSourcesDuringBuild": [],
+      "combinedDartSourceSHA256": "5cd013a52b119a212438def3a8ad94ccb227253ce5eec3062fbd9348e50fd5f3",
+      "kernel": {
+        "path": "build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin",
+        "bytes": 112228664,
+        "sha256": "a5b226e64c38b2b3e25c8c423ff2b8a45f13f6176cc32a55f4944144186137fd",
+        "mtime": "2026-11-16T15:16:55.000Z",
+        "containsCameraKey": true,
+        "containsCopyKey": true
+      },
+      "nativeArchivesUnchanged": true
+    }
+  },
+  "validationBoundaries": [
+    "主工程构建通过，尚未安装本批App或在本批App执行实际OCR",
+    "未占用共享模拟器，实际生产UI、系统相机及复制待设备释放后验收",
+    "Widget截图使用真实随包样本与注入识别文本，仅说明布局和对比"
+  ]
+}

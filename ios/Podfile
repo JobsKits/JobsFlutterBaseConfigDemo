@@ -51,7 +51,7 @@ rescue LoadError, SyntaxError, StandardError => error
 end
 # <<< Jobs CocoaPods network <<<
 
-platform :ios, '15.0'
+platform :ios, '15.1'
 
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
@@ -82,6 +82,9 @@ flutter_ios_podfile_setup
 target 'Runner' do
   use_modular_headers!
 
+  if File.file?(File.expand_path('../JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/JobsRustOCR.podspec', __dir__))
+    pod 'JobsRustOCR', :path => '../JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR'
+  end
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 
   target 'RunnerTests' do
@@ -100,7 +103,7 @@ post_install do |installer|
       end
       config.build_settings['SWIFT_VERSION'] = '5.0'
       config.build_settings['SWIFT_STRICT_CONCURRENCY'] = 'minimal'
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.1'
       config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
     end
   end

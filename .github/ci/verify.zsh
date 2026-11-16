@@ -366,17 +366,34 @@ run_logged() {
     "$@" 2>&1 | tee "$LOG_DIR/$log_name.log"
 }
 
+# 频道声明核对实际频道及本job解析版本；数字声明保持精确版本校验。
 verify_flutter() {
     require_commands flutter dart jq
     local expected_version
     local actual_version
+    local actual_channel
     expected_version="$(jq -er '.flutter' .fvmrc)"
     jobs_ci_capture_version "$(command -v flutter)" "$LOG_DIR/flutter-version.log" "$LOG_DIR/sdk-version.log"
     actual_version="$(jq -er '.frameworkVersion' "$LOG_DIR/flutter-version.log")"
-    [[ "$expected_version" == '3.50.0' && "$actual_version" == "$expected_version" ]] || {
-        print -u2 -r -- "Flutter mismatch: .fvmrc=$expected_version actual=$actual_version expected=3.50.0"
+    case "$expected_version" in
+        stable|beta|dev|main|master)
+            actual_channel="$(jq -er '.channel' "$LOG_DIR/flutter-version.log")"
+            [[ "$actual_channel" == "$expected_version" ]] || {
+                print -u2 -r -- "Flutter channel mismatch: .fvmrc=$expected_version actual=$actual_channel version=$actual_version"
+                return 1
+            }
+            ;;
+        *)
+            [[ "$actual_version" == "$expected_version" ]] || {
+                print -u2 -r -- "Flutter mismatch: .fvmrc=$expected_version actual=$actual_version"
+                return 1
+            }
+            ;;
+    esac
+    if [[ -n "${JOBS_CI_FLUTTER_VERSION:-}" && "$actual_version" != "$JOBS_CI_FLUTTER_VERSION" ]]; then
+        print -u2 -r -- "Flutter resolved version mismatch: resolved=$JOBS_CI_FLUTTER_VERSION actual=$actual_version"
         return 1
-    }
+    fi
     cat "$LOG_DIR/flutter-version.log"
 }
 

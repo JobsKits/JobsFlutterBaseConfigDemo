@@ -10,6 +10,8 @@ import 'package:jobs_flutter_base_config/demo_hub/ui_parity_catalog.dart';
 import 'package:jobs_flutter_base_config/demo_hub/ui_parity_strings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/demo_toolbar.dart';
+
 // 覆盖全部新 UI 的小屏明暗挂载/退出，以及实际编辑、手势与导航路径。
 void main() {
   setUp(() => SharedPreferences.setMockInitialValues({}));
@@ -92,7 +94,7 @@ void main() {
     await tester.drag(find.text('Flutter'), const Offset(360, 0));
     await tester.pump();
     expect(find.text('Flutter'), findsNothing);
-    await tester.tap(find.byIcon(Icons.undo));
+    await tapDemoMenuAction(tester, find.byIcon(Icons.undo));
     await tester.pump();
     expect(find.text('Flutter'), findsOneWidget);
   });

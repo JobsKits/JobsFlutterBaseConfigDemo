@@ -6,6 +6,8 @@ import 'package:jobs_platform_lab/jobs_platform_lab.dart';
 
 import 'platform_strings.dart';
 
+import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
+
 class NativeLabState extends ChangeNotifier {
   NativeLabState([String? topic]) {
     if (JobsPlatformLab.hasNativeBridge && topic != null) {
@@ -89,7 +91,7 @@ class NativeLabPanel extends StatelessWidget {
   Widget build(BuildContext context) => ListenableBuilder(
     listenable: state,
     builder: (context, _) => Scaffold(
-      appBar: AppBar(title: Text(platformText(context, title))),
+      appBar: JobsDemoAppBar(title: Text(platformText(context, title))),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [

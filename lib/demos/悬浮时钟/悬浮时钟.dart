@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/悬浮时钟/悬浮时钟.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -38,7 +41,7 @@ class _FloatingClockDemoState extends State<FloatingClockDemo> {
   );
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '悬浮时钟'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '悬浮时钟'))),
     body: LayoutBuilder(
       builder: (context, constraints) {
         final size = constraints.biggest;

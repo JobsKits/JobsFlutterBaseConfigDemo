@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/系统平台能力/系统平台能力.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';

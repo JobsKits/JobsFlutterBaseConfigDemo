@@ -195,7 +195,7 @@ class _LegacyLaunchPageState extends State<LegacyLaunchPage> {
         const Locale('zh');
     if (!allowed)
       return Scaffold(
-        appBar: AppBar(title: LegacyText(widget.title)),
+        appBar: JobsDemoAppBar(title: LegacyText(widget.title)),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -228,7 +228,7 @@ class _LegacyLaunchPageState extends State<LegacyLaunchPage> {
       );
     }
     return Scaffold(
-      appBar: AppBar(title: LegacyText(widget.title)),
+      appBar: JobsDemoAppBar(title: LegacyText(widget.title)),
       body: Column(
         children: [
           if (loading) const LinearProgressIndicator(),
@@ -307,9 +307,11 @@ class _LegacyRoot extends StatelessWidget {
     } else if (page is CupertinoApp && page.home != null) {
       page = page.home!;
     }
-    return Scaffold(
-      appBar: AppBar(title: LegacyText(title)),
-      body: SafeArea(child: page),
+    return JobsDemoActionHost(
+      child: Scaffold(
+        appBar: JobsDemoAppBar(title: LegacyText(title), actionHost: true),
+        body: SafeArea(child: page),
+      ),
     );
   }
 }

@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/对象数据存储/对象数据存储.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -18,7 +21,7 @@ class ObjectStoreDemo extends StatefulWidget {
 class _State extends State<ObjectStoreDemo> {
   final store = JobsLabRecordStore('object_store');
   final name = TextEditingController();
-  final age = TextEditingController(text:"18");
+  final age = TextEditingController(text: "18");
   final query = TextEditingController();
   List<Map<String, dynamic>> rows = [];
   String? error;
@@ -52,12 +55,18 @@ class _State extends State<ObjectStoreDemo> {
 
   Future<void> save() async {
     if (name.text.trim().isEmpty) return;
-    final years=int.tryParse(age.text);
-    if(years==null||years<0){setState(()=>error='Invalid age');return;}
+    final years = int.tryParse(age.text);
+    if (years == null || years < 0) {
+      setState(() => error = 'Invalid age');
+      return;
+    }
     await store.put(
       editing ?? DateTime.now().microsecondsSinceEpoch.toString(),
-      {'name': name.text.trim(),
-        'age':years, 'updated': DateTime.now().toIso8601String()},
+      {
+        'name': name.text.trim(),
+        'age': years,
+        'updated': DateTime.now().toIso8601String(),
+      },
     );
     name.clear();
     editing = null;
@@ -72,7 +81,11 @@ class _State extends State<ObjectStoreDemo> {
         controller: name,
         decoration: InputDecoration(labelText: labTr(context, '内容')),
       ),
-      TextField(controller: age, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText:'Age')),
+      TextField(
+        controller: age,
+        keyboardType: TextInputType.number,
+        decoration: const InputDecoration(labelText: 'Age'),
+      ),
       Wrap(
         spacing: 8,
         children: [
@@ -98,11 +111,11 @@ class _State extends State<ObjectStoreDemo> {
         ListTile(
           title: Text('${row['name']}'),
           subtitle: Text('${row['age']} / ${row['updated']}'),
-          selected: editing==row['id'],
+          selected: editing == row['id'],
           onTap: () => setState(() {
             editing = row['id'] as String;
             name.text = row['name'] as String;
-            age.text='${row['age'] ?? 0}';
+            age.text = '${row['age'] ?? 0}';
           }),
           trailing: IconButton(
             tooltip: labTr(context, '删除'),

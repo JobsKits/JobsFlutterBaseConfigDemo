@@ -1,0 +1,655 @@
+{
+  "date": "2026-11-16",
+  "scope": [
+    "首页分组头移除上移下移菜单，保留拖动柄",
+    "下拉列表跟手、阻尼、有界拉动及松手回弹",
+    "Demo按功能统一命名，不以来源区分新旧",
+    "实际源码头部具备运行命令和main入口",
+    "五端首页浮钟自适应、短按世界时钟、长按拖动与统一首页标识",
+    "世界时钟12小时制开关即时刷新、AM/PM与格式持久化",
+    "Jobs横纵双端刷新/加载、成功历史、声音与触觉全局设置",
+    "Flutter全Demo唯一公共动作及Swift卡片视觉",
+    "四原生当前时区卡片、当前制式标题、返回收缩设置与开屏门禁"
+  ],
+  "refreshAndGroupStage": {
+    "status": "passed-before-additional-source-migration",
+    "physics": {
+      "class": "JobsRefreshScrollPhysics",
+      "maximumOverscrollLogicalPixels": 120,
+      "drag": "BouncingScrollPhysics原生阻尼，边界限幅",
+      "release": "越界释放使用原生零速度回弹；惯性模拟限幅并保留回弹计算",
+      "styles": [
+        "flutter",
+        "jobs"
+      ],
+      "newPreferenceKeys": [
+
+      ]
+    },
+    "tests": {
+      "homePassed": 10,
+      "legacyCombinationsPassed": 6,
+      "foundationPassed": 19,
+      "totalScoped": 35,
+      "covered": [
+        "分组头无移动菜单，真实拖排及记忆恢复",
+        "两样式连续长拉时目录实际位移且不超过120逻辑像素",
+        "阻尼增量、松手回弹、一次刷新与请求期间去重",
+        "反向收手取消刷新、高速惯性到边缘限幅及回弹"
+      ]
+    },
+    "analysis": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 8,
+      "files": 4
+    },
+    "iosSimulatorBuild": {
+      "exit": 0,
+      "xcodeSeconds": 87.1
+    },
+    "note": "后续追加命名和源码入口迁移后需要最终复验；本阶段结果不能代替最终包。"
+  },
+  "sourceMigration": {
+    "status": "implemented-and-final-flutter-tested",
+    "prefixedDemoDirectoriesInventoried": 119,
+    "pairedMainSourcesInventoried": 175,
+    "mainFunctionsAfterTypesInventoried": 161,
+    "helperFilesWithoutMainInventoried": 88,
+    "persistentDemoIdentifiers": "189相关ID序列完全保留",
+    "neutralDirectoriesRenamed": 119,
+    "entriesRegroupedByStableID": 68,
+    "runnableMainFiles": 300,
+    "pairedSourceFactories": 175,
+    "compatibilityDelegates": 175,
+    "generatedPartsBytePreserved": 3,
+    "standaloneSourceUi": "胶囊实现源码目标iOS49.0秒构建通过，真实7日内切页1→3；胶囊与拖动main专项2项通过"
+  },
+  "worldClock": {
+    "scope": "App骨架；不增加299项Demo或最近使用",
+    "representatives": "当前时区独立；全球当前有效UTC偏移一处代表，−12至+14，包含30与45分钟",
+    "rules": "timezone现有依赖的IANA规则；巴黎纽约优先；按同一绝对时间转换DST与当地日期星期",
+    "currentZone": "Flutter显示系统区名与UTC偏移，不推断IANA设备ID；原生系统可提供IANA标识",
+    "format": "开关关=默认24小时，开=12小时大写AM/PM；午夜12AM与正午12PM；仅世界页",
+    "preference": "hub.worldClock12Hour本地保存；宿主转发worldClock12Hour PUT，离线本地有效",
+    "lifecycle": "前台且路由当前才1秒；覆盖、后台、销毁停止，恢复立即读取绝对时间",
+    "floating": "文字/locale/TextScaler真实测量H16/V10留白；安全区限制；长按拖动四边吸附、短按push；设置显隐保留"
+  },
+  "finalVerification": {
+    "status": "flutter-tests-analysis-build-and-scoped-ui-passed",
+    "rootTestsPassed": 662,
+    "rootTestsSkipped": 1,
+    "skipReason": "既有真实字体截图测试默认显式跳过；非本次新增跳过",
+    "analysis": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 619
+    },
+    "iosSimulatorBuild": {
+      "exit": 0,
+      "xcodeSeconds": 51.5
+    },
+    "scopedActualUi": [
+      "最终包安装启动，首页功能实验室及来源副标题、自适应浮钟实看",
+      "短按push世界时钟，当前区/偏移/日期星期、跨日代表地区实际显示",
+      "开12h立即显示PM，返回重进开关保持开启，关闭恢复24h",
+      "返回首页原布局与299项数量保留，第一组展开恢复"
+    ],
+    "screenshots": [
+      "home-adaptive-clock.png",
+      "world-clock-12h.png"
+    ],
+    "native": {
+      "oc": "OC新旧共享且已核对相同的生产实现，单轮外部harness为1134项模型断言与682项UIKit尺寸断言，不重复计作每仓单独执行；双工程普通App构建及真实UI各自通过，完整链41.692/38.931秒和返回短链13.641秒；最后深蓝颜色构建/截图与逻辑分阶段，以各自资产表为准",
+      "swiftUIKit": {
+        "iOSXCTests": 11,
+        "physicalUi": {
+          "testCount": 1,
+          "failures": 0,
+          "seconds": 46.677
+        },
+        "build": "普通构建通过的是隔离验证副本，16责任源码哈希一致；原工作区既有嵌入Flutter SDK/锁文件不一致仍未解决，不能写成原工作区构建通过",
+        "finalColorAndMenuUi": {
+          "testCount": 1,
+          "failures": 0,
+          "seconds": 11.374,
+          "verified": [
+            "初始自适应浮钟完整可点",
+            "最终深蓝底色",
+            "物理点击右上省略号展开3项",
+            "菜单在真实按钮下方、四边未越界"
+          ],
+          "productChange": "此前46.677秒通过版之后，仅浮钟背景systemBlue改#1565C0；完整逻辑链未重复"
+        }
+      },
+      "swiftUI": {
+        "productionModelAssertions": 90,
+        "physicalUi": {
+          "testCount": 1,
+          "failures": 0,
+          "seconds": 26.814
+        },
+        "finalColorUi": {
+          "testCount": 1,
+          "failures": 0,
+          "seconds": 12.803
+        },
+        "pending": [
+          "冷启动格式恢复",
+          "完整十语三主题实际矩阵",
+          "其它设备/极端大字及内部回退滚动"
+        ]
+      },
+      "evidence": "各原生工程 项目相关报告/App骨架功能盘点.md；跨端总表保存相对入口",
+      "ocFinalMenuUi": {
+        "testCount": 2,
+        "passed": 2,
+        "failures": 0,
+        "seconds": {
+          "new": 11.326,
+          "old": 10.748
+        },
+        "verified": [
+          "最终深蓝版本右上菜单真实展开",
+          "圆角/柔阴影/真实按钮下方及右缘定位",
+          "屏幕安全边内未裁切"
+        ],
+        "clockPixels": "两包实际RGB21/101/192 #1565C0；白字对比5.746:1",
+        "screenshots": "adaptive-clock/ui-validation/color-final/{new,old}-menu.png / {new,old}-deepblue.png",
+        "historicalFailure": "首轮外部选择器把搜索 Demo漏写空格，未计入通过；改为已有稳定cellID后补轮2/2通过，未修改产品"
+      }
+    },
+    "frameTimeError": {
+      "status": "unresolved-no-stable-reproduction",
+      "finiteScenarioCounts": {
+        "clock": 0,
+        "pull": 0,
+        "pullHold": 0
+      },
+      "sanitizedEvidence": "../帧时间验证/2026-11-16-主应用限定触控日志.txt",
+      "note": "生产代码未启用帧调度规避/过滤；零计数不等于修复"
+    },
+    "simulatorPhysicalUi": {
+      "clock": {
+        "testCount": 1,
+        "failures": 0,
+        "seconds": 14.506,
+        "log": "adaptive-clock/flutter-physical/clock-ui.log",
+        "covered": [
+          "三次长按拖至右/底/导航栏不误push",
+          "导航栏区域短按世界页",
+          "实际12/24小时开关",
+          "返回及计时后位置保持"
+        ]
+      },
+      "refresh": {
+        "style": "默认Material实际触控；Jobs样式由Widget覆盖",
+        "runs": [
+          {
+            "testCount": 1,
+            "failures": 0,
+            "seconds": 15.52
+          },
+          {
+            "testCount": 1,
+            "failures": 0,
+            "seconds": 42.226
+          }
+        ],
+        "assertionTarget": "首个Demo行侧滑菜单释放归位；不是组头自动断言",
+        "visual": "录像逐帧实看：收起组头持有1.2秒时随列表约74逻辑像素下移，释放后归位",
+        "video": "adaptive-clock/flutter-physical/pull-header-hold-full.mp4",
+        "frames": [
+          "pull-frame-42.3.png",
+          "pull-frame-43.3.png"
+        ]
+      },
+      "remaining": [
+        "完整十语三主题实际画面",
+        "其它设备/极端大字/旋转实际画面",
+        "真机摇动/声音/触觉",
+        "长组跨屏拖放及服务恢复排序协议"
+      ]
+    }
+  },
+  "physicalDevice": false,
+  "logDirectory": "/Users/jobs/.codex/visualizations/2026/11/16/flutter-refresh-follow",
+  "simulator": {
+    "currentUDID": "A3D63D0E-2664-41BE-BB7B-A3407F5CA05F",
+    "name": "JobsDemoSharedFinal3",
+    "device": "iPhone18Pro / iOS27.2",
+    "cause": "原设备被用户授权清理，按既有重建授权仅建一台共享设备",
+    "retention": "保留供用户后续使用，不删除",
+    "preferences": "全新沙盒，不拷贝旧609偏好；各App测试选择分项记录",
+    "finalObservedState": "Root最后真实Device Hub选择JobsDemoSharedFinal3，截图实看功能实验室/JobsFlutterBaseConfigDemo、300项、新卡片/浮钟及目录；最终真实SDK冷包保留首页。没有启动/停止/删除其它任务设备。",
+    "deviceHubSelectionVerified": "Root通过真实Device Hub将已不可用JobsWorldClockFinal2切为JobsDemoSharedFinal3；AX实际功能实验室/来源/300/浮钟及目录可见。此时仍width阶段包，最终height包待构建，不当作最后修补已实验。"
+  },
+  "previousSimulatorBeforeExternalCleanup": {
+    "currentUDID": "609B5874-7F24-443E-9247-89E346EBA284",
+    "name": "JobsWorldClockFinal2",
+    "device": "iPhone18Pro / iOS27.2",
+    "cause": "用户明确确认已清理模拟器并要求重新建立",
+    "retention": "原设备已被外部清理，历史证据保留；不恢复旧沙盒",
+    "finalObservedState": "Root安装并启动最终Flutter主应用；Device Hub实际选择JobsWorldClockFinal2，AX确认功能实验室/JobsFlutterBaseConfigDemo、299、浮钟与目录；模拟器保留打开供用户检查",
+    "status": "historical-device-deleted-by-user-authorized-other-task"
+  },
+  "refreshAndSkeletonUpgrade": {
+    "status": "implemented-and-scoped-tests-cold-build-actual-ui-passed",
+    "requirements": "../刷新交互与Demo公共入口资产盘点.md",
+    "finalGreenBaseline": {
+      "counts": {
+        "passed": 726,
+        "skipped": 1,
+        "failed": 0
+      },
+      "scope": {
+        "root": {
+          "passed": 701,
+          "skipped": 1,
+          "failed": 0
+        },
+        "foundation": {
+          "passed": 25,
+          "skipped": 0,
+          "failed": 0
+        }
+      },
+      "runnerDone": {
+        "success": true,
+        "type": "done",
+        "time": 188111
+      },
+      "registryBuilders": 300,
+      "registryIsSingleCase": true
+    },
+    "analysis": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 682,
+      "log": "final-coordinated-analyze.log",
+      "stage": "完整726项基线阶段，横向宽高补丁前；最新46专项分析另列"
+    },
+    "iosSimulatorBuild": {
+      "exit": 0,
+      "podSeconds": 187.3,
+      "xcodeSeconds": 230.8,
+      "log": "ios-coordinated-final-build.log",
+      "frozenApp": "flutter-final-guarded-ocr.app",
+      "stage": "guarded OCR; before final horizontal held-width patch"
+    },
+    "history": {
+      "refreshKey": "jobs_refresh.<historyKey>.refresh",
+      "loadKey": "jobs_refresh.<historyKey>.load",
+      "advance": "success-only; failures retain previous completion",
+      "withoutHistoryKey": "memory-only"
+    },
+    "feedback": {
+      "hapticsDefault": true,
+      "soundDefault": true,
+      "hapticsKey": "jobs_demo_refresh_haptics",
+      "soundKey": "jobs_demo_refresh_sound",
+      "assets": "3 Jobs-generated PCM WAV / AssetSource / ambient+mix / silent-respecting",
+      "hardwarePerceptionVerified": false
+    },
+    "scopedTests": {
+      "refreshUpgrade": 29,
+      "oldAdaptiveAndCombinations": 16,
+      "publicToolbar": 6,
+      "allRegistryBuilders": {
+        "tests": 1,
+        "builders": 300
+      },
+      "home": 11,
+      "sourceMain": 2,
+      "cardGeometry": 1,
+      "floatingSplashRoute": 1
+    },
+    "nativePackagedAudio": {
+      "status": "passed",
+      "platform": "iPhone18Pro / iOS27.2 simulator",
+      "test_count": 3,
+      "failures": 0,
+      "seconds": 0.27,
+      "result_bundle": "NativePackagedAudioDecode.xcresult",
+      "source": "exact actual App.framework/flutter_assets/packages/jobs_demo_foundation/assets/audio WAVs copied into independent native XCTest target",
+      "native_checks": [
+        "AVAudioFile sample rate22050 / mono",
+        "all frames decode with finite nonzero PCM",
+        "AVAudioPlayer duration65/130/130ms",
+        "AVAudioPlayer.prepareToPlay returns true"
+      ],
+      "assets": [
+        {
+          "asset": "refresh_started.wav",
+          "bytes": 2910,
+          "sha256": "b5d8d4a566ffd386991999890c6f7d24ba97b1dcc925f8dad127372abff84bdd",
+          "app_matches_source": true
+        },
+        {
+          "asset": "refresh_succeeded.wav",
+          "bytes": 5776,
+          "sha256": "13cb069fe580e125f2e1f494d25aec10d483ca9a2dc94a00eb2034e0592774c1",
+          "app_matches_source": true
+        },
+        {
+          "asset": "refresh_failed.wav",
+          "bytes": 5776,
+          "sha256": "861b6619d054bd015fa7a74d454cccb87ddefe266f5d8c1139af933641afb532",
+          "app_matches_source": true
+        }
+      ],
+      "boundary": "no player.play; does not prove Flutter actual playback/hearing or hardware haptics"
+    },
+    "actualFlutterUiBeforeHeldWidthPatch": {
+      "homeCards": {
+        "tests": 1,
+        "failures": 0,
+        "seconds": 5.649
+      },
+      "jobsHomePullsSearch": {
+        "tests": 1,
+        "failures": 0,
+        "seconds": 21.157
+      },
+      "horizontalEdgesMenu": {
+        "tests": 1,
+        "failures": 0,
+        "seconds": 34.577
+      },
+      "restoreDefaults": {
+        "tests": 1,
+        "failures": 0,
+        "seconds": 9.296
+      },
+      "visualFinding": "ready阶段实际84pt留区固定112pt指示器右侧裁切；功能通过不代表该帧视觉通过，追加最小修补和复验"
+    },
+    "nativeWorld": {
+      "tests": 4,
+      "failures": 0,
+      "fontMetricTest": {
+        "tests": 1,
+        "combinations": 160,
+        "failures": 0
+      },
+      "details": "native-clock-card/verification.json"
+    },
+    "nativeHome": {
+      "details": "native-home-settings/verification.json",
+      "settingsOnDisk": "native-home-settings/preferences-on-disk.json",
+      "settingsEvidenceDevice": "609B5874-7F24-443E-9247-89E346EBA284 (deleted; historical)",
+      "ocLatestTimerBuilds": "final6 both BUILD SUCCEEDED; frozen guarded OCR apps",
+      "ocLatestTimerUi": {
+        "tests": 2,
+        "failures": 0,
+        "newSeconds": 10.225,
+        "oldSeconds": 7.214,
+        "device": "A3D63D0E-2664-41BE-BB7B-A3407F5CA05F",
+        "scope": "倒计时无浮钟、skip后恢复且可命中；包含实例唯一Timer ID的冻结final6两普通包"
+      },
+      "swiftOriginalWorkspace": "existing Flutter SDK/lock mismatch unresolved; matching responsibility-source isolated ordinary app passed",
+      "firstLaunchNotificationChoice": "A3上Swift和两OC系统通知授权框选择不允许；未将此表述为全部偏好原样",
+      "laterCollaboratingTaskSwiftWorkspace": {
+        "status": "other-task-reported-full-workspace-build-and-35-line-real-OCR-pass",
+        "scope": "OCR task repaired old Flutter generation via local offline pub get; not independently repeated OCR by this task",
+        "historicalIsolatedValidationRetained": true
+      }
+    },
+    "pending": [
+      "真机声音/触觉",
+      "完整十语三主题和其它设备/旋转/极端字体实画",
+      "真实多Scene开屏/恢复组合",
+      "帧时间clamping稳定复现与修复证据"
+    ],
+    "logDirectory": "/Users/jobs/.codex/visualizations/2026/11/16/jobs-refresh-upgrade",
+    "finalHorizontalLayoutPatch": {
+      "scope": "横向ready有限揭示区裁切回归；仅新增测试，产品补丁由Root实施",
+      "testCases": 1,
+      "gestureScenarios": 8,
+      "matrix": {
+        "axis": "horizontal",
+        "reverse": [
+          false,
+          true
+        ],
+        "direction": [
+          "ltr",
+          "rtl"
+        ],
+        "edge": [
+          "leading",
+          "trailing"
+        ]
+      },
+      "gesture": "真实pointer分步拖动，实际distance保持78…90逻辑像素",
+      "assertions": [
+        "指示器实际bounds位于最近RenderClipRect内",
+        "历史RenderParagraph完整box位于clip四边内",
+        "14:05:06完整Text存在",
+        "ready持有300ms及release运行态分别检查",
+        "只触发对应边一次且结束后内容归位"
+      ],
+      "beforeFix": {
+        "exitCode": 1,
+        "log": "finite-horizontal-before-fix.log",
+        "scenario": "reverse=false RTL leading",
+        "indicatorLeft": 688.0,
+        "clipLeft": 720.8604654307692,
+        "revealedWidth": 79.1395345692308
+      },
+      "afterFix": {
+        "exitCode": 0,
+        "passed": 30,
+        "failed": 0,
+        "log": "finite-horizontal-after-fix-all30.log",
+        "scope": "原29项加新增1个循环case，不是8个独立tests"
+      },
+      "analysis": {
+        "error": 0,
+        "warning": 0,
+        "info": 7,
+        "log": "finite-horizontal-after-fix-analyze.log"
+      },
+      "sourceSha256": {
+        "test/jobs_refresh_upgrade_test.dart": "eb6b4ffe634abb3915f1f30c30442f2443c1da28883fb3ed163cbab28a973a4d",
+        "JobsByPubs/JobsDemoFoundationByPub/lib/jobs_edge_refresh.dart": "c2bd6e58b65419b9e0c7ae8729a1b7af869b5063774b2b1836ee71b347241822"
+      },
+      "limits": [
+        "不代替最终App实际UI",
+        "不代替真机听感或触觉",
+        "未重跑全仓或原生构建"
+      ],
+      "iosSimulatorBuild": {
+        "exit": 0,
+        "podSeconds": 11.9,
+        "xcodeSeconds": 129.1,
+        "log": "ios-horizontal-width-final-build.log",
+        "frozenApp": "flutter-final-horizontal-width.app",
+        "hashes": "flutter-horizontal-width-final-hashes.json",
+        "kernelChanged": true,
+        "threeAudioAssetsMatchDecodedBytes": true
+      },
+      "widthStageActualUi": {
+        "tests": 1,
+        "failures": 0,
+        "seconds": 64.863,
+        "function": "2 refreshes/2 loads, original clear callback and defaults restored",
+        "visual": "75pt trailing ready misses HH:mm:ss; 89pt leading complete does not replace it",
+        "evidence": "flutter-native-ui/ui-verification-phase2-width.json"
+      },
+      "heightStage": "strict per-character HH:mm:ss glyph red-green passed46; genuine SDK cold build and actual ready UI passed; earlier failed width-only stage retained",
+      "strictGlyphProof": {
+        "scope": "横向ready有限揭示区裁切回归；仅新增测试，产品补丁由Root实施",
+        "testCases": 1,
+        "gestureScenarios": 8,
+        "matrix": {
+          "axis": "horizontal",
+          "reverse": [
+            false,
+            true
+          ],
+          "direction": [
+            "ltr",
+            "rtl"
+          ],
+          "edge": [
+            "leading",
+            "trailing"
+          ]
+        },
+        "gesture": "真实pointer分步拖动，实际distance保持78…90逻辑像素",
+        "assertions": [
+          "指示器实际bounds位于最近RenderClipRect内",
+          "历史RenderParagraph完整box位于clip四边内",
+          "14:05:06完整Text存在",
+          "ready持有300ms及release运行态分别检查",
+          "只触发对应边一次且结束后内容归位"
+        ],
+        "beforeFix": {
+          "exitCode": 1,
+          "log": "finite-horizontal-before-fix.log",
+          "scenario": "reverse=false RTL leading",
+          "indicatorLeft": 688.0,
+          "clipLeft": 720.8604654307692,
+          "revealedWidth": 79.1395345692308
+        },
+        "afterFix": {
+          "exitCode": 0,
+          "passed": 30,
+          "failed": 0,
+          "log": "finite-horizontal-after-fix-all30.log",
+          "scope": "原29项加新增1个循环case，不是8个独立tests"
+        },
+        "analysis": {
+          "error": 0,
+          "warning": 0,
+          "info": 7,
+          "log": "finite-horizontal-after-fix-analyze.log"
+        },
+        "sourceSha256": {
+          "test/jobs_refresh_upgrade_test.dart": "eb6b4ffe634abb3915f1f30c30442f2443c1da28883fb3ed163cbab28a973a4d",
+          "JobsByPubs/JobsDemoFoundationByPub/lib/jobs_edge_refresh.dart": "c2bd6e58b65419b9e0c7ae8729a1b7af869b5063774b2b1836ee71b347241822"
+        },
+        "limits": [
+          "不代替最终App实际UI",
+          "不代替真机听感或触觉",
+          "未重跑全仓或原生构建"
+        ],
+        "heightRegression": {
+          "scope": "120逻辑像素高横向视口＋28图标，有限ready真实拖动8组合",
+          "beforeNaturalLayout": {
+            "exitCode": 1,
+            "log": "finite-horizontal-height-before-fix.log",
+            "selectionBoxBottom": 45.63500213623047,
+            "paragraphHeight": 35.5,
+            "failure": "时间glyph第三行超过Paragraph可绘制高度"
+          },
+          "naturalLayoutWithEllipsis": {
+            "rootPassed": 35,
+            "rootFailed": 1,
+            "log": "finite-horizontal-height-after-fix-root36.log",
+            "failure": "时间首字符getBoxesForSelection为空；maxLines=null但ellipsis仍提前截字"
+          },
+          "final": {
+            "rootPassed": 36,
+            "foundationPassed": 10,
+            "totalPassed": 46,
+            "failed": 0,
+            "rootLog": "finite-horizontal-height-final-root36.log",
+            "foundationLog": "finite-horizontal-height-final-adaptive10.log",
+            "analysisLog": "finite-horizontal-height-final-analyze.log",
+            "analysisError": 0,
+            "analysisWarning": 0,
+            "analysisInfo": 8
+          },
+          "glyphAssertions": [
+            "HH:mm:ss每个字符selection box非空",
+            "每个glyph本地bottom不超Paragraph.size.height",
+            "按实际FittedBox矩阵变换后四边位于最近ClipRect内",
+            "ready持有、继续300ms、release运行态各检查",
+            "完成后内容归位"
+          ],
+          "testCount": "新增1case内部8组合，刷新专项仍30；兼容6＋10另计",
+          "sourceSha256": {
+            "test/jobs_refresh_upgrade_test.dart": "67c65382d2a934b17cf0bb8bb9bd047331f5288bad3af432f79b3b6813b0389f",
+            "JobsByPubs/JobsDemoFoundationByPub/lib/jobs_edge_refresh.dart": "c2bd6e58b65419b9e0c7ae8729a1b7af869b5063774b2b1836ee71b347241822",
+            "JobsByPubs/JobsDemoFoundationByPub/lib/src/adaptive_refresh.dart": "230a76d61c92c0baae1cdf60fc6b809f6dd45a7fd20f0aa5829f1184dd33233a"
+          },
+          "nativeBuildOrUI": "本子任务未执行；Root安排最终包实际验收"
+        }
+      },
+      "latestSource": {
+        "adaptiveRefresh": "230a76d61c92c0baae1cdf60fc6b809f6dd45a7fd20f0aa5829f1184dd33233a",
+        "edgeRefresh": "c2bd6e58b65419b9e0c7ae8729a1b7af869b5063774b2b1836ee71b347241822",
+        "test": "67c65382d2a934b17cf0bb8bb9bd047331f5288bad3af432f79b3b6813b0389f"
+      },
+      "latestScopedTests": {
+        "passed": 46,
+        "failed": 0,
+        "refreshUpgrade": 30,
+        "oldCombinations": 6,
+        "foundationAdaptive": 10,
+        "analysis": {
+          "errors": 0,
+          "warnings": 0,
+          "infos": 8
+        },
+        "newNativeUi": "passed genuine SDK cold package; see finalTrueSdkActualUi"
+      },
+      "finalTrueSdkColdBuild": {
+        "configExit": 0,
+        "configPodSeconds": 10.5,
+        "buildExit": 0,
+        "method": "current Flutter config-only + actual SDK SourcePackages argument + ordinary xcodebuild jobs1, no probes",
+        "actualProduct": "build/ios/Debug-iphonesimulator/Runner.app",
+        "frozenApp": "flutter-final-height-true-sdk.app",
+        "proof": "flutter-height-final-package-proof.json",
+        "minFreeGiB": 6.633373260498047,
+        "guardGiB": 1.2,
+        "aborted": false,
+        "log": "ios-height-true-sdk-cached-jobs1-build.log",
+        "sourceMatchesLatest46Tests": true,
+        "hotRestartPerformed": false
+      },
+      "historicalManualBuildAbort": {
+        "exit": 1,
+        "reason": "manual command omitted current Flutter clonedSourcePackagesDirPath; waited in remote SPM Resolve, never entered compilation; own PID/PGID90582 TERM then corrected",
+        "log": "ios-height-true-sdk-jobs1-build.log"
+      },
+      "finalTrueSdkActualUi": {
+        "tests": 1,
+        "failures": 0,
+        "seconds": 62.438,
+        "device": "A3D63D0E-2664-41BE-BB7B-A3407F5CA05F",
+        "coldLaunch": true,
+        "hotRestart": false,
+        "leadingReady": {
+          "revealedLogicalPixelsApprox": 87,
+          "text": "松开刷新 / 上次刷新 今天20:19:22",
+          "frame": "flutter-native-ui/true-sdk-leading-ready-narrow.png"
+        },
+        "trailingReady": {
+          "revealedLogicalPixelsApprox": 79,
+          "text": "松开加载 / 上次加载 今天20:19:41",
+          "frame": "flutter-native-ui/true-sdk-trailing-ready-precise.png"
+        },
+        "rootVisuallyReviewedBoth": true,
+        "covered": [
+          "真实2次横向刷新、2次加载",
+          "ready持有时完整时分秒，无卡片遮挡或高度裁切",
+          "原更多菜单清空真实回调",
+          "Flutter默认/跟随系统/首组展开恢复",
+          "最后冷启新包首页"
+        ],
+        "limits": [
+          "不是全部reverse/RTL/语言/设备实画",
+          "不是声音听感或真实硬件触觉验收"
+        ],
+        "details": "flutter-native-ui/ui-verification-final-true-sdk.json",
+        "finalColdHome": "flutter-native-ui/true-sdk-final-cold-home.png",
+        "preferences": "flutter-native-ui/a3-final-true-sdk-ui-preferences.json",
+        "runtimeCounts": "flutter-native-ui/true-sdk-runtime-counts.json (finite; engine issue unresolved)"
+      }
+    },
+    "finalDeviceHubObserved": true
+  }
+}

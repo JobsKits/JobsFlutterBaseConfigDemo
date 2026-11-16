@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/空态重载/空态重载.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
@@ -25,7 +28,7 @@ class _EmptyStateDemoState extends State<EmptyStateDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
+    appBar: JobsDemoAppBar(
       title: Text(tr(context, '空态重载')),
       actions: [
         IconButton(
@@ -43,7 +46,8 @@ class _EmptyStateDemoState extends State<EmptyStateDemo> {
             message: '点击重新加载恢复列表',
             onReload: _reload,
           )
-        : RefreshIndicator(
+        : JobsAdaptiveRefresh(
+            historyKey: 'demo.empty-reload',
             onRefresh: _reload,
             child: ListView.builder(
               itemCount: _items.length,

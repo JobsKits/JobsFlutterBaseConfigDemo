@@ -1,5 +1,5 @@
 // 兼容旧导入路径；功能源码统一维护在中文目录。
-export 'package:jobs_flutter_base_config/demos/旧例·JSON字段转换/源码/JsonConverterDemo.dart';
-import 'package:jobs_flutter_base_config/demos/旧例·JSON字段转换/源码/JsonConverterDemo.dart' as migrated;
+export 'package:jobs_flutter_base_config/demos/JSON字段转换/JsonConverterDemo.dart';
+import 'package:jobs_flutter_base_config/demos/JSON字段转换/JsonConverterDemo.dart' as migrated;
 
 void main() => migrated.main();

@@ -1,0 +1,377 @@
+//
+//  JobsOCRNativeUITests.m
+//  JobsOCRNativeValidation
+//
+//  Created by Jobs on 2026年11月16日，星期一.
+//
+
+#import <XCTest/XCTest.h>
+
+@interface JobsOCRNativeUITests : XCTestCase
+
+@end
+
+@implementation JobsOCRNativeUITests
+
+-(void)setUp{
+    [super setUp];
+    self.continueAfterFailure = NO;
+}
+
+-(void)testNewOCRecognizesBundledImage{
+    [self verifyBundle:@"com.JobsOCBaseConfigDemo.byPods" name:@"new-oc"];
+}
+
+-(void)testOldOCRecognizesBundledImage{
+    [self verifyBundle:@"com.JobsOCBaseConfigDemo" name:@"old-oc"];
+}
+
+-(void)verifyBundle:(NSString *)bundleIdentifier name:(NSString *)name{
+    XCUIApplication *app = [[XCUIApplication alloc] initWithBundleIdentifier:bundleIdentifier];
+    app.launchArguments = @[@"-AppleLanguages", @"(zh-Hans)", @"-AppleLocale", @"zh_CN",
+                            @"-com.BSports.JobsOCSplashEnabledUserDefaultsKey", @"NO",
+                            @"-com.BSports.JobsOCDemoListUsesTabBarEntryUserDefaultsKey", @"NO"];
+    [app launch];
+    XCUIApplication *springboard = [[XCUIApplication alloc] initWithBundleIdentifier:@"com.apple.springboard"];
+    XCUIElement *pendingCameraPermission = [springboard.buttons matchingIdentifier:@"kTCCServiceCamera-allow-button"].firstMatch;
+    if (pendingCameraPermission.exists) {
+        [pendingCameraPermission tap];
+    }
+    XCUIElement *deny = [springboard.buttons matchingIdentifier:@"不允许"].firstMatch;
+
+    if (deny.exists) {
+        [deny tap];
+    }
+    XCUIElement *menu = app.buttons[@"jobs.coverage.open.functionMenu"];
+    XCTAssertTrue([menu waitForExistenceWithTimeout:20], @"%@", app.debugDescription);
+    [menu tap];
+    XCUIElement *searchMenu = app.cells[@"jobs.coverage.open.function.0"];
+    XCTAssertTrue([searchMenu waitForExistenceWithTimeout:5], @"%@", app.debugDescription);
+    [searchMenu tap];
+    XCUIElement *input = app.textFields.firstMatch;
+    XCTAssertTrue([input waitForExistenceWithTimeout:5], @"%@", app.debugDescription);
+    [input tap];
+    [input typeText:@"Rust"];
+    XCUIElement *result = app.staticTexts[@"Rust 离线 OCR"].firstMatch;
+    if (![result waitForExistenceWithTimeout:5]) {
+        result = [app.cells matchingPredicate:[NSPredicate predicateWithFormat:@"label CONTAINS %@", @"Rust"]].firstMatch;
+    }
+    XCTAssertTrue(result.exists, @"%@", app.debugDescription);
+    [result tap];
+    XCUIElement *recognize = app.buttons[@"jobs.ocr.recognize"];
+    XCTAssertTrue([recognize waitForExistenceWithTimeout:5], @"%@", app.debugDescription);
+    XCTAssertEqualObjects(app.buttons[@"jobs.ocr.back"].label, @"返回");
+    XCTAssertTrue(recognize.enabled, @"Bundled sample and real SDK must be available");
+    XCTAssertLessThan(recognize.frame.size.width, app.frame.size.width * 0.85);
+    XCTAssertGreaterThanOrEqual(recognize.frame.size.height, 44);
+    XCUIElement *page = app.scrollViews[@"jobs.ocr.page"];
+    XCTAssertTrue(page.exists, @"The complete page must share one vertical scroll view");
+    XCTAssertTrue(app.buttons[@"jobs.ocr.camera"].exists);
+    [self attachScreenshot:app name:[name stringByAppendingString:@"-source-ui-initial-light"]];
+
+    [recognize tap];
+    XCUIElement *status = app.staticTexts[@"jobs.ocr.status"];
+    NSPredicate *finished = [NSPredicate predicateWithFormat:@"label CONTAINS %@", @"识别完成"];
+    XCTNSPredicateExpectation *expectation = [[XCTNSPredicateExpectation alloc] initWithPredicate:finished object:status];
+    XCTAssertEqual([XCTWaiter waitForExpectations:@[expectation] timeout:45], XCTWaiterResultCompleted, @"%@", app.debugDescription);
+    XCUIElement *textView = app.textViews[@"jobs.ocr.result"];
+    XCTAssertTrue(textView.exists);
+    NSString *recognizedText = (NSString *)textView.value;
+    XCTAssertGreaterThan(recognizedText.length, 20U);
+    XCTAssertTrue(app.buttons[@"jobs.ocr.copy"].enabled);
+    [self attachScreenshot:app name:[name stringByAppendingString:@"-recognized"]];
+    CGFloat previewTop = app.images[@"jobs.ocr.preview"].frame.origin.y;
+    [page swipeUp];
+    XCTAssertTrue(app.images[@"jobs.ocr.preview"].frame.origin.y < previewTop - 20 || !app.images[@"jobs.ocr.preview"].hittable,
+                  @"Scrolling the result region must move the whole page");
+    [self attachScreenshot:app name:[name stringByAppendingString:@"-source-ui-scrolled-result"]];
+    for (NSUInteger attempt = 0; attempt < 8 && !app.buttons[@"jobs.ocr.copy"].hittable; attempt++) {
+        [page swipeDown];
+    }
+    XCTAssertTrue(app.buttons[@"jobs.ocr.copy"].hittable);
+    [app.buttons[@"jobs.ocr.copy"] tap];
+    XCUIElement *theme = [[app.buttons matchingPredicate:[NSPredicate predicateWithFormat:@"label == %@ OR label == %@", @"切换为白天", @"切换为黑夜"]] firstMatch];
+    XCTAssertTrue(theme.exists);
+    BOOL previousTheme = theme.selected;
+    [theme tap];
+    XCTAssertNotEqual(theme.selected, previousTheme);
+    [self attachScreenshot:app name:[name stringByAppendingString:@"-source-ui-dark"]];
+    [theme tap];
+    for (NSUInteger attempt = 0; attempt < 8 && !app.buttons[@"jobs.ocr.camera"].hittable; attempt++) {
+        [page swipeDown];
+    }
+    XCTAssertTrue(app.buttons[@"jobs.ocr.camera"].hittable);
+    [app.buttons[@"jobs.ocr.camera"] tap];
+    XCUIElement *allowCamera = [springboard.buttons matchingIdentifier:@"kTCCServiceCamera-allow-button"].firstMatch;
+    if ([allowCamera waitForExistenceWithTimeout:2]) {
+        [allowCamera tap];
+    }
+
+    XCUIElement *cameraClose = [app.buttons matchingIdentifier:@"DismissButton"].firstMatch;
+    XCTAssertTrue([cameraClose waitForExistenceWithTimeout:8], @"The system photo camera must be presented after authorization");
+    if (cameraClose.exists) {
+        [self attachScreenshot:app name:[name stringByAppendingString:@"-source-ui-camera-open"]];
+        [cameraClose tap];
+        XCTAssertTrue([app.buttons[@"jobs.ocr.recognize"] waitForExistenceWithTimeout:5]);
+    }
+    XCTAssertEqualObjects((NSString *)textView.value, recognizedText, @"Cancelling the camera must preserve existing recognized text");
+
+    [self attachScreenshot:app name:[name stringByAppendingString:@"-source-ui-camera-cancel-preserved"]];
+    for (NSUInteger attempt = 0; attempt < 8 && !app.segmentedControls.buttons[@"JSON"].hittable; attempt++) {
+        [page swipeUp];
+    }
+
+    [app.segmentedControls.buttons[@"JSON"] tap];
+    NSString *json = (NSString *)textView.value;
+    NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSDictionary *resultObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    XCTAssertNil(error);
+    XCTAssertEqualObjects(resultObject[@"engine"], @"jobs-rust-ocr/indra");
+    XCTAssertGreaterThan([resultObject[@"lines"] count], 0U);
+    XCTAssertEqualObjects(resultObject[@"text"], recognizedText);
+    XCTAttachment *attachment = [XCTAttachment attachmentWithData:data uniformTypeIdentifier:@"public.json"];
+    attachment.name = [name stringByAppendingString:@"-real-ocr-result.json"];
+    attachment.lifetime = XCTAttachmentLifetimeKeepAlways;
+    [self addAttachment:attachment];
+    [app.buttons[@"jobs.ocr.copy"] tap];
+    [self attachScreenshot:app name:[name stringByAppendingString:@"-json"]];
+    [app.buttons[@"jobs.ocr.back"] tap];
+    XCTAssertTrue([input waitForExistenceWithTimeout:5], @"Original back action must return to the preceding search page");
+    [app terminate];
+}
+
+-(void)testSwiftUISourceOCRPage{
+    XCUIApplication *app = [[XCUIApplication alloc] initWithBundleIdentifier:@"com.jobs.jobsswiftuibaseconfigdemo"];
+    app.launchArguments = @[@"-AppleLanguages", @"(zh-Hans)", @"-AppleLocale", @"zh_CN",
+                            @"--jobs-coverage-route", @"rustOCR", @"--jobs-ocr-output", @"swiftui-source-ui.json"];
+    [app launch];
+    XCUIApplication *springboard = [[XCUIApplication alloc] initWithBundleIdentifier:@"com.apple.springboard"];
+    XCUIElement *pending = [springboard.buttons matchingIdentifier:@"kTCCServiceCamera-allow-button"].firstMatch;
+    if (pending.exists) {
+        [pending tap];
+    }
+    XCUIElement *recognize = app.buttons[@"jobs.ocr.recognize"];
+    XCTAssertTrue([recognize waitForExistenceWithTimeout:20], @"%@", app.debugDescription);
+    XCTAssertTrue(recognize.enabled);
+    XCTAssertLessThan(recognize.frame.size.width, app.frame.size.width * 0.85);
+    XCTAssertGreaterThanOrEqual(recognize.frame.size.height, 44);
+    XCTAssertTrue(app.buttons[@"jobs.ocr.camera"].exists);
+    [self selectSwiftUIAppearance:@"白天" app:app];
+    [self attachScreenshot:app name:@"swiftui-source-ui-light-initial"];
+    [recognize tap];
+    XCUIElement *result = app.staticTexts[@"jobs.ocr.result"];
+    XCTAssertTrue([result waitForExistenceWithTimeout:45], @"%@", app.debugDescription);
+    NSString *text = result.label;
+    XCTAssertGreaterThan(text.length, 20U);
+    XCUIElement *copy = app.buttons[@"jobs.ocr.copy"];
+    XCTAssertTrue(copy.enabled);
+    [self attachScreenshot:app name:@"swiftui-source-ui-light-recognized"];
+    XCUIElement *page = app.scrollViews.firstMatch;
+    XCTAssertTrue(page.exists);
+    XCUIElement *preview = app.images[@"jobs.ocr.preview"];
+    CGFloat originalY = preview.frame.origin.y;
+    [page swipeUp];
+    XCTAssertTrue(!preview.hittable || preview.frame.origin.y < originalY - 20, @"The whole page must scroll together");
+    [self attachScreenshot:app name:@"swiftui-source-ui-scrolled-result"];
+    for (NSUInteger attempt = 0; attempt < 8 && !copy.hittable; attempt++) {
+        [page swipeDown];
+    }
+    XCTAssertTrue(copy.hittable, @"%@", app.debugDescription);
+    [copy tap];
+    XCTAttachment *expected = [XCTAttachment attachmentWithString:text];
+    expected.name = @"swiftui-copy-expected.txt";
+    expected.lifetime = XCTAttachmentLifetimeKeepAlways;
+    [self addAttachment:expected];
+    [self selectSwiftUIAppearance:@"黑夜" app:app];
+    XCTAssertEqualObjects(app.staticTexts[@"jobs.ocr.result"].label, text);
+    [self attachScreenshot:app name:@"swiftui-source-ui-dark-recognized"];
+    for (NSUInteger attempt = 0; attempt < 8 && !app.buttons[@"jobs.ocr.camera"].hittable; attempt++) {
+        [page swipeDown];
+    }
+    [app.buttons[@"jobs.ocr.camera"] tap];
+    XCUIElement *allow = [springboard.buttons matchingIdentifier:@"kTCCServiceCamera-allow-button"].firstMatch;
+    if ([allow waitForExistenceWithTimeout:2]) {
+        [allow tap];
+    }
+    XCUIElement *close = [app.buttons matchingIdentifier:@"DismissButton"].firstMatch;
+    XCTAssertTrue([close waitForExistenceWithTimeout:8], @"%@", app.debugDescription);
+    [self attachScreenshot:app name:@"swiftui-source-ui-camera-open"];
+    [close tap];
+    XCTAssertTrue([app.buttons[@"jobs.ocr.recognize"] waitForExistenceWithTimeout:5]);
+    XCTAssertEqualObjects(app.staticTexts[@"jobs.ocr.result"].label, text, @"Camera cancellation must preserve the result");
+    [self attachScreenshot:app name:@"swiftui-source-ui-camera-cancel-preserved"];
+    [self selectSwiftUIAppearance:@"跟随系统" app:app];
+    XCTAssertEqualObjects(app.staticTexts[@"jobs.ocr.result"].label, text);
+    [self attachScreenshot:app name:@"swiftui-source-ui-follow-system"];
+    [app terminate];
+}
+
+-(void)selectSwiftUIAppearance:(NSString *)title app:(XCUIApplication *)app{
+    XCUIElement *theme = app.buttons[@"jobs.ocr.theme"];
+    XCTAssertTrue([theme waitForExistenceWithTimeout:5], @"%@", app.debugDescription);
+    [theme tap];
+    XCUIElement *choice = [app.buttons matchingPredicate:[NSPredicate predicateWithFormat:@"label == %@", title]].firstMatch;
+    XCTAssertTrue([choice waitForExistenceWithTimeout:5], @"%@", app.debugDescription);
+    [choice tap];
+}
+
+-(void)testFlutterSourceOCRPage{
+    XCUIApplication *app = [[XCUIApplication alloc] initWithBundleIdentifier:@"com.example.jobsFlutterBaseConfigDemo"];
+    app.launchArguments = @[@"-AppleLanguages", @"(zh-Hans)", @"-AppleLocale", @"zh_CN"];
+    [app launch];
+    XCUIElement *more = [[app.buttons matchingPredicate:[NSPredicate predicateWithFormat:@"label CONTAINS %@ OR label == %@", @"更多", @"More"]] firstMatch];
+    XCTAssertTrue([more waitForExistenceWithTimeout:25], @"%@", app.debugDescription);
+    [more tap];
+    XCUIElement *search = [[[app descendantsMatchingType:XCUIElementTypeAny] matchingPredicate:[NSPredicate predicateWithFormat:@"label BEGINSWITH %@ OR label BEGINSWITH[c] %@", @"搜索", @"Search"]] firstMatch];
+    XCTAssertTrue([search waitForExistenceWithTimeout:5], @"%@", app.debugDescription);
+    [search tap];
+    XCUIElement *input = app.textFields.firstMatch;
+    XCTAssertTrue([input waitForExistenceWithTimeout:5], @"%@", app.debugDescription);
+    [input tap];
+    [input typeText:@"Rust"];
+    XCUIElement *entry = [[app.buttons matchingPredicate:[NSPredicate predicateWithFormat:@"label CONTAINS %@ OR label CONTAINS %@", @"离线文字识别", @"Offline OCR"]] firstMatch];
+    if (![entry waitForExistenceWithTimeout:5]) {
+        entry = [[app.staticTexts matchingPredicate:[NSPredicate predicateWithFormat:@"label CONTAINS %@ OR label CONTAINS %@", @"离线文字识别", @"Offline OCR"]] firstMatch];
+    }
+    XCTAssertTrue(entry.exists, @"%@", app.debugDescription);
+    [entry tap];
+    XCUIElement *recognize = [self flutterButton:@"开始识别" english:@"Recognize text" app:app];
+    XCTAssertTrue([recognize waitForExistenceWithTimeout:10], @"%@", app.debugDescription);
+    XCTAssertTrue(recognize.enabled);
+    XCTAssertGreaterThanOrEqual(recognize.frame.size.height, 44);
+    XCTAssertLessThan(recognize.frame.size.width, app.frame.size.width * 0.85);
+    XCUIElement *page = app.scrollViews.firstMatch;
+    XCTAssertTrue(page.exists, @"%@", app.debugDescription);
+    XCUIElement *toLight = [self flutterButton:@"切换到白天" english:@"Switch to light" app:app];
+    if (toLight.exists) {
+        [toLight tap];
+    }
+    [self attachScreenshot:app name:@"flutter-source-ui-light-initial"];
+    [recognize tap];
+    XCUIElement *status = [[[app descendantsMatchingType:XCUIElementTypeAny] matchingPredicate:[NSPredicate predicateWithFormat:@"label == %@ OR label == %@", @"识别完成", @"Recognition complete"]] firstMatch];
+    XCTAssertTrue([status waitForExistenceWithTimeout:45], @"%@", app.debugDescription);
+    XCUIElement *copy = [self flutterButton:@"复制文字" english:@"Copy text" app:app];
+    for (NSUInteger attempt = 0; attempt < 8 && !copy.hittable; attempt++) {
+        [page swipeUp];
+    }
+    XCTAssertTrue(copy.hittable, @"%@", app.debugDescription);
+    NSString *text = [self flutterRecognizedText:app];
+    XCTAssertGreaterThan(text.length, 100U, @"%@", app.debugDescription);
+    [self attachScreenshot:app name:@"flutter-source-ui-light-recognized"];
+    CGFloat copyY = copy.frame.origin.y;
+    [page swipeUp];
+    XCTAssertTrue(!copy.hittable || copy.frame.origin.y < copyY - 20,
+                  @"Dragging the recognition result must move the complete page");
+    [self attachScreenshot:app name:@"flutter-source-ui-scrolled-result"];
+    for (NSUInteger attempt = 0; attempt < 10 && !copy.hittable; attempt++) {
+        [page swipeDown];
+    }
+    XCTAssertTrue(copy.hittable);
+    [self waitForFlutterElementFrame:copy];
+    [copy tap];
+    NSLog(@"FLUTTER_COPY_BEFORE_CAMERA_READY");
+    XCUIElement *toDark = [self flutterButton:@"切换到黑夜" english:@"Switch to dark" app:app];
+    XCTAssertTrue(toDark.exists, @"%@", app.debugDescription);
+    [toDark tap];
+    XCTAssertTrue([[self flutterButton:@"切换到白天" english:@"Switch to light" app:app] waitForExistenceWithTimeout:5]);
+    XCTAssertEqualObjects([self flutterRecognizedText:app], text, @"Theme switching must preserve actual recognized text");
+    [self attachScreenshot:app name:@"flutter-source-ui-dark-recognized"];
+    XCUIElement *camera = [self flutterButton:@"拍照" english:@"Take photo" app:app];
+    for (NSUInteger attempt = 0; attempt < 10 && !camera.hittable; attempt++) {
+        [page swipeDown];
+    }
+    XCTAssertTrue(camera.hittable);
+    [self waitForFlutterElementFrame:camera];
+    [camera tap];
+    XCUIApplication *springboard = [[XCUIApplication alloc] initWithBundleIdentifier:@"com.apple.springboard"];
+    XCUIElement *allow = [springboard.buttons matchingIdentifier:@"kTCCServiceCamera-allow-button"].firstMatch;
+    if ([allow waitForExistenceWithTimeout:2]) {
+        [allow tap];
+    }
+    XCUIElement *close = [app.buttons matchingIdentifier:@"DismissButton"].firstMatch;
+    XCUIElement *unavailable = [app.alerts.staticTexts matchingIdentifier:@"Camera not available."].firstMatch;
+    if ([unavailable waitForExistenceWithTimeout:2]) {
+        [self attachScreenshot:app name:@"flutter-source-ui-native-camera-unavailable"];
+        NSLog(@"FLUTTER_CAMERA_OUTCOME=native-unavailable; message=Camera not available.; FlutterErrorCode=null; pluginResult=null");
+        XCUIElement *okay = [app.alerts.buttons matchingIdentifier:@"OK"].firstMatch;
+        [okay tap];
+    } else {
+        XCTAssertTrue([close waitForExistenceWithTimeout:10], @"%@", app.debugDescription);
+        [self attachScreenshot:app name:@"flutter-source-ui-camera-open"];
+        NSLog(@"FLUTTER_CAMERA_OUTCOME=picker-opened-and-cancelled");
+        [close tap];
+    }
+    XCTAssertTrue([recognize waitForExistenceWithTimeout:5]);
+    for (NSUInteger attempt = 0; attempt < 8 && !copy.hittable; attempt++) {
+        [page swipeUp];
+    }
+    NSString *firstLine = [[text componentsSeparatedByCharactersInSet:NSCharacterSet.newlineCharacterSet] firstObject];
+    XCTAssertTrue([[self flutterRecognizedText:app] hasPrefix:firstLine], @"Cancelling the system camera must preserve the real result");
+    [self waitForFlutterElementFrame:copy];
+    [copy tap];
+    NSLog(@"FLUTTER_COPY_AFTER_CAMERA_READY");
+    [self attachScreenshot:app name:@"flutter-source-ui-image-source-return-preserved"];
+    XCTAttachment *expected = [XCTAttachment attachmentWithString:text];
+    expected.name = @"flutter-copy-expected.txt";
+    expected.lifetime = XCTAttachmentLifetimeKeepAlways;
+    [self addAttachment:expected];
+    XCTAttachment *tree = [XCTAttachment attachmentWithString:app.debugDescription];
+    tree.name = @"flutter-production-real-result-ax.txt";
+    tree.lifetime = XCTAttachmentLifetimeKeepAlways;
+    [self addAttachment:tree];
+    [app terminate];
+}
+
+-(XCUIElement *)flutterButton:(NSString *)chinese english:(NSString *)english app:(XCUIApplication *)app{
+    return [[app.buttons matchingPredicate:[NSPredicate predicateWithFormat:@"label == %@ OR label == %@", chinese, english]] firstMatch];
+}
+
+-(void)waitForFlutterElementFrame:(XCUIElement *)element{
+    CGRect previous = element.frame;
+    NSUInteger stableSamples = 0;
+    for (NSUInteger attempt = 0; attempt < 20; attempt++) {
+        [NSThread sleepForTimeInterval:0.15];
+        CGRect current = element.frame;
+        stableSamples = CGRectEqualToRect(previous, current) ? stableSamples + 1 : 0;
+        if (stableSamples >= 3) {
+            return;
+        }
+        previous = current;
+    }
+}
+
+-(NSString *)flutterRecognizedText:(XCUIApplication *)app{
+    NSString *longest = @"";
+    for (XCUIElement *element in app.staticTexts.allElementsBoundByIndex) {
+        if (element.label.length > longest.length) {
+            longest = element.label;
+        }
+    }
+    for (XCUIElement *element in app.textViews.allElementsBoundByIndex) {
+        NSString *value = [element.value isKindOfClass:NSString.class] ? element.value : element.label;
+        if (value.length > longest.length) {
+            longest = value;
+        }
+    }
+    // Flutter exposes read-only SelectableText through an AX Other value.
+    for (XCUIElement *element in app.otherElements.allElementsBoundByIndex) {
+        if (![element.value isKindOfClass:NSString.class]) {
+            continue;
+        }
+        NSString *value = element.value;
+        if (value.length > longest.length) {
+            longest = value;
+        }
+    }
+    return longest;
+}
+
+-(void)attachScreenshot:(XCUIApplication *)app name:(NSString *)name{
+    XCTAttachment *attachment = [XCTAttachment attachmentWithScreenshot:app.screenshot];
+    attachment.name = name;
+    attachment.lifetime = XCTAttachmentLifetimeKeepAlways;
+    [self addAttachment:attachment];
+}
+
+@end

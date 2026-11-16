@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "reason": "invalid_native_receipt",
+  "message": "test-only",
+  "run_id": "validation-nonce",
+  "mode": "simulator",
+  "device_id": "test-only",
+  "device_name": "contract-test",
+  "recorded_at": "2026-11-16T10:54:22.297Z",
+  "native": {
+    "schema_version": 1,
+    "run_id": "validation-nonce",
+    "source": "JobsRustOCR/real-native-sample",
+    "engine": "jobs-rust-ocr/indra",
+    "platform": "iOS",
+    "width": 200,
+    "height": 100,
+    "line_count": 35,
+    "anchor_found": true,
+    "text_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "passed": false
+  },
+  "scope": "actual Flutter app launch and bundled-sample OCR; not a full OCR accuracy evaluation"
+}

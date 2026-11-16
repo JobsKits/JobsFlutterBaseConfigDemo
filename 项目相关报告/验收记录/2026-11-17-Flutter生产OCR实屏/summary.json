@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "evidenceKind": "driver-summary-of-production-ui-real-native-result",
+  "runDate": "2026-11-17",
+  "timezone": "Asia/Shanghai",
+  "capturedAt": "2026-11-17T00:22:42.987357+08:00",
+  "app": {
+    "bundleIdentifier": "com.example.jobsFlutterBaseConfigDemo",
+    "canonicalApp": "build/ios/iphonesimulator/Runner.app",
+    "kernelBytes": 112228664,
+    "canonicalKernelSHA256": "a5b226e64c38b2b3e25c8c423ff2b8a45f13f6176cc32a55f4944144186137fd",
+    "installedKernelSHA256": "a5b226e64c38b2b3e25c8c423ff2b8a45f13f6176cc32a55f4944144186137fd",
+    "installedMatchesCanonical": true,
+    "reusedExistingOfficialBuild": true,
+    "appRebuiltForUIRun": false,
+    "productionEntry": "主App → 更多 → 搜索Rust → 离线文字识别",
+    "fixtureInjected": false,
+    "terminatedAtTestEnd": true
+  },
+  "device": {
+    "id": "F5B1D814-C644-471D-A995-75B26433F1D9",
+    "name": "JobsOCRSourceReview",
+    "platform": "iOS Simulator",
+    "os": "27.2",
+    "released": true
+  },
+  "uiTest": {
+    "testIdentifier": "JobsOCRNativeUITests/testFlutterSourceOCRPage",
+    "passed": 1,
+    "failed": 0,
+    "durationSeconds": 30.815,
+    "xcodebuildExit": 0,
+    "xcresultPath": "/tmp/jobs-flutter-production-ui.8ZRyHK/FlutterProductionUI-Final.xcresult",
+    "runnerBuiltSeparately": true
+  },
+  "recognition": {
+    "source": "bundled sample; explicit tap on production Recognize button; real native SDK result displayed by app",
+    "lineCountFromActualUI": 35,
+    "elapsedMillisecondsFromActualUI": 367,
+    "coreVersionFromActualUI": "jobs-rust-ocr/0.1.0",
+    "copiedText": "대한성공회 서울교구\n교구장 이경호 주교\n04519 서울특별시 중구 세종대로 21길 15\n전화 (02)735-6157 / 팩스 (02)723-2640\nDIOCESE OF SEOUL\nTHE ANGLICAN CHURCH OF KOREA\nThe Rt. Rev. Peter Kyongho Lee\n15, Sejong-daero 21-gil, Jung-gu, Seoul, Korea 04519\nTEL 82-2-735-6157 / FAX 82-2-723-2640\n코로나19 확산방지 대응을 위한 사목서신(8)\n주님의 평화!\n성령께서 우리를 부르시어 주님의 몸된 교회를 이루게 하시고, 거룩한 길로 이끌어주심을\n감사하고 찬양합니다.\n성령강림 대축일을 기념하며 부활절기 ‘기쁨의 50일’을 마감했습니다. 많은 교우들이 사도\n행전을 욺겨 적으며 주님의 제자들이 교회공동체를 이루어 부활을 증언한 과정을 마음 깊이\n함께 걸었습니다. 많은 교회와 교우들이 코로나19 긴급기금에 봉헌해주셔서 어려운 교회를\nᅥ달 동안 도왔습니다. 코로나19 위기를 함께 대응하며, 한 몸을 이룬 성공회를 함께 지켜\n가는 신자로서 서로를 신뢰하고 존경하게 되었습니다. 방역지침 준수 속에서 주일 성찬례를\n드릴 수 있는 것만으로도 감격했습니다. 참석 교우는 다소 줄었지만, 서로를 기억하며 기도하\n 안부를 나누는 친교는 더 깊어졌습니다. 교회의 어려움을 헤아린 교우들의 봉헌으로 전보\n다도 재정이 안정되었다는 소식도 듣습니다. 특별히 지난 5월 27일 서울교구 창립 55주년 ᅵ\n념일에는 초대 이천환 주교님의 추모문집을 발간했고, 사제 세 분, 부제 한 분의 성직자를\n품하였습니다. 이 모든 일로 주님께 영광을 돌립니다. 은총 안에서 ‘기쁨의 50일’을 함께 걸\n어오신 교우들께 마음 깊이 감사와 치하를 드립니다.\n성삼위일체주일을 지킨 후에는 교회가 차분히 정상적인 전례와 사목활동으로 돌아가길 ᄀ\n대했습니다. 하지만, 코로나19 감염이 소규모 종교 활동 등을 매개로도 계속 이어지고 있어\n걱정이 큽니다. 코로나19 이전의 일상으로 돌아가기 어렵다는 진단이 많습니다. 암담하지만,\n생각하면 본래 교회의 자리는 세상의 고난과 위기 한가운데입니다. 이 땅에 하느님의 나라가\n온전히 이루어지기까지, 교회의 사명은 계속됩니다. 종말의 어둠 속에 구원의 빛이 비쳐오듯\nᄋ오늘의 위기 속에서 교회는 더욱 참되고 깊은 일치로 빛을 내야 합니다.\n○ 주일 성찬례를 드릴 때에, 방심하지 마시고, 방역 지침을 더욱 더 철저히 지켜주시기 바랍\nप.\n○ 건강이 염려스러운 교우들은 전례에 참석하지 마시고, 당분간 계속되는 서울주교좌성당의\n온라인 전례 실황, 또는 본교회의 전례집전 영상을 보면서, 가정에서 예배하도록 안내하여\n주십시오.",
+    "copiedTextBytes": 2936,
+    "copiedTextCharacters": 1326,
+    "copiedTextLines": 35,
+    "copiedTextSHA256": "290a01ed34c536ea7f07bb220268fa814af767c3d796856d2b9048ef83005cdc",
+    "visibleAXFragmentIsCopiedTextPrefix": true,
+    "rawNativeResultJSONCaptured": false,
+    "nativeLineGeometryCaptured": false
+  },
+  "checks": {
+    "lightThemeScreenshot": true,
+    "darkThemeScreenshot": true,
+    "themeRetainsRecognizedAXText": true,
+    "wholePageMovesWhenDraggingResult": true,
+    "copyAfterRealRecognition": true,
+    "copyFeedbackInFinalAX": true,
+    "clipboardBeforeAfterCameraByteEqual": true,
+    "compactStartButtonFrameAsserted": true,
+    "startButtonEnabledOnBundledSample": true
+  },
+  "camera": {
+    "source": "image_picker ImageSource.camera, default rear",
+    "plugin": "image_picker_ios 0.8.13+6",
+    "outcome": "native-unavailable-alert-dismissed",
+    "nativeAlertTitle": "Error",
+    "nativeAlertMessage": "Camera not available.",
+    "flutterPlatformExceptionCode": null,
+    "pluginReturnValue": null,
+    "basis": "Actual native alert screenshot and test log; plugin showCamera checks source type and requested device availability, then returns nil paths. No PlatformException emitted in this branch.",
+    "systemPermission": "First actual attempt allowed Springboard camera TCC in preceding diagnostic run; final run reused that granted state.",
+    "previewRetainedAfterDismissal": true,
+    "resultRetainedAfterDismissal": true,
+    "clipboardRetainedAfterDismissal": true,
+    "cameraPickerOpenedInFinalRun": false,
+    "physicalPhotoCaptured": false
+  },
+  "limitations": [
+    "Production clipboard and UI are new real results, not Widget screenshot fixture data.",
+    "This summary is not the raw native text/lines JSON payload; native geometry and confidence arrays were not exported.",
+    "Simulator plugin judged requested rear camera unavailable. Physical camera photo capture, real-device permissions and a new image recognition remain pending.",
+    "Current finite UI case covers this OCR page; it does not validate all 300 catalog businesses or all locales on device."
+  ],
+  "screenshots": [
+    {
+      "attachmentName": "flutter-source-ui-image-source-return-preserved",
+      "file": "项目相关报告/截图/OCR模拟器实屏/Flutter-关闭相机提示后保留.png",
+      "sha256": "8c24b6612744722f54ae6f2245b4097a9e6d6ac8097f04205faf5a3399a1a9b1"
+    },
+    {
+      "attachmentName": "flutter-source-ui-native-camera-unavailable",
+      "file": "项目相关报告/截图/OCR模拟器实屏/Flutter-相机后置镜头不可用.png",
+      "sha256": "85e681d20fb82c1e7329b2631a60dd4b8a41028527f5f5df42a5299981bb7dcc"
+    },
+    {
+      "attachmentName": "flutter-source-ui-dark-recognized",
+      "file": "项目相关报告/截图/OCR模拟器实屏/Flutter-深色-真实识别.png",
+      "sha256": "208186ca956bcb129ca5e3390b90b1fb22b7a499c949efe0513fbc149ede7e34"
+    },
+    {
+      "attachmentName": "flutter-source-ui-scrolled-result",
+      "file": "项目相关报告/截图/OCR模拟器实屏/Flutter-浅色-整页滚动.png",
+      "sha256": "5591bf6c0993a29dad3027214daa2d12fac191052d0da90096a06f9589514745"
+    },
+    {
+      "attachmentName": "flutter-source-ui-light-recognized",
+      "file": "项目相关报告/截图/OCR模拟器实屏/Flutter-浅色-真实识别.png",
+      "sha256": "03a9b207eb74b718cc81489ecb319da15b8a7f39b262da6e4be76d4e6cad3d29"
+    },
+    {
+      "attachmentName": "flutter-source-ui-light-initial",
+      "file": "项目相关报告/截图/OCR模拟器实屏/Flutter-浅色-输入.png",
+      "sha256": "6c04e2847e2a2bccf2958ce6d4ddf80c82d5c58a8564bdebc94fd302ef1fbac4"
+    }
+  ],
+  "priorDiagnosticRuns": {
+    "preservedAt": "/tmp/jobs-flutter-production-ui.8ZRyHK",
+    "purpose": "UI runner corrections and explicit camera boundary discovery; preceding failed xcresults are retained and do not count as accepted runs."
+  },
+  "artifacts": [
+    {
+      "file": "attachments-manifest.json",
+      "bytes": 3846,
+      "sha256": "51c12fb8aeb955baf895857ca88defde93cbbb5d1176e5a29488a89484853174"
+    },
+    {
+      "file": "clipboard-after-camera.txt",
+      "bytes": 2936,
+      "sha256": "290a01ed34c536ea7f07bb220268fa814af767c3d796856d2b9048ef83005cdc"
+    },
+    {
+      "file": "clipboard-before-camera.txt",
+      "bytes": 2936,
+      "sha256": "290a01ed34c536ea7f07bb220268fa814af767c3d796856d2b9048ef83005cdc"
+    },
+    {
+      "file": "production-result-ax.txt",
+      "bytes": 3678,
+      "sha256": "891fb35461a1c099b64a2785919acd5903cc676cd52f94a69f75f6c3b25f6319"
+    },
+    {
+      "file": "runner-build.log",
+      "bytes": 34413,
+      "sha256": "d9bfaabf7b76749e0af00a8716f521520a913cee5e40ddaa6cd875084ad2613f"
+    },
+    {
+      "file": "test.log",
+      "bytes": 24379,
+      "sha256": "1469f2ca441020052230c93d3d81231bed19d409eaa5edf49fd42b921f2d2233"
+    },
+    {
+      "file": "tested-runner-source.txt",
+      "bytes": 20224,
+      "sha256": "ee6c5a0bd63261bd5f1555cc300ffcbbeab3be00db1c8c83b5ed584d3db46b43"
+    },
+    {
+      "file": "visible-ax-text-fragment.txt",
+      "bytes": 2936,
+      "sha256": "290a01ed34c536ea7f07bb220268fa814af767c3d796856d2b9048ef83005cdc"
+    }
+  ]
+}

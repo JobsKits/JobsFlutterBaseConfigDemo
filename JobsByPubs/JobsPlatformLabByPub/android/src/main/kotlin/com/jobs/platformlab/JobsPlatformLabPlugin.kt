@@ -40,6 +40,19 @@ class JobsPlatformLabPlugin : FlutterPlugin, MethodChannel.MethodCallHandler,
     private var player: MediaPlayer? = null
     private var videoResult: MethodChannel.Result? = null
     private var sensorKind = ""
+    private var lastShakeTime = 0L
+    // 首页入口与传感器 Demo 分开注册，彼此停止时不抢占监听。
+    private val shakeListener = object : SensorEventListener {
+        override fun onSensorChanged(event: SensorEvent) {
+            val strength = kotlin.math.sqrt(event.values.take(3).sumOf { it.toDouble() * it.toDouble() }) / SensorManager.GRAVITY_EARTH
+            val now = SystemClock.elapsedRealtime()
+            if (strength > 2.2 && now - lastShakeTime > 1000) {
+                lastShakeTime = now
+                emit("shake", mapOf("event" to "shake"))
+            }
+        }
+        override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
+    }
     private val devices = mutableMapOf<String, BluetoothDevice>()
     private val rssis = mutableMapOf<String, Int>()
     private val connections = mutableMapOf<String, BluetoothGatt>()
@@ -201,6 +214,17 @@ class JobsPlatformLabPlugin : FlutterPlugin, MethodChannel.MethodCallHandler,
                 result.success(true)
             }
             "motion.stop" -> { sensors.unregisterListener(this); result.success(true) }
+            "shake.start" -> {
+                sensors.unregisterListener(shakeListener)
+                val sensor = sensors.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+                    ?: throw IllegalStateException("Accelerometer unavailable")
+                check(sensors.registerListener(shakeListener, sensor, 50_000)) { "Accelerometer registration failed" }
+                result.success(true)
+            }
+            "shake.stop" -> {
+                sensors.unregisterListener(shakeListener)
+                result.success(true)
+            }
             "clipboard.write" -> { (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("Jobs",args["text"] as? String ?: ""));result.success(true) }
             "clipboard.read" -> result.success((context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).primaryClip?.getItemAt(0)?.coerceToText(context)?.toString() ?: "")
             "system.share" -> {
@@ -557,5 +581,5 @@ class JobsPlatformLabPlugin : FlutterPlugin, MethodChannel.MethodCallHandler,
             else -> result.notImplemented()
         }
     }
-    private fun stopResources(){rtmp.stop();pdf?.close();pdfDescriptor?.close();sensors.unregisterListener(this);stopAudio(false);player?.release();connections.values.forEach{try{it.disconnect();it.close()}catch(_:Exception){}};connections.clear();scanner?.let{try{it.stopScan(scanCallback)}catch(_:Exception){}}}
+    private fun stopResources(){rtmp.stop();pdf?.close();pdfDescriptor?.close();sensors.unregisterListener(this);sensors.unregisterListener(shakeListener);stopAudio(false);player?.release();connections.values.forEach{try{it.disconnect();it.close()}catch(_:Exception){}};connections.clear();scanner?.let{try{it.stopScan(scanCallback)}catch(_:Exception){}}}
 }

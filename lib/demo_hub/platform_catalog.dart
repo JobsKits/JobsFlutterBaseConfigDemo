@@ -1,4 +1,5 @@
 import 'legacy_catalog.dart';
+import '../demos/离线文字识别/离线文字识别.dart';
 import '../demos/PDF文档浏览/PDF文档浏览.dart';
 import '../demos/Unity引擎容器/Unity引擎容器.dart';
 import '../demos/蓝牙实验室/蓝牙实验室.dart';
@@ -14,6 +15,14 @@ import '../demos/视频录制直播/视频录制直播.dart';
 import '../demos/运行时类检查/运行时类检查.dart';
 
 final platformDemos = <LegacyDemoEntry>[
+  LegacyDemoEntry(
+    id: 'rust-ocr',
+    title: '离线文字识别',
+    group: '媒体与设备',
+    sourcePath: 'lib/demos/离线文字识别/离线文字识别.dart',
+    tags: ['Rust', 'OCR', 'Indra', '离线', '文字识别'],
+    builder: (_) => const RustOCRDemo(),
+  ),
   LegacyDemoEntry(
     id: 'platform-runtime',
     title: '运行时类检查',

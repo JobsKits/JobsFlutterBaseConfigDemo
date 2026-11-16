@@ -1,0 +1,40 @@
+{
+  "scope": "receipt validation only; synthetic JSON fixtures do not claim OCR/device acceptance",
+  "tests": [
+    {
+      "case": "valid-contract",
+      "status": "passed",
+      "expected_receipt_status": "passed"
+    },
+    {
+      "case": "stale-run",
+      "status": "passed",
+      "expected_receipt_status": "failed"
+    },
+    {
+      "case": "native-error",
+      "status": "passed",
+      "expected_receipt_status": "failed"
+    },
+    {
+      "case": "missing-anchor",
+      "status": "passed",
+      "expected_receipt_status": "failed"
+    },
+    {
+      "case": "bad-dimensions",
+      "status": "passed",
+      "expected_receipt_status": "failed"
+    },
+    {
+      "case": "bad-platform",
+      "status": "passed",
+      "expected_receipt_status": "failed"
+    },
+    {
+      "case": "bad-text-hash",
+      "status": "passed",
+      "expected_receipt_status": "failed"
+    }
+  ]
+}

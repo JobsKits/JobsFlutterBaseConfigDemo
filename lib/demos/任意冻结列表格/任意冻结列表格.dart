@@ -1,7 +1,12 @@
+// 独立运行：flutter run -t "lib/demos/任意冻结列表格/任意冻结列表格.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
 import '../../demo_hub/extra_support.dart';
+
+void main() => runApp(const JobsDemoApp(home: FrozenTableLabDemo()));
 
 class FrozenTableLabDemo extends StatefulWidget {
   const FrozenTableLabDemo({super.key});
@@ -15,7 +20,7 @@ class _State extends State<FrozenTableLabDemo> {
   bool empty = false;
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(extraTr(context, '任意冻结列表格'))),
+    appBar: JobsDemoAppBar(title: Text(extraTr(context, '任意冻结列表格'))),
     body: Column(
       children: [
         Padding(
@@ -81,5 +86,3 @@ class _State extends State<FrozenTableLabDemo> {
     ),
   );
 }
-
-void main() => runApp(const JobsDemoApp(home: FrozenTableLabDemo()));

@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/原生与Flutter往返/原生与Flutter往返.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -70,7 +73,7 @@ class _NativeFlutterRoundTripState extends State<NativeFlutterRoundTripDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(interopTr(context, '原生与Flutter往返'))),
+    appBar: JobsDemoAppBar(title: Text(interopTr(context, '原生与Flutter往返'))),
     body: ListView(
       padding: const EdgeInsets.all(20),
       children: [

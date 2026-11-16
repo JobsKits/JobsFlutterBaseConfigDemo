@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+import 'package:jobs_flutter_base_config/demo_hub/ios_frame_binding.dart';
+
+void main() {
+  JobsWidgetsFlutterBinding();
+  runApp(const _FrameProbe());
+}
+
+class _FrameProbe extends StatefulWidget {
+  const _FrameProbe();
+
+  @override
+  State<_FrameProbe> createState() => _FrameProbeState();
+}
+
+class _FrameProbeState extends State<_FrameProbe> {
+  int taps = 0;
+
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: const Text('Jobs frame timing probe')),
+      body: Center(
+        child: FilledButton(
+          onPressed: () => setState(() => taps++),
+          child: Text('Tap $taps'),
+        ),
+      ),
+    ),
+  );
+}

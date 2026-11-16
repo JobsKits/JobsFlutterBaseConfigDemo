@@ -1,0 +1,93 @@
+{
+  "scope": "Static runner command-contract fixtures only; native commands/Flutter/Pods/SwiftPM/network/device/OCR were not executed by these fixtures",
+  "script_sha256": "3b1655d38346f7cf53afa83059de9bc92853fa109eb4c3413bf2dc5e0d37052d",
+  "checks": [
+    {
+      "case": "official-default",
+      "passed": true,
+      "calls": [
+        [
+          "build.log",
+          "/Users/jobs/fvm/versions/stable/bin/flutter",
+          "build",
+          "ios",
+          "--debug",
+          "--no-pub",
+          "-d",
+          "test-only",
+          "-t",
+          "lib/demos/离线文字识别/验收入口.dart",
+          "--dart-define=JOBS_OCR_AUTO=true",
+          "--dart-define=JOBS_OCR_RUN_ID=test-only",
+          "--simulator",
+          "--no-codesign"
+        ]
+      ],
+      "spm_cache": "/Users/jobs/Documents/GitHub/JobsBaseConfig/JobsBaseConfig@JobsFlutterBaseConfigDemo/work/RustOCRValidation/runner-static/spm-audit/test-only-host/build cache/ios/SourcePackages"
+    },
+    {
+      "case": "explicit-dd",
+      "passed": true,
+      "calls": [
+        [
+          "configure.log",
+          "/Users/jobs/fvm/versions/stable/bin/flutter",
+          "build",
+          "ios",
+          "--debug",
+          "--no-pub",
+          "-d",
+          "test-only",
+          "-t",
+          "lib/demos/离线文字识别/验收入口.dart",
+          "--dart-define=JOBS_OCR_AUTO=true",
+          "--dart-define=JOBS_OCR_RUN_ID=test-only",
+          "--simulator",
+          "--no-codesign",
+          "--config-only"
+        ],
+        [
+          "pods.log",
+          "pod",
+          "install",
+          "--no-repo-update"
+        ],
+        [
+          "build.log",
+          "/usr/bin/arch",
+          "-arm64e",
+          "xcrun",
+          "xcodebuild",
+          "-clonedSourcePackagesDirPath",
+          "/Users/jobs/Documents/GitHub/JobsBaseConfig/JobsBaseConfig@JobsFlutterBaseConfigDemo/work/RustOCRValidation/runner-static/spm-audit/test-only-host/build cache/ios/SourcePackages",
+          "-workspace",
+          "/Users/jobs/Documents/GitHub/JobsBaseConfig/JobsBaseConfig@JobsFlutterBaseConfigDemo/work/RustOCRValidation/runner-static/spm-audit/test-only-host/ios/Runner.xcworkspace",
+          "-scheme",
+          "Runner",
+          "-configuration",
+          "Debug",
+          "-sdk",
+          "iphonesimulator",
+          "-destination",
+          "id=test-only",
+          "-derivedDataPath",
+          "/Users/jobs/Documents/GitHub/JobsBaseConfig/JobsBaseConfig@JobsFlutterBaseConfigDemo/work/RustOCRValidation/runner-static/spm-audit/explicit-dd/existing DD",
+          "-jobs",
+          "1",
+          "BUILD_DIR=/Users/jobs/Documents/GitHub/JobsBaseConfig/JobsBaseConfig@JobsFlutterBaseConfigDemo/work/RustOCRValidation/runner-static/spm-audit/test-only-host/build cache/ios",
+          "FLUTTER_TARGET=/Users/jobs/Documents/GitHub/JobsBaseConfig/JobsBaseConfig@JobsFlutterBaseConfigDemo/work/RustOCRValidation/runner-static/spm-audit/test-only-host/lib/demos/离线文字识别/验收入口.dart",
+          "DART_DEFINES=Sk9CU19PQ1JfQVVUTz10cnVl,Sk9CU19PQ1JfUlVOX0lEPXRlc3Qtb25seQ==",
+          "CODE_SIGNING_ALLOWED=NO",
+          "CODE_SIGNING_REQUIRED=NO",
+          "CODE_SIGNING_IDENTITY=\"\"",
+          "build"
+        ]
+      ],
+      "spm_cache": "/Users/jobs/Documents/GitHub/JobsBaseConfig/JobsBaseConfig@JobsFlutterBaseConfigDemo/work/RustOCRValidation/runner-static/spm-audit/test-only-host/build cache/ios/SourcePackages"
+    },
+    {
+      "case": "changed-sdk-refuses-manual-override",
+      "passed": true
+    }
+  ]
+}

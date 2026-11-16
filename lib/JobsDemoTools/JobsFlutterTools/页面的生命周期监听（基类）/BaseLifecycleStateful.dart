@@ -1,2 +1,2 @@
 // 兼容旧导入；专属实现与教学页面同目录维护。
-export 'package:jobs_flutter_base_config/demos/页面生命周期基类/源码/BaseLifecycleStateful.dart';
+export 'package:jobs_flutter_base_config/demos/页面生命周期基类/BaseLifecycleStateful.dart';

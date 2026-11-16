@@ -36,7 +36,7 @@ jobs:
           persist-credentials: false
 
       - name: Prepare the repository Flutter SDK with validated network routes
-        run: /bin/zsh .github/ci/【MacOS】PrepareFlutterSdk.zsh/【MacOS】PrepareFlutterSdk.zsh --install 3.50.0 arm64
+        run: /bin/zsh .github/ci/【MacOS】PrepareFlutterSdk.zsh/【MacOS】PrepareFlutterSdk.zsh --install "$(jq -er '.flutter' .fvmrc)" arm64
 
       - name: Verify Flutter, Xcode and Simulator SDK
         run: /bin/zsh .github/ci/verify.zsh toolchain
@@ -58,6 +58,15 @@ jobs:
       - name: Build the complete Web app
         timeout-minutes: 15
         run: flutter build web --no-pub 2>&1 | tee "$JOBS_CI_LOG_DIR/web-build.log"
+
+      - name: Prepare the validated Rust toolchain
+        run: rustup toolchain install 1.95.0 --profile minimal
+
+      - name: Build the owned OCR core from repository sources
+        timeout-minutes: 20
+        env:
+          RUSTUP_TOOLCHAIN: '1.95.0'
+        run: /bin/zsh 'JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Scripts/BuildRustOCR.command' --non-interactive
 
       - name: Build the complete default iOS Simulator app
         timeout-minutes: 35

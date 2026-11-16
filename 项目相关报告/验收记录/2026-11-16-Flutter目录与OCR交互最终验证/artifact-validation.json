@@ -1,0 +1,15 @@
+{
+  "app": "build/ios/iphonesimulator/Runner.app",
+  "dartSourceFiles": 823,
+  "changedSourcesDuringBuild": [],
+  "combinedDartSourceSHA256": "5cd013a52b119a212438def3a8ad94ccb227253ce5eec3062fbd9348e50fd5f3",
+  "kernel": {
+    "path": "build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin",
+    "bytes": 112228664,
+    "sha256": "a5b226e64c38b2b3e25c8c423ff2b8a45f13f6176cc32a55f4944144186137fd",
+    "mtime": "2026-11-16T15:16:55.000Z",
+    "containsCameraKey": true,
+    "containsCopyKey": true
+  },
+  "nativeArchivesUnchanged": true
+}

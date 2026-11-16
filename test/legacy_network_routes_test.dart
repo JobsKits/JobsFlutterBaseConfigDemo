@@ -6,8 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
-import 'package:jobs_flutter_base_config/demos/原生网络请求教学/入口.dart';
-import 'package:jobs_flutter_base_config/demos/网络请求库教学/入口.dart';
+import 'package:jobs_flutter_base_config/demos/原生网络请求教学/原生网络请求教学.dart';
+import 'package:jobs_flutter_base_config/demos/网络请求库教学/网络请求库教学.dart';
 import 'package:jobs_flutter_base_config/demos/网络请求库教学/演示数据回退.dart';
 
 // 两种真实旧解析页面均走可注入离线传输，检查七种方法可进入、请求和返回。

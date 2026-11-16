@@ -15,7 +15,7 @@
   "editor.guides.bracketPairs": "active",
   "editor.bracketPairColorization.enabled": true,
   "editor.matchBrackets": "always",
-  "dart.flutterSdkPath": ".fvm/versions/3.50.0",
+  "dart.flutterSdkPath": ".fvm/flutter_sdk",
   "dart.sdkPath": ".fvm/flutter_sdk/bin/cache/dart-sdk",
   "terminal.integrated.inheritEnv": true,
   "editor.glyphMargin": true,

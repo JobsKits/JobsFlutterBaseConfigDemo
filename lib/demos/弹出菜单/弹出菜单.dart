@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/弹出菜单/弹出菜单.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
@@ -38,7 +41,7 @@ class _PopupMenuDemoState extends State<PopupMenuDemo> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, '弹出菜单'))),
+    appBar: JobsDemoAppBar(title: Text(tr(context, '弹出菜单'))),
     body: _items.isEmpty
         ? JobsEmptyState(
             title: '暂无数据',

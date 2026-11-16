@@ -10,6 +10,8 @@ import 'package:jobs_flutter_base_config/demos/钱包卡片/钱包卡片.dart';
 import 'package:jobs_flutter_base_config/demos/滑动解锁/滑动解锁.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/demo_toolbar.dart';
+
 // 运行 flutter test test/parallel_demo_test.dart；覆盖新增页面挂载、退出及实际操作。
 void main() {
   setUp(() => SharedPreferences.setMockInitialValues({}));
@@ -77,7 +79,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
     expect(find.text('Item 1'), findsOneWidget);
-    await tester.tap(find.byTooltip('Clear list'));
+    await tapDemoMenuAction(tester, find.text('Clear list'));
     await tester.pump();
     expect(find.text('No data yet'), findsOneWidget);
     await unmount(tester);

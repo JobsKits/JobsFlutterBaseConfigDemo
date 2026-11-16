@@ -1,5 +1,5 @@
 // 兼容旧导入路径；功能源码统一维护在中文目录。
-export 'package:jobs_flutter_base_config/demos/通过全局键调用实例/源码/InvokeInstanceFuncDemo.dart';
-import 'package:jobs_flutter_base_config/demos/通过全局键调用实例/源码/InvokeInstanceFuncDemo.dart' as migrated;
+export 'package:jobs_flutter_base_config/demos/通过全局键调用实例/InvokeInstanceFuncDemo.dart';
+import 'package:jobs_flutter_base_config/demos/通过全局键调用实例/InvokeInstanceFuncDemo.dart' as migrated;
 
 void main() => migrated.main();

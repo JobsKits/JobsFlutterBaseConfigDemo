@@ -1,7 +1,12 @@
+// 独立运行：flutter run -t "lib/demos/球形点选/球形点选.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 
 import '../../demo_hub/extra_support.dart';
+
+void main() => runApp(const JobsDemoApp(home: SphereLabDemo()));
 
 class SphereLabDemo extends StatefulWidget {
   const SphereLabDemo({super.key});
@@ -35,5 +40,3 @@ class _State extends State<SphereLabDemo> {
     ],
   );
 }
-
-void main() => runApp(const JobsDemoApp(home: SphereLabDemo()));

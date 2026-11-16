@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/搜索历史/搜索历史.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -65,7 +68,7 @@ class _SearchHistoryDemoState extends State<SearchHistoryDemo> {
         )
         .toList();
     return Scaffold(
-      appBar: AppBar(title: Text(tr(context, '搜索历史'))),
+      appBar: JobsDemoAppBar(title: Text(tr(context, '搜索历史'))),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [

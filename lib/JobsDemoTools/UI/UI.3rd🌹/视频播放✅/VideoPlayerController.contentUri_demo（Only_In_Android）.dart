@@ -1,5 +1,5 @@
 // 兼容旧导入路径；功能源码统一维护在中文目录。
-export 'package:jobs_flutter_base_config/demos/旧例·Android内容URI视频/源码/VideoPlayerController.contentUri_demo（Only_In_Android）.dart';
-import 'package:jobs_flutter_base_config/demos/旧例·Android内容URI视频/源码/VideoPlayerController.contentUri_demo（Only_In_Android）.dart' as migrated;
+export 'package:jobs_flutter_base_config/demos/Android内容URI视频/VideoPlayerController.contentUri_demo（Only_In_Android）.dart';
+import 'package:jobs_flutter_base_config/demos/Android内容URI视频/VideoPlayerController.contentUri_demo（Only_In_Android）.dart' as migrated;
 
 void main() => migrated.main();

@@ -1,0 +1,16 @@
+name: jobs_interactive_geometry
+description: Jobs 可操作几何、投影、粒子与迟滞控件。
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: '>=3.14.0 <4.0.0'
+  flutter: '>=3.50.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  vector_math: ^2.2.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true

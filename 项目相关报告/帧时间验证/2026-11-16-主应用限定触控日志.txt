@@ -1,0 +1,29 @@
+2026-11-16 正式主应用限定触控；模拟器 iPhone18Pro / iOS27.2。
+原始进程 stdout/stderr 保留在本机任务产物 adaptive-clock/flutter-physical/；以下副本仅脱敏调试服务 URI，不过滤目标错误。
+clamping计数0仅限所列场景，不能证明已修复。
+
+===== clock-console.raw.log / bytes=1199 / Reported-frame-time-older=0 =====
+2026-11-16 14:53:01.359 Runner[63439:8133739] Warning: Unable to create restoration in progress marker file
+2026-11-16 14:53:01.360 Runner[63439:8133739] logCollectUserId must be less than 128.
+Engine creation error: Error Domain=com.apple.CoreHaptics Code=-4815 "(null)"
+2026-11-16 14:53:01.585 Runner[63439:8133739] | MTPushEngagelab | Flutter | iOS | application:didFinishLaunchingWithOptions
+objc[63439]: Class UIAccessibilityLoaderWebShared is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.awLWFK/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10dfcc310) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.awLWFK/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10ded0398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+com.example.jobsFlutterBaseConfigDemo: 63439
+
+
+===== pull-console.raw.log / bytes=1090 / Reported-frame-time-older=0 =====
+2026-11-16 14:56:04.964 Runner[64687:8141110] logCollectUserId must be less than 128.
+Engine creation error: Error Domain=com.apple.CoreHaptics Code=-4815 "(null)"
+2026-11-16 14:56:05.096 Runner[64687:8141110] | MTPushEngagelab | Flutter | iOS | application:didFinishLaunchingWithOptions
+objc[64687]: Class UIAccessibilityLoaderWebShared is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.awLWFK/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x116bd8310) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.awLWFK/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10ef20398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+com.example.jobsFlutterBaseConfigDemo: 64687
+
+
+===== pull-header-console.raw.log / bytes=1090 / Reported-frame-time-older=0 =====
+2026-11-16 15:08:40.361 Runner[73147:8176189] logCollectUserId must be less than 128.
+Engine creation error: Error Domain=com.apple.CoreHaptics Code=-4815 "(null)"
+2026-11-16 15:08:40.484 Runner[73147:8176189] | MTPushEngagelab | Flutter | iOS | application:didFinishLaunchingWithOptions
+objc[73147]: Class UIAccessibilityLoaderWebShared is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.awLWFK/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10d078310) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.awLWFK/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10d0cc398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+com.example.jobsFlutterBaseConfigDemo: 73147
+
+

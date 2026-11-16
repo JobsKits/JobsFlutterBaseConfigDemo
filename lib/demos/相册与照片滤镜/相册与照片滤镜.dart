@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/相册与照片滤镜/相册与照片滤镜.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 

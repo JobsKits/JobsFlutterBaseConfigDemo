@@ -988,6 +988,13 @@ packages:
       relative: true
     source: path
     version: "0.1.0"
+  jobs_interactive_geometry:
+    dependency: "direct main"
+    description:
+      path: "JobsByPubs/JobsInteractiveGeometryByPub"
+      relative: true
+    source: path
+    version: "0.1.0"
   jobs_lab_runtime:
     dependency: "direct main"
     description:
@@ -1013,6 +1020,13 @@ packages:
     dependency: "direct main"
     description:
       path: "JobsByPubs/JobsRunnersByPub"
+      relative: true
+    source: path
+    version: "0.1.0"
+  jobs_rust_ocr:
+    dependency: "direct main"
+    description:
+      path: "JobsByPubs/JobsRustOCRByPub"
       relative: true
     source: path
     version: "0.1.0"

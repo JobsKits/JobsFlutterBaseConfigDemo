@@ -13,7 +13,11 @@
       "has_existing": false,
       "sha256_after": "d29f1e177401cf9e32395cd915b4c7e741b2c9b506ebe27d6158c8a6c5baa52c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/全局路由观察/JobsRouteObserver.dart",
+      "current_entry_target": "lib/demos/全局路由观察/JobsRouteObserver.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/BLoC.dart",
@@ -27,7 +31,11 @@
       "has_existing": true,
       "sha256_after": "8b3a803e38ce8409d36ec1ab6f25dbcaef61b8c45e368dd355c1e52e4ea0ff24",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/事件驱动状态管理/BLoC.dart",
+      "current_entry_target": "lib/demos/事件驱动状态管理/BLoC.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/数据处理/JsonConverterDemo.dart",
@@ -41,7 +49,11 @@
       "has_existing": false,
       "sha256_after": "4962d577d02076ca2070e36fcb8c9849bc47d3f2a018bad5c872321fc10b1772",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/JSON字段转换/JsonConverterDemo.dart",
+      "current_entry_target": "lib/demos/JSON字段转换/JsonConverterDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo.dart",
@@ -55,7 +67,11 @@
       "has_existing": false,
       "sha256_after": "25cea3f8a19c32ee735ecd829fd095a02799d2f62b9d752cd0d17d6101023524",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/友盟统计与崩溃/umeng_demo.dart",
+      "current_entry_target": "lib/demos/友盟统计与崩溃/umeng_demo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/数据库操作/FMDB_Demo.dart",
@@ -69,7 +85,11 @@
       "has_existing": false,
       "sha256_after": "7f090086e35d73145a0e24fc9b4518c78a1b09eefc70ffa8e2d31062e712c293",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/SQLite数据库读写/FMDB_Demo.dart",
+      "current_entry_target": "lib/demos/SQLite数据库读写/FMDB_Demo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/Provider/ProviderDemo1.dart",
@@ -83,7 +103,11 @@
       "has_existing": false,
       "sha256_after": "8407b94f013c9c9cadb836b5262c26825af1beaa067375112f4931faf8cfbc25",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Provider通知与计数/ProviderDemo1.dart",
+      "current_entry_target": "lib/demos/Provider通知与计数/ProviderDemo1.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/Provider/Provider.dart",
@@ -97,7 +121,11 @@
       "has_existing": true,
       "sha256_after": "2ef4557fa607b403ad92898f9697761c7081789aefe5f871083199f635cbd8b4",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/依赖通知状态管理/Provider.dart",
+      "current_entry_target": "lib/demos/依赖通知状态管理/Provider.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/截屏操作/Screenshot.dart",
@@ -111,7 +139,11 @@
       "has_existing": false,
       "sha256_after": "a28c17e0deb584fb2f8d6398c4ad412a3cccfe6ef39f0038d6e68a571382e68f",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/页面截图与保存/Screenshot.dart",
+      "current_entry_target": "lib/demos/页面截图与保存/Screenshot.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Flow/Flow.dart",
@@ -125,7 +157,11 @@
       "has_existing": true,
       "sha256_after": "710116fe39ae6f759c7aad71da8a3b2c379bbd14686437c7ee6107eca28dcb40",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/流式布局代理/Flow.dart",
+      "current_entry_target": "lib/demos/流式布局代理/Flow.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/本地数据存取/StorageHelperDemo.dart",
@@ -139,7 +175,11 @@
       "has_existing": true,
       "sha256_after": "82fb9357fe0da3e473ea75ca4d2ac718b5fa9045d47541390943c1fb745105a8",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/本地数据存取/StorageHelperDemo.dart",
+      "current_entry_target": "lib/demos/本地数据存取/StorageHelperDemo.dart",
+      "current_group": "网络与存储",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/悬浮按钮✅/HoverBtn.dart",
@@ -153,7 +193,11 @@
       "has_existing": true,
       "sha256_after": "6fb74309ee12b1bbec88ad58cef536075fe563028f2e8258e1fba94bd00fc0bc",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/拖动磁吸旋转按钮/HoverBtn.dart",
+      "current_entry_target": "lib/demos/拖动磁吸旋转按钮/HoverBtn.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/监听/跨页面监听/widgets/JobsTextField.dart",
@@ -167,7 +211,11 @@
       "has_existing": false,
       "sha256_after": "b20fc8fa525301b492c50053824ab28033e43a7b62a0e7d99c1c521c98be2005",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/输入框封装教学/JobsTextField.dart",
+      "current_entry_target": "lib/demos/输入框封装教学/JobsTextField.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/监听/跨页面监听/widgets/JobsButton.dart",
@@ -181,7 +229,11 @@
       "has_existing": false,
       "sha256_after": "4e8b5591b0b2a049c4c4fadedb88632071cfe6495bae70aada1e5668411972a0",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/按钮封装教学/JobsButton.dart",
+      "current_entry_target": "lib/demos/按钮封装教学/JobsButton.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/WidgetExtensionsDemo.dart",
@@ -195,7 +247,11 @@
       "has_existing": true,
       "sha256_after": "4df9f10a05b5921d3249d481a5d49c8ada0cf7979f8c163055ad54fd0a6da0de",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/手势链式扩展/WidgetExtensionsDemo.dart",
+      "current_entry_target": "lib/demos/手势链式扩展/WidgetExtensionsDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Widget的相互调用/Main_Widget.dart",
@@ -209,7 +265,11 @@
       "has_existing": false,
       "sha256_after": "0f3a0caecdddc0a9eefc917c82374f51f1dccdfc01558439ae4fc5ccdfea2d85",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/组件互调之父组件/Main_Widget.dart",
+      "current_entry_target": "lib/demos/组件互调之父组件/Main_Widget.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Widget的相互调用/A_Widget.dart",
@@ -223,7 +283,11 @@
       "has_existing": false,
       "sha256_after": "834a5277b3dd72f80ff4708fa60b8467c4a68ffd3d0bf7f597186d625cbb8b39",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/组件互调之子组件/A_Widget.dart",
+      "current_entry_target": "lib/demos/组件互调之子组件/A_Widget.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Block/BlockDemo.dart",
@@ -237,7 +301,11 @@
       "has_existing": false,
       "sha256_after": "7a546ff3e6177698b63c09a764790542691b57e1163d3f2ab6faec804a5ad18c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/回调函数与语言参数/BlockDemo.dart",
+      "current_entry_target": "lib/demos/回调函数与语言参数/BlockDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo2/mqtt_demo2.dart",
@@ -251,7 +319,11 @@
       "has_existing": false,
       "sha256_after": "a200fce89ad6345cd183e2a81cb94a21672f30dd77d45ca3fcb1d7230b412651",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/MQTT消息发布订阅二/mqtt_demo2.dart",
+      "current_entry_target": "lib/demos/MQTT消息发布订阅二/mqtt_demo2.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/Sys/MaterialAppDemo.dart",
@@ -265,7 +337,11 @@
       "has_existing": false,
       "sha256_after": "feba924283f79db4ee772266aee79de70283745c224561aaffb830f3f2f00a45",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Material应用容器/MaterialAppDemo.dart",
+      "current_entry_target": "lib/demos/Material应用容器/MaterialAppDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/Sys/CupertinoAppDemo.dart",
@@ -279,7 +355,11 @@
       "has_existing": false,
       "sha256_after": "4f50cd0e4ef2267c607f46db3daf9952245bedba92f318c3a063f2d07db1fa52",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Cupertino应用容器/CupertinoAppDemo.dart",
+      "current_entry_target": "lib/demos/Cupertino应用容器/CupertinoAppDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/监听/跨页面监听/CrossPagesListenDemo.dart",
@@ -293,7 +373,11 @@
       "has_existing": false,
       "sha256_after": "fe59f041494872c991fa3c363376d7e496428fdb51b654d8aa6eacbf72c3cce1",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/跨页面状态监听/CrossPagesListenDemo.dart",
+      "current_entry_target": "lib/demos/跨页面状态监听/CrossPagesListenDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo1/mqtt_demo1.dart",
@@ -307,7 +391,11 @@
       "has_existing": false,
       "sha256_after": "4b1b402358777642aa894c94551f616aa514afed2664fb2b8231ecd2124add3c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/MQTT消息发布订阅一/mqtt_demo1.dart",
+      "current_entry_target": "lib/demos/MQTT消息发布订阅一/mqtt_demo1.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/StreamController/StreamControllerDemo.dart",
@@ -321,7 +409,11 @@
       "has_existing": true,
       "sha256_after": "c692384ef2e51311976c56d0305f84fd8457470679195a8249e8aa76f19cea6c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/流式数据监听/StreamControllerDemo.dart",
+      "current_entry_target": "lib/demos/流式数据监听/StreamControllerDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/监听/生命周期的监听/AppLifecycleStateDemo.dart",
@@ -335,7 +427,11 @@
       "has_existing": false,
       "sha256_after": "0f9c0fdccc8325835b343374fb8f26cf5f25c383e9d32c900870fa2372024456",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/应用前后台状态观察/AppLifecycleStateDemo.dart",
+      "current_entry_target": "lib/demos/应用前后台状态观察/AppLifecycleStateDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/GetMaterialAppDemo.dart",
@@ -349,7 +445,11 @@
       "has_existing": false,
       "sha256_after": "557462ee4fd01149fe3b17d8dd18e7dd68687298f4992a13b96e08c010553f62",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX应用容器/GetMaterialAppDemo.dart",
+      "current_entry_target": "lib/demos/GetX应用容器/GetMaterialAppDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/EasyLocalizationAppDemo.dart",
@@ -363,7 +463,11 @@
       "has_existing": false,
       "sha256_after": "a61379e44128347de7dfc37d3eea4c520b1d469bb425f1f60330426b1d8c9c9c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/资源词典国际化/EasyLocalizationAppDemo.dart",
+      "current_entry_target": "lib/demos/资源词典国际化/EasyLocalizationAppDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/WidgetsAppDemo.dart",
@@ -377,7 +481,11 @@
       "has_existing": false,
       "sha256_after": "e4f696199abba6a84cd1796d038e5fd27176712c2e8833661c0847cbca4941bc",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/底层应用容器/WidgetsAppDemo.dart",
+      "current_entry_target": "lib/demos/底层应用容器/WidgetsAppDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/DevicePreviewAppDemo.dart",
@@ -391,7 +499,11 @@
       "has_existing": false,
       "sha256_after": "48180c97f227f474855a337dc32fff05c4cd5aed236bd9499bd30b5d4866dca7",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/设备尺寸预览容器/DevicePreviewAppDemo.dart",
+      "current_entry_target": "lib/demos/设备尺寸预览容器/DevicePreviewAppDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/Pages/3rd/PhoenixAppDemo.dart",
@@ -405,7 +517,11 @@
       "has_existing": false,
       "sha256_after": "d48e498943d755099e167bc288bbb64475d43b159f2c321adb724499107ec750",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/应用状态树重启/PhoenixAppDemo.dart",
+      "current_entry_target": "lib/demos/应用状态树重启/PhoenixAppDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/页面的构建/MainBuildPage.dart",
@@ -419,7 +535,11 @@
       "has_existing": false,
       "sha256_after": "1350040a46cdb18da46e5a9fd27b35dd1a0ebe95435f74e1beec305ba23943b7",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/页面构建过程/MainBuildPage.dart",
+      "current_entry_target": "lib/demos/页面构建过程/MainBuildPage.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/动画过渡UI/AnimatedDemo.dart",
@@ -433,7 +553,11 @@
       "has_existing": true,
       "sha256_after": "7b2f4b8c272c3415e195d83e6057d2a5c2d78ea7284ffc59a4aca979d82a45d2",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/按钮大小位置动画/AnimatedDemo.dart",
+      "current_entry_target": "lib/demos/按钮大小位置动画/AnimatedDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/StatefulWidget.dart",
@@ -447,7 +571,11 @@
       "has_existing": true,
       "sha256_after": "32f38ffc3576539dda0c8a3b30e4c57122edc3081394c4039fbdf5b1fc056e25",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/状态组件生命周期/StatefulWidget.dart",
+      "current_entry_target": "lib/demos/状态组件生命周期/StatefulWidget.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/动画/Tween.dart",
@@ -461,7 +589,11 @@
       "has_existing": true,
       "sha256_after": "538e47208852194293e8bd14bc8958bf16c1a27ada5eab987cb066eb17faddd5",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/补间动画/Tween.dart",
+      "current_entry_target": "lib/demos/补间动画/Tween.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/注解的定义和使用/JobsOverrideDemo.dart",
@@ -475,7 +607,11 @@
       "has_existing": false,
       "sha256_after": "7d52b4d1cc803bc8f683f71d8c8f6191186c01444b9123406a104bc8bbc200db",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/方法重写与继承/JobsOverrideDemo.dart",
+      "current_entry_target": "lib/demos/方法重写与继承/JobsOverrideDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/注解的定义和使用/AnnotationDemo.dart",
@@ -489,7 +625,11 @@
       "has_existing": false,
       "sha256_after": "10401259bc55ff2d962c8dce14b75563d237689a0942549839acfede83bd8e22",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/注解与元数据查询/AnnotationDemo.dart",
+      "current_entry_target": "lib/demos/注解与元数据查询/AnnotationDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo1/intl_international_Demo1.dart",
@@ -503,7 +643,11 @@
       "has_existing": false,
       "sha256_after": "5c8b0f7aa3ba42eaba9d497fbac34be9567d79f4f002d90b9f49adcca527b684",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/国际化示例一/intl_international_Demo1.dart",
+      "current_entry_target": "lib/demos/国际化示例一/intl_international_Demo1.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_format_Demo.dart",
@@ -517,7 +661,11 @@
       "has_existing": false,
       "sha256_after": "230e76ae187029cc32b274f55a07a4dd38c20d6684b0399db91ddc874bb019cb",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/日期货币格式化/intl_format_Demo.dart",
+      "current_entry_target": "lib/demos/日期货币格式化/intl_format_Demo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/Set/Set.dart",
@@ -531,7 +679,11 @@
       "has_existing": false,
       "sha256_after": "312a4dbf8524bd2547c46d152fc8fb23fbfac640611cfd4ef9aaac952a5a32dd",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/集合去重与运算/Set.dart",
+      "current_entry_target": "lib/demos/集合去重与运算/Set.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetView.dart",
@@ -545,7 +697,11 @@
       "has_existing": true,
       "sha256_after": "25e3304f47a5adc1cd01096018e2d421e929daa710fa9e2401683756245ec31a",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/控制器生命周期观察/GetView.dart",
+      "current_entry_target": "lib/demos/控制器生命周期观察/GetView.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RxListenerDemo.dart",
@@ -559,7 +715,11 @@
       "has_existing": true,
       "sha256_after": "6a2d81eb72dc78d46bd42a3e033058ccb81f3deddaf09cedaf47ec6a6d2e690c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/响应式监听防抖节流/GetX_RxListenerDemo.dart",
+      "current_entry_target": "lib/demos/响应式监听防抖节流/GetX_RxListenerDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_InternationalDemo.dart",
@@ -573,7 +733,11 @@
       "has_existing": false,
       "sha256_after": "f306d570d252542bba79b6e46b1283e484863faf9d4da2d1f7ea432084a6855d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX国际化词典/GetX_InternationalDemo.dart",
+      "current_entry_target": "lib/demos/GetX国际化词典/GetX_InternationalDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/安全加载图片/JobsSafeImage.dart",
@@ -587,7 +751,11 @@
       "has_existing": false,
       "sha256_after": "5d0e3c0759bd114dc7594b43711da555eff6dc206895a092788e8ef4fb1e2774",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/安全图片加载/JobsSafeImage.dart",
+      "current_entry_target": "lib/demos/安全图片加载/JobsSafeImage.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/手势/点击（Tap）/TapDemo.dart",
@@ -601,7 +769,11 @@
       "has_existing": true,
       "sha256_after": "6eae274f90caf6d9e197543dc0f4aa918c7803bcd23e54463bd6bdd5feac16da",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/单击双击与长按/TapDemo.dart",
+      "current_entry_target": "lib/demos/单击双击与长按/TapDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Function/FunctionDemo.dart",
@@ -615,7 +787,11 @@
       "has_existing": false,
       "sha256_after": "e47992d6142dea3215cf0e2c6d13fef6139a88ff233bfe0faaee6e14cb5f61a8",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/函数参数与返回值/FunctionDemo.dart",
+      "current_entry_target": "lib/demos/函数参数与返回值/FunctionDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo2/intl_international_Demo2.dart",
@@ -629,7 +805,11 @@
       "has_existing": false,
       "sha256_after": "e24f5867d2539df113fe57e280f5837c4311b7c45b0e10e5a3bcc9068ff60396",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/国际化示例二/intl_international_Demo2.dart",
+      "current_entry_target": "lib/demos/国际化示例二/intl_international_Demo2.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_PageStateDemo/GetX_DeleteDemo.dart",
@@ -643,7 +823,11 @@
       "has_existing": false,
       "sha256_after": "5bf8a3bdb30494c49b1684c5630755c8b8e72397a33db8bab26e1992b1a2aa81",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX控制器删除/GetX_DeleteDemo.dart",
+      "current_entry_target": "lib/demos/GetX控制器删除/GetX_DeleteDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_PageStateDemo/GetX_PageStateDemo2.dart",
@@ -657,7 +841,11 @@
       "has_existing": false,
       "sha256_after": "61ac87967968417ad10855a3bcb72a929212556e3f26665a10a5f074180982d9",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX页面状态示例二/GetX_PageStateDemo2.dart",
+      "current_entry_target": "lib/demos/GetX页面状态示例二/GetX_PageStateDemo2.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_PageStateDemo/GetX_FindDemo.dart",
@@ -671,7 +859,11 @@
       "has_existing": false,
       "sha256_after": "0f81596acfa7c05c126c2dc44c3a3051025d2e1fd02456ed95e5e03fe31d1ce0",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX控制器查找/GetX_FindDemo.dart",
+      "current_entry_target": "lib/demos/GetX控制器查找/GetX_FindDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_PageStateDemo/GetX_PageStateDemo1.dart",
@@ -685,7 +877,11 @@
       "has_existing": false,
       "sha256_after": "ed69a0d44c4b27dd3942d5b7b86bd9c272082abd78e61c54985c0f4c6ad75186",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX页面状态示例一/GetX_PageStateDemo1.dart",
+      "current_entry_target": "lib/demos/GetX页面状态示例一/GetX_PageStateDemo1.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/手势/缩放（Scale）/ScaleDemo.dart",
@@ -699,7 +895,11 @@
       "has_existing": true,
       "sha256_after": "ee99e2d850d69a6daae694742789952562127d73c73b7d3bff12abbacfa4094c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/缩放手势/ScaleDemo.dart",
+      "current_entry_target": "lib/demos/缩放手势/ScaleDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Overlay/JobsOverlay.dart",
@@ -713,7 +913,11 @@
       "has_existing": true,
       "sha256_after": "0714e5243aa6bcebe30b7cf0258b565fc8a804d2d1a91ec85ed1df50e9a6dba0",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/自定义浮层/JobsOverlay.dart",
+      "current_entry_target": "lib/demos/自定义浮层/JobsOverlay.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/方法调用/InvokeInstanceFuncDemo.dart",
@@ -727,7 +931,11 @@
       "has_existing": true,
       "sha256_after": "40e538a3a85da6812274a393512c45cf7071861d26266defdda5b480edd46003",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/通过全局键调用实例/InvokeInstanceFuncDemo.dart",
+      "current_entry_target": "lib/demos/通过全局键调用实例/InvokeInstanceFuncDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/方法调用/InvokeStaticFuncDemo.dart",
@@ -741,7 +949,11 @@
       "has_existing": true,
       "sha256_after": "cf47dfc6c2b21c0692492aec99869314f10382223292170f3d1f96ca77dd033c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/跨组件静态方法/InvokeStaticFuncDemo.dart",
+      "current_entry_target": "lib/demos/跨组件静态方法/InvokeStaticFuncDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Json.dart",
@@ -755,7 +967,11 @@
       "has_existing": false,
       "sha256_after": "0d6b576efddbc283ccc14298e3df4ef84d3cf4b1b43e893f21014373b456d82e",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/JSON对象编解码/Json.dart",
+      "current_entry_target": "lib/demos/JSON对象编解码/Json.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo4/intl_international_Demo4.dart",
@@ -769,7 +985,11 @@
       "has_existing": false,
       "sha256_after": "41d6a18a72e4eb4c8fa8000f1f33d1cdbc106fce2549fb89a1482131f84fdbea",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/国际化委托与菜单/intl_international_Demo4.dart",
+      "current_entry_target": "lib/demos/国际化委托与菜单/intl_international_Demo4.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/手势/拖动（Drag）/DragDemo.dart",
@@ -783,7 +1003,11 @@
       "has_existing": true,
       "sha256_after": "120eadaf27ce5dd186e12844f2f2721187c6f712c36b96998f87235c2e75491a",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/拖动手势/DragDemo.dart",
+      "current_entry_target": "lib/demos/拖动手势/DragDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/Riverpod/Riverpod.dart",
@@ -797,7 +1021,11 @@
       "has_existing": false,
       "sha256_after": "cbf0f731de45dd22402d2fa79415f2f9c6239e6bf330f3a20aaa5724ea3d3f5c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Riverpod状态管理/Riverpod.dart",
+      "current_entry_target": "lib/demos/Riverpod状态管理/Riverpod.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/🔥首页联动切换子页面/SwitchSubPagesDemo.dart",
@@ -811,7 +1039,11 @@
       "has_existing": true,
       "sha256_after": "b5f2d5f366c180c81cac65ae37f0a86a864a765f0d405b84afe21fdf42568ee4",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/首页联动子页面/SwitchSubPagesDemo.dart",
+      "current_entry_target": "lib/demos/首页联动子页面/SwitchSubPagesDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/built_value.dart",
@@ -825,7 +1057,11 @@
       "has_existing": false,
       "sha256_after": "c75e83746606a1969ad892cb4dda110bb814e68658cdce9b8753766431eb248a",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/不可变模型与JSON解析/built_value.dart",
+      "current_entry_target": "lib/demos/不可变模型与JSON解析/built_value.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/本地通知✅/LocalNotificationsDemo.dart",
@@ -839,7 +1075,11 @@
       "has_existing": false,
       "sha256_after": "7912767cf1f13487c5f7c10f5c9931015722610ef668a46bad333bf1f118fd9d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/本地系统通知/LocalNotificationsDemo.dart",
+      "current_entry_target": "lib/demos/本地系统通知/LocalNotificationsDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/手势/滑动（Swipe）/SwipeDemo.dart",
@@ -853,7 +1093,11 @@
       "has_existing": true,
       "sha256_after": "5bbdb0f839d1953ec42a449653e008d032e6453e721b1f8246a8b21d617584d6",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/滑动手势/SwipeDemo.dart",
+      "current_entry_target": "lib/demos/滑动手势/SwipeDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/ConstrainedBox/ConstrainedBox.dart",
@@ -867,7 +1111,11 @@
       "has_existing": true,
       "sha256_after": "c5e65556c645b6465b4fc245b20da0e18ce912e1533a8d08828ac7310b1bbf14",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/尺寸约束/ConstrainedBox.dart",
+      "current_entry_target": "lib/demos/尺寸约束/ConstrainedBox.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/CustomMultiChildLayout/CustomMultiChildLayout.dart",
@@ -881,7 +1129,11 @@
       "has_existing": true,
       "sha256_after": "5227cf5ab91fddfc7e29f8d18cb42042a2ec2b7e5e3d8e9ca20664772778fcc8",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/多子组件布局代理/CustomMultiChildLayout.dart",
+      "current_entry_target": "lib/demos/多子组件布局代理/CustomMultiChildLayout.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/BoxDecoration/BoxDecoration.dart",
@@ -895,7 +1147,11 @@
       "has_existing": true,
       "sha256_after": "3e3ac24ab6a973eed26c00c3e766eadcf7b0d7e3ac54c9fd40723e56dd1f12fb",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/边框阴影渐变/BoxDecoration.dart",
+      "current_entry_target": "lib/demos/边框阴影渐变/BoxDecoration.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/WidgetsBinding/事件循环和调度/WidgetsBindingDemo1.dart",
@@ -909,7 +1165,11 @@
       "has_existing": false,
       "sha256_after": "eea13005c217ad9da1d28bf1a75497e408a5723611da529c3154668080b43aba",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/事件循环与帧调度/WidgetsBindingDemo1.dart",
+      "current_entry_target": "lib/demos/事件循环与帧调度/WidgetsBindingDemo1.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/键盘事件监听/Keyboard.dart",
@@ -923,7 +1183,11 @@
       "has_existing": true,
       "sha256_after": "b325c746c3ad3cbb2b19522084e6f00d7dbb4d910c9e14243bdfbab695a8f1ea",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/键盘事件监听/Keyboard.dart",
+      "current_entry_target": "lib/demos/键盘事件监听/Keyboard.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/WidgetStateProperty/WidgetStateProperty.dart",
@@ -937,7 +1201,11 @@
       "has_existing": false,
       "sha256_after": "cba3f5ee46b146236b170e566f396dd412ea65c2b882897bd16ece756ff2a142",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/控件状态属性/WidgetStateProperty.dart",
+      "current_entry_target": "lib/demos/控件状态属性/WidgetStateProperty.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/导航返回键的行为拦截和自定义/PopScope.dart",
@@ -951,7 +1219,11 @@
       "has_existing": true,
       "sha256_after": "ec36a8a7c17a9217c7a67f95cccada4dab60263215caabb2f5b91225b982d71a",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/返回拦截与确认/PopScope.dart",
+      "current_entry_target": "lib/demos/返回拦截与确认/PopScope.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/倒计时按钮✅/CountdownBtn.dart",
@@ -965,7 +1237,11 @@
       "has_existing": true,
       "sha256_after": "39c3b30e7b026f50b9003c133802be2ff9db00d2031543a7889fabc63f5927ae",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/倒计时与暂停恢复/CountdownBtn.dart",
+      "current_entry_target": "lib/demos/倒计时与暂停恢复/CountdownBtn.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/WidgetsBinding/渲染树更新/WidgetsBindingDemo3.dart",
@@ -979,7 +1255,11 @@
       "has_existing": false,
       "sha256_after": "a15d451e4c39d3a132c2f50f97ac7474201c0b27579c31adbf233c29cf57df2d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/渲染树更新调度/WidgetsBindingDemo3.dart",
+      "current_entry_target": "lib/demos/渲染树更新调度/WidgetsBindingDemo3.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/UITabbarController.dart",
@@ -993,7 +1273,11 @@
       "has_existing": true,
       "sha256_after": "af24c59a52bfd96ec11c920c9940ecaee12c6fa52d40e40a4a2b9a47f301b0a7",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/底部分页导航/UITabbarController.dart",
+      "current_entry_target": "lib/demos/底部分页导航/UITabbarController.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/ListWheelScrollViewDemo.dart",
@@ -1007,7 +1291,11 @@
       "has_existing": true,
       "sha256_after": "9ada944176f65b2f716218d7514c0037ebf80137585307c7c381895f82022421",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/滚轮列表/ListWheelScrollViewDemo.dart",
+      "current_entry_target": "lib/demos/滚轮列表/ListWheelScrollViewDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/JXCategoryView.dart",
@@ -1021,7 +1309,11 @@
       "has_existing": true,
       "sha256_after": "be68164269a8b118609c47b8e6797f5a0136371d38a4cf6955e14111fe1e1e75",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/分类分页标签/JXCategoryView.dart",
+      "current_entry_target": "lib/demos/分类分页标签/JXCategoryView.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/UITableViewDemo.dart",
@@ -1035,7 +1327,11 @@
       "has_existing": true,
       "sha256_after": "3e23d09e49467b22deab64c20b1ccbdef11aede7eef5bef85075cdb754e5a40b",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/自定义列表单元格/UITableViewDemo.dart",
+      "current_entry_target": "lib/demos/自定义列表单元格/UITableViewDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/PageViewDemo.dart",
@@ -1049,7 +1345,11 @@
       "has_existing": true,
       "sha256_after": "cf884857352c4824b278acb500c5f0953ffe13e7363ffa03dc60593b69e7ff2b",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/横向分页滚动/PageViewDemo.dart",
+      "current_entry_target": "lib/demos/横向分页滚动/PageViewDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/CustomScrollViewDemo.dart",
@@ -1063,7 +1363,11 @@
       "has_existing": true,
       "sha256_after": "0473c7c4b2e751f764f78bf9cd9bb9bd47ec4085ef69803a336c745050baeb40",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/组合滚动视图/CustomScrollViewDemo.dart",
+      "current_entry_target": "lib/demos/组合滚动视图/CustomScrollViewDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Center/Center.dart",
@@ -1077,7 +1381,11 @@
       "has_existing": true,
       "sha256_after": "7be02c7ec4215ae7186c1568fbe08171660998d446ac4c578617a707e1a9522d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/居中布局/Center.dart",
+      "current_entry_target": "lib/demos/居中布局/Center.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/WidgetsBinding/平台消息处理/WidgetsBindingDemo4.dart",
@@ -1091,7 +1399,11 @@
       "has_existing": false,
       "sha256_after": "44fa4ee2329fe40b56f3b8fd7a244617aea14962d29dad790bc695e6b945d814",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/平台消息处理/WidgetsBindingDemo4.dart",
+      "current_entry_target": "lib/demos/平台消息处理/WidgetsBindingDemo4.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Expanded + Wrap/Expanded + Wrap.dart",
@@ -1105,7 +1417,11 @@
       "has_existing": true,
       "sha256_after": "963a70df07f5bfcafb13a05b9baf1e793003c87094060f64bfb17b2cbbd1fcef",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/填充与换行组合/Expanded + Wrap.dart",
+      "current_entry_target": "lib/demos/填充与换行组合/Expanded + Wrap.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/NestedScrollView/NestedScrollView.dart",
@@ -1119,7 +1435,11 @@
       "has_existing": true,
       "sha256_after": "ae5d9696d2c702330445db28e46c3d3f2572fd8750e5317b1a81391925711236",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/嵌套滚动与分页/NestedScrollView.dart",
+      "current_entry_target": "lib/demos/嵌套滚动与分页/NestedScrollView.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/SingleChildScrollView/ShowsVerticalScrollIndicator.dart",
@@ -1133,7 +1453,11 @@
       "has_existing": false,
       "sha256_after": "a5caf1e1ae981fd192bee8bb3cbd3d59512a98f7e1e0fbefe9d4a4daf2756f62",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/滚动指示器控制/ShowsVerticalScrollIndicator.dart",
+      "current_entry_target": "lib/demos/滚动指示器控制/ShowsVerticalScrollIndicator.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/滚动控件✅/GridViewDemo.dart",
@@ -1147,7 +1471,11 @@
       "has_existing": true,
       "sha256_after": "1c2445a5b1154cbbfa0bb9a289fc18c1061b329f5f7ca4f4aa2f51a9f574d7ec",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/网格列表/GridViewDemo.dart",
+      "current_entry_target": "lib/demos/网格列表/GridViewDemo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/上拉加载、下拉刷新/Easy_refresh_demo.dart",
@@ -1161,7 +1489,11 @@
       "has_existing": false,
       "sha256_after": "7d22abafe16c15c81f4930b050125f1ef550245ef75a3ed2b6ffad34c7d2e3e6",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/第三方刷新组件教学/Easy_refresh_demo.dart",
+      "current_entry_target": "lib/demos/第三方刷新组件教学/Easy_refresh_demo.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/LayoutBuilder/LayoutBuilder.dart",
@@ -1175,7 +1507,11 @@
       "has_existing": true,
       "sha256_after": "9f6d97e3a130e4fd982867ac46e89cc6b4f810211cf5d4a0d087c93e79c5f3c3",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/响应式布局/LayoutBuilder.dart",
+      "current_entry_target": "lib/demos/响应式布局/LayoutBuilder.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/5rd/Cupertino.dart",
@@ -1189,7 +1525,11 @@
       "has_existing": false,
       "sha256_after": "8c7fc344ec741d0649c0956bcccf0c35d9930c582d9e61b7dcb91d1ca944faaf",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Cupertino风格分页/Cupertino.dart",
+      "current_entry_target": "lib/demos/Cupertino风格分页/Cupertino.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/5rd/Material.dart",
@@ -1203,7 +1543,11 @@
       "has_existing": false,
       "sha256_after": "1fdbaa84421aa139bea86c5246a06bb03c469103c510508761d0264a17558e81",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Material风格分页/Material.dart",
+      "current_entry_target": "lib/demos/Material风格分页/Material.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/UnconstrainedBox/UnconstrainedBox.dart",
@@ -1217,7 +1561,11 @@
       "has_existing": true,
       "sha256_after": "bcdf896c55eead8b99cd2f97b4a4f8a34b2b6fa92c61d87ee3a4e83ee69364e4",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/解除尺寸约束/UnconstrainedBox.dart",
+      "current_entry_target": "lib/demos/解除尺寸约束/UnconstrainedBox.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/WidgetsBinding/应用生命周期管理/WidgetsBindingDemo2.dart",
@@ -1231,7 +1579,11 @@
       "has_existing": false,
       "sha256_after": "e717834d95557cfc7e88ab7d0e92005e672d3b9523ebc93fca6cff6ac882d9fe",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/应用生命周期调度/WidgetsBindingDemo2.dart",
+      "current_entry_target": "lib/demos/应用生命周期调度/WidgetsBindingDemo2.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/Inappwebview/InappwebviewDemo1.dart",
@@ -1245,7 +1597,11 @@
       "has_existing": false,
       "sha256_after": "5dcd0b4cfe825d6282a7331cc21a8039d2ab5dabc832748b49b9b386f6779299",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/嵌入网页混合滚动/InappwebviewDemo1.dart",
+      "current_entry_target": "lib/demos/嵌入网页混合滚动/InappwebviewDemo1.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Overlay/Overlay.dart",
@@ -1259,7 +1615,11 @@
       "has_existing": false,
       "sha256_after": "1799022d096852b60d9296b4b9bfe1dc87ceeb4b6b3eceed164b9763dc704a64",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/浮层布局教学/Overlay.dart",
+      "current_entry_target": "lib/demos/浮层布局教学/Overlay.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Flexible/Flexible.dart",
@@ -1273,7 +1633,11 @@
       "has_existing": true,
       "sha256_after": "03c9ee61244eff8b7cb8e67f02be5cec2b7c948c6c22208d706cf6e52509f055",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/弹性文本换行/Flexible.dart",
+      "current_entry_target": "lib/demos/弹性文本换行/Flexible.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/2nd/HomePage.dart",
@@ -1287,7 +1651,11 @@
       "has_existing": false,
       "sha256_after": "3690f49b2e288a9c4614d4d0a7f2b659aac363d5df18ea586244c99e954d1f62",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/标签分页示例二/HomePage.dart",
+      "current_entry_target": "lib/demos/标签分页示例二/HomePage.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/提示框/JobsAlertDialog.dart",
@@ -1301,7 +1669,11 @@
       "has_existing": true,
       "sha256_after": "12bf0ea5889ec8cd81af12213fd637b15fb3184e0ff31878177390add42a15aa",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/自定义提示框/JobsAlertDialog.dart",
+      "current_entry_target": "lib/demos/自定义提示框/JobsAlertDialog.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/提示框/TipsDemo.dart",
@@ -1315,7 +1687,11 @@
       "has_existing": true,
       "sha256_after": "8dd5e153fa90e8dcec49dffcb4865df41856d145aaced7a78085c0ebb2efd34d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/提示框行为组合/TipsDemo.dart",
+      "current_entry_target": "lib/demos/提示框行为组合/TipsDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/图文/Pic_Text.dart",
@@ -1329,7 +1705,11 @@
       "has_existing": false,
       "sha256_after": "b82e0a099ab20387e04e4e9667a1a6958bc0cda1fd03d6c77a1ebcc773381228",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/图文混排与样式/Pic_Text.dart",
+      "current_entry_target": "lib/demos/图文混排与样式/Pic_Text.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Stack/Stack.dart",
@@ -1343,7 +1723,11 @@
       "has_existing": false,
       "sha256_after": "a049146cacc60aede3b131653f4a8df042a2fb14d851557c0e7ed1672c627f82",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/层叠布局教学/Stack.dart",
+      "current_entry_target": "lib/demos/层叠布局教学/Stack.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Isolate/IsolateDemo1.dart",
@@ -1357,7 +1741,11 @@
       "has_existing": false,
       "sha256_after": "4ebf4edfffb9abe54e4970dcd940c4f1b7db2c100819f82304763b76ed2cecf5",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/隔离区双向消息/IsolateDemo1.dart",
+      "current_entry_target": "lib/demos/隔离区双向消息/IsolateDemo1.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Isolate/IsolateDemo2.dart",
@@ -1371,7 +1759,11 @@
       "has_existing": false,
       "sha256_after": "aae68c87f8f56ab358b09340a817d6fee233ad33d6f62dd9759457cf9081e5a3",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/隔离区任务计算/IsolateDemo2.dart",
+      "current_entry_target": "lib/demos/隔离区任务计算/IsolateDemo2.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/图片缓存/CachedNetworkImageDemo.dart",
@@ -1385,7 +1777,11 @@
       "has_existing": false,
       "sha256_after": "db429a287de7d09208d5e249eaf9028d8cb19e8935c6ef372912b370a8d6b4ef",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/网络图片缓存组件/CachedNetworkImageDemo.dart",
+      "current_entry_target": "lib/demos/网络图片缓存组件/CachedNetworkImageDemo.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/图片缓存/FadeInImageDemo(系统原生).dart",
@@ -1399,7 +1795,11 @@
       "has_existing": false,
       "sha256_after": "46352216d0999aa485345d443030bf6e216b49c129e81bbb460caaeee2e5f48d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/原生图片淡入加载/FadeInImageDemo(系统原生).dart",
+      "current_entry_target": "lib/demos/原生图片淡入加载/FadeInImageDemo(系统原生).dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/图片缓存/FileImageCacheDemo.dart",
@@ -1413,7 +1813,11 @@
       "has_existing": false,
       "sha256_after": "79d61612e0b96a384d71e9e743b841f8bdf25c60c36f6f159c1585c2cae50421",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/文件图片缓存/FileImageCacheDemo.dart",
+      "current_entry_target": "lib/demos/文件图片缓存/FileImageCacheDemo.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/1st/HomePage.dart",
@@ -1427,7 +1831,11 @@
       "has_existing": false,
       "sha256_after": "a510a97b6cdde6580c80196869a65920af4371a23882c57c18201ec14bbaed2e",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/标签分页示例一/HomePage.dart",
+      "current_entry_target": "lib/demos/标签分页示例一/HomePage.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/抽奖轮盘/第三方库flutter_fortune_wheel实现抽奖轮盘/FortuneWheelDemo.dart",
@@ -1441,7 +1849,11 @@
       "has_existing": true,
       "sha256_after": "90840de4618c35e518663fbc0b93b8a60935523bbc7f4f8b688fe27110c3315a",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/组件抽奖轮盘/FortuneWheelDemo.dart",
+      "current_entry_target": "lib/demos/组件抽奖轮盘/FortuneWheelDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Dart反射（全部验证通过）/DartReflect.dart",
@@ -1455,7 +1867,11 @@
       "has_existing": false,
       "sha256_after": "8e8793537221ce2e8092ec1da599b6915cacabd52331eb7b219dca7ed159146e",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/元数据与动态表单/DartReflect.dart",
+      "current_entry_target": "lib/demos/元数据与动态表单/DartReflect.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/App启动页面/AppLaunchPage_demo1.dart",
@@ -1469,7 +1885,11 @@
       "has_existing": false,
       "sha256_after": "4c8277ad4cb107f8ac8925d64d32ff56345c82765be132b695487851967c087d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/媒体广告开屏/AppLaunchPage_demo1.dart",
+      "current_entry_target": "lib/demos/媒体广告开屏/AppLaunchPage_demo1.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Text/Text.dart",
@@ -1483,7 +1903,11 @@
       "has_existing": false,
       "sha256_after": "b10a1491e84b321e472fbfaea8c14a0ae1aa71697267f65f1d1595e03d5f93e1",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/文字溢出与换行/Text.dart",
+      "current_entry_target": "lib/demos/文字溢出与换行/Text.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/3rd/HomePage.dart",
@@ -1497,7 +1921,11 @@
       "has_existing": false,
       "sha256_after": "d09866a17029230a9df706de63c9500ec934a7522a715012114f900a30104c93",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/标签分页示例三/HomePage.dart",
+      "current_entry_target": "lib/demos/标签分页示例三/HomePage.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/抽奖轮盘/纯原生Flutter实现抽奖轮/LuckyWheelPage.dart",
@@ -1511,7 +1939,11 @@
       "has_existing": false,
       "sha256_after": "0f7470e08e6125108b9e7c8e6baf64c5d8034552501dde089f9cd7b9a7fbb8c6",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/原生画布抽奖轮盘/LuckyWheelPage.dart",
+      "current_entry_target": "lib/demos/原生画布抽奖轮盘/LuckyWheelPage.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/4rd/HomePage.dart",
@@ -1525,7 +1957,11 @@
       "has_existing": false,
       "sha256_after": "7b3da4a4e3b0f3818838140bc196da5bbc7fb55d35b89940ed851914ca9811e9",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/标签分页示例四/HomePage.dart",
+      "current_entry_target": "lib/demos/标签分页示例四/HomePage.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo2/GetX_RouteDemo2.dart",
@@ -1539,7 +1975,11 @@
       "has_existing": false,
       "sha256_after": "186949f29ec95c777fc7ff3ca645ea54663a3ed6df4fa8b3973fb7ea3d81b8bc",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX命名路由示例二/GetX_RouteDemo2.dart",
+      "current_entry_target": "lib/demos/GetX命名路由示例二/GetX_RouteDemo2.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/复杂滚动效果·Sliver组件/SliverToBoxAdapterDemo1.dart",
@@ -1553,7 +1993,11 @@
       "has_existing": true,
       "sha256_after": "075e70b9948252c4a6c45ac6bafdfe24ed73338daf20a81a585bc4b872ec299c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/折叠头与混合列表/SliverToBoxAdapterDemo1.dart",
+      "current_entry_target": "lib/demos/折叠头与混合列表/SliverToBoxAdapterDemo1.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/复杂滚动效果·Sliver组件/SliverToBoxAdapterDemo3.dart",
@@ -1567,7 +2011,11 @@
       "has_existing": false,
       "sha256_after": "1d5ea8a1c9dd26ceda2f8691c4114ec238ac36e0b5f6969e7c8e4b16f26d3346",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/折叠滚动示例三/SliverToBoxAdapterDemo3.dart",
+      "current_entry_target": "lib/demos/折叠滚动示例三/SliverToBoxAdapterDemo3.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/复杂滚动效果·Sliver组件/SliverToBoxAdapterDemo2.dart",
@@ -1581,7 +2029,11 @@
       "has_existing": false,
       "sha256_after": "ab953fa97995d3bed8fc7106d4df21c7b5c088d11598f00146a9882631cbcf9d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/自动滚动与异形视图/SliverToBoxAdapterDemo2.dart",
+      "current_entry_target": "lib/demos/自动滚动与异形视图/SliverToBoxAdapterDemo2.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Keyboard.dart",
@@ -1595,7 +2047,11 @@
       "has_existing": false,
       "sha256_after": "71d52a261231b0b97aee31e727dfda5a5e722000e664e7cc9a503b072e4dc13e",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/键盘高度与视图指标/Keyboard.dart",
+      "current_entry_target": "lib/demos/键盘高度与视图指标/Keyboard.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Wrap/Wrap.dart",
@@ -1609,7 +2065,11 @@
       "has_existing": true,
       "sha256_after": "247fae17b0d5223ccabc54d0dfeb26423c03543915daf89778e549ba2255a31c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/自动换行布局/Wrap.dart",
+      "current_entry_target": "lib/demos/自动换行布局/Wrap.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo3/intl_international_Demo3.dart",
@@ -1623,7 +2083,11 @@
       "has_existing": false,
       "sha256_after": "d406a07900f153b22d2d57d9c0ab8e5f0d64a2bc2db462c29628fe30bbc37eb2",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/国际化示例三/intl_international_Demo3.dart",
+      "current_entry_target": "lib/demos/国际化示例三/intl_international_Demo3.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/CustomSingleChildLayout/CustomSingleChildLayout.dart",
@@ -1637,7 +2101,11 @@
       "has_existing": true,
       "sha256_after": "6684c0f09400c77a55fe47533ca1fb47bf4a1ea9a18d553ff93d3f41113c54a1",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/单子组件布局代理/CustomSingleChildLayout.dart",
+      "current_entry_target": "lib/demos/单子组件布局代理/CustomSingleChildLayout.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/打印/Print.dart",
@@ -1651,7 +2119,11 @@
       "has_existing": false,
       "sha256_after": "8fa026fd8979164c4deb189e6806dc0b19f1b689d0812f3dbba8ce4edaec1c4d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/控制台打印教学/Print.dart",
+      "current_entry_target": "lib/demos/控制台打印教学/Print.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo5/GetX_RouteDemo5.dart",
@@ -1665,7 +2137,11 @@
       "has_existing": false,
       "sha256_after": "4c834ef2e5e7b68ecbae97b5170c507c9419a4b4c72946678d16211fb908303f",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX路由传参与返回/GetX_RouteDemo5.dart",
+      "current_entry_target": "lib/demos/GetX路由传参与返回/GetX_RouteDemo5.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Flexible + Expanded/Flexible + Expanded.dart",
@@ -1679,7 +2155,11 @@
       "has_existing": false,
       "sha256_after": "283fb7bb5632c2ec44d51edefea44f0971e194fc29af51828c783a693465308e",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/弹性换行与填充对照/Flexible + Expanded.dart",
+      "current_entry_target": "lib/demos/弹性换行与填充对照/Flexible + Expanded.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Theme/Theme.dart",
@@ -1693,7 +2173,11 @@
       "has_existing": false,
       "sha256_after": "3421f27f0c42b11fb0edb71ff5293e93eb8c4abda9902b3b4fec9e933beb2d45",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/主题切换示例一/Theme.dart",
+      "current_entry_target": "lib/demos/主题切换示例一/Theme.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/Theme/Theme2.dart",
@@ -1707,7 +2191,11 @@
       "has_existing": false,
       "sha256_after": "749a3ef73dd2745e9a1d55dc3ea5fbf26736c622348bcbc1e6bb47d1df52ea97",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/主题切换示例二/Theme2.dart",
+      "current_entry_target": "lib/demos/主题切换示例二/Theme2.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/单例的写法/MySingletonDemo1.dart",
@@ -1721,7 +2209,11 @@
       "has_existing": false,
       "sha256_after": "3f5a10044442206fa5d6047d2bf9847803af6ab4ab9a9925ffdbfb28f64188d4",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/单例模式示例一/MySingletonDemo1.dart",
+      "current_entry_target": "lib/demos/单例模式示例一/MySingletonDemo1.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/单例的写法/MySingletonDemo2.dart",
@@ -1735,7 +2227,11 @@
       "has_existing": false,
       "sha256_after": "2eae0a63f28a1d768ecb43f3d34b7b6e17721dbdf57a86a97575af08e1e511e2",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/单例模式示例二/MySingletonDemo2.dart",
+      "current_entry_target": "lib/demos/单例模式示例二/MySingletonDemo2.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/单例的写法/MySingletonDemo3.dart",
@@ -1749,7 +2245,11 @@
       "has_existing": false,
       "sha256_after": "6352193f00031e74440093573289c9a0632685bee0c4f2a027e858d23bf12a7a",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/单例模式示例三/MySingletonDemo3.dart",
+      "current_entry_target": "lib/demos/单例模式示例三/MySingletonDemo3.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo1/GetX_RouteDemo1.dart",
@@ -1763,7 +2263,11 @@
       "has_existing": false,
       "sha256_after": "bf46c44f66eb3cbb50dc1223c41cbc085e7d355706b1f74207e1686f2fc1fc35",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX命名路由示例一/GetX_RouteDemo1.dart",
+      "current_entry_target": "lib/demos/GetX命名路由示例一/GetX_RouteDemo1.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo1/home_view.dart",
@@ -1777,7 +2281,11 @@
       "has_existing": false,
       "sha256_after": "12e0f87c1cf87a4bb89e836dc5d0eefb058f3f3707aeca2eb9ca782942196106",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX命名路由首页/home_view.dart",
+      "current_entry_target": "lib/demos/GetX命名路由首页/home_view.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo4/GetX_RouteDemo4.dart",
@@ -1791,7 +2299,11 @@
       "has_existing": false,
       "sha256_after": "b193729d90cc42770c428ea3c68e527334ccea21b38cb3772188b6e079c3d576",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX命名路由示例四/GetX_RouteDemo4.dart",
+      "current_entry_target": "lib/demos/GetX命名路由示例四/GetX_RouteDemo4.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo3/GetX_RouteDemo3.dart",
@@ -1805,7 +2317,11 @@
       "has_existing": false,
       "sha256_after": "813b202e109bf7d5538a7cb80e639d2ac4087262896927fbc5cf5ea2ad208042",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX命名路由示例三/GetX_RouteDemo3.dart",
+      "current_entry_target": "lib/demos/GetX命名路由示例三/GetX_RouteDemo3.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetXBindingDemo/GetXBindingDemo.dart",
@@ -1819,7 +2335,11 @@
       "has_existing": false,
       "sha256_after": "56693020d81c8dc279099d3b76da3c1f8122b0ce02a72f809c3eaa441782f783",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX依赖绑定启动/GetXBindingDemo.dart",
+      "current_entry_target": "lib/demos/GetX依赖绑定启动/GetXBindingDemo.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetxController的生命周期/LifecycleDemoPage.dart",
@@ -1833,7 +2353,11 @@
       "has_existing": true,
       "sha256_after": "8b8dbe8c0a72f8492ed4646cc8125f6149945d827b8170afd577a447db8bc8bb",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/控制器跨页生命周期/LifecycleDemoPage.dart",
+      "current_entry_target": "lib/demos/控制器跨页生命周期/LifecycleDemoPage.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/Json表格/没有合并/BonusHtmlTableView.dart",
@@ -1847,7 +2371,11 @@
       "has_existing": false,
       "sha256_after": "25cafdca290ad5806ffe9920a1508889e7a4af38c29b5963398afb24520c0f7c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/HTML富文本表格/BonusHtmlTableView.dart",
+      "current_entry_target": "lib/demos/HTML富文本表格/BonusHtmlTableView.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_networkUrl_demo.dart",
@@ -1861,7 +2389,11 @@
       "has_existing": true,
       "sha256_after": "c0c4193ebb7bc9e412a7c329ea817fe87ec7c2dc53357fc3dab1a41e6c01e6e9",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/网络视频播放/VideoPlayerController_networkUrl_demo.dart",
+      "current_entry_target": "lib/demos/网络视频播放/VideoPlayerController_networkUrl_demo.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_asset_demo.dart",
@@ -1875,7 +2407,11 @@
       "has_existing": true,
       "sha256_after": "0c9a644d4724a823229eb89f4390ec55fea77fda4d79e562aa4e58672b49623b",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/本地视频播放/VideoPlayerController_asset_demo.dart",
+      "current_entry_target": "lib/demos/本地视频播放/VideoPlayerController_asset_demo.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_file_demo.dart",
@@ -1889,7 +2425,11 @@
       "has_existing": false,
       "sha256_after": "702e05d887453deeb82e6a35b27cd99fd61cd1a2fb38260ff6bc0cadae8765c7",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/临时文件视频播放/VideoPlayerController_file_demo.dart",
+      "current_entry_target": "lib/demos/临时文件视频播放/VideoPlayerController_file_demo.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController_sandboxFile_demo.dart",
@@ -1903,7 +2443,11 @@
       "has_existing": false,
       "sha256_after": "49befd6b75ca0ebd279e5376b03b1b074e5690f76f7b6a7ec2767de0ac3ef4f7",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/沙盒文件视频播放/VideoPlayerController_sandboxFile_demo.dart",
+      "current_entry_target": "lib/demos/沙盒文件视频播放/VideoPlayerController_sandboxFile_demo.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/视频播放✅/VideoPlayerController.contentUri_demo（Only_In_Android）.dart",
@@ -1917,7 +2461,11 @@
       "has_existing": false,
       "sha256_after": "fb9a7dbd57d961d3627e1b6631b2ffcec0b6d2f0d8429fc67948a3fc27f19e19",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Android内容URI视频/VideoPlayerController.contentUri_demo（Only_In_Android）.dart",
+      "current_entry_target": "lib/demos/Android内容URI视频/VideoPlayerController.contentUri_demo（Only_In_Android）.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/dio_demo_main.dart",
@@ -1931,7 +2479,11 @@
       "has_existing": false,
       "sha256_after": "54c57957b128f8dbe1eb3dfaddbe8de2afb00353f6134a9ddaeb65e6b494a7e8",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Dio网络教学启动/dio_demo_main.dart",
+      "current_entry_target": "lib/demos/Dio网络教学启动/dio_demo_main.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调用本地相册+调用本机摄像头拍照✅/GalleryDemo✅.dart",
@@ -1945,7 +2497,11 @@
       "has_existing": true,
       "sha256_after": "8588051be78630d5b081e77cb1c9179531ba2ec7212ce1fc8d20485a7c36147c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/本地相册选图/GalleryDemo✅.dart",
+      "current_entry_target": "lib/demos/本地相册选图/GalleryDemo✅.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/GlobalKey/GlobalKeyDemo1.dart",
@@ -1959,7 +2515,11 @@
       "has_existing": true,
       "sha256_after": "d13f333ede10f970a30f07716f680fac4dc7e381effa7e80bbf986b3bc043079",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/表单全局键/GlobalKeyDemo1.dart",
+      "current_entry_target": "lib/demos/表单全局键/GlobalKeyDemo1.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调用本地相册+调用本机摄像头拍照✅/AllInOne✅/CameraPicAndVideoDemo.dart",
@@ -1973,7 +2533,11 @@
       "has_existing": false,
       "sha256_after": "a25f1a25056d1c37e9b4da98d88a28d6cbd483961a2955c458b22c60b26fd728",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/相机照片与视频采集/CameraPicAndVideoDemo.dart",
+      "current_entry_target": "lib/demos/相机照片与视频采集/CameraPicAndVideoDemo.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调用本地相册+调用本机摄像头拍照✅/CameraPicDemo✅.dart",
@@ -1987,7 +2551,11 @@
       "has_existing": true,
       "sha256_after": "26307c26f851a285da465dce59537735725b279f6e1710636412d3298b62c1f5",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/系统相机拍照/CameraPicDemo✅.dart",
+      "current_entry_target": "lib/demos/系统相机拍照/CameraPicDemo✅.dart",
+      "current_group": "媒体与设备",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调整View层级顺序/main2.dart",
@@ -2001,7 +2569,11 @@
       "has_existing": false,
       "sha256_after": "e0c81e7c6bd94a15e37aaac6c743858ad870e61cfc4744db3788921598d9101d",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/视图层级调整示例一/main2.dart",
+      "current_entry_target": "lib/demos/视图层级调整示例一/main2.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/调整View层级顺序/main.dart",
@@ -2015,7 +2587,11 @@
       "has_existing": false,
       "sha256_after": "9c1baf654ec384b1a1734eeae4d09c38e31457edfa3e39bb99ec5077b084d733",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/视图层级调整示例二/main.dart",
+      "current_entry_target": "lib/demos/视图层级调整示例二/main.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/异步渲染UI/GetXAsyncUI.dart",
@@ -2029,7 +2605,11 @@
       "has_existing": false,
       "sha256_after": "79a5b37c50c7dbdab4257889f73a4ecd3133f855f51f7a345f176fa59e285b06",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX异步界面渲染/GetXAsyncUI.dart",
+      "current_entry_target": "lib/demos/GetX异步界面渲染/GetXAsyncUI.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/http_demo_main.dart",
@@ -2043,7 +2623,11 @@
       "has_existing": false,
       "sha256_after": "80c1f5f18f7aeeb1882156c12656283239499ac58fcf3cc1b5b83c1ecb8d210e",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/HTTP网络教学启动/http_demo_main.dart",
+      "current_entry_target": "lib/demos/HTTP网络教学启动/http_demo_main.dart",
+      "current_group": "原有功能",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/复制内容到剪切板且气泡提醒/JobsCopyTips.dart",
@@ -2057,7 +2641,11 @@
       "has_existing": false,
       "sha256_after": "ac4049cb5ab1ca515afc8b989c45128f8db41a4d808512e6f47e532faca2c312",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/复制文字气泡提示/JobsCopyTips.dart",
+      "current_entry_target": "lib/demos/复制文字气泡提示/JobsCopyTips.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/弹出框/弹出框@GridView.dart",
@@ -2071,7 +2659,11 @@
       "has_existing": false,
       "sha256_after": "21aedb96b6d59b42583fb261ba67732dfdef729c787a6465693ea876d7682a86",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/网格弹出菜单/弹出框@GridView.dart",
+      "current_entry_target": "lib/demos/网格弹出菜单/弹出框@GridView.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/弹出框/弹出框@表格.dart",
@@ -2085,7 +2677,11 @@
       "has_existing": false,
       "sha256_after": "be694636bcfca95fd980a4b04809218425b1c63f93740a93e2c9b456d4ac75f4",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/表格弹出菜单/弹出框@表格.dart",
+      "current_entry_target": "lib/demos/表格弹出菜单/弹出框@表格.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Flexible+Wrap/Flexible+Wrap.dart",
@@ -2099,7 +2695,11 @@
       "has_existing": true,
       "sha256_after": "24f5c387d888776b601061bc7c0f54fef7f51b42db36cd45ed800d4dc1fa8306",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/弹性与换行组合/Flexible+Wrap.dart",
+      "current_entry_target": "lib/demos/弹性与换行组合/Flexible+Wrap.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/一般的富文本/sample_data.dart",
@@ -2113,7 +2713,11 @@
       "has_existing": false,
       "sha256_after": "9c9dd408abd4f3b8c8ef7157192f11536e419e97f99ae7e8ea2a74e6952297e5",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/段落富文本与交互/sample_data.dart",
+      "current_entry_target": "lib/demos/段落富文本与交互/sample_data.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsWebView/JobsWebViewWidget.dart",
@@ -2127,7 +2731,11 @@
       "has_existing": false,
       "sha256_after": "00a3dcfebc47c4a35f18925a6d30e739316f42a2df6f45ae4cbb4f343a894e55",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/网页容器与资源加载/JobsWebViewWidget.dart",
+      "current_entry_target": "lib/demos/网页容器与资源加载/JobsWebViewWidget.dart",
+      "current_group": "网络与存储",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsWebView/JobsReactiveWebView.dart",
@@ -2141,7 +2749,11 @@
       "has_existing": false,
       "sha256_after": "c48a2cc1ae4760d82e393632e792edadcfd8d6637d65605a312c38f196cec74b",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/响应式网页容器/JobsReactiveWebView.dart",
+      "current_entry_target": "lib/demos/响应式网页容器/JobsReactiveWebView.dart",
+      "current_group": "网络与存储",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/💥GetX的值双向绑定/💥GetX的值双向绑定.dart",
@@ -2155,7 +2767,11 @@
       "has_existing": false,
       "sha256_after": "998542aa3d2109979abd0b1cfd5b36e80ea657613a2aaeb8e521ee09b0cce8f3",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX双向数值绑定/💥GetX的值双向绑定.dart",
+      "current_entry_target": "lib/demos/GetX双向数值绑定/💥GetX的值双向绑定.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/GetX管理的页面的生命周期/GetXLifeCycleDemo.dart",
@@ -2169,7 +2785,11 @@
       "has_existing": false,
       "sha256_after": "d860743e21380ddd47bd66904f382a899deaccd6771ac6878c8207450597fce6",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX页面生命周期教学/GetXLifeCycleDemo.dart",
+      "current_entry_target": "lib/demos/GetX页面生命周期教学/GetXLifeCycleDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/轮播图✅/CardSwiperDemo.dart",
@@ -2183,7 +2803,11 @@
       "has_existing": false,
       "sha256_after": "0786c914b5b2127b0a1fb6c9b7fa7beae7dc6568ef7f2d35b511bc2cde239631",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/卡片图片轮播/CardSwiperDemo.dart",
+      "current_entry_target": "lib/demos/卡片图片轮播/CardSwiperDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/轮播图✅/CarouselSliderDemo.dart",
@@ -2197,7 +2821,11 @@
       "has_existing": false,
       "sha256_after": "2befd002078060652770679f2df09d55e1937d9d7502556ecae7b2b869fa6975",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/滑块图片轮播/CarouselSliderDemo.dart",
+      "current_entry_target": "lib/demos/滑块图片轮播/CarouselSliderDemo.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/GetView/GetViewDemo.dart",
@@ -2211,7 +2839,11 @@
       "has_existing": false,
       "sha256_after": "b23db40c16fcd846bdfd3ed4793b517b9922f03430490ddc5819d79d42837857",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/GetX视图控制器教学/GetViewDemo.dart",
+      "current_entry_target": "lib/demos/GetX视图控制器教学/GetViewDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/不规则图形✅/Irregular_btn.dart",
@@ -2225,7 +2857,11 @@
       "has_existing": false,
       "sha256_after": "c805f0a065920910eeeff961b8f7bfe18ce33fd515f8ee28d131d110aa579606",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/不规则按钮绘制/Irregular_btn.dart",
+      "current_entry_target": "lib/demos/不规则按钮绘制/Irregular_btn.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/页面的生命周期监听（基类）/JobsPageDemo.dart",
@@ -2239,7 +2875,11 @@
       "has_existing": true,
       "sha256_after": "05d68241ee691c288e36bf7d62725c56f269fbf8dce78d76ca2ceb452ad39eaa",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/页面生命周期基类/JobsPageDemo.dart",
+      "current_entry_target": "lib/demos/页面生命周期基类/JobsPageDemo.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsSimplyNotification/JobsSimplyNotification.dart",
@@ -2253,7 +2893,11 @@
       "has_existing": false,
       "sha256_after": "685b9b3a3d93786691398723878341f8815ae88ceb02a6109944c89c44489a8c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/简易通知封装/JobsSimplyNotification.dart",
+      "current_entry_target": "lib/demos/简易通知封装/JobsSimplyNotification.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@JXCategoryView/JobsCategoryPage.dart",
@@ -2267,7 +2911,11 @@
       "has_existing": true,
       "sha256_after": "19261564b2bf05cbb9a7b65db6f24d90ef10b29f7e105f1dc18550e65412a82a",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/自适应分类分页/JobsCategoryPage.dart",
+      "current_entry_target": "lib/demos/自适应分类分页/JobsCategoryPage.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/按钮切换子页面/JobsSegmentTabs.dart",
@@ -2281,7 +2929,11 @@
       "has_existing": true,
       "sha256_after": "459e18e66d5c026efec18a9feb9eac82324e5119b3b7cbe6c6dbc86618b96493",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/胶囊按钮切页/JobsSegmentTabs.dart",
+      "current_entry_target": "lib/demos/胶囊按钮切页/JobsSegmentTabs.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsRichText.dart",
@@ -2295,7 +2947,11 @@
       "has_existing": false,
       "sha256_after": "7136f696257f06ad2d9ba6eaaf74405830df7e5e372180e48996c8336be1e127",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/富文本拼接封装/JobsRichText.dart",
+      "current_entry_target": "lib/demos/富文本拼接封装/JobsRichText.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsNotification/JobsNotification.dart",
@@ -2309,7 +2965,11 @@
       "has_existing": false,
       "sha256_after": "e77bbc37c4097902d25dfeeb8bbc9685179c6bcc150ee7ae8a49d9330b1475a3",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/本地消息通知封装/JobsNotification.dart",
+      "current_entry_target": "lib/demos/本地消息通知封装/JobsNotification.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/ShapeDecoration.dart",
@@ -2323,7 +2983,11 @@
       "has_existing": false,
       "sha256_after": "9cd0ea0260786a2a85907f5b7fb1ca0bb03c31569e85fba58b615cb4773c05fc",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/形状与渐变装饰/ShapeDecoration.dart",
+      "current_entry_target": "lib/demos/形状与渐变装饰/ShapeDecoration.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/InputDecoration.dart",
@@ -2337,7 +3001,11 @@
       "has_existing": false,
       "sha256_after": "7768311390d2cc916559e53090b84d73176186f8d991d4a2d1abb0836bae14f6",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/输入装饰与提示/InputDecoration.dart",
+      "current_entry_target": "lib/demos/输入装饰与提示/InputDecoration.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/UnderlineTabIndicator.dart",
@@ -2351,7 +3019,11 @@
       "has_existing": false,
       "sha256_after": "d79fc45ed3b7c006fec7353302630013f2da622770518f9fec456ce58baa35f7",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/分页下划线指示器/UnderlineTabIndicator.dart",
+      "current_entry_target": "lib/demos/分页下划线指示器/UnderlineTabIndicator.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/FlutterLogoDecoration.dart",
@@ -2365,7 +3037,11 @@
       "has_existing": false,
       "sha256_after": "fc9e2476dcdcadfcd76686f3827575e40025bc8314119ea3a3a7e6a648beeaf4",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/Flutter标志装饰/FlutterLogoDecoration.dart",
+      "current_entry_target": "lib/demos/Flutter标志装饰/FlutterLogoDecoration.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Decoration/BoxDecoration.dart",
@@ -2379,7 +3055,11 @@
       "has_existing": false,
       "sha256_after": "675ba56723f9e9450cec4c5ecb1a1f7743a04b96f82ff921ee950875cb34bbbf",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/容器装饰组合/BoxDecoration.dart",
+      "current_entry_target": "lib/demos/容器装饰组合/BoxDecoration.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/❤️页面布局示例❤️/Expanded/Expanded.dart",
@@ -2393,7 +3073,11 @@
       "has_existing": true,
       "sha256_after": "a8b8b588f9319cc5a99900b86acc7f2c7e46d6a8bc5419427a05feb4bb8fe2f7",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/弹性填充布局/Expanded.dart",
+      "current_entry_target": "lib/demos/弹性填充布局/Expanded.dart",
+      "current_group": "基础与布局",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@iOS李明杰解析/Demo/main.dart",
@@ -2407,7 +3091,11 @@
       "has_existing": false,
       "sha256_after": "3be5370d51f5a3c45ec9db0888dc8457cef1f69969a2de91517553098a92da61",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/模型字典解析教学/main.dart",
+      "current_entry_target": "lib/demos/模型字典解析教学/main.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/剪切板复制/NativeClipboard.dart",
@@ -2421,7 +3109,11 @@
       "has_existing": false,
       "sha256_after": "dd6a3e95ec939588e67cd14dea448bcff408ece40344921760508cd4a6e20f12",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/系统剪贴板与邀请码/NativeClipboard.dart",
+      "current_entry_target": "lib/demos/系统剪贴板与邀请码/NativeClipboard.dart",
+      "current_group": "原生能力对齐",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/广告轮播图/JobsBannerCarousel.dart",
@@ -2435,7 +3127,11 @@
       "has_existing": false,
       "sha256_after": "102615c3d1d7851668a775f4092011d1a1a69dfffb122aefa0f37bf197c5132c",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/广告轮播组件/JobsBannerCarousel.dart",
+      "current_entry_target": "lib/demos/广告轮播组件/JobsBannerCarousel.dart",
+      "current_group": "交互与动画",
+      "current_paths_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/调试/JobsCommonUtil.dart",
@@ -2449,7 +3145,11 @@
       "has_existing": false,
       "sha256_after": "f0c00e7ab5a81034b23d80dc12c9a64d274ba924781c2341661b7f76eeca55eb",
       "reachable": true,
-      "status": "migrated-with-compatible-original-entry"
+      "status": "migrated-with-compatible-original-entry",
+      "current_target": "lib/demos/调试输出与工具函数/JobsCommonUtil.dart",
+      "current_entry_target": "lib/demos/调试输出与工具函数/JobsCommonUtil.dart",
+      "current_group": "数据与状态",
+      "current_paths_reachable": true
     }
   ],
   "dedicated_dependencies": [
@@ -2457,511 +3157,681 @@
       "original": "lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_config.dart",
       "target": "lib/demos/旧例·友盟统计与崩溃/源码/umeng_demo_config.dart",
       "sha256_after": "e8446c505d350044168effc5dd5ccfd405d36622ffde658739b3d005f4c2a709",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/友盟统计与崩溃/umeng_demo_config.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_page.dart",
       "target": "lib/demos/旧例·友盟统计与崩溃/源码/umeng_demo_page.dart",
       "sha256_after": "87de28802506a6679d77fbec88ca5153a6aebeee927af768fdfd7a062da05b8c",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/友盟统计与崩溃/umeng_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_service.dart",
       "target": "lib/demos/旧例·友盟统计与崩溃/源码/umeng_demo_service.dart",
       "sha256_after": "49eaf2f523619c7854cacc524a504e06d320812b7b10980e1cd9c98acd7c5677",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/友盟统计与崩溃/umeng_demo_service.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_sdk_client.dart",
       "target": "lib/demos/旧例·友盟统计与崩溃/源码/umeng_demo_sdk_client.dart",
       "sha256_after": "be330721bfed0031620418d948a17fb5cbb4ff9beb223f03b141dbb2c8b8751e",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/友盟统计与崩溃/umeng_demo_sdk_client.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/Umeng/umeng_demo_sdk_stub.dart",
       "target": "lib/demos/旧例·友盟统计与崩溃/源码/umeng_demo_sdk_stub.dart",
       "sha256_after": "f1871caa6c0fb01d9f0051f5b316ad1d9cc0b8bbe3b35425aa0d949145ffa3ed",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/友盟统计与崩溃/umeng_demo_sdk_stub.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/数据处理/example_model.dart",
       "target": "lib/demos/旧例·JSON字段转换/源码/example_model.dart",
       "sha256_after": "db4c04af9fd8efb5d4c368b1b359873e26a3225e871e7d3ed2137b317861a6f5",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/JSON字段转换/example_model.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/数据处理/JsonConverter.dart",
       "target": "lib/demos/旧例·JSON字段转换/源码/JsonConverter.dart",
       "sha256_after": "711e668c9ca9d889aed33a32936d4763f0ec29952e65e52ab6f9e1d759c9a0f6",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/JSON字段转换/JsonConverter.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/数据处理/action_cfg.dart",
       "target": "lib/demos/旧例·JSON字段转换/源码/action_cfg.dart",
       "sha256_after": "40c5acae9d843cf9514f1bd8f80f67f2f76ae4ea6e0b0beba4e53f4c5e7cfa26",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/JSON字段转换/action_cfg.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/CounterBloc.dart",
       "target": "lib/demos/事件驱动状态管理/源码/CounterBloc.dart",
       "sha256_after": "1842a56b9f56c896f080f7ddd9af5a00386e96a4f0b97aaeb4a7ef0adf363f63",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/事件驱动状态管理/CounterBloc.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/CounterState.dart",
       "target": "lib/demos/事件驱动状态管理/源码/CounterState.dart",
       "sha256_after": "a5763f863226588eede42e4cbbafcea58a73e88b269fbe83b87c2b332535d634",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/事件驱动状态管理/CounterState.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/BLoC（未验证）/CounterEvent.dart",
       "target": "lib/demos/事件驱动状态管理/源码/CounterEvent.dart",
       "sha256_after": "27b32ac1cbeab9032d08404d211bfd892cfc7654392da9eaa45c636430c16867",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/事件驱动状态管理/CounterEvent.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo1/mqtt_service.dart",
       "target": "lib/demos/旧例·MQTT消息发布订阅一/源码/mqtt_service.dart",
       "sha256_after": "f6d5acdae43a0b62d30998c776bb4917bab154dae8d48aa2facbdccf6dad791e",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/MQTT消息发布订阅一/mqtt_service.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/MQTT/mqtt_demo1/mqtt_manager.dart",
       "target": "lib/demos/旧例·MQTT消息发布订阅一/源码/mqtt_manager.dart",
       "sha256_after": "c28383becd3acc4ac9edb9cfe29a2953dfca6d57587c9206da346a558689e9fe",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/MQTT消息发布订阅一/mqtt_manager.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo3/locales.dart",
       "target": "lib/demos/旧例·国际化示例三/源码/locales.dart",
       "sha256_after": "a2ceb735e41a8f6c036f6e0f9ae6da5b03e20dfddc5ed478110e9601f8ec9d32",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/国际化示例三/locales.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/intl✅/intl_international_Demo4/locales.dart",
       "target": "lib/demos/旧例·国际化委托与菜单/源码/locales.dart",
       "sha256_after": "24fd76e97be2aba82a3bad2685e5c4ad84f0a334801a9dfc4e1620b200a47659",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/国际化委托与菜单/locales.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/利用脚本自动生成的built_value序列化文件/serializers.dart",
       "target": "lib/demos/旧例·不可变模型与JSON解析/源码/serializers.dart",
       "sha256_after": "e8d697286fd525efa9db97ec8b75dbfce9f2ca28176e8e819b4abf9fd132b999",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/不可变模型与JSON解析/serializers.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/JSONs.analyze/built_value_demo✅/利用脚本自动生成的built_value序列化文件/video_item.dart",
       "target": "lib/demos/旧例·不可变模型与JSON解析/源码/video_item.dart",
       "sha256_after": "23facbbd0d15e4920e06e5c6892203a53278411ff1e433ed90ca083ac1446411",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/不可变模型与JSON解析/video_item.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetxController的生命周期/LifecycleController.dart",
       "target": "lib/demos/控制器跨页生命周期/源码/LifecycleController.dart",
       "sha256_after": "2288f8c88060b009004fbee721216ee0db3f691e96a9fa462ce7d781b890eb7b",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/控制器跨页生命周期/LifecycleController.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetxController的生命周期/SecondPage.dart",
       "target": "lib/demos/控制器跨页生命周期/源码/SecondPage.dart",
       "sha256_after": "5778e279cb0b2eade5673f30e238ef59f248106f8b98e6ebed52e8efb9af4b33",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/控制器跨页生命周期/SecondPage.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetXBindingDemo/CounterController.dart",
       "target": "lib/demos/旧例·GetX依赖绑定启动/源码/CounterController.dart",
       "sha256_after": "8f413b5610770281f90e2c2e3a5080031b6f11e7c996b8f6c6bc10f7761fae79",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX依赖绑定启动/CounterController.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetXBindingDemo/CounterBinding.dart",
       "target": "lib/demos/旧例·GetX依赖绑定启动/源码/CounterBinding.dart",
       "sha256_after": "ea11f3b9ef5b807c25b2673a74b1ec813096f6d59e0057ec930212058337b25d",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX依赖绑定启动/CounterBinding.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetXBindingDemo/CounterPage.dart",
       "target": "lib/demos/旧例·GetX依赖绑定启动/源码/CounterPage.dart",
       "sha256_after": "3358d60f34155ac785d92eaa37830406d1ff829f3e43fae8bea01da2cfc7e010",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX依赖绑定启动/CounterPage.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/GetXDemo/GetX_RouteDemo/GetX_RouteDemo1/home_binding.dart",
       "target": "lib/demos/旧例·GetX命名路由示例一/源码/home_binding.dart",
       "sha256_after": "9c5d6073d6cb080517bdac8333f3f41ab170a7eec4f8db8a6d2c2490a33522c5",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX命名路由示例一/home_binding.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/监听/跨页面监听/controllers/form_controller.dart",
       "target": "lib/demos/旧例·跨页面状态监听/源码/form_controller.dart",
       "sha256_after": "a478219786408ccf1c5c2ab63c400b143378f84b69bfe6c1e24794b7f887434f",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/跨页面状态监听/form_controller.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/http_demo_page.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/http_demo_page.dart",
       "sha256_after": "824e3b090975945f1f50337028492fd312cd3d79d32a1fbcd4ba8d5fa5fd9ece",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/http_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/dio_demo_page.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/dio_demo_page.dart",
       "sha256_after": "7c00dfc485bccc756946d1c0c14233083d4a130b50d1690e06f957a98bccb34e",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/dio_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/shared/demo_widgets.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/demo_widgets.dart",
       "sha256_after": "bb2c1e36f7522843d2ebd6b0118d26572c77dee167ac721d0f1e37aa3f945fda",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/demo_widgets.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/shared/demo_helpers.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/demo_helpers.dart",
       "sha256_after": "4791e880c69778aacea997201729df5e4343c6141f1fa3612ca643cca56ae98e",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/demo_helpers.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/shared/demo_dio.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/demo_dio.dart",
       "sha256_after": "3fc1a2fb20ce4483686c71c0b4a99ab7572139d158ac27c0620489c8260770c8",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/demo_dio.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/shared/demo_page_base.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/demo_page_base.dart",
       "sha256_after": "cfae8204fb1611684818ef3d2d9fe0f8962bba3c7e46b8c0110f5f42e763c442",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/demo_page_base.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/model/method_demo_item.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/method_demo_item.dart",
       "sha256_after": "c07ca85ff0cad211155b6aae8a227b61952481cf9b7db82f720fa411f338fd22",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/method_demo_item.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/model/method_type.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/method_type.dart",
       "sha256_after": "1047d3399e68aad2ed71fa83c58125c0f44610db2ee5c6251dc844b2f3bca457",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/method_type.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/pages/download_demo_page.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/download_demo_page.dart",
       "sha256_after": "7884866da44bcbecc1210c9027bb2a0013ea4b5be8ae42b3150a53944ace9c83",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/download_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/pages/delete_demo_page.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/delete_demo_page.dart",
       "sha256_after": "d4824a82594e3353205432c9e460dd001e4ebc75b71eecf4424546c2d7c71f14",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/delete_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/pages/patch_demo_page.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/patch_demo_page.dart",
       "sha256_after": "90d7e31a1da05934ec0cf919ebf43c0b340839c28b8eea280a68a87812395145",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/patch_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/pages/get_demo_page.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/get_demo_page.dart",
       "sha256_after": "3cde68d78a1e134cb589e6c035863e5230e5eb53a79d9eced2db29d3611b9ffe",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/get_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/pages/post_demo_page.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/post_demo_page.dart",
       "sha256_after": "bee91963455fa1f1ea5d1d31b250a7d85ad1243bdad3d1af7e753d38a3a07213",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/post_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/pages/upload_demo_page.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/upload_demo_page.dart",
       "sha256_after": "25197fc11cc88840aa2cd1bed073b343fc87f0960750b9fae9d8b05d85caef1f",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/upload_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/DioDemo/pages/put_demo_page.dart",
       "target": "lib/demos/旧例·Dio网络教学启动/源码/put_demo_page.dart",
       "sha256_after": "57bbcabfa0dfead78602ba48abdb6bf3807727e7e29eda1b241b6639e5f89023",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/Dio网络教学启动/put_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/shared/demo_widgets.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/demo_widgets.dart",
       "sha256_after": "bb2c1e36f7522843d2ebd6b0118d26572c77dee167ac721d0f1e37aa3f945fda",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/demo_widgets.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/shared/demo_helpers.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/demo_helpers.dart",
       "sha256_after": "3c933dc4623e473570b7a5f41f3d68312f59832659a1beeb03b0b35df56a6ff1",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/demo_helpers.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/shared/demo_http.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/demo_http.dart",
       "sha256_after": "832e0d33861d0325d4b3ab2dbae86a9831c2d613a6920140af8e7b05581030d5",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/demo_http.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/shared/demo_page_base.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/demo_page_base.dart",
       "sha256_after": "4f956ed0b2e7609ee31a2e79b546b0ef13337d6730ef1dcebd2bfd0be592ef26",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/demo_page_base.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/model/method_demo_item.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/method_demo_item.dart",
       "sha256_after": "f1ff9c656db1986fc197c723ee9864aa61b51b7d8480e4beef65454647a4ec48",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/method_demo_item.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/model/method_type.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/method_type.dart",
       "sha256_after": "1047d3399e68aad2ed71fa83c58125c0f44610db2ee5c6251dc844b2f3bca457",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/method_type.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/pages/download_demo_page.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/download_demo_page.dart",
       "sha256_after": "d3891691d6e0bc37cf8d49331a82476128590494ab8fade01adf407a8a27a834",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/download_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/pages/delete_demo_page.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/delete_demo_page.dart",
       "sha256_after": "7fc61659816ae9ab721b28e46d6eb3118be704c0e32d6835d5b1ce0b3c8c81e3",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/delete_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/pages/patch_demo_page.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/patch_demo_page.dart",
       "sha256_after": "801972c840bada1817021177fd5d7c742abfb99fdacc699e0bdad3125630975f",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/patch_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/pages/get_demo_page.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/get_demo_page.dart",
       "sha256_after": "336e3a688f9e0e8f8808825482044538fb7bf4bb2908845e14dcf580e84e55e1",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/get_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/pages/post_demo_page.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/post_demo_page.dart",
       "sha256_after": "f306fcb6282d227ab24f30be86aefb357cf8059d914a7f00f0c88cb4be22c9da",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/post_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/pages/upload_demo_page.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/upload_demo_page.dart",
       "sha256_after": "636d2931a8cd1ae82c252a7fec0b620d6d8c6256caf921667ddd5a0786e9f37f",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/upload_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.3rd/网络请求/Dio/HttpDemo/pages/put_demo_page.dart",
       "target": "lib/demos/旧例·HTTP网络教学启动/源码/put_demo_page.dart",
       "sha256_after": "1615950726d4054deac586508ff866cd6b74fe809b85b7063ec3cf3960e8f071",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTTP网络教学启动/put_demo_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/打印/TimeAgo.dart",
       "target": "lib/demos/旧例·控制台打印教学/源码/TimeAgo.dart",
       "sha256_after": "90ecbd35fa73a06e3e88d27b2cee613d2cc03413488d35a16a6059cf0c0f44cb",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/控制台打印教学/TimeAgo.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Dart反射（全部验证通过）/DynamicForm.dart",
       "target": "lib/demos/旧例·元数据与动态表单/源码/DynamicForm.dart",
       "sha256_after": "a1f781cefae041f0b7fc8203051d2b5bb04d150f9508cff9887fba00df93f005",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/元数据与动态表单/DynamicForm.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Data/Data.Origin🌍/Block/ACtrl.dart",
       "target": "lib/demos/旧例·回调函数与语言参数/源码/ACtrl.dart",
       "sha256_after": "cba86f8c6e543d477818947cd8bdaa35496d3d74cab01d9afab8eddeaa2455f2",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/回调函数与语言参数/ACtrl.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/Utils/Extensions/WidgetExtensions/onGestures.dart",
       "target": "lib/demos/手势链式扩展/源码/onGestures.dart",
       "sha256_after": "ac216e61598150c027c67d6faad05dbe561d1d6b609975bc26e3b8c48e325716",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/手势链式扩展/onGestures.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/TabBar切换/Common/HomeBinding.dart",
       "target": "lib/demos/旧例·标签分页示例四/源码/HomeBinding.dart",
       "sha256_after": "185257dfd6aae5cbba4a3276568a47421225e4d15101d10b50d464cb028f378b",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/标签分页示例四/HomeBinding.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/一般的富文本/attributed_model.dart",
       "target": "lib/demos/旧例·段落富文本与交互/源码/attributed_model.dart",
       "sha256_after": "7134ad0eb3fedf3c7881ef228a7e99b05e31cd12ddeb5ddf841bdce47ca89021",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/段落富文本与交互/attributed_model.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/一般的富文本/attributed_text_view.dart",
       "target": "lib/demos/旧例·段落富文本与交互/源码/attributed_text_view.dart",
       "sha256_after": "00b0109a091b7dc3c929948e47389f071df5110bfaa6a96dfdbe1ab59df889b1",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/段落富文本与交互/attributed_text_view.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/Json表格/没有合并/BonusRewardModel.dart",
       "target": "lib/demos/旧例·HTML富文本表格/源码/BonusRewardModel.dart",
       "sha256_after": "73a35431f5d01daa7585f42230604d09809754c6dec0b6ba10a3d03d5ca3490c",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTML富文本表格/BonusRewardModel.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/Json表格/没有合并/BonusTablePage.dart",
       "target": "lib/demos/旧例·HTML富文本表格/源码/BonusTablePage.dart",
       "sha256_after": "b404946b96d4531c57a201b01c54b8d1b192f1df8e6cb2bbcd9c342a6de5a5b6",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTML富文本表格/BonusTablePage.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.Origin🌍/富文本/Json表格/没有合并/BonusTableView.dart",
       "target": "lib/demos/旧例·HTML富文本表格/源码/BonusTableView.dart",
       "sha256_after": "7b3d4dd69ad227f7b482b36ca5fffb1cfd86fdd944580971d871d127ba0969b0",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/HTML富文本表格/BonusTableView.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/JobsGetXTool.dart",
       "target": "lib/demos/旧例·标签分页示例二/源码/JobsGetXTool.dart",
       "sha256_after": "134489caab0437d2ca29a4d124274f814b16953f6fce38054abdfb402d2b0a79",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/标签分页示例二/JobsGetXTool.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/💥GetX的值双向绑定/Counter/jobs_controller.dart",
       "target": "lib/demos/旧例·GetX双向数值绑定/源码/jobs_controller.dart",
       "sha256_after": "08605c68dfb6e5b1ddaa9f5d124e8ce94a8262875f374493b6b3cd99ba9a2250",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX双向数值绑定/jobs_controller.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/💥GetX的值双向绑定/Counter/jobs_binding.dart",
       "target": "lib/demos/旧例·GetX双向数值绑定/源码/jobs_binding.dart",
       "sha256_after": "49f93450a41d8d69480293e3056743cf3214270ee12596c7979e6a431319e7f2",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX双向数值绑定/jobs_binding.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/💥GetX的值双向绑定/Counter/jobs_page.dart",
       "target": "lib/demos/旧例·GetX双向数值绑定/源码/jobs_page.dart",
       "sha256_after": "783923a844ab64d708e12cdd4c923a1aa1680341534eec212cce14df8a185cec",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX双向数值绑定/jobs_page.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/GetX管理的页面的生命周期/GetX.PageB/views/pageB_view.dart",
       "target": "lib/demos/旧例·GetX页面生命周期教学/源码/pageB_view.dart",
       "sha256_after": "a97f338d788dfc3bea4178c3f85b12eeebd74ef36877424a1904936c54ead9db",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX页面生命周期教学/pageB_view.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/GetX管理的页面的生命周期/GetX.PageA/controllers/pageA_controllers.dart",
       "target": "lib/demos/旧例·GetX页面生命周期教学/源码/pageA_controllers.dart",
       "sha256_after": "56bd0c7484f0e35b496dee6c0df8d93a3cfcf990c789cffb095e7693beed4e89",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX页面生命周期教学/pageA_controllers.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/UI/UI.3rd🌹/GetX/GetX管理的页面的生命周期/GetX.PageA/views/pageA_view.dart",
       "target": "lib/demos/旧例·GetX页面生命周期教学/源码/pageA_view.dart",
       "sha256_after": "e08d25eb59f8354136f9da02a0a1a343edf38af03cecceca8a26d8780a5b61c3",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/GetX页面生命周期教学/pageA_view.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@JXCategoryView/ActivityShareSubView@回归包赔.dart",
       "target": "lib/demos/自适应分类分页/源码/ActivityShareSubView@回归包赔.dart",
       "sha256_after": "37c33dde95ae12a80f23bb8caed68a8b2869d6c64ca69dadf4947fd8a849ee80",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/自适应分类分页/ActivityShareSubView@回归包赔.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@JXCategoryView/ActivityShareSubView@超值存送礼.dart",
       "target": "lib/demos/自适应分类分页/源码/ActivityShareSubView@超值存送礼.dart",
       "sha256_after": "8fad9fd1b8293f621b6ada5617e5358219adf7d8bc65f134aabcd1be0f97a231",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/自适应分类分页/ActivityShareSubView@超值存送礼.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@JXCategoryView/ActivityShareSubView@队长福利.dart",
       "target": "lib/demos/自适应分类分页/源码/ActivityShareSubView@队长福利.dart",
       "sha256_after": "4ed855c689a536191ad076d4532af643fddc2d5293e9fb9851d5f2f8fe029f01",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/自适应分类分页/ActivityShareSubView@队长福利.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@JXCategoryView/ActivityShareSubView@彩金免费领.dart",
       "target": "lib/demos/自适应分类分页/源码/ActivityShareSubView@彩金免费领.dart",
       "sha256_after": "2d8eca9c1323466814f473e8dd4c834fc3ef46f5d1dd8a1f8b4b9aa35a2abd2e",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/自适应分类分页/ActivityShareSubView@彩金免费领.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/页面的生命周期监听（基类）/BaseLifecycleStateful.dart",
       "target": "lib/demos/页面生命周期基类/源码/BaseLifecycleStateful.dart",
       "sha256_after": "0572528e00f86b7baa1206aae704ba3c23062e572c5e1ca372f0e6e88ad73f42",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/页面生命周期基类/BaseLifecycleStateful.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/PopScope监听和自定义返回按钮行为/PopConfirmWrapper.dart",
       "target": "lib/demos/返回拦截与确认/源码/PopConfirmWrapper.dart",
       "sha256_after": "621b3d0d4729ab9b1d40b87b5514e66d0a9de242114792bfe06dd24adfb85fb7",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/返回拦截与确认/PopConfirmWrapper.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@iOS李明杰解析/MJModel.dart",
       "target": "lib/demos/旧例·模型字典解析教学/源码/MJModel.dart",
       "sha256_after": "fedfdfa13f2088d50f88031d3f8b7f205ba86b950dec8fe9d98c6d9c90d54423",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/模型字典解析教学/MJModel.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/通用点击组件/CommonRipple.dart",
       "target": "lib/demos/旧例·系统剪贴板与邀请码/源码/CommonRipple.dart",
       "sha256_after": "b05f0c0099f548df5c584489fa529789211e890d41d62d37296955ebcabc7d87",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/系统剪贴板与邀请码/CommonRipple.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@iOS李明杰解析/Demo/game_model.dart",
       "target": "lib/demos/旧例·模型字典解析教学/源码/game_model.dart",
       "sha256_after": "749c206b11ec4fc1402e2133ce7f80d55ca072ce6a4f1424427397142f61cf76",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/模型字典解析教学/game_model.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/高仿@iOS李明杰解析/Demo/category_model.dart",
       "target": "lib/demos/旧例·模型字典解析教学/源码/category_model.dart",
       "sha256_after": "556795ae1f3fcc0428ef05ea98882b2312030a7525faee3cff6abdb6780fb3ab",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/模型字典解析教学/category_model.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsSimplyNotification/JobsSimplyNotificationDemo/JobsSimplyNotificationDemoPageC.dart",
       "target": "lib/demos/旧例·简易通知封装/源码/JobsSimplyNotificationDemoPageC.dart",
       "sha256_after": "eb1ec54b597c02a71704faf00c997baee84e05e27c253f7fd09e0bfbcdfc661c",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/简易通知封装/JobsSimplyNotificationDemoPageC.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsSimplyNotification/JobsSimplyNotificationDemo/JobsSimplyNotificationDemoPageB.dart",
       "target": "lib/demos/旧例·简易通知封装/源码/JobsSimplyNotificationDemoPageB.dart",
       "sha256_after": "44abb95a2869deef681ca479fb3a3675fb13d7e505e71ec887b91521fd8b56e8",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/简易通知封装/JobsSimplyNotificationDemoPageB.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsSimplyNotification/JobsSimplyNotificationDemo/JobsSimplyNotificationDemoPageA.dart",
       "target": "lib/demos/旧例·简易通知封装/源码/JobsSimplyNotificationDemoPageA.dart",
       "sha256_after": "a7450a32a660702f009d7d1cff317cda940fd70d8e739f0f574f7ba14b5c6b21",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/简易通知封装/JobsSimplyNotificationDemoPageA.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsNotification/JobsNotificationDemo/JobsNotificationDemoPageA.dart",
       "target": "lib/demos/旧例·本地消息通知封装/源码/JobsNotificationDemoPageA.dart",
       "sha256_after": "d54f0f00518aa19d12eaaccf7e1d198b8cac5872a2304a13da525c490b9f5425",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/本地消息通知封装/JobsNotificationDemoPageA.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsNotification/JobsNotificationDemo/JobsNotificationDemoPageB.dart",
       "target": "lib/demos/旧例·本地消息通知封装/源码/JobsNotificationDemoPageB.dart",
       "sha256_after": "7f747d46478de67f6e79ab5c3967cc38751fd839df2d0090bef984d9ee200af5",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/本地消息通知封装/JobsNotificationDemoPageB.dart",
+      "current_path_reachable": true
     },
     {
       "original": "lib/JobsDemoTools/JobsFlutterTools/JobsNotification/JobsNotification/JobsNotificationDemo/JobsNotificationDemoPageC.dart",
       "target": "lib/demos/旧例·本地消息通知封装/源码/JobsNotificationDemoPageC.dart",
       "sha256_after": "23eb7fa0213e856078b91826ef4f17e2c34706188fb664cb9eefdf4976efc611",
-      "compatibility": "export"
+      "compatibility": "export",
+      "current_target": "lib/demos/本地消息通知封装/JobsNotificationDemoPageC.dart",
+      "current_path_reachable": true
     }
   ],
   "ownership_policy": {
@@ -2976,5 +3846,22 @@
       "*.g.dart（只复制）"
     ],
     "unknown_authorship": "发现外部版权或不能确认归属的实现先排除，不将 package 教学引用视作第三方实现接管授权"
+  },
+  "current_layout": {
+    "date": "2026-11-16",
+    "historical_fields": [
+      "original",
+      "target",
+      "entry",
+      "group",
+      "sha256_before",
+      "sha256_after",
+      "reachable",
+      "status"
+    ],
+    "historical_evidence": "All pre-existing fields and hashes above retain their earlier migration values. The former target/entry paths and source-bucket names are historical evidence, not current runtime locations.",
+    "current_fields": "Use current_target/current_entry_target/current_group for implementation navigation and current_compatibility_entry for retained forwarding wrappers. Dependency locations use current_target.",
+    "hash_scope": "Existing sha256_before/sha256_after values are not reasserted against current sources, whose imports, main position and factory layout changed. Current path checks prove existence only.",
+    "verification_record": "项目相关报告/验收记录/2026-11-16.json"
   }
 }

@@ -1,3 +1,6 @@
+// 独立运行：flutter run -t "lib/demos/二维码条形码/二维码条形码.dart"
+// 使用本工程 pubspec.yaml 声明的依赖与资源。
+
 import 'package:flutter/material.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:jobs_demo_foundation/jobs_demo_foundation.dart';

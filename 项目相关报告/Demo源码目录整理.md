@@ -11,6 +11,7 @@
 - [一、迁移盘点](#inventory)
 - [二、行为与验证合同](#behavior)
 - [三、本批验证](#validation)
+- [四、独立文件启动入口](#file-launchers)
 
 </details>
 <!-- jobs-toc:end -->
@@ -55,5 +56,20 @@
 最终构建、分析、710项测试、823份源码指纹与新Kernel哈希见[本批最终验证清单](./验收记录/2026-11-16-Flutter目录与OCR交互最终验证/manifest.json)；原始日志同目录保存。源码／构建通过、生产界面实看和真实模型推理分别记账。
 
 2026-11-17的[当前生产OCR实屏摘要](./验收记录/2026-11-17-Flutter生产OCR实屏/summary.json)及[资产盘点第五节](./Rust-OCR集成资产盘点.md#production-ui)补充同一新包的有限UI与真实样本验证；构建阶段的历史清单保留原时点状态。
+
+## 四、<span id="file-launchers">独立文件启动入口</span> <a href="#前言">🔼</a> <a href="#🔚">🔽</a>
+
+2026-11-17确认：每个Demo的实际实现源码应可独立启动；支持终端 `frun` 等待手动输入／拖入文件，以及右键 `.dart` 从终端运行。各方式均以所属工程为构建上下文、所选源码为 `-t` 目标，不改写主入口，不新建临时Flutter工程。
+
+| 资产 | 入口与行为 | 默认／持久化／生命周期 | 实现与验证状态 |
+| --- | --- | --- | --- |
+| 目录Demo | 9个catalog共300个注册项，300唯一ID；`sourcePath`与`entryPath`同指真实含main实现 | 沿用每个Demo原主题、十语、数据与设备合同；没有新增偏好键 | 本轮AST静态核查全部存在且有顶层main，解析错误0；没有修改Demo源码，不将此核查等同300项设备实跑 |
+| Dart源码范围 | `lib/demos`共412个Dart：302个顶层main、110个辅助文件 | 另两个main为OCR验收入口与长按录制独立目标；helper／part／生成文件不作为可运行入口 | 全部302个main均为导入／part指令后首个声明；计数依据与逐文件结果见[审计清单](./验收记录/2026-11-17-Demo独立启动/audit.json) |
+| 终端命令 | `frun`无参等待路径；带参直接选定；`--dry-run`只读解析；`--`后透传Flutter参数 | 路径向上定位最近pubspec；优先工程FVM；SDK先准备，实际Flutter直连终端执行一次；退出目标后继续等待 | [终端环境工程](<../../../JobsGenesis/JobsConfigOS/🌍JobsMacEnvVarConfigs/README.md>)源码及本机新增命令已部署，源码cmp一致、新登录shell可发现；300入口只读通过、110个helper全部拒绝，实际启动结果见下文 |
+| 系统右键 | 含main的单个`.dart`显示“从终端运行 Flutter Demo”；项目目录保留原项目运行 | 所选target贯穿菜单、宿主、运行器及后台会话标识，避免相同工程不同Demo误重连 | [双端菜单工程](<../../../JobsGenesis/OS@Extension/README.md>)源码已接入、隔离验证按[菜单资产表](<../../../JobsGenesis/OS@Extension/项目相关报告/Flutter-Demo独立运行资产盘点.md>)记录；本机菜单安装态未更新，真实Finder／Windows菜单待更新后验收 |
+
+使用方法见[终端与右键运行独立源码](../docs/功能实验室.md#standalone-file-run)。本节仅记录启动入口，不改变前面目录迁移的历史验证结论。
+
+本轮终端实测：新终端从`/tmp`执行已安装`frun`，先等待路径，提交带引号的实际源码后直接启动项目FVM；胶囊Demo Web Debug编译16.8秒，HTTP200，单键`h`响应完整帮助、单键`q`使Flutter退出0并重新进入等待状态，再`q`回车结束命令0。修正了SDK包装经管道运行造成键盘控制失效的问题，最终实际业务直接连接TTY。未连接浏览器，不记UI或热重载业务验收。现有`test/source_entry_test.dart`两项通过；没有修改Demo源码，没有执行全量构建／全量测试。证据为[全部入口只读结果](./验收记录/2026-11-17-Demo独立启动/frun-all-entry-dry-run.json)、[helper拒绝结果](./验收记录/2026-11-17-Demo独立启动/frun-helper-rejection.json)、[真实运行摘要](./验收记录/2026-11-17-Demo独立启动/frun-real-run.json)及同目录日志。
 
 <a id="🔚" href="#前言">返回前言</a>

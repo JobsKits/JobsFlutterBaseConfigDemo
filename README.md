@@ -585,6 +585,8 @@ OCR 自建核心按源码交付，入口为 [Source/JobsOCR](<./JobsByPubs/JobsR
 
 ## <span id="demo-hub">功能实验室与独立预览</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
+**单个 Demo 快速运行：** 新开终端输入 `frun`，按提示输入或拖入含 `main()` 的实际 `.dart` 文件；也可直接 `frun '文件路径.dart'`。命令自动定位所属 `pubspec.yaml`，优先使用项目 FVM SDK，从工程根目录运行所选源码。终端入口由 [JobsMacEnvVarConfigs](<../../JobsGenesis/JobsConfigOS/🌍JobsMacEnvVarConfigs/README.md>) 提供；右键文件的“从终端运行 Flutter Demo”由 [OS@Extension](<../../JobsGenesis/OS@Extension/README.md>) 提供，更新对应运行功能后生效。操作、取消及辅助文件边界见[独立源码运行](./docs/功能实验室.md#standalone-file-run)。
+
 默认 `lib/main.dart` 进入开屏，结束后替换路由进入按实际用途归组的功能目录，不显示来源新旧标签；圆圈省略号菜单进入独占搜索／批量折叠／设置。首页采用与Swift一致的圆角分组卡片、主副文字及行内分隔，支持分组拖放、置顶、布局记忆、最近使用、左侧覆盖或平移菜单，以及时间／长按／旋转计时／Bug悬浮工具；开屏与覆盖路由期间浮钟隐藏并停计时。组头保留折叠、数量与拖动柄，功能行保留源码／运行命令菜单。功能入口统一在 `lib/demos/中文功能目录/`，公共壳、菜单、空态与设置在 `JobsByPubs/JobsDemoFoundationByPub/`。
 
 最近使用从侧栏进入，按最近打开顺序独立展开，不受首页分组折叠或置顶排序影响，也不手工拖排；普通目录、搜索和最近列表打开功能均前插去重，最多记住 30 项。收藏入口和行菜单收藏项已移除，旧收藏数据保留但不再读写。

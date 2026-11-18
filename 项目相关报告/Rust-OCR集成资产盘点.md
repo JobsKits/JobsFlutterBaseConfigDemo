@@ -13,6 +13,7 @@
 - [三、源码交付与本地编译](#source-delivery)
 - [四、图片输入与结果交互改进](#ocr-interaction)
 - [五、生产主入口实际验收](#production-ui)
+- [六、中英混排核心与源码状态](#mixed-script-source-20261117)
 
 </details>
 <!-- jobs-toc:end -->
@@ -96,5 +97,11 @@
 | 实际camera入口 | `image_picker_ios 0.8.13+6` 在本机Simulator判断请求的后置镜头不可用，展示[原生“Camera not available.”提示](./截图/OCR模拟器实屏/Flutter-相机后置镜头不可用.png)；插件该分支返回null，无Flutter PlatformException code；关闭后[原图、结果及Clipboard保留](./截图/OCR模拟器实屏/Flutter-关闭相机提示后保留.png)。前一诊断轮实际处理了系统TCC允许弹窗，最终轮复用已授权状态；没有把相机picker未出现记为拍照通过 |
 
 [本轮JSON摘要及原始证据](./验收记录/2026-11-17-Flutter生产OCR实屏/summary.json)含全文Clipboard、AX、原生UI日志、测试源码快照与截图指纹。该JSON是实际生产UI／Clipboard驱动摘要，不是原生完整lines／几何协议，未伪补坐标或置信度。本批物理相机取像、新图识别、真机权限与完整十语设备操作仍待验。验收结束已终止App并交还模拟器。
+
+## 六、<span id="mixed-script-source-20261117">中英混排核心与源码状态</span> <a href="#前言">🔼</a> <a href="#🔚">🔽</a>
+
+当前[iOS 随仓源码](<../JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Source/JobsOCR>)和[MacOS 随仓源码](<../JobsByPubs/JobsRustOCRByPub/macos/JobsRustOCR/Source/JobsOCR>)已同步本机验收通过的中英混排路由，包含 `pipeline.rs`、`runtime.rs`、`lib.rs`、`routing.rs`、独立 E2E 测试和 `MixedScript` 夹具。核心常规测试 30 项、显式 E2E 1 项覆盖 8 张真实夹具（其中 4 张精确逐行控制）通过；范围与证据见[共享核心回归记录](<../../../OCR/项目相关报告/混排回归/README.md>)。
+
+本状态确认核心本机回归及随仓源码一致；本宿主尚未使用此次新核心重编、运行，原有 35 行样本／界面／Workflow 记录仍限原批次。使用新核心前先运行[SDK 本地构建入口](<../JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Scripts/BuildRustOCR.command>)，源码输入哈希变化会使旧库缓存失效；保留本地构建方式，不分发自建 `.a`。显式 E2E 需指定本机 ORT 与随 SDK 的模型目录。
 
 <a id="🔚" href="#前言">我是有底线的➤点我回到首页</a>

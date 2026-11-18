@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-17",
+  "mode": "installed-frun-interactive-pty",
+  "workingDirectory": "/tmp",
+  "entryPath": "lib/demos/胶囊按钮切页/JobsSegmentTabs.dart",
+  "device": "web-server",
+  "toolchain": {"flutter": "3.50.0", "dart": "3.14.0", "channel": "stable", "source": "project .fvm/flutter_sdk"},
+  "command": "frun --device web-server -- --no-pub --web-hostname=127.0.0.1 --web-port=8873",
+  "checks": {
+    "newLoginShellFindsFrun": true,
+    "readinessPromptBeforePath": true,
+    "quotedPathInputStartsTargetWithoutExtraConfirmation": true,
+    "flutterPrintedSelectedSource": true,
+    "debugCompileSeconds": 16.8,
+    "httpStatus": 200,
+    "singleKeyHelpResponded": true,
+    "singleKeyQuitStoppedFlutter": true,
+    "flutterExitCode": 0,
+    "returnedToReadinessAfterFlutterQuit": true,
+    "readinessQuitExitCode": 0
+  },
+  "limitations": ["No browser client was connected; this verifies target compilation, HTTP serving and terminal input, not rendered UI or actual hot reload.", "No system context-menu installation or Windows native UI verification was performed."],
+  "earlierIssue": "SDK command wrapper swallowed terminal input. Fixed by preparing SDK through the wrapper then calling the actual flutter run directly once; this record describes the corrected final run."
+}

@@ -1,0 +1,1810 @@
+{
+  "date": "2026-11-17",
+  "mode": "installed-frun-dry-run-from-unrelated-cwd",
+  "scope": "300 registered targets; no SDK invocation/build or device launch",
+  "runnerSha256": "dfaa122409b1b4756b4bb72deabdd97409ead4f346892988afc24f75f783de53",
+  "total": 300,
+  "passed": 300,
+  "results": [
+    {
+      "id": "calendar",
+      "entryPath": "lib/demos/日历选择/calendar_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-arc",
+      "entryPath": "lib/demos/圆弧拖动进度/圆弧拖动进度.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-book",
+      "entryPath": "lib/demos/贝塞尔纸张翻页/贝塞尔纸张翻页.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-chat-anchor",
+      "entryPath": "lib/demos/聊天阅读锚点/聊天阅读锚点.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-code-review",
+      "entryPath": "lib/demos/代码变更审阅/代码变更审阅.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-collection",
+      "entryPath": "lib/demos/多来源额度归集/多来源额度归集.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-gallery",
+      "entryPath": "lib/demos/八向取景画廊/八向取景画廊.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-gift-combo",
+      "entryPath": "lib/demos/礼物双槽连击/礼物双槽连击.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-hysteresis",
+      "entryPath": "lib/demos/迟滞霓虹滑块/迟滞霓虹滑块.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-live-quote",
+      "entryPath": "lib/demos/实时报价确认/实时报价确认.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-matrix",
+      "entryPath": "lib/demos/矩阵坐标实验/矩阵坐标实验.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-notifications",
+      "entryPath": "lib/demos/通知处理收件箱/通知处理收件箱.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-particles",
+      "entryPath": "lib/demos/粒子形态实验/粒子形态实验.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-scroll-handoff",
+      "entryPath": "lib/demos/同轴滚动接力/同轴滚动接力.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-shader",
+      "entryPath": "lib/demos/片段着色器实验室/片段着色器实验室.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-sheet",
+      "entryPath": "lib/demos/可拖面板吸顶列表/可拖面板吸顶列表.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-spiral",
+      "entryPath": "lib/demos/透视螺旋列表/透视螺旋列表.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-surfaces",
+      "entryPath": "lib/demos/几何表面实验/几何表面实验.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "curated-voice-seats",
+      "entryPath": "lib/demos/麦位互动与声浪/麦位互动与声浪.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "extra-clock",
+      "entryPath": "lib/demos/模拟时钟/模拟时钟.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "extra-excel",
+      "entryPath": "lib/demos/任意冻结列表格/任意冻结列表格.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "extra-layout",
+      "entryPath": "lib/demos/布局尺寸联动/布局尺寸联动.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "extra-lunar",
+      "entryPath": "lib/demos/农历与节气/农历与节气.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "extra-photo",
+      "entryPath": "lib/demos/相册与照片滤镜/相册与照片滤镜.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "extra-progress",
+      "entryPath": "lib/demos/四向进度/四向进度.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "extra-sphere",
+      "entryPath": "lib/demos/球形点选/球形点选.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "graphic-captcha",
+      "entryPath": "lib/demos/图形验证码/graphic_captcha_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "handwriting",
+      "entryPath": "lib/demos/手写签名板/handwriting_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "interop-native-flutter",
+      "entryPath": "lib/demos/原生与Flutter往返/原生与Flutter往返.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-adaptive-category",
+      "entryPath": "lib/demos/自适应分类分页/JobsCategoryPage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-animated-button",
+      "entryPath": "lib/demos/按钮大小位置动画/AnimatedDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-bloc",
+      "entryPath": "lib/demos/事件驱动状态管理/BLoC.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-bottom-tabs",
+      "entryPath": "lib/demos/底部分页导航/UITabbarController.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-camera",
+      "entryPath": "lib/demos/系统相机拍照/CameraPicDemo✅.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-category",
+      "entryPath": "lib/demos/分类分页标签/JXCategoryView.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-center",
+      "entryPath": "lib/demos/居中布局/Center.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-0",
+      "entryPath": "lib/demos/全局路由观察/JobsRouteObserver.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-100",
+      "entryPath": "lib/demos/文件图片缓存/FileImageCacheDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-101",
+      "entryPath": "lib/demos/标签分页示例一/HomePage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-103",
+      "entryPath": "lib/demos/元数据与动态表单/DartReflect.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-104",
+      "entryPath": "lib/demos/媒体广告开屏/AppLaunchPage_demo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-105",
+      "entryPath": "lib/demos/文字溢出与换行/Text.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-106",
+      "entryPath": "lib/demos/标签分页示例三/HomePage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-107",
+      "entryPath": "lib/demos/原生画布抽奖轮盘/LuckyWheelPage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-108",
+      "entryPath": "lib/demos/标签分页示例四/HomePage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-109",
+      "entryPath": "lib/demos/GetX命名路由示例二/GetX_RouteDemo2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-11",
+      "entryPath": "lib/demos/输入框封装教学/JobsTextField.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-111",
+      "entryPath": "lib/demos/折叠滚动示例三/SliverToBoxAdapterDemo3.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-112",
+      "entryPath": "lib/demos/自动滚动与异形视图/SliverToBoxAdapterDemo2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-113",
+      "entryPath": "lib/demos/键盘高度与视图指标/Keyboard.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-115",
+      "entryPath": "lib/demos/国际化示例三/intl_international_Demo3.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-117",
+      "entryPath": "lib/demos/控制台打印教学/Print.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-118",
+      "entryPath": "lib/demos/GetX路由传参与返回/GetX_RouteDemo5.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-119",
+      "entryPath": "lib/demos/弹性换行与填充对照/Flexible + Expanded.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-12",
+      "entryPath": "lib/demos/按钮封装教学/JobsButton.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-120",
+      "entryPath": "lib/demos/主题切换示例一/Theme.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-121",
+      "entryPath": "lib/demos/主题切换示例二/Theme2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-122",
+      "entryPath": "lib/demos/单例模式示例一/MySingletonDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-123",
+      "entryPath": "lib/demos/单例模式示例二/MySingletonDemo2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-124",
+      "entryPath": "lib/demos/单例模式示例三/MySingletonDemo3.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-125",
+      "entryPath": "lib/demos/GetX命名路由示例一/GetX_RouteDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-126",
+      "entryPath": "lib/demos/GetX命名路由首页/home_view.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-127",
+      "entryPath": "lib/demos/GetX命名路由示例四/GetX_RouteDemo4.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-128",
+      "entryPath": "lib/demos/GetX命名路由示例三/GetX_RouteDemo3.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-129",
+      "entryPath": "lib/demos/GetX依赖绑定启动/GetXBindingDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-131",
+      "entryPath": "lib/demos/HTML富文本表格/BonusHtmlTableView.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-134",
+      "entryPath": "lib/demos/临时文件视频播放/VideoPlayerController_file_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-135",
+      "entryPath": "lib/demos/沙盒文件视频播放/VideoPlayerController_sandboxFile_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-136",
+      "entryPath": "lib/demos/Android内容URI视频/VideoPlayerController.contentUri_demo（Only_In_Android）.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-137",
+      "entryPath": "lib/demos/Dio网络教学启动/dio_demo_main.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-14",
+      "entryPath": "lib/demos/组件互调之父组件/Main_Widget.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-140",
+      "entryPath": "lib/demos/相机照片与视频采集/CameraPicAndVideoDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-142",
+      "entryPath": "lib/demos/视图层级调整示例一/main2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-143",
+      "entryPath": "lib/demos/视图层级调整示例二/main.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-144",
+      "entryPath": "lib/demos/GetX异步界面渲染/GetXAsyncUI.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-145",
+      "entryPath": "lib/demos/HTTP网络教学启动/http_demo_main.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-146",
+      "entryPath": "lib/demos/复制文字气泡提示/JobsCopyTips.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-147",
+      "entryPath": "lib/demos/网格弹出菜单/弹出框@GridView.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-148",
+      "entryPath": "lib/demos/表格弹出菜单/弹出框@表格.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-15",
+      "entryPath": "lib/demos/组件互调之子组件/A_Widget.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-150",
+      "entryPath": "lib/demos/段落富文本与交互/sample_data.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-151",
+      "entryPath": "lib/demos/网页容器与资源加载/JobsWebViewWidget.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-152",
+      "entryPath": "lib/demos/响应式网页容器/JobsReactiveWebView.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-153",
+      "entryPath": "lib/demos/GetX双向数值绑定/💥GetX的值双向绑定.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-154",
+      "entryPath": "lib/demos/GetX页面生命周期教学/GetXLifeCycleDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-155",
+      "entryPath": "lib/demos/卡片图片轮播/CardSwiperDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-156",
+      "entryPath": "lib/demos/滑块图片轮播/CarouselSliderDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-157",
+      "entryPath": "lib/demos/GetX视图控制器教学/GetViewDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-158",
+      "entryPath": "lib/demos/不规则按钮绘制/Irregular_btn.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-16",
+      "entryPath": "lib/demos/回调函数与语言参数/BlockDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-160",
+      "entryPath": "lib/demos/简易通知封装/JobsSimplyNotification.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-163",
+      "entryPath": "lib/demos/富文本拼接封装/JobsRichText.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-164",
+      "entryPath": "lib/demos/本地消息通知封装/JobsNotification.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-165",
+      "entryPath": "lib/demos/形状与渐变装饰/ShapeDecoration.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-166",
+      "entryPath": "lib/demos/输入装饰与提示/InputDecoration.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-167",
+      "entryPath": "lib/demos/分页下划线指示器/UnderlineTabIndicator.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-168",
+      "entryPath": "lib/demos/Flutter标志装饰/FlutterLogoDecoration.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-169",
+      "entryPath": "lib/demos/容器装饰组合/BoxDecoration.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-17",
+      "entryPath": "lib/demos/MQTT消息发布订阅二/mqtt_demo2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-171",
+      "entryPath": "lib/demos/模型字典解析教学/main.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-172",
+      "entryPath": "lib/demos/系统剪贴板与邀请码/NativeClipboard.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-173",
+      "entryPath": "lib/demos/广告轮播组件/JobsBannerCarousel.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-174",
+      "entryPath": "lib/demos/调试输出与工具函数/JobsCommonUtil.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-18",
+      "entryPath": "lib/demos/Material应用容器/MaterialAppDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-19",
+      "entryPath": "lib/demos/Cupertino应用容器/CupertinoAppDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-2",
+      "entryPath": "lib/demos/JSON字段转换/JsonConverterDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-20",
+      "entryPath": "lib/demos/跨页面状态监听/CrossPagesListenDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-21",
+      "entryPath": "lib/demos/MQTT消息发布订阅一/mqtt_demo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-23",
+      "entryPath": "lib/demos/应用前后台状态观察/AppLifecycleStateDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-24",
+      "entryPath": "lib/demos/GetX应用容器/GetMaterialAppDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-25",
+      "entryPath": "lib/demos/资源词典国际化/EasyLocalizationAppDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-26",
+      "entryPath": "lib/demos/底层应用容器/WidgetsAppDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-27",
+      "entryPath": "lib/demos/设备尺寸预览容器/DevicePreviewAppDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-28",
+      "entryPath": "lib/demos/应用状态树重启/PhoenixAppDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-29",
+      "entryPath": "lib/demos/页面构建过程/MainBuildPage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-3",
+      "entryPath": "lib/demos/友盟统计与崩溃/umeng_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-33",
+      "entryPath": "lib/demos/方法重写与继承/JobsOverrideDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-34",
+      "entryPath": "lib/demos/注解与元数据查询/AnnotationDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-35",
+      "entryPath": "lib/demos/国际化示例一/intl_international_Demo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-36",
+      "entryPath": "lib/demos/日期货币格式化/intl_format_Demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-37",
+      "entryPath": "lib/demos/集合去重与运算/Set.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-4",
+      "entryPath": "lib/demos/SQLite数据库读写/FMDB_Demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-40",
+      "entryPath": "lib/demos/GetX国际化词典/GetX_InternationalDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-41",
+      "entryPath": "lib/demos/安全图片加载/JobsSafeImage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-43",
+      "entryPath": "lib/demos/函数参数与返回值/FunctionDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-44",
+      "entryPath": "lib/demos/国际化示例二/intl_international_Demo2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-45",
+      "entryPath": "lib/demos/GetX控制器删除/GetX_DeleteDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-46",
+      "entryPath": "lib/demos/GetX页面状态示例二/GetX_PageStateDemo2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-47",
+      "entryPath": "lib/demos/GetX控制器查找/GetX_FindDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-48",
+      "entryPath": "lib/demos/GetX页面状态示例一/GetX_PageStateDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-5",
+      "entryPath": "lib/demos/Provider通知与计数/ProviderDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-53",
+      "entryPath": "lib/demos/JSON对象编解码/Json.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-54",
+      "entryPath": "lib/demos/国际化委托与菜单/intl_international_Demo4.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-56",
+      "entryPath": "lib/demos/Riverpod状态管理/Riverpod.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-58",
+      "entryPath": "lib/demos/不可变模型与JSON解析/built_value.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-59",
+      "entryPath": "lib/demos/本地系统通知/LocalNotificationsDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-64",
+      "entryPath": "lib/demos/事件循环与帧调度/WidgetsBindingDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-66",
+      "entryPath": "lib/demos/控件状态属性/WidgetStateProperty.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-69",
+      "entryPath": "lib/demos/渲染树更新调度/WidgetsBindingDemo3.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-7",
+      "entryPath": "lib/demos/页面截图与保存/Screenshot.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-77",
+      "entryPath": "lib/demos/平台消息处理/WidgetsBindingDemo4.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-80",
+      "entryPath": "lib/demos/滚动指示器控制/ShowsVerticalScrollIndicator.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-82",
+      "entryPath": "lib/demos/第三方刷新组件教学/Easy_refresh_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-84",
+      "entryPath": "lib/demos/Cupertino风格分页/Cupertino.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-85",
+      "entryPath": "lib/demos/Material风格分页/Material.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-87",
+      "entryPath": "lib/demos/应用生命周期调度/WidgetsBindingDemo2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-88",
+      "entryPath": "lib/demos/嵌入网页混合滚动/InappwebviewDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-89",
+      "entryPath": "lib/demos/浮层布局教学/Overlay.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-91",
+      "entryPath": "lib/demos/标签分页示例二/HomePage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-94",
+      "entryPath": "lib/demos/图文混排与样式/Pic_Text.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-95",
+      "entryPath": "lib/demos/层叠布局教学/Stack.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-96",
+      "entryPath": "lib/demos/隔离区双向消息/IsolateDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-97",
+      "entryPath": "lib/demos/隔离区任务计算/IsolateDemo2.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-98",
+      "entryPath": "lib/demos/网络图片缓存组件/CachedNetworkImageDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-complete-99",
+      "entryPath": "lib/demos/原生图片淡入加载/FadeInImageDemo(系统原生).dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-constrained",
+      "entryPath": "lib/demos/尺寸约束/ConstrainedBox.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-countdown",
+      "entryPath": "lib/demos/倒计时与暂停恢复/CountdownBtn.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-decoration",
+      "entryPath": "lib/demos/边框阴影渐变/BoxDecoration.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-dialog",
+      "entryPath": "lib/demos/自定义提示框/JobsAlertDialog.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-dialog-options",
+      "entryPath": "lib/demos/提示框行为组合/TipsDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-dio",
+      "entryPath": "lib/demos/网络请求库教学/网络请求库教学.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-drag",
+      "entryPath": "lib/demos/拖动手势/DragDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-excel-adaptive",
+      "entryPath": "lib/demos/表格固定首列自适应/表格固定首列自适应.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-excel-equal",
+      "entryPath": "lib/demos/表格等宽列/表格等宽列.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-excel-fixed",
+      "entryPath": "lib/demos/表格固定首列等宽/表格固定首列等宽.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-expanded",
+      "entryPath": "lib/demos/弹性填充布局/Expanded.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-expanded-wrap",
+      "entryPath": "lib/demos/填充与换行组合/Expanded + Wrap.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-extra-input",
+      "entryPath": "lib/demos/输入框与多行文本组合/输入框与多行文本组合.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-extra-refresh",
+      "entryPath": "lib/demos/横纵刷新与加载组合/横纵刷新与加载组合.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-flexible",
+      "entryPath": "lib/demos/弹性文本换行/Flexible.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-flexible-wrap",
+      "entryPath": "lib/demos/弹性与换行组合/Flexible+Wrap.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-floating-button",
+      "entryPath": "lib/demos/拖动磁吸旋转按钮/HoverBtn.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-flow",
+      "entryPath": "lib/demos/流式布局代理/Flow.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-fortune",
+      "entryPath": "lib/demos/组件抽奖轮盘/FortuneWheelDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-gallery",
+      "entryPath": "lib/demos/本地相册选图/GalleryDemo✅.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-gesture-dsl",
+      "entryPath": "lib/demos/手势链式扩展/WidgetExtensionsDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-get-binding",
+      "entryPath": "lib/demos/控制器绑定与计数/控制器绑定与计数.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-get-lifecycle",
+      "entryPath": "lib/demos/控制器跨页生命周期/LifecycleDemoPage.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-get-observer",
+      "entryPath": "lib/demos/控制器生命周期观察/GetView.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-get-workers",
+      "entryPath": "lib/demos/响应式监听防抖节流/GetX_RxListenerDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-global-key",
+      "entryPath": "lib/demos/表单全局键/GlobalKeyDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-grid",
+      "entryPath": "lib/demos/网格列表/GridViewDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-http",
+      "entryPath": "lib/demos/原生网络请求教学/原生网络请求教学.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-instance-method",
+      "entryPath": "lib/demos/通过全局键调用实例/InvokeInstanceFuncDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-json-table",
+      "entryPath": "lib/demos/数据驱动富文本表格/数据驱动富文本表格.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-keyboard",
+      "entryPath": "lib/demos/键盘事件监听/Keyboard.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-layout-builder",
+      "entryPath": "lib/demos/响应式布局/LayoutBuilder.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-lifecycle-base",
+      "entryPath": "lib/demos/页面生命周期基类/JobsPageDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-linked-tabs",
+      "entryPath": "lib/demos/首页联动子页面/SwitchSubPagesDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-list",
+      "entryPath": "lib/demos/自定义列表单元格/UITableViewDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-local-video",
+      "entryPath": "lib/demos/本地视频播放/VideoPlayerController_asset_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-multi-layout",
+      "entryPath": "lib/demos/多子组件布局代理/CustomMultiChildLayout.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-nested-scroll",
+      "entryPath": "lib/demos/嵌套滚动/嵌套滚动.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-nested-tabs",
+      "entryPath": "lib/demos/嵌套滚动与分页/NestedScrollView.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-network-video",
+      "entryPath": "lib/demos/网络视频播放/VideoPlayerController_networkUrl_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-overlay",
+      "entryPath": "lib/demos/自定义浮层/JobsOverlay.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-page-horizontal",
+      "entryPath": "lib/demos/横向分页滚动/PageViewDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-page-vertical",
+      "entryPath": "lib/demos/纵向分页滚动/纵向分页滚动.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-pop-confirm",
+      "entryPath": "lib/demos/返回拦截与确认/PopScope.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-provider",
+      "entryPath": "lib/demos/依赖通知状态管理/Provider.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-pub-refresh",
+      "entryPath": "lib/demos/公共刷新与加载/公共刷新与加载.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-pub-safe-value",
+      "entryPath": "lib/demos/公共安全取值/公共安全取值.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-scale",
+      "entryPath": "lib/demos/缩放手势/ScaleDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-scroll",
+      "entryPath": "lib/demos/组合滚动视图/CustomScrollViewDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-segment-tabs",
+      "entryPath": "lib/demos/胶囊按钮切页/JobsSegmentTabs.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-shapes",
+      "entryPath": "lib/demos/异形按钮/异形按钮.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-single-layout",
+      "entryPath": "lib/demos/单子组件布局代理/CustomSingleChildLayout.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-sliver",
+      "entryPath": "lib/demos/折叠头与混合列表/SliverToBoxAdapterDemo1.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-stateful-lifecycle",
+      "entryPath": "lib/demos/状态组件生命周期/StatefulWidget.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-static-method",
+      "entryPath": "lib/demos/跨组件静态方法/InvokeStaticFuncDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-storage",
+      "entryPath": "lib/demos/本地数据存取/StorageHelperDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-stream",
+      "entryPath": "lib/demos/流式数据监听/StreamControllerDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-swipe",
+      "entryPath": "lib/demos/滑动手势/SwipeDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-tap",
+      "entryPath": "lib/demos/单击双击与长按/TapDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-tween",
+      "entryPath": "lib/demos/补间动画/Tween.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-unconstrained",
+      "entryPath": "lib/demos/解除尺寸约束/UnconstrainedBox.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-wheel-scroll",
+      "entryPath": "lib/demos/滚轮列表/ListWheelScrollViewDemo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "legacy-wrap",
+      "entryPath": "lib/demos/自动换行布局/Wrap.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-animated-number",
+      "entryPath": "lib/demos/数字动效/数字动效.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-clock",
+      "entryPath": "lib/demos/悬浮时钟/悬浮时钟.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-code-input",
+      "entryPath": "lib/demos/验证码输入/验证码输入.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-empty",
+      "entryPath": "lib/demos/空态重载/空态重载.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-groups",
+      "entryPath": "lib/demos/折叠分组/折叠分组.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-masonry",
+      "entryPath": "lib/demos/瀑布流/瀑布流.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-pages",
+      "entryPath": "lib/demos/翻页浏览/翻页浏览.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-pattern-unlock",
+      "entryPath": "lib/demos/手势解锁/手势解锁.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-popup",
+      "entryPath": "lib/demos/弹出菜单/弹出菜单.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-progress",
+      "entryPath": "lib/demos/环形进度/环形进度.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-search",
+      "entryPath": "lib/demos/搜索历史/搜索历史.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-side-menu",
+      "entryPath": "lib/demos/侧滑菜单/侧滑菜单.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-slide-unlock",
+      "entryPath": "lib/demos/滑动解锁/滑动解锁.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parallel-wallet-cards",
+      "entryPath": "lib/demos/钱包卡片/钱包卡片.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-barcode",
+      "entryPath": "lib/demos/二维码条形码/二维码条形码.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-cnid",
+      "entryPath": "lib/demos/身份证校验/身份证校验.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-compression",
+      "entryPath": "lib/demos/字符串压缩/字符串压缩.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-debug",
+      "entryPath": "lib/demos/调试环境面板/调试环境面板.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-image-store",
+      "entryPath": "lib/demos/图片加盐存储/图片加盐存储.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-micro-bridge",
+      "entryPath": "lib/demos/微应用白名单桥接/微应用白名单桥接.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-mpaas",
+      "entryPath": "lib/demos/微应用平台容器/微应用平台容器.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-multi-timer",
+      "entryPath": "lib/demos/多任务计时器/多任务计时器.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-object-store",
+      "entryPath": "lib/demos/对象数据存储/对象数据存储.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-patch",
+      "entryPath": "lib/demos/运行时配置热更新/运行时配置热更新.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-protocols",
+      "entryPath": "lib/demos/协议扩展与模块化/协议扩展与模块化.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-pwa",
+      "entryPath": "lib/demos/PWA离线容器/PWA离线容器.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-random",
+      "entryPath": "lib/demos/随机数实验/随机数实验.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-safe-decode",
+      "entryPath": "lib/demos/安全模型解码/安全模型解码.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-sandbox",
+      "entryPath": "lib/demos/微应用沙箱/微应用沙箱.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "parity-websocket",
+      "entryPath": "lib/demos/双向网络通信/双向网络通信.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-ar",
+      "entryPath": "lib/demos/AR空间实验室/AR空间实验室.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-audio",
+      "entryPath": "lib/demos/录音音频管理/录音音频管理.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-bluetooth",
+      "entryPath": "lib/demos/蓝牙实验室/蓝牙实验室.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-icons",
+      "entryPath": "lib/demos/动态应用图标/动态应用图标.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-motion",
+      "entryPath": "lib/demos/体感传感器/体感传感器.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-pdf",
+      "entryPath": "lib/demos/PDF文档浏览/PDF文档浏览.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-runtime",
+      "entryPath": "lib/demos/运行时类检查/运行时类检查.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-scenes",
+      "entryPath": "lib/demos/多窗口会话/多窗口会话.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-screen",
+      "entryPath": "lib/demos/屏幕截图保护/屏幕截图保护.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-system",
+      "entryPath": "lib/demos/系统平台能力/系统平台能力.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-unity",
+      "entryPath": "lib/demos/Unity引擎容器/Unity引擎容器.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-video",
+      "entryPath": "lib/demos/视频录制直播/视频录制直播.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "platform-widget",
+      "entryPath": "lib/demos/桌面小组件/桌面小组件.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "rust-ocr",
+      "entryPath": "lib/demos/离线文字识别/离线文字识别.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "session-isolation",
+      "entryPath": "lib/demos/多会话隔离/session_isolation_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "snowflake",
+      "entryPath": "lib/demos/雪花编号/snowflake_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "task-dependencies",
+      "entryPath": "lib/demos/任务依赖编排/task_dependency_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "throttle-debounce",
+      "entryPath": "lib/demos/节流防抖/throttle_debounce_demo.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-0",
+      "entryPath": "lib/demos/朋友圈浏览/朋友圈浏览.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-1",
+      "entryPath": "lib/demos/个人资料编辑/个人资料编辑.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-10",
+      "entryPath": "lib/demos/导火索倒计时/导火索倒计时.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-11",
+      "entryPath": "lib/demos/马赛克涂抹/马赛克涂抹.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-12",
+      "entryPath": "lib/demos/镂空遮罩/镂空遮罩.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-13",
+      "entryPath": "lib/demos/滑动卡片堆/滑动卡片堆.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-14",
+      "entryPath": "lib/demos/区间拖动吸边/区间拖动吸边.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-15",
+      "entryPath": "lib/demos/联动分类菜单/联动分类菜单.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-16",
+      "entryPath": "lib/demos/文字布局策略/文字布局策略.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-17",
+      "entryPath": "lib/demos/交互富文本/交互富文本.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-18",
+      "entryPath": "lib/demos/控制事件与按钮布局/控制事件与按钮布局.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-19",
+      "entryPath": "lib/demos/四向页面转场/四向页面转场.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-2",
+      "entryPath": "lib/demos/发帖草稿/发帖草稿.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-20",
+      "entryPath": "lib/demos/侧滑多方向配置/侧滑多方向配置.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-21",
+      "entryPath": "lib/demos/弹出容器/弹出容器.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-22",
+      "entryPath": "lib/demos/综合选择器/综合选择器.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-23",
+      "entryPath": "lib/demos/国家地区区号/国家地区区号.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-24",
+      "entryPath": "lib/demos/Markdown文档/Markdown文档.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-25",
+      "entryPath": "lib/demos/Lottie动画/Lottie动画.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-26",
+      "entryPath": "lib/demos/分组列表与网格/分组列表与网格.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-27",
+      "entryPath": "lib/demos/界面环境监听/界面环境监听.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-28",
+      "entryPath": "lib/demos/图标字体实验/图标字体实验.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-29",
+      "entryPath": "lib/demos/跑马灯文字/跑马灯文字.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-3",
+      "entryPath": "lib/demos/聊天与站内信/聊天与站内信.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-30",
+      "entryPath": "lib/demos/并发通知队列/并发通知队列.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-31",
+      "entryPath": "lib/demos/数字标签与按钮动效/数字标签与按钮动效.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-32",
+      "entryPath": "lib/demos/布局节点实验/布局节点实验.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-33",
+      "entryPath": "lib/demos/播放器实验室/播放器实验室.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-4",
+      "entryPath": "lib/demos/评论与回复/评论与回复.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-5",
+      "entryPath": "lib/demos/双风格认证/双风格认证.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-6",
+      "entryPath": "lib/demos/仪表盘/仪表盘.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-7",
+      "entryPath": "lib/demos/购物车步进/购物车步进.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-8",
+      "entryPath": "lib/demos/骨架与双球刷新/骨架与双球刷新.dart",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "id": "ui-parity-9",
+      "entryPath": "lib/demos/点赞与红包雨/点赞与红包雨.dart",
+      "exitCode": 0,
+      "passed": true
+    }
+  ]
+}

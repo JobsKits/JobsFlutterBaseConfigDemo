@@ -1,0 +1,558 @@
+{
+  "date": "2026-11-17",
+  "scope": "110 actual helper/part files, installed frun dry-run; no SDK invocation",
+  "total": 110,
+  "rejected": 110,
+  "results": [
+    {
+      "path": "lib/demos/Dio网络教学启动/delete_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/demo_dio.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/demo_helpers.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/demo_page_base.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/demo_widgets.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/dio_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/download_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/get_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/method_demo_item.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/method_type.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/patch_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/post_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/put_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/Dio网络教学启动/upload_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX依赖绑定启动/CounterBinding.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX依赖绑定启动/CounterController.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX依赖绑定启动/CounterPage.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX双向数值绑定/jobs_binding.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX双向数值绑定/jobs_controller.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX双向数值绑定/jobs_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX命名路由示例一/home_binding.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX页面生命周期教学/pageA_controllers.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX页面生命周期教学/pageA_view.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/GetX页面生命周期教学/pageB_view.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTML富文本表格/BonusRewardModel.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTML富文本表格/BonusTablePage.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTML富文本表格/BonusTableView.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/delete_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/demo_helpers.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/demo_http.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/demo_page_base.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/demo_widgets.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/download_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/get_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/http_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/method_demo_item.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/method_type.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/patch_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/post_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/put_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/HTTP网络教学启动/upload_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/JSON字段转换/JsonConverter.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/JSON字段转换/action_cfg.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/JSON字段转换/example_model.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/JSON字段转换/example_model.g.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/MQTT消息发布订阅一/mqtt_manager.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/MQTT消息发布订阅一/mqtt_service.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/不可变模型与JSON解析/serializers.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/不可变模型与JSON解析/serializers.g.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/不可变模型与JSON解析/video_item.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/不可变模型与JSON解析/video_item.g.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/事件驱动状态管理/CounterBloc.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/事件驱动状态管理/CounterEvent.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/事件驱动状态管理/CounterState.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/代码变更审阅/审阅模型.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/元数据与动态表单/DynamicForm.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/原生与Flutter往返/独立引擎页面.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/友盟统计与崩溃/umeng_demo_config.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/友盟统计与崩溃/umeng_demo_page.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/友盟统计与崩溃/umeng_demo_sdk_client.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/友盟统计与崩溃/umeng_demo_sdk_stub.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/友盟统计与崩溃/umeng_demo_service.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/发帖草稿/视频来源.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/发帖草稿/视频来源原生.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/发帖草稿/视频来源默认.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/发帖草稿/视频预览.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/回调函数与语言参数/ACtrl.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/国家地区区号/country_data.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/国际化委托与菜单/locales.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/国际化示例三/locales.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/图标字体实验/分享平台.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/图标字体实验/分享平台浏览器.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/图标字体实验/分享平台默认.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/多来源额度归集/归集模型.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/实时报价确认/报价模型.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/工作流共用/共用视图.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/工作流共用/演示数据.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/手势链式扩展/onGestures.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/控制台打印教学/TimeAgo.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/控制器跨页生命周期/LifecycleController.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/控制器跨页生命周期/SecondPage.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/播放器实验室/播放器文案.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/播放器实验室/播放质量文案.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/播放器实验室/播放质量状态.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/本地消息通知封装/JobsNotificationDemoPageA.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/本地消息通知封装/JobsNotificationDemoPageB.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/本地消息通知封装/JobsNotificationDemoPageC.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/标签分页示例二/JobsGetXTool.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/标签分页示例四/HomeBinding.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/模型字典解析教学/MJModel.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/模型字典解析教学/category_model.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/模型字典解析教学/game_model.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/段落富文本与交互/attributed_model.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/段落富文本与交互/attributed_text_view.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/离线文字识别/识别文案.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/简易通知封装/JobsSimplyNotificationDemoPageA.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/简易通知封装/JobsSimplyNotificationDemoPageB.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/简易通知封装/JobsSimplyNotificationDemoPageC.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/系统剪贴板与邀请码/CommonRipple.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/网络请求库教学/演示数据回退.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/自适应分类分页/ActivityShareSubView@回归包赔.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/自适应分类分页/ActivityShareSubView@彩金免费领.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/自适应分类分页/ActivityShareSubView@超值存送礼.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/自适应分类分页/ActivityShareSubView@队长福利.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/视觉素材共用/场景绘制.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/视频录制直播/长按视频文案.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/跨页面状态监听/form_controller.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/返回拦截与确认/PopConfirmWrapper.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/通知处理收件箱/通知模型.dart",
+      "exitCode": 2,
+      "rejected": true
+    },
+    {
+      "path": "lib/demos/页面生命周期基类/BaseLifecycleStateful.dart",
+      "exitCode": 2,
+      "rejected": true
+    }
+  ]
+}

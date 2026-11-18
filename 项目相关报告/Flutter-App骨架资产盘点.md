@@ -30,6 +30,7 @@
 - [九、验证记录与后续对齐清单](#validation)
   - [9.1、已完成的限定验证](#jobs-toc-heading-22)
   - [9.2、依据盘点继续处理的顺序](#jobs-toc-heading-23)
+- [十、中英混排核心与源码状态](#mixed-script-source-20261117)
 
 </details>
 <!-- jobs-toc:end -->
@@ -316,5 +317,11 @@
 - 运行最终整体分析／测试／目标平台编译，保留真实 iOS 触摸帧日志；实体摇动、声音与触觉按实际设备记录，未验证项保持明确状态。
 
 本文作为盘点快照保留已有未提交实现和测试，不宣称全部补齐完成。
+
+## 十、<span id="mixed-script-source-20261117">中英混排核心与源码状态</span> <a href="#前言">🔼</a> <a href="#🔚">🔽</a>
+
+当前[iOS 随仓源码](<../JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Source/JobsOCR>)和[MacOS 随仓源码](<../JobsByPubs/JobsRustOCRByPub/macos/JobsRustOCR/Source/JobsOCR>)已同步本机验收通过的中英混排路由，包含 `pipeline.rs`、`runtime.rs`、`lib.rs`、`routing.rs`、独立 E2E 测试和 `MixedScript` 夹具。核心常规测试 30 项、显式 E2E 1 项覆盖 8 张真实夹具（其中 4 张精确逐行控制）通过；范围与证据见[共享核心回归记录](<../../../OCR/项目相关报告/混排回归/README.md>)。
+
+本状态确认核心本机回归及随仓源码一致；本宿主尚未使用此次新核心重编、运行，原有 35 行样本／界面／Workflow 记录仍限原批次。使用新核心前先运行[SDK 本地构建入口](<../JobsByPubs/JobsRustOCRByPub/ios/JobsRustOCR/Scripts/BuildRustOCR.command>)，源码输入哈希变化会使旧库缓存失效；保留本地构建方式，不分发自建 `.a`。显式 E2E 需指定本机 ORT 与随 SDK 的模型目录。
 
 <a id="🔚" href="#前言" style="font-size:17px; color:green; font-weight:bold;">我是有底线的➤点我回到首页</a>
